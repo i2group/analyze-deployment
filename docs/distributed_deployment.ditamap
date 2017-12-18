@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE map PUBLIC "-//IBM//DTD DITA IBM Map//EN" "ibm-map.dtd">
+<map xml:lang="en-us">
+<title>Distributed deployment</title>
+<topicref href="welcome.md" format="markdown" navtitle="Distributed deployment of i2 Analyze example">
+  <topicref href="understand_example.md" format="markdown" navtitle="Understanding the example"/>
+  <topicref href="deploy_quick_start.md" format="markdown" navtitle="Quick start"/>
+  <topicref href="deploy_clean_environment.md" format="markdown" navtitle="Cleaning your environment"/>
+  <topicref href="deploy_walk_through.md" format="markdown" navtitle="Deploying the example walkthrough"/>
+  <topicref href="configure_change_schema.md" format="markdown" navtitle="Updating the schema"/>
+  <topicref href="configure_change_security_schema.md" format="markdown" navtitle="Updating the security schema"/>
+  <topicref href="configure_search_facets.md" format="markdown" navtitle="Changing the search results filtering"/>
+  <topicref href="configure_search_vq.md" format="markdown" navtitle="Changing Visual Query conditions"/>
+  <topicref href="configure_system_clear_data.md" format="markdown" navtitle="Clearing data from the system"/>
+  <topicref href="configure_system_reset.md" format="markdown" navtitle="Resetting the system"/>
+  <topicref href="configure_liberty.md" format="markdown" navtitle="Changing the JVM memory allocation for Liberty"/>
+  <topicref href="deploy_etl_client.md" format="markdown" navtitle="Ingesting data remotely"/>
+  <topicref href="configure_solr_method.md" format="markdown" navtitle="Choosing the method for configuring Solr">
+    <topicref href="configure_solr_collection.md" format="markdown" navtitle="Creating a Solr collection using the createSolrCollection script"/>
+    <topicref href="configure_solr_add_replica.md" format="markdown" navtitle="Adding Solr replicas to your deployment"/>
+    <topicref href="configure_solr_add_shard.md" format="markdown" navtitle="Adding Solr shards to your deployment"/>
+    <topicref href="configure_solr_add_node.md" format="markdown" navtitle="Adding another Solr server and Solr node"/>
+    <topicref href="configure_solr_change_node_memory.md" format="markdown" navtitle="Changing the memory allocation for a Solr node"/>
+  </topicref>
+  <topicref href="configure_zookeeper_add_hosts.md" format="markdown" navtitle="Adding other ZooKeeper servers"/>
+</topicref>
+</map>

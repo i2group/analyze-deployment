@@ -1,0 +1,9 @@
+{
+  "https": true,
+
+  "keyFileName": "../../keys/stores/i2-connector-key.key",
+  "keyPassphrase": "",
+  "certificateFileName": "../../keys/responses/connector-key.cer",
+  "certificateAuthorityFileName": "../../utils/keys/CA.cer",
+  "gatewayCN": "liberty"
+}

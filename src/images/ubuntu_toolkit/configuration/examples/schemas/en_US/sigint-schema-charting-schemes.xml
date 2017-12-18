@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ChartingSchemeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.i2group.com/Schemas/2012-05-29/ModelData/v2">
+  <ChartingSchemes xmlns="">
+    <ChartingScheme Name="Analysis">
+      <XmlChartingScheme>
+        <ChartItemAttributes>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Suffix="" Prefix=": " SemanticPropertyTypeGuid="guidA3E76FF5-8688-46cf-84B4-E3B222820402">
+            <Name>Communication Device - Device Type</Name>
+            <Type>AttText</Type>
+            <IconFile>General</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Suffix="" Prefix="PSTN: ">
+            <Name>Communication Device Identifier - PSTN</Name>
+            <Type>AttText</Type>
+            <IconFile>General</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute Suffix="" Prefix="" Visible="false" SemanticPropertyTypeGuid="guid5304A03B-FE47-4406-91E7-0D49EC8409A6">
+            <Name>Latitude</Name>
+            <Type>AttNumber</Type>
+            <IconFile>General</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute Suffix="" Prefix="" Visible="false" SemanticPropertyTypeGuid="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9">
+            <Name>Longitude</Name>
+            <Type>AttNumber</Type>
+            <IconFile>General</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute Suffix="" Prefix="" Visible="false" SemanticPropertyTypeGuid="guidf265a098-3f24-4675-932f-c0c20870e3d4">
+            <Name>Location Information - Initiator Center Latitude</Name>
+            <Type>AttNumber</Type>
+            <IconFile>General</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute Suffix="" Prefix="" Visible="false" SemanticPropertyTypeGuid="guid56f09d1a-4191-4ccd-a786-3f3bdb430dbc">
+            <Name>Location Information - Initiator Center Longitude</Name>
+            <Type>AttNumber</Type>
+            <IconFile>General</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute Suffix="" Prefix="" Visible="false" SemanticPropertyTypeGuid="guid2ab83fa2-e1db-4d48-bde4-fd0f79dc0dbb">
+            <Name>Location Information - Recipient Center Latitude</Name>
+            <Type>AttNumber</Type>
+            <IconFile>General</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute Suffix="" Prefix="" Visible="false" SemanticPropertyTypeGuid="guidade9a56c-ed66-45f1-b89f-afdc3c6a3194">
+            <Name>Location Information - Recipient Center Longitude</Name>
+            <Type>AttNumber</Type>
+            <IconFile>General</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute>
+            <Name>Antenna ID</Name>
+            <Type>AttText</Type>
+            <IconFile>General</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute>
+            <Name>Antenna Type</Name>
+            <Type>AttText</Type>
+            <IconFile>General</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute Suffix="" Prefix="">
+            <Name>Target List Name</Name>
+            <Type>AttText</Type>
+            <IconFile>_alleges</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute Suffix="" Prefix="">
+            <Name>Additional Information - Additional Information 1</Name>
+            <Type>AttText</Type>
+            <IconFile>_alleges</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute>
+            <Name>Location Information - Tower ID</Name>
+            <Type>AttText</Type>
+            <IconFile>General</IconFile>
+          </ChartItemAttribute>
+        </ChartItemAttributes>
+        <ChartItemDataRecordProperties />
+        <EntityMappings>
+          <ItemType Id="ET8">
+            <PropertyMappings>
+              <PropertyMapping Property="Label" />
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Communication Device - Device Type">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM2">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Communication Device Identifier - PSTN">
+                <ResolvableValue>
+                  <ApolloProperty Id="PT34">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET16">
+            <PropertyMappings>
+              <PropertyMapping Property="Label" />
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Target List Name">
+                <ResolvableValue>
+                  <ApolloProperty Id="PT271">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET2">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Latitude">
+                <ResolvableValue>
+                  <ApolloProperty Id="PT22">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Longitude">
+                <ResolvableValue>
+                  <ApolloProperty Id="PT226">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET1">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Latitude">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Longitude">
+                <ResolvableValue>
+                  <ApolloProperty Id="PT85">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET15">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Location Information - Tower ID">
+                <ResolvableValue>
+                  <ApolloProperty Id="PT8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Antenna Type">
+                <ResolvableValue>
+                  <ApolloProperty Id="PT210">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </EntityMappings>
+        <LinkMappings>
+          <ItemType Id="LCO1">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Location Information - Initiator Center Latitude">
+                <ResolvableValue>
+                  <ApolloProperty Id="PT345">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Location Information - Initiator Center Longitude">
+                <ResolvableValue>
+                  <ApolloProperty Id="PT346">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Location Information - Recipient Center Latitude">
+                <ResolvableValue>
+                  <ApolloProperty Id="PT348">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Location Information - Recipient Center Longitude">
+                <ResolvableValue>
+                  <ApolloProperty Id="PT349">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </LinkMappings>
+      </XmlChartingScheme>
+    </ChartingScheme>
+    <ChartingScheme Name="Details">
+      <XmlChartingScheme>
+        <ChartItemAttributes>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Suffix="" Prefix=": " SemanticPropertyTypeGuid="guidA3E76FF5-8688-46cf-84B4-E3B222820402">
+            <Name>Communication Device - Device Type</Name>
+            <Type>AttText</Type>
+            <IconFile>General</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Suffix="" Prefix="PSTN: ">
+            <Name>Communication Device Identifier - PSTN</Name>
+            <Type>AttText</Type>
+            <IconFile>General</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute>
+            <Name>Location Information - Tower ID</Name>
+            <Type>AttText</Type>
+            <IconFile>General</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute>
+            <Name>Antenna Type</Name>
+            <Type>AttText</Type>
+            <IconFile>General</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute>
+            <Name>Target List Name</Name>
+            <Type>AttText</Type>
+            <IconFile>General</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute Suffix="" Prefix="">
+            <Name>Additional Information - Additional Information 1</Name>
+            <Type>AttText</Type>
+            <IconFile>_alleges</IconFile>
+          </ChartItemAttribute>
+        </ChartItemAttributes>
+        <ChartItemDataRecordProperties />
+        <EntityMappings>
+          <ItemType Id="ET8">
+            <PropertyMappings>
+              <PropertyMapping Property="Label" />
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Communication Device - Device Type">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM2">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Communication Device Identifier - PSTN">
+                <ResolvableValue>
+                  <ApolloProperty Id="PT34">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET16">
+            <PropertyMappings>
+              <PropertyMapping Property="Label" />
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Target List Name">
+                <ResolvableValue>
+                  <ApolloProperty Id="PT271">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET15">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Location Information - Tower ID">
+                <ResolvableValue>
+                  <ApolloProperty Id="PT8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Antenna Type">
+                <ResolvableValue>
+                  <ApolloProperty Id="PT210">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </EntityMappings>
+        <LinkMappings />
+      </XmlChartingScheme>
+    </ChartingScheme>
+    <ChartingScheme Name="Summary">
+      <XmlChartingScheme>
+        <ChartItemAttributes />
+        <ChartItemDataRecordProperties />
+        <EntityMappings />
+        <LinkMappings>
+          <Default>
+            <LinkSummarization Method="Directed" />
+            <PropertyMappings />
+            <AttributeMappings />
+          </Default>
+          <ItemType Id="LCO1">
+            <LinkSummarization Method="Directed" />
+            <PropertyMappings />
+            <AttributeMappings />
+          </ItemType>
+          <ItemType Id="LT1">
+            <LinkSummarization Method="Directed" />
+            <PropertyMappings />
+            <AttributeMappings />
+          </ItemType>
+        </LinkMappings>
+      </XmlChartingScheme>
+    </ChartingScheme>
+  </ChartingSchemes>
+</ChartingSchemeList>

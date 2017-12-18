@@ -1,0 +1,2142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ns2:Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns3="http://www.i2group.com/Schemas/2011-03-03/ModelSchemaExtension" DefaultLabelingSchemeId="8355f4c5-1444-4a2f-b4da-f9374fbd80e6" xmlns:ns2="http://www.i2group.com/Schemas/2011-03-03/ModelSchema">
+  <GradeTypes>
+    <GradeType Description="来源评估" Mandatory="false" Id="G1" Name="可靠性">
+      <Values>
+        <Value>A</Value>
+        <Value>B</Value>
+        <Value>C</Value>
+        <Value>D</Value>
+        <Value>E</Value>
+      </Values>
+    </GradeType>
+    <GradeType Description="信息情报评估" Mandatory="false" Id="G2" Name="保密">
+      <Values>
+        <Value>1</Value>
+        <Value>2</Value>
+        <Value>3</Value>
+        <Value>4</Value>
+        <Value>5</Value>
+      </Values>
+    </GradeType>
+    <GradeType Description="处理代码" Mandatory="false" Id="G3" Name="隐私">
+      <Values>
+        <Value>1</Value>
+        <Value>2</Value>
+        <Value>3</Value>
+        <Value>4</Value>
+        <Value>5</Value>
+      </Values>
+    </GradeType>
+  </GradeTypes>
+  <ItemTypes>
+    <EntityTypes>
+      <EntityType Id="372a12af-f684-41c5-9ce9-759b3beef826" Description="集合" DisplayName="集合" Icon="General group">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="255" SemanticTypeId="" DisplayName="名称" Description="名称" LogicalType="SINGLE_LINE_STRING" Id="07e81445-0f5e-4340-b355-c82809e895da">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb" Description="用户" DisplayName="用户" Icon="Profmale">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="名称" Description="名称" LogicalType="SINGLE_LINE_STRING" Id="ce3d12ac-2632-4a0f-b2b6-6a7fdda887a6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="图片" Description="图片" LogicalType="PICTURE" Id="becf8151-c6ac-4b9e-bff5-bb56e02fb2ed">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="可用" Description="可用性" LogicalType="BOOLEAN" Id="e31bc44e-39f2-4221-a237-a69766d4685e">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="cf17d636-44c9-4897-b19d-7d2eda002e57" Description="Analyst's Notebook图表" DisplayName="Analyst's Notebook图表" Icon="Anbchart">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="255" SemanticTypeId="" DisplayName="名称" Description="图表的文件名" LogicalType="SINGLE_LINE_STRING" Id="d6d03ce2-3cd6-49c1-8a66-366d0e434fd4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="图表二进制数据" Description="存储图表内容的二进制文件" LogicalType="DOCUMENT" Id="a20fef80-5c5f-4cf6-a597-c869193792e7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="图表预览图" Description="图表的缩略图" LogicalType="PICTURE" Id="8690b4d1-421d-4df1-8a9b-b1d25a1676e3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="图表索引数据" Description="用于索引图表的数据" LogicalType="DOCUMENT" Id="c84133b6-7c02-466f-ba14-c1bf28787f2c">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="1274e2e7-7751-4dae-a994-648718e19f04" Description="警报订阅源" DisplayName="警报订阅源" Icon="Search">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="true" Position="3" Description="将从该源触发警报的事件" DisplayName="警报触发事件" Id="566eaa37-01d2-4628-9231-a0448ef4a44c">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="项目已被更改" Description="更改此项目时发出警报" LogicalType="BOOLEAN" Id="03487793-7975-4332-903b-e670a66c9451">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="项目已被删除" Description="删除此项目时发出警报" LogicalType="BOOLEAN" Id="f8471cf2-0b19-4bd2-9187-d3ac6f474026">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="已链接到项目" Description="链接到此项目时发出警报" LogicalType="BOOLEAN" Id="0b99c403-49f7-4757-9876-3606ec5befa0">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="项目主属性已更改" Description="更改此项目的主属性时发出警报" LogicalType="BOOLEAN" Id="4b873852-76e4-48e1-884a-9f95b87210f9">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="内容已添加到此集合" Description="添加内容到此集合时发出警报" LogicalType="BOOLEAN" Id="afa7f3fb-23b0-4869-8b7d-0306ef158b5b">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="8" Mandatory="false" SemanticTypeId="" DisplayName="现有集合内容的版本更改" Description="更改此集合中项目的版本时发出警报" LogicalType="BOOLEAN" Id="051e91c1-e925-4dd4-97f1-75ffe37f9c48">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="内容已从此集合中移除" Description="从此集合删除时发出警报" LogicalType="BOOLEAN" Id="8146df80-3a08-4106-900f-214faf9ec571">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="5" Mandatory="false" SemanticTypeId="" DisplayName="此集合中的项目已被更改" Description="更改此集合中的任何项目时发出警报" LogicalType="BOOLEAN" Id="db8c60d1-1ff9-4896-bbd0-5e33351815e2">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="此集合中的项目已被删除" Description="删除此集合中的任何项目时发出警报" LogicalType="BOOLEAN" Id="514b213e-b677-428a-a5c9-b8690d564032">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="7" Mandatory="false" SemanticTypeId="" DisplayName="此集合中的项目已被链接到" Description="链接到此集合中的任何项目时发出警报" LogicalType="BOOLEAN" Id="2d9ed2a2-5f33-432b-b99b-f08349f8366d">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="此集合中项目的主属性已被更改" Description="更改此集合中项目的主属性时发出警报" LogicalType="BOOLEAN" Id="e2127bbb-9ad8-417d-840f-74ec9849ec5e">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="名称" Description="此警报订阅源的名称" LogicalType="SINGLE_LINE_STRING" Id="b7b059a0-1079-45ac-8ae0-ee026f70dd69">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="描述" Description="要包括在任何生成的警报中的描术性文字" LogicalType="MULTIPLE_LINE_STRING" Id="d1949ec2-9a77-461e-a16f-81026ccd1e89">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="警报参照ID" Description="为了生成警报而监视的项目唯一标识" LogicalType="SINGLE_LINE_STRING" Id="814a72ed-5c68-4763-8d47-b4866de2344b">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="43cd717c-0204-4c81-93ea-f9f0458bc5ea" Description="已存储查询" DisplayName="查询" Icon="StoredQuery">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="5" Description="表示法元数据。此数据专用于已存储查询，不能直接编辑。" DisplayName="查询表示法" Id="2c818fa6-68c4-42a4-9bc3-c34bcdc4379a">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="格式" Description="表示法格式类型。此数据专用于已存储查询，不能直接编辑。" LogicalType="SINGLE_LINE_STRING" Id="97f76ffe-1ece-4d5b-9e20-ea66b572b2c5">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="字符串数据" Description="表示法字符串数据。此数据专用于已存储查询，不能直接编辑。" LogicalType="SINGLE_LINE_STRING" Id="b58f34b6-60fb-4730-a4aa-156bf4e817e0">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="XML 数据" Description="表示法 XML 数据。此数据专用于已存储查询，不能直接编辑。" LogicalType="XML" Id="ab2fdf78-ddd8-49b2-872a-f5c8ac2106d5">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="名称" Description="此已存储查询的用户指定名称" LogicalType="SINGLE_LINE_STRING" Id="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="描述" Description="此已存储查询的描述" LogicalType="MULTIPLE_LINE_STRING" Id="a30ddbca-6c14-4454-bdb0-811a5b5beb16">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="查询类型" Description="已存储查询类型。此数据专用于已存储查询，不能直接编辑。" LogicalType="SINGLE_LINE_STRING" Id="5ae10920-6d60-419f-80db-ba5b9935d93b">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="查询定义（字符串）" Description="已存储查询字符串定义。此数据专用于已存储查询，不能直接编辑。" LogicalType="SINGLE_LINE_STRING" Id="17903032-1cd1-4524-94ef-a35aab212e6a">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="查询定义 (XML)" Description="已存储查询 XML 定义。此数据专用于已存储查询，不能直接编辑。" LogicalType="XML" Id="f5916739-a962-4c01-95d3-2598bfabc1b5">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="ADD1" SemanticTypeId="guidC6A2C76F-5637-43DC-92F8-8F3563226307" Description="客户地址详细信息" DisplayName="地址" Icon="House">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="20" Description="" DisplayName="圖像法" Id="ADD22">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="图像" Description="" LogicalType="PICTURE" Id="ADD23">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="图像描述" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="ADD24">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="唯一參照" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB11A89A6-F50C-4c73-949F-00594985DA69" DisplayName="地点类型" Description="" LogicalType="SUGGESTED_FROM" Id="ADD26">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="仓库" />
+              <PossibleValue Description="" Value="车库" />
+              <PossibleValue Description="" Value="城市" />
+              <PossibleValue Description="" Value="城镇" />
+              <PossibleValue Description="" Value="出生地" />
+              <PossibleValue Description="" Value="村庄" />
+              <PossibleValue Description="" Value="大使馆" />
+              <PossibleValue Description="" Value="地区" />
+              <PossibleValue Description="非政府组织" Value="非政府组织办事处" />
+              <PossibleValue Description="" Value="公园" />
+              <PossibleValue Description="" Value="机场" />
+              <PossibleValue Description="" Value="加油站" />
+              <PossibleValue Description="" Value="家庭" />
+              <PossibleValue Description="" Value="监狱" />
+              <PossibleValue Description="" Value="军事设施" />
+              <PossibleValue Description="" Value="礼拜地点" />
+              <PossibleValue Description="" Value="旅馆" />
+              <PossibleValue Description="" Value="目标/可能的目标" />
+              <PossibleValue Description="" Value="难民营" />
+              <PossibleValue Description="" Value="农场" />
+              <PossibleValue Description="" Value="派出所" />
+              <PossibleValue Description="" Value="商店" />
+              <PossibleValue Description="" Value="体育竞技场" />
+              <PossibleValue Description="" Value="停车场" />
+              <PossibleValue Description="" Value="新闻中心" />
+              <PossibleValue Description="" Value="学校" />
+              <PossibleValue Description="" Value="训练营" />
+              <PossibleValue Description="" Value="研究/科学设施" />
+              <PossibleValue Description="" Value="业务" />
+              <PossibleValue Description="" Value="医院" />
+              <PossibleValue Description="" Value="银行" />
+              <PossibleValue Description="" Value="政党办公室" />
+              <PossibleValue Description="" Value="政府大楼" />
+              <PossibleValue Description="" Value="中转站" />
+              <PossibleValue Description="" Value="住所" />
+              <PossibleValue Description="" Value="住宅" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid65F516EA-9C0E-454D-B12E-5A181122A2E5" DisplayName="公寓号码" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDECE0D4F-CD3C-43d7-8F52-A068EA5BF494" DisplayName="门牌号码" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidD733BC65-AC13-413d-B60D-A4784C8A1CD8" DisplayName="建筑名称" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid2F6B7E57-7626-44DC-9CE5-ECD67DF2157E" DisplayName="街道名称" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="教区" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD20">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid6D5B39A9-41EC-477D-AA79-4CEF272FF067" DisplayName="镇/市" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA29B5F8F-BA18-4262-95BD-65B8216D8841" DisplayName="郡" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="州/省" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD25">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidE88DF247-7CA6-4E4F-B38B-87DDE11EE98C" DisplayName="邮政编码" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDAC78E2E-4C6F-4006-B291-0A42BAB2E339" DisplayName="国家或地区" Description="" LogicalType="SUGGESTED_FROM" Id="ADD10">
+            <PossibleValues>
+              <PossibleValue Description="&lt;未知&gt;" Value="&lt;未知&gt;" />
+              <PossibleValue Description="阿尔巴尼亚" Value="阿尔巴尼亚" />
+              <PossibleValue Description="阿尔及利亚" Value="阿尔及利亚" />
+              <PossibleValue Description="阿富汗" Value="阿富汗" />
+              <PossibleValue Description="阿根廷" Value="阿根廷" />
+              <PossibleValue Description="阿拉伯联合酋长国" Value="阿拉伯联合酋长国" />
+              <PossibleValue Description="阿曼" Value="阿曼" />
+              <PossibleValue Description="阿塞拜疆" Value="阿塞拜疆" />
+              <PossibleValue Description="埃及" Value="埃及" />
+              <PossibleValue Description="埃塞俄比亚" Value="埃塞俄比亚" />
+              <PossibleValue Description="爱尔兰" Value="爱尔兰" />
+              <PossibleValue Description="爱沙尼亚" Value="爱沙尼亚" />
+              <PossibleValue Description="安道尔" Value="安道尔" />
+              <PossibleValue Description="安哥拉" Value="安哥拉" />
+              <PossibleValue Description="安提瓜和巴布达" Value="安提瓜和巴布达" />
+              <PossibleValue Description="奥地利" Value="奥地利" />
+              <PossibleValue Description="澳大利亚" Value="澳大利亚" />
+              <PossibleValue Description="巴巴多斯岛" Value="巴巴多斯岛" />
+              <PossibleValue Description="巴布亚新几内亚" Value="巴布亚新几内亚" />
+              <PossibleValue Description="巴哈马" Value="巴哈马" />
+              <PossibleValue Description="巴基斯坦" Value="巴基斯坦" />
+              <PossibleValue Description="巴拉圭" Value="巴拉圭" />
+              <PossibleValue Description="巴林" Value="巴林" />
+              <PossibleValue Description="巴拿马" Value="巴拿马" />
+              <PossibleValue Description="巴西" Value="巴西" />
+              <PossibleValue Description="白俄罗斯" Value="白俄罗斯" />
+              <PossibleValue Description="保加利亚" Value="保加利亚" />
+              <PossibleValue Description="贝宁湾" Value="贝宁湾" />
+              <PossibleValue Description="比利时" Value="比利时" />
+              <PossibleValue Description="冰岛" Value="冰岛" />
+              <PossibleValue Description="波兰" Value="波兰" />
+              <PossibleValue Description="波斯尼亚" Value="波斯尼亚" />
+              <PossibleValue Description="玻利维亚（多民族国）" Value="玻利维亚（多民族国）" />
+              <PossibleValue Description="伯利兹" Value="伯利兹" />
+              <PossibleValue Description="帛琉" Value="帛琉" />
+              <PossibleValue Description="博茨瓦纳" Value="博茨瓦纳" />
+              <PossibleValue Description="不丹" Value="不丹" />
+              <PossibleValue Description="布吉纳法索" Value="布吉纳法索" />
+              <PossibleValue Description="布隆迪" Value="布隆迪" />
+              <PossibleValue Description="朝鲜人民民主共和国" Value="朝鲜人民民主共和国" />
+              <PossibleValue Description="赤道几内亚" Value="赤道几内亚" />
+              <PossibleValue Description="丹麦" Value="丹麦" />
+              <PossibleValue Description="德国" Value="德国" />
+              <PossibleValue Description="东帝汶" Value="东帝汶" />
+              <PossibleValue Description="多哥" Value="多哥" />
+              <PossibleValue Description="多米尼加" Value="多米尼加" />
+              <PossibleValue Description="多米尼加共和国" Value="多米尼加共和国" />
+              <PossibleValue Description="俄罗斯联邦" Value="俄罗斯联邦" />
+              <PossibleValue Description="厄瓜多尔" Value="厄瓜多尔" />
+              <PossibleValue Description="厄利垂亚" Value="厄利垂亚" />
+              <PossibleValue Description="法国" Value="法国" />
+              <PossibleValue Description="菲律宾" Value="菲律宾" />
+              <PossibleValue Description="斐济" Value="斐济" />
+              <PossibleValue Description="芬兰" Value="芬兰" />
+              <PossibleValue Description="佛得角" Value="佛得角" />
+              <PossibleValue Description="冈比亚" Value="冈比亚" />
+              <PossibleValue Description="刚果" Value="刚果" />
+              <PossibleValue Description="刚果民主共和国" Value="刚果民主共和国" />
+              <PossibleValue Description="哥伦比亚" Value="哥伦比亚" />
+              <PossibleValue Description="哥斯达黎加" Value="哥斯达黎加" />
+              <PossibleValue Description="格鲁吉亚" Value="格鲁吉亚" />
+              <PossibleValue Description="格瑞那达" Value="格瑞那达" />
+              <PossibleValue Description="古巴" Value="古巴" />
+              <PossibleValue Description="圭亚纳" Value="圭亚纳" />
+              <PossibleValue Description="哈萨克" Value="哈萨克" />
+              <PossibleValue Description="海地" Value="海地" />
+              <PossibleValue Description="韩国" Value="韩国" />
+              <PossibleValue Description="荷兰" Value="荷兰" />
+              <PossibleValue Description="黑塞哥维那" Value="黑塞哥维那" />
+              <PossibleValue Description="洪都拉斯" Value="洪都拉斯" />
+              <PossibleValue Description="吉布提" Value="吉布提" />
+              <PossibleValue Description="吉尔吉斯" Value="吉尔吉斯" />
+              <PossibleValue Description="吉里巴斯" Value="吉里巴斯" />
+              <PossibleValue Description="几内亚" Value="几内亚" />
+              <PossibleValue Description="几内亚比绍" Value="几内亚比绍" />
+              <PossibleValue Description="加拿大" Value="加拿大" />
+              <PossibleValue Description="加纳" Value="加纳" />
+              <PossibleValue Description="加蓬" Value="加蓬" />
+              <PossibleValue Description="柬埔寨" Value="柬埔寨" />
+              <PossibleValue Description="捷克共和国" Value="捷克共和国" />
+              <PossibleValue Description="津巴布韦" Value="津巴布韦" />
+              <PossibleValue Description="喀麦隆" Value="喀麦隆" />
+              <PossibleValue Description="卡塔尔" Value="卡塔尔" />
+              <PossibleValue Description="科摩罗" Value="科摩罗" />
+              <PossibleValue Description="科特迪瓦" Value="科特迪瓦" />
+              <PossibleValue Description="科威特" Value="科威特" />
+              <PossibleValue Description="克罗地亚" Value="克罗地亚" />
+              <PossibleValue Description="肯尼亚" Value="肯尼亚" />
+              <PossibleValue Description="拉脱维亚" Value="拉脱维亚" />
+              <PossibleValue Description="莱索托" Value="莱索托" />
+              <PossibleValue Description="老挝" Value="老挝" />
+              <PossibleValue Description="黎巴嫩" Value="黎巴嫩" />
+              <PossibleValue Description="立陶宛" Value="立陶宛" />
+              <PossibleValue Description="利比里亚" Value="利比里亚" />
+              <PossibleValue Description="利比亚" Value="利比亚" />
+              <PossibleValue Description="列支敦斯登" Value="列支敦斯登" />
+              <PossibleValue Description="卢森堡" Value="卢森堡" />
+              <PossibleValue Description="卢旺达" Value="卢旺达" />
+              <PossibleValue Description="罗马尼亚" Value="罗马尼亚" />
+              <PossibleValue Description="马达加斯加" Value="马达加斯加" />
+              <PossibleValue Description="马尔代夫" Value="马尔代夫" />
+              <PossibleValue Description="马耳他" Value="马耳他" />
+              <PossibleValue Description="马拉维" Value="马拉维" />
+              <PossibleValue Description="马来西亚" Value="马来西亚" />
+              <PossibleValue Description="马利" Value="马利" />
+              <PossibleValue Description="马绍尔群岛" Value="马绍尔群岛" />
+              <PossibleValue Description="毛里求斯" Value="毛里求斯" />
+              <PossibleValue Description="毛里塔尼亚" Value="毛里塔尼亚" />
+              <PossibleValue Description="美国" Value="美国" />
+              <PossibleValue Description="蒙古" Value="蒙古" />
+              <PossibleValue Description="蒙特内哥罗共和国" Value="蒙特内哥罗共和国" />
+              <PossibleValue Description="孟加拉国" Value="孟加拉国" />
+              <PossibleValue Description="秘鲁" Value="秘鲁" />
+              <PossibleValue Description="密克罗尼西亚（联邦）" Value="密克罗尼西亚（联邦）" />
+              <PossibleValue Description="缅甸" Value="缅甸" />
+              <PossibleValue Description="摩尔多瓦共和国" Value="摩尔多瓦共和国" />
+              <PossibleValue Description="摩洛哥" Value="摩洛哥" />
+              <PossibleValue Description="摩纳哥" Value="摩纳哥" />
+              <PossibleValue Description="莫桑比克" Value="莫桑比克" />
+              <PossibleValue Description="墨西哥" Value="墨西哥" />
+              <PossibleValue Description="纳米比亚" Value="纳米比亚" />
+              <PossibleValue Description="南非" Value="南非" />
+              <PossibleValue Description="南苏丹" Value="南苏丹" />
+              <PossibleValue Description="尼泊尔" Value="尼泊尔" />
+              <PossibleValue Description="尼加拉瓜" Value="尼加拉瓜" />
+              <PossibleValue Description="尼日尔" Value="尼日尔" />
+              <PossibleValue Description="尼日利亚" Value="尼日利亚" />
+              <PossibleValue Description="挪威" Value="挪威" />
+              <PossibleValue Description="诺鲁" Value="诺鲁" />
+              <PossibleValue Description="葡萄牙" Value="葡萄牙" />
+              <PossibleValue Description="前南斯拉夫的马其顿共和国" Value="前南斯拉夫的马其顿共和国" />
+              <PossibleValue Description="日本" Value="日本" />
+              <PossibleValue Description="瑞典" Value="瑞典" />
+              <PossibleValue Description="瑞士" Value="瑞士" />
+              <PossibleValue Description="萨尔瓦多" Value="萨尔瓦多" />
+              <PossibleValue Description="萨摩亚" Value="萨摩亚" />
+              <PossibleValue Description="塞尔维亚" Value="塞尔维亚" />
+              <PossibleValue Description="塞拉利昂" Value="塞拉利昂" />
+              <PossibleValue Description="塞内加尔" Value="塞内加尔" />
+              <PossibleValue Description="塞浦路斯" Value="塞浦路斯" />
+              <PossibleValue Description="塞舌尔" Value="塞舌尔" />
+              <PossibleValue Description="沙特阿拉伯" Value="沙特阿拉伯" />
+              <PossibleValue Description="圣多美和普林西比" Value="圣多美和普林西比" />
+              <PossibleValue Description="圣基茨和尼维斯" Value="圣基茨和尼维斯" />
+              <PossibleValue Description="圣露西亚" Value="圣露西亚" />
+              <PossibleValue Description="圣马力诺" Value="圣马力诺" />
+              <PossibleValue Description="圣文森特和格林纳丁斯" Value="圣文森特和格林纳丁斯" />
+              <PossibleValue Description="斯里兰卡" Value="斯里兰卡" />
+              <PossibleValue Description="斯洛伐克" Value="斯洛伐克" />
+              <PossibleValue Description="斯洛维尼亚" Value="斯洛维尼亚" />
+              <PossibleValue Description="斯威士兰" Value="斯威士兰" />
+              <PossibleValue Description="苏丹" Value="苏丹" />
+              <PossibleValue Description="苏里南" Value="苏里南" />
+              <PossibleValue Description="索罗门群岛" Value="索罗门群岛" />
+              <PossibleValue Description="索马里" Value="索马里" />
+              <PossibleValue Description="塔吉克斯坦" Value="塔吉克斯坦" />
+              <PossibleValue Description="泰国" Value="泰国" />
+              <PossibleValue Description="坦桑尼亚联合共和国" Value="坦桑尼亚联合共和国" />
+              <PossibleValue Description="汤加" Value="汤加" />
+              <PossibleValue Description="特立尼达和多巴哥" Value="特立尼达和多巴哥" />
+              <PossibleValue Description="突尼斯" Value="突尼斯" />
+              <PossibleValue Description="图瓦卢" Value="图瓦卢" />
+              <PossibleValue Description="土耳其" Value="土耳其" />
+              <PossibleValue Description="土库曼斯坦" Value="土库曼斯坦" />
+              <PossibleValue Description="瓦努阿图" Value="瓦努阿图" />
+              <PossibleValue Description="危地马拉" Value="危地马拉" />
+              <PossibleValue Description="委内瑞拉（玻利瓦尔共和国）" Value="委内瑞拉（玻利瓦尔共和国）" />
+              <PossibleValue Description="文莱" Value="文莱" />
+              <PossibleValue Description="乌干达" Value="乌干达" />
+              <PossibleValue Description="乌克兰" Value="乌克兰" />
+              <PossibleValue Description="乌拉圭" Value="乌拉圭" />
+              <PossibleValue Description="乌兹别克斯坦" Value="乌兹别克斯坦" />
+              <PossibleValue Description="西班牙" Value="西班牙" />
+              <PossibleValue Description="希腊" Value="希腊" />
+              <PossibleValue Description="新加坡" Value="新加坡" />
+              <PossibleValue Description="新西兰" Value="新西兰" />
+              <PossibleValue Description="匈牙利" Value="匈牙利" />
+              <PossibleValue Description="叙利亚阿拉伯共和国" Value="叙利亚阿拉伯共和国" />
+              <PossibleValue Description="牙买加" Value="牙买加" />
+              <PossibleValue Description="亚美尼亚" Value="亚美尼亚" />
+              <PossibleValue Description="也门" Value="也门" />
+              <PossibleValue Description="伊拉克" Value="伊拉克" />
+              <PossibleValue Description="伊朗（伊斯兰共和国）" Value="伊朗（伊斯兰共和国）" />
+              <PossibleValue Description="以色列" Value="以色列" />
+              <PossibleValue Description="意大利" Value="意大利" />
+              <PossibleValue Description="印度" Value="印度" />
+              <PossibleValue Description="印度尼西亚" Value="印度尼西亚" />
+              <PossibleValue Description="英国" Value="英国" />
+              <PossibleValue Description="约旦" Value="约旦" />
+              <PossibleValue Description="越南" Value="越南" />
+              <PossibleValue Description="赞比亚" Value="赞比亚" />
+              <PossibleValue Description="乍得" Value="乍得" />
+              <PossibleValue Description="智利" Value="智利" />
+              <PossibleValue Description="中非共和国" Value="中非共和国" />
+              <PossibleValue Description="中国" Value="中国" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="12" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA3722B89-FB0B-4CCA-8611-331784F40509" DisplayName="邮箱" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD11">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="13" Mandatory="false" SemanticTypeId="guidB66D144B-B6DB-4bb5-8222-6F649514EDAB" DisplayName="地理位置" Description="地理位置" LogicalType="GEOSPATIAL" Id="ADD27">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="14" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid7877FB38-38DC-4fea-87BD-838A6EA66F51" DisplayName="東距" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD12">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="15" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidC319A593-C6D6-4cd0-91EF-14A932488F3B" DisplayName="北距" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD13">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="16" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid5304A03B-FE47-4406-91E7-0D49EC8409A6" DisplayName="緯度" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD14">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="17" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9" DisplayName="經度" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD15">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="18" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="組合座標" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD21">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="19" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E" DisplayName="資料" Description="" LogicalType="SUGGESTED_FROM" Id="ADD16">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="欧洲人" Value="EUR-7" />
+              <PossibleValue Description="全球面积参考系统" Value="GARS" />
+              <PossibleValue Description="陆军网格参照‭" Value="MGRS" />
+              <PossibleValue Description="军火GB" Value="OGB-7" />
+              <PossibleValue Description="世界大地测量系统" Value="WGS84" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="21" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="更多資訊" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="ADD17">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="22" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="詐騙旗標" Description="" LogicalType="SUGGESTED_FROM" Id="ADD19">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="怀疑" />
+              <PossibleValue Description="" Value="空" />
+              <PossibleValue Description="" Value="调查中" />
+              <PossibleValue Description="" Value="已确认" />
+              <PossibleValue Description="" Value="已验证" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="23" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="資料來源" Description="" LogicalType="SUGGESTED_FROM" Id="ADD18">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="保险欺诈局" />
+              <PossibleValue Description="" Value="益百利" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="ACC1" SemanticTypeId="guidAB9A5D8B-9D78-47FE-8302-C167B64D45CC" Description="银行账户详细信息" DisplayName="账户" Icon="Account">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="7" Description="" DisplayName="付款历史记录" Id="ACC8">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="guid735D4427-99F9-45DF-8820-DDEA9CF7C27E" DisplayName="付款" Description="" LogicalType="DECIMAL" Id="ACC9">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="唯一參照" Description="" LogicalType="SINGLE_LINE_STRING" Id="ACC2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid22340EB0-01BB-4263-928E-FC971ACB3C51" DisplayName="账户名称" Description="" LogicalType="SINGLE_LINE_STRING" Id="ACC13">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidC93D1CA5-5FEB-412B-A6E0-CE7893E606AA" DisplayName="账号" Description="" LogicalType="SINGLE_LINE_STRING" Id="ACC3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid3CD52E22-5E43-4F39-9DCF-8B13B9CE78B2" DisplayName="路由号/代号" Description="银行标识" LogicalType="SINGLE_LINE_STRING" Id="ACC4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid0FA4C573-0436-4360-AEA7-F123F1994B8E" DisplayName="账户类型" Description="" LogicalType="SUGGESTED_FROM" Id="ACC5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="成员资格账户" />
+              <PossibleValue Description="" Value="储蓄账户" />
+              <PossibleValue Description="" Value="存款" />
+              <PossibleValue Description="" Value="存款单" />
+              <PossibleValue Description="" Value="抵押" />
+              <PossibleValue Description="" Value="高利息" />
+              <PossibleValue Description="" Value="建房互助协会" />
+              <PossibleValue Description="" Value="零售账户" />
+              <PossibleValue Description="" Value="流动" />
+              <PossibleValue Description="" Value="商业" />
+              <PossibleValue Description="" Value="信贷额度" />
+              <PossibleValue Description="" Value="信用卡" />
+              <PossibleValue Description="" Value="佣金" />
+              <PossibleValue Description="" Value="邮政" />
+              <PossibleValue Description="" Value="支票账户" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDA2E2421-DAD1-480d-8EE5-8CF639500158" DisplayName="托收方法" Description="付款托收方法" LogicalType="SUGGESTED_FROM" Id="ACC6">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="连续授权" />
+              <PossibleValue Description="" Value="委托书" />
+              <PossibleValue Description="" Value="直接借记" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="授权状态" Description="付款方式状态" LogicalType="SUGGESTED_FROM" Id="ACC7">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="已取消" />
+              <PossibleValue Description="" Value="有效" />
+              <PossibleValue Description="" Value="暂挂" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="附加信息" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="ACC10">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="数据源" Description="" LogicalType="SUGGESTED_FROM" Id="ACC11">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="保险欺诈局" />
+              <PossibleValue Description="" Value="益百利" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="欺诈标志" Description="" LogicalType="SUGGESTED_FROM" Id="ACC12">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="怀疑" />
+              <PossibleValue Description="" Value="空" />
+              <PossibleValue Description="" Value="调查中" />
+              <PossibleValue Description="" Value="已确认" />
+              <PossibleValue Description="" Value="已验证" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="CLA1" SemanticTypeId="guid3FF99984-6D1C-4265-866D-4980DC756E26" Description="索取详细信息" DisplayName="索取" Icon="Claim">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="唯一参照" Description="" LogicalType="SINGLE_LINE_STRING" Id="CLA2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid775b8aac-60bd-470c-a61a-a792c9fac1ed" DisplayName="索取" Description="索取编号" LogicalType="SINGLE_LINE_STRING" Id="CLA3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="损失描述代码" Description="" LogicalType="SINGLE_LINE_STRING" Id="CLA4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="损失描述" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CLA5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" SemanticTypeId="guidE17D5FB3-4FF6-4177-AC26-73D8FE2911EE" DisplayName="索取日期" Description="" LogicalType="DATE" Id="CLA6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" SemanticTypeId="guid735D4427-99F9-45DF-8820-DDEA9CF7C27E" DisplayName="超额" Description="" LogicalType="DECIMAL" Id="CLA7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="目前的总储量" Description="" LogicalType="DECIMAL" Id="CLA8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" SemanticTypeId="" DisplayName="目前的总支出" Description="" LogicalType="DECIMAL" Id="CLA9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" SemanticTypeId="guid994DA53C-CBE3-4273-8734-A398646C7995" DisplayName="结算日期" Description="" LogicalType="DATE" Id="CLA10">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="全损险" Description="" LogicalType="BOOLEAN" Id="CLA11">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="受伤索取" Description="" LogicalType="BOOLEAN" Id="CLA12">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" SemanticTypeId="" DisplayName="备注" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CLA13">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="12" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="索取日期的保险单涵盖范围" Description="" LogicalType="SUGGESTED_FROM" Id="CLA14">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="单保险" />
+              <PossibleValue Description="" Value="强制第三方责任险" />
+              <PossibleValue Description="" Value="全险" />
+              <PossibleValue Description="" Value="综合险" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="13" Mandatory="false" SemanticTypeId="guid9B359855-D9C4-468f-81A2-9DB9C87D32EE" DisplayName="保险单生效" Description="开始日期" LogicalType="DATE" Id="CLA15">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="14" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid7BCB6E9E-3DE6-4941-B452-EC83E0F992DF" DisplayName="索取状态" Description="" LogicalType="SUGGESTED_FROM" Id="CLA16">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="调查" />
+              <PossibleValue Description="" Value="未结" />
+              <PossibleValue Description="" Value="已结" />
+              <PossibleValue Description="" Value="已重新开始" />
+              <PossibleValue Description="" Value="暂挂" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="15" Mandatory="false" SemanticTypeId="" DisplayName="已重新开始的索取" Description="" LogicalType="DATE" Id="CLA17">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="16" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="转介来源" Description="" LogicalType="SUGGESTED_FROM" Id="CLA18">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="保险业" />
+              <PossibleValue Description="" Value="金融" />
+              <PossibleValue Description="" Value="索取" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="17" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="附加信息" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CLA19">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="18" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="欺诈标志" Description="" LogicalType="SUGGESTED_FROM" Id="CLA21">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="怀疑" />
+              <PossibleValue Description="" Value="空" />
+              <PossibleValue Description="" Value="调查中" />
+              <PossibleValue Description="" Value="已确认" />
+              <PossibleValue Description="" Value="已验证" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="19" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="数据源" Description="" LogicalType="SUGGESTED_FROM" Id="CLA20">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="保险欺诈局" />
+              <PossibleValue Description="" Value="益百利" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="CRC1" SemanticTypeId="guid3C948CB2-7D74-4b5b-9AF5-798CF0AE707F" Description="卡详细信息" DisplayName="信用卡" Icon="Credit Card">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="4" Description="" DisplayName="付款历史记录" Id="CRC6">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="guid735D4427-99F9-45DF-8820-DDEA9CF7C27E" DisplayName="付款" Description="" LogicalType="DECIMAL" Id="CRC7">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="唯一参照" Description="" LogicalType="SINGLE_LINE_STRING" Id="CRC2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid5EADE4D4-93CE-420c-9551-354309F6A377" DisplayName="信用卡号" Description="" LogicalType="SINGLE_LINE_STRING" Id="CRC3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid22340EB0-01BB-4263-928E-FC971ACB3C51" DisplayName="卡名称" Description="" LogicalType="SINGLE_LINE_STRING" Id="CRC4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidE556FA14-0421-4e47-BE10-A825DBDF2E85" DisplayName="指令码" Description="" LogicalType="SINGLE_LINE_STRING" Id="CRC5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="附加信息" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CRC8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="欺诈标志" Description="" LogicalType="SUGGESTED_FROM" Id="CRC10">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="怀疑" />
+              <PossibleValue Description="" Value="空" />
+              <PossibleValue Description="" Value="调查中" />
+              <PossibleValue Description="" Value="已确认" />
+              <PossibleValue Description="" Value="已验证" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="数据源" Description="" LogicalType="SUGGESTED_FROM" Id="CRC9">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="保险欺诈局" />
+              <PossibleValue Description="" Value="益百利" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="INT1" SemanticTypeId="guid3FF99984-6D1C-4265-866D-4980DC756E26" Description="相关文档" DisplayName="文档" Icon="Document">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="1" Description="" DisplayName="文档详细信息" Id="INT3">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="文档" Description="" LogicalType="DOCUMENT" Id="INT4">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="情报日期" Description="" LogicalType="DATE" Id="INT13">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB4EC8FC2-13EC-4df2-AE90-D7D5D4A4B621" DisplayName="文档标题" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT6">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidc329f90d-3bf7-40c3-8d87-f6fe3cb8d5d4" DisplayName="文档类型" Description="" LogicalType="SUGGESTED_FROM" Id="INT5">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;未知&gt;" />
+                  <PossibleValue Description="" Value="IFB警报/英特尔" />
+                  <PossibleValue Description="" Value="IFIG警报" />
+                  <PossibleValue Description="" Value="MIAFTR" />
+                  <PossibleValue Description="" Value="PI匹配项" />
+                  <PossibleValue Description="" Value="Web 页面" />
+                  <PossibleValue Description="" Value="电动机匹配项" />
+                  <PossibleValue Description="" Value="电子数据表" />
+                  <PossibleValue Description="" Value="工程师报告" />
+                  <PossibleValue Description="" Value="家庭匹配项" />
+                  <PossibleValue Description="" Value="批注" />
+                  <PossibleValue Description="" Value="调查报告" />
+                  <PossibleValue Description="" Value="益百利" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid91DA3A32-0AD7-4141-B79B-CC62C452A0A7" DisplayName="文档说明" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT7">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="5" Mandatory="false" SemanticTypeId="guid770074b2-0235-4ade-aca0-f64f9d1986f9" DisplayName="有效起始日期及时间" Description="" LogicalType="DATE_AND_TIME" Id="INT8">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="6" Mandatory="false" SemanticTypeId="guid9f0adde3-bdcd-4f36-b657-fc0bdf7a10d5" DisplayName="有效截止日期及时间" Description="" LogicalType="DATE_AND_TIME" Id="INT9">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="7" Mandatory="false" SemanticTypeId="guidF49AD106-BBCA-4de0-A6C8-77BCE1493AFA" DisplayName="报告日期及时间" Description="" LogicalType="DATE_AND_TIME" Id="INT10">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="8" Mandatory="false" SemanticTypeId="" DisplayName="输入的日期及时间" Description="" LogicalType="DATE_AND_TIME" Id="INT11">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidE14D4A28-9ECD-4e72-8DE2-21D0D476A8FC" DisplayName="文档来源" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT12">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA3056048-D54F-462b-BF88-65FE24142A9F" DisplayName="文档URL" Description="" LogicalType="SINGLE_LINE_STRING" Id="DOC19">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="2" Description="" DisplayName="影像" Id="INT14">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="图像" Description="" LogicalType="PICTURE" Id="INT15">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="图像描述" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT16">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="唯一参照" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="附加信息" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="INT19">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="欺诈标志" Description="" LogicalType="SUGGESTED_FROM" Id="INT18">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="怀疑" />
+              <PossibleValue Description="" Value="空" />
+              <PossibleValue Description="" Value="调查中" />
+              <PossibleValue Description="" Value="已确认" />
+              <PossibleValue Description="" Value="已验证" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="数据源" Description="" LogicalType="SUGGESTED_FROM" Id="INT17">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="保险欺诈局" />
+              <PossibleValue Description="" Value="益百利" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="EM1" SemanticTypeId="guidD5901596-3DD7-40FE-BAF4-0E9FE6BD1E81" Description="电子邮件地址详细信息" DisplayName="电子邮件" Icon="Email">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="唯一参照" Description="" LogicalType="SINGLE_LINE_STRING" Id="EM2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid7D0DF839-B553-457A-93B4-B333D603B7FD" DisplayName="電子郵件位址" Description="" LogicalType="SINGLE_LINE_STRING" Id="EM3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid494292DD-E253-4851-8AD5-FD4BC38442B0" DisplayName="IP地址" Description="" LogicalType="SINGLE_LINE_STRING" Id="EM4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="附加信息" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="EM5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="欺诈标志" Description="" LogicalType="SUGGESTED_FROM" Id="EM7">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="怀疑" />
+              <PossibleValue Description="" Value="空" />
+              <PossibleValue Description="" Value="调查中" />
+              <PossibleValue Description="" Value="已确认" />
+              <PossibleValue Description="" Value="已验证" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="数据源" Description="" LogicalType="SUGGESTED_FROM" Id="EM6">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="保险欺诈局" />
+              <PossibleValue Description="" Value="益百利" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="IP1" SemanticTypeId="guidFE4A6E2D-FFEF-4DF2-9DB2-4DE91E862761" Description="保险单详细信息" DisplayName="保险单" Icon="Case">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="8" Description="" DisplayName="个人保险单详细信息" Id="IP11">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="guid9B359855-D9C4-468f-81A2-9DB9C87D32EE" DisplayName="有效日期" Description="" LogicalType="DATE" Id="IP12">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="guidBCAD30E5-D249-412f-83BF-00AA0FF5B7EC" DisplayName="交易日期" Description="" LogicalType="DATE" Id="IP13">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" SemanticTypeId="guid735D4427-99F9-45DF-8820-DDEA9CF7C27E" DisplayName="保险费总额" Description="" LogicalType="DECIMAL" Id="IP14">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="保险费净额" Description="" LogicalType="DECIMAL" Id="IP15">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid25EAFCAA-E2EB-432d-8927-A59CF0B84CDA" DisplayName="业务源" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP16">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDA2E2421-DAD1-480d-8EE5-8CF639500158" DisplayName="付款方式" Description="" LogicalType="SUGGESTED_FROM" Id="IP17">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;未知&gt;" />
+                  <PossibleValue Description="" Value="PayPal" />
+                  <PossibleValue Description="" Value="现金" />
+                  <PossibleValue Description="" Value="信用卡" />
+                  <PossibleValue Description="" Value="支票" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="投保类型" Description="" LogicalType="SUGGESTED_FROM" Id="IP18">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;未知&gt;" />
+                  <PossibleValue Description="" Value="单保险" />
+                  <PossibleValue Description="" Value="强制第三方责任险" />
+                  <PossibleValue Description="" Value="全险" />
+                  <PossibleValue Description="" Value="综合险" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="驾驶限制" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP19">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="8" Mandatory="false" SemanticTypeId="" DisplayName="驾驶员人数" Description="" LogicalType="INTEGER" Id="IP20">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="上一个保险人名称" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP21">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="每年的行驶里程" Description="" LogicalType="DECIMAL" Id="IP22">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="11" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="车辆安全性" Description="" LogicalType="SUGGESTED_FROM" Id="IP23">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;未知&gt;" />
+                  <PossibleValue Description="" Value="Thatcham认证" />
+                  <PossibleValue Description="" Value="空" />
+                  <PossibleValue Description="" Value="制造厂安装" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="12" Mandatory="false" SemanticTypeId="" DisplayName="故障数" Description="" LogicalType="INTEGER" Id="IP24">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="13" Mandatory="false" SemanticTypeId="" DisplayName="非故障数" Description="" LogicalType="INTEGER" Id="IP25">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="14" Mandatory="false" SemanticTypeId="" DisplayName="索取总额" Description="" LogicalType="INTEGER" Id="IP26">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="15" Mandatory="false" SemanticTypeId="" DisplayName="犯罪次数" Description="" LogicalType="INTEGER" Id="IP27">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="唯一参照" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid775b8aac-60bd-470c-a61a-a792c9fac1ed" DisplayName="保险单编号" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="业务类别" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="参照" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" SemanticTypeId="guid75CA7E8F-D2EF-4CF4-BB81-6C244ADA5286" DisplayName="原始参考日期" Description="" LogicalType="DATE" Id="IP6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" SemanticTypeId="" DisplayName="上次续保日期" Description="" LogicalType="DATE" Id="IP7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB2A3B23C-07B8-4A87-8B45-4CD20079E79C" DisplayName="保险人" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid0FA4C573-0436-4360-AEA7-F123F1994B8E" DisplayName="方案" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="附加信息" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="IP28">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="数据源" Description="" LogicalType="SUGGESTED_FROM" Id="IP29">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="保险欺诈局" />
+              <PossibleValue Description="" Value="益百利" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="欺诈标志" Description="" LogicalType="SUGGESTED_FROM" Id="IP30">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="怀疑" />
+              <PossibleValue Description="" Value="空" />
+              <PossibleValue Description="" Value="调查中" />
+              <PossibleValue Description="" Value="已确认" />
+              <PossibleValue Description="" Value="已验证" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="ORG1" SemanticTypeId="guidB30A4137-A537-420B-B481-C5DF922152AF" Description="组织详细信息" DisplayName="组织" Icon="Organ">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="唯一参照" Description="" LogicalType="SINGLE_LINE_STRING" Id="ORG2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB2A3B23C-07B8-4A87-8B45-4CD20079E79C" DisplayName="组织名称" Description="" LogicalType="SINGLE_LINE_STRING" Id="ORG3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid694EB231-9982-46FE-A40E-3D9165582101" DisplayName="公司编号" Description="" LogicalType="SINGLE_LINE_STRING" Id="ORG10">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB11A89A6-F50C-4c73-949F-00594985DA69" DisplayName="组织类型" Description="" LogicalType="SUGGESTED_FROM" Id="ORG4">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="餐厅" />
+              <PossibleValue Description="" Value="仓库" />
+              <PossibleValue Description="" Value="超市" />
+              <PossibleValue Description="" Value="车库" />
+              <PossibleValue Description="" Value="代理" />
+              <PossibleValue Description="" Value="赌场" />
+              <PossibleValue Description="" Value="法律" />
+              <PossibleValue Description="" Value="非政府组织" />
+              <PossibleValue Description="" Value="公共承运人（运输）" />
+              <PossibleValue Description="" Value="公共饮食业" />
+              <PossibleValue Description="" Value="广告" />
+              <PossibleValue Description="" Value="海军蓝" />
+              <PossibleValue Description="" Value="机场客运大楼" />
+              <PossibleValue Description="" Value="监狱" />
+              <PossibleValue Description="" Value="建筑师" />
+              <PossibleValue Description="" Value="教堂" />
+              <PossibleValue Description="" Value="教育" />
+              <PossibleValue Description="" Value="金融机构" />
+              <PossibleValue Description="" Value="军队" />
+              <PossibleValue Description="" Value="军事" />
+              <PossibleValue Description="" Value="空军" />
+              <PossibleValue Description="" Value="恐怖分子" />
+              <PossibleValue Description="" Value="礼拜地点" />
+              <PossibleValue Description="" Value="零售" />
+              <PossibleValue Description="" Value="旅馆" />
+              <PossibleValue Description="" Value="律师业" />
+              <PossibleValue Description="" Value="民兵" />
+              <PossibleValue Description="" Value="农业" />
+              <PossibleValue Description="" Value="培训" />
+              <PossibleValue Description="" Value="情报服务" />
+              <PossibleValue Description="" Value="商行" />
+              <PossibleValue Description="" Value="实验室" />
+              <PossibleValue Description="" Value="信息技术" />
+              <PossibleValue Description="" Value="医学实验室" />
+              <PossibleValue Description="" Value="医院" />
+              <PossibleValue Description="" Value="银行" />
+              <PossibleValue Description="" Value="印刷" />
+              <PossibleValue Description="" Value="运输" />
+              <PossibleValue Description="" Value="政府部门" />
+              <PossibleValue Description="" Value="政治" />
+              <PossibleValue Description="" Value="制造" />
+              <PossibleValue Description="" Value="制造厂" />
+              <PossibleValue Description="" Value="准军事部队" />
+              <PossibleValue Description="" Value="组织" />
+              <PossibleValue Description="" Value="罪犯" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid5A7E25C4-9239-4500-A20A-B986D7D28E40" DisplayName="网址" Description="" LogicalType="SINGLE_LINE_STRING" Id="ORG5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" SemanticTypeId="guid9B359855-D9C4-468f-81A2-9DB9C87D32EE" DisplayName="合并日期" Description="" LogicalType="DATE" Id="ORG11">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" SemanticTypeId="guid80860455-202C-4ddf-85A9-AE576D66BD56" DisplayName="解散日期" Description="" LogicalType="DATE" Id="ORG12">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="附加信息" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="ORG6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="欺诈标志" Description="" LogicalType="SUGGESTED_FROM" Id="ORG7">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="怀疑" />
+              <PossibleValue Description="" Value="空" />
+              <PossibleValue Description="" Value="调查中" />
+              <PossibleValue Description="" Value="已确认" />
+              <PossibleValue Description="" Value="已验证" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="数据源" Description="" LogicalType="SUGGESTED_FROM" Id="ORG8">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="保险欺诈局" />
+              <PossibleValue Description="" Value="益百利" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="PER1" SemanticTypeId="guid8A586959-9837-47DE-8DBF-BC7031F01545" Description="人员详细信息" DisplayName="人员" Icon="Person (Shaded Shirt)">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="1" Description="" DisplayName="全名" Id="PER3">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid45E7897F-0DC6-4AD0-AAC6-73A780DD78BE" DisplayName="标题" Description="" LogicalType="SUGGESTED_FROM" Id="PER4">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;未知&gt;" />
+                  <PossibleValue Description="" Value="夫人" />
+                  <PossibleValue Description="" Value="女士" />
+                  <PossibleValue Description="" Value="先生" />
+                  <PossibleValue Description="" Value="小姐" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid4DE7370B-60E5-4EB0-860E-4066D3DFD7B6" DisplayName="名字（给定名字）" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER5">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidBE6A2505-B545-464C-B407-51F9847ECE39" DisplayName="中间名" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER6">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid62B01C18-2E64-46D5-B2FF-3C69B4F76FEB" DisplayName="姓氏" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER7">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid3B5FB234-1DDC-40FC-B999-6A969B819BCB" DisplayName="后缀" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER8">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="4" Description="" DisplayName="标识" Id="PER31">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidF9DA2FC4-4B32-4d42-A178-A238274D4C5D" DisplayName="标识号" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER32">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidc329f90d-3bf7-40c3-8d87-f6fe3cb8d5d4" DisplayName="标识类型" Description="" LogicalType="SUGGESTED_FROM" Id="PER33">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;未知&gt;" />
+                  <PossibleValue Description="犯罪记录编号" Value="犯罪记录编号" />
+                  <PossibleValue Description="个人身份证" Value="个人身份证" />
+                  <PossibleValue Description="护照" Value="护照" />
+                  <PossibleValue Description="驾驶执照" Value="驾驶执照" />
+                  <PossibleValue Description="社保号" Value="社保号" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid4C43E992-22CA-4863-8A5D-28E29D10F0E0" DisplayName="签发机构" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER34">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" SemanticTypeId="guidF49AD106-BBCA-4de0-A6C8-77BCE1493AFA" DisplayName="签发日期及时间" Description="" LogicalType="DATE_AND_TIME" Id="PER35">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="15" Description="" DisplayName="影像" Id="PER21">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="图像" Description="" LogicalType="PICTURE" Id="PER22">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="图像描述" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="PT116">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="16" Description="" DisplayName="诈骗指示" Id="PER23">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="信贷" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER24">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="标识" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER25">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="股价操纵" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER26">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="唯一参照" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="guidFE45F1C4-B198-4111-8123-F42D2CD6419D" DisplayName="生日" Description="" LogicalType="DATE" Id="PER9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid7548369B-BA9A-4C4B-AEAD-0CB442EAFA27" DisplayName="性别" Description="" LogicalType="SELECTED_FROM" Id="PER10">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="男性" />
+              <PossibleValue Description="" Value="女性" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="驾照类型" Description="" LogicalType="SUGGESTED_FROM" Id="PER11">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="临时" />
+              <PossibleValue Description="" Value="摩托车" />
+              <PossibleValue Description="" Value="全职" />
+              <PossibleValue Description="" Value="商业" />
+              <PossibleValue Description="" Value="受限" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="驾照日期" Description="" LogicalType="DATE_AND_TIME" Id="PER12">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid2C98B11E-D3A0-463b-922C-D25E8E47666A" DisplayName="婚姻状况" Description="" LogicalType="SUGGESTED_FROM" Id="PER13">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="单身" />
+              <PossibleValue Description="" Value="分居" />
+              <PossibleValue Description="" Value="离婚" />
+              <PossibleValue Description="" Value="已婚" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid69F2B55D-EBF2-4950-9688-CB5273236A01" DisplayName="国籍" Description="" LogicalType="SUGGESTED_FROM" Id="PER14">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="阿尔巴尼亚人" Value="阿尔巴尼亚人" />
+              <PossibleValue Description="阿尔及利亚人" Value="阿尔及利亚人" />
+              <PossibleValue Description="阿富汗人" Value="阿富汗人" />
+              <PossibleValue Description="阿根廷人" Value="阿根廷人" />
+              <PossibleValue Description="阿曼人" Value="阿曼人" />
+              <PossibleValue Description="阿塞拜疆人" Value="阿塞拜疆人" />
+              <PossibleValue Description="埃及人" Value="埃及人" />
+              <PossibleValue Description="埃米尔人" Value="埃米尔人" />
+              <PossibleValue Description="埃塞俄比亚人" Value="埃塞俄比亚人" />
+              <PossibleValue Description="爱尔兰人" Value="爱尔兰人" />
+              <PossibleValue Description="爱沙尼亚人" Value="爱沙尼亚人" />
+              <PossibleValue Description="安道尔人" Value="安道尔人" />
+              <PossibleValue Description="安哥拉人" Value="安哥拉人" />
+              <PossibleValue Description="安提瓜人" Value="安提瓜人" />
+              <PossibleValue Description="奥地利人" Value="奥地利人" />
+              <PossibleValue Description="澳大利亚人" Value="澳大利亚人" />
+              <PossibleValue Description="巴贝多人" Value="巴贝多人" />
+              <PossibleValue Description="巴布达人" Value="巴布达人" />
+              <PossibleValue Description="巴布亚人" Value="巴布亚人" />
+              <PossibleValue Description="巴茨瓦纳人" Value="巴茨瓦纳人" />
+              <PossibleValue Description="巴哈马人" Value="巴哈马人" />
+              <PossibleValue Description="巴基斯坦人" Value="巴基斯坦人" />
+              <PossibleValue Description="巴拉圭人" Value="巴拉圭人" />
+              <PossibleValue Description="巴林人" Value="巴林人" />
+              <PossibleValue Description="巴拿马人" Value="巴拿马人" />
+              <PossibleValue Description="巴苏陀人" Value="巴苏陀人" />
+              <PossibleValue Description="巴西人" Value="巴西人" />
+              <PossibleValue Description="白俄罗斯人" Value="白俄罗斯人" />
+              <PossibleValue Description="保加利亚人" Value="保加利亚人" />
+              <PossibleValue Description="北爱尔兰人" Value="北爱尔兰人" />
+              <PossibleValue Description="贝宁人" Value="贝宁人" />
+              <PossibleValue Description="比利时人" Value="比利时人" />
+              <PossibleValue Description="冰岛人" Value="冰岛人" />
+              <PossibleValue Description="波兰人" Value="波兰人" />
+              <PossibleValue Description="波斯尼亚人" Value="波斯尼亚人" />
+              <PossibleValue Description="玻利维亚人" Value="玻利维亚人" />
+              <PossibleValue Description="伯利兹人" Value="伯利兹人" />
+              <PossibleValue Description="帕劳人" Value="帕劳人" />
+              <PossibleValue Description="博茨瓦纳人" Value="博茨瓦纳人" />
+              <PossibleValue Description="不丹人" Value="不丹人" />
+              <PossibleValue Description="布吉纳法索人" Value="布吉纳法索人" />
+              <PossibleValue Description="布隆迪人" Value="布隆迪人" />
+              <PossibleValue Description="朝鲜人" Value="朝鲜人" />
+              <PossibleValue Description="赤道几内亚人" Value="赤道几内亚人" />
+              <PossibleValue Description="丹麦人" Value="丹麦人" />
+              <PossibleValue Description="德国人" Value="德国人" />
+              <PossibleValue Description="东帝汶人" Value="东帝汶人" />
+              <PossibleValue Description="多巴哥人" Value="多巴哥人" />
+              <PossibleValue Description="多哥人" Value="多哥人" />
+              <PossibleValue Description="多米尼加人" Value="多米尼加人" />
+              <PossibleValue Description="俄罗斯人" Value="俄罗斯人" />
+              <PossibleValue Description="厄瓜多尔人" Value="厄瓜多尔人" />
+              <PossibleValue Description="厄立特里亚人" Value="厄立特里亚人" />
+              <PossibleValue Description="法国人" Value="法国人" />
+              <PossibleValue Description="菲律宾人" Value="菲律宾人" />
+              <PossibleValue Description="斐济人" Value="斐济人" />
+              <PossibleValue Description="芬兰人" Value="芬兰人" />
+              <PossibleValue Description="佛得角人" Value="佛得角人" />
+              <PossibleValue Description="冈比亚人" Value="冈比亚人" />
+              <PossibleValue Description="刚果人" Value="刚果人" />
+              <PossibleValue Description="哥伦比亚人" Value="哥伦比亚人" />
+              <PossibleValue Description="哥斯达黎加人" Value="哥斯达黎加人" />
+              <PossibleValue Description="格瑞那达人" Value="格瑞那达人" />
+              <PossibleValue Description="古巴人" Value="古巴人" />
+              <PossibleValue Description="圭亚那人" Value="圭亚那人" />
+              <PossibleValue Description="哈萨克斯坦人" Value="哈萨克斯坦人" />
+              <PossibleValue Description="海地人" Value="海地人" />
+              <PossibleValue Description="韩国人" Value="韩国人" />
+              <PossibleValue Description="荷兰人" Value="荷兰人" />
+              <PossibleValue Description="黑塞哥维那人" Value="黑塞哥维那人" />
+              <PossibleValue Description="洪都拉斯人" Value="洪都拉斯人" />
+              <PossibleValue Description="吉布提" Value="吉布提" />
+              <PossibleValue Description="吉尔吉斯人" Value="吉尔吉斯人" />
+              <PossibleValue Description="基里巴斯人" Value="基里巴斯人" />
+              <PossibleValue Description="几内亚比绍人" Value="几内亚比绍人" />
+              <PossibleValue Description="几内亚人" Value="几内亚人" />
+              <PossibleValue Description="加拿大人" Value="加拿大人" />
+              <PossibleValue Description="加纳人" Value="加纳人" />
+              <PossibleValue Description="加蓬人" Value="加蓬人" />
+              <PossibleValue Description="柬埔寨人" Value="柬埔寨人" />
+              <PossibleValue Description="捷克人" Value="捷克人" />
+              <PossibleValue Description="津巴布韦人" Value="津巴布韦人" />
+              <PossibleValue Description="喀麦隆人" Value="喀麦隆人" />
+              <PossibleValue Description="卡塔尔人" Value="卡塔尔人" />
+              <PossibleValue Description="科摩罗人" Value="科摩罗人" />
+              <PossibleValue Description="科特迪瓦人" Value="科特迪瓦人" />
+              <PossibleValue Description="科威特人" Value="科威特人" />
+              <PossibleValue Description="克罗地亚人" Value="克罗地亚人" />
+              <PossibleValue Description="肯尼亚人" Value="肯尼亚人" />
+              <PossibleValue Description="拉脱维亚人" Value="拉脱维亚人" />
+              <PossibleValue Description="老挝人民民主共和国人" Value="老挝人民民主共和国人" />
+              <PossibleValue Description="黎巴嫩人" Value="黎巴嫩人" />
+              <PossibleValue Description="立陶宛人" Value="立陶宛人" />
+              <PossibleValue Description="利比里亚人" Value="利比里亚人" />
+              <PossibleValue Description="利比亚人" Value="利比亚人" />
+              <PossibleValue Description="列支敦士登人" Value="列支敦士登人" />
+              <PossibleValue Description="卢森堡人" Value="卢森堡人" />
+              <PossibleValue Description="卢旺达人" Value="卢旺达人" />
+              <PossibleValue Description="罗马尼亚人" Value="罗马尼亚人" />
+              <PossibleValue Description="马尔代夫人" Value="马尔代夫人" />
+              <PossibleValue Description="马尔加什人" Value="马尔加什人" />
+              <PossibleValue Description="马耳他人" Value="马耳他人" />
+              <PossibleValue Description="马拉维人" Value="马拉维人" />
+              <PossibleValue Description="马来人" Value="马来人" />
+              <PossibleValue Description="马利人" Value="马利人" />
+              <PossibleValue Description="马其顿人" Value="马其顿人" />
+              <PossibleValue Description="马绍尔人" Value="马绍尔人" />
+              <PossibleValue Description="毛里求斯人" Value="毛里求斯人" />
+              <PossibleValue Description="毛里塔尼亚人" Value="毛里塔尼亚人" />
+              <PossibleValue Description="美国人" Value="美国人" />
+              <PossibleValue Description="蒙古人" Value="蒙古人" />
+              <PossibleValue Description="孟加拉国人" Value="孟加拉国人" />
+              <PossibleValue Description="秘鲁人" Value="秘鲁人" />
+              <PossibleValue Description="密克罗尼西亚人" Value="密克罗尼西亚人" />
+              <PossibleValue Description="缅甸人" Value="缅甸人" />
+              <PossibleValue Description="摩尔多瓦人" Value="摩尔多瓦人" />
+              <PossibleValue Description="摩洛哥人" Value="摩洛哥人" />
+              <PossibleValue Description="摩纳哥人" Value="摩纳哥人" />
+              <PossibleValue Description="莫桑比克人" Value="莫桑比克人" />
+              <PossibleValue Description="墨西哥人" Value="墨西哥人" />
+              <PossibleValue Description="纳米比亚人" Value="纳米比亚人" />
+              <PossibleValue Description="南非人" Value="南非人" />
+              <PossibleValue Description="尼泊尔人" Value="尼泊尔人" />
+              <PossibleValue Description="尼加拉瓜人" Value="尼加拉瓜人" />
+              <PossibleValue Description="尼日尔人" Value="尼日尔人" />
+              <PossibleValue Description="尼日利亚人" Value="尼日利亚人" />
+              <PossibleValue Description="挪威人" Value="挪威人" />
+              <PossibleValue Description="诺鲁人" Value="诺鲁人" />
+              <PossibleValue Description="葡萄牙人" Value="葡萄牙人" />
+              <PossibleValue Description="乔治亚人" Value="乔治亚人" />
+              <PossibleValue Description="日本人" Value="日本人" />
+              <PossibleValue Description="瑞典人" Value="瑞典人" />
+              <PossibleValue Description="瑞士人" Value="瑞士人" />
+              <PossibleValue Description="萨尔瓦多人" Value="萨尔瓦多人" />
+              <PossibleValue Description="萨摩亚人" Value="萨摩亚人" />
+              <PossibleValue Description="塞尔维亚人" Value="塞尔维亚人" />
+              <PossibleValue Description="塞拉利昂人" Value="塞拉利昂人" />
+              <PossibleValue Description="塞内加尔人" Value="塞内加尔人" />
+              <PossibleValue Description="塞浦路斯人" Value="塞浦路斯人" />
+              <PossibleValue Description="塞舌尔人" Value="塞舌尔人" />
+              <PossibleValue Description="沙特阿拉伯人" Value="沙特阿拉伯人" />
+              <PossibleValue Description="圣多美人" Value="圣多美人" />
+              <PossibleValue Description="圣基茨和尼维斯人" Value="圣基茨和尼维斯人" />
+              <PossibleValue Description="圣露西亚人" Value="圣露西亚人" />
+              <PossibleValue Description="圣马力诺人" Value="圣马力诺人" />
+              <PossibleValue Description="斯里兰卡人" Value="斯里兰卡人" />
+              <PossibleValue Description="斯洛伐克人" Value="斯洛伐克人" />
+              <PossibleValue Description="斯洛维尼亚人" Value="斯洛维尼亚人" />
+              <PossibleValue Description="斯威士人" Value="斯威士人" />
+              <PossibleValue Description="苏丹人" Value="苏丹人" />
+              <PossibleValue Description="苏格兰人" Value="苏格兰人" />
+              <PossibleValue Description="苏里南人" Value="苏里南人" />
+              <PossibleValue Description="索罗门群岛人" Value="索罗门群岛人" />
+              <PossibleValue Description="索马里人" Value="索马里人" />
+              <PossibleValue Description="塔吉克人" Value="塔吉克人" />
+              <PossibleValue Description="泰国人" Value="泰国人" />
+              <PossibleValue Description="坦桑尼亚人" Value="坦桑尼亚人" />
+              <PossibleValue Description="汤加人" Value="汤加人" />
+              <PossibleValue Description="突尼斯人" Value="突尼斯人" />
+              <PossibleValue Description="图瓦卢人" Value="图瓦卢人" />
+              <PossibleValue Description="土耳其人" Value="土耳其人" />
+              <PossibleValue Description="危地马拉人" Value="危地马拉人" />
+              <PossibleValue Description="威尔士人" Value="威尔士人" />
+              <PossibleValue Description="委内瑞拉人" Value="委内瑞拉人" />
+              <PossibleValue Description="文莱人" Value="文莱人" />
+              <PossibleValue Description="乌干达人" Value="乌干达人" />
+              <PossibleValue Description="乌克兰人" Value="乌克兰人" />
+              <PossibleValue Description="乌拉圭人" Value="乌拉圭人" />
+              <PossibleValue Description="乌兹别克斯坦人" Value="乌兹别克斯坦人" />
+              <PossibleValue Description="西班牙人" Value="西班牙人" />
+              <PossibleValue Description="希腊人" Value="希腊人" />
+              <PossibleValue Description="新加坡人" Value="新加坡人" />
+              <PossibleValue Description="新西兰人" Value="新西兰人" />
+              <PossibleValue Description="匈牙利人" Value="匈牙利人" />
+              <PossibleValue Description="叙利亚人" Value="叙利亚人" />
+              <PossibleValue Description="牙买加人" Value="牙买加人" />
+              <PossibleValue Description="亚美尼亚人" Value="亚美尼亚人" />
+              <PossibleValue Description="也门人" Value="也门人" />
+              <PossibleValue Description="伊拉克人" Value="伊拉克人" />
+              <PossibleValue Description="伊朗人" Value="伊朗人" />
+              <PossibleValue Description="以色列人" Value="以色列人" />
+              <PossibleValue Description="意大利人" Value="意大利人" />
+              <PossibleValue Description="印度尼西亚人" Value="印度尼西亚人" />
+              <PossibleValue Description="印度人" Value="印度人" />
+              <PossibleValue Description="英国人" Value="英国人" />
+              <PossibleValue Description="约旦人" Value="约旦人" />
+              <PossibleValue Description="越南人" Value="越南人" />
+              <PossibleValue Description="赞比亚人" Value="赞比亚人" />
+              <PossibleValue Description="乍得人" Value="乍得人" />
+              <PossibleValue Description="智利人" Value="智利人" />
+              <PossibleValue Description="中非人" Value="中非人" />
+              <PossibleValue Description="中国人" Value="中国人" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="居住日期" Description="" LogicalType="DATE" Id="PER15">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="职业代码" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER16">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" SemanticTypeId="guidCE86909A-D087-445f-A73D-C79FA9AC9F8C" DisplayName="职业描述" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="PER17">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="12" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="雇主的业务代码" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER18">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="13" Mandatory="false" SemanticTypeId="guidB11A89A6-F50C-4c73-949F-00594985DA69" DisplayName="雇主的业务描述" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="PER19">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="14" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="雇主状态" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER20">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="17" Mandatory="false" SemanticTypeId="" DisplayName="人身伤害" Description="" LogicalType="BOOLEAN" Id="PER27">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="18" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="附加信息" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="PER28">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="19" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="欺诈标志" Description="" LogicalType="SUGGESTED_FROM" Id="PER29">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="怀疑" />
+              <PossibleValue Description="" Value="空" />
+              <PossibleValue Description="" Value="调查中" />
+              <PossibleValue Description="" Value="已确认" />
+              <PossibleValue Description="" Value="已验证" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="20" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="数据源" Description="" LogicalType="SUGGESTED_FROM" Id="PER30">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="保险欺诈局" />
+              <PossibleValue Description="" Value="益百利" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="TEL1" SemanticTypeId="guidDB820CCD-D028-4B20-A3AE-57374B83EFD4" Description="电话详细信息" DisplayName="电话" Icon="Phone">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="2" Description="" DisplayName="电话号码" Id="TEL3">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB6073C55-3C00-4812-BDA8-5C1FA2AE7FC4" DisplayName="国际电码" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL4">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidCD2F57CA-D475-454B-9B0D-71F31A604631" DisplayName="区号" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL5">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid2A9C3212-8918-4477-9818-47E467FB47AC" DisplayName="主机号码" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL6">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid8A229F14-3059-4B58-9ECA-0F76964DE873" DisplayName="分机号码" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL7">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="唯一参照" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="电话类型" Description="" LogicalType="SUGGESTED_FROM" Id="TEL8">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="家庭" />
+              <PossibleValue Description="" Value="手机/移动电话" />
+              <PossibleValue Description="" Value="座机" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="附加信息" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="TEL9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="数据源" Description="" LogicalType="SUGGESTED_FROM" Id="TEL11">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="保险欺诈局" />
+              <PossibleValue Description="" Value="益百利" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="欺诈标志" Description="" LogicalType="SUGGESTED_FROM" Id="TEL10">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="怀疑" />
+              <PossibleValue Description="" Value="空" />
+              <PossibleValue Description="" Value="调查中" />
+              <PossibleValue Description="" Value="已确认" />
+              <PossibleValue Description="" Value="已验证" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="VEH1" SemanticTypeId="guid124035A5-5D11-418b-A0A1-2C53F1932B8D" Description="汽输详细信息" DisplayName="车辆" Icon="Car">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="12" Description="" DisplayName="标识" Id="VEH14">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="发动机编号" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH15">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="底盘编号" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH16">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid52FF1D68-FA10-495C-AA62-CB327FE84639" DisplayName="车辆标识号" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH17">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="17" Description="" DisplayName="影像" Id="VEH22">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="图像" Description="" LogicalType="PICTURE" Id="VEH23">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="图像描述" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="VEH24">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="18" Description="" DisplayName="保险详细信息" Id="VEH25">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="购买日期" Description="" LogicalType="DATE" Id="VEH26">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="支付价格" Description="" LogicalType="DECIMAL" Id="VEH27">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="车辆价值" Description="" LogicalType="DECIMAL" Id="VEH28">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="登记持有人" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH29">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="过夜地点" Description="" LogicalType="SUGGESTED_FROM" Id="VEH30">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;未知&gt;" />
+                  <PossibleValue Description="" Value="车道" />
+                  <PossibleValue Description="" Value="车库" />
+                  <PossibleValue Description="" Value="公共车库" />
+                  <PossibleValue Description="" Value="后院" />
+                  <PossibleValue Description="" Value="街道" />
+                  <PossibleValue Description="" Value="拘留所" />
+                </PossibleValues>
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="唯一参照" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidD1F35949-FC3C-4985-B068-F09B74CE1AE3" DisplayName="牌照号码" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidF98B951F-335E-4157-B5F2-55C032B06295" DisplayName="车辆类型" Description="" LogicalType="SUGGESTED_FROM" Id="VEH4">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="出租车" />
+              <PossibleValue Description="" Value="飞机" />
+              <PossibleValue Description="" Value="公共汽车" />
+              <PossibleValue Description="" Value="火车" />
+              <PossibleValue Description="" Value="货机" />
+              <PossibleValue Description="" Value="警车" />
+              <PossibleValue Description="" Value="救护车" />
+              <PossibleValue Description="" Value="卡车" />
+              <PossibleValue Description="" Value="摩托车" />
+              <PossibleValue Description="" Value="汽车" />
+              <PossibleValue Description="" Value="商船" />
+              <PossibleValue Description="" Value="消防车" />
+              <PossibleValue Description="" Value="小型货车" />
+              <PossibleValue Description="" Value="小型摩托车" />
+              <PossibleValue Description="" Value="邮轮" />
+              <PossibleValue Description="" Value="游船" />
+              <PossibleValue Description="" Value="渔船" />
+              <PossibleValue Description="" Value="直升机" />
+              <PossibleValue Description="" Value="自行车" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB99BE38F-0357-4ADA-82F5-69688D742889" DisplayName="车辆厂牌" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid160717BD-C494-476C-8377-7D9B6CD6B88B" DisplayName="车辆型号" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="汽车装饰" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="门数" Description="" LogicalType="INTEGER" Id="VEH8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" SemanticTypeId="" DisplayName="座位数" Description="" LogicalType="INTEGER" Id="VEH9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid63CF5DCD-A409-463D-80AA-988770FF665C" DisplayName="车辆颜色" Description="" LogicalType="SUGGESTED_FROM" Id="VEH10">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="白色" />
+              <PossibleValue Description="" Value="黑色" />
+              <PossibleValue Description="" Value="红色" />
+              <PossibleValue Description="" Value="蓝色" />
+              <PossibleValue Description="" Value="绿色" />
+              <PossibleValue Description="" Value="米色" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="发动机尺寸" Description="" LogicalType="DECIMAL" Id="VEH11">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="发动机尺寸（单位）" Description="" LogicalType="SUGGESTED_FROM" Id="VEH12">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="立方厘米" Value="cc" />
+              <PossibleValue Description="立方英寸" Value="CI" />
+              <PossibleValue Description="升" Value="l" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" SemanticTypeId="guid082FD542-21EB-4c31-9ED0-B01948807BC3" DisplayName="制造年份" Description="" LogicalType="INTEGER" Id="VEH13">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="13" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="燃料类型" Description="" LogicalType="SUGGESTED_FROM" Id="VEH18">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="柴油" Value="柴油" />
+              <PossibleValue Description="电力" Value="电力" />
+              <PossibleValue Description="航空燃料" Value="航空燃料" />
+              <PossibleValue Description="汽油" Value="汽油" />
+              <PossibleValue Description="生物柴油" Value="生物柴油" />
+              <PossibleValue Description="无铅" Value="无铅" />
+              <PossibleValue Description="压缩天然气" Value="压缩天然气" />
+              <PossibleValue Description="液化气" Value="液化气" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="14" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA29B5F8F-BA18-4262-95BD-65B8216D8841" DisplayName="登记省（州）" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH19">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="15" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDAC78E2E-4C6F-4006-B291-0A42BAB2E339" DisplayName="注册国家或地区" Description="" LogicalType="SUGGESTED_FROM" Id="VEH20">
+            <PossibleValues>
+              <PossibleValue Description="&lt;未知&gt;" Value="&lt;未知&gt;" />
+              <PossibleValue Description="阿尔巴尼亚" Value="阿尔巴尼亚" />
+              <PossibleValue Description="阿尔及利亚" Value="阿尔及利亚" />
+              <PossibleValue Description="阿富汗" Value="阿富汗" />
+              <PossibleValue Description="阿根廷" Value="阿根廷" />
+              <PossibleValue Description="阿拉伯联合酋长国" Value="阿拉伯联合酋长国" />
+              <PossibleValue Description="阿曼" Value="阿曼" />
+              <PossibleValue Description="阿塞拜疆" Value="阿塞拜疆" />
+              <PossibleValue Description="埃及" Value="埃及" />
+              <PossibleValue Description="埃塞俄比亚" Value="埃塞俄比亚" />
+              <PossibleValue Description="爱尔兰" Value="爱尔兰" />
+              <PossibleValue Description="爱沙尼亚" Value="爱沙尼亚" />
+              <PossibleValue Description="安道尔" Value="安道尔" />
+              <PossibleValue Description="安哥拉" Value="安哥拉" />
+              <PossibleValue Description="安提瓜和巴布达" Value="安提瓜和巴布达" />
+              <PossibleValue Description="奥地利" Value="奥地利" />
+              <PossibleValue Description="澳大利亚" Value="澳大利亚" />
+              <PossibleValue Description="巴巴多斯岛" Value="巴巴多斯岛" />
+              <PossibleValue Description="巴布亚新几内亚" Value="巴布亚新几内亚" />
+              <PossibleValue Description="巴哈马" Value="巴哈马" />
+              <PossibleValue Description="巴基斯坦" Value="巴基斯坦" />
+              <PossibleValue Description="巴拉圭" Value="巴拉圭" />
+              <PossibleValue Description="巴林" Value="巴林" />
+              <PossibleValue Description="巴拿马" Value="巴拿马" />
+              <PossibleValue Description="巴西" Value="巴西" />
+              <PossibleValue Description="白俄罗斯" Value="白俄罗斯" />
+              <PossibleValue Description="保加利亚" Value="保加利亚" />
+              <PossibleValue Description="贝宁湾" Value="贝宁湾" />
+              <PossibleValue Description="比利时" Value="比利时" />
+              <PossibleValue Description="冰岛" Value="冰岛" />
+              <PossibleValue Description="波兰" Value="波兰" />
+              <PossibleValue Description="波斯尼亚" Value="波斯尼亚" />
+              <PossibleValue Description="玻利维亚（多民族国）" Value="玻利维亚（多民族国）" />
+              <PossibleValue Description="伯利兹" Value="伯利兹" />
+              <PossibleValue Description="帛琉" Value="帛琉" />
+              <PossibleValue Description="博茨瓦纳" Value="博茨瓦纳" />
+              <PossibleValue Description="不丹" Value="不丹" />
+              <PossibleValue Description="布吉纳法索" Value="布吉纳法索" />
+              <PossibleValue Description="布隆迪" Value="布隆迪" />
+              <PossibleValue Description="朝鲜人民民主共和国" Value="朝鲜人民民主共和国" />
+              <PossibleValue Description="赤道几内亚" Value="赤道几内亚" />
+              <PossibleValue Description="丹麦" Value="丹麦" />
+              <PossibleValue Description="德国" Value="德国" />
+              <PossibleValue Description="东帝汶" Value="东帝汶" />
+              <PossibleValue Description="多哥" Value="多哥" />
+              <PossibleValue Description="多米尼加" Value="多米尼加" />
+              <PossibleValue Description="多米尼加共和国" Value="多米尼加共和国" />
+              <PossibleValue Description="俄罗斯联邦" Value="俄罗斯联邦" />
+              <PossibleValue Description="厄瓜多尔" Value="厄瓜多尔" />
+              <PossibleValue Description="厄利垂亚" Value="厄利垂亚" />
+              <PossibleValue Description="法国" Value="法国" />
+              <PossibleValue Description="菲律宾" Value="菲律宾" />
+              <PossibleValue Description="斐济" Value="斐济" />
+              <PossibleValue Description="芬兰" Value="芬兰" />
+              <PossibleValue Description="佛得角" Value="佛得角" />
+              <PossibleValue Description="冈比亚" Value="冈比亚" />
+              <PossibleValue Description="刚果" Value="刚果" />
+              <PossibleValue Description="刚果民主共和国" Value="刚果民主共和国" />
+              <PossibleValue Description="哥伦比亚" Value="哥伦比亚" />
+              <PossibleValue Description="哥斯达黎加" Value="哥斯达黎加" />
+              <PossibleValue Description="格鲁吉亚" Value="格鲁吉亚" />
+              <PossibleValue Description="格瑞那达" Value="格瑞那达" />
+              <PossibleValue Description="古巴" Value="古巴" />
+              <PossibleValue Description="圭亚纳" Value="圭亚纳" />
+              <PossibleValue Description="哈萨克" Value="哈萨克" />
+              <PossibleValue Description="海地" Value="海地" />
+              <PossibleValue Description="韩国" Value="韩国" />
+              <PossibleValue Description="荷兰" Value="荷兰" />
+              <PossibleValue Description="黑塞哥维那" Value="黑塞哥维那" />
+              <PossibleValue Description="洪都拉斯" Value="洪都拉斯" />
+              <PossibleValue Description="吉布提" Value="吉布提" />
+              <PossibleValue Description="吉尔吉斯" Value="吉尔吉斯" />
+              <PossibleValue Description="吉里巴斯" Value="吉里巴斯" />
+              <PossibleValue Description="几内亚" Value="几内亚" />
+              <PossibleValue Description="几内亚比绍" Value="几内亚比绍" />
+              <PossibleValue Description="加拿大" Value="加拿大" />
+              <PossibleValue Description="加纳" Value="加纳" />
+              <PossibleValue Description="加蓬" Value="加蓬" />
+              <PossibleValue Description="柬埔寨" Value="柬埔寨" />
+              <PossibleValue Description="捷克共和国" Value="捷克共和国" />
+              <PossibleValue Description="津巴布韦" Value="津巴布韦" />
+              <PossibleValue Description="喀麦隆" Value="喀麦隆" />
+              <PossibleValue Description="卡塔尔" Value="卡塔尔" />
+              <PossibleValue Description="科摩罗" Value="科摩罗" />
+              <PossibleValue Description="科特迪瓦" Value="科特迪瓦" />
+              <PossibleValue Description="科威特" Value="科威特" />
+              <PossibleValue Description="克罗地亚" Value="克罗地亚" />
+              <PossibleValue Description="肯尼亚" Value="肯尼亚" />
+              <PossibleValue Description="拉脱维亚" Value="拉脱维亚" />
+              <PossibleValue Description="莱索托" Value="莱索托" />
+              <PossibleValue Description="老挝" Value="老挝" />
+              <PossibleValue Description="黎巴嫩" Value="黎巴嫩" />
+              <PossibleValue Description="立陶宛" Value="立陶宛" />
+              <PossibleValue Description="利比里亚" Value="利比里亚" />
+              <PossibleValue Description="利比亚" Value="利比亚" />
+              <PossibleValue Description="列支敦斯登" Value="列支敦斯登" />
+              <PossibleValue Description="卢森堡" Value="卢森堡" />
+              <PossibleValue Description="卢旺达" Value="卢旺达" />
+              <PossibleValue Description="罗马尼亚" Value="罗马尼亚" />
+              <PossibleValue Description="马达加斯加" Value="马达加斯加" />
+              <PossibleValue Description="马尔代夫" Value="马尔代夫" />
+              <PossibleValue Description="马耳他" Value="马耳他" />
+              <PossibleValue Description="马拉维" Value="马拉维" />
+              <PossibleValue Description="马来西亚" Value="马来西亚" />
+              <PossibleValue Description="马利" Value="马利" />
+              <PossibleValue Description="马绍尔群岛" Value="马绍尔群岛" />
+              <PossibleValue Description="毛里求斯" Value="毛里求斯" />
+              <PossibleValue Description="毛里塔尼亚" Value="毛里塔尼亚" />
+              <PossibleValue Description="美国" Value="美国" />
+              <PossibleValue Description="蒙古" Value="蒙古" />
+              <PossibleValue Description="蒙特内哥罗共和国" Value="蒙特内哥罗共和国" />
+              <PossibleValue Description="孟加拉国" Value="孟加拉国" />
+              <PossibleValue Description="秘鲁" Value="秘鲁" />
+              <PossibleValue Description="密克罗尼西亚（联邦）" Value="密克罗尼西亚（联邦）" />
+              <PossibleValue Description="缅甸" Value="缅甸" />
+              <PossibleValue Description="摩尔多瓦共和国" Value="摩尔多瓦共和国" />
+              <PossibleValue Description="摩洛哥" Value="摩洛哥" />
+              <PossibleValue Description="摩纳哥" Value="摩纳哥" />
+              <PossibleValue Description="莫桑比克" Value="莫桑比克" />
+              <PossibleValue Description="墨西哥" Value="墨西哥" />
+              <PossibleValue Description="纳米比亚" Value="纳米比亚" />
+              <PossibleValue Description="南非" Value="南非" />
+              <PossibleValue Description="南苏丹" Value="南苏丹" />
+              <PossibleValue Description="尼泊尔" Value="尼泊尔" />
+              <PossibleValue Description="尼加拉瓜" Value="尼加拉瓜" />
+              <PossibleValue Description="尼日尔" Value="尼日尔" />
+              <PossibleValue Description="尼日利亚" Value="尼日利亚" />
+              <PossibleValue Description="挪威" Value="挪威" />
+              <PossibleValue Description="诺鲁" Value="诺鲁" />
+              <PossibleValue Description="葡萄牙" Value="葡萄牙" />
+              <PossibleValue Description="前南斯拉夫的马其顿共和国" Value="前南斯拉夫的马其顿共和国" />
+              <PossibleValue Description="日本" Value="日本" />
+              <PossibleValue Description="瑞典" Value="瑞典" />
+              <PossibleValue Description="瑞士" Value="瑞士" />
+              <PossibleValue Description="萨尔瓦多" Value="萨尔瓦多" />
+              <PossibleValue Description="萨摩亚" Value="萨摩亚" />
+              <PossibleValue Description="塞尔维亚" Value="塞尔维亚" />
+              <PossibleValue Description="塞拉利昂" Value="塞拉利昂" />
+              <PossibleValue Description="塞内加尔" Value="塞内加尔" />
+              <PossibleValue Description="塞浦路斯" Value="塞浦路斯" />
+              <PossibleValue Description="塞舌尔" Value="塞舌尔" />
+              <PossibleValue Description="沙特阿拉伯" Value="沙特阿拉伯" />
+              <PossibleValue Description="圣多美和普林西比" Value="圣多美和普林西比" />
+              <PossibleValue Description="圣基茨和尼维斯" Value="圣基茨和尼维斯" />
+              <PossibleValue Description="圣露西亚" Value="圣露西亚" />
+              <PossibleValue Description="圣马力诺" Value="圣马力诺" />
+              <PossibleValue Description="圣文森特和格林纳丁斯" Value="圣文森特和格林纳丁斯" />
+              <PossibleValue Description="斯里兰卡" Value="斯里兰卡" />
+              <PossibleValue Description="斯洛伐克" Value="斯洛伐克" />
+              <PossibleValue Description="斯洛维尼亚" Value="斯洛维尼亚" />
+              <PossibleValue Description="斯威士兰" Value="斯威士兰" />
+              <PossibleValue Description="苏丹" Value="苏丹" />
+              <PossibleValue Description="苏里南" Value="苏里南" />
+              <PossibleValue Description="索罗门群岛" Value="索罗门群岛" />
+              <PossibleValue Description="索马里" Value="索马里" />
+              <PossibleValue Description="塔吉克斯坦" Value="塔吉克斯坦" />
+              <PossibleValue Description="泰国" Value="泰国" />
+              <PossibleValue Description="坦桑尼亚联合共和国" Value="坦桑尼亚联合共和国" />
+              <PossibleValue Description="汤加" Value="汤加" />
+              <PossibleValue Description="特立尼达和多巴哥" Value="特立尼达和多巴哥" />
+              <PossibleValue Description="突尼斯" Value="突尼斯" />
+              <PossibleValue Description="图瓦卢" Value="图瓦卢" />
+              <PossibleValue Description="土耳其" Value="土耳其" />
+              <PossibleValue Description="土库曼斯坦" Value="土库曼斯坦" />
+              <PossibleValue Description="瓦努阿图" Value="瓦努阿图" />
+              <PossibleValue Description="危地马拉" Value="危地马拉" />
+              <PossibleValue Description="委内瑞拉（玻利瓦尔共和国）" Value="委内瑞拉（玻利瓦尔共和国）" />
+              <PossibleValue Description="文莱" Value="文莱" />
+              <PossibleValue Description="乌干达" Value="乌干达" />
+              <PossibleValue Description="乌克兰" Value="乌克兰" />
+              <PossibleValue Description="乌拉圭" Value="乌拉圭" />
+              <PossibleValue Description="乌兹别克斯坦" Value="乌兹别克斯坦" />
+              <PossibleValue Description="西班牙" Value="西班牙" />
+              <PossibleValue Description="希腊" Value="希腊" />
+              <PossibleValue Description="新加坡" Value="新加坡" />
+              <PossibleValue Description="新西兰" Value="新西兰" />
+              <PossibleValue Description="匈牙利" Value="匈牙利" />
+              <PossibleValue Description="叙利亚阿拉伯共和国" Value="叙利亚阿拉伯共和国" />
+              <PossibleValue Description="牙买加" Value="牙买加" />
+              <PossibleValue Description="亚美尼亚" Value="亚美尼亚" />
+              <PossibleValue Description="也门" Value="也门" />
+              <PossibleValue Description="伊拉克" Value="伊拉克" />
+              <PossibleValue Description="伊朗（伊斯兰共和国）" Value="伊朗（伊斯兰共和国）" />
+              <PossibleValue Description="以色列" Value="以色列" />
+              <PossibleValue Description="意大利" Value="意大利" />
+              <PossibleValue Description="印度" Value="印度" />
+              <PossibleValue Description="印度尼西亚" Value="印度尼西亚" />
+              <PossibleValue Description="英国" Value="英国" />
+              <PossibleValue Description="约旦" Value="约旦" />
+              <PossibleValue Description="越南" Value="越南" />
+              <PossibleValue Description="赞比亚" Value="赞比亚" />
+              <PossibleValue Description="乍得" Value="乍得" />
+              <PossibleValue Description="智利" Value="智利" />
+              <PossibleValue Description="中非共和国" Value="中非共和国" />
+              <PossibleValue Description="中国" Value="中国" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="16" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="用途" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH21">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="19" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="附加信息" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="VEH31">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="20" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="欺诈标志" Description="" LogicalType="SUGGESTED_FROM" Id="VEH32">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="怀疑" />
+              <PossibleValue Description="" Value="空" />
+              <PossibleValue Description="" Value="调查中" />
+              <PossibleValue Description="" Value="已确认" />
+              <PossibleValue Description="" Value="已验证" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="21" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="数据源" Description="" LogicalType="SUGGESTED_FROM" Id="VEH33">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="保险欺诈局" />
+              <PossibleValue Description="" Value="益百利" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+    </EntityTypes>
+    <LinkTypes>
+      <LinkType Id="dab2f6f2-813c-4a47-b630-b91f52a1e0e1" Description="警报订阅源预订" DisplayName="警报订阅源预订" FromTypeIds="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb" ToTypeIds="1274e2e7-7751-4dae-a994-648718e19f04">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="0" Description="传送警报的方式" DisplayName="警报传送方法" Id="84aa56e3-84a1-4c05-9a77-4f9185202a55">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="通过警报检索" Description="通过警报检索 Web 服务" LogicalType="BOOLEAN" Id="72367e78-b265-46e1-8fc8-81f42d307e40">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes />
+      </LinkType>
+      <LinkType Id="CLML1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="索取链接" DisplayName="索取" FromTypeIds="CLA1" ToTypeIds="ADD1 INT1 IP1 ORG1 PER1 TEL1 VEH1 CLA1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="描述" Description="" LogicalType="SINGLE_LINE_STRING" Id="CLML2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="唯一参照" Description="" LogicalType="SINGLE_LINE_STRING" Id="CLML3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="附加信息" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CLML4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="数据源" Description="" LogicalType="SUGGESTED_FROM" Id="CLML5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="保险欺诈局" />
+              <PossibleValue Description="" Value="益百利" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="COML1" SemanticTypeId="guid59AF2273-E052-4d76-82D2-29FDAE535C45" Description="通信详细信息" DisplayName="通信" FromTypeIds="TEL1" ToTypeIds="ORG1 PER1 TEL1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="描述" Description="" LogicalType="SINGLE_LINE_STRING" Id="COML2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="唯一参照" Description="" LogicalType="SINGLE_LINE_STRING" Id="COML3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="附加信息" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="COML4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="数据源" Description="" LogicalType="SUGGESTED_FROM" Id="COML5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="保险欺诈局" />
+              <PossibleValue Description="" Value="益百利" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="通信日期及时间" Description="" LogicalType="DATE_AND_TIME" Id="COML7">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="POLL1" SemanticTypeId="guid04F96434-6847-41e3-9373-DB42C50060B3" Description="保险单链接" DisplayName="保险单" FromTypeIds="IP1 ORG1 PER1" ToTypeIds="ADD1 ACC1 CRC1 EM1 ORG1 PER1 TEL1 VEH1 CLA1 INT1 IP1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="描述" Description="" LogicalType="SINGLE_LINE_STRING" Id="POLL2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="唯一参照" Description="" LogicalType="SINGLE_LINE_STRING" Id="POLL3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="附加信息" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="POLL4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="数据源" Description="" LogicalType="SUGGESTED_FROM" Id="POLL5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="保险欺诈局" />
+              <PossibleValue Description="" Value="益百利" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="OTHL1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="第三方或其他索取人的详细信息" DisplayName="其他索取人" FromTypeIds="ADD1 ACC1 CLA1 CRC1 INT1 EM1 ORG1 PER1 TEL1 VEH1" ToTypeIds="ADD1 CLA1 ORG1 VEH1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="描述" Description="" LogicalType="SINGLE_LINE_STRING" Id="OTHL2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="唯一参照" Description="" LogicalType="SINGLE_LINE_STRING" Id="OTHL3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="附加信息" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="OTHL4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="数据源" Description="" LogicalType="SUGGESTED_FROM" Id="OTHL5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="保险欺诈局" />
+              <PossibleValue Description="" Value="益百利" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="VEHL1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="链接至车辆" DisplayName="车辆链接" FromTypeIds="VEH1" ToTypeIds="CLA1 ORG1 PER1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="描述" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEHL2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="唯一参照" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEHL3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="附加信息" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="VEHL4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="数据源" Description="" LogicalType="SUGGESTED_FROM" Id="VEHL5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="保险欺诈局" />
+              <PossibleValue Description="" Value="益百利" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="DUP1" SemanticTypeId="guid2B55231E-521E-4502-8989-3BE1DB0B864D" DisplayName="重複" FromTypeIds="ADD1 ACC1 CLA1 CRC1 INT1 EM1 IP1 ORG1 PER1 TEL1 VEH1" ToTypeIds="VEH1 TEL1 PER1 ORG1 IP1 EM1 INT1 CRC1 CLA1 ACC1 ADD1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="附加信息" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="DUP2">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="SUB1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" DisplayName="主体" FromTypeIds="cf17d636-44c9-4897-b19d-7d2eda002e57 INT1" ToTypeIds="ADD1 ACC1 CLA1 CRC1 INT1 EM1 IP1 ORG1 PER1 TEL1 VEH1 cf17d636-44c9-4897-b19d-7d2eda002e57">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="唯一参照" Description="" LogicalType="SINGLE_LINE_STRING" Id="SUB2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="描述" Description="" LogicalType="SINGLE_LINE_STRING" Id="PT2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="guidF49AD106-BBCA-4de0-A6C8-77BCE1493AFA" DisplayName="日期及时间" Description="" LogicalType="DATE_AND_TIME" Id="SUB3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="附加信息" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="SUB4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="数据源" Description="" LogicalType="SUGGESTED_FROM" Id="PT1">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;未知&gt;" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="保险欺诈局" />
+              <PossibleValue Description="" Value="益百利" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+    </LinkTypes>
+  </ItemTypes>
+  <Id>18b14ee3-ffb4-4e35-88bd-eee7f5806fa7</Id>
+  <Version>1</Version>
+  <SourceInfoMandatoryFields IsDateMandatory="false" IsDescriptionMandatory="false" IsReferenceMandatory="false" IsTypeMandatory="false" />
+  <LinkStrengthInfo DefaultLinkStrengthId="daf0e75f-ca7d-473a-80bf-6fad91472dc6">
+    <LinkStrengths>
+      <LinkStrength Id="daf0e75f-ca7d-473a-80bf-6fad91472dc6" Name="已确认" LineStyle="SOLID" />
+      <LinkStrength Id="683d1f08-b892-411e-997f-00881e62e84e" Name="未确认" LineStyle="DASHED" />
+      <LinkStrength Id="460819f3-82b8-4483-b528-a927b8fbb9cb" Name="待确认" LineStyle="DOTTED" />
+    </LinkStrengths>
+  </LinkStrengthInfo>
+  <LabelingSchemes>
+    <LabelingScheme Name="商业核心标签方案" Id="8355f4c5-1444-4a2f-b4da-f9374fbd80e6">
+      <LabelDefinitions>
+        <LabelDefinition ItemTypeId="372a12af-f684-41c5-9ce9-759b3beef826">
+          <LabelParts>
+            <LabelPart Value="07e81445-0f5e-4340-b355-c82809e895da" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb">
+          <LabelParts>
+            <LabelPart Value="ce3d12ac-2632-4a0f-b2b6-6a7fdda887a6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="1274e2e7-7751-4dae-a994-648718e19f04">
+          <LabelParts>
+            <LabelPart Value="b7b059a0-1079-45ac-8ae0-ee026f70dd69" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="dab2f6f2-813c-4a47-b630-b91f52a1e0e1">
+          <LabelParts>
+            <LabelPart Value="已订阅" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="cf17d636-44c9-4897-b19d-7d2eda002e57">
+          <LabelParts>
+            <LabelPart Value="d6d03ce2-3cd6-49c1-8a66-366d0e434fd4" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="43cd717c-0204-4c81-93ea-f9f0458bc5ea">
+          <LabelParts>
+            <LabelPart Value="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="ACC1">
+          <LabelParts>
+            <LabelPart Value="ACC3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="ADD1">
+          <LabelParts>
+            <LabelPart Value="ADD4" LabelPartType="PROPERTY_TYPE" />
+            <LabelPart Value="," LabelPartType="LITERAL" />
+            <LabelPart Value=" " LabelPartType="LITERAL" />
+            <LabelPart Value="ADD6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="CLA1">
+          <LabelParts>
+            <LabelPart Value="CLA3" LabelPartType="PROPERTY_TYPE" />
+            <LabelPart Value="," LabelPartType="LITERAL" />
+            <LabelPart Value=" " LabelPartType="LITERAL" />
+            <LabelPart Value="CLA6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="CRC1">
+          <LabelParts>
+            <LabelPart Value="CRC3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="INT1">
+          <LabelParts>
+            <LabelPart Value="INT5" LabelPartType="PROPERTY_TYPE" />
+            <LabelPart Value="," LabelPartType="LITERAL" />
+            <LabelPart Value=" " LabelPartType="LITERAL" />
+            <LabelPart Value="INT6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="ORG1">
+          <LabelParts>
+            <LabelPart Value="ORG3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="PER1">
+          <LabelParts>
+            <LabelPart Value="PER5" LabelPartType="PROPERTY_TYPE" />
+            <LabelPart Value=" " LabelPartType="LITERAL" />
+            <LabelPart Value="PER7" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="TEL1">
+          <LabelParts>
+            <LabelPart Value="TEL6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="VEH1">
+          <LabelParts>
+            <LabelPart Value="VEH3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="CLML1">
+          <LabelParts>
+            <LabelPart Value="索取" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="COML1">
+          <LabelParts>
+            <LabelPart Value="COML7" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="OTHL1">
+          <LabelParts>
+            <LabelPart Value="索取人" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="POLL1">
+          <LabelParts>
+            <LabelPart Value="保险单" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="VEHL1">
+          <LabelParts>
+            <LabelPart Value="车辆" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="EM1">
+          <LabelParts>
+            <LabelPart Value="EM3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="IP1">
+          <LabelParts>
+            <LabelPart Value="IP3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="DUP1">
+          <LabelParts>
+            <LabelPart Value="建立副本" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="SUB1">
+          <LabelParts>
+            <LabelPart Value="主体" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+      </LabelDefinitions>
+    </LabelingScheme>
+  </LabelingSchemes>
+  <SemanticTypeLibrary>
+    <lcx:LibraryCatalogue VersionMajor="1" VersionMinor="18" VersionRelease="27" VersionBuild="60" xmlns:lcx="http://www.i2group.com/Schemas/2001-12-07/LCXSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" LocaleHex="0809" />
+  </SemanticTypeLibrary>
+</ns2:Schema>

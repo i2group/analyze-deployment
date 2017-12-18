@@ -1,0 +1,2137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ns2:Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns3="http://www.i2group.com/Schemas/2011-03-03/ModelSchemaExtension" DefaultLabelingSchemeId="8355f4c5-1444-4a2f-b4da-f9374fbd80e6" xmlns:ns2="http://www.i2group.com/Schemas/2011-03-03/ModelSchema">
+  <GradeTypes>
+    <GradeType Description="Kaynak Değerlendirmesi" Mandatory="false" Id="G1" Name="Güvenilirlik">
+      <Values>
+        <Value>A</Value>
+        <Value>B</Value>
+        <Value>C</Value>
+        <Value>D</Value>
+        <Value>E</Value>
+      </Values>
+    </GradeType>
+    <GradeType Description="Bilgi İstihbaratı Değerlendirmesi" Mandatory="false" Id="G2" Name="Güven">
+      <Values>
+        <Value>1</Value>
+        <Value>2</Value>
+        <Value>3</Value>
+        <Value>4</Value>
+        <Value>5</Value>
+      </Values>
+    </GradeType>
+    <GradeType Description="İşleme Kodu" Mandatory="false" Id="G3" Name="Gizlilik">
+      <Values>
+        <Value>1</Value>
+        <Value>2</Value>
+        <Value>3</Value>
+        <Value>4</Value>
+        <Value>5</Value>
+      </Values>
+    </GradeType>
+  </GradeTypes>
+  <ItemTypes>
+    <EntityTypes>
+      <EntityType Id="372a12af-f684-41c5-9ce9-759b3beef826" Description="Küme" DisplayName="Küme" Icon="General group">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="255" SemanticTypeId="" DisplayName="Ad" Description="Ad" LogicalType="SINGLE_LINE_STRING" Id="07e81445-0f5e-4340-b355-c82809e895da">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb" Description="Kullanıcı" DisplayName="Kullanıcı" Icon="Profmale">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Ad" Description="Ad" LogicalType="SINGLE_LINE_STRING" Id="ce3d12ac-2632-4a0f-b2b6-6a7fdda887a6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Resim" Description="Resim" LogicalType="PICTURE" Id="becf8151-c6ac-4b9e-bff5-bb56e02fb2ed">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Kullanılabilir" Description="Kullanılabilirlik" LogicalType="BOOLEAN" Id="e31bc44e-39f2-4221-a237-a69766d4685e">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="cf17d636-44c9-4897-b19d-7d2eda002e57" Description="Analyst's Notebook grafiği" DisplayName="Analyst's Notebook Grafiği" Icon="Anbchart">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="255" SemanticTypeId="" DisplayName="Ad" Description="Grafiğin dosya adı" LogicalType="SINGLE_LINE_STRING" Id="d6d03ce2-3cd6-49c1-8a66-366d0e434fd4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Grafik İkili Verileri" Description="Grafiğin içeriklerinin saklandığı ikili dosya" LogicalType="DOCUMENT" Id="a20fef80-5c5f-4cf6-a597-c869193792e7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Grafik Önizleme Görüntüsü" Description="Grafiğin küçük resim görüntüsü" LogicalType="PICTURE" Id="8690b4d1-421d-4df1-8a9b-b1d25a1676e3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="Grafik Dizini Verileri" Description="Grafiğin dizinini oluşturmak için kullanılan veriler" LogicalType="DOCUMENT" Id="c84133b6-7c02-466f-ba14-c1bf28787f2c">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="1274e2e7-7751-4dae-a994-648718e19f04" Description="Uyarı Akışı" DisplayName="Uyarı Akışı" Icon="Search">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="true" Position="3" Description="Bu akıştan uyarıları tetikleyecek olaylar" DisplayName="Uyarı Tetikleyici Olayları" Id="566eaa37-01d2-4628-9231-a0448ef4a44c">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="Öğe değiştirildi" Description="Bu öğe üzerinde yapılan değişikliklerle ilgili uyarı" LogicalType="BOOLEAN" Id="03487793-7975-4332-903b-e670a66c9451">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Öğe silindi" Description="Bu öğenin silinmesiyle ilgili uyarı" LogicalType="BOOLEAN" Id="f8471cf2-0b19-4bd2-9187-d3ac6f474026">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Öğeye link oluşturuldu" Description="Bu öğeye oluşturulan linklerle ilgili uyarı" LogicalType="BOOLEAN" Id="0b99c403-49f7-4757-9876-3606ec5befa0">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="Öğe birincil özellikleri değiştirildi" Description="Bu öğenin birincil özellikleri üzerinde yapılan değişikliklerle ilgili uyarı" LogicalType="BOOLEAN" Id="4b873852-76e4-48e1-884a-9f95b87210f9">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="Bu kümeye içerik eklendi" Description="Bu kümeye yapılan eklemelerle ilgili uyarı" LogicalType="BOOLEAN" Id="afa7f3fb-23b0-4869-8b7d-0306ef158b5b">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="8" Mandatory="false" SemanticTypeId="" DisplayName="Var olan küme içeriği için sürüm değişikliği" Description="Bu kümedeki bir öğenin sürümü üzerinde yapılan değişikliklerle ilgili uyarı" LogicalType="BOOLEAN" Id="051e91c1-e925-4dd4-97f1-75ffe37f9c48">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="Bu kümeden içerik kaldırıldı" Description="Bu kümeden yapılan kaldırmalarla ilgili uyarı" LogicalType="BOOLEAN" Id="8146df80-3a08-4106-900f-214faf9ec571">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="5" Mandatory="false" SemanticTypeId="" DisplayName="Bu kümedeki öğe değiştirildi" Description="Bu kümedeki herhangi bir öğe üzerinde yapılan değişikliklerle ilgili uyarı" LogicalType="BOOLEAN" Id="db8c60d1-1ff9-4896-bbd0-5e33351815e2">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="Bu kümedeki öğe silindi" Description="Bu kümedeki herhangi bir öğenin silinmesiyle ilgili uyarı" LogicalType="BOOLEAN" Id="514b213e-b677-428a-a5c9-b8690d564032">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="7" Mandatory="false" SemanticTypeId="" DisplayName="Bu kümedeki öğe hedefe bağlandı" Description="Bu kümedeki herhangi bir öğeye oluşturulan linklerle ilgili uyarı" LogicalType="BOOLEAN" Id="2d9ed2a2-5f33-432b-b99b-f08349f8366d">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="Bu kümedeki öğede birincil özellikler değiştirildi" Description="Bu kümedeki bir öğenin birincil özellikleri üzerinde yapılan değişikliklerle ilgili uyarı" LogicalType="BOOLEAN" Id="e2127bbb-9ad8-417d-840f-74ec9849ec5e">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Ad" Description="Bu uyarı akışının adı" LogicalType="SINGLE_LINE_STRING" Id="b7b059a0-1079-45ac-8ae0-ee026f70dd69">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Tanım" Description="Oluşturulan uyarılara dahil edilecek açıklayıcı metin" LogicalType="MULTIPLE_LINE_STRING" Id="d1949ec2-9a77-461e-a16f-81026ccd1e89">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Uyarı Başvurusu Tanıtıcısı" Description="Uyarılar için izlenen öğenin benzersiz tanıtıcısı" LogicalType="SINGLE_LINE_STRING" Id="814a72ed-5c68-4763-8d47-b4866de2344b">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="43cd717c-0204-4c81-93ea-f9f0458bc5ea" Description="Saklanan Sorgu" DisplayName="Sorgu" Icon="StoredQuery">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="5" Description="Sunum Meta Verileri. Bu veriler, saklanan sorguya özeldir ve doğrudan düzenlenemez." DisplayName="Sorgu Sunumu" Id="2c818fa6-68c4-42a4-9bc3-c34bcdc4379a">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Biçim" Description="Sunum Biçim Tipi. Bu veriler, saklanan sorguya özeldir ve doğrudan düzenlenemez." LogicalType="SINGLE_LINE_STRING" Id="97f76ffe-1ece-4d5b-9e20-ea66b572b2c5">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Dize Verileri" Description="Sunum Dize Verileri. Bu veriler, saklanan sorguya özeldir ve doğrudan düzenlenemez." LogicalType="SINGLE_LINE_STRING" Id="b58f34b6-60fb-4730-a4aa-156bf4e817e0">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="XML Verileri" Description="Sunum XML Verileri. Bu veriler, saklanan sorguya özeldir ve doğrudan düzenlenemez." LogicalType="XML" Id="ab2fdf78-ddd8-49b2-872a-f5c8ac2106d5">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Ad" Description="Bu saklanan sorgunun kullanıcı tarafından belirtilen adı" LogicalType="SINGLE_LINE_STRING" Id="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Tanım" Description="Bu saklanan sorgunun açıklaması" LogicalType="MULTIPLE_LINE_STRING" Id="a30ddbca-6c14-4454-bdb0-811a5b5beb16">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Sorgu Tipi" Description="Saklanan Sorgu Tipi. Bu veriler, saklanan sorguya özeldir ve doğrudan düzenlenemez." LogicalType="SINGLE_LINE_STRING" Id="5ae10920-6d60-419f-80db-ba5b9935d93b">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Sorgu Tanımı (Dize)" Description="Saklanan Sorgu Dizesi Tanımı. Bu veriler, saklanan sorguya özeldir ve doğrudan düzenlenemez." LogicalType="SINGLE_LINE_STRING" Id="17903032-1cd1-4524-94ef-a35aab212e6a">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="Sorgu Tanımı (XML)" Description="Saklanan Sorgu XML Tanımı. Bu veriler, saklanan sorguya özeldir ve doğrudan düzenlenemez." LogicalType="XML" Id="f5916739-a962-4c01-95d3-2598bfabc1b5">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="ADD1" SemanticTypeId="guidC6A2C76F-5637-43DC-92F8-8F3563226307" Description="Müşteri adresi ayrıntıları" DisplayName="Adres" Icon="House">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="20" Description="" DisplayName="Görüntüler" Id="ADD22">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="Görüntü" Description="" LogicalType="PICTURE" Id="ADD23">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Görüntü Tanımı" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="ADD24">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Benzersiz Referans" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB11A89A6-F50C-4c73-949F-00594985DA69" DisplayName="Konum Tipi" Description="" LogicalType="SUGGESTED_FROM" Id="ADD26">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Araştırma/Bilim Tesisi" />
+              <PossibleValue Description="" Value="Askeri Tesis" />
+              <PossibleValue Description="" Value="Banka" />
+              <PossibleValue Description="" Value="Basın Bürosu" />
+              <PossibleValue Description="" Value="Benzin İstasyonu" />
+              <PossibleValue Description="" Value="Bölge" />
+              <PossibleValue Description="" Value="Çiftlik" />
+              <PossibleValue Description="" Value="Depo" />
+              <PossibleValue Description="" Value="Doğduğu Yer" />
+              <PossibleValue Description="" Value="Eğitim Kampı" />
+              <PossibleValue Description="" Value="Elçilik" />
+              <PossibleValue Description="" Value="Ev" />
+              <PossibleValue Description="" Value="Garaj" />
+              <PossibleValue Description="" Value="Geçiş Noktası" />
+              <PossibleValue Description="" Value="Hapishane/Cezaevi" />
+              <PossibleValue Description="" Value="Hastane" />
+              <PossibleValue Description="" Value="Havaalanı" />
+              <PossibleValue Description="" Value="Hedef/Olası Hedef" />
+              <PossibleValue Description="" Value="Hükümet Binası" />
+              <PossibleValue Description="" Value="İbadethane" />
+              <PossibleValue Description="" Value="İşletme" />
+              <PossibleValue Description="" Value="Karakol" />
+              <PossibleValue Description="" Value="Kasaba" />
+              <PossibleValue Description="" Value="Konut" />
+              <PossibleValue Description="" Value="Köy" />
+              <PossibleValue Description="" Value="Mağaza" />
+              <PossibleValue Description="" Value="Mülteci Kampı" />
+              <PossibleValue Description="" Value="Okul" />
+              <PossibleValue Description="" Value="Otel" />
+              <PossibleValue Description="" Value="Otopark" />
+              <PossibleValue Description="" Value="Park" />
+              <PossibleValue Description="Sivil Toplum Kuruluşu" Value="Sivil Toplum Kuruluşu Şube Ofisi" />
+              <PossibleValue Description="" Value="Siyasi Parti Bürosu" />
+              <PossibleValue Description="" Value="Spor Sahası" />
+              <PossibleValue Description="" Value="Şehir" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid65F516EA-9C0E-454D-B12E-5A181122A2E5" DisplayName="Apartman Numarası" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDECE0D4F-CD3C-43d7-8F52-A068EA5BF494" DisplayName="Bina Numarası" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidD733BC65-AC13-413d-B60D-A4784C8A1CD8" DisplayName="Bina Adı" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid2F6B7E57-7626-44DC-9CE5-ECD67DF2157E" DisplayName="Sokak Adı" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Bölge" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD20">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid6D5B39A9-41EC-477D-AA79-4CEF272FF067" DisplayName="Şehir/İl" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA29B5F8F-BA18-4262-95BD-65B8216D8841" DisplayName="İlçe" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Eyalet" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD25">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidE88DF247-7CA6-4E4F-B38B-87DDE11EE98C" DisplayName="Posta Kodu" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDAC78E2E-4C6F-4006-B291-0A42BAB2E339" DisplayName="Ülke ya da Bölge" Description="" LogicalType="SUGGESTED_FROM" Id="ADD10">
+            <PossibleValues>
+              <PossibleValue Description="&lt;Bilinmiyor&gt;" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="Afganistan" Value="Afganistan" />
+              <PossibleValue Description="Almanya" Value="Almanya" />
+              <PossibleValue Description="Amerika Birleşik Devletleri" Value="Amerika Birleşik Devletleri" />
+              <PossibleValue Description="Andorra" Value="Andorra" />
+              <PossibleValue Description="Angola" Value="Angola" />
+              <PossibleValue Description="Antigua ve Barbuda" Value="Antigua ve Barbuda" />
+              <PossibleValue Description="Arjantin" Value="Arjantin" />
+              <PossibleValue Description="Arnavutluk" Value="Arnavutluk" />
+              <PossibleValue Description="Avustralya" Value="Avustralya" />
+              <PossibleValue Description="Avusturya" Value="Avusturya" />
+              <PossibleValue Description="Azerbaycan" Value="Azerbaycan" />
+              <PossibleValue Description="Bahamalar" Value="Bahamalar" />
+              <PossibleValue Description="Bahreyn" Value="Bahreyn" />
+              <PossibleValue Description="Bangladeş" Value="Bangladeş" />
+              <PossibleValue Description="Barbados" Value="Barbados" />
+              <PossibleValue Description="Belçika" Value="Belçika" />
+              <PossibleValue Description="Belize" Value="Belize" />
+              <PossibleValue Description="Benin" Value="Benin" />
+              <PossibleValue Description="Beyaz Rusya" Value="Beyaz Rusya" />
+              <PossibleValue Description="Birleşik Arap Emirlikleri" Value="Birleşik Arap Emirlikleri" />
+              <PossibleValue Description="Birleşik Krallık" Value="Birleşik Krallık" />
+              <PossibleValue Description="Bolivya (Çok Uluslu Devleti)" Value="Bolivya (Çok Uluslu Devleti)" />
+              <PossibleValue Description="Bosna" Value="Bosna" />
+              <PossibleValue Description="Botsvana" Value="Botsvana" />
+              <PossibleValue Description="Brezilya" Value="Brezilya" />
+              <PossibleValue Description="Brunei Sultanlığı" Value="Brunei Sultanlığı" />
+              <PossibleValue Description="Bulgaristan" Value="Bulgaristan" />
+              <PossibleValue Description="Burkina Faso" Value="Burkina Faso" />
+              <PossibleValue Description="Burundi" Value="Burundi" />
+              <PossibleValue Description="Butan" Value="Butan" />
+              <PossibleValue Description="Cezayir" Value="Cezayir" />
+              <PossibleValue Description="Cibuti" Value="Cibuti" />
+              <PossibleValue Description="Comoros" Value="Comoros" />
+              <PossibleValue Description="Çad" Value="Çad" />
+              <PossibleValue Description="Çek Cumhuriyeti" Value="Çek Cumhuriyeti" />
+              <PossibleValue Description="Çin" Value="Çin" />
+              <PossibleValue Description="Danimarka" Value="Danimarka" />
+              <PossibleValue Description="Dominik Cumhuriyeti" Value="Dominik Cumhuriyeti" />
+              <PossibleValue Description="Dominika" Value="Dominika" />
+              <PossibleValue Description="Ekvador" Value="Ekvador" />
+              <PossibleValue Description="Ekvator Ginesi" Value="Ekvator Ginesi" />
+              <PossibleValue Description="El Salvador" Value="El Salvador" />
+              <PossibleValue Description="Endonezya" Value="Endonezya" />
+              <PossibleValue Description="Eritre" Value="Eritre" />
+              <PossibleValue Description="Ermenistan" Value="Ermenistan" />
+              <PossibleValue Description="Eski Yugoslav Makedonya Cumhuriyeti" Value="Eski Yugoslav Makedonya Cumhuriyeti" />
+              <PossibleValue Description="Estonya" Value="Estonya" />
+              <PossibleValue Description="Etiyopya" Value="Etiyopya" />
+              <PossibleValue Description="Fas" Value="Fas" />
+              <PossibleValue Description="Fiji" Value="Fiji" />
+              <PossibleValue Description="Fildişi Sahilleri" Value="Fildişi Sahilleri" />
+              <PossibleValue Description="Filipinler" Value="Filipinler" />
+              <PossibleValue Description="Finlandiya" Value="Finlandiya" />
+              <PossibleValue Description="Fransa" Value="Fransa" />
+              <PossibleValue Description="Gabon" Value="Gabon" />
+              <PossibleValue Description="Gambiya" Value="Gambiya" />
+              <PossibleValue Description="Gana" Value="Gana" />
+              <PossibleValue Description="Gine" Value="Gine" />
+              <PossibleValue Description="Grenada" Value="Grenada" />
+              <PossibleValue Description="Guatemala" Value="Guatemala" />
+              <PossibleValue Description="Guinea-Bissau" Value="Guinea-Bissau" />
+              <PossibleValue Description="Guyana" Value="Guyana" />
+              <PossibleValue Description="Güney Afrika" Value="Güney Afrika" />
+              <PossibleValue Description="Güney Sudan" Value="Güney Sudan" />
+              <PossibleValue Description="Gürcistan" Value="Gürcistan" />
+              <PossibleValue Description="Haiti" Value="Haiti" />
+              <PossibleValue Description="Hersek" Value="Hersek" />
+              <PossibleValue Description="Hırvatistan" Value="Hırvatistan" />
+              <PossibleValue Description="Hindistan" Value="Hindistan" />
+              <PossibleValue Description="Hollanda" Value="Hollanda" />
+              <PossibleValue Description="Honduras" Value="Honduras" />
+              <PossibleValue Description="Irak" Value="Irak" />
+              <PossibleValue Description="İran (İslam Cumhuriyeti)" Value="İran (İslam Cumhuriyeti)" />
+              <PossibleValue Description="İrlanda" Value="İrlanda" />
+              <PossibleValue Description="İspanya" Value="İspanya" />
+              <PossibleValue Description="İsrail" Value="İsrail" />
+              <PossibleValue Description="İsveç" Value="İsveç" />
+              <PossibleValue Description="İsviçre" Value="İsviçre" />
+              <PossibleValue Description="İtalya" Value="İtalya" />
+              <PossibleValue Description="İzlanda" Value="İzlanda" />
+              <PossibleValue Description="Jamaika" Value="Jamaika" />
+              <PossibleValue Description="Japonya" Value="Japonya" />
+              <PossibleValue Description="Kamboçya" Value="Kamboçya" />
+              <PossibleValue Description="Kamerun" Value="Kamerun" />
+              <PossibleValue Description="Kanada" Value="Kanada" />
+              <PossibleValue Description="Karadağ" Value="Karadağ" />
+              <PossibleValue Description="Katar" Value="Katar" />
+              <PossibleValue Description="Kazakistan" Value="Kazakistan" />
+              <PossibleValue Description="Kenya" Value="Kenya" />
+              <PossibleValue Description="Kıbrıs" Value="Kıbrıs" />
+              <PossibleValue Description="Kırgızistan" Value="Kırgızistan" />
+              <PossibleValue Description="Kiribati" Value="Kiribati" />
+              <PossibleValue Description="Kolombiya" Value="Kolombiya" />
+              <PossibleValue Description="Kongo" Value="Kongo" />
+              <PossibleValue Description="Kongo Demokratik Cumhuriyeti" Value="Kongo Demokratik Cumhuriyeti" />
+              <PossibleValue Description="Kore Cumhuriyeti" Value="Kore Cumhuriyeti" />
+              <PossibleValue Description="Kore Demokratik Halk Cumhuriyeti" Value="Kore Demokratik Halk Cumhuriyeti" />
+              <PossibleValue Description="Kosta Rika" Value="Kosta Rika" />
+              <PossibleValue Description="Kuveyt" Value="Kuveyt" />
+              <PossibleValue Description="Küba" Value="Küba" />
+              <PossibleValue Description="Laos Demokratik Halk Cumhuriyeti" Value="Laos Demokratik Halk Cumhuriyeti" />
+              <PossibleValue Description="Lesotho" Value="Lesotho" />
+              <PossibleValue Description="Letonya" Value="Letonya" />
+              <PossibleValue Description="Liberya" Value="Liberya" />
+              <PossibleValue Description="Libya" Value="Libya" />
+              <PossibleValue Description="Lihtenştayn" Value="Lihtenştayn" />
+              <PossibleValue Description="Litvanya" Value="Litvanya" />
+              <PossibleValue Description="Lübnan" Value="Lübnan" />
+              <PossibleValue Description="Lüksemburg" Value="Lüksemburg" />
+              <PossibleValue Description="Macaristan" Value="Macaristan" />
+              <PossibleValue Description="Madagaskar" Value="Madagaskar" />
+              <PossibleValue Description="Malavi" Value="Malavi" />
+              <PossibleValue Description="Maldivler" Value="Maldivler" />
+              <PossibleValue Description="Malezya" Value="Malezya" />
+              <PossibleValue Description="Mali" Value="Mali" />
+              <PossibleValue Description="Malta" Value="Malta" />
+              <PossibleValue Description="Marshall Adaları" Value="Marshall Adaları" />
+              <PossibleValue Description="Mauritius" Value="Mauritius" />
+              <PossibleValue Description="Meksika" Value="Meksika" />
+              <PossibleValue Description="Mısır" Value="Mısır" />
+              <PossibleValue Description="Mikronezya (Federal Devletleri)" Value="Mikronezya (Federal Devletleri)" />
+              <PossibleValue Description="Moğolistan" Value="Moğolistan" />
+              <PossibleValue Description="Moldova Cumhuriyeti" Value="Moldova Cumhuriyeti" />
+              <PossibleValue Description="Monako" Value="Monako" />
+              <PossibleValue Description="Moritanya" Value="Moritanya" />
+              <PossibleValue Description="Mozambik" Value="Mozambik" />
+              <PossibleValue Description="Myanmar" Value="Myanmar" />
+              <PossibleValue Description="Namibya" Value="Namibya" />
+              <PossibleValue Description="Nauru" Value="Nauru" />
+              <PossibleValue Description="Nepal" Value="Nepal" />
+              <PossibleValue Description="Nijer" Value="Nijer" />
+              <PossibleValue Description="Nijerya" Value="Nijerya" />
+              <PossibleValue Description="Nikaragua" Value="Nikaragua" />
+              <PossibleValue Description="Norveç" Value="Norveç" />
+              <PossibleValue Description="Orta Afrika Cumhuriyeti" Value="Orta Afrika Cumhuriyeti" />
+              <PossibleValue Description="Özbekistan" Value="Özbekistan" />
+              <PossibleValue Description="Pakistan" Value="Pakistan" />
+              <PossibleValue Description="Palau" Value="Palau" />
+              <PossibleValue Description="Panama" Value="Panama" />
+              <PossibleValue Description="Papua Yeni Gine" Value="Papua Yeni Gine" />
+              <PossibleValue Description="Paraguay" Value="Paraguay" />
+              <PossibleValue Description="Peru" Value="Peru" />
+              <PossibleValue Description="Polonya" Value="Polonya" />
+              <PossibleValue Description="Portekiz" Value="Portekiz" />
+              <PossibleValue Description="Romanya" Value="Romanya" />
+              <PossibleValue Description="Ruanda" Value="Ruanda" />
+              <PossibleValue Description="Rusya Federasyonu" Value="Rusya Federasyonu" />
+              <PossibleValue Description="Saint Kitts ve Nevis" Value="Saint Kitts ve Nevis" />
+              <PossibleValue Description="Saint Lucia" Value="Saint Lucia" />
+              <PossibleValue Description="Saint Vincent ve Grenadinler" Value="Saint Vincent ve Grenadinler" />
+              <PossibleValue Description="Samoa" Value="Samoa" />
+              <PossibleValue Description="San Marino" Value="San Marino" />
+              <PossibleValue Description="Sao Tome ve Principe" Value="Sao Tome ve Principe" />
+              <PossibleValue Description="Senegal" Value="Senegal" />
+              <PossibleValue Description="Seyşeller" Value="Seyşeller" />
+              <PossibleValue Description="Sırbistan" Value="Sırbistan" />
+              <PossibleValue Description="Sierra Leone" Value="Sierra Leone" />
+              <PossibleValue Description="Singapur" Value="Singapur" />
+              <PossibleValue Description="Slovakya" Value="Slovakya" />
+              <PossibleValue Description="Slovenya" Value="Slovenya" />
+              <PossibleValue Description="Solomon Adaları" Value="Solomon Adaları" />
+              <PossibleValue Description="Somali" Value="Somali" />
+              <PossibleValue Description="Sri Lanka" Value="Sri Lanka" />
+              <PossibleValue Description="Sudan" Value="Sudan" />
+              <PossibleValue Description="Surinam" Value="Surinam" />
+              <PossibleValue Description="Suriye Arap Cumhuriyeti" Value="Suriye Arap Cumhuriyeti" />
+              <PossibleValue Description="Suudi Arabistan" Value="Suudi Arabistan" />
+              <PossibleValue Description="Svaziland" Value="Svaziland" />
+              <PossibleValue Description="Şili" Value="Şili" />
+              <PossibleValue Description="Tacikistan" Value="Tacikistan" />
+              <PossibleValue Description="Tanzanya Birleşik Cumhuriyeti" Value="Tanzanya Birleşik Cumhuriyeti" />
+              <PossibleValue Description="Tayland" Value="Tayland" />
+              <PossibleValue Description="Timor-Leste" Value="Timor-Leste" />
+              <PossibleValue Description="Togo" Value="Togo" />
+              <PossibleValue Description="Tonga" Value="Tonga" />
+              <PossibleValue Description="Trinidad ve Tobago" Value="Trinidad ve Tobago" />
+              <PossibleValue Description="Tunus" Value="Tunus" />
+              <PossibleValue Description="Tuvalu" Value="Tuvalu" />
+              <PossibleValue Description="Türkiye" Value="Türkiye" />
+              <PossibleValue Description="Türkmenistan" Value="Türkmenistan" />
+              <PossibleValue Description="Uganda" Value="Uganda" />
+              <PossibleValue Description="Ukrayna" Value="Ukrayna" />
+              <PossibleValue Description="Umman" Value="Umman" />
+              <PossibleValue Description="Uruguay" Value="Uruguay" />
+              <PossibleValue Description="Ürdün" Value="Ürdün" />
+              <PossibleValue Description="Vanuatu" Value="Vanuatu" />
+              <PossibleValue Description="Venezuela (Bolivar Cumhuriyeti)" Value="Venezuela (Bolivar Cumhuriyeti)" />
+              <PossibleValue Description="Vietnam" Value="Vietnam" />
+              <PossibleValue Description="Yemen" Value="Yemen" />
+              <PossibleValue Description="Yeni Zelanda" Value="Yeni Zelanda" />
+              <PossibleValue Description="Yeşil Burun Adaları" Value="Yeşil Burun Adaları" />
+              <PossibleValue Description="Yunanistan" Value="Yunanistan" />
+              <PossibleValue Description="Zambiya" Value="Zambiya" />
+              <PossibleValue Description="Zimbabve" Value="Zimbabve" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="12" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA3722B89-FB0B-4CCA-8611-331784F40509" DisplayName="Posta Kutusu" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD11">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="13" Mandatory="false" SemanticTypeId="guidB66D144B-B6DB-4bb5-8222-6F649514EDAB" DisplayName="Coğrafi Konum" Description="Coğrafi Konum" LogicalType="GEOSPATIAL" Id="ADD27">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="14" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid7877FB38-38DC-4fea-87BD-838A6EA66F51" DisplayName="Doğuya Hareket" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD12">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="15" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidC319A593-C6D6-4cd0-91EF-14A932488F3B" DisplayName="Kuzeye Hareket" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD13">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="16" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid5304A03B-FE47-4406-91E7-0D49EC8409A6" DisplayName="Enlem" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD14">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="17" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9" DisplayName="Boylam" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD15">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="18" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Birleşik Koordinatlar" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD21">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="19" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E" DisplayName="Karşılaştırma Noktası" Description="" LogicalType="SUGGESTED_FROM" Id="ADD16">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="Avrupalı" Value="EUR-7" />
+              <PossibleValue Description="Genel Alan Referans Sistemi" Value="GARS" />
+              <PossibleValue Description="Askeri Grid Referans Sistemi" Value="MGRS" />
+              <PossibleValue Description="Donanım GB" Value="OGB-7" />
+              <PossibleValue Description="Dünya Jeodezik Sistemi" Value="WGS84" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="21" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Ek Bilgiler" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="ADD17">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="22" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Dolandırıcılık İşareti" Description="" LogicalType="SUGGESTED_FROM" Id="ADD19">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Araştırılıyor" />
+              <PossibleValue Description="" Value="Doğrulanmış" />
+              <PossibleValue Description="" Value="Geçerliliği Denetlendi" />
+              <PossibleValue Description="" Value="Şüpheli" />
+              <PossibleValue Description="" Value="Yok" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="23" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Veri Kaynağı" Description="" LogicalType="SUGGESTED_FROM" Id="ADD18">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="Sigorta Sahtekarlığı Bürosu" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="ACC1" SemanticTypeId="guidAB9A5D8B-9D78-47FE-8302-C167B64D45CC" Description="Banka hesabı ayrıntıları" DisplayName="Hesap" Icon="Account">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="7" Description="" DisplayName="Ödeme Geçmişi" Id="ACC8">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="guid735D4427-99F9-45DF-8820-DDEA9CF7C27E" DisplayName="Ödeme" Description="" LogicalType="DECIMAL" Id="ACC9">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Benzersiz Referans" Description="" LogicalType="SINGLE_LINE_STRING" Id="ACC2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid22340EB0-01BB-4263-928E-FC971ACB3C51" DisplayName="Hesap Adı" Description="" LogicalType="SINGLE_LINE_STRING" Id="ACC13">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidC93D1CA5-5FEB-412B-A6E0-CE7893E606AA" DisplayName="Hesap Numarası" Description="" LogicalType="SINGLE_LINE_STRING" Id="ACC3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid3CD52E22-5E43-4F39-9DCF-8B13B9CE78B2" DisplayName="Yönlendirme Numarası/Sıralama Kodu" Description="Banka sicili" LogicalType="SINGLE_LINE_STRING" Id="ACC4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid0FA4C573-0436-4360-AEA7-F123F1994B8E" DisplayName="Hesap Tipi" Description="" LogicalType="SUGGESTED_FROM" Id="ACC5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Anlık" />
+              <PossibleValue Description="" Value="Çek Hesabı" />
+              <PossibleValue Description="" Value="Depozito" />
+              <PossibleValue Description="" Value="İnşaat Şirketi" />
+              <PossibleValue Description="" Value="Komisyon" />
+              <PossibleValue Description="" Value="Kredi Kartı" />
+              <PossibleValue Description="" Value="Kredi Sınırı" />
+              <PossibleValue Description="" Value="Mevduat Belgesi" />
+              <PossibleValue Description="" Value="Mortgage" />
+              <PossibleValue Description="" Value="Perakende Hesabı" />
+              <PossibleValue Description="" Value="Posta" />
+              <PossibleValue Description="" Value="Tasarruf hesabı" />
+              <PossibleValue Description="" Value="Ticari" />
+              <PossibleValue Description="" Value="Üyelik Hesabı" />
+              <PossibleValue Description="" Value="Yüksek Faiz" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDA2E2421-DAD1-480d-8EE5-8CF639500158" DisplayName="Tahsilat Yöntemi" Description="Ödeme tahsilatı yöntemi" LogicalType="SUGGESTED_FROM" Id="ACC6">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Doğrudan Borçlandırma" />
+              <PossibleValue Description="" Value="Sürekli Yetkilendirme" />
+              <PossibleValue Description="" Value="Süreli Sipariş" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Zorunlu Durum" Description="Ödeme yöntemi durumu" LogicalType="SUGGESTED_FROM" Id="ACC7">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Beklemede" />
+              <PossibleValue Description="" Value="Etkin" />
+              <PossibleValue Description="" Value="İptal Edildi" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Ek Bilgiler" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="ACC10">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Veri Kaynağı" Description="" LogicalType="SUGGESTED_FROM" Id="ACC11">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="Sigorta Sahtekarlığı Bürosu" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Dolandırıcılık İşareti" Description="" LogicalType="SUGGESTED_FROM" Id="ACC12">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Araştırılıyor" />
+              <PossibleValue Description="" Value="Doğrulanmış" />
+              <PossibleValue Description="" Value="Geçerliliği Denetlendi" />
+              <PossibleValue Description="" Value="Şüpheli" />
+              <PossibleValue Description="" Value="Yok" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="CLA1" SemanticTypeId="guid3FF99984-6D1C-4265-866D-4980DC756E26" Description="Talep ayrıntıları" DisplayName="Talep" Icon="Claim">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Benzersiz Referans" Description="" LogicalType="SINGLE_LINE_STRING" Id="CLA2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid775b8aac-60bd-470c-a61a-a792c9fac1ed" DisplayName="Talep" Description="Talep numarası" LogicalType="SINGLE_LINE_STRING" Id="CLA3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Kayıp Açıklama Kodu" Description="" LogicalType="SINGLE_LINE_STRING" Id="CLA4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="Kayıp Açıklaması" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CLA5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" SemanticTypeId="guidE17D5FB3-4FF6-4177-AC26-73D8FE2911EE" DisplayName="Talep Tarihi" Description="" LogicalType="DATE" Id="CLA6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" SemanticTypeId="guid735D4427-99F9-45DF-8820-DDEA9CF7C27E" DisplayName="Fazlalık" Description="" LogicalType="DECIMAL" Id="CLA7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="Mevcut Toplam Rezerv" Description="" LogicalType="DECIMAL" Id="CLA8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" SemanticTypeId="" DisplayName="Mevcut Toplam Ödemeler" Description="" LogicalType="DECIMAL" Id="CLA9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" SemanticTypeId="guid994DA53C-CBE3-4273-8734-A398646C7995" DisplayName="Ödeme Tarihi" Description="" LogicalType="DATE" Id="CLA10">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="Toplam Kayıp" Description="" LogicalType="BOOLEAN" Id="CLA11">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="Yaralanma Talebi" Description="" LogicalType="BOOLEAN" Id="CLA12">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" SemanticTypeId="" DisplayName="Notlar" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CLA13">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="12" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Talep tarihindeki Poliçe Kapsamı" Description="" LogicalType="SUGGESTED_FROM" Id="CLA14">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Kapsamlı" />
+              <PossibleValue Description="" Value="Tüm Riskler" />
+              <PossibleValue Description="" Value="Yalnızca Borç" />
+              <PossibleValue Description="" Value="Yalnızca Üçüncü Taraf" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="13" Mandatory="false" SemanticTypeId="guid9B359855-D9C4-468f-81A2-9DB9C87D32EE" DisplayName="Poliçe Başlangıcı" Description="Başlangıç tarihi" LogicalType="DATE" Id="CLA15">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="14" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid7BCB6E9E-3DE6-4941-B452-EC83E0F992DF" DisplayName="Talep Durumu" Description="" LogicalType="SUGGESTED_FROM" Id="CLA16">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Aç" />
+              <PossibleValue Description="" Value="Beklemede" />
+              <PossibleValue Description="" Value="Kapalı" />
+              <PossibleValue Description="" Value="Soruşturma" />
+              <PossibleValue Description="" Value="Yeniden Açıldı" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="15" Mandatory="false" SemanticTypeId="" DisplayName="Talep Yeniden Açıldı" Description="" LogicalType="DATE" Id="CLA17">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="16" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Başvuru Kaynağı" Description="" LogicalType="SUGGESTED_FROM" Id="CLA18">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Finans" />
+              <PossibleValue Description="" Value="Talepler" />
+              <PossibleValue Description="" Value="Yüklenim" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="17" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Ek Bilgiler" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CLA19">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="18" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Dolandırıcılık İşareti" Description="" LogicalType="SUGGESTED_FROM" Id="CLA21">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Araştırılıyor" />
+              <PossibleValue Description="" Value="Doğrulanmış" />
+              <PossibleValue Description="" Value="Geçerliliği Denetlendi" />
+              <PossibleValue Description="" Value="Şüpheli" />
+              <PossibleValue Description="" Value="Yok" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="19" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Veri Kaynağı" Description="" LogicalType="SUGGESTED_FROM" Id="CLA20">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="Sigorta Sahtekarlığı Bürosu" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="CRC1" SemanticTypeId="guid3C948CB2-7D74-4b5b-9AF5-798CF0AE707F" Description="Kart ayrıntıları" DisplayName="Kredi Kartı" Icon="Credit Card">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="4" Description="" DisplayName="Ödeme Geçmişi" Id="CRC6">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="guid735D4427-99F9-45DF-8820-DDEA9CF7C27E" DisplayName="Ödeme" Description="" LogicalType="DECIMAL" Id="CRC7">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Benzersiz Referans" Description="" LogicalType="SINGLE_LINE_STRING" Id="CRC2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid5EADE4D4-93CE-420c-9551-354309F6A377" DisplayName="Kredi Kartı Numarası" Description="" LogicalType="SINGLE_LINE_STRING" Id="CRC3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid22340EB0-01BB-4263-928E-FC971ACB3C51" DisplayName="Kart Adı" Description="" LogicalType="SINGLE_LINE_STRING" Id="CRC4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidE556FA14-0421-4e47-BE10-A825DBDF2E85" DisplayName="Sipariş Kodu" Description="" LogicalType="SINGLE_LINE_STRING" Id="CRC5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Ek Bilgiler" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CRC8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Dolandırıcılık İşareti" Description="" LogicalType="SUGGESTED_FROM" Id="CRC10">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Araştırılıyor" />
+              <PossibleValue Description="" Value="Doğrulanmış" />
+              <PossibleValue Description="" Value="Geçerliliği Denetlendi" />
+              <PossibleValue Description="" Value="Şüpheli" />
+              <PossibleValue Description="" Value="Yok" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Veri Kaynağı" Description="" LogicalType="SUGGESTED_FROM" Id="CRC9">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="Sigorta Sahtekarlığı Bürosu" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="INT1" SemanticTypeId="guid3FF99984-6D1C-4265-866D-4980DC756E26" Description="İlgili belge" DisplayName="Belge" Icon="Document">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="1" Description="" DisplayName="Belge Ayrıntıları" Id="INT3">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="Belge" Description="" LogicalType="DOCUMENT" Id="INT4">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="İstihbarat Tarihi" Description="" LogicalType="DATE" Id="INT13">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB4EC8FC2-13EC-4df2-AE90-D7D5D4A4B621" DisplayName="Belge Başlığı" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT6">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidc329f90d-3bf7-40c3-8d87-f6fe3cb8d5d4" DisplayName="Belge Tipi" Description="" LogicalType="SUGGESTED_FROM" Id="INT5">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+                  <PossibleValue Description="" Value="Açıklama" />
+                  <PossibleValue Description="" Value="Araştırmacı Raporu" />
+                  <PossibleValue Description="" Value="Ev Eşleşmeleri" />
+                  <PossibleValue Description="" Value="Experian" />
+                  <PossibleValue Description="" Value="Hesap Özeti" />
+                  <PossibleValue Description="" Value="IFB Uyarıları/Intel" />
+                  <PossibleValue Description="" Value="IFIG Uyarıları" />
+                  <PossibleValue Description="" Value="MIAFTR" />
+                  <PossibleValue Description="" Value="Motor Eşleşmeleri" />
+                  <PossibleValue Description="" Value="Mühendis Raporu" />
+                  <PossibleValue Description="" Value="PI Eşleşmeleri" />
+                  <PossibleValue Description="" Value="Web Sayfası" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid91DA3A32-0AD7-4141-B79B-CC62C452A0A7" DisplayName="Belge Açıklaması" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT7">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="5" Mandatory="false" SemanticTypeId="guid770074b2-0235-4ade-aca0-f64f9d1986f9" DisplayName="Geçerlilik Başlangıç Tarih ve Saati" Description="" LogicalType="DATE_AND_TIME" Id="INT8">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="6" Mandatory="false" SemanticTypeId="guid9f0adde3-bdcd-4f36-b657-fc0bdf7a10d5" DisplayName="Geçerlilik Bitiş Tarih ve Saati" Description="" LogicalType="DATE_AND_TIME" Id="INT9">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="7" Mandatory="false" SemanticTypeId="guidF49AD106-BBCA-4de0-A6C8-77BCE1493AFA" DisplayName="Raporlandığı Tarih ve Saat" Description="" LogicalType="DATE_AND_TIME" Id="INT10">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="8" Mandatory="false" SemanticTypeId="" DisplayName="Girildiği Tarih ve Saat" Description="" LogicalType="DATE_AND_TIME" Id="INT11">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidE14D4A28-9ECD-4e72-8DE2-21D0D476A8FC" DisplayName="Belge Kaynağı" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT12">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA3056048-D54F-462b-BF88-65FE24142A9F" DisplayName="Belge URL adresi" Description="" LogicalType="SINGLE_LINE_STRING" Id="DOC19">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="2" Description="" DisplayName="Görüntüler" Id="INT14">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="Görüntü" Description="" LogicalType="PICTURE" Id="INT15">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Görüntü Tanımı" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT16">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Benzersiz Referans" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Ek Bilgiler" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="INT19">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Dolandırıcılık İşareti" Description="" LogicalType="SUGGESTED_FROM" Id="INT18">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Araştırılıyor" />
+              <PossibleValue Description="" Value="Doğrulanmış" />
+              <PossibleValue Description="" Value="Geçerliliği Denetlendi" />
+              <PossibleValue Description="" Value="Şüpheli" />
+              <PossibleValue Description="" Value="Yok" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Veri Kaynağı" Description="" LogicalType="SUGGESTED_FROM" Id="INT17">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="Sigorta Sahtekarlığı Bürosu" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="EM1" SemanticTypeId="guidD5901596-3DD7-40FE-BAF4-0E9FE6BD1E81" Description="E-posta adresi ayrıntıları" DisplayName="E-posta" Icon="Email">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Benzersiz Referans" Description="" LogicalType="SINGLE_LINE_STRING" Id="EM2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid7D0DF839-B553-457A-93B4-B333D603B7FD" DisplayName="E-posta adresi" Description="" LogicalType="SINGLE_LINE_STRING" Id="EM3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid494292DD-E253-4851-8AD5-FD4BC38442B0" DisplayName="IP Adresi" Description="" LogicalType="SINGLE_LINE_STRING" Id="EM4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Ek Bilgiler" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="EM5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Dolandırıcılık İşareti" Description="" LogicalType="SUGGESTED_FROM" Id="EM7">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Araştırılıyor" />
+              <PossibleValue Description="" Value="Doğrulanmış" />
+              <PossibleValue Description="" Value="Geçerliliği Denetlendi" />
+              <PossibleValue Description="" Value="Şüpheli" />
+              <PossibleValue Description="" Value="Yok" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Veri Kaynağı" Description="" LogicalType="SUGGESTED_FROM" Id="EM6">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="Sigorta Sahtekarlığı Bürosu" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="IP1" SemanticTypeId="guidFE4A6E2D-FFEF-4DF2-9DB2-4DE91E862761" Description="Poliçe ayrıntıları" DisplayName="Poliçe" Icon="Case">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="8" Description="" DisplayName="Bireysel Poliçe Ayrıntıları" Id="IP11">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="guid9B359855-D9C4-468f-81A2-9DB9C87D32EE" DisplayName="Geçerlilik Tarihi" Description="" LogicalType="DATE" Id="IP12">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="guidBCAD30E5-D249-412f-83BF-00AA0FF5B7EC" DisplayName="İşlem Tarihi" Description="" LogicalType="DATE" Id="IP13">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" SemanticTypeId="guid735D4427-99F9-45DF-8820-DDEA9CF7C27E" DisplayName="Brüt Prim" Description="" LogicalType="DECIMAL" Id="IP14">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="Net Prim" Description="" LogicalType="DECIMAL" Id="IP15">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid25EAFCAA-E2EB-432d-8927-A59CF0B84CDA" DisplayName="İş Kaynağı" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP16">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDA2E2421-DAD1-480d-8EE5-8CF639500158" DisplayName="Ödeme Yöntemi" Description="" LogicalType="SUGGESTED_FROM" Id="IP17">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+                  <PossibleValue Description="" Value="Çek" />
+                  <PossibleValue Description="" Value="Kredi Kartı" />
+                  <PossibleValue Description="" Value="Nakit" />
+                  <PossibleValue Description="" Value="PayPal" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Kapsam Tipi" Description="" LogicalType="SUGGESTED_FROM" Id="IP18">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+                  <PossibleValue Description="" Value="Kapsamlı" />
+                  <PossibleValue Description="" Value="Tüm Riskler" />
+                  <PossibleValue Description="" Value="Yalnızca Borç" />
+                  <PossibleValue Description="" Value="Yalnızca Üçüncü Taraf" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Sürüş Kısıtlamaları" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP19">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="8" Mandatory="false" SemanticTypeId="" DisplayName="Sürücü Sayısı" Description="" LogicalType="INTEGER" Id="IP20">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Önceki Sigortalayanın Adı" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP21">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="Yıllık Kilometre" Description="" LogicalType="DECIMAL" Id="IP22">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="11" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Araç Güvenliği" Description="" LogicalType="SUGGESTED_FROM" Id="IP23">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+                  <PossibleValue Description="" Value="Fabrikada Takılan" />
+                  <PossibleValue Description="" Value="Thatcham Onaylı" />
+                  <PossibleValue Description="" Value="Yok" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="12" Mandatory="false" SemanticTypeId="" DisplayName="Arıza Sayısı" Description="" LogicalType="INTEGER" Id="IP24">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="13" Mandatory="false" SemanticTypeId="" DisplayName="Arızalı Olmayanların Sayısı" Description="" LogicalType="INTEGER" Id="IP25">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="14" Mandatory="false" SemanticTypeId="" DisplayName="Toplam Talep" Description="" LogicalType="INTEGER" Id="IP26">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="15" Mandatory="false" SemanticTypeId="" DisplayName="Kusur Sayısı" Description="" LogicalType="INTEGER" Id="IP27">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Benzersiz Referans" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid775b8aac-60bd-470c-a61a-a792c9fac1ed" DisplayName="Poliçe Numarası" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="İşletme Sınıfı" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Referans" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" SemanticTypeId="guid75CA7E8F-D2EF-4CF4-BB81-6C244ADA5286" DisplayName="Orijinal Referans Tarihi" Description="" LogicalType="DATE" Id="IP6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" SemanticTypeId="" DisplayName="Son Yenileme Tarihi" Description="" LogicalType="DATE" Id="IP7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB2A3B23C-07B8-4A87-8B45-4CD20079E79C" DisplayName="Sigortalayan" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid0FA4C573-0436-4360-AEA7-F123F1994B8E" DisplayName="Şema" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Ek Bilgiler" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="IP28">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Veri Kaynağı" Description="" LogicalType="SUGGESTED_FROM" Id="IP29">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="Sigorta Sahtekarlığı Bürosu" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Dolandırıcılık İşareti" Description="" LogicalType="SUGGESTED_FROM" Id="IP30">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Araştırılıyor" />
+              <PossibleValue Description="" Value="Doğrulanmış" />
+              <PossibleValue Description="" Value="Geçerliliği Denetlendi" />
+              <PossibleValue Description="" Value="Şüpheli" />
+              <PossibleValue Description="" Value="Yok" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="ORG1" SemanticTypeId="guidB30A4137-A537-420B-B481-C5DF922152AF" Description="Kuruluş ayrıntıları" DisplayName="Kuruluş" Icon="Organ">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Benzersiz Referans" Description="" LogicalType="SINGLE_LINE_STRING" Id="ORG2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB2A3B23C-07B8-4A87-8B45-4CD20079E79C" DisplayName="Kuruluş Adı" Description="" LogicalType="SINGLE_LINE_STRING" Id="ORG3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid694EB231-9982-46FE-A40E-3D9165582101" DisplayName="Şirket Numarası" Description="" LogicalType="SINGLE_LINE_STRING" Id="ORG10">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB11A89A6-F50C-4c73-949F-00594985DA69" DisplayName="Kuruluş Tipi" Description="" LogicalType="SUGGESTED_FROM" Id="ORG4">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Aracı" />
+              <PossibleValue Description="" Value="Askeri" />
+              <PossibleValue Description="" Value="Banka" />
+              <PossibleValue Description="" Value="Bilgi Teknolojisi" />
+              <PossibleValue Description="" Value="Çubuk" />
+              <PossibleValue Description="" Value="Depo" />
+              <PossibleValue Description="" Value="Eğitim" />
+              <PossibleValue Description="" Value="Fabrika" />
+              <PossibleValue Description="" Value="Finansal Kuruluş" />
+              <PossibleValue Description="" Value="Garaj" />
+              <PossibleValue Description="" Value="Hapishane" />
+              <PossibleValue Description="" Value="Hastane" />
+              <PossibleValue Description="" Value="Hava Kuvveti" />
+              <PossibleValue Description="" Value="Havaalanı Terminali" />
+              <PossibleValue Description="" Value="Hukuk" />
+              <PossibleValue Description="" Value="İbadethane" />
+              <PossibleValue Description="" Value="İstihbarat Hizmeti" />
+              <PossibleValue Description="" Value="Kamu" />
+              <PossibleValue Description="" Value="Kilise" />
+              <PossibleValue Description="" Value="Kumarhane" />
+              <PossibleValue Description="" Value="Kuruluş" />
+              <PossibleValue Description="" Value="Laboratuvar" />
+              <PossibleValue Description="" Value="Lacivert" />
+              <PossibleValue Description="" Value="Milis" />
+              <PossibleValue Description="" Value="Mimar" />
+              <PossibleValue Description="" Value="Nakliye" />
+              <PossibleValue Description="" Value="Nakliye Şirketi (Karayolu)" />
+              <PossibleValue Description="" Value="Ordu" />
+              <PossibleValue Description="" Value="Otel" />
+              <PossibleValue Description="" Value="Perakende" />
+              <PossibleValue Description="" Value="Politik" />
+              <PossibleValue Description="" Value="Reklamcılık" />
+              <PossibleValue Description="" Value="Restoran" />
+              <PossibleValue Description="" Value="Sivil Toplum Kuruluşu" />
+              <PossibleValue Description="" Value="Suçlu" />
+              <PossibleValue Description="" Value="Süpermarket" />
+              <PossibleValue Description="" Value="Tarım" />
+              <PossibleValue Description="" Value="Terörist" />
+              <PossibleValue Description="" Value="Tıbbi Lab." />
+              <PossibleValue Description="" Value="Ticari Firma" />
+              <PossibleValue Description="" Value="Üretim" />
+              <PossibleValue Description="" Value="Yazdırma" />
+              <PossibleValue Description="" Value="Yemek Hizmeti" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid5A7E25C4-9239-4500-A20A-B986D7D28E40" DisplayName="Web Adresi" Description="" LogicalType="SINGLE_LINE_STRING" Id="ORG5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" SemanticTypeId="guid9B359855-D9C4-468f-81A2-9DB9C87D32EE" DisplayName="Birleşme Tarihi" Description="" LogicalType="DATE" Id="ORG11">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" SemanticTypeId="guid80860455-202C-4ddf-85A9-AE576D66BD56" DisplayName="Çözülme Tarihi" Description="" LogicalType="DATE" Id="ORG12">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Ek Bilgiler" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="ORG6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Dolandırıcılık İşareti" Description="" LogicalType="SUGGESTED_FROM" Id="ORG7">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Araştırılıyor" />
+              <PossibleValue Description="" Value="Doğrulanmış" />
+              <PossibleValue Description="" Value="Geçerliliği Denetlendi" />
+              <PossibleValue Description="" Value="Şüpheli" />
+              <PossibleValue Description="" Value="Yok" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Veri Kaynağı" Description="" LogicalType="SUGGESTED_FROM" Id="ORG8">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="Sigorta Sahtekarlığı Bürosu" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="PER1" SemanticTypeId="guid8A586959-9837-47DE-8DBF-BC7031F01545" Description="Kişi ayrıntıları" DisplayName="Kişi" Icon="Person (Shaded Shirt)">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="1" Description="" DisplayName="Ad-Soyadı" Id="PER3">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid45E7897F-0DC6-4AD0-AAC6-73A780DD78BE" DisplayName="Başlık" Description="" LogicalType="SUGGESTED_FROM" Id="PER4">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+                  <PossibleValue Description="" Value="Bay" />
+                  <PossibleValue Description="" Value="Bayan" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid4DE7370B-60E5-4EB0-860E-4066D3DFD7B6" DisplayName="İlk Ad" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER5">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidBE6A2505-B545-464C-B407-51F9847ECE39" DisplayName="İkinci Adı" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER6">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid62B01C18-2E64-46D5-B2FF-3C69B4F76FEB" DisplayName="Soyadı" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER7">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid3B5FB234-1DDC-40FC-B999-6A969B819BCB" DisplayName="Sonek" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER8">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="4" Description="" DisplayName="Kimlik" Id="PER31">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidF9DA2FC4-4B32-4d42-A178-A238274D4C5D" DisplayName="Kimlik Numarası" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER32">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidc329f90d-3bf7-40c3-8d87-f6fe3cb8d5d4" DisplayName="Kimlik Tipi" Description="" LogicalType="SUGGESTED_FROM" Id="PER33">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+                  <PossibleValue Description="Ehliyet" Value="Ehliyet" />
+                  <PossibleValue Description="Kimlik Belgesi" Value="Kimlik Belgesi" />
+                  <PossibleValue Description="Pasaport" Value="Pasaport" />
+                  <PossibleValue Description="Sabıka Kaydı Numarası" Value="Sabıka Kaydı Numarası" />
+                  <PossibleValue Description="Sosyal Güvenlik Numarası" Value="Sosyal Güvenlik Numarası" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid4C43E992-22CA-4863-8A5D-28E29D10F0E0" DisplayName="Veren" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER34">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" SemanticTypeId="guidF49AD106-BBCA-4de0-A6C8-77BCE1493AFA" DisplayName="Verilme Tarih ve Saati" Description="" LogicalType="DATE_AND_TIME" Id="PER35">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="15" Description="" DisplayName="Görüntüler" Id="PER21">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="Görüntü" Description="" LogicalType="PICTURE" Id="PER22">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Görüntü Tanımı" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="PT116">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="16" Description="" DisplayName="Dolandırıcılık Göstergeleri" Id="PER23">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Kredi" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER24">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Kimlik" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER25">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Fiyat Teklifi İşleme" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER26">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Benzersiz Referans" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="guidFE45F1C4-B198-4111-8123-F42D2CD6419D" DisplayName="Doğum Tarihi" Description="" LogicalType="DATE" Id="PER9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid7548369B-BA9A-4C4B-AEAD-0CB442EAFA27" DisplayName="Cinsiyet" Description="" LogicalType="SELECTED_FROM" Id="PER10">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Erkek" />
+              <PossibleValue Description="" Value="Kadın" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Lisans Tipi" Description="" LogicalType="SUGGESTED_FROM" Id="PER11">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Geçici" />
+              <PossibleValue Description="" Value="Kısıtlı" />
+              <PossibleValue Description="" Value="Motosiklet" />
+              <PossibleValue Description="" Value="Tam" />
+              <PossibleValue Description="" Value="Ticari" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="Lisans Tarihi" Description="" LogicalType="DATE_AND_TIME" Id="PER12">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid2C98B11E-D3A0-463b-922C-D25E8E47666A" DisplayName="Medeni Durum" Description="" LogicalType="SUGGESTED_FROM" Id="PER13">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Ayrılmış" />
+              <PossibleValue Description="" Value="Bekar" />
+              <PossibleValue Description="" Value="Boşanmış" />
+              <PossibleValue Description="" Value="Evli" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid69F2B55D-EBF2-4950-9688-CB5273236A01" DisplayName="Uyruk" Description="" LogicalType="SUGGESTED_FROM" Id="PER14">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="Afgan" Value="Afgan" />
+              <PossibleValue Description="Alman" Value="Alman" />
+              <PossibleValue Description="Amerikalı" Value="Amerikalı" />
+              <PossibleValue Description="Andoralı" Value="Andoralı" />
+              <PossibleValue Description="Angolalı" Value="Angolalı" />
+              <PossibleValue Description="Antigualı" Value="Antigualı" />
+              <PossibleValue Description="Arjantinli" Value="Arjantinli" />
+              <PossibleValue Description="Arnavut" Value="Arnavut" />
+              <PossibleValue Description="Avustralyalı" Value="Avustralyalı" />
+              <PossibleValue Description="Avusturyalı" Value="Avusturyalı" />
+              <PossibleValue Description="Azeri" Value="Azeri" />
+              <PossibleValue Description="Bahamalı" Value="Bahamalı" />
+              <PossibleValue Description="Bahreynli" Value="Bahreynli" />
+              <PossibleValue Description="Bangladeşli" Value="Bangladeşli" />
+              <PossibleValue Description="Barbadoslu" Value="Barbadoslu" />
+              <PossibleValue Description="Barbudalı" Value="Barbudalı" />
+              <PossibleValue Description="Belaruslu" Value="Belaruslu" />
+              <PossibleValue Description="Belçikalı" Value="Belçikalı" />
+              <PossibleValue Description="Belizeli" Value="Belizeli" />
+              <PossibleValue Description="Beninli" Value="Beninli" />
+              <PossibleValue Description="Bolivyalı" Value="Bolivyalı" />
+              <PossibleValue Description="Bosnalı" Value="Bosnalı" />
+              <PossibleValue Description="Botsvanalı" Value="Botsvanalı" />
+              <PossibleValue Description="Brezilyalı" Value="Brezilyalı" />
+              <PossibleValue Description="Bruneili" Value="Bruneili" />
+              <PossibleValue Description="Bulgar" Value="Bulgar" />
+              <PossibleValue Description="Burkinalı" Value="Burkinalı" />
+              <PossibleValue Description="Burmalı" Value="Burmalı" />
+              <PossibleValue Description="Burundili" Value="Burundili" />
+              <PossibleValue Description="Butanlı" Value="Butanlı" />
+              <PossibleValue Description="Cabo Verdeli" Value="Cabo Verdeli" />
+              <PossibleValue Description="Cezayirli" Value="Cezayirli" />
+              <PossibleValue Description="Cibuti" Value="Cibuti" />
+              <PossibleValue Description="Çadlı" Value="Çadlı" />
+              <PossibleValue Description="Çek" Value="Çek" />
+              <PossibleValue Description="Çinli" Value="Çinli" />
+              <PossibleValue Description="Danimarkalı" Value="Danimarkalı" />
+              <PossibleValue Description="Doğu Timorlu" Value="Doğu Timorlu" />
+              <PossibleValue Description="Dominik" Value="Dominik" />
+              <PossibleValue Description="Ekvator Gineli" Value="Ekvator Gineli" />
+              <PossibleValue Description="Ekvatorlu" Value="Ekvatorlu" />
+              <PossibleValue Description="Emirlikli" Value="Emirlikli" />
+              <PossibleValue Description="Endonezyalı" Value="Endonezyalı" />
+              <PossibleValue Description="Eritreli" Value="Eritreli" />
+              <PossibleValue Description="Ermeni" Value="Ermeni" />
+              <PossibleValue Description="Estonyalı" Value="Estonyalı" />
+              <PossibleValue Description="Etiyopyalı" Value="Etiyopyalı" />
+              <PossibleValue Description="Faslı" Value="Faslı" />
+              <PossibleValue Description="Fijili" Value="Fijili" />
+              <PossibleValue Description="Fildişili" Value="Fildişili" />
+              <PossibleValue Description="Filipinli" Value="Filipinli" />
+              <PossibleValue Description="Finlandiyalı" Value="Finlandiyalı" />
+              <PossibleValue Description="Fransız" Value="Fransız" />
+              <PossibleValue Description="Gabonlu" Value="Gabonlu" />
+              <PossibleValue Description="Gallerli" Value="Gallerli" />
+              <PossibleValue Description="Gambiyalı" Value="Gambiyalı" />
+              <PossibleValue Description="Ganalı" Value="Ganalı" />
+              <PossibleValue Description="Gine Bissaulu" Value="Gine Bissaulu" />
+              <PossibleValue Description="Gineli" Value="Gineli" />
+              <PossibleValue Description="Grenadinli" Value="Grenadinli" />
+              <PossibleValue Description="Guatemalalı" Value="Guatemalalı" />
+              <PossibleValue Description="Guyanalı" Value="Guyanalı" />
+              <PossibleValue Description="Güney Afrikalı" Value="Güney Afrikalı" />
+              <PossibleValue Description="Güney Koreli" Value="Güney Koreli" />
+              <PossibleValue Description="Gürcü" Value="Gürcü" />
+              <PossibleValue Description="Haitili" Value="Haitili" />
+              <PossibleValue Description="Hersekli" Value="Hersekli" />
+              <PossibleValue Description="Hırvat" Value="Hırvat" />
+              <PossibleValue Description="Hint" Value="Hint" />
+              <PossibleValue Description="Hollandalı" Value="Hollandalı" />
+              <PossibleValue Description="Honduraslı" Value="Honduraslı" />
+              <PossibleValue Description="I-Kiribatili" Value="I-Kiribatili" />
+              <PossibleValue Description="Iraklı" Value="Iraklı" />
+              <PossibleValue Description="İngiliz" Value="İngiliz" />
+              <PossibleValue Description="İranlı" Value="İranlı" />
+              <PossibleValue Description="İrlandalı" Value="İrlandalı" />
+              <PossibleValue Description="İskoç" Value="İskoç" />
+              <PossibleValue Description="İspanyol" Value="İspanyol" />
+              <PossibleValue Description="İsrailli" Value="İsrailli" />
+              <PossibleValue Description="İsveçli" Value="İsveçli" />
+              <PossibleValue Description="İsviçreli" Value="İsviçreli" />
+              <PossibleValue Description="İtalyan" Value="İtalyan" />
+              <PossibleValue Description="İzlandalı" Value="İzlandalı" />
+              <PossibleValue Description="Jamaikalı" Value="Jamaikalı" />
+              <PossibleValue Description="Japon" Value="Japon" />
+              <PossibleValue Description="Kamboçyalı" Value="Kamboçyalı" />
+              <PossibleValue Description="Kamerunlu" Value="Kamerunlu" />
+              <PossibleValue Description="Kanadalı" Value="Kanadalı" />
+              <PossibleValue Description="Katarlı" Value="Katarlı" />
+              <PossibleValue Description="Kazak" Value="Kazak" />
+              <PossibleValue Description="Kenyalı" Value="Kenyalı" />
+              <PossibleValue Description="Kıbrıslı" Value="Kıbrıslı" />
+              <PossibleValue Description="Kırgız" Value="Kırgız" />
+              <PossibleValue Description="Kitts ve Nevisli" Value="Kitts ve Nevisli" />
+              <PossibleValue Description="Kolombiyalı" Value="Kolombiyalı" />
+              <PossibleValue Description="Komorolu" Value="Komorolu" />
+              <PossibleValue Description="Kongolu" Value="Kongolu" />
+              <PossibleValue Description="Kosta Rikalı" Value="Kosta Rikalı" />
+              <PossibleValue Description="Kuveytli" Value="Kuveytli" />
+              <PossibleValue Description="Kuzey İrlandalı" Value="Kuzey İrlandalı" />
+              <PossibleValue Description="Kuzey Koreli" Value="Kuzey Koreli" />
+              <PossibleValue Description="Kübalı" Value="Kübalı" />
+              <PossibleValue Description="Laoslu" Value="Laoslu" />
+              <PossibleValue Description="Letonyalı" Value="Letonyalı" />
+              <PossibleValue Description="Liberyalı" Value="Liberyalı" />
+              <PossibleValue Description="Libyalı" Value="Libyalı" />
+              <PossibleValue Description="Lihtenştaynlı" Value="Lihtenştaynlı" />
+              <PossibleValue Description="Litvanca" Value="Litvanca" />
+              <PossibleValue Description="Lübnanlı" Value="Lübnanlı" />
+              <PossibleValue Description="Lüksemburglu" Value="Lüksemburglu" />
+              <PossibleValue Description="Macar" Value="Macar" />
+              <PossibleValue Description="Madagaskarlı" Value="Madagaskarlı" />
+              <PossibleValue Description="Makedonyalı" Value="Makedonyalı" />
+              <PossibleValue Description="Malavili" Value="Malavili" />
+              <PossibleValue Description="Maldivli" Value="Maldivli" />
+              <PossibleValue Description="Malezyalı" Value="Malezyalı" />
+              <PossibleValue Description="Malili" Value="Malili" />
+              <PossibleValue Description="Maltalı" Value="Maltalı" />
+              <PossibleValue Description="Marshall Adalı" Value="Marshall Adalı" />
+              <PossibleValue Description="Meksikalı" Value="Meksikalı" />
+              <PossibleValue Description="Mısırlı" Value="Mısırlı" />
+              <PossibleValue Description="Mikronezyalı" Value="Mikronezyalı" />
+              <PossibleValue Description="Moğol" Value="Moğol" />
+              <PossibleValue Description="Moldovalı" Value="Moldovalı" />
+              <PossibleValue Description="Monakolu" Value="Monakolu" />
+              <PossibleValue Description="Moritanyalı" Value="Moritanyalı" />
+              <PossibleValue Description="Morityuslu" Value="Morityuslu" />
+              <PossibleValue Description="Mosotholu" Value="Mosotholu" />
+              <PossibleValue Description="Motsvanalı" Value="Motsvanalı" />
+              <PossibleValue Description="Mozambikli" Value="Mozambikli" />
+              <PossibleValue Description="Namibyalı" Value="Namibyalı" />
+              <PossibleValue Description="Naurulu" Value="Naurulu" />
+              <PossibleValue Description="Nepalli" Value="Nepalli" />
+              <PossibleValue Description="Nijerli" Value="Nijerli" />
+              <PossibleValue Description="Nijeryalı" Value="Nijeryalı" />
+              <PossibleValue Description="Nikaragualı" Value="Nikaragualı" />
+              <PossibleValue Description="Norveçli" Value="Norveçli" />
+              <PossibleValue Description="Orta Afrikalı" Value="Orta Afrikalı" />
+              <PossibleValue Description="Özbek" Value="Özbek" />
+              <PossibleValue Description="Pakistanlı" Value="Pakistanlı" />
+              <PossibleValue Description="Palaulu" Value="Palaulu" />
+              <PossibleValue Description="Panamalı" Value="Panamalı" />
+              <PossibleValue Description="Papua Yeni Gineli" Value="Papua Yeni Gineli" />
+              <PossibleValue Description="Paraguaylı" Value="Paraguaylı" />
+              <PossibleValue Description="Perulu" Value="Perulu" />
+              <PossibleValue Description="Polonyalı" Value="Polonyalı" />
+              <PossibleValue Description="Portekizli" Value="Portekizli" />
+              <PossibleValue Description="Romanyalı" Value="Romanyalı" />
+              <PossibleValue Description="Ruandalı" Value="Ruandalı" />
+              <PossibleValue Description="Rus" Value="Rus" />
+              <PossibleValue Description="Saint Lucialı" Value="Saint Lucialı" />
+              <PossibleValue Description="Salvadorlu" Value="Salvadorlu" />
+              <PossibleValue Description="Samoalı" Value="Samoalı" />
+              <PossibleValue Description="San Marinolu" Value="San Marinolu" />
+              <PossibleValue Description="Sao Tomeli" Value="Sao Tomeli" />
+              <PossibleValue Description="Senegalli" Value="Senegalli" />
+              <PossibleValue Description="Seyşelli" Value="Seyşelli" />
+              <PossibleValue Description="Sırp" Value="Sırp" />
+              <PossibleValue Description="Sierra Leoneli" Value="Sierra Leoneli" />
+              <PossibleValue Description="Singapurlu" Value="Singapurlu" />
+              <PossibleValue Description="Slovak" Value="Slovak" />
+              <PossibleValue Description="Sloven" Value="Sloven" />
+              <PossibleValue Description="Solomon Adalı" Value="Solomon Adalı" />
+              <PossibleValue Description="Somalili" Value="Somalili" />
+              <PossibleValue Description="Sri Lankalı" Value="Sri Lankalı" />
+              <PossibleValue Description="Sudanlı" Value="Sudanlı" />
+              <PossibleValue Description="Surinamlı" Value="Surinamlı" />
+              <PossibleValue Description="Suriyeli" Value="Suriyeli" />
+              <PossibleValue Description="Suudi" Value="Suudi" />
+              <PossibleValue Description="Svazilandlı" Value="Svazilandlı" />
+              <PossibleValue Description="Şilili" Value="Şilili" />
+              <PossibleValue Description="Tacikistanlı" Value="Tacikistanlı" />
+              <PossibleValue Description="Tanzanyalı" Value="Tanzanyalı" />
+              <PossibleValue Description="Taylandlı" Value="Taylandlı" />
+              <PossibleValue Description="Togolu" Value="Togolu" />
+              <PossibleValue Description="Tongalı" Value="Tongalı" />
+              <PossibleValue Description="Trinidadlı ya da Tobagolu" Value="Trinidadlı ya da Tobagolu" />
+              <PossibleValue Description="Tunuslu" Value="Tunuslu" />
+              <PossibleValue Description="Tuvalulu" Value="Tuvalulu" />
+              <PossibleValue Description="Türk" Value="Türk" />
+              <PossibleValue Description="Ugandalı" Value="Ugandalı" />
+              <PossibleValue Description="Ukraynalı" Value="Ukraynalı" />
+              <PossibleValue Description="Ummanlı" Value="Ummanlı" />
+              <PossibleValue Description="Uruguaylı" Value="Uruguaylı" />
+              <PossibleValue Description="Ürdünlü" Value="Ürdünlü" />
+              <PossibleValue Description="Venezuelalı" Value="Venezuelalı" />
+              <PossibleValue Description="Vietnamlı" Value="Vietnamlı" />
+              <PossibleValue Description="Yemenli" Value="Yemenli" />
+              <PossibleValue Description="Yeni Zelandalı" Value="Yeni Zelandalı" />
+              <PossibleValue Description="Yunanlı" Value="Yunanlı" />
+              <PossibleValue Description="Zambiyalı" Value="Zambiyalı" />
+              <PossibleValue Description="Zimbabveli" Value="Zimbabveli" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="Yerleşme Tarihi" Description="" LogicalType="DATE" Id="PER15">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Meslek Kodu" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER16">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" SemanticTypeId="guidCE86909A-D087-445f-A73D-C79FA9AC9F8C" DisplayName="Meslek Açıklaması" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="PER17">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="12" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Çalışan İş Kodu" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER18">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="13" Mandatory="false" SemanticTypeId="guidB11A89A6-F50C-4c73-949F-00594985DA69" DisplayName="Çalışan İş Açıklaması" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="PER19">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="14" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Çalışan Durumu" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER20">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="17" Mandatory="false" SemanticTypeId="" DisplayName="Kişisel Yaralanma" Description="" LogicalType="BOOLEAN" Id="PER27">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="18" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Ek Bilgiler" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="PER28">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="19" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Dolandırıcılık İşareti" Description="" LogicalType="SUGGESTED_FROM" Id="PER29">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Araştırılıyor" />
+              <PossibleValue Description="" Value="Doğrulanmış" />
+              <PossibleValue Description="" Value="Geçerliliği Denetlendi" />
+              <PossibleValue Description="" Value="Şüpheli" />
+              <PossibleValue Description="" Value="Yok" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="20" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Veri Kaynağı" Description="" LogicalType="SUGGESTED_FROM" Id="PER30">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="Sigorta Sahtekarlığı Bürosu" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="TEL1" SemanticTypeId="guidDB820CCD-D028-4B20-A3AE-57374B83EFD4" Description="Telefon ayrıntıları" DisplayName="Telefon" Icon="Phone">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="2" Description="" DisplayName="Telefon Numarası" Id="TEL3">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB6073C55-3C00-4812-BDA8-5C1FA2AE7FC4" DisplayName="Uluslararası Kod" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL4">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidCD2F57CA-D475-454B-9B0D-71F31A604631" DisplayName="Alan Kodu" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL5">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid2A9C3212-8918-4477-9818-47E467FB47AC" DisplayName="Ana Numara" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL6">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid8A229F14-3059-4B58-9ECA-0F76964DE873" DisplayName="Dahili Numara" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL7">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Benzersiz Referans" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Telefon Tipi" Description="" LogicalType="SUGGESTED_FROM" Id="TEL8">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Cep Telefonu" />
+              <PossibleValue Description="" Value="Ev" />
+              <PossibleValue Description="" Value="Sabit Hat" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Ek Bilgiler" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="TEL9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Veri Kaynağı" Description="" LogicalType="SUGGESTED_FROM" Id="TEL11">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="Sigorta Sahtekarlığı Bürosu" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Dolandırıcılık İşareti" Description="" LogicalType="SUGGESTED_FROM" Id="TEL10">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Araştırılıyor" />
+              <PossibleValue Description="" Value="Doğrulanmış" />
+              <PossibleValue Description="" Value="Geçerliliği Denetlendi" />
+              <PossibleValue Description="" Value="Şüpheli" />
+              <PossibleValue Description="" Value="Yok" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="VEH1" SemanticTypeId="guid124035A5-5D11-418b-A0A1-2C53F1932B8D" Description="Araç ayrıntıları" DisplayName="Araç" Icon="Car">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="12" Description="" DisplayName="Kimlik" Id="VEH14">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Motor Numarası" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH15">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Şasi Numarası" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH16">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid52FF1D68-FA10-495C-AA62-CB327FE84639" DisplayName="Araç Sicil Numarası" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH17">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="17" Description="" DisplayName="Görüntüler" Id="VEH22">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="Görüntü" Description="" LogicalType="PICTURE" Id="VEH23">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Görüntü Tanımı" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="VEH24">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="18" Description="" DisplayName="Sigorta Ayrıntıları" Id="VEH25">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="Satın Alma Tarihi" Description="" LogicalType="DATE" Id="VEH26">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Ödenen Fiyat" Description="" LogicalType="DECIMAL" Id="VEH27">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Taşıtın Değeri" Description="" LogicalType="DECIMAL" Id="VEH28">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Kayıtlı Sorumlu" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH29">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Günlük Konum" Description="" LogicalType="SUGGESTED_FROM" Id="VEH30">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+                  <PossibleValue Description="" Value="Araba Yolu" />
+                  <PossibleValue Description="" Value="Arka Bahçe" />
+                  <PossibleValue Description="" Value="Garaj" />
+                  <PossibleValue Description="" Value="Kamuya Açık Garaj" />
+                  <PossibleValue Description="" Value="Kilitlenme" />
+                  <PossibleValue Description="" Value="Sokak" />
+                </PossibleValues>
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Benzersiz Referans" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidD1F35949-FC3C-4985-B068-F09B74CE1AE3" DisplayName="Plaka Numarası" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidF98B951F-335E-4157-B5F2-55C032B06295" DisplayName="Araç Tipi" Description="" LogicalType="SUGGESTED_FROM" Id="VEH4">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Ambulans" />
+              <PossibleValue Description="" Value="Araba" />
+              <PossibleValue Description="" Value="Balıkçı Teknesi" />
+              <PossibleValue Description="" Value="Bisiklet" />
+              <PossibleValue Description="" Value="Eğlence Gemisi" />
+              <PossibleValue Description="" Value="Helikopter" />
+              <PossibleValue Description="" Value="İtfaiye Aracı" />
+              <PossibleValue Description="" Value="Kamyon" />
+              <PossibleValue Description="" Value="Kargo Uçağı" />
+              <PossibleValue Description="" Value="Minivan" />
+              <PossibleValue Description="" Value="Motosiklet" />
+              <PossibleValue Description="" Value="Otobüs" />
+              <PossibleValue Description="" Value="Polis Arabası" />
+              <PossibleValue Description="" Value="Scooter" />
+              <PossibleValue Description="" Value="Seyahat Gemisi" />
+              <PossibleValue Description="" Value="Taksi" />
+              <PossibleValue Description="" Value="Ticaret Gemisi" />
+              <PossibleValue Description="" Value="Tren" />
+              <PossibleValue Description="" Value="Uçak" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB99BE38F-0357-4ADA-82F5-69688D742889" DisplayName="Araç Markası" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid160717BD-C494-476C-8377-7D9B6CD6B88B" DisplayName="Araç Modeli" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Taşıt Trimi" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="Kapı Sayısı" Description="" LogicalType="INTEGER" Id="VEH8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" SemanticTypeId="" DisplayName="Koltuk Sayısı" Description="" LogicalType="INTEGER" Id="VEH9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid63CF5DCD-A409-463D-80AA-988770FF665C" DisplayName="Araç Rengi" Description="" LogicalType="SUGGESTED_FROM" Id="VEH10">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Bej" />
+              <PossibleValue Description="" Value="Beyaz" />
+              <PossibleValue Description="" Value="Kırmızı" />
+              <PossibleValue Description="" Value="Mavi" />
+              <PossibleValue Description="" Value="Siyah" />
+              <PossibleValue Description="" Value="Yeşil" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="Motor Hacmi" Description="" LogicalType="DECIMAL" Id="VEH11">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Motor Hacmi (Birimler)" Description="" LogicalType="SUGGESTED_FROM" Id="VEH12">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="Santimetre Küp" Value="cc" />
+              <PossibleValue Description="İnç Küp" Value="CI" />
+              <PossibleValue Description="Litre" Value="l" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" SemanticTypeId="guid082FD542-21EB-4c31-9ED0-B01948807BC3" DisplayName="Üretim Yılı" Description="" LogicalType="INTEGER" Id="VEH13">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="13" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Yakıt Tipi" Description="" LogicalType="SUGGESTED_FROM" Id="VEH18">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="Benzin" Value="Benzin" />
+              <PossibleValue Description="Biyodizel" Value="Biyodizel" />
+              <PossibleValue Description="Dizel" Value="Dizel" />
+              <PossibleValue Description="Elektrik" Value="Elektrik" />
+              <PossibleValue Description="Kurşunsuz" Value="Kurşunsuz" />
+              <PossibleValue Description="Sıkıştırılmış Doğal Gaz" Value="Sıkıştırılmış Doğal Gaz" />
+              <PossibleValue Description="Sıvı Petrol Gazı" Value="Sıvı Petrol Gazı" />
+              <PossibleValue Description="Uçak Yakıtı" Value="Uçak Yakıtı" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="14" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA29B5F8F-BA18-4262-95BD-65B8216D8841" DisplayName="Kayıtlı Durum" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH19">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="15" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDAC78E2E-4C6F-4006-B291-0A42BAB2E339" DisplayName="Kayıtlı Ülke ya da Bölge" Description="" LogicalType="SUGGESTED_FROM" Id="VEH20">
+            <PossibleValues>
+              <PossibleValue Description="&lt;Bilinmiyor&gt;" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="Afganistan" Value="Afganistan" />
+              <PossibleValue Description="Almanya" Value="Almanya" />
+              <PossibleValue Description="Amerika Birleşik Devletleri" Value="Amerika Birleşik Devletleri" />
+              <PossibleValue Description="Andorra" Value="Andorra" />
+              <PossibleValue Description="Angola" Value="Angola" />
+              <PossibleValue Description="Antigua ve Barbuda" Value="Antigua ve Barbuda" />
+              <PossibleValue Description="Arjantin" Value="Arjantin" />
+              <PossibleValue Description="Arnavutluk" Value="Arnavutluk" />
+              <PossibleValue Description="Avustralya" Value="Avustralya" />
+              <PossibleValue Description="Avusturya" Value="Avusturya" />
+              <PossibleValue Description="Azerbaycan" Value="Azerbaycan" />
+              <PossibleValue Description="Bahamalar" Value="Bahamalar" />
+              <PossibleValue Description="Bahreyn" Value="Bahreyn" />
+              <PossibleValue Description="Bangladeş" Value="Bangladeş" />
+              <PossibleValue Description="Barbados" Value="Barbados" />
+              <PossibleValue Description="Belçika" Value="Belçika" />
+              <PossibleValue Description="Belize" Value="Belize" />
+              <PossibleValue Description="Benin" Value="Benin" />
+              <PossibleValue Description="Beyaz Rusya" Value="Beyaz Rusya" />
+              <PossibleValue Description="Birleşik Arap Emirlikleri" Value="Birleşik Arap Emirlikleri" />
+              <PossibleValue Description="Birleşik Krallık" Value="Birleşik Krallık" />
+              <PossibleValue Description="Bolivya (Çok Uluslu Devleti)" Value="Bolivya (Çok Uluslu Devleti)" />
+              <PossibleValue Description="Bosna" Value="Bosna" />
+              <PossibleValue Description="Botsvana" Value="Botsvana" />
+              <PossibleValue Description="Brezilya" Value="Brezilya" />
+              <PossibleValue Description="Brunei Sultanlığı" Value="Brunei Sultanlığı" />
+              <PossibleValue Description="Bulgaristan" Value="Bulgaristan" />
+              <PossibleValue Description="Burkina Faso" Value="Burkina Faso" />
+              <PossibleValue Description="Burundi" Value="Burundi" />
+              <PossibleValue Description="Butan" Value="Butan" />
+              <PossibleValue Description="Cezayir" Value="Cezayir" />
+              <PossibleValue Description="Cibuti" Value="Cibuti" />
+              <PossibleValue Description="Comoros" Value="Comoros" />
+              <PossibleValue Description="Çad" Value="Çad" />
+              <PossibleValue Description="Çek Cumhuriyeti" Value="Çek Cumhuriyeti" />
+              <PossibleValue Description="Çin" Value="Çin" />
+              <PossibleValue Description="Danimarka" Value="Danimarka" />
+              <PossibleValue Description="Dominik Cumhuriyeti" Value="Dominik Cumhuriyeti" />
+              <PossibleValue Description="Dominika" Value="Dominika" />
+              <PossibleValue Description="Ekvador" Value="Ekvador" />
+              <PossibleValue Description="Ekvator Ginesi" Value="Ekvator Ginesi" />
+              <PossibleValue Description="El Salvador" Value="El Salvador" />
+              <PossibleValue Description="Endonezya" Value="Endonezya" />
+              <PossibleValue Description="Eritre" Value="Eritre" />
+              <PossibleValue Description="Ermenistan" Value="Ermenistan" />
+              <PossibleValue Description="Eski Yugoslav Makedonya Cumhuriyeti" Value="Eski Yugoslav Makedonya Cumhuriyeti" />
+              <PossibleValue Description="Estonya" Value="Estonya" />
+              <PossibleValue Description="Etiyopya" Value="Etiyopya" />
+              <PossibleValue Description="Fas" Value="Fas" />
+              <PossibleValue Description="Fiji" Value="Fiji" />
+              <PossibleValue Description="Fildişi Sahilleri" Value="Fildişi Sahilleri" />
+              <PossibleValue Description="Filipinler" Value="Filipinler" />
+              <PossibleValue Description="Finlandiya" Value="Finlandiya" />
+              <PossibleValue Description="Fransa" Value="Fransa" />
+              <PossibleValue Description="Gabon" Value="Gabon" />
+              <PossibleValue Description="Gambiya" Value="Gambiya" />
+              <PossibleValue Description="Gana" Value="Gana" />
+              <PossibleValue Description="Gine" Value="Gine" />
+              <PossibleValue Description="Grenada" Value="Grenada" />
+              <PossibleValue Description="Guatemala" Value="Guatemala" />
+              <PossibleValue Description="Guinea-Bissau" Value="Guinea-Bissau" />
+              <PossibleValue Description="Guyana" Value="Guyana" />
+              <PossibleValue Description="Güney Afrika" Value="Güney Afrika" />
+              <PossibleValue Description="Güney Sudan" Value="Güney Sudan" />
+              <PossibleValue Description="Gürcistan" Value="Gürcistan" />
+              <PossibleValue Description="Haiti" Value="Haiti" />
+              <PossibleValue Description="Hersek" Value="Hersek" />
+              <PossibleValue Description="Hırvatistan" Value="Hırvatistan" />
+              <PossibleValue Description="Hindistan" Value="Hindistan" />
+              <PossibleValue Description="Hollanda" Value="Hollanda" />
+              <PossibleValue Description="Honduras" Value="Honduras" />
+              <PossibleValue Description="Irak" Value="Irak" />
+              <PossibleValue Description="İran (İslam Cumhuriyeti)" Value="İran (İslam Cumhuriyeti)" />
+              <PossibleValue Description="İrlanda" Value="İrlanda" />
+              <PossibleValue Description="İspanya" Value="İspanya" />
+              <PossibleValue Description="İsrail" Value="İsrail" />
+              <PossibleValue Description="İsveç" Value="İsveç" />
+              <PossibleValue Description="İsviçre" Value="İsviçre" />
+              <PossibleValue Description="İtalya" Value="İtalya" />
+              <PossibleValue Description="İzlanda" Value="İzlanda" />
+              <PossibleValue Description="Jamaika" Value="Jamaika" />
+              <PossibleValue Description="Japonya" Value="Japonya" />
+              <PossibleValue Description="Kamboçya" Value="Kamboçya" />
+              <PossibleValue Description="Kamerun" Value="Kamerun" />
+              <PossibleValue Description="Kanada" Value="Kanada" />
+              <PossibleValue Description="Karadağ" Value="Karadağ" />
+              <PossibleValue Description="Katar" Value="Katar" />
+              <PossibleValue Description="Kazakistan" Value="Kazakistan" />
+              <PossibleValue Description="Kenya" Value="Kenya" />
+              <PossibleValue Description="Kıbrıs" Value="Kıbrıs" />
+              <PossibleValue Description="Kırgızistan" Value="Kırgızistan" />
+              <PossibleValue Description="Kiribati" Value="Kiribati" />
+              <PossibleValue Description="Kolombiya" Value="Kolombiya" />
+              <PossibleValue Description="Kongo" Value="Kongo" />
+              <PossibleValue Description="Kongo Demokratik Cumhuriyeti" Value="Kongo Demokratik Cumhuriyeti" />
+              <PossibleValue Description="Kore Cumhuriyeti" Value="Kore Cumhuriyeti" />
+              <PossibleValue Description="Kore Demokratik Halk Cumhuriyeti" Value="Kore Demokratik Halk Cumhuriyeti" />
+              <PossibleValue Description="Kosta Rika" Value="Kosta Rika" />
+              <PossibleValue Description="Kuveyt" Value="Kuveyt" />
+              <PossibleValue Description="Küba" Value="Küba" />
+              <PossibleValue Description="Laos Demokratik Halk Cumhuriyeti" Value="Laos Demokratik Halk Cumhuriyeti" />
+              <PossibleValue Description="Lesotho" Value="Lesotho" />
+              <PossibleValue Description="Letonya" Value="Letonya" />
+              <PossibleValue Description="Liberya" Value="Liberya" />
+              <PossibleValue Description="Libya" Value="Libya" />
+              <PossibleValue Description="Lihtenştayn" Value="Lihtenştayn" />
+              <PossibleValue Description="Litvanya" Value="Litvanya" />
+              <PossibleValue Description="Lübnan" Value="Lübnan" />
+              <PossibleValue Description="Lüksemburg" Value="Lüksemburg" />
+              <PossibleValue Description="Macaristan" Value="Macaristan" />
+              <PossibleValue Description="Madagaskar" Value="Madagaskar" />
+              <PossibleValue Description="Malavi" Value="Malavi" />
+              <PossibleValue Description="Maldivler" Value="Maldivler" />
+              <PossibleValue Description="Malezya" Value="Malezya" />
+              <PossibleValue Description="Mali" Value="Mali" />
+              <PossibleValue Description="Malta" Value="Malta" />
+              <PossibleValue Description="Marshall Adaları" Value="Marshall Adaları" />
+              <PossibleValue Description="Mauritius" Value="Mauritius" />
+              <PossibleValue Description="Meksika" Value="Meksika" />
+              <PossibleValue Description="Mısır" Value="Mısır" />
+              <PossibleValue Description="Mikronezya (Federal Devletleri)" Value="Mikronezya (Federal Devletleri)" />
+              <PossibleValue Description="Moğolistan" Value="Moğolistan" />
+              <PossibleValue Description="Moldova Cumhuriyeti" Value="Moldova Cumhuriyeti" />
+              <PossibleValue Description="Monako" Value="Monako" />
+              <PossibleValue Description="Moritanya" Value="Moritanya" />
+              <PossibleValue Description="Mozambik" Value="Mozambik" />
+              <PossibleValue Description="Myanmar" Value="Myanmar" />
+              <PossibleValue Description="Namibya" Value="Namibya" />
+              <PossibleValue Description="Nauru" Value="Nauru" />
+              <PossibleValue Description="Nepal" Value="Nepal" />
+              <PossibleValue Description="Nijer" Value="Nijer" />
+              <PossibleValue Description="Nijerya" Value="Nijerya" />
+              <PossibleValue Description="Nikaragua" Value="Nikaragua" />
+              <PossibleValue Description="Norveç" Value="Norveç" />
+              <PossibleValue Description="Orta Afrika Cumhuriyeti" Value="Orta Afrika Cumhuriyeti" />
+              <PossibleValue Description="Özbekistan" Value="Özbekistan" />
+              <PossibleValue Description="Pakistan" Value="Pakistan" />
+              <PossibleValue Description="Palau" Value="Palau" />
+              <PossibleValue Description="Panama" Value="Panama" />
+              <PossibleValue Description="Papua Yeni Gine" Value="Papua Yeni Gine" />
+              <PossibleValue Description="Paraguay" Value="Paraguay" />
+              <PossibleValue Description="Peru" Value="Peru" />
+              <PossibleValue Description="Polonya" Value="Polonya" />
+              <PossibleValue Description="Portekiz" Value="Portekiz" />
+              <PossibleValue Description="Romanya" Value="Romanya" />
+              <PossibleValue Description="Ruanda" Value="Ruanda" />
+              <PossibleValue Description="Rusya Federasyonu" Value="Rusya Federasyonu" />
+              <PossibleValue Description="Saint Kitts ve Nevis" Value="Saint Kitts ve Nevis" />
+              <PossibleValue Description="Saint Lucia" Value="Saint Lucia" />
+              <PossibleValue Description="Saint Vincent ve Grenadinler" Value="Saint Vincent ve Grenadinler" />
+              <PossibleValue Description="Samoa" Value="Samoa" />
+              <PossibleValue Description="San Marino" Value="San Marino" />
+              <PossibleValue Description="Sao Tome ve Principe" Value="Sao Tome ve Principe" />
+              <PossibleValue Description="Senegal" Value="Senegal" />
+              <PossibleValue Description="Seyşeller" Value="Seyşeller" />
+              <PossibleValue Description="Sırbistan" Value="Sırbistan" />
+              <PossibleValue Description="Sierra Leone" Value="Sierra Leone" />
+              <PossibleValue Description="Singapur" Value="Singapur" />
+              <PossibleValue Description="Slovakya" Value="Slovakya" />
+              <PossibleValue Description="Slovenya" Value="Slovenya" />
+              <PossibleValue Description="Solomon Adaları" Value="Solomon Adaları" />
+              <PossibleValue Description="Somali" Value="Somali" />
+              <PossibleValue Description="Sri Lanka" Value="Sri Lanka" />
+              <PossibleValue Description="Sudan" Value="Sudan" />
+              <PossibleValue Description="Surinam" Value="Surinam" />
+              <PossibleValue Description="Suriye Arap Cumhuriyeti" Value="Suriye Arap Cumhuriyeti" />
+              <PossibleValue Description="Suudi Arabistan" Value="Suudi Arabistan" />
+              <PossibleValue Description="Svaziland" Value="Svaziland" />
+              <PossibleValue Description="Şili" Value="Şili" />
+              <PossibleValue Description="Tacikistan" Value="Tacikistan" />
+              <PossibleValue Description="Tanzanya Birleşik Cumhuriyeti" Value="Tanzanya Birleşik Cumhuriyeti" />
+              <PossibleValue Description="Tayland" Value="Tayland" />
+              <PossibleValue Description="Timor-Leste" Value="Timor-Leste" />
+              <PossibleValue Description="Togo" Value="Togo" />
+              <PossibleValue Description="Tonga" Value="Tonga" />
+              <PossibleValue Description="Trinidad ve Tobago" Value="Trinidad ve Tobago" />
+              <PossibleValue Description="Tunus" Value="Tunus" />
+              <PossibleValue Description="Tuvalu" Value="Tuvalu" />
+              <PossibleValue Description="Türkiye" Value="Türkiye" />
+              <PossibleValue Description="Türkmenistan" Value="Türkmenistan" />
+              <PossibleValue Description="Uganda" Value="Uganda" />
+              <PossibleValue Description="Ukrayna" Value="Ukrayna" />
+              <PossibleValue Description="Umman" Value="Umman" />
+              <PossibleValue Description="Uruguay" Value="Uruguay" />
+              <PossibleValue Description="Ürdün" Value="Ürdün" />
+              <PossibleValue Description="Vanuatu" Value="Vanuatu" />
+              <PossibleValue Description="Venezuela (Bolivar Cumhuriyeti)" Value="Venezuela (Bolivar Cumhuriyeti)" />
+              <PossibleValue Description="Vietnam" Value="Vietnam" />
+              <PossibleValue Description="Yemen" Value="Yemen" />
+              <PossibleValue Description="Yeni Zelanda" Value="Yeni Zelanda" />
+              <PossibleValue Description="Yeşil Burun Adaları" Value="Yeşil Burun Adaları" />
+              <PossibleValue Description="Yunanistan" Value="Yunanistan" />
+              <PossibleValue Description="Zambiya" Value="Zambiya" />
+              <PossibleValue Description="Zimbabve" Value="Zimbabve" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="16" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Amaç" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH21">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="19" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Ek Bilgiler" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="VEH31">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="20" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Dolandırıcılık İşareti" Description="" LogicalType="SUGGESTED_FROM" Id="VEH32">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Araştırılıyor" />
+              <PossibleValue Description="" Value="Doğrulanmış" />
+              <PossibleValue Description="" Value="Geçerliliği Denetlendi" />
+              <PossibleValue Description="" Value="Şüpheli" />
+              <PossibleValue Description="" Value="Yok" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="21" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Veri Kaynağı" Description="" LogicalType="SUGGESTED_FROM" Id="VEH33">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="Sigorta Sahtekarlığı Bürosu" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+    </EntityTypes>
+    <LinkTypes>
+      <LinkType Id="dab2f6f2-813c-4a47-b630-b91f52a1e0e1" Description="Uyarı Akışı Aboneliği" DisplayName="Uyarı Akışı Aboneliği" FromTypeIds="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb" ToTypeIds="1274e2e7-7751-4dae-a994-648718e19f04">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="0" Description="Uyarıların verilme şekilleri" DisplayName="Uyarı verme yöntemleri" Id="84aa56e3-84a1-4c05-9a77-4f9185202a55">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="Uyarı almaya göre" Description="Uyarı alma web hizmeti aracılığıyla" LogicalType="BOOLEAN" Id="72367e78-b265-46e1-8fc8-81f42d307e40">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes />
+      </LinkType>
+      <LinkType Id="CLML1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="Talep linki" DisplayName="Talep" FromTypeIds="CLA1" ToTypeIds="ADD1 INT1 IP1 ORG1 PER1 TEL1 VEH1 CLA1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Tanım" Description="" LogicalType="SINGLE_LINE_STRING" Id="CLML2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Benzersiz Referans" Description="" LogicalType="SINGLE_LINE_STRING" Id="CLML3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Ek Bilgiler" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CLML4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Veri Kaynağı" Description="" LogicalType="SUGGESTED_FROM" Id="CLML5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="Sigorta Sahtekarlığı Bürosu" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="COML1" SemanticTypeId="guid59AF2273-E052-4d76-82D2-29FDAE535C45" Description="İletişim ayrıntıları" DisplayName="İletişim" FromTypeIds="TEL1" ToTypeIds="ORG1 PER1 TEL1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Tanım" Description="" LogicalType="SINGLE_LINE_STRING" Id="COML2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Benzersiz Referans" Description="" LogicalType="SINGLE_LINE_STRING" Id="COML3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Ek Bilgiler" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="COML4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Veri Kaynağı" Description="" LogicalType="SUGGESTED_FROM" Id="COML5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="Sigorta Sahtekarlığı Bürosu" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="İletişim Tarih ve Saati" Description="" LogicalType="DATE_AND_TIME" Id="COML7">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="POLL1" SemanticTypeId="guid04F96434-6847-41e3-9373-DB42C50060B3" Description="Poliçe linkleri" DisplayName="Poliçe" FromTypeIds="IP1 ORG1 PER1" ToTypeIds="ADD1 ACC1 CRC1 EM1 ORG1 PER1 TEL1 VEH1 CLA1 INT1 IP1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Tanım" Description="" LogicalType="SINGLE_LINE_STRING" Id="POLL2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Benzersiz Referans" Description="" LogicalType="SINGLE_LINE_STRING" Id="POLL3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Ek Bilgiler" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="POLL4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Veri Kaynağı" Description="" LogicalType="SUGGESTED_FROM" Id="POLL5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="Sigorta Sahtekarlığı Bürosu" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="OTHL1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="Üçüncü taraf ya da diğer talep sahibi ayrıntıları" DisplayName="Diğer Talep Sahipleri" FromTypeIds="ADD1 ACC1 CLA1 CRC1 INT1 EM1 ORG1 PER1 TEL1 VEH1" ToTypeIds="ADD1 CLA1 ORG1 VEH1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Tanım" Description="" LogicalType="SINGLE_LINE_STRING" Id="OTHL2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Benzersiz Referans" Description="" LogicalType="SINGLE_LINE_STRING" Id="OTHL3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Ek Bilgiler" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="OTHL4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Veri Kaynağı" Description="" LogicalType="SUGGESTED_FROM" Id="OTHL5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="Sigorta Sahtekarlığı Bürosu" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="VEHL1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="Taşıtın linki" DisplayName="Taşıt Linki" FromTypeIds="VEH1" ToTypeIds="CLA1 ORG1 PER1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Tanım" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEHL2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Benzersiz Referans" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEHL3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Ek Bilgiler" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="VEHL4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Veri Kaynağı" Description="" LogicalType="SUGGESTED_FROM" Id="VEHL5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="Sigorta Sahtekarlığı Bürosu" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="DUP1" SemanticTypeId="guid2B55231E-521E-4502-8989-3BE1DB0B864D" DisplayName="Şunun Kopyası:" FromTypeIds="ADD1 ACC1 CLA1 CRC1 INT1 EM1 IP1 ORG1 PER1 TEL1 VEH1" ToTypeIds="VEH1 TEL1 PER1 ORG1 IP1 EM1 INT1 CRC1 CLA1 ACC1 ADD1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="Ek Bilgiler" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="DUP2">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="SUB1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" DisplayName="Konusu" FromTypeIds="cf17d636-44c9-4897-b19d-7d2eda002e57 INT1" ToTypeIds="ADD1 ACC1 CLA1 CRC1 INT1 EM1 IP1 ORG1 PER1 TEL1 VEH1 cf17d636-44c9-4897-b19d-7d2eda002e57">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Benzersiz Referans" Description="" LogicalType="SINGLE_LINE_STRING" Id="SUB2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Tanım" Description="" LogicalType="SINGLE_LINE_STRING" Id="PT2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="guidF49AD106-BBCA-4de0-A6C8-77BCE1493AFA" DisplayName="Tarih ve Saat" Description="" LogicalType="DATE_AND_TIME" Id="SUB3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="Ek Bilgiler" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="SUB4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Veri Kaynağı" Description="" LogicalType="SUGGESTED_FROM" Id="PT1">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Bilinmiyor&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="Sigorta Sahtekarlığı Bürosu" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+    </LinkTypes>
+  </ItemTypes>
+  <Id>18b14ee3-ffb4-4e35-88bd-eee7f5806fa7</Id>
+  <Version>1</Version>
+  <SourceInfoMandatoryFields IsDateMandatory="false" IsDescriptionMandatory="false" IsReferenceMandatory="false" IsTypeMandatory="false" />
+  <LinkStrengthInfo DefaultLinkStrengthId="daf0e75f-ca7d-473a-80bf-6fad91472dc6">
+    <LinkStrengths>
+      <LinkStrength Id="daf0e75f-ca7d-473a-80bf-6fad91472dc6" Name="Doğrulanmış" LineStyle="SOLID" />
+      <LinkStrength Id="683d1f08-b892-411e-997f-00881e62e84e" Name="Doğrulanmamış" LineStyle="DASHED" />
+      <LinkStrength Id="460819f3-82b8-4483-b528-a927b8fbb9cb" Name="Geçici" LineStyle="DOTTED" />
+    </LinkStrengths>
+  </LinkStrengthInfo>
+  <LabelingSchemes>
+    <LabelingScheme Name="Ticari Temel Etiketleme Şeması" Id="8355f4c5-1444-4a2f-b4da-f9374fbd80e6">
+      <LabelDefinitions>
+        <LabelDefinition ItemTypeId="372a12af-f684-41c5-9ce9-759b3beef826">
+          <LabelParts>
+            <LabelPart Value="07e81445-0f5e-4340-b355-c82809e895da" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb">
+          <LabelParts>
+            <LabelPart Value="ce3d12ac-2632-4a0f-b2b6-6a7fdda887a6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="1274e2e7-7751-4dae-a994-648718e19f04">
+          <LabelParts>
+            <LabelPart Value="b7b059a0-1079-45ac-8ae0-ee026f70dd69" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="dab2f6f2-813c-4a47-b630-b91f52a1e0e1">
+          <LabelParts>
+            <LabelPart Value="Abone Olunan" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="cf17d636-44c9-4897-b19d-7d2eda002e57">
+          <LabelParts>
+            <LabelPart Value="d6d03ce2-3cd6-49c1-8a66-366d0e434fd4" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="43cd717c-0204-4c81-93ea-f9f0458bc5ea">
+          <LabelParts>
+            <LabelPart Value="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="ACC1">
+          <LabelParts>
+            <LabelPart Value="ACC3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="ADD1">
+          <LabelParts>
+            <LabelPart Value="ADD4" LabelPartType="PROPERTY_TYPE" />
+            <LabelPart Value="," LabelPartType="LITERAL" />
+            <LabelPart Value=" " LabelPartType="LITERAL" />
+            <LabelPart Value="ADD6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="CLA1">
+          <LabelParts>
+            <LabelPart Value="CLA3" LabelPartType="PROPERTY_TYPE" />
+            <LabelPart Value="," LabelPartType="LITERAL" />
+            <LabelPart Value=" " LabelPartType="LITERAL" />
+            <LabelPart Value="CLA6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="CRC1">
+          <LabelParts>
+            <LabelPart Value="CRC3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="INT1">
+          <LabelParts>
+            <LabelPart Value="INT5" LabelPartType="PROPERTY_TYPE" />
+            <LabelPart Value="," LabelPartType="LITERAL" />
+            <LabelPart Value=" " LabelPartType="LITERAL" />
+            <LabelPart Value="INT6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="ORG1">
+          <LabelParts>
+            <LabelPart Value="ORG3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="PER1">
+          <LabelParts>
+            <LabelPart Value="PER5" LabelPartType="PROPERTY_TYPE" />
+            <LabelPart Value=" " LabelPartType="LITERAL" />
+            <LabelPart Value="PER7" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="TEL1">
+          <LabelParts>
+            <LabelPart Value="TEL6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="VEH1">
+          <LabelParts>
+            <LabelPart Value="VEH3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="CLML1">
+          <LabelParts>
+            <LabelPart Value="Talep" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="COML1">
+          <LabelParts>
+            <LabelPart Value="COML7" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="OTHL1">
+          <LabelParts>
+            <LabelPart Value="Hak Talebi Sahibi" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="POLL1">
+          <LabelParts>
+            <LabelPart Value="Poliçe" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="VEHL1">
+          <LabelParts>
+            <LabelPart Value="Araç" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="EM1">
+          <LabelParts>
+            <LabelPart Value="EM3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="IP1">
+          <LabelParts>
+            <LabelPart Value="IP3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="DUP1">
+          <LabelParts>
+            <LabelPart Value="Çoğalt" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="SUB1">
+          <LabelParts>
+            <LabelPart Value="Konusu" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+      </LabelDefinitions>
+    </LabelingScheme>
+  </LabelingSchemes>
+  <SemanticTypeLibrary>
+    <lcx:LibraryCatalogue VersionMajor="1" VersionMinor="18" VersionRelease="27" VersionBuild="60" xmlns:lcx="http://www.i2group.com/Schemas/2001-12-07/LCXSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" LocaleHex="0809" />
+  </SemanticTypeLibrary>
+</ns2:Schema>

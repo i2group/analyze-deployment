@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:VisualQueryConfiguration xmlns:tns="http://www.i2group.com/Schemas/2016-04-25/VisualQueryConfiguration"
+                              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                              xsi:schemaLocation="http://www.i2group.com/Schemas/2016-04-25/VisualQueryConfiguration/VisualQueryConfiguration.xsd">
+    <OperatorUsageRules>
+        <!-- By default, subject to data type compatibility, there are no    -->
+        <!-- restrictions on which operators can be used with which property -->
+        <!-- types in visual query conditions. To change this behavior for a -->
+        <!-- particular deployment of i2 Analyze, the <OperatorUsageRules>   -->
+        <!-- element has two valid child elements: <Deny> and <Allow>. Both  -->
+        <!-- children support attributes named ItemTypeId, PropertyTypeIds,  -->
+        <!-- Aspects, and Operators. Attributes with plural names support    -->
+        <!-- multiple, comma-separated values.                               -->
+        <!--                                                                 -->
+        <!-- Any rules that you specify are processed in sequence, so that a -->
+        <!-- later rule can completely override an earlier rule. It is       -->
+        <!-- important to order the rules you write so that general ones     -->
+        <!-- come before more specific ones.                                 -->
+        <!--                                                                 -->
+        <!-- A single <Deny> element makes all operators and therefore all   -->
+        <!-- query conditions invalid. It restricts users to creating        -->
+        <!-- conditions with the types and operators that you allow later.   -->
+
+        <!-- <Deny/> -->
+
+        <!-- An <Allow> element that has only an ItemTypeId attribute        -->
+        <!-- enables all possible conditions on the specified item type.     -->
+
+        <!-- <Allow ItemTypeId="ET1"/> -->
+
+        <!-- When you have an item type for which all possible conditions    -->
+        <!-- are enabled, you can invalidate conditions that use a specified -->
+        <!-- operator with a specified property type. Allowing or denying    -->
+        <!-- use of an operator that a particular property type does not     -->
+        <!-- support is not an error. Instead, the rule is silently ignored. -->
+
+        <!-- <Deny ItemTypeId="ET1" PropertyTypeIds="ADD1" Operators="WILDCARD_PATTERN"/> -->
+
+        <!-- An <Allow> element that has an ItemTypeId attribute and a       -->
+        <!-- PropertyTypeIds attribute enables conditions with all operators -->
+        <!-- on the specified property types of the specified item type.     -->
+
+        <!-- <Allow ItemTypeId="ET5" PropertyTypeIds="PER7"/> -->
+
+        <!-- An <Allow> element that has an ItemTypeId attribute, a          -->
+        <!-- PropertyTypeIds attribute, and an Operators attribute enables   -->
+        <!-- conditions with the specified operators on all aspects of the   -->
+        <!-- specified property types.                                       -->
+
+        <!-- <Allow ItemTypeId="ET5" PropertyTypeIds="PER10, PER5" Operators="EQUAL_TO, BETWEEN"/> -->
+
+        <!-- An <Allow> element that has an ItemTypeId attribute, a          -->
+        <!-- PropertyTypeIds attribute, and an Aspects attribute enables     -->
+        <!-- conditions with all operators on the specified aspects of the   -->
+        <!-- specified property types.                                       -->
+
+        <!-- <Allow ItemTypeId="ET5" PropertyTypeIds="PER9" Aspects="DATE, MONTH, DAY_OF_WEEK"/> -->
+
+        <!-- An <Allow> element that has all four supported attributes       -->
+        <!-- enables conditions with the specified operators on the          -->
+        <!-- specified aspects of the specified property types.              -->
+
+        <!-- <Allow ItemTypeId="ET5" PropertyTypeIds="PER9" Aspects="QUARTER" Operators="EQUAL_TO"/> -->
+
+        <!-- When you use the Aspects attribute, all of the specified        -->
+        <!-- property types must have the DATE or DATE_AND_TIME data type.   -->
+    </OperatorUsageRules>
+</tns:VisualQueryConfiguration>
+
+<!--
+Valid operators (subject to data type support)
+==============================================
+STARTS_WITH           ENDS_WITH
+EQUAL_TO              NOT_EQUAL_TO
+GREATER_THAN          GREATER_THAN_OR_EQUAL_TO
+LESS_THAN             LESS_THAN_OR_EQUAL_TO
+BETWEEN               CONTAINS
+WILDCARD_PATTERN      NOT_WILDCARD_PATTERN
+IS_SET                IS_NOT_SET
+
+Valid aspects for date & time query conditions
+==============================================
+DATE_AND_TIME         DATE
+TIME                  DAY_OF_MONTH
+MONTH                 QUARTER
+YEAR                  DAY_OF_WEEK
+WEEK_OF_YEAR
+-->

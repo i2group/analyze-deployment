@@ -1,0 +1,95 @@
+#!/bin/bash
+#/********************************************************************************
+# * (C) Copyright IBM Corporation 2018, 2019.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# *
+# ********************************************************************************/
+
+#####################################################################################
+#                                                                                   #
+#  Script to create key stores, trust stores, and certificate signing requests      #
+#                                                                                   #
+#####################################################################################
+
+output "Removing any previous keys, if they exist"
+rm -rf ${SRC_DIR}/keys
+mkdir -p ${SRC_DIR}/keys/requests
+mkdir -p ${SRC_DIR}/keys/stores
+
+output "Adding the CA certificate to containers"
+docker cp ${IMAGES_PATH}/ca/ca/CA.cer liberty:/opt/IBM/utils/keys/CA.cer
+docker cp ${IMAGES_PATH}/ca/ca/CA.cer solr:/opt/IBM/utils/keys/CA.cer
+docker cp ${IMAGES_PATH}/ca/ca/CA.cer solr2:/opt/IBM/utils/keys/CA.cer
+docker cp ${IMAGES_PATH}/ca/ca/CA.cer connector:/opt/IBM/utils/keys/CA.cer
+docker cp ${IMAGES_PATH}/ca/ca/CA.cer db2:/opt/IBM/utils/keys/CA.cer
+docker cp ${IMAGES_PATH}/ca/ca/CA.cer admin_client:/opt/IBM/utils/keys/CA.cer
+docker cp ${IMAGES_PATH}/ca/ca/CA.cer etl_client:/opt/IBM/utils/keys/CA.cer
+docker cp ${IMAGES_PATH}/ca/ca/CA.cer ihs:/opt/IBM/utils/keys/CA.cer
+
+output "Creating the liberty container key store and certificate signing request"
+docker exec -u root -it liberty rm -rf /opt/IBM/keys
+docker exec -u root -it liberty /opt/IBM/utils/jks/createCSR liberty
+
+output "Creating 'Jenny' user key store and certificate signing request"
+docker exec -u root -it liberty /opt/IBM/utils/jks/createCSR Jenny
+
+output "Creating 'Imogen' user key store and certificate signing request"
+docker exec -u root -it liberty /opt/IBM/utils/jks/createCSR Imogen
+
+#Copy the liberty and users certificates signing requests to the local machine
+docker cp liberty:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
+
+output "Creating the solr container key store and certificate signing request"
+docker exec -u root -it solr rm -rf /opt/IBM/keys
+docker exec -u root -it solr /opt/IBM/utils/jks/createCSR solr
+docker cp solr:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
+
+output "Creating the solr2 container key store and certificate signing request"
+docker exec -u root -it solr2 rm -rf /opt/IBM/keys
+docker exec -u root -it solr2 /opt/IBM/utils/jks/createCSR solr2
+docker cp solr2:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
+
+output "Creating the db2 container key store and certificate signing request"
+docker exec -u root -it db2 rm -rf /opt/IBM/keys
+docker exec -u root -it db2 /opt/IBM/utils/cms/createCSR db2
+docker cp db2:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
+docker exec -u root -it db2 /opt/IBM/utils/cms/createTrustStore cms
+
+output "Creating the ihs container key store and certificate signing request"
+docker exec -u root -it ihs rm -rf /opt/IBM/keys
+docker exec -u root -it ihs /opt/IBM/utils/cms/createCSR ihs
+docker cp ihs:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
+docker exec -u root -it ihs /opt/IBM/utils/cms/createTrustStore cms
+
+output "Creating the admin_client container trust stores"
+docker exec -u root -it admin_client rm -rf /opt/IBM/keys
+docker exec -u root -it admin_client /opt/IBM/utils/jks/createTrustStore admin_client
+docker exec -u root -it admin_client /opt/IBM/utils/cms/createTrustStore db2
+
+output "Creating the etl_client container trust store"
+docker exec -u root -it etl_client rm -rf /opt/IBM/keys
+docker exec -u root -it etl_client mkdir -p /opt/IBM/keys/stores
+docker exec -u root -it etl_client /opt/IBM/utils/cms/createTrustStore db2
+
+output "Creating i2 Connect connector key store and certificate signing request"
+docker exec -u root -it connector rm -rf /opt/IBM/keys
+docker exec -u root -it connector /opt/IBM/utils/openssl/createCSR connector
+docker cp connector:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
+
+output "Copy the common trust store to each container"
+docker cp admin_client:/opt/IBM/keys/stores/i2-jks-truststore.jks ${SRC_DIR}/keys/stores/i2-jks-truststore.jks
+docker cp ${SRC_DIR}/keys/stores/i2-jks-truststore.jks liberty:/opt/IBM/keys/stores/i2-jks-truststore.jks
+docker cp ${SRC_DIR}/keys/stores/i2-jks-truststore.jks solr:/opt/IBM/keys/stores/i2-jks-truststore.jks
+docker cp ${SRC_DIR}/keys/stores/i2-jks-truststore.jks solr2:/opt/IBM/keys/stores/i2-jks-truststore.jks
+docker cp ${SRC_DIR}/keys/stores/i2-jks-truststore.jks etl_client:/opt/IBM/keys/stores/i2-jks-truststore.jks
+
+#Change the file ownership of the copied files
+docker exec -u root liberty chown root:keys /opt/IBM/keys/stores/i2-jks-truststore.jks
+docker exec -u root solr chown root:keys /opt/IBM/keys/stores/i2-jks-truststore.jks
+docker exec -u root solr2 chown root:keys /opt/IBM/keys/stores/i2-jks-truststore.jks
+docker exec -u root etl_client chown root:keys /opt/IBM/keys/stores/i2-jks-truststore.jks

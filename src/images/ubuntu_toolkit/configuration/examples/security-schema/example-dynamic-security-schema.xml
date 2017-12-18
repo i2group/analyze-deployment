@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:SecuritySchema xmlns:tns="http://www.i2group.com/Schemas/2015-11-10/ModelData/DynamicSecurity" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.i2group.com/Schemas/2015-11-10/ModelData/DynamicSecurity DynamicSecuritySchema.xsd">
+	<SecurityDimensions Id="812fb036-dd9b-4190-bf9e-fd89c01f84d6" Version="1">
+		<AccessSecurityDimensions>
+			<Dimension Id="SD-SC" DisplayName="Security Compartment" Description="Security Compartment" Ordered="false">
+				<DimensionValue Id="HI" DisplayName="Human Informants" Description="Controlled Data"/>
+				<DimensionValue Id="OSI" DisplayName="Open Source Intelligence" Description="Open Source Intelligence"/>
+			</Dimension>
+			<Dimension Id="SD-SL" DisplayName="Security Level" Description="Security Level" Ordered="true">
+				<DimensionValue Id="CON" DisplayName="Controlled" Description="Controlled"/>
+				<DimensionValue Id="UC" DisplayName="Unclassified" Description="Unclassified"/>
+			</Dimension>
+		</AccessSecurityDimensions>
+	
+		<GrantSecurityDimensions>
+			<Dimension Id="SD-GA" DisplayName="Grant Access" Description="The roles of the user that govern their ability to modify item security settings" Ordered="false">
+				<DimensionValue Id="SC" DisplayName="Security Controller" Description="Security Controller"/>
+			</Dimension>
+		</GrantSecurityDimensions>
+	</SecurityDimensions>
+
+	<SecurityPermissions>
+		<GroupPermissions UserGroup="Analyst">
+			<Permissions Dimension="SD-SC">
+				<Permission DimensionValue="HI" Level="UPDATE" />
+				<Permission DimensionValue="OSI" Level="READ_ONLY" />
+			</Permissions>
+		</GroupPermissions>
+		<GroupPermissions UserGroup="Clerk">
+			<Permissions Dimension="SD-SC">
+				<Permission DimensionValue="OSI" Level="UPDATE" />
+			</Permissions>
+		</GroupPermissions>
+		
+		<GroupPermissions UserGroup="Controlled">
+			<Permissions Dimension="SD-SL">
+				<Permission DimensionValue="CON" Level="UPDATE" />
+				<Permission DimensionValue="UC" Level="UPDATE" />
+			</Permissions>
+		</GroupPermissions>
+		<GroupPermissions UserGroup="Unclassified">
+			<Permissions Dimension="SD-SL">
+				<Permission DimensionValue="UC" Level="UPDATE" />
+			</Permissions>
+		</GroupPermissions>
+		
+		<GroupPermissions UserGroup="Security Controller">
+			<Permissions Dimension="SD-GA">
+				<Permission DimensionValue="SC" Level="UPDATE" />
+			</Permissions>
+		</GroupPermissions>
+	</SecurityPermissions>
+</tns:SecuritySchema>

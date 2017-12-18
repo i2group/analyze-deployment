@@ -1,0 +1,78 @@
+#!/bin/bash
+#/********************************************************************************
+# * (C) Copyright IBM Corporation 2018, 2019.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# *
+# ********************************************************************************/
+
+#####################################################################################
+#                                                                                   #
+#  Script to create containers from previously created images and start the         #
+#  basic servers                                                                    #
+#                                                                                   #
+#  Usage : runContainers                                                            #
+#                                                                                   #
+#####################################################################################
+
+set -e
+
+. utils/variables
+
+pushd ..
+
+. ${UTILS_PATH}/functions
+
+output "Cleaning up any previously created deployment example containers if they exist."
+docker rm -f zookeeper solr solr2 db2 admin_client liberty etl_client ihs connector &>/dev/null || true
+
+output "Clean up the previously created deployment example network if it exists."
+docker network rm eianet &>/dev/null || true
+
+output "Creating the (eianet) deployment example network."
+docker network create eianet
+
+output "Running the zookeeper container on the eia network."
+docker run -d --name zookeeper --net eianet -u i2analyze zookeeper_image
+
+output "Waiting to ensure that the ZooKeeper server is running, and then running the solr and solr2 containers on the eia network."
+waitForContainer zookeeper 'Started'
+docker run -d --name solr -p 8983:8983 --net eianet -u i2analyze solr_image
+docker run -d --name solr2 -p 8984:8984 --net eianet -u i2analyze solr2_image
+
+output "Waiting to ensure that the Solr servers are running, and then running the admin_client container to create the Solr collection on the eia network."
+waitForContainer solr 'Started'
+waitForContainer solr2 'Started'
+docker run -d --name admin_client --net eianet -u i2analyze admin_client_image
+waitForContainer admin_client 'Started'
+docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createSolrCollections --hostname admin_client
+
+output "Running the db2 container on the eia network."
+docker run -d --privileged --name db2 -p 50000:50000 -p 50001:50001 --net eianet -u db2inst1 db2_image
+
+output "Waiting to ensure that the db2 server is running"
+waitForContainer db2 "DB2START processing was successful"
+
+output "Enter the password that you specified for db.infostore.password in the credentials.properties file"
+runCommandUntilSuccess "docker exec -u root -it db2 passwd i2analyze"
+
+output "Running the admin_client container to create the database"
+docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createDatabases
+
+output "Running the ihs container on the eia network"
+docker run -d --name ihs -h ihs -p 80:80 -p 443:443 --net eianet -u root ihs_image
+
+output "Running the liberty container on the eia network"
+docker run -d --name liberty -p 9082:9082 -p 9445:9445 --net eianet -u i2analyze liberty_image
+
+output "Running the etl client on the eia network"
+docker run -d --name etl_client --net eianet -u i2analyze etl_client_image
+
+output "Running the connector on the eia network"
+docker run -d --name connector --net eianet -u i2analyze connector_image
+
+popd

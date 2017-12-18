@@ -1,0 +1,2141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ns2:Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns3="http://www.i2group.com/Schemas/2011-03-03/ModelSchemaExtension" DefaultLabelingSchemeId="8355f4c5-1444-4a2f-b4da-f9374fbd80e6" xmlns:ns2="http://www.i2group.com/Schemas/2011-03-03/ModelSchema">
+  <GradeTypes>
+    <GradeType Description="Evaluación de origen" Mandatory="false" Id="G1" Name="Fiabilidad">
+      <Values>
+        <Value>A</Value>
+        <Value>B</Value>
+        <Value>C</Value>
+        <Value>D</Value>
+        <Value>E</Value>
+      </Values>
+    </GradeType>
+    <GradeType Description="Evaluación de inteligencia de la información" Mandatory="false" Id="G2" Name="Confianza">
+      <Values>
+        <Value>1</Value>
+        <Value>2</Value>
+        <Value>3</Value>
+        <Value>4</Value>
+        <Value>5</Value>
+      </Values>
+    </GradeType>
+    <GradeType Description="Uso de código" Mandatory="false" Id="G3" Name="Confidencialidad">
+      <Values>
+        <Value>1</Value>
+        <Value>2</Value>
+        <Value>3</Value>
+        <Value>4</Value>
+        <Value>5</Value>
+      </Values>
+    </GradeType>
+  </GradeTypes>
+  <ItemTypes>
+    <EntityTypes>
+      <EntityType Id="372a12af-f684-41c5-9ce9-759b3beef826" Description="Conjunto" DisplayName="Conjunto" Icon="General group">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="255" SemanticTypeId="" DisplayName="Nombre" Description="Nombre" LogicalType="SINGLE_LINE_STRING" Id="07e81445-0f5e-4340-b355-c82809e895da">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb" Description="Usuario" DisplayName="Usuario" Icon="Profmale">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Nombre" Description="Nombre" LogicalType="SINGLE_LINE_STRING" Id="ce3d12ac-2632-4a0f-b2b6-6a7fdda887a6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Foto" Description="Foto" LogicalType="PICTURE" Id="becf8151-c6ac-4b9e-bff5-bb56e02fb2ed">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Disponible" Description="Disponibilidad" LogicalType="BOOLEAN" Id="e31bc44e-39f2-4221-a237-a69766d4685e">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="cf17d636-44c9-4897-b19d-7d2eda002e57" Description="Gráfico de Analyst’s Notebook" DisplayName="Gráfico de Analyst’s Notebook" Icon="Anbchart">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="255" SemanticTypeId="" DisplayName="Nombre" Description="El nombre de archivo del gráfico" LogicalType="SINGLE_LINE_STRING" Id="d6d03ce2-3cd6-49c1-8a66-366d0e434fd4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Datos binarios de gráfico" Description="El archivo binario que almacena el contenido del gráfico" LogicalType="DOCUMENT" Id="a20fef80-5c5f-4cf6-a597-c869193792e7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Imagen de vista previa del gráfico" Description="Una imagen en miniatura del gráfico" LogicalType="PICTURE" Id="8690b4d1-421d-4df1-8a9b-b1d25a1676e3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="Datos de índice del gráfico" Description="Datos utilizados para indexar el gráfico" LogicalType="DOCUMENT" Id="c84133b6-7c02-466f-ba14-c1bf28787f2c">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="1274e2e7-7751-4dae-a994-648718e19f04" Description="Canal de información de alertas" DisplayName="Canal de información de alertas" Icon="Search">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="true" Position="3" Description="Eventos que desencadenarán alertas de este canal de información" DisplayName="Eventos desencadenantes de alertas" Id="566eaa37-01d2-4628-9231-a0448ef4a44c">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="El elemento se ha cambiado" Description="Alerta de cambios en este elemento" LogicalType="BOOLEAN" Id="03487793-7975-4332-903b-e670a66c9451">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Se ha eliminado el elemento" Description="Alerta de eliminación de este elemento" LogicalType="BOOLEAN" Id="f8471cf2-0b19-4bd2-9187-d3ac6f474026">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Se ha creado enlace a elemento" Description="Alerta de cambios enlaces a este elemento" LogicalType="BOOLEAN" Id="0b99c403-49f7-4757-9876-3606ec5befa0">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="Las propiedades primarias del elemento han cambiado" Description="Alerta de cambios en las propiedades primarias de este elemento" LogicalType="BOOLEAN" Id="4b873852-76e4-48e1-884a-9f95b87210f9">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="Se ha agregado contenido a este conjunto" Description="Alerta de adiciones a este elemento" LogicalType="BOOLEAN" Id="afa7f3fb-23b0-4869-8b7d-0306ef158b5b">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="8" Mandatory="false" SemanticTypeId="" DisplayName="Cambio de versión de contenido de conjunto existente" Description="Alerta de cambios en la versión de un elemento de este conjunto" LogicalType="BOOLEAN" Id="051e91c1-e925-4dd4-97f1-75ffe37f9c48">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="Se ha quitado contenido de este conjunto" Description="Alerta de eliminaciones de este elemento" LogicalType="BOOLEAN" Id="8146df80-3a08-4106-900f-214faf9ec571">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="5" Mandatory="false" SemanticTypeId="" DisplayName="Se ha cambiado elemento en este conjunto" Description="Alerta de cambios en cualquier elemento de este conjunto" LogicalType="BOOLEAN" Id="db8c60d1-1ff9-4896-bbd0-5e33351815e2">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="Se ha eliminado elemento en este conjunto" Description="Alerta de supresión en cualquier elemento de este conjunto" LogicalType="BOOLEAN" Id="514b213e-b677-428a-a5c9-b8690d564032">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="7" Mandatory="false" SemanticTypeId="" DisplayName="Se ha creado enlace a elemento en este conjunto" Description="Alerta de enlaces establecidos con cualquier elemento de este conjunto" LogicalType="BOOLEAN" Id="2d9ed2a2-5f33-432b-b99b-f08349f8366d">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="Se han cambiado las propiedades primarias de un elemento de este conjunto" Description="Alerta de cambios en las propiedades primarias de un elemento de este conjunto" LogicalType="BOOLEAN" Id="e2127bbb-9ad8-417d-840f-74ec9849ec5e">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Nombre" Description="Nombre de este canal de información de alertas" LogicalType="SINGLE_LINE_STRING" Id="b7b059a0-1079-45ac-8ae0-ee026f70dd69">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Descripción" Description="Texto descriptivo que se debe incluir en alertas generadas" LogicalType="MULTIPLE_LINE_STRING" Id="d1949ec2-9a77-461e-a16f-81026ccd1e89">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="ID de referencia de alerta" Description="Identificador exclusivo del elemento supervisado para la detección de alertas" LogicalType="SINGLE_LINE_STRING" Id="814a72ed-5c68-4763-8d47-b4866de2344b">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="43cd717c-0204-4c81-93ea-f9f0458bc5ea" Description="Consulta almacenada" DisplayName="Consulta" Icon="StoredQuery">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="5" Description="Metadatos de presentación. Estos datos son privados de la consulta almacenada y no pueden editarse directamente." DisplayName="Presentación de la consulta" Id="2c818fa6-68c4-42a4-9bc3-c34bcdc4379a">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Formato" Description="Tipo de formato de presentación. Estos datos son privados de la consulta almacenada y no pueden editarse directamente." LogicalType="SINGLE_LINE_STRING" Id="97f76ffe-1ece-4d5b-9e20-ea66b572b2c5">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Datos de serie" Description="Datos de serie de presentación. Estos datos son privados de la consulta almacenada y no pueden editarse directamente." LogicalType="SINGLE_LINE_STRING" Id="b58f34b6-60fb-4730-a4aa-156bf4e817e0">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Datos XML" Description="Datos XML de presentación. Estos datos son privados de la consulta almacenada y no pueden editarse directamente." LogicalType="XML" Id="ab2fdf78-ddd8-49b2-872a-f5c8ac2106d5">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Nombre" Description="Nombre de esta consulta almacenada especificado por el usuario" LogicalType="SINGLE_LINE_STRING" Id="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Descripción" Description="Descripción de esta consulta almacenada" LogicalType="MULTIPLE_LINE_STRING" Id="a30ddbca-6c14-4454-bdb0-811a5b5beb16">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Tipo de consulta" Description="Tipo de consulta almacenada. Estos datos son privados de la consulta almacenada y no pueden editarse directamente." LogicalType="SINGLE_LINE_STRING" Id="5ae10920-6d60-419f-80db-ba5b9935d93b">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Definición de consulta (Serie)" Description="Definición de tipo serie de consulta almacenada. Estos datos son privados de la consulta almacenada y no pueden editarse directamente." LogicalType="SINGLE_LINE_STRING" Id="17903032-1cd1-4524-94ef-a35aab212e6a">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="Definición de consulta (XML)" Description="Definición XML de consulta almacenada. Estos datos son privados de la consulta almacenada y no pueden editarse directamente." LogicalType="XML" Id="f5916739-a962-4c01-95d3-2598bfabc1b5">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="ADD1" SemanticTypeId="guidC6A2C76F-5637-43DC-92F8-8F3563226307" Description="Detalles de dirección de cliente" DisplayName="Dirección" Icon="House">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="20" Description="" DisplayName="Imágenes" Id="ADD22">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="Imagen" Description="" LogicalType="PICTURE" Id="ADD23">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Descripción de imagen" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="ADD24">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Referencia exclusiva" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB11A89A6-F50C-4c73-949F-00594985DA69" DisplayName="Tipo de ubicación" Description="" LogicalType="SUGGESTED_FROM" Id="ADD26">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Aeropuerto" />
+              <PossibleValue Description="" Value="Aldea" />
+              <PossibleValue Description="" Value="Almacén" />
+              <PossibleValue Description="" Value="Aparcamiento" />
+              <PossibleValue Description="" Value="Banco" />
+              <PossibleValue Description="" Value="Campo de entrenamiento" />
+              <PossibleValue Description="" Value="Campo de refugiados" />
+              <PossibleValue Description="" Value="Casa" />
+              <PossibleValue Description="" Value="Ciudad" />
+              <PossibleValue Description="" Value="Comisaría" />
+              <PossibleValue Description="" Value="Edificio gubernamental" />
+              <PossibleValue Description="" Value="Embajada" />
+              <PossibleValue Description="" Value="Escuela" />
+              <PossibleValue Description="" Value="Estadio deportivo" />
+              <PossibleValue Description="" Value="Garaje" />
+              <PossibleValue Description="" Value="Gasolinera" />
+              <PossibleValue Description="" Value="Granja" />
+              <PossibleValue Description="" Value="Hogar" />
+              <PossibleValue Description="" Value="Hospital" />
+              <PossibleValue Description="" Value="Hotel" />
+              <PossibleValue Description="" Value="Instalación científica / de investigaciones" />
+              <PossibleValue Description="" Value="Instalación militar" />
+              <PossibleValue Description="" Value="Lugar de culto" />
+              <PossibleValue Description="" Value="Lugar de nacimiento" />
+              <PossibleValue Description="" Value="Negocio" />
+              <PossibleValue Description="" Value="Objetivo / Posible objetivo" />
+              <PossibleValue Description="Organización no gubernamental" Value="Oficina de ONG" />
+              <PossibleValue Description="" Value="Oficina de partido político" />
+              <PossibleValue Description="" Value="Oficina de prensa" />
+              <PossibleValue Description="" Value="Parque" />
+              <PossibleValue Description="" Value="Prisión/Cárcel" />
+              <PossibleValue Description="" Value="Pueblo" />
+              <PossibleValue Description="" Value="Punto de tránsito" />
+              <PossibleValue Description="" Value="Región" />
+              <PossibleValue Description="" Value="Residencia" />
+              <PossibleValue Description="" Value="Tienda" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid65F516EA-9C0E-454D-B12E-5A181122A2E5" DisplayName="Número de apartamento" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDECE0D4F-CD3C-43d7-8F52-A068EA5BF494" DisplayName="Número de edificio" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidD733BC65-AC13-413d-B60D-A4784C8A1CD8" DisplayName="Nombre de edificio" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid2F6B7E57-7626-44DC-9CE5-ECD67DF2157E" DisplayName="Nombre calle" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Parroquia" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD20">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid6D5B39A9-41EC-477D-AA79-4CEF272FF067" DisplayName="Pueblo/Ciudad" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA29B5F8F-BA18-4262-95BD-65B8216D8841" DisplayName="Provincia" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Estado" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD25">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidE88DF247-7CA6-4E4F-B38B-87DDE11EE98C" DisplayName="Código postal" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDAC78E2E-4C6F-4006-B291-0A42BAB2E339" DisplayName="País o región" Description="" LogicalType="SUGGESTED_FROM" Id="ADD10">
+            <PossibleValues>
+              <PossibleValue Description="&lt;Desconocido&gt;" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="Afganistán" Value="Afganistán" />
+              <PossibleValue Description="Albania" Value="Albania" />
+              <PossibleValue Description="Alemania" Value="Alemania" />
+              <PossibleValue Description="Andorra" Value="Andorra" />
+              <PossibleValue Description="Angola" Value="Angola" />
+              <PossibleValue Description="Antigua República Yugoslava de Macedonia" Value="Antigua República Yugoslava de Macedonia" />
+              <PossibleValue Description="Antigua y Barbuda" Value="Antigua y Barbuda" />
+              <PossibleValue Description="Arabia Saudí" Value="Arabia Saudí" />
+              <PossibleValue Description="Argelia" Value="Argelia" />
+              <PossibleValue Description="Argentina" Value="Argentina" />
+              <PossibleValue Description="Armenia" Value="Armenia" />
+              <PossibleValue Description="Australia" Value="Australia" />
+              <PossibleValue Description="Austria" Value="Austria" />
+              <PossibleValue Description="Azerbaiyán" Value="Azerbaiyán" />
+              <PossibleValue Description="Bahamas" Value="Bahamas" />
+              <PossibleValue Description="Bahráin" Value="Bahráin" />
+              <PossibleValue Description="Bangladesh" Value="Bangladesh" />
+              <PossibleValue Description="Barbados" Value="Barbados" />
+              <PossibleValue Description="Bélgica" Value="Bélgica" />
+              <PossibleValue Description="Belice" Value="Belice" />
+              <PossibleValue Description="Benín" Value="Benín" />
+              <PossibleValue Description="Bielorrusia" Value="Bielorrusia" />
+              <PossibleValue Description="Bolivia (Estado Plurinacional de)" Value="Bolivia (Estado Plurinacional de)" />
+              <PossibleValue Description="Bosnia" Value="Bosnia" />
+              <PossibleValue Description="Botsuana" Value="Botsuana" />
+              <PossibleValue Description="Brasil" Value="Brasil" />
+              <PossibleValue Description="Brunéi Darussalam" Value="Brunéi Darussalam" />
+              <PossibleValue Description="Bulgaria" Value="Bulgaria" />
+              <PossibleValue Description="Burkina Faso" Value="Burkina Faso" />
+              <PossibleValue Description="Burundi" Value="Burundi" />
+              <PossibleValue Description="Bután" Value="Bután" />
+              <PossibleValue Description="Cabo Verde" Value="Cabo Verde" />
+              <PossibleValue Description="Camboya" Value="Camboya" />
+              <PossibleValue Description="Camerún" Value="Camerún" />
+              <PossibleValue Description="Canadá" Value="Canadá" />
+              <PossibleValue Description="Catar" Value="Catar" />
+              <PossibleValue Description="Chad" Value="Chad" />
+              <PossibleValue Description="Chile" Value="Chile" />
+              <PossibleValue Description="China" Value="China" />
+              <PossibleValue Description="Chipre" Value="Chipre" />
+              <PossibleValue Description="Colombia" Value="Colombia" />
+              <PossibleValue Description="Comoras" Value="Comoras" />
+              <PossibleValue Description="Congo" Value="Congo" />
+              <PossibleValue Description="Costa de Marfil" Value="Costa de Marfil" />
+              <PossibleValue Description="Costa Rica" Value="Costa Rica" />
+              <PossibleValue Description="Croacia" Value="Croacia" />
+              <PossibleValue Description="Cuba" Value="Cuba" />
+              <PossibleValue Description="Dinamarca" Value="Dinamarca" />
+              <PossibleValue Description="Dominica" Value="Dominica" />
+              <PossibleValue Description="Ecuador" Value="Ecuador" />
+              <PossibleValue Description="Egipto" Value="Egipto" />
+              <PossibleValue Description="El Salvador" Value="El Salvador" />
+              <PossibleValue Description="Emiratos Árabes Unidos" Value="Emiratos Árabes Unidos" />
+              <PossibleValue Description="Eritrea" Value="Eritrea" />
+              <PossibleValue Description="Eslovaquia" Value="Eslovaquia" />
+              <PossibleValue Description="Eslovenia" Value="Eslovenia" />
+              <PossibleValue Description="España" Value="España" />
+              <PossibleValue Description="Estados Unidos" Value="Estados Unidos" />
+              <PossibleValue Description="Estonia" Value="Estonia" />
+              <PossibleValue Description="Etiopía" Value="Etiopía" />
+              <PossibleValue Description="Filipinas" Value="Filipinas" />
+              <PossibleValue Description="Finlandia" Value="Finlandia" />
+              <PossibleValue Description="Fiyi" Value="Fiyi" />
+              <PossibleValue Description="Francia" Value="Francia" />
+              <PossibleValue Description="Gabón" Value="Gabón" />
+              <PossibleValue Description="Gambia" Value="Gambia" />
+              <PossibleValue Description="Georgia" Value="Georgia" />
+              <PossibleValue Description="Ghana" Value="Ghana" />
+              <PossibleValue Description="Granada" Value="Granada" />
+              <PossibleValue Description="Grecia" Value="Grecia" />
+              <PossibleValue Description="Guatemala" Value="Guatemala" />
+              <PossibleValue Description="Guinea" Value="Guinea" />
+              <PossibleValue Description="Guinea Ecuatorial" Value="Guinea Ecuatorial" />
+              <PossibleValue Description="Guinea-Bissau" Value="Guinea-Bissau" />
+              <PossibleValue Description="Guyana" Value="Guyana" />
+              <PossibleValue Description="Haití" Value="Haití" />
+              <PossibleValue Description="Herzegovina" Value="Herzegovina" />
+              <PossibleValue Description="Honduras" Value="Honduras" />
+              <PossibleValue Description="Hungría" Value="Hungría" />
+              <PossibleValue Description="India" Value="India" />
+              <PossibleValue Description="Indonesia" Value="Indonesia" />
+              <PossibleValue Description="Irak" Value="Irak" />
+              <PossibleValue Description="Irán (República Islámica de)" Value="Irán (República Islámica de)" />
+              <PossibleValue Description="Irlanda" Value="Irlanda" />
+              <PossibleValue Description="Islandia" Value="Islandia" />
+              <PossibleValue Description="Islas Marshall" Value="Islas Marshall" />
+              <PossibleValue Description="Islas Salomón" Value="Islas Salomón" />
+              <PossibleValue Description="Israel" Value="Israel" />
+              <PossibleValue Description="Italia" Value="Italia" />
+              <PossibleValue Description="Jamaica" Value="Jamaica" />
+              <PossibleValue Description="Japón" Value="Japón" />
+              <PossibleValue Description="Jordania" Value="Jordania" />
+              <PossibleValue Description="Kazajistán" Value="Kazajistán" />
+              <PossibleValue Description="Kenia" Value="Kenia" />
+              <PossibleValue Description="Kirguizistán" Value="Kirguizistán" />
+              <PossibleValue Description="Kiribati" Value="Kiribati" />
+              <PossibleValue Description="Kuwait" Value="Kuwait" />
+              <PossibleValue Description="Laos" Value="Laos" />
+              <PossibleValue Description="Lesoto" Value="Lesoto" />
+              <PossibleValue Description="Letonia" Value="Letonia" />
+              <PossibleValue Description="Líbano" Value="Líbano" />
+              <PossibleValue Description="Liberia" Value="Liberia" />
+              <PossibleValue Description="Libia" Value="Libia" />
+              <PossibleValue Description="Liechtenstein" Value="Liechtenstein" />
+              <PossibleValue Description="Lituania" Value="Lituania" />
+              <PossibleValue Description="Luxemburgo" Value="Luxemburgo" />
+              <PossibleValue Description="Madagascar" Value="Madagascar" />
+              <PossibleValue Description="Malasia" Value="Malasia" />
+              <PossibleValue Description="Malaui" Value="Malaui" />
+              <PossibleValue Description="Maldivas" Value="Maldivas" />
+              <PossibleValue Description="Malí" Value="Malí" />
+              <PossibleValue Description="Malta" Value="Malta" />
+              <PossibleValue Description="Marruecos" Value="Marruecos" />
+              <PossibleValue Description="Mauricio" Value="Mauricio" />
+              <PossibleValue Description="Mauritania" Value="Mauritania" />
+              <PossibleValue Description="México" Value="México" />
+              <PossibleValue Description="Micronesia (Estados Federados de)" Value="Micronesia (Estados Federados de)" />
+              <PossibleValue Description="Mónaco" Value="Mónaco" />
+              <PossibleValue Description="Mongolia" Value="Mongolia" />
+              <PossibleValue Description="Montenegro" Value="Montenegro" />
+              <PossibleValue Description="Mozambique" Value="Mozambique" />
+              <PossibleValue Description="Myanmar" Value="Myanmar" />
+              <PossibleValue Description="Namibia" Value="Namibia" />
+              <PossibleValue Description="Nauru" Value="Nauru" />
+              <PossibleValue Description="Nepal" Value="Nepal" />
+              <PossibleValue Description="Nicaragua" Value="Nicaragua" />
+              <PossibleValue Description="Níger" Value="Níger" />
+              <PossibleValue Description="Nigeria" Value="Nigeria" />
+              <PossibleValue Description="Noruega" Value="Noruega" />
+              <PossibleValue Description="Nueva Zelanda" Value="Nueva Zelanda" />
+              <PossibleValue Description="Omán" Value="Omán" />
+              <PossibleValue Description="Países Bajos" Value="Países Bajos" />
+              <PossibleValue Description="Pakistán" Value="Pakistán" />
+              <PossibleValue Description="Palaos" Value="Palaos" />
+              <PossibleValue Description="Panamá" Value="Panamá" />
+              <PossibleValue Description="Papúa-Nueva Guinea" Value="Papúa-Nueva Guinea" />
+              <PossibleValue Description="Paraguay" Value="Paraguay" />
+              <PossibleValue Description="Perú" Value="Perú" />
+              <PossibleValue Description="Polonia" Value="Polonia" />
+              <PossibleValue Description="Portugal" Value="Portugal" />
+              <PossibleValue Description="Reino Unido" Value="Reino Unido" />
+              <PossibleValue Description="República Centroafricana" Value="República Centroafricana" />
+              <PossibleValue Description="República Checa" Value="República Checa" />
+              <PossibleValue Description="República de Corea" Value="República de Corea" />
+              <PossibleValue Description="República de Moldavia" Value="República de Moldavia" />
+              <PossibleValue Description="República Democrática del Congo" Value="República Democrática del Congo" />
+              <PossibleValue Description="República Democrática y Popular de Corea del Norte" Value="República Democrática y Popular de Corea del Norte" />
+              <PossibleValue Description="República Dominicana" Value="República Dominicana" />
+              <PossibleValue Description="República Unida de Tanzania" Value="República Unida de Tanzania" />
+              <PossibleValue Description="Ruanda" Value="Ruanda" />
+              <PossibleValue Description="Rumanía" Value="Rumanía" />
+              <PossibleValue Description="Rusia" Value="Rusia" />
+              <PossibleValue Description="Saint Kitts y Nevis" Value="Saint Kitts y Nevis" />
+              <PossibleValue Description="Samoa" Value="Samoa" />
+              <PossibleValue Description="San Marino" Value="San Marino" />
+              <PossibleValue Description="San Vicente y Las Granadinas" Value="San Vicente y Las Granadinas" />
+              <PossibleValue Description="Santa Lucía" Value="Santa Lucía" />
+              <PossibleValue Description="Santo Tomé y Príncipe" Value="Santo Tomé y Príncipe" />
+              <PossibleValue Description="Senegal" Value="Senegal" />
+              <PossibleValue Description="Serbia" Value="Serbia" />
+              <PossibleValue Description="Seychelles" Value="Seychelles" />
+              <PossibleValue Description="Sierra Leona" Value="Sierra Leona" />
+              <PossibleValue Description="Singapur" Value="Singapur" />
+              <PossibleValue Description="Siria" Value="Siria" />
+              <PossibleValue Description="Somalia" Value="Somalia" />
+              <PossibleValue Description="Sri Lanka" Value="Sri Lanka" />
+              <PossibleValue Description="Suazilandia" Value="Suazilandia" />
+              <PossibleValue Description="Sudáfrica" Value="Sudáfrica" />
+              <PossibleValue Description="Sudán" Value="Sudán" />
+              <PossibleValue Description="Sudán del Sur" Value="Sudán del Sur" />
+              <PossibleValue Description="Suecia" Value="Suecia" />
+              <PossibleValue Description="Suiza" Value="Suiza" />
+              <PossibleValue Description="Surinam" Value="Surinam" />
+              <PossibleValue Description="Tailandia" Value="Tailandia" />
+              <PossibleValue Description="Tayikistán" Value="Tayikistán" />
+              <PossibleValue Description="Timor Oriental" Value="Timor Oriental" />
+              <PossibleValue Description="Togo" Value="Togo" />
+              <PossibleValue Description="Tonga" Value="Tonga" />
+              <PossibleValue Description="Trinidad y Tobago" Value="Trinidad y Tobago" />
+              <PossibleValue Description="Túnez" Value="Túnez" />
+              <PossibleValue Description="Turkmenistán" Value="Turkmenistán" />
+              <PossibleValue Description="Turquía" Value="Turquía" />
+              <PossibleValue Description="Tuvalu" Value="Tuvalu" />
+              <PossibleValue Description="Ucrania" Value="Ucrania" />
+              <PossibleValue Description="Uganda" Value="Uganda" />
+              <PossibleValue Description="Uruguay" Value="Uruguay" />
+              <PossibleValue Description="Uzbekistán" Value="Uzbekistán" />
+              <PossibleValue Description="Vanuatu" Value="Vanuatu" />
+              <PossibleValue Description="Venezuela (República Bolivariana de)" Value="Venezuela (República Bolivariana de)" />
+              <PossibleValue Description="Vietnam" Value="Vietnam" />
+              <PossibleValue Description="Yemen" Value="Yemen" />
+              <PossibleValue Description="Yibuti" Value="Yibuti" />
+              <PossibleValue Description="Zambia" Value="Zambia" />
+              <PossibleValue Description="Zimbabue" Value="Zimbabue" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="12" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA3722B89-FB0B-4CCA-8611-331784F40509" DisplayName="Buzón" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD11">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="13" Mandatory="false" SemanticTypeId="guidB66D144B-B6DB-4bb5-8222-6F649514EDAB" DisplayName="Ubicación geográfica" Description="Ubicación geográfica" LogicalType="GEOSPATIAL" Id="ADD27">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="14" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid7877FB38-38DC-4fea-87BD-838A6EA66F51" DisplayName="Abscisa" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD12">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="15" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidC319A593-C6D6-4cd0-91EF-14A932488F3B" DisplayName="Ordenada" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD13">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="16" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid5304A03B-FE47-4406-91E7-0D49EC8409A6" DisplayName="Latitud" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD14">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="17" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9" DisplayName="Longitud" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD15">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="18" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Coordenadas combinadas" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD21">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="19" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E" DisplayName="Dato" Description="" LogicalType="SUGGESTED_FROM" Id="ADD16">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="Europeo" Value="EUR-7" />
+              <PossibleValue Description="Global Area Reference System" Value="GARS" />
+              <PossibleValue Description="Military Grid Reference System" Value="MGRS" />
+              <PossibleValue Description="Ordnance GB" Value="OGB-7" />
+              <PossibleValue Description="World Geodetic System" Value="WGS84" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="21" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Información adicional" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="ADD17">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="22" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Indicador de fraude" Description="" LogicalType="SUGGESTED_FROM" Id="ADD19">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Confirmado" />
+              <PossibleValue Description="" Value="Investigando" />
+              <PossibleValue Description="" Value="Ninguno" />
+              <PossibleValue Description="" Value="Sospechoso" />
+              <PossibleValue Description="" Value="Validado" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="23" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Origen de datos" Description="" LogicalType="SUGGESTED_FROM" Id="ADD18">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Departamento contra el fraude a las aseguradoras" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="ACC1" SemanticTypeId="guidAB9A5D8B-9D78-47FE-8302-C167B64D45CC" Description="Datos de cuenta bancaria" DisplayName="Cuenta" Icon="Account">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="7" Description="" DisplayName="Historial de pago" Id="ACC8">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="guid735D4427-99F9-45DF-8820-DDEA9CF7C27E" DisplayName="Pago" Description="" LogicalType="DECIMAL" Id="ACC9">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Referencia exclusiva" Description="" LogicalType="SINGLE_LINE_STRING" Id="ACC2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid22340EB0-01BB-4263-928E-FC971ACB3C51" DisplayName="Nombre de cuenta" Description="" LogicalType="SINGLE_LINE_STRING" Id="ACC13">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidC93D1CA5-5FEB-412B-A6E0-CE7893E606AA" DisplayName="Número de cuenta" Description="" LogicalType="SINGLE_LINE_STRING" Id="ACC3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid3CD52E22-5E43-4F39-9DCF-8B13B9CE78B2" DisplayName="Número de entidad bancaria/Código bancario" Description="Identificación bancaria" LogicalType="SINGLE_LINE_STRING" Id="ACC4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid0FA4C573-0436-4360-AEA7-F123F1994B8E" DisplayName="Tipo de cuenta" Description="" LogicalType="SUGGESTED_FROM" Id="ACC5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Certificado de depósito" />
+              <PossibleValue Description="" Value="Comercial" />
+              <PossibleValue Description="" Value="Corretaje" />
+              <PossibleValue Description="" Value="Corriente" />
+              <PossibleValue Description="" Value="Cuenta corriente" />
+              <PossibleValue Description="" Value="Cuenta de ahorros" />
+              <PossibleValue Description="" Value="Cuenta de socio" />
+              <PossibleValue Description="" Value="Cuenta minorista" />
+              <PossibleValue Description="" Value="Depósito" />
+              <PossibleValue Description="" Value="Hipoteca" />
+              <PossibleValue Description="" Value="Interés alto" />
+              <PossibleValue Description="" Value="Línea de crédito" />
+              <PossibleValue Description="" Value="Postal" />
+              <PossibleValue Description="" Value="Sociedad de ahorro" />
+              <PossibleValue Description="" Value="Tarjeta de crédito" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDA2E2421-DAD1-480d-8EE5-8CF639500158" DisplayName="Método de cobro" Description="Método de cobro de pagos" LogicalType="SUGGESTED_FROM" Id="ACC6">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Autorización continua" />
+              <PossibleValue Description="" Value="Domiciliación bancaria" />
+              <PossibleValue Description="" Value="Orden permanente" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Estado de orden de pago" Description="Estado de metodología de pago" LogicalType="SUGGESTED_FROM" Id="ACC7">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Activo" />
+              <PossibleValue Description="" Value="Cancelado" />
+              <PossibleValue Description="" Value="Detenido" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Información adicional" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="ACC10">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Origen de datos" Description="" LogicalType="SUGGESTED_FROM" Id="ACC11">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Departamento contra el fraude a las aseguradoras" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Indicador de fraude" Description="" LogicalType="SUGGESTED_FROM" Id="ACC12">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Confirmado" />
+              <PossibleValue Description="" Value="Investigando" />
+              <PossibleValue Description="" Value="Ninguno" />
+              <PossibleValue Description="" Value="Sospechoso" />
+              <PossibleValue Description="" Value="Validado" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="CLA1" SemanticTypeId="guid3FF99984-6D1C-4265-866D-4980DC756E26" Description="Detalles de reclamación" DisplayName="Reclamación" Icon="Claim">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Referencia exclusiva" Description="" LogicalType="SINGLE_LINE_STRING" Id="CLA2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid775b8aac-60bd-470c-a61a-a792c9fac1ed" DisplayName="Reclamación" Description="Número de reclamación" LogicalType="SINGLE_LINE_STRING" Id="CLA3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Código de descripción de pérdida" Description="" LogicalType="SINGLE_LINE_STRING" Id="CLA4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="Descripción de pérdida" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CLA5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" SemanticTypeId="guidE17D5FB3-4FF6-4177-AC26-73D8FE2911EE" DisplayName="Fecha de reclamación" Description="" LogicalType="DATE" Id="CLA6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" SemanticTypeId="guid735D4427-99F9-45DF-8820-DDEA9CF7C27E" DisplayName="Exceso" Description="" LogicalType="DECIMAL" Id="CLA7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="Reserva total actual" Description="" LogicalType="DECIMAL" Id="CLA8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" SemanticTypeId="" DisplayName="Pagos totales actuales" Description="" LogicalType="DECIMAL" Id="CLA9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" SemanticTypeId="guid994DA53C-CBE3-4273-8734-A398646C7995" DisplayName="Fecha de acuerdo" Description="" LogicalType="DATE" Id="CLA10">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="Pérdida total" Description="" LogicalType="BOOLEAN" Id="CLA11">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="Reclamación por lesión" Description="" LogicalType="BOOLEAN" Id="CLA12">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" SemanticTypeId="" DisplayName="Notas" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CLA13">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="12" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Cobertura de póliza a fecha de reclamación" Description="" LogicalType="SUGGESTED_FROM" Id="CLA14">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="A todo riesgo" />
+              <PossibleValue Description="" Value="Completa" />
+              <PossibleValue Description="" Value="Solo contra terceros" />
+              <PossibleValue Description="" Value="Solo pasivo" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="13" Mandatory="false" SemanticTypeId="guid9B359855-D9C4-468f-81A2-9DB9C87D32EE" DisplayName="Comienzo de póliza" Description="Fecha de comienzo" LogicalType="DATE" Id="CLA15">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="14" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid7BCB6E9E-3DE6-4941-B452-EC83E0F992DF" DisplayName="Estado de reclamación" Description="" LogicalType="SUGGESTED_FROM" Id="CLA16">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Abierta" />
+              <PossibleValue Description="" Value="Cerrada" />
+              <PossibleValue Description="" Value="Detenida" />
+              <PossibleValue Description="" Value="Investigación" />
+              <PossibleValue Description="" Value="Reabierta" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="15" Mandatory="false" SemanticTypeId="" DisplayName="Reclamación reabierta" Description="" LogicalType="DATE" Id="CLA17">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="16" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Origen de remisión" Description="" LogicalType="SUGGESTED_FROM" Id="CLA18">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Aseguramiento" />
+              <PossibleValue Description="" Value="Finanzas" />
+              <PossibleValue Description="" Value="Reclamaciones" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="17" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Información adicional" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CLA19">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="18" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Indicador de fraude" Description="" LogicalType="SUGGESTED_FROM" Id="CLA21">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Confirmado" />
+              <PossibleValue Description="" Value="Investigando" />
+              <PossibleValue Description="" Value="Ninguno" />
+              <PossibleValue Description="" Value="Sospechoso" />
+              <PossibleValue Description="" Value="Validado" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="19" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Origen de datos" Description="" LogicalType="SUGGESTED_FROM" Id="CLA20">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Departamento contra el fraude a las aseguradoras" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="CRC1" SemanticTypeId="guid3C948CB2-7D74-4b5b-9AF5-798CF0AE707F" Description="Detalle de la tarjeta" DisplayName="Tarjeta de crédito" Icon="Credit Card">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="4" Description="" DisplayName="Historial de pago" Id="CRC6">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="guid735D4427-99F9-45DF-8820-DDEA9CF7C27E" DisplayName="Pago" Description="" LogicalType="DECIMAL" Id="CRC7">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Referencia exclusiva" Description="" LogicalType="SINGLE_LINE_STRING" Id="CRC2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid5EADE4D4-93CE-420c-9551-354309F6A377" DisplayName="Número de tarjeta de crédito" Description="" LogicalType="SINGLE_LINE_STRING" Id="CRC3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid22340EB0-01BB-4263-928E-FC971ACB3C51" DisplayName="Nombre de tarjeta" Description="" LogicalType="SINGLE_LINE_STRING" Id="CRC4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidE556FA14-0421-4e47-BE10-A825DBDF2E85" DisplayName="Código de orden" Description="" LogicalType="SINGLE_LINE_STRING" Id="CRC5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Información adicional" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CRC8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Indicador de fraude" Description="" LogicalType="SUGGESTED_FROM" Id="CRC10">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Confirmado" />
+              <PossibleValue Description="" Value="Investigando" />
+              <PossibleValue Description="" Value="Ninguno" />
+              <PossibleValue Description="" Value="Sospechoso" />
+              <PossibleValue Description="" Value="Validado" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Origen de datos" Description="" LogicalType="SUGGESTED_FROM" Id="CRC9">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Departamento contra el fraude a las aseguradoras" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="INT1" SemanticTypeId="guid3FF99984-6D1C-4265-866D-4980DC756E26" Description="Documento relacionado" DisplayName="Documento" Icon="Document">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="1" Description="" DisplayName="Detalles de documento" Id="INT3">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="Documento" Description="" LogicalType="DOCUMENT" Id="INT4">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="Fecha de información" Description="" LogicalType="DATE" Id="INT13">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB4EC8FC2-13EC-4df2-AE90-D7D5D4A4B621" DisplayName="Título del documento" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT6">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidc329f90d-3bf7-40c3-8d87-f6fe3cb8d5d4" DisplayName="Tipo de documento" Description="" LogicalType="SUGGESTED_FROM" Id="INT5">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+                  <PossibleValue Description="" Value="Alertas IFIG" />
+                  <PossibleValue Description="" Value="Alertas/info IFB" />
+                  <PossibleValue Description="" Value="Coincidencias de domicilio" />
+                  <PossibleValue Description="" Value="Coincidencias de información de póliza" />
+                  <PossibleValue Description="" Value="Coincidencias de motor" />
+                  <PossibleValue Description="" Value="Comentario" />
+                  <PossibleValue Description="" Value="Experian" />
+                  <PossibleValue Description="" Value="Hoja de cálculo" />
+                  <PossibleValue Description="" Value="Informe de ingenieros" />
+                  <PossibleValue Description="" Value="Informe de investigadores" />
+                  <PossibleValue Description="" Value="MIAFTR" />
+                  <PossibleValue Description="" Value="Página web" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid91DA3A32-0AD7-4141-B79B-CC62C452A0A7" DisplayName="Descripción de documento" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT7">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="5" Mandatory="false" SemanticTypeId="guid770074b2-0235-4ade-aca0-f64f9d1986f9" DisplayName="Fecha y hora iniciales de vigencia" Description="" LogicalType="DATE_AND_TIME" Id="INT8">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="6" Mandatory="false" SemanticTypeId="guid9f0adde3-bdcd-4f36-b657-fc0bdf7a10d5" DisplayName="Fecha y hora finales de vigencia" Description="" LogicalType="DATE_AND_TIME" Id="INT9">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="7" Mandatory="false" SemanticTypeId="guidF49AD106-BBCA-4de0-A6C8-77BCE1493AFA" DisplayName="Fecha y hora de informe" Description="" LogicalType="DATE_AND_TIME" Id="INT10">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="8" Mandatory="false" SemanticTypeId="" DisplayName="Fecha y hora de introducción" Description="" LogicalType="DATE_AND_TIME" Id="INT11">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidE14D4A28-9ECD-4e72-8DE2-21D0D476A8FC" DisplayName="Origen de documento" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT12">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA3056048-D54F-462b-BF88-65FE24142A9F" DisplayName="URL de documento" Description="" LogicalType="SINGLE_LINE_STRING" Id="DOC19">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="2" Description="" DisplayName="Imágenes" Id="INT14">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="Imagen" Description="" LogicalType="PICTURE" Id="INT15">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Descripción de imagen" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT16">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Referencia exclusiva" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Información adicional" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="INT19">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Indicador de fraude" Description="" LogicalType="SUGGESTED_FROM" Id="INT18">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Confirmado" />
+              <PossibleValue Description="" Value="Investigando" />
+              <PossibleValue Description="" Value="Ninguno" />
+              <PossibleValue Description="" Value="Sospechoso" />
+              <PossibleValue Description="" Value="Validado" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Origen de datos" Description="" LogicalType="SUGGESTED_FROM" Id="INT17">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Departamento contra el fraude a las aseguradoras" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="EM1" SemanticTypeId="guidD5901596-3DD7-40FE-BAF4-0E9FE6BD1E81" Description="Detalles de dirección electrónica" DisplayName="Correo electrónico" Icon="Email">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Referencia exclusiva" Description="" LogicalType="SINGLE_LINE_STRING" Id="EM2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid7D0DF839-B553-457A-93B4-B333D603B7FD" DisplayName="Dirección de correo electrónico" Description="" LogicalType="SINGLE_LINE_STRING" Id="EM3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid494292DD-E253-4851-8AD5-FD4BC38442B0" DisplayName="Dirección IP" Description="" LogicalType="SINGLE_LINE_STRING" Id="EM4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Información adicional" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="EM5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Indicador de fraude" Description="" LogicalType="SUGGESTED_FROM" Id="EM7">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Confirmado" />
+              <PossibleValue Description="" Value="Investigando" />
+              <PossibleValue Description="" Value="Ninguno" />
+              <PossibleValue Description="" Value="Sospechoso" />
+              <PossibleValue Description="" Value="Validado" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Origen de datos" Description="" LogicalType="SUGGESTED_FROM" Id="EM6">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Departamento contra el fraude a las aseguradoras" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="IP1" SemanticTypeId="guidFE4A6E2D-FFEF-4DF2-9DB2-4DE91E862761" Description="Detalles de póliza" DisplayName="Póliza" Icon="Case">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="8" Description="" DisplayName="Detalles de póliza individual" Id="IP11">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="guid9B359855-D9C4-468f-81A2-9DB9C87D32EE" DisplayName="Fecha de entrada en vigor" Description="" LogicalType="DATE" Id="IP12">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="guidBCAD30E5-D249-412f-83BF-00AA0FF5B7EC" DisplayName="Fecha de la transacción" Description="" LogicalType="DATE" Id="IP13">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" SemanticTypeId="guid735D4427-99F9-45DF-8820-DDEA9CF7C27E" DisplayName="Prima bruta" Description="" LogicalType="DECIMAL" Id="IP14">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="Prima neta" Description="" LogicalType="DECIMAL" Id="IP15">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid25EAFCAA-E2EB-432d-8927-A59CF0B84CDA" DisplayName="Origen de negocio" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP16">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDA2E2421-DAD1-480d-8EE5-8CF639500158" DisplayName="Método de pago" Description="" LogicalType="SUGGESTED_FROM" Id="IP17">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+                  <PossibleValue Description="" Value="Cheque" />
+                  <PossibleValue Description="" Value="Efectivo" />
+                  <PossibleValue Description="" Value="PayPal" />
+                  <PossibleValue Description="" Value="Tarjeta de crédito" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Tipo de cobertura" Description="" LogicalType="SUGGESTED_FROM" Id="IP18">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+                  <PossibleValue Description="" Value="A todo riesgo" />
+                  <PossibleValue Description="" Value="Completa" />
+                  <PossibleValue Description="" Value="Solo contra terceros" />
+                  <PossibleValue Description="" Value="Solo pasivo" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Restricciones de conducción" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP19">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="8" Mandatory="false" SemanticTypeId="" DisplayName="Número de conductores" Description="" LogicalType="INTEGER" Id="IP20">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Nombre de asegurador anterior" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP21">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="Kilometraje anual" Description="" LogicalType="DECIMAL" Id="IP22">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="11" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Seguridad de vehículo" Description="" LogicalType="SUGGESTED_FROM" Id="IP23">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+                  <PossibleValue Description="" Value="Aprobación por Thatcham" />
+                  <PossibleValue Description="" Value="Instalación de fábrica" />
+                  <PossibleValue Description="" Value="Ninguno" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="12" Mandatory="false" SemanticTypeId="" DisplayName="Número de errores" Description="" LogicalType="INTEGER" Id="IP24">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="13" Mandatory="false" SemanticTypeId="" DisplayName="Número de no errores" Description="" LogicalType="INTEGER" Id="IP25">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="14" Mandatory="false" SemanticTypeId="" DisplayName="Reclamaciones totales" Description="" LogicalType="INTEGER" Id="IP26">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="15" Mandatory="false" SemanticTypeId="" DisplayName="Número de infracciones" Description="" LogicalType="INTEGER" Id="IP27">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Referencia exclusiva" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid775b8aac-60bd-470c-a61a-a792c9fac1ed" DisplayName="Número de póliza" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Clase de negocio" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Referencia" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" SemanticTypeId="guid75CA7E8F-D2EF-4CF4-BB81-6C244ADA5286" DisplayName="Fecha de referencia original" Description="" LogicalType="DATE" Id="IP6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" SemanticTypeId="" DisplayName="Fecha de renovación más reciente" Description="" LogicalType="DATE" Id="IP7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB2A3B23C-07B8-4A87-8B45-4CD20079E79C" DisplayName="Asegurador" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid0FA4C573-0436-4360-AEA7-F123F1994B8E" DisplayName="Esquema" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Información adicional" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="IP28">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Origen de datos" Description="" LogicalType="SUGGESTED_FROM" Id="IP29">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Departamento contra el fraude a las aseguradoras" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Indicador de fraude" Description="" LogicalType="SUGGESTED_FROM" Id="IP30">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Confirmado" />
+              <PossibleValue Description="" Value="Investigando" />
+              <PossibleValue Description="" Value="Ninguno" />
+              <PossibleValue Description="" Value="Sospechoso" />
+              <PossibleValue Description="" Value="Validado" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="ORG1" SemanticTypeId="guidB30A4137-A537-420B-B481-C5DF922152AF" Description="Detalles de organización" DisplayName="Organización" Icon="Organ">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Referencia exclusiva" Description="" LogicalType="SINGLE_LINE_STRING" Id="ORG2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB2A3B23C-07B8-4A87-8B45-4CD20079E79C" DisplayName="Nombre de organización" Description="" LogicalType="SINGLE_LINE_STRING" Id="ORG3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid694EB231-9982-46FE-A40E-3D9165582101" DisplayName="Número de compañía" Description="" LogicalType="SINGLE_LINE_STRING" Id="ORG10">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB11A89A6-F50C-4c73-949F-00594985DA69" DisplayName="Tipo de organización" Description="" LogicalType="SUGGESTED_FROM" Id="ORG4">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Abogacía" />
+              <PossibleValue Description="" Value="Agencia" />
+              <PossibleValue Description="" Value="Agricultura" />
+              <PossibleValue Description="" Value="Almacén" />
+              <PossibleValue Description="" Value="Armada" />
+              <PossibleValue Description="" Value="Arquitecto" />
+              <PossibleValue Description="" Value="Banco" />
+              <PossibleValue Description="" Value="Bar" />
+              <PossibleValue Description="" Value="Casino" />
+              <PossibleValue Description="" Value="Criminal" />
+              <PossibleValue Description="" Value="Educación" />
+              <PossibleValue Description="" Value="Ejército" />
+              <PossibleValue Description="" Value="Fábrica" />
+              <PossibleValue Description="" Value="Firma comercial" />
+              <PossibleValue Description="" Value="Formación" />
+              <PossibleValue Description="" Value="Fuerza aérea" />
+              <PossibleValue Description="" Value="Garaje" />
+              <PossibleValue Description="" Value="Gobierno" />
+              <PossibleValue Description="" Value="Hospital" />
+              <PossibleValue Description="" Value="Hotel" />
+              <PossibleValue Description="" Value="Iglesia" />
+              <PossibleValue Description="" Value="Impresión" />
+              <PossibleValue Description="" Value="Institución financiera" />
+              <PossibleValue Description="" Value="Laboratorio" />
+              <PossibleValue Description="" Value="Laboratorio médico" />
+              <PossibleValue Description="" Value="Lugar de culto" />
+              <PossibleValue Description="" Value="Manufactura" />
+              <PossibleValue Description="" Value="Milicia" />
+              <PossibleValue Description="" Value="Militar" />
+              <PossibleValue Description="" Value="ONG" />
+              <PossibleValue Description="" Value="Organización" />
+              <PossibleValue Description="" Value="Paramilitar" />
+              <PossibleValue Description="" Value="Política" />
+              <PossibleValue Description="" Value="Prisión" />
+              <PossibleValue Description="" Value="Publicidad" />
+              <PossibleValue Description="" Value="Restauración" />
+              <PossibleValue Description="" Value="Restaurante" />
+              <PossibleValue Description="" Value="Servicio de inteligencia" />
+              <PossibleValue Description="" Value="Supermercado" />
+              <PossibleValue Description="" Value="Tecnología de la información" />
+              <PossibleValue Description="" Value="Terminal de aeropuerto" />
+              <PossibleValue Description="" Value="Terrorista" />
+              <PossibleValue Description="" Value="Transporte" />
+              <PossibleValue Description="" Value="Transportista común (transporte)" />
+              <PossibleValue Description="" Value="Venta al por menor" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid5A7E25C4-9239-4500-A20A-B986D7D28E40" DisplayName="Dirección web" Description="" LogicalType="SINGLE_LINE_STRING" Id="ORG5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" SemanticTypeId="guid9B359855-D9C4-468f-81A2-9DB9C87D32EE" DisplayName="Fecha de incorporación" Description="" LogicalType="DATE" Id="ORG11">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" SemanticTypeId="guid80860455-202C-4ddf-85A9-AE576D66BD56" DisplayName="Fecha de disolución" Description="" LogicalType="DATE" Id="ORG12">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Información adicional" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="ORG6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Indicador de fraude" Description="" LogicalType="SUGGESTED_FROM" Id="ORG7">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Confirmado" />
+              <PossibleValue Description="" Value="Investigando" />
+              <PossibleValue Description="" Value="Ninguno" />
+              <PossibleValue Description="" Value="Sospechoso" />
+              <PossibleValue Description="" Value="Validado" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Origen de datos" Description="" LogicalType="SUGGESTED_FROM" Id="ORG8">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Departamento contra el fraude a las aseguradoras" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="PER1" SemanticTypeId="guid8A586959-9837-47DE-8DBF-BC7031F01545" Description="Datos de persona" DisplayName="Persona" Icon="Person (Shaded Shirt)">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="1" Description="" DisplayName="Nombre completo" Id="PER3">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid45E7897F-0DC6-4AD0-AAC6-73A780DD78BE" DisplayName="Tratamiento" Description="" LogicalType="SUGGESTED_FROM" Id="PER4">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+                  <PossibleValue Description="" Value="Sr" />
+                  <PossibleValue Description="" Value="Sra" />
+                  <PossibleValue Description="" Value="Sra/Srta" />
+                  <PossibleValue Description="" Value="Srta" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid4DE7370B-60E5-4EB0-860E-4066D3DFD7B6" DisplayName="Nombre" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER5">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidBE6A2505-B545-464C-B407-51F9847ECE39" DisplayName="Segundo nombre" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER6">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid62B01C18-2E64-46D5-B2FF-3C69B4F76FEB" DisplayName="Apellido" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER7">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid3B5FB234-1DDC-40FC-B999-6A969B819BCB" DisplayName="Sufijo" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER8">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="4" Description="" DisplayName="Identificación" Id="PER31">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidF9DA2FC4-4B32-4d42-A178-A238274D4C5D" DisplayName="Número de identificación" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER32">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidc329f90d-3bf7-40c3-8d87-f6fe3cb8d5d4" DisplayName="Tipo de identificación" Description="" LogicalType="SUGGESTED_FROM" Id="PER33">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+                  <PossibleValue Description="Carné de conducir" Value="Carné de conducir" />
+                  <PossibleValue Description="Número de antecedentes penales" Value="Número de antecedentes penales" />
+                  <PossibleValue Description="Número de la seguridad social" Value="Número de la seguridad social" />
+                  <PossibleValue Description="Pasaporte" Value="Pasaporte" />
+                  <PossibleValue Description="Tarjeta de identidad" Value="Tarjeta de identidad" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid4C43E992-22CA-4863-8A5D-28E29D10F0E0" DisplayName="Emitido por" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER34">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" SemanticTypeId="guidF49AD106-BBCA-4de0-A6C8-77BCE1493AFA" DisplayName="Fecha y hora de emisión" Description="" LogicalType="DATE_AND_TIME" Id="PER35">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="15" Description="" DisplayName="Imágenes" Id="PER21">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="Imagen" Description="" LogicalType="PICTURE" Id="PER22">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Descripción de imagen" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="PT116">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="16" Description="" DisplayName="Indicadores de fraude" Id="PER23">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Crédito" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER24">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Identificación" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER25">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Manipulación de presupuesto" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER26">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Referencia exclusiva" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="guidFE45F1C4-B198-4111-8123-F42D2CD6419D" DisplayName="Fecha de nacimiento" Description="" LogicalType="DATE" Id="PER9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid7548369B-BA9A-4C4B-AEAD-0CB442EAFA27" DisplayName="Sexo" Description="" LogicalType="SELECTED_FROM" Id="PER10">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Mujer" />
+              <PossibleValue Description="" Value="Varón" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Tipo de licencia" Description="" LogicalType="SUGGESTED_FROM" Id="PER11">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Comercial" />
+              <PossibleValue Description="" Value="Completa" />
+              <PossibleValue Description="" Value="Motocicleta" />
+              <PossibleValue Description="" Value="Provisional" />
+              <PossibleValue Description="" Value="Restringida" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="Fecha de licencia" Description="" LogicalType="DATE_AND_TIME" Id="PER12">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid2C98B11E-D3A0-463b-922C-D25E8E47666A" DisplayName="Estado civil" Description="" LogicalType="SUGGESTED_FROM" Id="PER13">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Casado" />
+              <PossibleValue Description="" Value="Divorciado" />
+              <PossibleValue Description="" Value="Separado" />
+              <PossibleValue Description="" Value="Soltero" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid69F2B55D-EBF2-4950-9688-CB5273236A01" DisplayName="Nacionalidad de nacimiento" Description="" LogicalType="SUGGESTED_FROM" Id="PER14">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="Afgana" Value="Afgana" />
+              <PossibleValue Description="Albanesa" Value="Albanesa" />
+              <PossibleValue Description="Alemana" Value="Alemana" />
+              <PossibleValue Description="Andorrana" Value="Andorrana" />
+              <PossibleValue Description="Angoleña" Value="Angoleña" />
+              <PossibleValue Description="Antiguana" Value="Antiguana" />
+              <PossibleValue Description="Argelina" Value="Argelina" />
+              <PossibleValue Description="Argentina" Value="Argentina" />
+              <PossibleValue Description="Armenia" Value="Armenia" />
+              <PossibleValue Description="Australiana" Value="Australiana" />
+              <PossibleValue Description="Austriaca" Value="Austriaca" />
+              <PossibleValue Description="Azerbaiyana" Value="Azerbaiyana" />
+              <PossibleValue Description="Bahamesa" Value="Bahamesa" />
+              <PossibleValue Description="Bahriní" Value="Bahriní" />
+              <PossibleValue Description="Bangladeshí" Value="Bangladeshí" />
+              <PossibleValue Description="Barbadense" Value="Barbadense" />
+              <PossibleValue Description="Barbudana" Value="Barbudana" />
+              <PossibleValue Description="Belga" Value="Belga" />
+              <PossibleValue Description="Beliceña" Value="Beliceña" />
+              <PossibleValue Description="Beninesa" Value="Beninesa" />
+              <PossibleValue Description="Bielorrusa" Value="Bielorrusa" />
+              <PossibleValue Description="Birmana" Value="Birmana" />
+              <PossibleValue Description="Boliviana" Value="Boliviana" />
+              <PossibleValue Description="Bosnia" Value="Bosnia" />
+              <PossibleValue Description="Botsuanesa" Value="Botsuanesa" />
+              <PossibleValue Description="Brasileña" Value="Brasileña" />
+              <PossibleValue Description="Británica" Value="Británica" />
+              <PossibleValue Description="Búlgara" Value="Búlgara" />
+              <PossibleValue Description="Burkinesa" Value="Burkinesa" />
+              <PossibleValue Description="Burundesa" Value="Burundesa" />
+              <PossibleValue Description="Butanesa" Value="Butanesa" />
+              <PossibleValue Description="Caboverdiana" Value="Caboverdiana" />
+              <PossibleValue Description="Camboyana" Value="Camboyana" />
+              <PossibleValue Description="Camerunesa" Value="Camerunesa" />
+              <PossibleValue Description="Canadiense" Value="Canadiense" />
+              <PossibleValue Description="Catarí" Value="Catarí" />
+              <PossibleValue Description="Ceilandesa" Value="Ceilandesa" />
+              <PossibleValue Description="Centroafricana" Value="Centroafricana" />
+              <PossibleValue Description="Chadiana" Value="Chadiana" />
+              <PossibleValue Description="Checa" Value="Checa" />
+              <PossibleValue Description="Chilena" Value="Chilena" />
+              <PossibleValue Description="China" Value="China" />
+              <PossibleValue Description="Chipriota" Value="Chipriota" />
+              <PossibleValue Description="Colombiana" Value="Colombiana" />
+              <PossibleValue Description="Comorona" Value="Comorona" />
+              <PossibleValue Description="Congoleña" Value="Congoleña" />
+              <PossibleValue Description="Costamarfileña" Value="Costamarfileña" />
+              <PossibleValue Description="Costarricense" Value="Costarricense" />
+              <PossibleValue Description="Croata" Value="Croata" />
+              <PossibleValue Description="Cubana" Value="Cubana" />
+              <PossibleValue Description="Danesa" Value="Danesa" />
+              <PossibleValue Description="De Brunéi" Value="De Brunéi" />
+              <PossibleValue Description="De Guinea-Bissau" Value="De Guinea-Bissau" />
+              <PossibleValue Description="De Liechtenstein" Value="De Liechtenstein" />
+              <PossibleValue Description="De los Emiratos Árabes Unidos" Value="De los Emiratos Árabes Unidos" />
+              <PossibleValue Description="De Palaos" Value="De Palaos" />
+              <PossibleValue Description="De Saint Kitts y Nevis" Value="De Saint Kitts y Nevis" />
+              <PossibleValue Description="De Santo Tomé" Value="De Santo Tomé" />
+              <PossibleValue Description="De Seychelles" Value="De Seychelles" />
+              <PossibleValue Description="De Trinidad y Tobago" Value="De Trinidad y Tobago" />
+              <PossibleValue Description="Dominicana" Value="Dominicana" />
+              <PossibleValue Description="Ecuatoguineana" Value="Ecuatoguineana" />
+              <PossibleValue Description="Ecuatoriana" Value="Ecuatoriana" />
+              <PossibleValue Description="Egipcia" Value="Egipcia" />
+              <PossibleValue Description="Eritrea" Value="Eritrea" />
+              <PossibleValue Description="Escocesa" Value="Escocesa" />
+              <PossibleValue Description="Eslovaca" Value="Eslovaca" />
+              <PossibleValue Description="Eslovena" Value="Eslovena" />
+              <PossibleValue Description="Española" Value="Española" />
+              <PossibleValue Description="Estadounidense" Value="Estadounidense" />
+              <PossibleValue Description="Estonia" Value="Estonia" />
+              <PossibleValue Description="Etíope" Value="Etíope" />
+              <PossibleValue Description="Filipina" Value="Filipina" />
+              <PossibleValue Description="Finlandesa" Value="Finlandesa" />
+              <PossibleValue Description="Fiyiana" Value="Fiyiana" />
+              <PossibleValue Description="Francesa" Value="Francesa" />
+              <PossibleValue Description="Gabonesa" Value="Gabonesa" />
+              <PossibleValue Description="Galesa" Value="Galesa" />
+              <PossibleValue Description="Gambiana" Value="Gambiana" />
+              <PossibleValue Description="Georgiana" Value="Georgiana" />
+              <PossibleValue Description="Ghanesa" Value="Ghanesa" />
+              <PossibleValue Description="Granadina" Value="Granadina" />
+              <PossibleValue Description="Griega" Value="Griega" />
+              <PossibleValue Description="Guatemalteca" Value="Guatemalteca" />
+              <PossibleValue Description="Guineana" Value="Guineana" />
+              <PossibleValue Description="Guyanesa" Value="Guyanesa" />
+              <PossibleValue Description="Haitiana" Value="Haitiana" />
+              <PossibleValue Description="Hercegovina" Value="Hercegovina" />
+              <PossibleValue Description="Holandesa" Value="Holandesa" />
+              <PossibleValue Description="Hondureña" Value="Hondureña" />
+              <PossibleValue Description="Húngara" Value="Húngara" />
+              <PossibleValue Description="India" Value="India" />
+              <PossibleValue Description="Indonesia" Value="Indonesia" />
+              <PossibleValue Description="Iraní" Value="Iraní" />
+              <PossibleValue Description="Iraquí" Value="Iraquí" />
+              <PossibleValue Description="Irlandesa" Value="Irlandesa" />
+              <PossibleValue Description="Islandesa" Value="Islandesa" />
+              <PossibleValue Description="Israelí" Value="Israelí" />
+              <PossibleValue Description="Italiana" Value="Italiana" />
+              <PossibleValue Description="Jamaicana" Value="Jamaicana" />
+              <PossibleValue Description="Japonesa" Value="Japonesa" />
+              <PossibleValue Description="Jordana" Value="Jordana" />
+              <PossibleValue Description="Kazaja" Value="Kazaja" />
+              <PossibleValue Description="Keniana" Value="Keniana" />
+              <PossibleValue Description="Kirguiza" Value="Kirguiza" />
+              <PossibleValue Description="Kiribatí" Value="Kiribatí" />
+              <PossibleValue Description="Kuwaití" Value="Kuwaití" />
+              <PossibleValue Description="Laosiana" Value="Laosiana" />
+              <PossibleValue Description="Letona" Value="Letona" />
+              <PossibleValue Description="Libanesa" Value="Libanesa" />
+              <PossibleValue Description="Liberiana" Value="Liberiana" />
+              <PossibleValue Description="Libia" Value="Libia" />
+              <PossibleValue Description="Lituana" Value="Lituana" />
+              <PossibleValue Description="Luxemburguesa" Value="Luxemburguesa" />
+              <PossibleValue Description="Macedonia" Value="Macedonia" />
+              <PossibleValue Description="Malasia" Value="Malasia" />
+              <PossibleValue Description="Malaui" Value="Malaui" />
+              <PossibleValue Description="Maldiva" Value="Maldiva" />
+              <PossibleValue Description="Malgache" Value="Malgache" />
+              <PossibleValue Description="Maliense" Value="Maliense" />
+              <PossibleValue Description="Maltesa" Value="Maltesa" />
+              <PossibleValue Description="Marroquí" Value="Marroquí" />
+              <PossibleValue Description="Marshalesa" Value="Marshalesa" />
+              <PossibleValue Description="Mauriciana" Value="Mauriciana" />
+              <PossibleValue Description="Mauritana" Value="Mauritana" />
+              <PossibleValue Description="Mexicana" Value="Mexicana" />
+              <PossibleValue Description="Micronesia" Value="Micronesia" />
+              <PossibleValue Description="Moldava" Value="Moldava" />
+              <PossibleValue Description="Monegasca" Value="Monegasca" />
+              <PossibleValue Description="Mongola" Value="Mongola" />
+              <PossibleValue Description="Mosotho" Value="Mosotho" />
+              <PossibleValue Description="Motswana" Value="Motswana" />
+              <PossibleValue Description="Mozambiqueña" Value="Mozambiqueña" />
+              <PossibleValue Description="Namibia" Value="Namibia" />
+              <PossibleValue Description="Nauruana" Value="Nauruana" />
+              <PossibleValue Description="Neozelandesa" Value="Neozelandesa" />
+              <PossibleValue Description="Nepalí" Value="Nepalí" />
+              <PossibleValue Description="Nicaragüense" Value="Nicaragüense" />
+              <PossibleValue Description="Nigeriana" Value="Nigeriana" />
+              <PossibleValue Description="Norcoreana" Value="Norcoreana" />
+              <PossibleValue Description="Norirlandesa" Value="Norirlandesa" />
+              <PossibleValue Description="Noruega" Value="Noruega" />
+              <PossibleValue Description="Omaní" Value="Omaní" />
+              <PossibleValue Description="Pakistaní" Value="Pakistaní" />
+              <PossibleValue Description="Panameña" Value="Panameña" />
+              <PossibleValue Description="Papúa" Value="Papúa" />
+              <PossibleValue Description="Paraguaya" Value="Paraguaya" />
+              <PossibleValue Description="Peruana" Value="Peruana" />
+              <PossibleValue Description="Polaca" Value="Polaca" />
+              <PossibleValue Description="Portuguesa" Value="Portuguesa" />
+              <PossibleValue Description="Ruandesa" Value="Ruandesa" />
+              <PossibleValue Description="Rumana" Value="Rumana" />
+              <PossibleValue Description="Rusa" Value="Rusa" />
+              <PossibleValue Description="Salomonense" Value="Salomonense" />
+              <PossibleValue Description="Salvadoreña" Value="Salvadoreña" />
+              <PossibleValue Description="Samoana" Value="Samoana" />
+              <PossibleValue Description="Sanmarinense" Value="Sanmarinense" />
+              <PossibleValue Description="Santalucense" Value="Santalucense" />
+              <PossibleValue Description="Saudí" Value="Saudí" />
+              <PossibleValue Description="Senegalesa" Value="Senegalesa" />
+              <PossibleValue Description="Serbia" Value="Serbia" />
+              <PossibleValue Description="Sierraleonesa" Value="Sierraleonesa" />
+              <PossibleValue Description="Singapurense" Value="Singapurense" />
+              <PossibleValue Description="Siria" Value="Siria" />
+              <PossibleValue Description="Somalí" Value="Somalí" />
+              <PossibleValue Description="Sudafricana" Value="Sudafricana" />
+              <PossibleValue Description="Sudanesa" Value="Sudanesa" />
+              <PossibleValue Description="Sueca" Value="Sueca" />
+              <PossibleValue Description="Suiza" Value="Suiza" />
+              <PossibleValue Description="Surcoreana" Value="Surcoreana" />
+              <PossibleValue Description="Surinamesa" Value="Surinamesa" />
+              <PossibleValue Description="Swazi" Value="Swazi" />
+              <PossibleValue Description="Tailandesa" Value="Tailandesa" />
+              <PossibleValue Description="Tanzana" Value="Tanzana" />
+              <PossibleValue Description="Tayika" Value="Tayika" />
+              <PossibleValue Description="Timorense" Value="Timorense" />
+              <PossibleValue Description="Togolesa" Value="Togolesa" />
+              <PossibleValue Description="Tongana" Value="Tongana" />
+              <PossibleValue Description="Tunecina" Value="Tunecina" />
+              <PossibleValue Description="Turca" Value="Turca" />
+              <PossibleValue Description="Tuvaluana" Value="Tuvaluana" />
+              <PossibleValue Description="Ucraniana" Value="Ucraniana" />
+              <PossibleValue Description="Ugandesa" Value="Ugandesa" />
+              <PossibleValue Description="Uruguaya" Value="Uruguaya" />
+              <PossibleValue Description="Uzbeka" Value="Uzbeka" />
+              <PossibleValue Description="Venezolana" Value="Venezolana" />
+              <PossibleValue Description="Vietnamita" Value="Vietnamita" />
+              <PossibleValue Description="Yemení" Value="Yemení" />
+              <PossibleValue Description="Yibuti" Value="Yibuti" />
+              <PossibleValue Description="Zambiana" Value="Zambiana" />
+              <PossibleValue Description="Zimbabuense" Value="Zimbabuense" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="Fecha de residencia" Description="" LogicalType="DATE" Id="PER15">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Código de ocupación" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER16">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" SemanticTypeId="guidCE86909A-D087-445f-A73D-C79FA9AC9F8C" DisplayName="Descripción de ocupación" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="PER17">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="12" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Código empresarial de empleador" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER18">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="13" Mandatory="false" SemanticTypeId="guidB11A89A6-F50C-4c73-949F-00594985DA69" DisplayName="Descripción empresarial de empleador" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="PER19">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="14" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Estado de empleador" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER20">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="17" Mandatory="false" SemanticTypeId="" DisplayName="Lesión personal" Description="" LogicalType="BOOLEAN" Id="PER27">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="18" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Información adicional" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="PER28">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="19" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Indicador de fraude" Description="" LogicalType="SUGGESTED_FROM" Id="PER29">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Confirmado" />
+              <PossibleValue Description="" Value="Investigando" />
+              <PossibleValue Description="" Value="Ninguno" />
+              <PossibleValue Description="" Value="Sospechoso" />
+              <PossibleValue Description="" Value="Validado" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="20" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Origen de datos" Description="" LogicalType="SUGGESTED_FROM" Id="PER30">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Departamento contra el fraude a las aseguradoras" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="TEL1" SemanticTypeId="guidDB820CCD-D028-4B20-A3AE-57374B83EFD4" Description="Detalles teléfono" DisplayName="Teléfono" Icon="Phone">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="2" Description="" DisplayName="Número de teléfono" Id="TEL3">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB6073C55-3C00-4812-BDA8-5C1FA2AE7FC4" DisplayName="Prefijo internacional" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL4">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidCD2F57CA-D475-454B-9B0D-71F31A604631" DisplayName="Prefijo regional" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL5">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid2A9C3212-8918-4477-9818-47E467FB47AC" DisplayName="Número principal" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL6">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid8A229F14-3059-4B58-9ECA-0F76964DE873" DisplayName="Número de extensión" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL7">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Referencia exclusiva" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Tipo de teléfono" Description="" LogicalType="SUGGESTED_FROM" Id="TEL8">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Celular/móvil" />
+              <PossibleValue Description="" Value="Fijo" />
+              <PossibleValue Description="" Value="Hogar" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Información adicional" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="TEL9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Origen de datos" Description="" LogicalType="SUGGESTED_FROM" Id="TEL11">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Departamento contra el fraude a las aseguradoras" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Indicador de fraude" Description="" LogicalType="SUGGESTED_FROM" Id="TEL10">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Confirmado" />
+              <PossibleValue Description="" Value="Investigando" />
+              <PossibleValue Description="" Value="Ninguno" />
+              <PossibleValue Description="" Value="Sospechoso" />
+              <PossibleValue Description="" Value="Validado" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="VEH1" SemanticTypeId="guid124035A5-5D11-418b-A0A1-2C53F1932B8D" Description="Detalles de coche" DisplayName="Vehículo" Icon="Car">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="12" Description="" DisplayName="Identificación" Id="VEH14">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Número de motor" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH15">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Número de chasis" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH16">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid52FF1D68-FA10-495C-AA62-CB327FE84639" DisplayName="Número de identificación del vehículo" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH17">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="17" Description="" DisplayName="Imágenes" Id="VEH22">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="Imagen" Description="" LogicalType="PICTURE" Id="VEH23">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Descripción de imagen" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="VEH24">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="18" Description="" DisplayName="Detalles de seguro" Id="VEH25">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="Fecha de compra" Description="" LogicalType="DATE" Id="VEH26">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Precio pagado" Description="" LogicalType="DECIMAL" Id="VEH27">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Valor del vehículo" Description="" LogicalType="DECIMAL" Id="VEH28">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Propietario registrado" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH29">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Ubicación de noche" Description="" LogicalType="SUGGESTED_FROM" Id="VEH30">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+                  <PossibleValue Description="" Value="Calle" />
+                  <PossibleValue Description="" Value="Entrada" />
+                  <PossibleValue Description="" Value="Garaje" />
+                  <PossibleValue Description="" Value="Garaje público" />
+                  <PossibleValue Description="" Value="Garaje separado de vivienda" />
+                  <PossibleValue Description="" Value="Patio" />
+                </PossibleValues>
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Referencia exclusiva" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidD1F35949-FC3C-4985-B068-F09B74CE1AE3" DisplayName="Número de matrícula" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidF98B951F-335E-4157-B5F2-55C032B06295" DisplayName="Tipo de vehículo" Description="" LogicalType="SUGGESTED_FROM" Id="VEH4">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Aeroplano" />
+              <PossibleValue Description="" Value="Ambulancia" />
+              <PossibleValue Description="" Value="Autobús" />
+              <PossibleValue Description="" Value="Avión de carga" />
+              <PossibleValue Description="" Value="Bicicleta" />
+              <PossibleValue Description="" Value="Camión" />
+              <PossibleValue Description="" Value="Camión de bomberos" />
+              <PossibleValue Description="" Value="Coche" />
+              <PossibleValue Description="" Value="Coche policial" />
+              <PossibleValue Description="" Value="Crucero" />
+              <PossibleValue Description="" Value="Embarcación de pesca" />
+              <PossibleValue Description="" Value="Embarcación de recreo" />
+              <PossibleValue Description="" Value="Embarcación mercante" />
+              <PossibleValue Description="" Value="Escúter" />
+              <PossibleValue Description="" Value="Furgoneta" />
+              <PossibleValue Description="" Value="Helicóptero" />
+              <PossibleValue Description="" Value="Motocicleta" />
+              <PossibleValue Description="" Value="Taxi" />
+              <PossibleValue Description="" Value="Tren" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB99BE38F-0357-4ADA-82F5-69688D742889" DisplayName="Marca del vehículo" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid160717BD-C494-476C-8377-7D9B6CD6B88B" DisplayName="Modelo del vehículo" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Estilo del vehículo" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="Número de puertas" Description="" LogicalType="INTEGER" Id="VEH8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" SemanticTypeId="" DisplayName="Número de asientos" Description="" LogicalType="INTEGER" Id="VEH9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid63CF5DCD-A409-463D-80AA-988770FF665C" DisplayName="Color de vehículo" Description="" LogicalType="SUGGESTED_FROM" Id="VEH10">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Azul" />
+              <PossibleValue Description="" Value="Beige" />
+              <PossibleValue Description="" Value="Blanco" />
+              <PossibleValue Description="" Value="Negro" />
+              <PossibleValue Description="" Value="Rojo" />
+              <PossibleValue Description="" Value="Verde" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="Tamaño de motor" Description="" LogicalType="DECIMAL" Id="VEH11">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Tamaño de motor (unidades)" Description="" LogicalType="SUGGESTED_FROM" Id="VEH12">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="Centímetros cúbicos" Value="cc" />
+              <PossibleValue Description="Litros" Value="l" />
+              <PossibleValue Description="Pulgadas cúbicas" Value="PC" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" SemanticTypeId="guid082FD542-21EB-4c31-9ED0-B01948807BC3" DisplayName="Año de fabricación" Description="" LogicalType="INTEGER" Id="VEH13">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="13" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Tipo de combustible" Description="" LogicalType="SUGGESTED_FROM" Id="VEH18">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="Biodiesel" Value="Biodiesel" />
+              <PossibleValue Description="Combustible de aviación" Value="Combustible de aviación" />
+              <PossibleValue Description="Diesel" Value="Diesel" />
+              <PossibleValue Description="Electricidad" Value="Electricidad" />
+              <PossibleValue Description="Gas licuado de petróleo" Value="Gas licuado de petróleo" />
+              <PossibleValue Description="Gas natural comprimido" Value="Gas natural comprimido" />
+              <PossibleValue Description="Gasolina" Value="Gasolina" />
+              <PossibleValue Description="Sin plomo" Value="Sin plomo" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="14" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA29B5F8F-BA18-4262-95BD-65B8216D8841" DisplayName="Estado de matriculación" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH19">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="15" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDAC78E2E-4C6F-4006-B291-0A42BAB2E339" DisplayName="País o región registrado" Description="" LogicalType="SUGGESTED_FROM" Id="VEH20">
+            <PossibleValues>
+              <PossibleValue Description="&lt;Desconocido&gt;" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="Afganistán" Value="Afganistán" />
+              <PossibleValue Description="Albania" Value="Albania" />
+              <PossibleValue Description="Alemania" Value="Alemania" />
+              <PossibleValue Description="Andorra" Value="Andorra" />
+              <PossibleValue Description="Angola" Value="Angola" />
+              <PossibleValue Description="Antigua República Yugoslava de Macedonia" Value="Antigua República Yugoslava de Macedonia" />
+              <PossibleValue Description="Antigua y Barbuda" Value="Antigua y Barbuda" />
+              <PossibleValue Description="Arabia Saudí" Value="Arabia Saudí" />
+              <PossibleValue Description="Argelia" Value="Argelia" />
+              <PossibleValue Description="Argentina" Value="Argentina" />
+              <PossibleValue Description="Armenia" Value="Armenia" />
+              <PossibleValue Description="Australia" Value="Australia" />
+              <PossibleValue Description="Austria" Value="Austria" />
+              <PossibleValue Description="Azerbaiyán" Value="Azerbaiyán" />
+              <PossibleValue Description="Bahamas" Value="Bahamas" />
+              <PossibleValue Description="Bahráin" Value="Bahráin" />
+              <PossibleValue Description="Bangladesh" Value="Bangladesh" />
+              <PossibleValue Description="Barbados" Value="Barbados" />
+              <PossibleValue Description="Bélgica" Value="Bélgica" />
+              <PossibleValue Description="Belice" Value="Belice" />
+              <PossibleValue Description="Benín" Value="Benín" />
+              <PossibleValue Description="Bielorrusia" Value="Bielorrusia" />
+              <PossibleValue Description="Bolivia (Estado Plurinacional de)" Value="Bolivia (Estado Plurinacional de)" />
+              <PossibleValue Description="Bosnia" Value="Bosnia" />
+              <PossibleValue Description="Botsuana" Value="Botsuana" />
+              <PossibleValue Description="Brasil" Value="Brasil" />
+              <PossibleValue Description="Brunéi Darussalam" Value="Brunéi Darussalam" />
+              <PossibleValue Description="Bulgaria" Value="Bulgaria" />
+              <PossibleValue Description="Burkina Faso" Value="Burkina Faso" />
+              <PossibleValue Description="Burundi" Value="Burundi" />
+              <PossibleValue Description="Bután" Value="Bután" />
+              <PossibleValue Description="Cabo Verde" Value="Cabo Verde" />
+              <PossibleValue Description="Camboya" Value="Camboya" />
+              <PossibleValue Description="Camerún" Value="Camerún" />
+              <PossibleValue Description="Canadá" Value="Canadá" />
+              <PossibleValue Description="Catar" Value="Catar" />
+              <PossibleValue Description="Chad" Value="Chad" />
+              <PossibleValue Description="Chile" Value="Chile" />
+              <PossibleValue Description="China" Value="China" />
+              <PossibleValue Description="Chipre" Value="Chipre" />
+              <PossibleValue Description="Colombia" Value="Colombia" />
+              <PossibleValue Description="Comoras" Value="Comoras" />
+              <PossibleValue Description="Congo" Value="Congo" />
+              <PossibleValue Description="Costa de Marfil" Value="Costa de Marfil" />
+              <PossibleValue Description="Costa Rica" Value="Costa Rica" />
+              <PossibleValue Description="Croacia" Value="Croacia" />
+              <PossibleValue Description="Cuba" Value="Cuba" />
+              <PossibleValue Description="Dinamarca" Value="Dinamarca" />
+              <PossibleValue Description="Dominica" Value="Dominica" />
+              <PossibleValue Description="Ecuador" Value="Ecuador" />
+              <PossibleValue Description="Egipto" Value="Egipto" />
+              <PossibleValue Description="El Salvador" Value="El Salvador" />
+              <PossibleValue Description="Emiratos Árabes Unidos" Value="Emiratos Árabes Unidos" />
+              <PossibleValue Description="Eritrea" Value="Eritrea" />
+              <PossibleValue Description="Eslovaquia" Value="Eslovaquia" />
+              <PossibleValue Description="Eslovenia" Value="Eslovenia" />
+              <PossibleValue Description="España" Value="España" />
+              <PossibleValue Description="Estados Unidos" Value="Estados Unidos" />
+              <PossibleValue Description="Estonia" Value="Estonia" />
+              <PossibleValue Description="Etiopía" Value="Etiopía" />
+              <PossibleValue Description="Filipinas" Value="Filipinas" />
+              <PossibleValue Description="Finlandia" Value="Finlandia" />
+              <PossibleValue Description="Fiyi" Value="Fiyi" />
+              <PossibleValue Description="Francia" Value="Francia" />
+              <PossibleValue Description="Gabón" Value="Gabón" />
+              <PossibleValue Description="Gambia" Value="Gambia" />
+              <PossibleValue Description="Georgia" Value="Georgia" />
+              <PossibleValue Description="Ghana" Value="Ghana" />
+              <PossibleValue Description="Granada" Value="Granada" />
+              <PossibleValue Description="Grecia" Value="Grecia" />
+              <PossibleValue Description="Guatemala" Value="Guatemala" />
+              <PossibleValue Description="Guinea" Value="Guinea" />
+              <PossibleValue Description="Guinea Ecuatorial" Value="Guinea Ecuatorial" />
+              <PossibleValue Description="Guinea-Bissau" Value="Guinea-Bissau" />
+              <PossibleValue Description="Guyana" Value="Guyana" />
+              <PossibleValue Description="Haití" Value="Haití" />
+              <PossibleValue Description="Herzegovina" Value="Herzegovina" />
+              <PossibleValue Description="Honduras" Value="Honduras" />
+              <PossibleValue Description="Hungría" Value="Hungría" />
+              <PossibleValue Description="India" Value="India" />
+              <PossibleValue Description="Indonesia" Value="Indonesia" />
+              <PossibleValue Description="Irak" Value="Irak" />
+              <PossibleValue Description="Irán (República Islámica de)" Value="Irán (República Islámica de)" />
+              <PossibleValue Description="Irlanda" Value="Irlanda" />
+              <PossibleValue Description="Islandia" Value="Islandia" />
+              <PossibleValue Description="Islas Marshall" Value="Islas Marshall" />
+              <PossibleValue Description="Islas Salomón" Value="Islas Salomón" />
+              <PossibleValue Description="Israel" Value="Israel" />
+              <PossibleValue Description="Italia" Value="Italia" />
+              <PossibleValue Description="Jamaica" Value="Jamaica" />
+              <PossibleValue Description="Japón" Value="Japón" />
+              <PossibleValue Description="Jordania" Value="Jordania" />
+              <PossibleValue Description="Kazajistán" Value="Kazajistán" />
+              <PossibleValue Description="Kenia" Value="Kenia" />
+              <PossibleValue Description="Kirguizistán" Value="Kirguizistán" />
+              <PossibleValue Description="Kiribati" Value="Kiribati" />
+              <PossibleValue Description="Kuwait" Value="Kuwait" />
+              <PossibleValue Description="Laos" Value="Laos" />
+              <PossibleValue Description="Lesoto" Value="Lesoto" />
+              <PossibleValue Description="Letonia" Value="Letonia" />
+              <PossibleValue Description="Líbano" Value="Líbano" />
+              <PossibleValue Description="Liberia" Value="Liberia" />
+              <PossibleValue Description="Libia" Value="Libia" />
+              <PossibleValue Description="Liechtenstein" Value="Liechtenstein" />
+              <PossibleValue Description="Lituania" Value="Lituania" />
+              <PossibleValue Description="Luxemburgo" Value="Luxemburgo" />
+              <PossibleValue Description="Madagascar" Value="Madagascar" />
+              <PossibleValue Description="Malasia" Value="Malasia" />
+              <PossibleValue Description="Malaui" Value="Malaui" />
+              <PossibleValue Description="Maldivas" Value="Maldivas" />
+              <PossibleValue Description="Malí" Value="Malí" />
+              <PossibleValue Description="Malta" Value="Malta" />
+              <PossibleValue Description="Marruecos" Value="Marruecos" />
+              <PossibleValue Description="Mauricio" Value="Mauricio" />
+              <PossibleValue Description="Mauritania" Value="Mauritania" />
+              <PossibleValue Description="México" Value="México" />
+              <PossibleValue Description="Micronesia (Estados Federados de)" Value="Micronesia (Estados Federados de)" />
+              <PossibleValue Description="Mónaco" Value="Mónaco" />
+              <PossibleValue Description="Mongolia" Value="Mongolia" />
+              <PossibleValue Description="Montenegro" Value="Montenegro" />
+              <PossibleValue Description="Mozambique" Value="Mozambique" />
+              <PossibleValue Description="Myanmar" Value="Myanmar" />
+              <PossibleValue Description="Namibia" Value="Namibia" />
+              <PossibleValue Description="Nauru" Value="Nauru" />
+              <PossibleValue Description="Nepal" Value="Nepal" />
+              <PossibleValue Description="Nicaragua" Value="Nicaragua" />
+              <PossibleValue Description="Níger" Value="Níger" />
+              <PossibleValue Description="Nigeria" Value="Nigeria" />
+              <PossibleValue Description="Noruega" Value="Noruega" />
+              <PossibleValue Description="Nueva Zelanda" Value="Nueva Zelanda" />
+              <PossibleValue Description="Omán" Value="Omán" />
+              <PossibleValue Description="Países Bajos" Value="Países Bajos" />
+              <PossibleValue Description="Pakistán" Value="Pakistán" />
+              <PossibleValue Description="Palaos" Value="Palaos" />
+              <PossibleValue Description="Panamá" Value="Panamá" />
+              <PossibleValue Description="Papúa-Nueva Guinea" Value="Papúa-Nueva Guinea" />
+              <PossibleValue Description="Paraguay" Value="Paraguay" />
+              <PossibleValue Description="Perú" Value="Perú" />
+              <PossibleValue Description="Polonia" Value="Polonia" />
+              <PossibleValue Description="Portugal" Value="Portugal" />
+              <PossibleValue Description="Reino Unido" Value="Reino Unido" />
+              <PossibleValue Description="República Centroafricana" Value="República Centroafricana" />
+              <PossibleValue Description="República Checa" Value="República Checa" />
+              <PossibleValue Description="República de Corea" Value="República de Corea" />
+              <PossibleValue Description="República de Moldavia" Value="República de Moldavia" />
+              <PossibleValue Description="República Democrática del Congo" Value="República Democrática del Congo" />
+              <PossibleValue Description="República Democrática y Popular de Corea del Norte" Value="República Democrática y Popular de Corea del Norte" />
+              <PossibleValue Description="República Dominicana" Value="República Dominicana" />
+              <PossibleValue Description="República Unida de Tanzania" Value="República Unida de Tanzania" />
+              <PossibleValue Description="Ruanda" Value="Ruanda" />
+              <PossibleValue Description="Rumanía" Value="Rumanía" />
+              <PossibleValue Description="Rusia" Value="Rusia" />
+              <PossibleValue Description="Saint Kitts y Nevis" Value="Saint Kitts y Nevis" />
+              <PossibleValue Description="Samoa" Value="Samoa" />
+              <PossibleValue Description="San Marino" Value="San Marino" />
+              <PossibleValue Description="San Vicente y Las Granadinas" Value="San Vicente y Las Granadinas" />
+              <PossibleValue Description="Santa Lucía" Value="Santa Lucía" />
+              <PossibleValue Description="Santo Tomé y Príncipe" Value="Santo Tomé y Príncipe" />
+              <PossibleValue Description="Senegal" Value="Senegal" />
+              <PossibleValue Description="Serbia" Value="Serbia" />
+              <PossibleValue Description="Seychelles" Value="Seychelles" />
+              <PossibleValue Description="Sierra Leona" Value="Sierra Leona" />
+              <PossibleValue Description="Singapur" Value="Singapur" />
+              <PossibleValue Description="Siria" Value="Siria" />
+              <PossibleValue Description="Somalia" Value="Somalia" />
+              <PossibleValue Description="Sri Lanka" Value="Sri Lanka" />
+              <PossibleValue Description="Suazilandia" Value="Suazilandia" />
+              <PossibleValue Description="Sudáfrica" Value="Sudáfrica" />
+              <PossibleValue Description="Sudán" Value="Sudán" />
+              <PossibleValue Description="Sudán del Sur" Value="Sudán del Sur" />
+              <PossibleValue Description="Suecia" Value="Suecia" />
+              <PossibleValue Description="Suiza" Value="Suiza" />
+              <PossibleValue Description="Surinam" Value="Surinam" />
+              <PossibleValue Description="Tailandia" Value="Tailandia" />
+              <PossibleValue Description="Tayikistán" Value="Tayikistán" />
+              <PossibleValue Description="Timor Oriental" Value="Timor Oriental" />
+              <PossibleValue Description="Togo" Value="Togo" />
+              <PossibleValue Description="Tonga" Value="Tonga" />
+              <PossibleValue Description="Trinidad y Tobago" Value="Trinidad y Tobago" />
+              <PossibleValue Description="Túnez" Value="Túnez" />
+              <PossibleValue Description="Turkmenistán" Value="Turkmenistán" />
+              <PossibleValue Description="Turquía" Value="Turquía" />
+              <PossibleValue Description="Tuvalu" Value="Tuvalu" />
+              <PossibleValue Description="Ucrania" Value="Ucrania" />
+              <PossibleValue Description="Uganda" Value="Uganda" />
+              <PossibleValue Description="Uruguay" Value="Uruguay" />
+              <PossibleValue Description="Uzbekistán" Value="Uzbekistán" />
+              <PossibleValue Description="Vanuatu" Value="Vanuatu" />
+              <PossibleValue Description="Venezuela (República Bolivariana de)" Value="Venezuela (República Bolivariana de)" />
+              <PossibleValue Description="Vietnam" Value="Vietnam" />
+              <PossibleValue Description="Yemen" Value="Yemen" />
+              <PossibleValue Description="Yibuti" Value="Yibuti" />
+              <PossibleValue Description="Zambia" Value="Zambia" />
+              <PossibleValue Description="Zimbabue" Value="Zimbabue" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="16" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Finalidad" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH21">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="19" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Información adicional" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="VEH31">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="20" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Indicador de fraude" Description="" LogicalType="SUGGESTED_FROM" Id="VEH32">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Confirmado" />
+              <PossibleValue Description="" Value="Investigando" />
+              <PossibleValue Description="" Value="Ninguno" />
+              <PossibleValue Description="" Value="Sospechoso" />
+              <PossibleValue Description="" Value="Validado" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="21" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Origen de datos" Description="" LogicalType="SUGGESTED_FROM" Id="VEH33">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Departamento contra el fraude a las aseguradoras" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+    </EntityTypes>
+    <LinkTypes>
+      <LinkType Id="dab2f6f2-813c-4a47-b630-b91f52a1e0e1" Description="Suscripción a canal de información de alertas" DisplayName="Suscripción a canal de información de alertas" FromTypeIds="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb" ToTypeIds="1274e2e7-7751-4dae-a994-648718e19f04">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="0" Description="Las modalidades de entrega de las alertas." DisplayName="Métodos de entrega de alertas" Id="84aa56e3-84a1-4c05-9a77-4f9185202a55">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="Por recuperación de alertas" Description="Mediante el servicio web de recuperación de alertas" LogicalType="BOOLEAN" Id="72367e78-b265-46e1-8fc8-81f42d307e40">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes />
+      </LinkType>
+      <LinkType Id="CLML1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="Enlace de reclamación" DisplayName="Reclamación" FromTypeIds="CLA1" ToTypeIds="ADD1 INT1 IP1 ORG1 PER1 TEL1 VEH1 CLA1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Descripción" Description="" LogicalType="SINGLE_LINE_STRING" Id="CLML2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Referencia exclusiva" Description="" LogicalType="SINGLE_LINE_STRING" Id="CLML3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Información adicional" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CLML4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Origen de datos" Description="" LogicalType="SUGGESTED_FROM" Id="CLML5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Departamento contra el fraude a las aseguradoras" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="COML1" SemanticTypeId="guid59AF2273-E052-4d76-82D2-29FDAE535C45" Description="Detalles de comunicación" DisplayName="Comunicación" FromTypeIds="TEL1" ToTypeIds="ORG1 PER1 TEL1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Descripción" Description="" LogicalType="SINGLE_LINE_STRING" Id="COML2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Referencia exclusiva" Description="" LogicalType="SINGLE_LINE_STRING" Id="COML3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Información adicional" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="COML4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Origen de datos" Description="" LogicalType="SUGGESTED_FROM" Id="COML5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Departamento contra el fraude a las aseguradoras" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="Fecha y hora de comunicación" Description="" LogicalType="DATE_AND_TIME" Id="COML7">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="POLL1" SemanticTypeId="guid04F96434-6847-41e3-9373-DB42C50060B3" Description="Enlaces de póliza" DisplayName="Póliza" FromTypeIds="IP1 ORG1 PER1" ToTypeIds="ADD1 ACC1 CRC1 EM1 ORG1 PER1 TEL1 VEH1 CLA1 INT1 IP1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Descripción" Description="" LogicalType="SINGLE_LINE_STRING" Id="POLL2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Referencia exclusiva" Description="" LogicalType="SINGLE_LINE_STRING" Id="POLL3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Información adicional" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="POLL4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Origen de datos" Description="" LogicalType="SUGGESTED_FROM" Id="POLL5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Departamento contra el fraude a las aseguradoras" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="OTHL1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="Detalles de tercero u otro reclamante" DisplayName="Otros reclamantes" FromTypeIds="ADD1 ACC1 CLA1 CRC1 INT1 EM1 ORG1 PER1 TEL1 VEH1" ToTypeIds="ADD1 CLA1 ORG1 VEH1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Descripción" Description="" LogicalType="SINGLE_LINE_STRING" Id="OTHL2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Referencia exclusiva" Description="" LogicalType="SINGLE_LINE_STRING" Id="OTHL3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Información adicional" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="OTHL4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Origen de datos" Description="" LogicalType="SUGGESTED_FROM" Id="OTHL5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Departamento contra el fraude a las aseguradoras" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="VEHL1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="Enlace a vehículo" DisplayName="Enlace de vehículo" FromTypeIds="VEH1" ToTypeIds="CLA1 ORG1 PER1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Descripción" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEHL2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Referencia exclusiva" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEHL3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Información adicional" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="VEHL4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Origen de datos" Description="" LogicalType="SUGGESTED_FROM" Id="VEHL5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Departamento contra el fraude a las aseguradoras" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="DUP1" SemanticTypeId="guid2B55231E-521E-4502-8989-3BE1DB0B864D" DisplayName="Duplicación" FromTypeIds="ADD1 ACC1 CLA1 CRC1 INT1 EM1 IP1 ORG1 PER1 TEL1 VEH1" ToTypeIds="VEH1 TEL1 PER1 ORG1 IP1 EM1 INT1 CRC1 CLA1 ACC1 ADD1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="Información adicional" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="DUP2">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="SUB1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" DisplayName="Asunto" FromTypeIds="cf17d636-44c9-4897-b19d-7d2eda002e57 INT1" ToTypeIds="ADD1 ACC1 CLA1 CRC1 INT1 EM1 IP1 ORG1 PER1 TEL1 VEH1 cf17d636-44c9-4897-b19d-7d2eda002e57">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Referencia exclusiva" Description="" LogicalType="SINGLE_LINE_STRING" Id="SUB2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Descripción" Description="" LogicalType="SINGLE_LINE_STRING" Id="PT2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="guidF49AD106-BBCA-4de0-A6C8-77BCE1493AFA" DisplayName="Fecha y hora" Description="" LogicalType="DATE_AND_TIME" Id="SUB3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="Información adicional" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="SUB4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Origen de datos" Description="" LogicalType="SUGGESTED_FROM" Id="PT1">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
+              <PossibleValue Description="" Value="Departamento contra el fraude a las aseguradoras" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+    </LinkTypes>
+  </ItemTypes>
+  <Id>18b14ee3-ffb4-4e35-88bd-eee7f5806fa7</Id>
+  <Version>1</Version>
+  <SourceInfoMandatoryFields IsDateMandatory="false" IsDescriptionMandatory="false" IsReferenceMandatory="false" IsTypeMandatory="false" />
+  <LinkStrengthInfo DefaultLinkStrengthId="daf0e75f-ca7d-473a-80bf-6fad91472dc6">
+    <LinkStrengths>
+      <LinkStrength Id="daf0e75f-ca7d-473a-80bf-6fad91472dc6" Name="Confirmado" LineStyle="SOLID" />
+      <LinkStrength Id="683d1f08-b892-411e-997f-00881e62e84e" Name="No confirmado" LineStyle="DASHED" />
+      <LinkStrength Id="460819f3-82b8-4483-b528-a927b8fbb9cb" Name="Provisional" LineStyle="DOTTED" />
+    </LinkStrengths>
+  </LinkStrengthInfo>
+  <LabelingSchemes>
+    <LabelingScheme Name="Esquema de etiquetado de núcleo comercial" Id="8355f4c5-1444-4a2f-b4da-f9374fbd80e6">
+      <LabelDefinitions>
+        <LabelDefinition ItemTypeId="372a12af-f684-41c5-9ce9-759b3beef826">
+          <LabelParts>
+            <LabelPart Value="07e81445-0f5e-4340-b355-c82809e895da" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb">
+          <LabelParts>
+            <LabelPart Value="ce3d12ac-2632-4a0f-b2b6-6a7fdda887a6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="1274e2e7-7751-4dae-a994-648718e19f04">
+          <LabelParts>
+            <LabelPart Value="b7b059a0-1079-45ac-8ae0-ee026f70dd69" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="dab2f6f2-813c-4a47-b630-b91f52a1e0e1">
+          <LabelParts>
+            <LabelPart Value="Suscrito a" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="cf17d636-44c9-4897-b19d-7d2eda002e57">
+          <LabelParts>
+            <LabelPart Value="d6d03ce2-3cd6-49c1-8a66-366d0e434fd4" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="43cd717c-0204-4c81-93ea-f9f0458bc5ea">
+          <LabelParts>
+            <LabelPart Value="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="ACC1">
+          <LabelParts>
+            <LabelPart Value="ACC3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="ADD1">
+          <LabelParts>
+            <LabelPart Value="ADD4" LabelPartType="PROPERTY_TYPE" />
+            <LabelPart Value="," LabelPartType="LITERAL" />
+            <LabelPart Value=" " LabelPartType="LITERAL" />
+            <LabelPart Value="ADD6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="CLA1">
+          <LabelParts>
+            <LabelPart Value="CLA3" LabelPartType="PROPERTY_TYPE" />
+            <LabelPart Value="," LabelPartType="LITERAL" />
+            <LabelPart Value=" " LabelPartType="LITERAL" />
+            <LabelPart Value="CLA6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="CRC1">
+          <LabelParts>
+            <LabelPart Value="CRC3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="INT1">
+          <LabelParts>
+            <LabelPart Value="INT5" LabelPartType="PROPERTY_TYPE" />
+            <LabelPart Value="," LabelPartType="LITERAL" />
+            <LabelPart Value=" " LabelPartType="LITERAL" />
+            <LabelPart Value="INT6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="ORG1">
+          <LabelParts>
+            <LabelPart Value="ORG3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="PER1">
+          <LabelParts>
+            <LabelPart Value="PER5" LabelPartType="PROPERTY_TYPE" />
+            <LabelPart Value=" " LabelPartType="LITERAL" />
+            <LabelPart Value="PER7" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="TEL1">
+          <LabelParts>
+            <LabelPart Value="TEL6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="VEH1">
+          <LabelParts>
+            <LabelPart Value="VEH3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="CLML1">
+          <LabelParts>
+            <LabelPart Value="Reclamación" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="COML1">
+          <LabelParts>
+            <LabelPart Value="COML7" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="OTHL1">
+          <LabelParts>
+            <LabelPart Value="Demandante" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="POLL1">
+          <LabelParts>
+            <LabelPart Value="Póliza" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="VEHL1">
+          <LabelParts>
+            <LabelPart Value="Vehículo" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="EM1">
+          <LabelParts>
+            <LabelPart Value="EM3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="IP1">
+          <LabelParts>
+            <LabelPart Value="IP3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="DUP1">
+          <LabelParts>
+            <LabelPart Value="Duplicar" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="SUB1">
+          <LabelParts>
+            <LabelPart Value="Asunto" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+      </LabelDefinitions>
+    </LabelingScheme>
+  </LabelingSchemes>
+  <SemanticTypeLibrary>
+    <lcx:LibraryCatalogue VersionMajor="1" VersionMinor="18" VersionRelease="27" VersionBuild="60" xmlns:lcx="http://www.i2group.com/Schemas/2001-12-07/LCXSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" LocaleHex="0809" />
+  </SemanticTypeLibrary>
+</ns2:Schema>

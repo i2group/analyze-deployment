@@ -1,0 +1,3647 @@
+<?xml version="1.0"?>
+<ChartingSchemeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.i2group.com/Schemas/2012-05-29/ModelData/v2">
+  <ChartingSchemes xmlns="">
+    <ChartingScheme Name="분석">
+      <XmlChartingScheme>
+        <ChartItemAttributes>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>화기를 사용했습니까?</Name>
+            <Type>AttFlag</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" PasteBehaviour="AttMergeMax" Prefix=": " DecimalPlaces="0" MergeBehaviour="AttMergeMax" ShowClassName="true">
+            <Name>나이</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>트랜잭션 합계</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>값</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Visible="false" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최초 통신</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Visible="false" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최근 통신</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>개설 날짜</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>폐쇄 날짜</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>생년월일</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최초</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>이벤트 시작</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>이벤트 종료</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Visible="false" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최초 트랜잭션</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Visible="false" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최근 트랜잭션</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E" Prefix=": " ShowClassName="true">
+            <Name>데이터</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guid7877FB38-38DC-4fea-87BD-838A6EA66F51" Prefix=": " ShowClassName="true">
+            <Name>동향</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guidC319A593-C6D6-4cd0-91EF-14A932488F3B" Prefix=": " ShowClassName="true">
+            <Name>북향</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guid5304A03B-FE47-4406-91E7-0D49EC8409A6" Prefix=": " ShowClassName="true">
+            <Name>위도</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9" Prefix=": " ShowClassName="true">
+            <Name>경도</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+        </ChartItemAttributes>
+        <ChartItemDataRecordProperties />
+        <EntityMappings>
+          <Default>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <ApolloLabel SchemeId="8355f4c5-1444-4a2f-b4da-f9374fbd80e6" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </Default>
+          <ItemType Id="ET10">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="계좌 이름">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC12">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="은행 식별 번호/지점 코드">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="계좌 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="개설 날짜">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="폐쇄 날짜">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET1">
+            <PropertyMappings>
+              <PropertyMapping Default="설정 안 함" Property="Label">
+                <ResolvableValue Suffix=" " Prefix="아파트: ">
+                  <ApolloProperty Id="ADD2">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="위치 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD25">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="구/군/시">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="County(US 전용)">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="시/도">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD17">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="ZIP/우편 번호">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="국가 또는 지역">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="비트/디스트릭트">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="동향">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD11">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="북향">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD12">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="위도">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="경도">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD14">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="데이터">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET8">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="디바이스 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM2">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IMSI 번호">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IMEI 번호">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="디바이스 제조업체">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM10">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="이메일 주소">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="웹 주소">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM14">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IP 주소">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET2">
+            <PropertyMappings>
+              <PropertyMapping Default="설정 안 함" Property="Label">
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE31">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE61">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Description">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="이벤트 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="이벤트 시작">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="이벤트 종료">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="화기를 사용했습니까?">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE7">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="LogicalOr" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET4">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="조직 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="웹 주소">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET5">
+            <PropertyMappings>
+              <PropertyMapping Default="설정 안 함" Property="Label">
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Combine" Delimeter=" " />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="PER6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Prefix=" ">
+                  <ApolloProperty Id="PER7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="제목">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="예명">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="AKA">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER97">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="생년월일">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="성별">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="혼인 여부">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER29">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="나이">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER12">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="국적">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET9">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="약물 이름">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO82">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="무기 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="문서 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO30">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="동물 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO34">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="값">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO26">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET7">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="카메라 위치">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="동향">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="북향">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="위도">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="경도">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET3">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="차량 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="차량 제조업체">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="차량 모델">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="차량 색상">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </EntityMappings>
+        <LinkMappings>
+          <Default>
+            <LinkSummarization Method="Multiple" />
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <SpecialValue Type="TypeName" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </Default>
+          <ItemType Id="LCO1">
+            <LinkSummarization SeparateStrengths="true" Method="Directed" />
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <SpecialValue Type="SummarizedLinkCount" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="최초 통신">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="최근 통신">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LTR1">
+            <LinkSummarization SeparateStrengths="true" Method="Flow">
+              <Flow PropertyTypeId="LTR5" />
+            </LinkSummarization>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <LiteralValue Value="플로우: " />
+                </ResolvableValue>
+                <ResolvableValue>
+                  <SpecialValue Type="Flow" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="트랜잭션 합계">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Sum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="최초 트랜잭션">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="최근 트랜잭션">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LIN1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="개입 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LSU1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSU4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSU4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </ItemType>
+          <ItemType Id="LOB1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="보고 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LAS1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="연관 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LST1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="도난/복구 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LAC1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="사용 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LME1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="멤버십 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LEM1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="고용 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="역할">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LSB1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="조치 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </LinkMappings>
+      </XmlChartingScheme>
+    </ChartingScheme>
+    <ChartingScheme Name="분석 (링크 요약 없음)">
+      <XmlChartingScheme>
+        <ChartItemAttributes>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>화기를 사용했습니까?</Name>
+            <Type>AttFlag</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" PasteBehaviour="AttMergeMax" Prefix=": " DecimalPlaces="0" MergeBehaviour="AttMergeMax" ShowClassName="true">
+            <Name>나이</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>트랜잭션 합계</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>값</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Visible="false" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최초 통신</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Visible="false" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최근 통신</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>개설 날짜</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>폐쇄 날짜</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>생년월일</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최초</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>이벤트 시작</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>이벤트 종료</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Visible="false" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최초 트랜잭션</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Visible="false" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최근 트랜잭션</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E" Prefix=": " ShowClassName="true">
+            <Name>데이터</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guid7877FB38-38DC-4fea-87BD-838A6EA66F51" Prefix=": " ShowClassName="true">
+            <Name>동향</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guidC319A593-C6D6-4cd0-91EF-14A932488F3B" Prefix=": " ShowClassName="true">
+            <Name>북향</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guid5304A03B-FE47-4406-91E7-0D49EC8409A6" Prefix=": " ShowClassName="true">
+            <Name>위도</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9" Prefix=": " ShowClassName="true">
+            <Name>경도</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+        </ChartItemAttributes>
+        <ChartItemDataRecordProperties />
+        <EntityMappings>
+          <Default>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <ApolloLabel SchemeId="8355f4c5-1444-4a2f-b4da-f9374fbd80e6" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </Default>
+          <ItemType Id="ET10">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="계좌 이름">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC12">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="은행 식별 번호/지점 코드">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="계좌 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="개설 날짜">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="폐쇄 날짜">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET1">
+            <PropertyMappings>
+              <PropertyMapping Default="설정 안 함" Property="Label">
+                <ResolvableValue Suffix=" " Prefix="아파트: ">
+                  <ApolloProperty Id="ADD2">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="위치 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD25">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="구/군/시">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="County(US 전용)">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="시/도">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD17">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="ZIP/우편 번호">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="국가 또는 지역">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="비트/디스트릭트">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="동향">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD11">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="북향">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD12">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="위도">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="경도">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD14">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="데이터">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET8">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="디바이스 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM2">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IMSI 번호">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IMEI 번호">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="디바이스 제조업체">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM10">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="이메일 주소">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="웹 주소">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM14">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IP 주소">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET2">
+            <PropertyMappings>
+              <PropertyMapping Default="설정 안 함" Property="Label">
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE31">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE61">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Description">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="이벤트 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="이벤트 시작">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="이벤트 종료">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="화기를 사용했습니까?">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE7">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="LogicalOr" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET4">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="조직 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="웹 주소">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET5">
+            <PropertyMappings>
+              <PropertyMapping Default="설정 안 함" Property="Label">
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Combine" Delimeter=" " />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="PER6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Prefix=" ">
+                  <ApolloProperty Id="PER7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="제목">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="예명">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="AKA">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER97">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="생년월일">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="성별">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="혼인 여부">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER29">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="나이">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER12">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="국적">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET9">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="약물 이름">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO82">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="무기 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="문서 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO30">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="동물 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO34">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="값">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO26">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET7">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="카메라 위치">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="동향">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="북향">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="위도">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="경도">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET3">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="차량 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="차량 제조업체">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="차량 모델">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="차량 색상">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </EntityMappings>
+        <LinkMappings>
+          <Default>
+            <LinkSummarization Method="Multiple" />
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <SpecialValue Type="TypeName" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </Default>
+          <ItemType Id="LCO1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <LiteralValue Value="1" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="통신 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LTR1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="트랜잭션 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="트랜잭션 통화">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LIN1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="개입 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LSU1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSU4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSU4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </ItemType>
+          <ItemType Id="LOB1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="보고 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LAS1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="연관 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LST1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="도난/복구 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LAC1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="사용 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LME1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="멤버십 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LEM1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="고용 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="역할">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LSB1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="조치 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </LinkMappings>
+      </XmlChartingScheme>
+    </ChartingScheme>
+    <ChartingScheme Name="프레젠테이션">
+      <XmlChartingScheme>
+        <ChartItemAttributes>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>화기를 사용했습니까?</Name>
+            <Type>AttFlag</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" PasteBehaviour="AttMergeMax" Prefix=": " DecimalPlaces="0" MergeBehaviour="AttMergeMax" ShowClassName="true">
+            <Name>나이</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>트랜잭션 합계</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>값</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Visible="false" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최초 통신</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Visible="false" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최근 통신</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>개설 날짜</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>폐쇄 날짜</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>생년월일</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최초</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>이벤트 시작</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>이벤트 종료</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Visible="false" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최초 트랜잭션</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Visible="false" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최근 트랜잭션</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E" Prefix=": " ShowClassName="true">
+            <Name>데이터</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guid7877FB38-38DC-4fea-87BD-838A6EA66F51" Prefix=": " ShowClassName="true">
+            <Name>동향</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guidC319A593-C6D6-4cd0-91EF-14A932488F3B" Prefix=": " ShowClassName="true">
+            <Name>북향</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guid5304A03B-FE47-4406-91E7-0D49EC8409A6" Prefix=": " ShowClassName="true">
+            <Name>위도</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9" Prefix=": " ShowClassName="true">
+            <Name>경도</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+        </ChartItemAttributes>
+        <ChartItemDataRecordProperties IncludeProperties="false" IncludeGrades="false" />
+        <EntityMappings>
+          <Default>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <ApolloLabel SchemeId="8355f4c5-1444-4a2f-b4da-f9374fbd80e6" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </Default>
+          <ItemType Id="ET10">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="계좌 이름">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC12">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="은행 식별 번호/지점 코드">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="계좌 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="개설 날짜">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="폐쇄 날짜">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET1">
+            <PropertyMappings>
+              <PropertyMapping Default="설정 안 함" Property="Label">
+                <ResolvableValue Suffix=" " Prefix="아파트: ">
+                  <ApolloProperty Id="ADD2">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="위치 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD25">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="구/군/시">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="County(US 전용)">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="시/도">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD17">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="ZIP/우편 번호">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="국가 또는 지역">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="비트/디스트릭트">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="동향">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD11">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="북향">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD12">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="위도">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="경도">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD14">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="데이터">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET8">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="디바이스 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM2">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IMSI 번호">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IMEI 번호">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="디바이스 제조업체">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM10">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="이메일 주소">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="웹 주소">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM14">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IP 주소">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET2">
+            <PropertyMappings>
+              <PropertyMapping Default="설정 안 함" Property="Label">
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE31">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE61">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Description">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="이벤트 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="이벤트 시작">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="이벤트 종료">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="화기를 사용했습니까?">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE7">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="LogicalOr" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET4">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="조직 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="웹 주소">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET5">
+            <PropertyMappings>
+              <PropertyMapping Default="설정 안 함" Property="Label">
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Combine" Delimeter=" " />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="PER6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Prefix=" ">
+                  <ApolloProperty Id="PER7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="제목">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="예명">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="AKA">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER97">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="생년월일">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="성별">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="혼인 여부">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER29">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="나이">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER12">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="국적">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET9">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="약물 이름">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO82">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="무기 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="문서 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO30">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="동물 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO34">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="값">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO26">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET7">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="카메라 위치">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="동향">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="북향">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="위도">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="경도">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET3">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="차량 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="차량 제조업체">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="차량 모델">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="차량 색상">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </EntityMappings>
+        <LinkMappings>
+          <Default>
+            <LinkSummarization Method="Multiple" />
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <SpecialValue Type="TypeName" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </Default>
+          <ItemType Id="LCO1">
+            <LinkSummarization SeparateStrengths="true" Method="Directed" />
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <SpecialValue Type="SummarizedLinkCount" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="최초 통신">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="최근 통신">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LTR1">
+            <LinkSummarization SeparateStrengths="true" Method="Flow">
+              <Flow PropertyTypeId="LTR5" />
+            </LinkSummarization>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <LiteralValue Value="플로우: " />
+                </ResolvableValue>
+                <ResolvableValue>
+                  <SpecialValue Type="Flow" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="트랜잭션 합계">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Sum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="최초 트랜잭션">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="최근 트랜잭션">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LIN1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="개입 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LSU1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSU4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSU4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </ItemType>
+          <ItemType Id="LOB1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="보고 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LAS1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="연관 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LST1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="도난/복구 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LAC1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="사용 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LME1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="멤버십 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LEM1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="고용 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="역할">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LSB1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="조치 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </LinkMappings>
+      </XmlChartingScheme>
+    </ChartingScheme>
+    <ChartingScheme Name="네트워크 구조">
+      <XmlChartingScheme>
+        <ChartItemAttributes>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>화기를 사용했습니까?</Name>
+            <Type>AttFlag</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" PasteBehaviour="AttMergeMax" Prefix=": " DecimalPlaces="0" MergeBehaviour="AttMergeMax" ShowClassName="true">
+            <Name>나이</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>트랜잭션 합계</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>값</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Visible="false" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최초 통신</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Visible="false" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최근 통신</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>개설 날짜</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>폐쇄 날짜</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Prefix=": " ShowClassName="true">
+            <Name>생년월일</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최초</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>이벤트 시작</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>이벤트 종료</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Visible="false" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최초 트랜잭션</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" Visible="false" ShowTime="true" Prefix=": " ShowClassName="true">
+            <Name>최근 트랜잭션</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E" Prefix=": " ShowClassName="true">
+            <Name>데이터</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guid7877FB38-38DC-4fea-87BD-838A6EA66F51" Prefix=": " ShowClassName="true">
+            <Name>동향</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guidC319A593-C6D6-4cd0-91EF-14A932488F3B" Prefix=": " ShowClassName="true">
+            <Name>북향</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guid5304A03B-FE47-4406-91E7-0D49EC8409A6" Prefix=": " ShowClassName="true">
+            <Name>위도</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" SemanticPropertyTypeGuid="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9" Prefix=": " ShowClassName="true">
+            <Name>경도</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+        </ChartItemAttributes>
+        <ChartItemDataRecordProperties IncludeProperties="false" IncludeGrades="false" />
+        <EntityMappings>
+          <Default>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <ApolloLabel SchemeId="8355f4c5-1444-4a2f-b4da-f9374fbd80e6" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </Default>
+          <ItemType Id="ET10">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="계좌 이름">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC12">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="은행 식별 번호/지점 코드">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="계좌 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="개설 날짜">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="폐쇄 날짜">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET1">
+            <PropertyMappings>
+              <PropertyMapping Default="설정 안 함" Property="Label">
+                <ResolvableValue Suffix=" " Prefix="아파트: ">
+                  <ApolloProperty Id="ADD2">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="위치 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD25">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="구/군/시">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="County(US 전용)">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="시/도">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD17">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="ZIP/우편 번호">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="국가 또는 지역">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="비트/디스트릭트">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="동향">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD11">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="북향">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD12">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="위도">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="경도">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD14">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="데이터">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET8">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="디바이스 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM2">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="IMSI 번호">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="IMEI 번호">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="디바이스 제조업체">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM10">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="이메일 주소">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="웹 주소">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM14">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="IP 주소">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET2">
+            <PropertyMappings>
+              <PropertyMapping Default="설정 안 함" Property="Label">
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE31">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE61">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="이벤트 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="이벤트 시작">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="이벤트 종료">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="화기를 사용했습니까?">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE7">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="LogicalOr" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET4">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="조직 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="웹 주소">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET5">
+            <PropertyMappings>
+              <PropertyMapping Default="설정 안 함" Property="Label">
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Combine" Delimeter=" " />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="PER6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Prefix=" ">
+                  <ApolloProperty Id="PER7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="제목">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="예명">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="AKA">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER97">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="생년월일">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="성별">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="혼인 여부">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER29">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="나이">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER12">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="국적">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET9">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="약물 이름">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO82">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="무기 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="문서 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO30">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="동물 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO34">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="값">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO26">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET7">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="카메라 위치">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="동향">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="북향">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="위도">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="경도">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET3">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="차량 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="차량 제조업체">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="차량 모델">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="차량 색상">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </EntityMappings>
+        <LinkMappings>
+          <Default>
+            <LinkSummarization Method="Single" />
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue Suffix=": ">
+                  <SpecialValue Type="TypeName" />
+                </ResolvableValue>
+                <ResolvableValue>
+                  <SpecialValue Type="SummarizedLinkCount" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </Default>
+          <ItemType Id="LCO1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="최초 통신">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="최근 통신">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LTR1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="트랜잭션 합계">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Sum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="최초 트랜잭션">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="최근 트랜잭션">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LIN1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="개입 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LSU1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings />
+          </ItemType>
+          <ItemType Id="LOB1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="보고 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LAS1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="연관 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LST1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="도난/복구 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LAC1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="사용 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LME1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="멤버십 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LEM1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="고용 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="역할">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LSB1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="조치 유형">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </LinkMappings>
+      </XmlChartingScheme>
+    </ChartingScheme>
+  </ChartingSchemes>
+</ChartingSchemeList>

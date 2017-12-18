@@ -1,0 +1,31 @@
+#!/bin/bash
+#/********************************************************************************
+# * (C) Copyright IBM Corporation 2018, 2019.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# *
+# ********************************************************************************/
+
+#####################################################################################
+#                                                                                   #
+#  Script to install the DB2 client with the db2client.rsp in the                   #
+#  base_client_image for all servers that need to communicate with the DB2 server   #
+#                                                                                   #
+#####################################################################################
+
+#When the installer fails its aggressively sends a SIGHUP
+#Swallow this
+trap '' SIGHUP
+/opt/IBM/server_awse_o/db2setup -r /opt/IBM/db2client.rsp
+
+if [ ! $? -eq 0 ]; then
+   echo Trying again
+   trap - SIGHUP
+   #For some reason the second time works. This appears to be a docker issue
+   #Something to do with how the installer is using systemd
+   /opt/IBM/server_awse_o/db2setup -r /opt/IBM/db2client.rsp
+fi

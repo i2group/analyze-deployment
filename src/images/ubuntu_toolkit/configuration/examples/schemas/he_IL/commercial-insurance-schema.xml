@@ -1,0 +1,2142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ns2:Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns3="http://www.i2group.com/Schemas/2011-03-03/ModelSchemaExtension" DefaultLabelingSchemeId="8355f4c5-1444-4a2f-b4da-f9374fbd80e6" xmlns:ns2="http://www.i2group.com/Schemas/2011-03-03/ModelSchema">
+  <GradeTypes>
+    <GradeType Description="הערכת מקור" Mandatory="false" Id="G1" Name="מהימנות">
+      <Values>
+        <Value>A</Value>
+        <Value>B</Value>
+        <Value>C</Value>
+        <Value>D</Value>
+        <Value>E</Value>
+      </Values>
+    </GradeType>
+    <GradeType Description="הערכה מודיעינית של המידע" Mandatory="false" Id="G2" Name="ביטחון">
+      <Values>
+        <Value>1</Value>
+        <Value>2</Value>
+        <Value>3</Value>
+        <Value>4</Value>
+        <Value>5</Value>
+      </Values>
+    </GradeType>
+    <GradeType Description="קוד טיפול" Mandatory="false" Id="G3" Name="פרטיות">
+      <Values>
+        <Value>1</Value>
+        <Value>2</Value>
+        <Value>3</Value>
+        <Value>4</Value>
+        <Value>5</Value>
+      </Values>
+    </GradeType>
+  </GradeTypes>
+  <ItemTypes>
+    <EntityTypes>
+      <EntityType Id="372a12af-f684-41c5-9ce9-759b3beef826" Description="הגדרה" DisplayName="הגדרה" Icon="General group">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="255" SemanticTypeId="" DisplayName="שם" Description="שם" LogicalType="SINGLE_LINE_STRING" Id="07e81445-0f5e-4340-b355-c82809e895da">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb" Description="משתמש" DisplayName="משתמש" Icon="Profmale">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="שם" Description="שם" LogicalType="SINGLE_LINE_STRING" Id="ce3d12ac-2632-4a0f-b2b6-6a7fdda887a6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="תמונה" Description="תמונה" LogicalType="PICTURE" Id="becf8151-c6ac-4b9e-bff5-bb56e02fb2ed">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="זמין" Description="זמינות" LogicalType="BOOLEAN" Id="e31bc44e-39f2-4221-a237-a69766d4685e">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="cf17d636-44c9-4897-b19d-7d2eda002e57" Description="תרשים Analyst's Notebook" DisplayName="תרשים Analyst's Notebook" Icon="Anbchart">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="255" SemanticTypeId="" DisplayName="שם" Description="שם הקובץ של התרשים" LogicalType="SINGLE_LINE_STRING" Id="d6d03ce2-3cd6-49c1-8a66-366d0e434fd4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="נתונים בינאריים של תרשים" Description="הקובץ הבינארי שבו מאוחסן תוכן התרשים" LogicalType="DOCUMENT" Id="a20fef80-5c5f-4cf6-a597-c869193792e7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="תמונת תצוגה מקדימה של תרשים" Description="תמונה ממוזערת של התרשים" LogicalType="PICTURE" Id="8690b4d1-421d-4df1-8a9b-b1d25a1676e3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="נתוני אינדקס של תרשים" Description="נתונים המשמשים למיפתוח התרשים" LogicalType="DOCUMENT" Id="c84133b6-7c02-466f-ba14-c1bf28787f2c">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="1274e2e7-7751-4dae-a994-648718e19f04" Description="ערוץ התרעות" DisplayName="ערוץ התרעות" Icon="Search">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="true" Position="3" Description="אירועים שיזניקו התרעות מערוץ זה" DisplayName="אירועי הזנקה של ההתרעה" Id="566eaa37-01d2-4628-9231-a0448ef4a44c">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="הפריט השתנה" Description="התרעות על שינויים בפריט זה" LogicalType="BOOLEAN" Id="03487793-7975-4332-903b-e670a66c9451">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="הפריט נמחק" Description="התרעות על מחיקת בפריט זה" LogicalType="BOOLEAN" Id="f8471cf2-0b19-4bd2-9187-d3ac6f474026">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="נוצר קישור לפריט" Description="התרעות על יצירת קישורים לפריט זה" LogicalType="BOOLEAN" Id="0b99c403-49f7-4757-9876-3606ec5befa0">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="התכונות העיקריות של הפריט השתנו" Description="התרעות על שינויים בתכונות העיקריות של פריט זה" LogicalType="BOOLEAN" Id="4b873852-76e4-48e1-884a-9f95b87210f9">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="תוכן נוסף למערך זה" Description="התרעות על הוספות למערך זה" LogicalType="BOOLEAN" Id="afa7f3fb-23b0-4869-8b7d-0306ef158b5b">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="8" Mandatory="false" SemanticTypeId="" DisplayName="שינוי גרסה עבור תוכן קיים במערך" Description="התרעות על שינויים בגרסת פריט במערך זה" LogicalType="BOOLEAN" Id="051e91c1-e925-4dd4-97f1-75ffe37f9c48">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="תוכן סולק ממערך זה" Description="התרעות על סילוקים ממערך זה" LogicalType="BOOLEAN" Id="8146df80-3a08-4106-900f-214faf9ec571">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="5" Mandatory="false" SemanticTypeId="" DisplayName="פריט במערך זה השתנה" Description="התרעות על שינויים בפריט כלשהו במערך זה" LogicalType="BOOLEAN" Id="db8c60d1-1ff9-4896-bbd0-5e33351815e2">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="פריט במערך זה נמחק" Description="התרעות על מחיקת פריט כלשהו במערך זה" LogicalType="BOOLEAN" Id="514b213e-b677-428a-a5c9-b8690d564032">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="7" Mandatory="false" SemanticTypeId="" DisplayName="נוצר קישור לפריט במערך זה" Description="התרעות על יצירת קישורים לפריט כלשהו במערך זה" LogicalType="BOOLEAN" Id="2d9ed2a2-5f33-432b-b99b-f08349f8366d">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="שינוי בתכונות עיקריות של פריט במערך זה" Description="התרעות על שינויים בתכונות עיקריות של פריט במערך זה" LogicalType="BOOLEAN" Id="e2127bbb-9ad8-417d-840f-74ec9849ec5e">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="שם" Description="שם ערוץ התרעות זה" LogicalType="SINGLE_LINE_STRING" Id="b7b059a0-1079-45ac-8ae0-ee026f70dd69">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="תיאור" Description="תמליל תיאורי הכלול בהתרעות מופקות" LogicalType="MULTIPLE_LINE_STRING" Id="d1949ec2-9a77-461e-a16f-81026ccd1e89">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="זיהוי הפניה של ההתרעה" Description="זיהוי ייחודי של הפריט המנוטר להפקת התרעות" LogicalType="SINGLE_LINE_STRING" Id="814a72ed-5c68-4763-8d47-b4866de2344b">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="43cd717c-0204-4c81-93ea-f9f0458bc5ea" Description="שאילתה מאוחסנת" DisplayName="שאילתה" Icon="StoredQuery">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="5" Description="מטא-נתונים של תצוגה. הנתונים פרטיים לשאילתה המאוחסנת ואינם מאפשרים עריכה ישירה." DisplayName="תצוגת שאילתה" Id="2c818fa6-68c4-42a4-9bc3-c34bcdc4379a">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מבנה" Description="סוג מבנה תצוגה. הנתונים פרטיים לשאילתה המאוחסנת ואינם מאפשרים עריכה ישירה." LogicalType="SINGLE_LINE_STRING" Id="97f76ffe-1ece-4d5b-9e20-ea66b572b2c5">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="נתוני מחרוזת" Description="נתוני מחרוזת של התצוגה. הנתונים פרטיים לשאילתה המאוחסנת ואינם מאפשרים עריכה ישירה." LogicalType="SINGLE_LINE_STRING" Id="b58f34b6-60fb-4730-a4aa-156bf4e817e0">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="נתוני XML" Description="נתוני XML של התצוגה. הנתונים פרטיים לשאילתה המאוחסנת ואינם מאפשרים עריכה ישירה." LogicalType="XML" Id="ab2fdf78-ddd8-49b2-872a-f5c8ac2106d5">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="שם" Description="שם שציין השתמש עבור שאילתה מאוחסנת זו" LogicalType="SINGLE_LINE_STRING" Id="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="תיאור" Description="תיאור של שאילתה מאוחסנת זו" LogicalType="MULTIPLE_LINE_STRING" Id="a30ddbca-6c14-4454-bdb0-811a5b5beb16">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="סוג שאילתה" Description="סוג שאילתה מאוחסנת. הנתונים פרטיים לשאילתה המאוחסנת ואינם מאפשרים עריכה ישירה." LogicalType="SINGLE_LINE_STRING" Id="5ae10920-6d60-419f-80db-ba5b9935d93b">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="הגדרת שאילתה (מחרוזת)" Description="הגדרת מחרוזת של שאילתה מאוחסנת. הנתונים פרטיים לשאילתה המאוחסנת ואינם מאפשרים עריכה ישירה." LogicalType="SINGLE_LINE_STRING" Id="17903032-1cd1-4524-94ef-a35aab212e6a">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="הגדרת שאילתה (XML)" Description="הגדרת XML של שאילתה מאוחסנת. הנתונים פרטיים לשאילתה המאוחסנת ואינם מאפשרים עריכה ישירה." LogicalType="XML" Id="f5916739-a962-4c01-95d3-2598bfabc1b5">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="ADD1" SemanticTypeId="guidC6A2C76F-5637-43DC-92F8-8F3563226307" Description="פרטי כתובת מותאמת" DisplayName="כתובת" Icon="House">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="20" Description="" DisplayName="דימות" Id="ADD22">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="תמונה" Description="" LogicalType="PICTURE" Id="ADD23">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="תיאור תמונה" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="ADD24">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="הפניה ייחודית" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB11A89A6-F50C-4c73-949F-00594985DA69" DisplayName="סוג מיקום" Description="" LogicalType="SUGGESTED_FROM" Id="ADD26">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="אזור" />
+              <PossibleValue Description="" Value="בית" />
+              <PossibleValue Description="" Value="בית חולים" />
+              <PossibleValue Description="" Value="בית מגורים" />
+              <PossibleValue Description="" Value="בית מעצר/כלא" />
+              <PossibleValue Description="" Value="בית ספר" />
+              <PossibleValue Description="" Value="בית תפילה" />
+              <PossibleValue Description="" Value="בניין ממשלה" />
+              <PossibleValue Description="" Value="בנק" />
+              <PossibleValue Description="" Value="זירת ספורט" />
+              <PossibleValue Description="" Value="חווה" />
+              <PossibleValue Description="" Value="חנות" />
+              <PossibleValue Description="" Value="חניה" />
+              <PossibleValue Description="" Value="יעד/יעד אפשרי" />
+              <PossibleValue Description="" Value="כפר" />
+              <PossibleValue Description="" Value="מוסך" />
+              <PossibleValue Description="" Value="מחנה אימונים" />
+              <PossibleValue Description="" Value="מחנה פליטים" />
+              <PossibleValue Description="" Value="מחסן" />
+              <PossibleValue Description="" Value="מלון" />
+              <PossibleValue Description="" Value="מקום לידה" />
+              <PossibleValue Description="" Value="משרד מפלגה פוליטית" />
+              <PossibleValue Description="" Value="משרד עיתונות" />
+              <PossibleValue Description="" Value="מתקן מחקר/מתקן מדעי" />
+              <PossibleValue Description="" Value="מתקן צבאי" />
+              <PossibleValue Description="" Value="נמל תעופה" />
+              <PossibleValue Description="" Value="נקודת מעבר" />
+              <PossibleValue Description="ארגון לא ממשלתי" Value="סניף ארגון NGO" />
+              <PossibleValue Description="" Value="עיירה" />
+              <PossibleValue Description="" Value="עיר" />
+              <PossibleValue Description="" Value="עסק" />
+              <PossibleValue Description="" Value="פארק" />
+              <PossibleValue Description="" Value="שגרירות" />
+              <PossibleValue Description="" Value="שכונת מגורים" />
+              <PossibleValue Description="" Value="תחנת דלק" />
+              <PossibleValue Description="" Value="תחנת משטרה" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid65F516EA-9C0E-454D-B12E-5A181122A2E5" DisplayName="מספר דירה" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDECE0D4F-CD3C-43d7-8F52-A068EA5BF494" DisplayName="מספר בניין" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidD733BC65-AC13-413d-B60D-A4784C8A1CD8" DisplayName="שם בניין" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid2F6B7E57-7626-44DC-9CE5-ECD67DF2157E" DisplayName="שם רחוב" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="קהילה" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD20">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid6D5B39A9-41EC-477D-AA79-4CEF272FF067" DisplayName="עיירה/עיר" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA29B5F8F-BA18-4262-95BD-65B8216D8841" DisplayName="מחוז" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מדינה" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD25">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidE88DF247-7CA6-4E4F-B38B-87DDE11EE98C" DisplayName="מיקוד" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDAC78E2E-4C6F-4006-B291-0A42BAB2E339" DisplayName="ארץ או אזור" Description="" LogicalType="SUGGESTED_FROM" Id="ADD10">
+            <PossibleValues>
+              <PossibleValue Description="&lt;לא ידוע&gt;" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="אוגנדה" Value="אוגנדה" />
+              <PossibleValue Description="אוזבקיסטאן" Value="אוזבקיסטאן" />
+              <PossibleValue Description="אוסטריה" Value="אוסטריה" />
+              <PossibleValue Description="אוסטרליה" Value="אוסטרליה" />
+              <PossibleValue Description="אוקראינה" Value="אוקראינה" />
+              <PossibleValue Description="אורוגואי" Value="אורוגואי" />
+              <PossibleValue Description="אזרבייג'ן" Value="אזרבייג'ן" />
+              <PossibleValue Description="איחוד האמירויות הערביות" Value="איחוד האמירויות הערביות" />
+              <PossibleValue Description="איטליה" Value="איטליה" />
+              <PossibleValue Description="איי מארשאל" Value="איי מארשאל" />
+              <PossibleValue Description="איי סיישל" Value="איי סיישל" />
+              <PossibleValue Description="איי שלמה" Value="איי שלמה" />
+              <PossibleValue Description="אינדונזיה" Value="אינדונזיה" />
+              <PossibleValue Description="איסלנד" Value="איסלנד" />
+              <PossibleValue Description="אירלנד" Value="אירלנד" />
+              <PossibleValue Description="אירן (הרפובליקה האיסלמית של)" Value="אירן (הרפובליקה האיסלמית של)" />
+              <PossibleValue Description="אל סלבדור" Value="אל סלבדור" />
+              <PossibleValue Description="אלבניה" Value="אלבניה" />
+              <PossibleValue Description="אלג'יריה" Value="אלג'יריה" />
+              <PossibleValue Description="אמריקה" Value="אמריקה" />
+              <PossibleValue Description="אנגולה" Value="אנגולה" />
+              <PossibleValue Description="אנדורה" Value="אנדורה" />
+              <PossibleValue Description="אנטיגואה וברבודה" Value="אנטיגואה וברבודה" />
+              <PossibleValue Description="אסטוניה" Value="אסטוניה" />
+              <PossibleValue Description="אפגניסטן" Value="אפגניסטן" />
+              <PossibleValue Description="אקוודור" Value="אקוודור" />
+              <PossibleValue Description="ארגנטינה" Value="ארגנטינה" />
+              <PossibleValue Description="אריתריאה" Value="אריתריאה" />
+              <PossibleValue Description="ארצות הברית" Value="ארצות הברית" />
+              <PossibleValue Description="אתיופיה" Value="אתיופיה" />
+              <PossibleValue Description="בהאמה" Value="בהאמה" />
+              <PossibleValue Description="בוטן" Value="בוטן" />
+              <PossibleValue Description="בוטסוואנה" Value="בוטסוואנה" />
+              <PossibleValue Description="בולגריה" Value="בולגריה" />
+              <PossibleValue Description="בוליביה (המדינה הרב-לאומית של)" Value="בוליביה (המדינה הרב-לאומית של)" />
+              <PossibleValue Description="בוסניה" Value="בוסניה" />
+              <PossibleValue Description="בורונדי" Value="בורונדי" />
+              <PossibleValue Description="בורקינה פאסו" Value="בורקינה פאסו" />
+              <PossibleValue Description="בחריין" Value="בחריין" />
+              <PossibleValue Description="בלגיה" Value="בלגיה" />
+              <PossibleValue Description="בליז" Value="בליז" />
+              <PossibleValue Description="בלרוס" Value="בלרוס" />
+              <PossibleValue Description="בנגלדש" Value="בנגלדש" />
+              <PossibleValue Description="בנין" Value="בנין" />
+              <PossibleValue Description="ברבדוס" Value="ברבדוס" />
+              <PossibleValue Description="ברוניי דארוסאלאם" Value="ברוניי דארוסאלאם" />
+              <PossibleValue Description="ברזיל" Value="ברזיל" />
+              <PossibleValue Description="בריטניה" Value="בריטניה" />
+              <PossibleValue Description="גאנה" Value="גאנה" />
+              <PossibleValue Description="גבון" Value="גבון" />
+              <PossibleValue Description="גוואטמלה" Value="גוואטמלה" />
+              <PossibleValue Description="גיאורגיה" Value="גיאורגיה" />
+              <PossibleValue Description="גיאנה" Value="גיאנה" />
+              <PossibleValue Description="ג'יבוטי" Value="ג'יבוטי" />
+              <PossibleValue Description="גיניאה" Value="גיניאה" />
+              <PossibleValue Description="גיניאה המשוונית" Value="גיניאה המשוונית" />
+              <PossibleValue Description="גיניאה-ביסאו" Value="גיניאה-ביסאו" />
+              <PossibleValue Description="גמביה" Value="גמביה" />
+              <PossibleValue Description="ג'מייקה" Value="ג'מייקה" />
+              <PossibleValue Description="גרמניה" Value="גרמניה" />
+              <PossibleValue Description="גרנדה" Value="גרנדה" />
+              <PossibleValue Description="דומיניקה" Value="דומיניקה" />
+              <PossibleValue Description="דנמרק" Value="דנמרק" />
+              <PossibleValue Description="דרום אפריקה" Value="דרום אפריקה" />
+              <PossibleValue Description="דרום סודן" Value="דרום סודן" />
+              <PossibleValue Description="האיטי" Value="האיטי" />
+              <PossibleValue Description="הודו" Value="הודו" />
+              <PossibleValue Description="הולנד" Value="הולנד" />
+              <PossibleValue Description="הונגריה" Value="הונגריה" />
+              <PossibleValue Description="הונדורס" Value="הונדורס" />
+              <PossibleValue Description="הרפובליקה הדומיניקנית" Value="הרפובליקה הדומיניקנית" />
+              <PossibleValue Description="הרפובליקה היוגוסלבית לשעבר מקדוניה" Value="הרפובליקה היוגוסלבית לשעבר מקדוניה" />
+              <PossibleValue Description="הרפובליקה המאוחדת של טנזניה" Value="הרפובליקה המאוחדת של טנזניה" />
+              <PossibleValue Description="הרפובליקה העממית הדמוקרטית של לאוס" Value="הרפובליקה העממית הדמוקרטית של לאוס" />
+              <PossibleValue Description="הרפובליקה העממית הדמוקרטית של קוריאה" Value="הרפובליקה העממית הדמוקרטית של קוריאה" />
+              <PossibleValue Description="הרפובליקה העממית של קונגו" Value="הרפובליקה העממית של קונגו" />
+              <PossibleValue Description="הרפובליקה הצ'כית" Value="הרפובליקה הצ'כית" />
+              <PossibleValue Description="הרפובליקה של מולדובה" Value="הרפובליקה של מולדובה" />
+              <PossibleValue Description="הרפובליקה של מרכז אפריקה" Value="הרפובליקה של מרכז אפריקה" />
+              <PossibleValue Description="הרפובליקה של קוריאה" Value="הרפובליקה של קוריאה" />
+              <PossibleValue Description="הרצגובינה" Value="הרצגובינה" />
+              <PossibleValue Description="ואנואטו" Value="ואנואטו" />
+              <PossibleValue Description="וייטנאם" Value="וייטנאם" />
+              <PossibleValue Description="ונצואלה (הרפובליקה הבוליבארית של)" Value="ונצואלה (הרפובליקה הבוליבארית של)" />
+              <PossibleValue Description="זימבאבווה" Value="זימבאבווה" />
+              <PossibleValue Description="זמביה" Value="זמביה" />
+              <PossibleValue Description="חבר העמים הרוסי" Value="חבר העמים הרוסי" />
+              <PossibleValue Description="חוף השנהב" Value="חוף השנהב" />
+              <PossibleValue Description="טג'יקיסטאן" Value="טג'יקיסטאן" />
+              <PossibleValue Description="טובאלו" Value="טובאלו" />
+              <PossibleValue Description="טוגו" Value="טוגו" />
+              <PossibleValue Description="טונגה" Value="טונגה" />
+              <PossibleValue Description="טוניס" Value="טוניס" />
+              <PossibleValue Description="טורקיה" Value="טורקיה" />
+              <PossibleValue Description="טורקמניסטן" Value="טורקמניסטן" />
+              <PossibleValue Description="טימור-לסטה" Value="טימור-לסטה" />
+              <PossibleValue Description="טרינידד וטובגו" Value="טרינידד וטובגו" />
+              <PossibleValue Description="יוון" Value="יוון" />
+              <PossibleValue Description="יפן" Value="יפן" />
+              <PossibleValue Description="ירדן" Value="ירדן" />
+              <PossibleValue Description="ישראל" Value="ישראל" />
+              <PossibleValue Description="כווית" Value="כווית" />
+              <PossibleValue Description="לבנון" Value="לבנון" />
+              <PossibleValue Description="לוב" Value="לוב" />
+              <PossibleValue Description="לוקסמבורג" Value="לוקסמבורג" />
+              <PossibleValue Description="לטביה" Value="לטביה" />
+              <PossibleValue Description="ליבריה" Value="ליבריה" />
+              <PossibleValue Description="ליטא" Value="ליטא" />
+              <PossibleValue Description="ליכטנשטיין" Value="ליכטנשטיין" />
+              <PossibleValue Description="לסוטו" Value="לסוטו" />
+              <PossibleValue Description="מאוריטניה" Value="מאוריטניה" />
+              <PossibleValue Description="מאוריציוס" Value="מאוריציוס" />
+              <PossibleValue Description="מאלאווי" Value="מאלאווי" />
+              <PossibleValue Description="מאלי" Value="מאלי" />
+              <PossibleValue Description="מדגסקר" Value="מדגסקר" />
+              <PossibleValue Description="מוזמביק" Value="מוזמביק" />
+              <PossibleValue Description="מונגוליה" Value="מונגוליה" />
+              <PossibleValue Description="מונטנגרו" Value="מונטנגרו" />
+              <PossibleValue Description="מונקו" Value="מונקו" />
+              <PossibleValue Description="מיאנמאר" Value="מיאנמאר" />
+              <PossibleValue Description="מיקרונזיה (המדינות המאוגדות של)" Value="מיקרונזיה (המדינות המאוגדות של)" />
+              <PossibleValue Description="מלדיבים" Value="מלדיבים" />
+              <PossibleValue Description="מלזיה" Value="מלזיה" />
+              <PossibleValue Description="מלטה" Value="מלטה" />
+              <PossibleValue Description="מצרים" Value="מצרים" />
+              <PossibleValue Description="מקסיקו" Value="מקסיקו" />
+              <PossibleValue Description="מרוקו" Value="מרוקו" />
+              <PossibleValue Description="נאורו" Value="נאורו" />
+              <PossibleValue Description="נורווגיה" Value="נורווגיה" />
+              <PossibleValue Description="ניגריה" Value="ניגריה" />
+              <PossibleValue Description="ניו זילנד" Value="ניו זילנד" />
+              <PossibleValue Description="ניז'ר" Value="ניז'ר" />
+              <PossibleValue Description="ניקרגואה" Value="ניקרגואה" />
+              <PossibleValue Description="נמיביה" Value="נמיביה" />
+              <PossibleValue Description="נפאל" Value="נפאל" />
+              <PossibleValue Description="סאן מרינו" Value="סאן מרינו" />
+              <PossibleValue Description="סאן תומה ופרינצ'יפה" Value="סאן תומה ופרינצ'יפה" />
+              <PossibleValue Description="סודן" Value="סודן" />
+              <PossibleValue Description="סוואזילנד" Value="סוואזילנד" />
+              <PossibleValue Description="סומליה" Value="סומליה" />
+              <PossibleValue Description="סוריה, הרפובליקה הערבית" Value="סוריה, הרפובליקה הערבית" />
+              <PossibleValue Description="סורינאם" Value="סורינאם" />
+              <PossibleValue Description="סיינט וינסטנט והגרנדינים" Value="סיינט וינסטנט והגרנדינים" />
+              <PossibleValue Description="סיירה לאונה" Value="סיירה לאונה" />
+              <PossibleValue Description="סין" Value="סין" />
+              <PossibleValue Description="סינגפור" Value="סינגפור" />
+              <PossibleValue Description="סלובניה" Value="סלובניה" />
+              <PossibleValue Description="סלובקיה" Value="סלובקיה" />
+              <PossibleValue Description="סמואה" Value="סמואה" />
+              <PossibleValue Description="סנגל" Value="סנגל" />
+              <PossibleValue Description="סנט קיטס ונוויס" Value="סנט קיטס ונוויס" />
+              <PossibleValue Description="סנטה לוצ'יה" Value="סנטה לוצ'יה" />
+              <PossibleValue Description="ספרד" Value="ספרד" />
+              <PossibleValue Description="סרביה" Value="סרביה" />
+              <PossibleValue Description="סרי לנקה" Value="סרי לנקה" />
+              <PossibleValue Description="עומן" Value="עומן" />
+              <PossibleValue Description="עירק" Value="עירק" />
+              <PossibleValue Description="ערב הסעודית" Value="ערב הסעודית" />
+              <PossibleValue Description="פאלאו" Value="פאלאו" />
+              <PossibleValue Description="פאפואה ניו גיני" Value="פאפואה ניו גיני" />
+              <PossibleValue Description="פולין" Value="פולין" />
+              <PossibleValue Description="פורטוגל" Value="פורטוגל" />
+              <PossibleValue Description="פיג'י" Value="פיג'י" />
+              <PossibleValue Description="פיליפינים" Value="פיליפינים" />
+              <PossibleValue Description="פינלנד" Value="פינלנד" />
+              <PossibleValue Description="פנמה" Value="פנמה" />
+              <PossibleValue Description="פקיסטן" Value="פקיסטן" />
+              <PossibleValue Description="פרגוואי" Value="פרגוואי" />
+              <PossibleValue Description="פרו" Value="פרו" />
+              <PossibleValue Description="צ'אד" Value="צ'אד" />
+              <PossibleValue Description="צ'ילה" Value="צ'ילה" />
+              <PossibleValue Description="צרפת" Value="צרפת" />
+              <PossibleValue Description="קובה" Value="קובה" />
+              <PossibleValue Description="קולומביה" Value="קולומביה" />
+              <PossibleValue Description="קומורו" Value="קומורו" />
+              <PossibleValue Description="קונגו" Value="קונגו" />
+              <PossibleValue Description="קוסטה ריקה" Value="קוסטה ריקה" />
+              <PossibleValue Description="קזחסטן" Value="קזחסטן" />
+              <PossibleValue Description="קטאר" Value="קטאר" />
+              <PossibleValue Description="קייפ ורדה" Value="קייפ ורדה" />
+              <PossibleValue Description="קירגיזסטן" Value="קירגיזסטן" />
+              <PossibleValue Description="קיריבטי" Value="קיריבטי" />
+              <PossibleValue Description="קמבודיה" Value="קמבודיה" />
+              <PossibleValue Description="קמרון" Value="קמרון" />
+              <PossibleValue Description="קנדה" Value="קנדה" />
+              <PossibleValue Description="קניה" Value="קניה" />
+              <PossibleValue Description="קפריסין" Value="קפריסין" />
+              <PossibleValue Description="קרואטיה" Value="קרואטיה" />
+              <PossibleValue Description="רואנדה" Value="רואנדה" />
+              <PossibleValue Description="רומניה" Value="רומניה" />
+              <PossibleValue Description="שוודיה" Value="שוודיה" />
+              <PossibleValue Description="שוויץ" Value="שוויץ" />
+              <PossibleValue Description="תאילנד" Value="תאילנד" />
+              <PossibleValue Description="תימן" Value="תימן" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="12" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA3722B89-FB0B-4CCA-8611-331784F40509" DisplayName="תיבת דואר" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD11">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="13" Mandatory="false" SemanticTypeId="guidB66D144B-B6DB-4bb5-8222-6F649514EDAB" DisplayName="מיקום גיאוגרפי" Description="מיקום גיאוגרפי" LogicalType="GEOSPATIAL" Id="ADD27">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="14" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid7877FB38-38DC-4fea-87BD-838A6EA66F51" DisplayName="בכיוון מזרח" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD12">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="15" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidC319A593-C6D6-4cd0-91EF-14A932488F3B" DisplayName="בכיוון צפון" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD13">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="16" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid5304A03B-FE47-4406-91E7-0D49EC8409A6" DisplayName="קו רוחב" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD14">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="17" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9" DisplayName="קו אורך" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD15">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="18" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="קואורדינטות משולבות" Description="" LogicalType="SINGLE_LINE_STRING" Id="ADD21">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="19" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E" DisplayName="נתון" Description="" LogicalType="SUGGESTED_FROM" Id="ADD16">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="אירופאי" Value="EUR-7" />
+              <PossibleValue Description="Global Area Reference System" Value="GARS" />
+              <PossibleValue Description="Military Grid Reference System" Value="MGRS" />
+              <PossibleValue Description="Ordnance GB" Value="OGB-7" />
+              <PossibleValue Description="מערכת גיאודטית עולמית" Value="WGS84" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="21" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="מידע נוסף" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="ADD17">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="22" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="דגל הונאה" Description="" LogicalType="SUGGESTED_FROM" Id="ADD19">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="אושר" />
+              <PossibleValue Description="" Value="ללא" />
+              <PossibleValue Description="" Value="מאומת" />
+              <PossibleValue Description="" Value="נחקר" />
+              <PossibleValue Description="" Value="נחשד" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="23" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מקור נתונים" Description="" LogicalType="SUGGESTED_FROM" Id="ADD18">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="המחלקה להונאות ביטוח" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="ACC1" SemanticTypeId="guidAB9A5D8B-9D78-47FE-8302-C167B64D45CC" Description="פרטי חשבון בנק" DisplayName="חשבון" Icon="Account">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="7" Description="" DisplayName="היסטוריית תשלומים" Id="ACC8">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="guid735D4427-99F9-45DF-8820-DDEA9CF7C27E" DisplayName="תשלום" Description="" LogicalType="DECIMAL" Id="ACC9">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="הפניה ייחודית" Description="" LogicalType="SINGLE_LINE_STRING" Id="ACC2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid22340EB0-01BB-4263-928E-FC971ACB3C51" DisplayName="שם חשבון" Description="" LogicalType="SINGLE_LINE_STRING" Id="ACC13">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidC93D1CA5-5FEB-412B-A6E0-CE7893E606AA" DisplayName="מספר חשבון" Description="" LogicalType="SINGLE_LINE_STRING" Id="ACC3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid3CD52E22-5E43-4F39-9DCF-8B13B9CE78B2" DisplayName="מספר נתיב/קוד מיון" Description="זיהוי בנק" LogicalType="SINGLE_LINE_STRING" Id="ACC4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid0FA4C573-0436-4360-AEA7-F123F1994B8E" DisplayName="סוג חשבון" Description="" LogicalType="SUGGESTED_FROM" Id="ACC5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="אישור הפקדה" />
+              <PossibleValue Description="" Value="בנק למשכנתאות" />
+              <PossibleValue Description="" Value="דואר" />
+              <PossibleValue Description="" Value="הפקדה" />
+              <PossibleValue Description="" Value="חברת ברוקרים" />
+              <PossibleValue Description="" Value="חשבון חברות" />
+              <PossibleValue Description="" Value="חשבון חסכון" />
+              <PossibleValue Description="" Value="חשבון צ'קים" />
+              <PossibleValue Description="" Value="חשבון קמעונאי" />
+              <PossibleValue Description="" Value="כרטיס אשראי" />
+              <PossibleValue Description="" Value="מסחרי" />
+              <PossibleValue Description="" Value="משכנתה" />
+              <PossibleValue Description="" Value="נוכחי" />
+              <PossibleValue Description="" Value="קו אשראי" />
+              <PossibleValue Description="" Value="ריבית גבוהה" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDA2E2421-DAD1-480d-8EE5-8CF639500158" DisplayName="שיטת גבייה" Description="שיטת גביית תשלומים" LogicalType="SUGGESTED_FROM" Id="ACC6">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="הוראת קבע" />
+              <PossibleValue Description="" Value="הרשאה קבועה" />
+              <PossibleValue Description="" Value="חיוב ישיר" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Mandate Status" Description="מצב מתודולוגיית תשלומים" LogicalType="SUGGESTED_FROM" Id="ACC7">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="בוטל" />
+              <PossibleValue Description="" Value="מושהה" />
+              <PossibleValue Description="" Value="פעיל" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="מידע נוסף" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="ACC10">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מקור נתונים" Description="" LogicalType="SUGGESTED_FROM" Id="ACC11">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="המחלקה להונאות ביטוח" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="דגל הונאה" Description="" LogicalType="SUGGESTED_FROM" Id="ACC12">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="אושר" />
+              <PossibleValue Description="" Value="ללא" />
+              <PossibleValue Description="" Value="מאומת" />
+              <PossibleValue Description="" Value="נחקר" />
+              <PossibleValue Description="" Value="נחשד" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="CLA1" SemanticTypeId="guid3FF99984-6D1C-4265-866D-4980DC756E26" Description="פרטי תביעה" DisplayName="תביעה" Icon="Claim">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="הפניה ייחודית" Description="" LogicalType="SINGLE_LINE_STRING" Id="CLA2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid775b8aac-60bd-470c-a61a-a792c9fac1ed" DisplayName="תביעה" Description="מספר תביעה" LogicalType="SINGLE_LINE_STRING" Id="CLA3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="קוד תיאור אובדן" Description="" LogicalType="SINGLE_LINE_STRING" Id="CLA4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="תיאור אובדן" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CLA5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" SemanticTypeId="guidE17D5FB3-4FF6-4177-AC26-73D8FE2911EE" DisplayName="תאריך תביעה" Description="" LogicalType="DATE" Id="CLA6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" SemanticTypeId="guid735D4427-99F9-45DF-8820-DDEA9CF7C27E" DisplayName="Excess" Description="" LogicalType="DECIMAL" Id="CLA7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="Current Total Reserve" Description="" LogicalType="DECIMAL" Id="CLA8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" SemanticTypeId="" DisplayName="סך הכל תשלומים נוכחי" Description="" LogicalType="DECIMAL" Id="CLA9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" SemanticTypeId="guid994DA53C-CBE3-4273-8734-A398646C7995" DisplayName="Date of Settlement" Description="" LogicalType="DATE" Id="CLA10">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="אובדן גמור" Description="" LogicalType="BOOLEAN" Id="CLA11">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="תביעה בגין פציעה" Description="" LogicalType="BOOLEAN" Id="CLA12">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" SemanticTypeId="" DisplayName="הערות" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CLA13">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="12" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="כיסוי פוליסה בתאריך התביעה" Description="" LogicalType="SUGGESTED_FROM" Id="CLA14">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="חבות בלבד" />
+              <PossibleValue Description="" Value="כל הסיכונים" />
+              <PossibleValue Description="" Value="מקיף" />
+              <PossibleValue Description="" Value="צד שלישי בלבד" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="13" Mandatory="false" SemanticTypeId="guid9B359855-D9C4-468f-81A2-9DB9C87D32EE" DisplayName="Policy Inception" Description="Date of inception" LogicalType="DATE" Id="CLA15">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="14" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid7BCB6E9E-3DE6-4941-B452-EC83E0F992DF" DisplayName="מצב תביעה" Description="" LogicalType="SUGGESTED_FROM" Id="CLA16">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="חקירה" />
+              <PossibleValue Description="" Value="מושהה" />
+              <PossibleValue Description="" Value="נסגר" />
+              <PossibleValue Description="" Value="נפתח מחדש" />
+              <PossibleValue Description="" Value="פתיחה" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="15" Mandatory="false" SemanticTypeId="" DisplayName="התביעה נפתחה מחדש" Description="" LogicalType="DATE" Id="CLA17">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="16" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מקור הפניה" Description="" LogicalType="SUGGESTED_FROM" Id="CLA18">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="חתמים" />
+              <PossibleValue Description="" Value="כספים" />
+              <PossibleValue Description="" Value="תביעות" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="17" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="מידע נוסף" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CLA19">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="18" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="דגל הונאה" Description="" LogicalType="SUGGESTED_FROM" Id="CLA21">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="אושר" />
+              <PossibleValue Description="" Value="ללא" />
+              <PossibleValue Description="" Value="מאומת" />
+              <PossibleValue Description="" Value="נחקר" />
+              <PossibleValue Description="" Value="נחשד" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="19" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מקור נתונים" Description="" LogicalType="SUGGESTED_FROM" Id="CLA20">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="המחלקה להונאות ביטוח" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="CRC1" SemanticTypeId="guid3C948CB2-7D74-4b5b-9AF5-798CF0AE707F" Description="פרטי כרטיס" DisplayName="כרטיס אשראי" Icon="Credit Card">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="4" Description="" DisplayName="היסטוריית תשלומים" Id="CRC6">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="guid735D4427-99F9-45DF-8820-DDEA9CF7C27E" DisplayName="תשלום" Description="" LogicalType="DECIMAL" Id="CRC7">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="הפניה ייחודית" Description="" LogicalType="SINGLE_LINE_STRING" Id="CRC2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid5EADE4D4-93CE-420c-9551-354309F6A377" DisplayName="מספר כרטיס אשראי" Description="" LogicalType="SINGLE_LINE_STRING" Id="CRC3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid22340EB0-01BB-4263-928E-FC971ACB3C51" DisplayName="שם כרטיס" Description="" LogicalType="SINGLE_LINE_STRING" Id="CRC4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidE556FA14-0421-4e47-BE10-A825DBDF2E85" DisplayName="קוד הזמנה" Description="" LogicalType="SINGLE_LINE_STRING" Id="CRC5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="מידע נוסף" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CRC8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="דגל הונאה" Description="" LogicalType="SUGGESTED_FROM" Id="CRC10">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="אושר" />
+              <PossibleValue Description="" Value="ללא" />
+              <PossibleValue Description="" Value="מאומת" />
+              <PossibleValue Description="" Value="נחקר" />
+              <PossibleValue Description="" Value="נחשד" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מקור נתונים" Description="" LogicalType="SUGGESTED_FROM" Id="CRC9">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="המחלקה להונאות ביטוח" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="INT1" SemanticTypeId="guid3FF99984-6D1C-4265-866D-4980DC756E26" Description="מסמך קשור" DisplayName="מסמך" Icon="Document">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="1" Description="" DisplayName="פרטי מסמך" Id="INT3">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="מסמך" Description="" LogicalType="DOCUMENT" Id="INT4">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="תאריך מודיעין" Description="" LogicalType="DATE" Id="INT13">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB4EC8FC2-13EC-4df2-AE90-D7D5D4A4B621" DisplayName="כותרת מסמך" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT6">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidc329f90d-3bf7-40c3-8d87-f6fe3cb8d5d4" DisplayName="סוג המסמך" Description="" LogicalType="SUGGESTED_FROM" Id="INT5">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+                  <PossibleValue Description="" Value="Experian" />
+                  <PossibleValue Description="" Value="Home Matches" />
+                  <PossibleValue Description="" Value="MIAFTR" />
+                  <PossibleValue Description="" Value="Motor Matches" />
+                  <PossibleValue Description="" Value="PI Matches" />
+                  <PossibleValue Description="" Value="גליון אלקטרוני" />
+                  <PossibleValue Description="" Value="דוח חוקרים" />
+                  <PossibleValue Description="" Value="דוח מהנדס" />
+                  <PossibleValue Description="" Value="דף רשת" />
+                  <PossibleValue Description="" Value="הערה" />
+                  <PossibleValue Description="" Value="התרעות IFIG" />
+                  <PossibleValue Description="" Value="התרעות/מודיעין IFB" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid91DA3A32-0AD7-4141-B79B-CC62C452A0A7" DisplayName="תיאור מסמך" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT7">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="5" Mandatory="false" SemanticTypeId="guid770074b2-0235-4ade-aca0-f64f9d1986f9" DisplayName="בתוקף מתאריך ושעה" Description="" LogicalType="DATE_AND_TIME" Id="INT8">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="6" Mandatory="false" SemanticTypeId="guid9f0adde3-bdcd-4f36-b657-fc0bdf7a10d5" DisplayName="בתוקף עד תאריך ושעה" Description="" LogicalType="DATE_AND_TIME" Id="INT9">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="7" Mandatory="false" SemanticTypeId="guidF49AD106-BBCA-4de0-A6C8-77BCE1493AFA" DisplayName="תאריך ושעה של דיווח" Description="" LogicalType="DATE_AND_TIME" Id="INT10">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="8" Mandatory="false" SemanticTypeId="" DisplayName="תאריך ושעת הזנה" Description="" LogicalType="DATE_AND_TIME" Id="INT11">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidE14D4A28-9ECD-4e72-8DE2-21D0D476A8FC" DisplayName="מקור מסמך" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT12">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA3056048-D54F-462b-BF88-65FE24142A9F" DisplayName="URL מסמך" Description="" LogicalType="SINGLE_LINE_STRING" Id="DOC19">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="2" Description="" DisplayName="דימות" Id="INT14">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="תמונה" Description="" LogicalType="PICTURE" Id="INT15">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="תיאור תמונה" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT16">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="הפניה ייחודית" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="מידע נוסף" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="INT19">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="דגל הונאה" Description="" LogicalType="SUGGESTED_FROM" Id="INT18">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="אושר" />
+              <PossibleValue Description="" Value="ללא" />
+              <PossibleValue Description="" Value="מאומת" />
+              <PossibleValue Description="" Value="נחקר" />
+              <PossibleValue Description="" Value="נחשד" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מקור נתונים" Description="" LogicalType="SUGGESTED_FROM" Id="INT17">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="המחלקה להונאות ביטוח" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="EM1" SemanticTypeId="guidD5901596-3DD7-40FE-BAF4-0E9FE6BD1E81" Description="פרטי כתובת דואל" DisplayName="דואל" Icon="Email">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="הפניה ייחודית" Description="" LogicalType="SINGLE_LINE_STRING" Id="EM2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid7D0DF839-B553-457A-93B4-B333D603B7FD" DisplayName="כתובת דואל" Description="" LogicalType="SINGLE_LINE_STRING" Id="EM3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid494292DD-E253-4851-8AD5-FD4BC38442B0" DisplayName="כתובת IP" Description="" LogicalType="SINGLE_LINE_STRING" Id="EM4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="מידע נוסף" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="EM5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="דגל הונאה" Description="" LogicalType="SUGGESTED_FROM" Id="EM7">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="אושר" />
+              <PossibleValue Description="" Value="ללא" />
+              <PossibleValue Description="" Value="מאומת" />
+              <PossibleValue Description="" Value="נחקר" />
+              <PossibleValue Description="" Value="נחשד" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מקור נתונים" Description="" LogicalType="SUGGESTED_FROM" Id="EM6">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="המחלקה להונאות ביטוח" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="IP1" SemanticTypeId="guidFE4A6E2D-FFEF-4DF2-9DB2-4DE91E862761" Description="פרטי פוליסה" DisplayName="מדיניות" Icon="Case">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="8" Description="" DisplayName="פרטי פוליסה יחידה" Id="IP11">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="guid9B359855-D9C4-468f-81A2-9DB9C87D32EE" DisplayName="תאריך תוקף" Description="" LogicalType="DATE" Id="IP12">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="guidBCAD30E5-D249-412f-83BF-00AA0FF5B7EC" DisplayName="תאריך עסקה" Description="" LogicalType="DATE" Id="IP13">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" SemanticTypeId="guid735D4427-99F9-45DF-8820-DDEA9CF7C27E" DisplayName="פרמיה ברוטו" Description="" LogicalType="DECIMAL" Id="IP14">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="פרמיה נטו" Description="" LogicalType="DECIMAL" Id="IP15">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid25EAFCAA-E2EB-432d-8927-A59CF0B84CDA" DisplayName="מקור עסקי" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP16">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDA2E2421-DAD1-480d-8EE5-8CF639500158" DisplayName="שיטת תשלום" Description="" LogicalType="SUGGESTED_FROM" Id="IP17">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+                  <PossibleValue Description="" Value="PayPal" />
+                  <PossibleValue Description="" Value="כרטיס אשראי" />
+                  <PossibleValue Description="" Value="מזומנים" />
+                  <PossibleValue Description="" Value="צ'ק" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="סוג כיסוי" Description="" LogicalType="SUGGESTED_FROM" Id="IP18">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+                  <PossibleValue Description="" Value="חבות בלבד" />
+                  <PossibleValue Description="" Value="כל הסיכונים" />
+                  <PossibleValue Description="" Value="מקיף" />
+                  <PossibleValue Description="" Value="צד שלישי בלבד" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="הגבלות נהיגה" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP19">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="8" Mandatory="false" SemanticTypeId="" DisplayName="מספר נהגים" Description="" LogicalType="INTEGER" Id="IP20">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="שם מבטח קודם" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP21">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="קילומטרז' שנתי" Description="" LogicalType="DECIMAL" Id="IP22">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="11" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="בטיחות רכב" Description="" LogicalType="SUGGESTED_FROM" Id="IP23">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+                  <PossibleValue Description="" Value="Factory Fitted" />
+                  <PossibleValue Description="" Value="אישור Thatcham" />
+                  <PossibleValue Description="" Value="ללא" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="12" Mandatory="false" SemanticTypeId="" DisplayName="Number of Faults" Description="" LogicalType="INTEGER" Id="IP24">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="13" Mandatory="false" SemanticTypeId="" DisplayName="Number of Non Faults" Description="" LogicalType="INTEGER" Id="IP25">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="14" Mandatory="false" SemanticTypeId="" DisplayName="סך הכל תביעות" Description="" LogicalType="INTEGER" Id="IP26">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="15" Mandatory="false" SemanticTypeId="" DisplayName="מספר עבירות" Description="" LogicalType="INTEGER" Id="IP27">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="הפניה ייחודית" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid775b8aac-60bd-470c-a61a-a792c9fac1ed" DisplayName="מספר פוליסה" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="סוג עסק" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="הפניה" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" SemanticTypeId="guid75CA7E8F-D2EF-4CF4-BB81-6C244ADA5286" DisplayName="תאריך הפניה מקורי" Description="" LogicalType="DATE" Id="IP6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" SemanticTypeId="" DisplayName="תאריך חידוש אחרון" Description="" LogicalType="DATE" Id="IP7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB2A3B23C-07B8-4A87-8B45-4CD20079E79C" DisplayName="מבטח" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid0FA4C573-0436-4360-AEA7-F123F1994B8E" DisplayName="סכימה" Description="" LogicalType="SINGLE_LINE_STRING" Id="IP9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="מידע נוסף" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="IP28">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מקור נתונים" Description="" LogicalType="SUGGESTED_FROM" Id="IP29">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="המחלקה להונאות ביטוח" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="דגל הונאה" Description="" LogicalType="SUGGESTED_FROM" Id="IP30">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="אושר" />
+              <PossibleValue Description="" Value="ללא" />
+              <PossibleValue Description="" Value="מאומת" />
+              <PossibleValue Description="" Value="נחקר" />
+              <PossibleValue Description="" Value="נחשד" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="ORG1" SemanticTypeId="guidB30A4137-A537-420B-B481-C5DF922152AF" Description="פרטי ארגון" DisplayName="ארגון" Icon="Organ">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="הפניה ייחודית" Description="" LogicalType="SINGLE_LINE_STRING" Id="ORG2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB2A3B23C-07B8-4A87-8B45-4CD20079E79C" DisplayName="שם ארגון" Description="" LogicalType="SINGLE_LINE_STRING" Id="ORG3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid694EB231-9982-46FE-A40E-3D9165582101" DisplayName="מספר חברה" Description="" LogicalType="SINGLE_LINE_STRING" Id="ORG10">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB11A89A6-F50C-4c73-949F-00594985DA69" DisplayName="סוג ארגון" Description="" LogicalType="SUGGESTED_FROM" Id="ORG4">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="Common Carrier (Haulage)" />
+              <PossibleValue Description="" Value="NGO" />
+              <PossibleValue Description="" Value="Paramilitary" />
+              <PossibleValue Description="" Value="אדריכל" />
+              <PossibleValue Description="" Value="ארגון" />
+              <PossibleValue Description="" Value="באר" />
+              <PossibleValue Description="" Value="בית חולים" />
+              <PossibleValue Description="" Value="בית תפילה" />
+              <PossibleValue Description="" Value="בנק" />
+              <PossibleValue Description="" Value="הדפסה" />
+              <PossibleValue Description="" Value="הכשרה" />
+              <PossibleValue Description="" Value="הסעדה" />
+              <PossibleValue Description="" Value="השכלה" />
+              <PossibleValue Description="" Value="חברה מסחרית" />
+              <PossibleValue Description="" Value="חוק" />
+              <PossibleValue Description="" Value="חיל אוויר" />
+              <PossibleValue Description="" Value="חיל יבשה" />
+              <PossibleValue Description="" Value="חקלאות" />
+              <PossibleValue Description="" Value="טכנולוגיית מידע" />
+              <PossibleValue Description="" Value="טרוריסט" />
+              <PossibleValue Description="" Value="ייצור" />
+              <PossibleValue Description="" Value="כחול כהה" />
+              <PossibleValue Description="" Value="כלא" />
+              <PossibleValue Description="" Value="כנסייה" />
+              <PossibleValue Description="" Value="מוביל" />
+              <PossibleValue Description="" Value="מוסד פיננסי" />
+              <PossibleValue Description="" Value="מוסך" />
+              <PossibleValue Description="" Value="מחסן" />
+              <PossibleValue Description="" Value="מיליציה" />
+              <PossibleValue Description="" Value="מלון" />
+              <PossibleValue Description="" Value="ממשלה" />
+              <PossibleValue Description="" Value="מסוף נמל תעופה" />
+              <PossibleValue Description="" Value="מסעדה" />
+              <PossibleValue Description="" Value="מעבדה" />
+              <PossibleValue Description="" Value="מעבדה רפואית" />
+              <PossibleValue Description="" Value="מפעל" />
+              <PossibleValue Description="" Value="סוכנות" />
+              <PossibleValue Description="" Value="סופרמרקט" />
+              <PossibleValue Description="" Value="פוליטי" />
+              <PossibleValue Description="" Value="פלילי" />
+              <PossibleValue Description="" Value="פרסום" />
+              <PossibleValue Description="" Value="צבאי" />
+              <PossibleValue Description="" Value="קזינו" />
+              <PossibleValue Description="" Value="קמעונאות" />
+              <PossibleValue Description="" Value="שירות מודיעין" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid5A7E25C4-9239-4500-A20A-B986D7D28E40" DisplayName="כתובת רשת" Description="" LogicalType="SINGLE_LINE_STRING" Id="ORG5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" SemanticTypeId="guid9B359855-D9C4-468f-81A2-9DB9C87D32EE" DisplayName="תאריך רישום כחברה" Description="" LogicalType="DATE" Id="ORG11">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" SemanticTypeId="guid80860455-202C-4ddf-85A9-AE576D66BD56" DisplayName="תאריך פירוק" Description="" LogicalType="DATE" Id="ORG12">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="מידע נוסף" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="ORG6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="דגל הונאה" Description="" LogicalType="SUGGESTED_FROM" Id="ORG7">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="אושר" />
+              <PossibleValue Description="" Value="ללא" />
+              <PossibleValue Description="" Value="מאומת" />
+              <PossibleValue Description="" Value="נחקר" />
+              <PossibleValue Description="" Value="נחשד" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מקור נתונים" Description="" LogicalType="SUGGESTED_FROM" Id="ORG8">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="המחלקה להונאות ביטוח" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="PER1" SemanticTypeId="guid8A586959-9837-47DE-8DBF-BC7031F01545" Description="פרטים אישיים" DisplayName="אדם" Icon="Person (Shaded Shirt)">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="1" Description="" DisplayName="שם מלא" Id="PER3">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid45E7897F-0DC6-4AD0-AAC6-73A780DD78BE" DisplayName="כותרת" Description="" LogicalType="SUGGESTED_FROM" Id="PER4">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+                  <PossibleValue Description="" Value="גב'" />
+                  <PossibleValue Description="" Value="מיז" />
+                  <PossibleValue Description="" Value="מיס" />
+                  <PossibleValue Description="" Value="מר" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid4DE7370B-60E5-4EB0-860E-4066D3DFD7B6" DisplayName="שם פרטי" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER5">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidBE6A2505-B545-464C-B407-51F9847ECE39" DisplayName="שם שני" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER6">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid62B01C18-2E64-46D5-B2FF-3C69B4F76FEB" DisplayName="שם משפחה" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER7">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid3B5FB234-1DDC-40FC-B999-6A969B819BCB" DisplayName="סיומת" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER8">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="4" Description="" DisplayName="זיהוי" Id="PER31">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidF9DA2FC4-4B32-4d42-A178-A238274D4C5D" DisplayName="מספר זיהוי" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER32">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidc329f90d-3bf7-40c3-8d87-f6fe3cb8d5d4" DisplayName="סוג זיהוי" Description="" LogicalType="SUGGESTED_FROM" Id="PER33">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+                  <PossibleValue Description="דרכון" Value="דרכון" />
+                  <PossibleValue Description="מספר ביטוח לאומי" Value="מספר ביטוח לאומי" />
+                  <PossibleValue Description="מספר תיק פלילי" Value="מספר תיק פלילי" />
+                  <PossibleValue Description="רשיון נהיגה" Value="רשיון נהיגה" />
+                  <PossibleValue Description="תעודת זהות" Value="תעודת זהות" />
+                </PossibleValues>
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid4C43E992-22CA-4863-8A5D-28E29D10F0E0" DisplayName="הונפק על ידי" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER34">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" SemanticTypeId="guidF49AD106-BBCA-4de0-A6C8-77BCE1493AFA" DisplayName="תאריך ושעת הנפקה" Description="" LogicalType="DATE_AND_TIME" Id="PER35">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="15" Description="" DisplayName="דימות" Id="PER21">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="תמונה" Description="" LogicalType="PICTURE" Id="PER22">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="תיאור תמונה" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="PT116">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="16" Description="" DisplayName="מחווני הונאה" Id="PER23">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="אשראי" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER24">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="זיהוי" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER25">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Quote Manipulation" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER26">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="הפניה ייחודית" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="guidFE45F1C4-B198-4111-8123-F42D2CD6419D" DisplayName="תאריך לידה" Description="" LogicalType="DATE" Id="PER9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid7548369B-BA9A-4C4B-AEAD-0CB442EAFA27" DisplayName="מין" Description="" LogicalType="SELECTED_FROM" Id="PER10">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="זכר" />
+              <PossibleValue Description="" Value="נקבה" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="סוג רשיון" Description="" LogicalType="SUGGESTED_FROM" Id="PER11">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="אופנוע" />
+              <PossibleValue Description="" Value="זמני" />
+              <PossibleValue Description="" Value="מוגבל" />
+              <PossibleValue Description="" Value="מלא" />
+              <PossibleValue Description="" Value="מסחרי" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="תאריך רשיון" Description="" LogicalType="DATE_AND_TIME" Id="PER12">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid2C98B11E-D3A0-463b-922C-D25E8E47666A" DisplayName="מצב משפחתי" Description="" LogicalType="SUGGESTED_FROM" Id="PER13">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="גרוש/ה" />
+              <PossibleValue Description="" Value="נשוי/אה" />
+              <PossibleValue Description="" Value="פרוד/ה" />
+              <PossibleValue Description="" Value="רווק/ה" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid69F2B55D-EBF2-4950-9688-CB5273236A01" DisplayName="אזרחות לידה" Description="" LogicalType="SUGGESTED_FROM" Id="PER14">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="אוגנדה" Value="אוגנדה" />
+              <PossibleValue Description="אוזבקית" Value="אוזבקית" />
+              <PossibleValue Description="אוסטרית" Value="אוסטרית" />
+              <PossibleValue Description="אוסטרלית" Value="אוסטרלית" />
+              <PossibleValue Description="אוקראינית" Value="אוקראינית" />
+              <PossibleValue Description="אורוגוואית" Value="אורוגוואית" />
+              <PossibleValue Description="אזרבייג'נית" Value="אזרבייג'נית" />
+              <PossibleValue Description="איטלקית" Value="איטלקית" />
+              <PossibleValue Description="איי מרשל" Value="איי מרשל" />
+              <PossibleValue Description="איי שלמה" Value="איי שלמה" />
+              <PossibleValue Description="אינדונזית" Value="אינדונזית" />
+              <PossibleValue Description="איסלנדית" Value="איסלנדית" />
+              <PossibleValue Description="אי-קיריבטי" Value="אי-קיריבטי" />
+              <PossibleValue Description="איראנית" Value="איראנית" />
+              <PossibleValue Description="אירית" Value="אירית" />
+              <PossibleValue Description="אלבנית" Value="אלבנית" />
+              <PossibleValue Description="אלג'ירית" Value="אלג'ירית" />
+              <PossibleValue Description="אמריקנית" Value="אמריקנית" />
+              <PossibleValue Description="אנגולית" Value="אנגולית" />
+              <PossibleValue Description="אנדורית" Value="אנדורית" />
+              <PossibleValue Description="אנטיגואה" Value="אנטיגואה" />
+              <PossibleValue Description="אסטונית" Value="אסטונית" />
+              <PossibleValue Description="אפגנית" Value="אפגנית" />
+              <PossibleValue Description="אקוואדורית" Value="אקוואדורית" />
+              <PossibleValue Description="ארגנטינית" Value="ארגנטינית" />
+              <PossibleValue Description="אריתראית" Value="אריתראית" />
+              <PossibleValue Description="ארמנית" Value="ארמנית" />
+              <PossibleValue Description="אתיופית" Value="אתיופית" />
+              <PossibleValue Description="בהאמה" Value="בהאמה" />
+              <PossibleValue Description="בוטאנית" Value="בוטאנית" />
+              <PossibleValue Description="בוטסוואנית" Value="בוטסוואנית" />
+              <PossibleValue Description="בולגרית" Value="בולגרית" />
+              <PossibleValue Description="בוליבית" Value="בוליבית" />
+              <PossibleValue Description="בוסנית" Value="בוסנית" />
+              <PossibleValue Description="בורונדית" Value="בורונדית" />
+              <PossibleValue Description="בורמזית" Value="בורמזית" />
+              <PossibleValue Description="בורקינה" Value="בורקינה" />
+              <PossibleValue Description="בחריינית" Value="בחריינית" />
+              <PossibleValue Description="בלארוסית" Value="בלארוסית" />
+              <PossibleValue Description="בלגית" Value="בלגית" />
+              <PossibleValue Description="בליזית" Value="בליזית" />
+              <PossibleValue Description="בנגלדשית" Value="בנגלדשית" />
+              <PossibleValue Description="בנינית" Value="בנינית" />
+              <PossibleValue Description="ברבדוס" Value="ברבדוס" />
+              <PossibleValue Description="ברבודה" Value="ברבודה" />
+              <PossibleValue Description="ברוניי" Value="ברוניי" />
+              <PossibleValue Description="ברזילית" Value="ברזילית" />
+              <PossibleValue Description="בריטית" Value="בריטית" />
+              <PossibleValue Description="גבון" Value="גבון" />
+              <PossibleValue Description="גווטמאלה" Value="גווטמאלה" />
+              <PossibleValue Description="גויאנה" Value="גויאנה" />
+              <PossibleValue Description="גיאורגיה" Value="גיאורגיה" />
+              <PossibleValue Description="ג'יבוטי" Value="ג'יבוטי" />
+              <PossibleValue Description="גיניאה" Value="גיניאה" />
+              <PossibleValue Description="גיניאה המשוונית" Value="גיניאה המשוונית" />
+              <PossibleValue Description="גיניאה-ביסאו" Value="גיניאה-ביסאו" />
+              <PossibleValue Description="גמביה" Value="גמביה" />
+              <PossibleValue Description="ג'מייקה" Value="ג'מייקה" />
+              <PossibleValue Description="גנאית" Value="גנאית" />
+              <PossibleValue Description="גרמנית" Value="גרמנית" />
+              <PossibleValue Description="גרנדה" Value="גרנדה" />
+              <PossibleValue Description="דומיניקנית" Value="דומיניקנית" />
+              <PossibleValue Description="דנית" Value="דנית" />
+              <PossibleValue Description="דרום אפריקנית" Value="דרום אפריקנית" />
+              <PossibleValue Description="דרום קוריאנית" Value="דרום קוריאנית" />
+              <PossibleValue Description="האיטית" Value="האיטית" />
+              <PossibleValue Description="האמירויות הערביות" Value="האמירויות הערביות" />
+              <PossibleValue Description="הודית" Value="הודית" />
+              <PossibleValue Description="הולנדית" Value="הולנדית" />
+              <PossibleValue Description="הונגרית" Value="הונגרית" />
+              <PossibleValue Description="הונדורס" Value="הונדורס" />
+              <PossibleValue Description="הרצגובינה" Value="הרצגובינה" />
+              <PossibleValue Description="וייטנמית" Value="וייטנמית" />
+              <PossibleValue Description="ולשית" Value="ולשית" />
+              <PossibleValue Description="ונצואלה" Value="ונצואלה" />
+              <PossibleValue Description="זימבאבווה" Value="זימבאבווה" />
+              <PossibleValue Description="זמביה" Value="זמביה" />
+              <PossibleValue Description="חוף השנהב" Value="חוף השנהב" />
+              <PossibleValue Description="טג'יקית" Value="טג'יקית" />
+              <PossibleValue Description="טובאלו" Value="טובאלו" />
+              <PossibleValue Description="טוגו" Value="טוגו" />
+              <PossibleValue Description="טונגה" Value="טונגה" />
+              <PossibleValue Description="טוניסאית" Value="טוניסאית" />
+              <PossibleValue Description="טורקית" Value="טורקית" />
+              <PossibleValue Description="טנזנית" Value="טנזנית" />
+              <PossibleValue Description="טרינידד או טובגו" Value="טרינידד או טובגו" />
+              <PossibleValue Description="יוונית" Value="יוונית" />
+              <PossibleValue Description="יפנית" Value="יפנית" />
+              <PossibleValue Description="ירדנית" Value="ירדנית" />
+              <PossibleValue Description="ישראלית" Value="ישראלית" />
+              <PossibleValue Description="כווייתית" Value="כווייתית" />
+              <PossibleValue Description="לאוס" Value="לאוס" />
+              <PossibleValue Description="לבנונית" Value="לבנונית" />
+              <PossibleValue Description="לובית" Value="לובית" />
+              <PossibleValue Description="לוקסמבורג" Value="לוקסמבורג" />
+              <PossibleValue Description="לטבית" Value="לטבית" />
+              <PossibleValue Description="ליבריה" Value="ליבריה" />
+              <PossibleValue Description="ליטאית" Value="ליטאית" />
+              <PossibleValue Description="ליכטנשטיין" Value="ליכטנשטיין" />
+              <PossibleValue Description="מאוריטניה" Value="מאוריטניה" />
+              <PossibleValue Description="מאוריציוס" Value="מאוריציוס" />
+              <PossibleValue Description="מאלית" Value="מאלית" />
+              <PossibleValue Description="מוזמביק" Value="מוזמביק" />
+              <PossibleValue Description="מוטסוואנה" Value="מוטסוואנה" />
+              <PossibleValue Description="מונגולית" Value="מונגולית" />
+              <PossibleValue Description="מונקו" Value="מונקו" />
+              <PossibleValue Description="מוסוטו" Value="מוסוטו" />
+              <PossibleValue Description="מזרח טימור" Value="מזרח טימור" />
+              <PossibleValue Description="מיקרונזית" Value="מיקרונזית" />
+              <PossibleValue Description="מלאווית" Value="מלאווית" />
+              <PossibleValue Description="מלגשית" Value="מלגשית" />
+              <PossibleValue Description="מלדובית" Value="מלדובית" />
+              <PossibleValue Description="מלדיבית" Value="מלדיבית" />
+              <PossibleValue Description="מלזית" Value="מלזית" />
+              <PossibleValue Description="מלטזית" Value="מלטזית" />
+              <PossibleValue Description="מצרית" Value="מצרית" />
+              <PossibleValue Description="מקדונית" Value="מקדונית" />
+              <PossibleValue Description="מקסיקנית" Value="מקסיקנית" />
+              <PossibleValue Description="מרוקנית" Value="מרוקנית" />
+              <PossibleValue Description="מרכז אפריקנית" Value="מרכז אפריקנית" />
+              <PossibleValue Description="נאורו" Value="נאורו" />
+              <PossibleValue Description="נורווגית" Value="נורווגית" />
+              <PossibleValue Description="ניגרית" Value="ניגרית" />
+              <PossibleValue Description="ניו זילנדית" Value="ניו זילנדית" />
+              <PossibleValue Description="ניז'רית" Value="ניז'רית" />
+              <PossibleValue Description="ניקאראגווה" Value="ניקאראגווה" />
+              <PossibleValue Description="נמיבית" Value="נמיבית" />
+              <PossibleValue Description="נפאלית" Value="נפאלית" />
+              <PossibleValue Description="סאו תומה" Value="סאו תומה" />
+              <PossibleValue Description="סודנית" Value="סודנית" />
+              <PossibleValue Description="סוואזילנד" Value="סוואזילנד" />
+              <PossibleValue Description="סומלית" Value="סומלית" />
+              <PossibleValue Description="סורינאם" Value="סורינאם" />
+              <PossibleValue Description="סורית" Value="סורית" />
+              <PossibleValue Description="סט' קיטס ונוויס" Value="סט' קיטס ונוויס" />
+              <PossibleValue Description="סיינט לושס" Value="סיינט לושס" />
+              <PossibleValue Description="סיירה לאונה" Value="סיירה לאונה" />
+              <PossibleValue Description="סיישל" Value="סיישל" />
+              <PossibleValue Description="סינגפורית" Value="סינגפורית" />
+              <PossibleValue Description="סינית" Value="סינית" />
+              <PossibleValue Description="סלובנית" Value="סלובנית" />
+              <PossibleValue Description="סלובקית" Value="סלובקית" />
+              <PossibleValue Description="סלוואדור" Value="סלוואדור" />
+              <PossibleValue Description="סמואה" Value="סמואה" />
+              <PossibleValue Description="סן מרינו" Value="סן מרינו" />
+              <PossibleValue Description="סנגלית" Value="סנגלית" />
+              <PossibleValue Description="סעודית" Value="סעודית" />
+              <PossibleValue Description="ספרדית" Value="ספרדית" />
+              <PossibleValue Description="סקוטית" Value="סקוטית" />
+              <PossibleValue Description="סרבית" Value="סרבית" />
+              <PossibleValue Description="סרי לנקה" Value="סרי לנקה" />
+              <PossibleValue Description="עומנית" Value="עומנית" />
+              <PossibleValue Description="עיראקית" Value="עיראקית" />
+              <PossibleValue Description="פאפואה ניו גיני" Value="פאפואה ניו גיני" />
+              <PossibleValue Description="פולנית" Value="פולנית" />
+              <PossibleValue Description="פורטוגזית" Value="פורטוגזית" />
+              <PossibleValue Description="פיג'י" Value="פיג'י" />
+              <PossibleValue Description="פיליפינית" Value="פיליפינית" />
+              <PossibleValue Description="פינית" Value="פינית" />
+              <PossibleValue Description="פלאו" Value="פלאו" />
+              <PossibleValue Description="פנמית" Value="פנמית" />
+              <PossibleValue Description="פקיסטנית" Value="פקיסטנית" />
+              <PossibleValue Description="פראגוואית" Value="פראגוואית" />
+              <PossibleValue Description="פרואנית" Value="פרואנית" />
+              <PossibleValue Description="צ'אדית" Value="צ'אדית" />
+              <PossibleValue Description="צ'יליאנית" Value="צ'יליאנית" />
+              <PossibleValue Description="צ'כית" Value="צ'כית" />
+              <PossibleValue Description="צפון אירלנד" Value="צפון אירלנד" />
+              <PossibleValue Description="צפון קוריאנית" Value="צפון קוריאנית" />
+              <PossibleValue Description="צרפתית" Value="צרפתית" />
+              <PossibleValue Description="קובנית" Value="קובנית" />
+              <PossibleValue Description="קולומביאנית" Value="קולומביאנית" />
+              <PossibleValue Description="קומוראנית" Value="קומוראנית" />
+              <PossibleValue Description="קונגו" Value="קונגו" />
+              <PossibleValue Description="קוסטה ריקה" Value="קוסטה ריקה" />
+              <PossibleValue Description="קזחסטנית" Value="קזחסטנית" />
+              <PossibleValue Description="קטארית" Value="קטארית" />
+              <PossibleValue Description="קייפ ורדה" Value="קייפ ורדה" />
+              <PossibleValue Description="קירגיזית" Value="קירגיזית" />
+              <PossibleValue Description="קמבודית" Value="קמבודית" />
+              <PossibleValue Description="קמרונית" Value="קמרונית" />
+              <PossibleValue Description="קנדית" Value="קנדית" />
+              <PossibleValue Description="קניה" Value="קניה" />
+              <PossibleValue Description="קפריסאית" Value="קפריסאית" />
+              <PossibleValue Description="קרואטית" Value="קרואטית" />
+              <PossibleValue Description="רוואנדה" Value="רוואנדה" />
+              <PossibleValue Description="רומנית" Value="רומנית" />
+              <PossibleValue Description="רוסית" Value="רוסית" />
+              <PossibleValue Description="שוודית" Value="שוודית" />
+              <PossibleValue Description="שוויצרית" Value="שוויצרית" />
+              <PossibleValue Description="תאילנדית" Value="תאילנדית" />
+              <PossibleValue Description="תימנית" Value="תימנית" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="תאריך מגורים" Description="" LogicalType="DATE" Id="PER15">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="קוד עיסוק" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER16">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" SemanticTypeId="guidCE86909A-D087-445f-A73D-C79FA9AC9F8C" DisplayName="תיאור עיסוק" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="PER17">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="12" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="קוד עסק של מעסיק" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER18">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="13" Mandatory="false" SemanticTypeId="guidB11A89A6-F50C-4c73-949F-00594985DA69" DisplayName="תיאור עסק של מעסיק" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="PER19">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="14" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מצב מעסיק" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER20">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="17" Mandatory="false" SemanticTypeId="" DisplayName="פציעה" Description="" LogicalType="BOOLEAN" Id="PER27">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="18" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="מידע נוסף" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="PER28">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="19" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="דגל הונאה" Description="" LogicalType="SUGGESTED_FROM" Id="PER29">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="אושר" />
+              <PossibleValue Description="" Value="ללא" />
+              <PossibleValue Description="" Value="מאומת" />
+              <PossibleValue Description="" Value="נחקר" />
+              <PossibleValue Description="" Value="נחשד" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="20" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מקור נתונים" Description="" LogicalType="SUGGESTED_FROM" Id="PER30">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="המחלקה להונאות ביטוח" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="TEL1" SemanticTypeId="guidDB820CCD-D028-4B20-A3AE-57374B83EFD4" Description="פרטי טלפון" DisplayName="טלפון" Icon="Phone">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="2" Description="" DisplayName="מספר טלפון" Id="TEL3">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB6073C55-3C00-4812-BDA8-5C1FA2AE7FC4" DisplayName="קוד בינלאומי" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL4">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidCD2F57CA-D475-454B-9B0D-71F31A604631" DisplayName="קוד אזור" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL5">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid2A9C3212-8918-4477-9818-47E467FB47AC" DisplayName="מספר ראשי" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL6">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid8A229F14-3059-4B58-9ECA-0F76964DE873" DisplayName="מספר שלוחה" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL7">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="הפניה ייחודית" Description="" LogicalType="SINGLE_LINE_STRING" Id="TEL2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="סוג טלפון" Description="" LogicalType="SUGGESTED_FROM" Id="TEL8">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="בית מגורים" />
+              <PossibleValue Description="" Value="טלפון קווי" />
+              <PossibleValue Description="" Value="סלולרי/נייד" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="מידע נוסף" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="TEL9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מקור נתונים" Description="" LogicalType="SUGGESTED_FROM" Id="TEL11">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="המחלקה להונאות ביטוח" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="דגל הונאה" Description="" LogicalType="SUGGESTED_FROM" Id="TEL10">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="אושר" />
+              <PossibleValue Description="" Value="ללא" />
+              <PossibleValue Description="" Value="מאומת" />
+              <PossibleValue Description="" Value="נחקר" />
+              <PossibleValue Description="" Value="נחשד" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      <EntityType Id="VEH1" SemanticTypeId="guid124035A5-5D11-418b-A0A1-2C53F1932B8D" Description="פרטי מכונית" DisplayName="כלי רכב" Icon="Car">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="12" Description="" DisplayName="זיהוי" Id="VEH14">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מספר מנוע" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH15">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מספר שלדה" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH16">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid52FF1D68-FA10-495C-AA62-CB327FE84639" DisplayName="מספר זיהוי רכב" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH17">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="17" Description="" DisplayName="דימות" Id="VEH22">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="תמונה" Description="" LogicalType="PICTURE" Id="VEH23">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="תיאור תמונה" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="VEH24">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+          <PropertyGroupType Mandatory="false" Position="18" Description="" DisplayName="פרטי ביטוח" Id="VEH25">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="תאריך רכישה" Description="" LogicalType="DATE" Id="VEH26">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="מחיר ששולם" Description="" LogicalType="DECIMAL" Id="VEH27">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="ערך רכב" Description="" LogicalType="DECIMAL" Id="VEH28">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Registered Keeper" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH29">
+                <PossibleValues />
+              </PropertyType>
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מיקום בלילה" Description="" LogicalType="SUGGESTED_FROM" Id="VEH30">
+                <PossibleValues>
+                  <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+                  <PossibleValue Description="" Value="חניון ציבורי" />
+                  <PossibleValue Description="" Value="חצר אחורית" />
+                  <PossibleValue Description="" Value="מוסך" />
+                  <PossibleValue Description="" Value="מחסן נעול" />
+                  <PossibleValue Description="" Value="רחוב" />
+                  <PossibleValue Description="" Value="שביל גישה" />
+                </PossibleValues>
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="הפניה ייחודית" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidD1F35949-FC3C-4985-B068-F09B74CE1AE3" DisplayName="מספר רישוי" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidF98B951F-335E-4157-B5F2-55C032B06295" DisplayName="סוג רכב" Description="" LogicalType="SUGGESTED_FROM" Id="VEH4">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="אוטובוס" />
+              <PossibleValue Description="" Value="אוניית תענוגות" />
+              <PossibleValue Description="" Value="אופנוע" />
+              <PossibleValue Description="" Value="אופניים" />
+              <PossibleValue Description="" Value="אמבולנס" />
+              <PossibleValue Description="" Value="כבאית" />
+              <PossibleValue Description="" Value="מונית" />
+              <PossibleValue Description="" Value="מטוס" />
+              <PossibleValue Description="" Value="מטוס מטען" />
+              <PossibleValue Description="" Value="מיניוואן" />
+              <PossibleValue Description="" Value="מכונית" />
+              <PossibleValue Description="" Value="מסוק" />
+              <PossibleValue Description="" Value="משאית" />
+              <PossibleValue Description="" Value="ניידת משטרה" />
+              <PossibleValue Description="" Value="סיירת" />
+              <PossibleValue Description="" Value="ספינת דיג" />
+              <PossibleValue Description="" Value="ספינת סוחר" />
+              <PossibleValue Description="" Value="קטנוע" />
+              <PossibleValue Description="" Value="רכבת" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidB99BE38F-0357-4ADA-82F5-69688D742889" DisplayName="יצרן רכב" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH5">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid160717BD-C494-476C-8377-7D9B6CD6B88B" DisplayName="דגם רכב" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH6">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="5" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="רמת גימור של הרכב" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH7">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="מספר דלתות" Description="" LogicalType="INTEGER" Id="VEH8">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="7" Mandatory="false" SemanticTypeId="" DisplayName="מספר מושבים" Description="" LogicalType="INTEGER" Id="VEH9">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="8" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid63CF5DCD-A409-463D-80AA-988770FF665C" DisplayName="צבע רכב" Description="" LogicalType="SUGGESTED_FROM" Id="VEH10">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="אדום" />
+              <PossibleValue Description="" Value="בז'" />
+              <PossibleValue Description="" Value="ירוק" />
+              <PossibleValue Description="" Value="כחול" />
+              <PossibleValue Description="" Value="לבן" />
+              <PossibleValue Description="" Value="שחור" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="גודל מנוע" Description="" LogicalType="DECIMAL" Id="VEH11">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="10" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="גודל מנוע (יחידות)" Description="" LogicalType="SUGGESTED_FROM" Id="VEH12">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="אינצ'ים מעוקבים" Value="CI" />
+              <PossibleValue Description="ליטרים" Value="ל" />
+              <PossibleValue Description="סנטימטרים מעוקבים" Value="סמ&quot;ק" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="11" Mandatory="false" SemanticTypeId="guid082FD542-21EB-4c31-9ED0-B01948807BC3" DisplayName="שנת ייצור" Description="" LogicalType="INTEGER" Id="VEH13">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="13" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="סוג דלק" Description="" LogicalType="SUGGESTED_FROM" Id="VEH18">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="ביודיזל" Value="ביודיזל" />
+              <PossibleValue Description="בנזין" Value="בנזין" />
+              <PossibleValue Description="גז טבעי דחוס" Value="גז טבעי דחוס" />
+              <PossibleValue Description="גז פחמימני מעובה" Value="גז פחמימני מעובה" />
+              <PossibleValue Description="דיזל" Value="דיזל" />
+              <PossibleValue Description="דלק מטוסים" Value="דלק מטוסים" />
+              <PossibleValue Description="חשמלי" Value="חשמלי" />
+              <PossibleValue Description="נטול עופרת" Value="נטול עופרת" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="14" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA29B5F8F-BA18-4262-95BD-65B8216D8841" DisplayName="מדינת רישום" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH19">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="15" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidDAC78E2E-4C6F-4006-B291-0A42BAB2E339" DisplayName="ארץ או אזור רישום" Description="" LogicalType="SUGGESTED_FROM" Id="VEH20">
+            <PossibleValues>
+              <PossibleValue Description="&lt;לא ידוע&gt;" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="אוגנדה" Value="אוגנדה" />
+              <PossibleValue Description="אוזבקיסטאן" Value="אוזבקיסטאן" />
+              <PossibleValue Description="אוסטריה" Value="אוסטריה" />
+              <PossibleValue Description="אוסטרליה" Value="אוסטרליה" />
+              <PossibleValue Description="אוקראינה" Value="אוקראינה" />
+              <PossibleValue Description="אורוגואי" Value="אורוגואי" />
+              <PossibleValue Description="אזרבייג'ן" Value="אזרבייג'ן" />
+              <PossibleValue Description="איחוד האמירויות הערביות" Value="איחוד האמירויות הערביות" />
+              <PossibleValue Description="איטליה" Value="איטליה" />
+              <PossibleValue Description="איי מארשאל" Value="איי מארשאל" />
+              <PossibleValue Description="איי סיישל" Value="איי סיישל" />
+              <PossibleValue Description="איי שלמה" Value="איי שלמה" />
+              <PossibleValue Description="אינדונזיה" Value="אינדונזיה" />
+              <PossibleValue Description="איסלנד" Value="איסלנד" />
+              <PossibleValue Description="אירלנד" Value="אירלנד" />
+              <PossibleValue Description="אירן (הרפובליקה האיסלמית של)" Value="אירן (הרפובליקה האיסלמית של)" />
+              <PossibleValue Description="אל סלבדור" Value="אל סלבדור" />
+              <PossibleValue Description="אלבניה" Value="אלבניה" />
+              <PossibleValue Description="אלג'יריה" Value="אלג'יריה" />
+              <PossibleValue Description="אמריקה" Value="אמריקה" />
+              <PossibleValue Description="אנגולה" Value="אנגולה" />
+              <PossibleValue Description="אנדורה" Value="אנדורה" />
+              <PossibleValue Description="אנטיגואה וברבודה" Value="אנטיגואה וברבודה" />
+              <PossibleValue Description="אסטוניה" Value="אסטוניה" />
+              <PossibleValue Description="אפגניסטן" Value="אפגניסטן" />
+              <PossibleValue Description="אקוודור" Value="אקוודור" />
+              <PossibleValue Description="ארגנטינה" Value="ארגנטינה" />
+              <PossibleValue Description="אריתריאה" Value="אריתריאה" />
+              <PossibleValue Description="ארצות הברית" Value="ארצות הברית" />
+              <PossibleValue Description="אתיופיה" Value="אתיופיה" />
+              <PossibleValue Description="בהאמה" Value="בהאמה" />
+              <PossibleValue Description="בוטן" Value="בוטן" />
+              <PossibleValue Description="בוטסוואנה" Value="בוטסוואנה" />
+              <PossibleValue Description="בולגריה" Value="בולגריה" />
+              <PossibleValue Description="בוליביה (המדינה הרב-לאומית של)" Value="בוליביה (המדינה הרב-לאומית של)" />
+              <PossibleValue Description="בוסניה" Value="בוסניה" />
+              <PossibleValue Description="בורונדי" Value="בורונדי" />
+              <PossibleValue Description="בורקינה פאסו" Value="בורקינה פאסו" />
+              <PossibleValue Description="בחריין" Value="בחריין" />
+              <PossibleValue Description="בלגיה" Value="בלגיה" />
+              <PossibleValue Description="בליז" Value="בליז" />
+              <PossibleValue Description="בלרוס" Value="בלרוס" />
+              <PossibleValue Description="בנגלדש" Value="בנגלדש" />
+              <PossibleValue Description="בנין" Value="בנין" />
+              <PossibleValue Description="ברבדוס" Value="ברבדוס" />
+              <PossibleValue Description="ברוניי דארוסאלאם" Value="ברוניי דארוסאלאם" />
+              <PossibleValue Description="ברזיל" Value="ברזיל" />
+              <PossibleValue Description="בריטניה" Value="בריטניה" />
+              <PossibleValue Description="גאנה" Value="גאנה" />
+              <PossibleValue Description="גבון" Value="גבון" />
+              <PossibleValue Description="גוואטמלה" Value="גוואטמלה" />
+              <PossibleValue Description="גיאורגיה" Value="גיאורגיה" />
+              <PossibleValue Description="גיאנה" Value="גיאנה" />
+              <PossibleValue Description="ג'יבוטי" Value="ג'יבוטי" />
+              <PossibleValue Description="גיניאה" Value="גיניאה" />
+              <PossibleValue Description="גיניאה המשוונית" Value="גיניאה המשוונית" />
+              <PossibleValue Description="גיניאה-ביסאו" Value="גיניאה-ביסאו" />
+              <PossibleValue Description="גמביה" Value="גמביה" />
+              <PossibleValue Description="ג'מייקה" Value="ג'מייקה" />
+              <PossibleValue Description="גרמניה" Value="גרמניה" />
+              <PossibleValue Description="גרנדה" Value="גרנדה" />
+              <PossibleValue Description="דומיניקה" Value="דומיניקה" />
+              <PossibleValue Description="דנמרק" Value="דנמרק" />
+              <PossibleValue Description="דרום אפריקה" Value="דרום אפריקה" />
+              <PossibleValue Description="דרום סודן" Value="דרום סודן" />
+              <PossibleValue Description="האיטי" Value="האיטי" />
+              <PossibleValue Description="הודו" Value="הודו" />
+              <PossibleValue Description="הולנד" Value="הולנד" />
+              <PossibleValue Description="הונגריה" Value="הונגריה" />
+              <PossibleValue Description="הונדורס" Value="הונדורס" />
+              <PossibleValue Description="הרפובליקה הדומיניקנית" Value="הרפובליקה הדומיניקנית" />
+              <PossibleValue Description="הרפובליקה היוגוסלבית לשעבר מקדוניה" Value="הרפובליקה היוגוסלבית לשעבר מקדוניה" />
+              <PossibleValue Description="הרפובליקה המאוחדת של טנזניה" Value="הרפובליקה המאוחדת של טנזניה" />
+              <PossibleValue Description="הרפובליקה העממית הדמוקרטית של לאוס" Value="הרפובליקה העממית הדמוקרטית של לאוס" />
+              <PossibleValue Description="הרפובליקה העממית הדמוקרטית של קוריאה" Value="הרפובליקה העממית הדמוקרטית של קוריאה" />
+              <PossibleValue Description="הרפובליקה העממית של קונגו" Value="הרפובליקה העממית של קונגו" />
+              <PossibleValue Description="הרפובליקה הצ'כית" Value="הרפובליקה הצ'כית" />
+              <PossibleValue Description="הרפובליקה של מולדובה" Value="הרפובליקה של מולדובה" />
+              <PossibleValue Description="הרפובליקה של מרכז אפריקה" Value="הרפובליקה של מרכז אפריקה" />
+              <PossibleValue Description="הרפובליקה של קוריאה" Value="הרפובליקה של קוריאה" />
+              <PossibleValue Description="הרצגובינה" Value="הרצגובינה" />
+              <PossibleValue Description="ואנואטו" Value="ואנואטו" />
+              <PossibleValue Description="וייטנאם" Value="וייטנאם" />
+              <PossibleValue Description="ונצואלה (הרפובליקה הבוליבארית של)" Value="ונצואלה (הרפובליקה הבוליבארית של)" />
+              <PossibleValue Description="זימבאבווה" Value="זימבאבווה" />
+              <PossibleValue Description="זמביה" Value="זמביה" />
+              <PossibleValue Description="חבר העמים הרוסי" Value="חבר העמים הרוסי" />
+              <PossibleValue Description="חוף השנהב" Value="חוף השנהב" />
+              <PossibleValue Description="טג'יקיסטאן" Value="טג'יקיסטאן" />
+              <PossibleValue Description="טובאלו" Value="טובאלו" />
+              <PossibleValue Description="טוגו" Value="טוגו" />
+              <PossibleValue Description="טונגה" Value="טונגה" />
+              <PossibleValue Description="טוניס" Value="טוניס" />
+              <PossibleValue Description="טורקיה" Value="טורקיה" />
+              <PossibleValue Description="טורקמניסטן" Value="טורקמניסטן" />
+              <PossibleValue Description="טימור-לסטה" Value="טימור-לסטה" />
+              <PossibleValue Description="טרינידד וטובגו" Value="טרינידד וטובגו" />
+              <PossibleValue Description="יוון" Value="יוון" />
+              <PossibleValue Description="יפן" Value="יפן" />
+              <PossibleValue Description="ירדן" Value="ירדן" />
+              <PossibleValue Description="ישראל" Value="ישראל" />
+              <PossibleValue Description="כווית" Value="כווית" />
+              <PossibleValue Description="לבנון" Value="לבנון" />
+              <PossibleValue Description="לוב" Value="לוב" />
+              <PossibleValue Description="לוקסמבורג" Value="לוקסמבורג" />
+              <PossibleValue Description="לטביה" Value="לטביה" />
+              <PossibleValue Description="ליבריה" Value="ליבריה" />
+              <PossibleValue Description="ליטא" Value="ליטא" />
+              <PossibleValue Description="ליכטנשטיין" Value="ליכטנשטיין" />
+              <PossibleValue Description="לסוטו" Value="לסוטו" />
+              <PossibleValue Description="מאוריטניה" Value="מאוריטניה" />
+              <PossibleValue Description="מאוריציוס" Value="מאוריציוס" />
+              <PossibleValue Description="מאלאווי" Value="מאלאווי" />
+              <PossibleValue Description="מאלי" Value="מאלי" />
+              <PossibleValue Description="מדגסקר" Value="מדגסקר" />
+              <PossibleValue Description="מוזמביק" Value="מוזמביק" />
+              <PossibleValue Description="מונגוליה" Value="מונגוליה" />
+              <PossibleValue Description="מונטנגרו" Value="מונטנגרו" />
+              <PossibleValue Description="מונקו" Value="מונקו" />
+              <PossibleValue Description="מיאנמאר" Value="מיאנמאר" />
+              <PossibleValue Description="מיקרונזיה (המדינות המאוגדות של)" Value="מיקרונזיה (המדינות המאוגדות של)" />
+              <PossibleValue Description="מלדיבים" Value="מלדיבים" />
+              <PossibleValue Description="מלזיה" Value="מלזיה" />
+              <PossibleValue Description="מלטה" Value="מלטה" />
+              <PossibleValue Description="מצרים" Value="מצרים" />
+              <PossibleValue Description="מקסיקו" Value="מקסיקו" />
+              <PossibleValue Description="מרוקו" Value="מרוקו" />
+              <PossibleValue Description="נאורו" Value="נאורו" />
+              <PossibleValue Description="נורווגיה" Value="נורווגיה" />
+              <PossibleValue Description="ניגריה" Value="ניגריה" />
+              <PossibleValue Description="ניו זילנד" Value="ניו זילנד" />
+              <PossibleValue Description="ניז'ר" Value="ניז'ר" />
+              <PossibleValue Description="ניקרגואה" Value="ניקרגואה" />
+              <PossibleValue Description="נמיביה" Value="נמיביה" />
+              <PossibleValue Description="נפאל" Value="נפאל" />
+              <PossibleValue Description="סאן מרינו" Value="סאן מרינו" />
+              <PossibleValue Description="סאן תומה ופרינצ'יפה" Value="סאן תומה ופרינצ'יפה" />
+              <PossibleValue Description="סודן" Value="סודן" />
+              <PossibleValue Description="סוואזילנד" Value="סוואזילנד" />
+              <PossibleValue Description="סומליה" Value="סומליה" />
+              <PossibleValue Description="סוריה, הרפובליקה הערבית" Value="סוריה, הרפובליקה הערבית" />
+              <PossibleValue Description="סורינאם" Value="סורינאם" />
+              <PossibleValue Description="סיינט וינסטנט והגרנדינים" Value="סיינט וינסטנט והגרנדינים" />
+              <PossibleValue Description="סיירה לאונה" Value="סיירה לאונה" />
+              <PossibleValue Description="סין" Value="סין" />
+              <PossibleValue Description="סינגפור" Value="סינגפור" />
+              <PossibleValue Description="סלובניה" Value="סלובניה" />
+              <PossibleValue Description="סלובקיה" Value="סלובקיה" />
+              <PossibleValue Description="סמואה" Value="סמואה" />
+              <PossibleValue Description="סנגל" Value="סנגל" />
+              <PossibleValue Description="סנט קיטס ונוויס" Value="סנט קיטס ונוויס" />
+              <PossibleValue Description="סנטה לוצ'יה" Value="סנטה לוצ'יה" />
+              <PossibleValue Description="ספרד" Value="ספרד" />
+              <PossibleValue Description="סרביה" Value="סרביה" />
+              <PossibleValue Description="סרי לנקה" Value="סרי לנקה" />
+              <PossibleValue Description="עומן" Value="עומן" />
+              <PossibleValue Description="עירק" Value="עירק" />
+              <PossibleValue Description="ערב הסעודית" Value="ערב הסעודית" />
+              <PossibleValue Description="פאלאו" Value="פאלאו" />
+              <PossibleValue Description="פאפואה ניו גיני" Value="פאפואה ניו גיני" />
+              <PossibleValue Description="פולין" Value="פולין" />
+              <PossibleValue Description="פורטוגל" Value="פורטוגל" />
+              <PossibleValue Description="פיג'י" Value="פיג'י" />
+              <PossibleValue Description="פיליפינים" Value="פיליפינים" />
+              <PossibleValue Description="פינלנד" Value="פינלנד" />
+              <PossibleValue Description="פנמה" Value="פנמה" />
+              <PossibleValue Description="פקיסטן" Value="פקיסטן" />
+              <PossibleValue Description="פרגוואי" Value="פרגוואי" />
+              <PossibleValue Description="פרו" Value="פרו" />
+              <PossibleValue Description="צ'אד" Value="צ'אד" />
+              <PossibleValue Description="צ'ילה" Value="צ'ילה" />
+              <PossibleValue Description="צרפת" Value="צרפת" />
+              <PossibleValue Description="קובה" Value="קובה" />
+              <PossibleValue Description="קולומביה" Value="קולומביה" />
+              <PossibleValue Description="קומורו" Value="קומורו" />
+              <PossibleValue Description="קונגו" Value="קונגו" />
+              <PossibleValue Description="קוסטה ריקה" Value="קוסטה ריקה" />
+              <PossibleValue Description="קזחסטן" Value="קזחסטן" />
+              <PossibleValue Description="קטאר" Value="קטאר" />
+              <PossibleValue Description="קייפ ורדה" Value="קייפ ורדה" />
+              <PossibleValue Description="קירגיזסטן" Value="קירגיזסטן" />
+              <PossibleValue Description="קיריבטי" Value="קיריבטי" />
+              <PossibleValue Description="קמבודיה" Value="קמבודיה" />
+              <PossibleValue Description="קמרון" Value="קמרון" />
+              <PossibleValue Description="קנדה" Value="קנדה" />
+              <PossibleValue Description="קניה" Value="קניה" />
+              <PossibleValue Description="קפריסין" Value="קפריסין" />
+              <PossibleValue Description="קרואטיה" Value="קרואטיה" />
+              <PossibleValue Description="רואנדה" Value="רואנדה" />
+              <PossibleValue Description="רומניה" Value="רומניה" />
+              <PossibleValue Description="שוודיה" Value="שוודיה" />
+              <PossibleValue Description="שוויץ" Value="שוויץ" />
+              <PossibleValue Description="תאילנד" Value="תאילנד" />
+              <PossibleValue Description="תימן" Value="תימן" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="16" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מטרה" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEH21">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="19" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="מידע נוסף" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="VEH31">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="20" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="דגל הונאה" Description="" LogicalType="SUGGESTED_FROM" Id="VEH32">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="אושר" />
+              <PossibleValue Description="" Value="ללא" />
+              <PossibleValue Description="" Value="מאומת" />
+              <PossibleValue Description="" Value="נחקר" />
+              <PossibleValue Description="" Value="נחשד" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="21" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מקור נתונים" Description="" LogicalType="SUGGESTED_FROM" Id="VEH33">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="המחלקה להונאות ביטוח" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+    </EntityTypes>
+    <LinkTypes>
+      <LinkType Id="dab2f6f2-813c-4a47-b630-b91f52a1e0e1" Description="מינוי לערוץ התרעות" DisplayName="מינוי לערוץ התרעות" FromTypeIds="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb" ToTypeIds="1274e2e7-7751-4dae-a994-648718e19f04">
+        <PropertyGroupTypes>
+          <PropertyGroupType Mandatory="false" Position="0" Description="הדרך שבה התרעו נמסרות" DisplayName="שיטת מסירת התרעות" Id="84aa56e3-84a1-4c05-9a77-4f9185202a55">
+            <PropertyTypes>
+              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="באמצעות אחזור התרעה" Description="באמצעות שירותי רשת לאחזור התרעות" LogicalType="BOOLEAN" Id="72367e78-b265-46e1-8fc8-81f42d307e40">
+                <PossibleValues />
+              </PropertyType>
+            </PropertyTypes>
+          </PropertyGroupType>
+        </PropertyGroupTypes>
+        <PropertyTypes />
+      </LinkType>
+      <LinkType Id="CLML1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="קישור תביעה" DisplayName="תביעה" FromTypeIds="CLA1" ToTypeIds="ADD1 INT1 IP1 ORG1 PER1 TEL1 VEH1 CLA1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="תיאור" Description="" LogicalType="SINGLE_LINE_STRING" Id="CLML2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="הפניה ייחודית" Description="" LogicalType="SINGLE_LINE_STRING" Id="CLML3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="מידע נוסף" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="CLML4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מקור נתונים" Description="" LogicalType="SUGGESTED_FROM" Id="CLML5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="המחלקה להונאות ביטוח" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="COML1" SemanticTypeId="guid59AF2273-E052-4d76-82D2-29FDAE535C45" Description="פרטי תקשורת" DisplayName="תקשורת" FromTypeIds="TEL1" ToTypeIds="ORG1 PER1 TEL1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="תיאור" Description="" LogicalType="SINGLE_LINE_STRING" Id="COML2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="הפניה ייחודית" Description="" LogicalType="SINGLE_LINE_STRING" Id="COML3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="מידע נוסף" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="COML4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מקור נתונים" Description="" LogicalType="SUGGESTED_FROM" Id="COML5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="המחלקה להונאות ביטוח" />
+            </PossibleValues>
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="תאריך ושעת תקשורת" Description="" LogicalType="DATE_AND_TIME" Id="COML7">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="POLL1" SemanticTypeId="guid04F96434-6847-41e3-9373-DB42C50060B3" Description="קישורי פוליסה" DisplayName="מדיניות" FromTypeIds="IP1 ORG1 PER1" ToTypeIds="ADD1 ACC1 CRC1 EM1 ORG1 PER1 TEL1 VEH1 CLA1 INT1 IP1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="תיאור" Description="" LogicalType="SINGLE_LINE_STRING" Id="POLL2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="הפניה ייחודית" Description="" LogicalType="SINGLE_LINE_STRING" Id="POLL3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="מידע נוסף" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="POLL4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מקור נתונים" Description="" LogicalType="SUGGESTED_FROM" Id="POLL5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="המחלקה להונאות ביטוח" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="OTHL1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="פרטי צד שלישי או תובעים אחרים" DisplayName="תובעים אחרים" FromTypeIds="ADD1 ACC1 CLA1 CRC1 INT1 EM1 ORG1 PER1 TEL1 VEH1" ToTypeIds="ADD1 CLA1 ORG1 VEH1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="תיאור" Description="" LogicalType="SINGLE_LINE_STRING" Id="OTHL2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="הפניה ייחודית" Description="" LogicalType="SINGLE_LINE_STRING" Id="OTHL3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="מידע נוסף" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="OTHL4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מקור נתונים" Description="" LogicalType="SUGGESTED_FROM" Id="OTHL5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="המחלקה להונאות ביטוח" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="VEHL1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="קישור לרכב" DisplayName="קישור רכב" FromTypeIds="VEH1" ToTypeIds="CLA1 ORG1 PER1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="תיאור" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEHL2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="הפניה ייחודית" Description="" LogicalType="SINGLE_LINE_STRING" Id="VEHL3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="מידע נוסף" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="VEHL4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מקור נתונים" Description="" LogicalType="SUGGESTED_FROM" Id="VEHL5">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="המחלקה להונאות ביטוח" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="DUP1" SemanticTypeId="guid2B55231E-521E-4502-8989-3BE1DB0B864D" DisplayName="כפילות של" FromTypeIds="ADD1 ACC1 CLA1 CRC1 INT1 EM1 IP1 ORG1 PER1 TEL1 VEH1" ToTypeIds="VEH1 TEL1 PER1 ORG1 IP1 EM1 INT1 CRC1 CLA1 ACC1 ADD1">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="מידע נוסף" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="DUP2">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+      <LinkType Id="SUB1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" DisplayName="נושא של" FromTypeIds="cf17d636-44c9-4897-b19d-7d2eda002e57 INT1" ToTypeIds="ADD1 ACC1 CLA1 CRC1 INT1 EM1 IP1 ORG1 PER1 TEL1 VEH1 cf17d636-44c9-4897-b19d-7d2eda002e57">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="הפניה ייחודית" Description="" LogicalType="SINGLE_LINE_STRING" Id="SUB2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="תיאור" Description="" LogicalType="SINGLE_LINE_STRING" Id="PT2">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="2" Mandatory="false" SemanticTypeId="guidF49AD106-BBCA-4de0-A6C8-77BCE1493AFA" DisplayName="תאריך ושעה" Description="" LogicalType="DATE_AND_TIME" Id="SUB3">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="מידע נוסף" Description="" LogicalType="MULTIPLE_LINE_STRING" Id="SUB4">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="מקור נתונים" Description="" LogicalType="SUGGESTED_FROM" Id="PT1">
+            <PossibleValues>
+              <PossibleValue Description="" Value="&lt;לא ידוע&gt;" />
+              <PossibleValue Description="" Value="Experian" />
+              <PossibleValue Description="" Value="NICB" />
+              <PossibleValue Description="" Value="המחלקה להונאות ביטוח" />
+            </PossibleValues>
+          </PropertyType>
+        </PropertyTypes>
+      </LinkType>
+    </LinkTypes>
+  </ItemTypes>
+  <Id>18b14ee3-ffb4-4e35-88bd-eee7f5806fa7</Id>
+  <Version>1</Version>
+  <SourceInfoMandatoryFields IsDateMandatory="false" IsDescriptionMandatory="false" IsReferenceMandatory="false" IsTypeMandatory="false" />
+  <LinkStrengthInfo DefaultLinkStrengthId="daf0e75f-ca7d-473a-80bf-6fad91472dc6">
+    <LinkStrengths>
+      <LinkStrength Id="daf0e75f-ca7d-473a-80bf-6fad91472dc6" Name="אושר" LineStyle="SOLID" />
+      <LinkStrength Id="683d1f08-b892-411e-997f-00881e62e84e" Name="לא אושר" LineStyle="DASHED" />
+      <LinkStrength Id="460819f3-82b8-4483-b528-a927b8fbb9cb" Name="משוער" LineStyle="DOTTED" />
+    </LinkStrengths>
+  </LinkStrengthInfo>
+  <LabelingSchemes>
+    <LabelingScheme Name="סכימת תוויות Commercial Core" Id="8355f4c5-1444-4a2f-b4da-f9374fbd80e6">
+      <LabelDefinitions>
+        <LabelDefinition ItemTypeId="372a12af-f684-41c5-9ce9-759b3beef826">
+          <LabelParts>
+            <LabelPart Value="07e81445-0f5e-4340-b355-c82809e895da" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb">
+          <LabelParts>
+            <LabelPart Value="ce3d12ac-2632-4a0f-b2b6-6a7fdda887a6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="1274e2e7-7751-4dae-a994-648718e19f04">
+          <LabelParts>
+            <LabelPart Value="b7b059a0-1079-45ac-8ae0-ee026f70dd69" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="dab2f6f2-813c-4a47-b630-b91f52a1e0e1">
+          <LabelParts>
+            <LabelPart Value="מנוי על" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="cf17d636-44c9-4897-b19d-7d2eda002e57">
+          <LabelParts>
+            <LabelPart Value="d6d03ce2-3cd6-49c1-8a66-366d0e434fd4" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="43cd717c-0204-4c81-93ea-f9f0458bc5ea">
+          <LabelParts>
+            <LabelPart Value="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="ACC1">
+          <LabelParts>
+            <LabelPart Value="ACC3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="ADD1">
+          <LabelParts>
+            <LabelPart Value="ADD4" LabelPartType="PROPERTY_TYPE" />
+            <LabelPart Value="," LabelPartType="LITERAL" />
+            <LabelPart Value=" " LabelPartType="LITERAL" />
+            <LabelPart Value="ADD6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="CLA1">
+          <LabelParts>
+            <LabelPart Value="CLA3" LabelPartType="PROPERTY_TYPE" />
+            <LabelPart Value="," LabelPartType="LITERAL" />
+            <LabelPart Value=" " LabelPartType="LITERAL" />
+            <LabelPart Value="CLA6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="CRC1">
+          <LabelParts>
+            <LabelPart Value="CRC3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="INT1">
+          <LabelParts>
+            <LabelPart Value="INT5" LabelPartType="PROPERTY_TYPE" />
+            <LabelPart Value="," LabelPartType="LITERAL" />
+            <LabelPart Value=" " LabelPartType="LITERAL" />
+            <LabelPart Value="INT6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="ORG1">
+          <LabelParts>
+            <LabelPart Value="ORG3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="PER1">
+          <LabelParts>
+            <LabelPart Value="PER5" LabelPartType="PROPERTY_TYPE" />
+            <LabelPart Value=" " LabelPartType="LITERAL" />
+            <LabelPart Value="PER7" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="TEL1">
+          <LabelParts>
+            <LabelPart Value="TEL6" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="VEH1">
+          <LabelParts>
+            <LabelPart Value="VEH3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="CLML1">
+          <LabelParts>
+            <LabelPart Value="תביעה" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="COML1">
+          <LabelParts>
+            <LabelPart Value="COML7" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="OTHL1">
+          <LabelParts>
+            <LabelPart Value="תובע" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="POLL1">
+          <LabelParts>
+            <LabelPart Value="מדיניות" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="VEHL1">
+          <LabelParts>
+            <LabelPart Value="כלי רכב" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="EM1">
+          <LabelParts>
+            <LabelPart Value="EM3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="IP1">
+          <LabelParts>
+            <LabelPart Value="IP3" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="DUP1">
+          <LabelParts>
+            <LabelPart Value="כפילות" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="SUB1">
+          <LabelParts>
+            <LabelPart Value="נושא של" LabelPartType="LITERAL" />
+          </LabelParts>
+        </LabelDefinition>
+      </LabelDefinitions>
+    </LabelingScheme>
+  </LabelingSchemes>
+  <SemanticTypeLibrary>
+    <lcx:LibraryCatalogue VersionMajor="1" VersionMinor="18" VersionRelease="27" VersionBuild="60" xmlns:lcx="http://www.i2group.com/Schemas/2001-12-07/LCXSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" LocaleHex="0809" />
+  </SemanticTypeLibrary>
+</ns2:Schema>

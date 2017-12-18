@@ -1,0 +1,44 @@
+#!/bin/bash
+#/********************************************************************************
+# * (C) Copyright IBM Corporation 2018, 2019.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# *
+# ********************************************************************************/
+
+#####################################################################################
+#                                                                                   #
+#  Script to create the stores, private keys, and certificates for a                #
+#  secure deployment. The stores are populated with signed certificate.             #
+#  Usage : createKeysAndStores                                                      #
+#                                                                                   #
+#####################################################################################
+
+. utils/variables
+
+pushd ..
+
+. ${UTILS_PATH}/functions
+
+output "Removing the certificate authority container, if it exists"
+docker rm -f ca &>/dev/null || true
+
+output "Removing any previous keys, if they exist"
+rm -r ${SRC_DIR}/keys &>/dev/null || true
+
+output "Building the ca_image"
+docker build -t ca_image ${IMAGES_PATH}/ca
+
+output "Running the certificate authority container"
+docker run -d --name ca ca_image
+
+header "Creating and signing the keys and certificates"
+. ${SSL_SCRIPTS_PATH}/createSigningRequests
+. ${SSL_SCRIPTS_PATH}/signRequests
+. ${SSL_SCRIPTS_PATH}/applyResponses
+
+popd

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Results configuration for Law_Enforcement_Schema.xml -->
+<tns:ResultsConfiguration xmlns:tns="http://www.i2group.com/Schemas/2016-04-25/ResultsConfiguration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.i2group.com/Schemas/2016-04-25/ResultsConfiguration ResultsConfiguration.xsd ">
+    <Facets InlineLimit="5" ViewAllLimit="100">
+        <!-- Address -->
+        <ItemTypeFacet TypeId="ET1" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT92" />
+            <!-- Latitude -->
+            <PropertyTypeFacet TypeId="ADD13" />
+            <!-- Longitude -->
+            <PropertyTypeFacet TypeId="PT85" />
+            <!-- Example of a Metadata Facet -->
+            <!--  <MetadataFacet Criterion="FirstUploaded" /> -->
+        </ItemTypeFacet>
+        
+        <!-- Cellular Network Event -->
+        <ItemTypeFacet TypeId="ET2" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT93" />
+            <!-- Event Data -->
+            <PropertyTypeFacet TypeId="PT219" />
+        </ItemTypeFacet>
+        
+        <!-- Vehicle -->
+        <ItemTypeFacet TypeId="ET3" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT105" />
+            <!-- Vehicle Identification Number (VIN) -->
+            <PropertyTypeFacet TypeId="PT50" />
+            <!-- License Plate Number -->
+            <PropertyTypeFacet TypeId="VEH2" />
+        </ItemTypeFacet>
+        
+        <!-- Organization -->
+        <ItemTypeFacet TypeId="ET4" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT102" />
+            <!-- Organization Name -->
+            <PropertyTypeFacet TypeId="ORG2" />
+            <!-- Organization Description -->
+            <PropertyTypeFacet TypeId="ORG7" />
+        </ItemTypeFacet>
+        
+        <!-- Person -->
+        <ItemTypeFacet TypeId="ET5" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT104" />
+        </ItemTypeFacet>
+        
+        <!-- Communications Device -->
+        <ItemTypeFacet TypeId="ET8" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT95" />
+            <!-- Device ID -->
+            <PropertyTypeFacet TypeId="PT144" />
+        </ItemTypeFacet>
+        
+        <!-- Communication Identifier -->
+        <ItemTypeFacet TypeId="ET12" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT96" />
+            <!-- Identifier Details -->
+            <PropertyTypeFacet TypeId="PT12" />
+        </ItemTypeFacet>
+        
+        <!-- National ID -->
+        <ItemTypeFacet TypeId="ET11" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT101" />
+            <!-- National ID Number -->
+            <PropertyTypeFacet TypeId="PT18" />
+        </ItemTypeFacet>
+        
+        <!-- Target List -->
+        <ItemTypeFacet TypeId="ET16" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT106" />
+            <!-- Target List ID -->
+            <PropertyTypeFacet TypeId="PT270" />
+            <!-- Target List Name -->
+            <PropertyTypeFacet TypeId="PT271" />
+        </ItemTypeFacet>
+        
+        <!-- Cellular Network Antenna -->
+        <ItemTypeFacet TypeId="ET15" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT208" />
+            <!-- Antenna ID -->
+            <PropertyTypeFacet TypeId="PT209" />
+        </ItemTypeFacet>
+        
+        <!-- Communicates With -->
+        <ItemTypeFacet TypeId="LCO1" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT3" />
+        </ItemTypeFacet>
+
+        <!-- Duplicate Of -->
+        <ItemTypeFacet TypeId="LDU1" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="LDU2" />
+        </ItemTypeFacet>
+
+        <!-- Associated To -->
+        <ItemTypeFacet TypeId="LT2" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT123" />
+        </ItemTypeFacet>
+
+        <!-- Member Of -->
+        <ItemTypeFacet TypeId="LT4" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT152" />
+        </ItemTypeFacet>
+
+        <!-- Located At -->
+        <ItemTypeFacet TypeId="LT7" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT187" />
+        </ItemTypeFacet>
+
+        <!-- Linked To -->
+        <ItemTypeFacet TypeId="LT10" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT220" />
+        </ItemTypeFacet>
+
+        <!-- Owns -->
+        <ItemTypeFacet TypeId="LT11" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT231" />
+        </ItemTypeFacet>
+
+        <!-- Transmitted Data With -->
+        <ItemTypeFacet TypeId="LT14" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT264" />
+            <!-- Transmission Start Timestamp -->
+            <PropertyTypeFacet TypeId="PT267" />
+        </ItemTypeFacet>
+
+        <!-- Paired With -->
+        <ItemTypeFacet TypeId="LT1" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT14" />
+        </ItemTypeFacet>
+
+        <!-- Initiated -->
+        <ItemTypeFacet TypeId="LT3" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT15" />
+            <!-- Initiation Timestamp -->
+            <PropertyTypeFacet TypeId="PT147" />
+        </ItemTypeFacet>
+
+        <!-- Listed In -->
+        <ItemTypeFacet TypeId="LT6" Subfacets="ExcludeSpecific">
+            <!-- EIA Common Key -->
+            <PropertyTypeFacet TypeId="PT83" />
+        </ItemTypeFacet>
+
+    </Facets>
+</tns:ResultsConfiguration>

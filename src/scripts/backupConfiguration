@@ -1,0 +1,36 @@
+#!/bin/bash
+#/********************************************************************************
+# * (C) Copyright IBM Corporation 2018, 2019.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# *
+# ********************************************************************************/
+
+#####################################################################################
+#                                                                                   #
+#  Script to back up the current configuration of the admin client container.       #
+#  This scripts assumes the admin_client contains the complete configuration        #
+#  for the deployment.                                                              #
+#                                                                                   #
+#  Usage : backupConfiguration                                                      #
+#                                                                                   #
+#####################################################################################
+
+set -e
+
+. utils/variables
+
+pushd ..
+
+. ${UTILS_PATH}/functions
+
+rm -r ${CONFIG_MODS_PATH}/configuration_backup &>/dev/null || true
+
+output "Backing up the configuration from the admin_client container."
+docker cp admin_client:/opt/IBM/i2analyze/toolkit/configuration ${CONFIG_MODS_PATH}/configuration_backup
+
+popd

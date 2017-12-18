@@ -1,0 +1,85 @@
+#!/bin/bash
+#/********************************************************************************
+# * (C) Copyright IBM Corporation 2018, 2019.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# *
+# ********************************************************************************/
+
+#####################################################################################
+#                                                                                   #
+#  Script to deploy a complete SSL deployment of i2 Analyze                         #
+#                                                                                   #
+#  Usage : setupSecurity [$configurationDir]                                        #
+#  Defaults to ssl configuration directory                                          #
+#                                                                                   #
+#####################################################################################
+
+set -e
+
+. utils/variables
+
+pushd ..
+
+. ${UTILS_PATH}/functions
+
+configurationDir=${1:-ssl}
+
+pushd ${SCRIPTS_PATH}
+. updateServerConfigurations $configurationDir
+popd
+
+header "Enabling SSL on all servers"
+
+output "Redeploying configuration"
+output "Recataloging the database on the admin_client container"
+docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogRemoteDB2Nodes
+docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogDB2Databases
+output "Recataloging the database on the liberty container"
+docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogRemoteDB2Nodes
+docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogDB2Databases
+
+output "Deploying Liberty"
+docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t deployLiberty
+
+if [[ $configurationDir == *"client_cert_ssl" ]]; then
+    #search and replace ssl tag, adding clientAuthenticationSupported
+    docker exec -u i2analyze liberty sh -c "cd /opt/IBM/i2analyze/deploy/wlp/usr/servers/opal-server && \
+    sed -i 's/<ssl id=\"defaultSSLConfig\"/<ssl clientAuthenticationSupported=\"true\" id=\"defaultSSLConfig\"/g' server.xml"
+fi
+
+output "Update the Solr configuration on the ZooKeeper server"
+docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname zookeeper
+
+output "Updating the DB2 configuration"
+docker exec -u db2inst1 db2 db2set DB2COMM=ssl
+
+if [[ $configurationDir == "ihs"* ]]; then
+    output "Updating the HTTP Server configuration"
+    docker exec -it ihs /opt/IBM/i2analyze/toolkit/scripts/setup -t configureHttpServer
+    docker exec -u root ihs sh -c "cp /opt/IBM/i2analyze/toolkit/configuration/plugin-cfg.xml /opt/IBM/HTTPServer/plugins/iap/config/plugin-cfg.xml &>/dev/null || true"
+fi
+
+output "Restarting the HTTP Server"
+docker exec -u root ihs sh -c "/opt/IBM/HTTPServer/bin/apachectl restart"
+
+output "Stopping the containers"
+docker exec -u i2analyze    liberty     /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty                             &>/dev/null || true
+docker exec -u i2analyze    solr        /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes   --hostname solr         &>/dev/null || true
+docker exec -u i2analyze    solr2       /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes   --hostname solr2        &>/dev/null || true
+docker exec -u i2analyze    zookeeper   /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts     --hostname zookeeper    &>/dev/null || true
+docker exec -u db2inst1     db2         db2stop                                                                             &>/dev/null || true
+
+output "Starting the containers"
+docker exec -u db2inst1     db2         db2start
+docker exec -u i2analyze    zookeeper   /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts    --hostname zookeeper
+docker exec -u i2analyze    solr        /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes  --hostname solr
+docker exec -u i2analyze    solr2       /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes  --hostname solr2
+docker exec -u i2analyze    liberty     /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty
+
+popd
+

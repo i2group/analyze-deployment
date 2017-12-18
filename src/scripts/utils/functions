@@ -1,0 +1,77 @@
+#!/bin/bash
+#/********************************************************************************
+# * (C) Copyright IBM Corporation 2018, 2019.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# *
+# ********************************************************************************/
+
+#####################################################################################
+#                                                                                   #
+#  Functions                                                                        #
+#                                                                                   #
+#####################################################################################
+
+set -e
+
+function output
+{
+  echo ""
+  echo "############################################################"
+  echo "## $1"
+  echo "############################################################"
+}
+
+function header
+{
+    echo ""
+    echo "-----------------------------------------------------------"
+    echo "-----------------------------------------------------------"
+    echo "-- $1"
+    echo "-----------------------------------------------------------"
+    echo "-----------------------------------------------------------"
+}
+
+function waitForContainer() {
+    echo $1
+    echo $2
+    attempt=0
+    while [ $attempt -le 100 ]; do
+        attempt=$(( $attempt + 1 ))
+        echo "Waiting for container to start (attempt: $attempt)..."
+        result=$(docker logs $1)
+        if grep -q "$2" <<< $result ; then
+          echo $1
+          echo "Container $1 has started"
+          break
+        fi
+        sleep 10
+    done
+}
+
+function containerIsRunning
+{
+    if [[ $(docker ps -q -f status=running -f name=^/${1}$) ]]
+    then
+       return 0
+    else
+        return 1
+    fi
+}
+
+# $1 - command to run
+function runCommandUntilSuccess
+{
+    set +e
+
+    eval $1
+    while [ $? -ne 0 ]; do
+        eval $1
+    done
+
+    set -e
+}

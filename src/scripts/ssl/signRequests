@@ -1,0 +1,59 @@
+#!/bin/bash
+#/********************************************************************************
+# * (C) Copyright IBM Corporation 2018, 2019.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# *
+# ********************************************************************************/
+
+#####################################################################################
+#                                                                                   #
+#  Script to sign the certificates from the certificate signing requests            #
+#                                                                                   #
+#####################################################################################
+
+mkdir ${SRC_DIR}/keys/responses
+
+output "Signing liberty container certificate"
+docker cp ${SRC_DIR}/keys/requests/liberty-key.csr ca:/opt/IBM/ca
+docker exec -it ca /opt/IBM/ca/signCertificate web liberty-key.csr liberty-key.cer
+docker cp ca:/opt/IBM/ca/liberty-key.cer ${SRC_DIR}/keys/responses/liberty-key.cer
+
+output "Signing 'Jenny' user certificate request"
+docker cp ${SRC_DIR}/keys/requests/Jenny-key.csr ca:/opt/IBM/ca
+docker exec -it ca /opt/IBM/ca/signCertificate user Jenny-key.csr Jenny-key.cer
+docker cp ca:/opt/IBM/ca/Jenny-key.cer ${SRC_DIR}/keys/responses/Jenny-key.cer
+
+output "Signing 'Imogen' user certificate request"
+docker cp ${SRC_DIR}/keys/requests/Imogen-key.csr ca:/opt/IBM/ca
+docker exec -it ca /opt/IBM/ca/signCertificate user Imogen-key.csr Imogen-key.cer
+docker cp ca:/opt/IBM/ca/Imogen-key.cer ${SRC_DIR}/keys/responses/Imogen-key.cer
+
+output "Signing solr container certificate"
+docker cp ${SRC_DIR}/keys/requests/solr-key.csr ca:/opt/IBM/ca
+docker exec -it ca /opt/IBM/ca/signCertificate solr solr-key.csr solr-key.cer
+docker cp ca:/opt/IBM/ca/solr-key.cer ${SRC_DIR}/keys/responses/solr-key.cer
+
+output "Signing solr2 container certificate"
+docker cp ${SRC_DIR}/keys/requests/solr2-key.csr ca:/opt/IBM/ca
+docker exec -it ca /opt/IBM/ca/signCertificate solr solr2-key.csr solr2-key.cer
+docker cp ca:/opt/IBM/ca/solr2-key.cer ${SRC_DIR}/keys/responses/solr2-key.cer
+
+output "Signing db2 container certificate"
+docker cp ${SRC_DIR}/keys/requests/db2-key.csr ca:/opt/IBM/ca
+docker exec -it ca /opt/IBM/ca/signCertificate db2 db2-key.csr db2-key.cer
+docker cp ca:/opt/IBM/ca/db2-key.cer ${SRC_DIR}/keys/responses/db2-key.cer
+
+output "Signing ihs container certificate"
+docker cp ${SRC_DIR}/keys/requests/ihs-key.csr ca:/opt/IBM/ca
+docker exec -it ca /opt/IBM/ca/signCertificate web ihs-key.csr ihs-key.cer
+docker cp ca:/opt/IBM/ca/ihs-key.cer ${SRC_DIR}/keys/responses/ihs-key.cer
+
+output "Signing connector container certificate"
+docker cp ${SRC_DIR}/keys/requests/connector-key.csr ca:/opt/IBM/ca
+docker exec -it ca /opt/IBM/ca/signCertificate daod connector-key.csr connector-key.cer
+docker cp ca:/opt/IBM/ca/connector-key.cer ${SRC_DIR}/keys/responses/connector-key.cer

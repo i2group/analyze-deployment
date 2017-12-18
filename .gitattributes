@@ -1,0 +1,12 @@
+* text eol=lf
+
+*.bat eol=crlf
+
+*.png binary
+*.jpg binary
+*.vsd binary
+*.doc binary
+*.pos binary
+*.tim binary
+*.fdt binary
+*.tip binary

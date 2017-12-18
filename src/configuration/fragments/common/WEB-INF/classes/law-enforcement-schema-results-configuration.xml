@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Results configuration for Law_Enforcement_Schema.xml -->
+<tns:ResultsConfiguration xmlns:tns="http://www.i2group.com/Schemas/2016-04-25/ResultsConfiguration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.i2group.com/Schemas/2016-04-25/ResultsConfiguration ResultsConfiguration.xsd ">
+    <Facets InlineLimit="5" ViewAllLimit="100">
+        <!-- Address -->
+        <ItemTypeFacet TypeId="ET1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="ADD1" />
+            <!-- Mailbox -->
+            <PropertyTypeFacet TypeId="ADD10" />
+            <!-- Easting -->
+            <PropertyTypeFacet TypeId="ADD11" />
+            <!-- Northing -->
+            <PropertyTypeFacet TypeId="ADD12" />
+            <!-- Latitude -->
+            <PropertyTypeFacet TypeId="ADD13" />
+            <!-- Longitude -->
+            <PropertyTypeFacet TypeId="ADD14" />
+            <!-- Combined Coordinates -->
+            <PropertyTypeFacet TypeId="ADD24" />
+        </ItemTypeFacet>
+
+        <!-- Event -->
+        <ItemTypeFacet TypeId="ET2" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="EVE1" />
+
+            <!-- Description of Start Date and Time -->
+            <PropertyTypeFacet TypeId="EVE72" />
+            <!-- Description -->
+            <PropertyTypeFacet TypeId="EVE75" />
+            <!-- Custody Number -->
+            <PropertyTypeFacet TypeId="EVE61" />
+            <!-- Description of End Date and Time -->
+            <PropertyTypeFacet TypeId="PT1" />
+        </ItemTypeFacet>
+
+        <!-- Vehicle -->
+        <ItemTypeFacet TypeId="ET3" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="VEH1" />
+            <!-- License Plate Number -->
+            <PropertyTypeFacet TypeId="VEH2" />
+            <!-- Engine Number -->
+            <PropertyTypeFacet TypeId="VEH36" />
+            <!-- Chassis Number -->
+            <PropertyTypeFacet TypeId="VEH37" />
+            <!-- Vehicle Identification Number (VIN) -->
+            <PropertyTypeFacet TypeId="VEH38" />
+        </ItemTypeFacet>
+
+        <!-- Organization -->
+        <ItemTypeFacet TypeId="ET4" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="ORG1" />
+            <!-- Web Address -->
+            <PropertyTypeFacet TypeId="ORG4" />
+            <!-- Company/Registration Number -->
+            <PropertyTypeFacet TypeId="ORG11" />
+            <!-- Registered Trademark -->
+            <PropertyTypeFacet TypeId="ORG12" />
+        </ItemTypeFacet>
+
+        <!-- Person -->
+        <ItemTypeFacet TypeId="ET5" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="PER1" />
+            <!-- Habits -->
+            <PropertyTypeFacet TypeId="PER27" />
+            <!-- Type -->
+            <PropertyTypeFacet TypeId="PER40" />
+            <!-- Description -->
+            <PropertyTypeFacet TypeId="PER41" />
+            <!-- Identification Number -->
+            <PropertyTypeFacet TypeId="PER99" />
+        </ItemTypeFacet>
+
+        <!-- Document -->
+        <ItemTypeFacet TypeId="ET6" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="INT1" />
+            <!-- Document URL -->
+            <PropertyTypeFacet TypeId="INT17" />
+        </ItemTypeFacet>
+
+        <!-- Surveillance Camera -->
+        <ItemTypeFacet TypeId="ET7" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="SUR1" />
+            <!-- Easting -->
+            <PropertyTypeFacet TypeId="SUR5" />
+            <!-- Northing -->
+            <PropertyTypeFacet TypeId="SUR6" />
+            <!-- Latitude -->
+            <PropertyTypeFacet TypeId="SUR7" />
+            <!-- Longitude -->
+            <PropertyTypeFacet TypeId="SUR8" />
+        </ItemTypeFacet>
+
+        <!-- Communications Device -->
+        <ItemTypeFacet TypeId="ET8" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="COM1" />
+            <!-- Main Number -->
+            <PropertyTypeFacet TypeId="COM6" />
+            <!-- IMSI Number -->
+            <PropertyTypeFacet TypeId="COM8" />
+            <!-- IMEI Number -->
+            <PropertyTypeFacet TypeId="COM9" />
+            <!-- Email Address -->
+            <PropertyTypeFacet TypeId="COM13" />
+            <!-- Web Address -->
+            <PropertyTypeFacet TypeId="COM14" />
+            <!-- IP Address -->
+            <PropertyTypeFacet TypeId="COM15" />
+        </ItemTypeFacet>
+
+        <!-- Property -->
+        <ItemTypeFacet TypeId="ET9" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="PRO1" />
+            <!-- Code -->
+            <PropertyTypeFacet TypeId="PRO3" />
+            <!-- Serial Number -->
+            <PropertyTypeFacet TypeId="PRO22" />
+            <!-- Document Number -->
+            <PropertyTypeFacet TypeId="PRO29" />
+            <!-- Exhibit Number -->
+            <PropertyTypeFacet TypeId="PRO92" />
+        </ItemTypeFacet>
+
+        <!-- Account -->
+        <ItemTypeFacet TypeId="ET10" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="ACC1" />
+            <!-- Account Number -->
+            <PropertyTypeFacet TypeId="ACC3" />
+        </ItemTypeFacet>
+
+        <!-- Involved In -->
+        <ItemTypeFacet TypeId="LIN1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="LIN2" />
+        </ItemTypeFacet>
+
+        <!-- Subject Of -->
+        <ItemTypeFacet TypeId="LSU1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="LSU2" />
+        </ItemTypeFacet>
+
+        <!-- Observed -->
+        <ItemTypeFacet TypeId="LOB1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="LOB2" />
+        </ItemTypeFacet>
+
+        <!-- Communication -->
+        <ItemTypeFacet TypeId="LCO1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="LCO2" />
+        </ItemTypeFacet>
+
+        <!-- Associate -->
+        <ItemTypeFacet TypeId="LAS1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="LAS2" />
+        </ItemTypeFacet>
+
+        <!-- Transaction -->
+        <ItemTypeFacet TypeId="LTR1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="LTR2" />
+        </ItemTypeFacet>
+
+        <!-- Stolen / Recovered -->
+        <ItemTypeFacet TypeId="LST1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="LST2" />
+        </ItemTypeFacet>
+
+        <!-- Access To -->
+        <ItemTypeFacet TypeId="LAC1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="LAC2" />
+        </ItemTypeFacet>
+
+        <!-- Member Of -->
+        <ItemTypeFacet TypeId="LME1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="LME2" />
+        </ItemTypeFacet>
+
+        <!-- Member Of -->
+        <ItemTypeFacet TypeId="LEM1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="LEM2" />
+        </ItemTypeFacet>
+
+        <!-- Subsequent Action -->
+        <ItemTypeFacet TypeId="LSB1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="LSB2" />
+        </ItemTypeFacet>
+
+        <!-- Duplicate Of -->
+        <ItemTypeFacet TypeId="LDU1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="LDU2" />
+        </ItemTypeFacet>
+    </Facets>
+</tns:ResultsConfiguration>
