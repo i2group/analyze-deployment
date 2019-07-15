@@ -1,19 +1,19 @@
 # Deploying the distributed deployment example with IBM HTTP Server
-To deploy the distributed deployment example in a topology that uses the IBM HTTP Server. The following instructions detail what is required on each container, and how to translate this to installing i2 Analyze on physical servers.
+To deploy the distributed deployment example in a topology that uses the IBM HTTP Server. The following instructions detail what is required on each container, and how to use these steps to deploy i2 Analyze on physical servers.
 
 ## Before you begin
-- Complete the [Quick deploy](deploy_quick_start.md) section or [Deploying the example manually](deploy_walk_through.md) to have a running deployment.
-- If you have already deployed the example with one of the configurations in the `configuration_mods` directory or changed the `topology.xml` file. Reset your example deployment to the base configuration before you deploy with IBM HTTP Server. To reset your environment, run the following command from the `src/scripts` directory:
+- Complete the [Quick deploy](deploy_quick_start.md) section or [Deploying the example manually](deploy_walk_through.md) and your deployment must be running.
+- If you deployed the example with one of the configurations in the `configuration_mods` directory or changed the `topology.xml` file. Reset your example deployment to the base configuration before you deploy with IBM HTTP Server. To reset your environment, run the following command from the `src/scripts` directory:
 ```
 resetEnvironment
 ```
 
-You must run all Docker commands from a command line that has Docker initialized.
+You must run all Docker commands from a command line where Docker is initialized.
 
 ## Deploying i2 Analyze with IBM HTTP Server
 In the distributed deployment example, the IBM HTTP Server is deployed in its own server.
 
-In the Docker environment, the `ihs_image` is created when you run the `buildImages` script. The IBM HTTP Server container is started when you run the `runContainers` script. If you have cleaned your environment, rebuild and run the container.
+In the Docker environment, the `ihs_image` is created when you run the `buildImages` script. The IBM HTTP Server container is started when you run the `runContainers` script. If you cleaned your environment, rebuild and run the container.
 To build the IBM HTTP Server image, run the following command from the `src/images` folder:
 ```
 docker build -t ihs_image ihs
@@ -27,9 +27,9 @@ docker run -d --name ihs -h ihs -p 80:80 -p 443:443 --net eianet -u root ihs_ima
 ```
 
 ### Modifying the configuration
-The current configuration is set up for a deployment that does not use the HTTP Server. You must update the configuration on each of the containers. To update the configurations, run the `updateServerConfigurations` script:
+The current configuration is set up for a deployment that does not use the HTTP Server. You must update the configuration on each of the containers. To update the configurations, run the `updateServerConfigurations` script from the `scripts` directory:
 ```
-updateServerConfigurations ihs
+./updateServerConfigurations ihs
 ```
 
 The configuration is now on each container.

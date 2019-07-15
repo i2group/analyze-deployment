@@ -2,7 +2,7 @@
 Modify the Visual Query conditions file in the i2 Analyze configuration, then redeploy the application server.
 
 ## Before you begin
-Ensure that you can connect to the deployment and submit data using Analyst's Notebook Premium.
+Ensure that you can connect to the deployment and submit data by using Analyst's Notebook Premium.
 
 To understand what Visual Query conditions are, and why you might need to modify the conditions, see [Visual Query condition restrictions](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/vq_understanding.html).
 

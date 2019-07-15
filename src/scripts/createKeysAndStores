@@ -14,6 +14,7 @@
 #                                                                                   #
 #  Script to create the stores, private keys, and certificates for a                #
 #  secure deployment. The stores are populated with signed certificate.             #
+#                                                                                   #
 #  Usage : createKeysAndStores                                                      #
 #                                                                                   #
 #####################################################################################
@@ -28,7 +29,7 @@ output "Removing the certificate authority container, if it exists"
 docker rm -f ca &>/dev/null || true
 
 output "Removing any previous keys, if they exist"
-rm -r ${SRC_DIR}/keys &>/dev/null || true
+rm -rf ${SRC_DIR}/keys &>/dev/null || true
 
 output "Building the ca_image"
 docker build -t ca_image ${IMAGES_PATH}/ca

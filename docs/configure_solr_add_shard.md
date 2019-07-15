@@ -1,10 +1,10 @@
 # Adding Solr shards to your deployment
-You can modify the Solr configuration using the *Solr Collections API*. After you change the Solr collection in a live deployment, replicate the changes in the definition of how the Solr collection is created.
+You can modify the Solr configuration by using the *Solr Collections API*. After you change the Solr collection in a live deployment, replicate the changes in the definition of how the Solr collection is created.
 
 ## Overview
 When you first deploy i2 Analyze, you should create a Solr collection that comprises enough shards to satisfy your future data requirements.
 
-If your data requirements change, you can add additional shards to your deployment.
+If your data requirements change, you can add more shards to your deployment.
 
 ## Adding a shard to the Solr collection definition
 After you identify the number of shards that you require, add them to your Solr collection definition:
@@ -31,11 +31,11 @@ This sends a REST call to the Solr Collections API to split `shard1`.
 
 For more information about the `SPLITSHARD` call, see [SPLITSHARD: Split a shard](https://lucene.apache.org/solr/guide/6_6/collections-api.html#CollectionsAPI-splitshard).
 
-The process of splitting a shard creates two new shards from the original shard. When a shard is split, the names of the 2 new shards that are created are the name of the original shard suffixed with `_0` and `_1`.
+The process of splitting a shard creates two new shards from the original shard. When a shard is split, the names of the two new shards that are created are the name of the original shard that is suffixed with `_0` and `_1`.
 
 The original shard becomes inactive as soon as the new shards and their replicas are up.
 
-The replication factor of the original shard is maintained. If your shard had 2 replicas, when it is split each new shard also has two replicas.
+The replication factor of the original shard is maintained. If your shard had two replicas, when it is split each new shard also has two replicas.
 
 >Note: The new shards are always placed on the same node as the parent shard.
 
@@ -68,13 +68,13 @@ solr3:8985_solr
 ```
 >Note: Only live Solr nodes are displayed.
 
-To add a replica of the new `shard1_1` shard to the new Solr node 3, paste the following into your browser:
+To add a replica of the new `shard1_1` shard to the new Solr node 3, paste the following line into your browser:
 ```
 http://localhost:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard1_1&node=solr3:8985_solr
 ```
 This sends a REST call to the Solr Collections API to create a replica of `shard1_1` on `solr3` that is on port 8985.
 
-Fore more information about the `ADDREPLICA` call, see [ADDREPLICA: Add replicas](https://lucene.apache.org/solr/guide/6_6/collections-api.html#CollectionsAPI-addreplica).
+For more information about the `ADDREPLICA` call, see [ADDREPLICA: Add replicas](https://lucene.apache.org/solr/guide/6_6/collections-api.html#CollectionsAPI-addreplica).
 
 ### Deleting the original replica
 To delete the original replica that was created when the shard was split, you must have the name of the replica to remove.
@@ -87,11 +87,11 @@ http://localhost:8983/solr/#/~cloud?view=tree
 
 Go to `/collections/main_index/state.json`.
 This file describes the composition of your collection.
-Identify the replica to delete by looking at the shard that the replica replicates, and the node which the replica is located.
+Identify the replica to delete by looking at the shard that the replica replicates, and the node that the replica is located.
 
 In this example, the replica to remove is  `shards.shard1_1.replicas.core_node6`.
 
-To delete this replica, paste the following into your browser:
+To delete this replica, paste the following line into your browser:
 ```
 http://localhost:8983/solr/admin/collections?action=DELETEREPLICA&collection=main_index&shard=shard1_1&replica=core_node6
 ```
@@ -102,4 +102,4 @@ For more information about the `DELETEREPLICA` call, see [DELETEREPLICA: Delete 
 ---
 
 ## Testing the deployment
-To test that the system continues to work, create and search for data using quick search in Analyst's Notebook Premium.
+To test that the system continues to work, create and search for data by using quick search in Analyst's Notebook Premium.

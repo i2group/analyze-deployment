@@ -9,11 +9,11 @@ After you identify how many replicas you require, add them to your Solr collecti
 - If your Solr collection is configured by the `createSolrCollection` script, increase the replication factor for your collection in the `CREATE` call to the Solr Collections API.
 - If your Solr collection is configured by the toolkit, increase the value of the `num-replicas` attribute for your collection in the `topology.xml` file.
 
-For example, if you want to have 2 replicas of each shards, increase the `replicationFactor` or `num-replicas` value to 2.
+For example, if you want to have two replicas of each shard, increase the `replicationFactor` or `num-replicas` value to 2.
 
 The next time that the Solr collection is created by the toolkit, it is created with the replication factor that you specified in the `topology.xml` file or the `createSolrCollection` script.
 
-You only need to complete the following steps when you are adding replicas to a live system. If you do add replicas to the live system, ensure that you update the collection definition accordingly.
+You only need to complete the following steps when you are adding replicas to a live system. If you do add replicas to the live system, ensure that you update the collection definition.
 
 ---
 
@@ -32,11 +32,11 @@ http://solr:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&
 ```
 http://solr:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard4&node=solr:8983_solr
 ```
-These send a REST call to the Solr Collections API to add a replica of a specific shard on a specific node. Each of the shards now has an additional replica, on a different node to the original shard.
+These send a REST call to the Solr Collections API to add a replica of a specific shard on a specific node. Each of the shards now has an extra replica, on a different node to the original shard.
 
 For more information about the `ADDREPLICA` call, see [ADDREPLICA: Add replicas](https://lucene.apache.org/solr/guide/6_6/collections-api.html#CollectionsAPI-addreplica).
 
-In order to prepare the REST calls, you must know the collection name, the shard to replicate, and the node to add the replica to.
+To prepare the REST calls, you must know the collection name, the shard to replicate, and the node to add the replica to.
 
 To identify the node name, go to the *Tree View* of SolrCloud in the Solr Web UI on any of your running Solr servers. For example:
 ```
@@ -51,7 +51,7 @@ solr2:8984_solr
 >Note: Only live Solr nodes are displayed.
 
 You can use this method to choose the number of replicas to create, and where they are located.
-To view the *Graph View* that shows replicas in the Solr Web UI, connect to the Solr Web UI using the following URL: <http://localhost:8983/solr/#/~cloud>. The username is `solradmin` and the password is the solr password set in the `credentials.properties` file. 
+To show the *Graph View* that shows replicas in the Solr Web UI, connect to the Solr Web UI by using the following URL: <http://localhost:8983/solr/#/~cloud>. The user name is `solradmin` and the password is the Solr password set in the `credentials.properties` file. 
 
 >Important: After you change the Solr collection in a live deployment, replicate the changes in the definition of how the Solr collection is created.
 
@@ -64,9 +64,9 @@ docker exec -u i2analyze -t solr /opt/IBM/i2analyze/toolkit/scripts/setup -t sto
 ```
 In the Solr Web UI *Tree View* on the `solr2` container, all the shards are still up and active. The newly created replicas are now the leaders for the shards.
 
-If you do a Quick Search using Analyst's Notebook Premium, any data that was in the Information Store is still available.
+If you do a Quick Search by using Analyst's Notebook Premium, any data that was in the Information Store is still available.
 
-You can start up the `solr` container, and the Solr node starts again.
+You can start the `solr` container, and the Solr node starts again.
 
 To start the `solr` container, run the following command:
 ```

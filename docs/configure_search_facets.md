@@ -2,7 +2,7 @@
 Modify the results filters in the i2 Analyze configuration, then redeploy the application server.
 
 ## Before you begin
-Ensure that you can connect to the deployment and submit data using Analyst's Notebook Premium.
+Ensure that you can connect to the deployment and submit data by using Analyst's Notebook Premium.
 
 To understand what search result filtering is, and why you might need to modify the filters, see [Setting up search results filtering](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/t_property_facets.html).
 
@@ -44,4 +44,4 @@ docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t sta
 ## Testing the deployment
 To test that the results configuration is updated successfully, connect to the Information Store in Analyst's Notebook Premium.
 
-After you connect and log in, complete a search that demonstrates if your results filtering changes are applied.
+After you connect and log in, complete a search that demonstrates if your results filter changes are applied.

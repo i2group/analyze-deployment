@@ -14,7 +14,7 @@
 #                                                                                   #
 #  Script to deploy a complete SSL deployment of i2 Analyze                         #
 #                                                                                   #
-#  Usage : setupSecurity [$configurationDir]                                        #
+#  Usage : setupSecurity [<configurationDir>]                                       #
 #  Defaults to ssl configuration directory                                          #
 #                                                                                   #
 #####################################################################################
@@ -28,6 +28,11 @@ pushd ..
 . ${UTILS_PATH}/functions
 
 configurationDir=${1:-ssl}
+
+if [[ $configurationDir != "client_cert_ssl" &&  $configurationDir != "ssl" &&  $configurationDir != "ihs_ssl" ]]; then
+    echo "Error: Invalid configuration. Please provide an SSL configuration name."
+    exit 1
+fi
 
 pushd ${SCRIPTS_PATH}
 . updateServerConfigurations $configurationDir
@@ -46,7 +51,7 @@ docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t rec
 output "Deploying Liberty"
 docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t deployLiberty
 
-if [[ $configurationDir == *"client_cert_ssl" ]]; then
+if [[ $configurationDir == "client_cert_ssl" ]]; then
     #search and replace ssl tag, adding clientAuthenticationSupported
     docker exec -u i2analyze liberty sh -c "cd /opt/IBM/i2analyze/deploy/wlp/usr/servers/opal-server && \
     sed -i 's/<ssl id=\"defaultSSLConfig\"/<ssl clientAuthenticationSupported=\"true\" id=\"defaultSSLConfig\"/g' server.xml"
@@ -58,7 +63,7 @@ docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t c
 output "Updating the DB2 configuration"
 docker exec -u db2inst1 db2 db2set DB2COMM=ssl
 
-if [[ $configurationDir == "ihs"* ]]; then
+if [[ $configurationDir == "ihs_ssl" || $configurationDir == "client_cert_ssl" ]]; then
     output "Updating the HTTP Server configuration"
     docker exec -it ihs /opt/IBM/i2analyze/toolkit/scripts/setup -t configureHttpServer
     docker exec -u root ihs sh -c "cp /opt/IBM/i2analyze/toolkit/configuration/plugin-cfg.xml /opt/IBM/HTTPServer/plugins/iap/config/plugin-cfg.xml &>/dev/null || true"

@@ -9,6 +9,7 @@
 # *
 # ********************************************************************************/
 
+
 FROM db2_installer_image
 
 ENV installation_media_Dir /opt/IBM/installation_media

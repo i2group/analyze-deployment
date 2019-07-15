@@ -53,13 +53,12 @@ function waitForContainer() {
     done
 }
 
-function containerIsRunning
+function containerExists()
 {
-    if [[ $(docker ps -q -f status=running -f name=^/${1}$) ]]
-    then
-       return 0
+    if [ "$(docker ps -aq -f name=^/${1}$)" ]; then
+        echo "1"
     else
-        return 1
+        echo "0"
     fi
 }
 

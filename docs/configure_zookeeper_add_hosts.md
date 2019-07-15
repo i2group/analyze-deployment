@@ -7,17 +7,17 @@ ZooKeeper is used to manage the SolrCloud configuration. To increase the resilie
 A ZooKeeper ensemble is usually made up of an odd number of ZooKeeper servers. For more information about ZooKeeper, ZooKeeper servers, and ZooKeeper ensembles, see [Setting Up an External ZooKeeper Ensemble](https://lucene.apache.org/solr/guide/6_6/setting-up-an-external-zookeeper-ensemble.html).
 
 ## Before you begin
-- If you have already deployed the example with one of the configurations in the `configuration_mods` directory or changed the `topology.xml` file. Reset your example deployment to the base configuration before you add other ZooKeeper servers. To reset your environment, run the following command from the `src/scripts` directory:
+- If you deployed the example with one of the configurations in the `configuration_mods` directory or changed the `topology.xml` file. Reset your example deployment to the base configuration before you add other ZooKeeper servers. To reset your environment, run the following command from the `src/scripts` directory:
 ```
 resetEnvironment
 ```
 
-- Create 2 directories named `zookeeper2` and `zookeeper3` in the `src/images` directory, and copy the contents of the `src/images/zookeeper` directory into the new `zookeeper2` and `zookeeper3` directories.
+- Create two directories that are named `zookeeper2` and `zookeeper3` in the `src/images` directory, and copy the contents of the `src/images/zookeeper` directory into the new `zookeeper2` and `zookeeper3` directories.
 
 ## Modifying the `Dockerfiles`
 In the Docker environment, create two more containers to represent the extra servers. The new containers are copies of the ZooKeeper container, which are modified to use a different host name and port.
 
-Modify the `Dockerfile` in the `zookeeper2` directory, to specify the host name and port to expose:
+Modify the `Dockerfile` in the `zookeeper2` directory to specify the host name and port to expose:
 
 - Set the `ENV` instruction to `ENV hostname zookeeper2`.  
 This is the host name of the new container.
@@ -25,7 +25,7 @@ This is the host name of the new container.
 - Set the `EXPOSE` instruction to `EXPOSE 9984`.  
 This is the port that is exposed to enable connection to ZooKeeper from the host machine.
 
-Modify the `Dockerfile` in the `zookeeper3` directory, to specify the host name and port to expose:
+Modify the `Dockerfile` in the `zookeeper3` directory to specify the host name and port to expose:
 
 - Set the `ENV` instruction to `ENV hostname zookeeper3`.  
 This is the host name of the new container.
@@ -44,7 +44,7 @@ Add the following `<zkhost>` elements as children of the `<zkhosts>` element:
 <zkhost quorum-port-number="10485" leader-port-number="10985" data-dir="/opt/IBM/i2analyze/data/zookeeper" host-name="zookeeper3" id="3" port-number="9985"/>
 ```
 
-Make the same modification to the `topology.xml` file in the `src/configuration/environment` directory to ensure the configuration is consistent.
+Make the same modification to the `topology.xml` file in the `src/configuration/environment` directory to ensure that the configuration is consistent.
 
 ## Build and create the ZooKeeper containers
 Build the ZooKeeper image, run the following commands from the `src/images` folder:
@@ -90,7 +90,7 @@ Restart the initial ZooKeeper server by running the following command:
 docker exec -u i2analyze -d zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t restartZkHosts --hostname zookeeper
 ```
 
-Check that the ZooKeeper servers started as an ensemble, and not as standalone servers, by running the following command:
+Check that the ZooKeeper servers started as an ensemble, and not as stand-alone servers, by running the following command:
 ```
 docker exec -u i2analyze -t zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t getZkStatus
 ```
@@ -189,12 +189,12 @@ docker exec -u i2analyze -d liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t 
 ```
 
 ## Testing the ZooKeeper ensemble
-To test that ZooKeeper is working as an ensemble, you can shutdown one of the ZooKeeper servers and check the status of the ensemble:
+To test that ZooKeeper is working as an ensemble, you can shut down one of the ZooKeeper servers and check the status of the ensemble:
 ```
 docker exec -u i2analyze -t zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts --hostname zookeeper
 docker exec -u i2analyze -t zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t getZkStatus
 ```
-After the ZooKeeper server is stopped, the `getZkStatus` toolkit task reports that the other two server are running and serving requests.
+After the ZooKeeper server is stopped, the `getZkStatus` toolkit task reports that the other two servers are running and serving requests.
 
 The status of the stopped `zookeeper` server is `Connection refused`, as follows:
 ```
@@ -219,7 +219,7 @@ To test the resilience of the system stop the initial ZooKeeper server, by runni
 ```
 docker exec -u i2analyze -t zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts --hostname zookeeper
 ```
-After it is shutdown, look at the Solr Web UI to check that the Solr servers are still operational and that the Solr collection is still running.
+After it is shut down, look at the Solr Web UI to check that the Solr servers are still operational and that the Solr collection is still running.
 
 You can test that the search index is working by running a Quick Search in i2 Analyst's Notebook Premium.
 

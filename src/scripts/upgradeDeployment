@@ -14,8 +14,7 @@
 #                                                                                   #
 #  Script to upgrade a distributed deployment of i2 Analyze.                        #
 #  Ensure that your containers already have the new version of the toolkit          #
-#  installed and that you have copied your previous configuration to the            #
-#  containers.                                                                      #
+#  installed and that you have copied your previous configuration to the containers.#
 #                                                                                   #
 #  Usage : upgradeDeployment                                                        #
 #                                                                                   #
@@ -36,12 +35,14 @@ output "Upgrading the previous configuration"
 docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeConfiguration
 
 output "Copying the upgraded configuration from the admin_client container to your local machine"
-rm -f ${CONFIG_MODS_PATH}/configuration_upgraded &>/dev/null || true
+rm -rf ${CONFIG_MODS_PATH}/configuration_upgraded &>/dev/null || true
 docker cp admin_client:/opt/IBM/i2analyze/toolkit/configuration ${CONFIG_MODS_PATH}/configuration_upgraded
 
 output "Copying the upgraded configuration to each container"
 
-. ${SCRIPTS_PATH}/updateServerConfigurations configuration_upgraded
+pushd ${SCRIPTS_PATH}
+. updateServerConfigurations configuration_upgraded
+popd
 
 output "Upgrading Zookeeper"
 docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeZookeeper --hostname zookeeper

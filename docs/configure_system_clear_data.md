@@ -2,7 +2,7 @@
 During development, it is common to need to clear data from the i2 data stores.
 
 ## Before you begin
-This process can permanently remove data from your system, ensure that there is no data in the system that you want to keep.
+This process can permanently remove data from your system, ensure that no data is in the system that you want to keep.
 
 For information about making a backup of your deployment, see [Backing up a deployment](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/c_back_up_and_recovery.html).
 
@@ -33,7 +33,7 @@ docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t sta
 ```
 The console output from the `startLiberty` task is output directly to the console.
 
-Liberty is now started and you can connect to i2Analyze.
+Liberty is now started and you can connect to i2 Analyze.
 
 ## Testing the deployment
-Connect to i2Analyze and search for data. If you perform a wild card search for `*`, all of the data in your system is returned. After you run `clearData`, this search returns no results.
+Connect to i2 Analyze and search for data. If you perform a wildcard search for `*`, all of the data in your system is returned. After you run `clearData`, this search returns no results.

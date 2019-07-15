@@ -33,15 +33,15 @@ docker rmi -f ubuntu_toolkit_image &>/dev/null || true
 docker network rm eianet &>/dev/null || true
 
 output "Cleaning up the copied user configuration"
-rm -r ${IMAGES_PATH}/liberty/configuration &>/dev/null || true
-rm -r ${IMAGES_PATH}/zookeeper/configuration &>/dev/null || true
-rm -r ${IMAGES_PATH}/solr/configuration &>/dev/null || true
-rm -r ${IMAGES_PATH}/solr2/configuration &>/dev/null || true
-rm -r ${IMAGES_PATH}/admin_client/configuration &>/dev/null || true
-rm -r ${IMAGES_PATH}/ihs/configuration &>/dev/null || true
-rm -r ${IMAGES_PATH}/zookeeper2/configuration &>/dev/null || true
-rm -r ${IMAGES_PATH}/zookeeper3/configuration &>/dev/null || true
-rm -r ${IMAGES_PATH}/solr3/configuration &>/dev/null || true
+rm -rf ${IMAGES_PATH}/liberty/configuration &>/dev/null || true
+rm -rf ${IMAGES_PATH}/zookeeper/configuration &>/dev/null || true
+rm -rf ${IMAGES_PATH}/solr/configuration &>/dev/null || true
+rm -rf ${IMAGES_PATH}/solr2/configuration &>/dev/null || true
+rm -rf ${IMAGES_PATH}/admin_client/configuration &>/dev/null || true
+rm -rf ${IMAGES_PATH}/ihs/configuration &>/dev/null || true
+rm -rf ${IMAGES_PATH}/zookeeper2/configuration &>/dev/null || true
+rm -rf ${IMAGES_PATH}/zookeeper3/configuration &>/dev/null || true
+rm -rf ${IMAGES_PATH}/solr3/configuration &>/dev/null || true
 
 output "Cleaning up keys"
 rm -r ${SRC_DIR}/keys &>/dev/null || true

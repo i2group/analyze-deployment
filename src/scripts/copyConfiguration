@@ -12,7 +12,7 @@
 
 #####################################################################################
 #                                                                                   #
-#  Script copy the configuration to the necessary folders under `src/images`        #
+#  Script to copy default configuration into image folders for building images.     #
 #                                                                                   #
 #  Usage : copyConfiguration                                                        #
 #                                                                                   #
@@ -27,19 +27,19 @@ pushd ..
 . ${UTILS_PATH}/functions
 
 output "Cleaning the user configuration"
-rm -r ${IMAGES_PATH}/liberty/configuration &>/dev/null || true
-rm -r ${IMAGES_PATH}/zookeeper/configuration &>/dev/null || true
-rm -r ${IMAGES_PATH}/solr/configuration &>/dev/null || true
-rm -r ${IMAGES_PATH}/solr2/configuration &>/dev/null || true
-rm -r ${IMAGES_PATH}/admin_client/configuration &>/dev/null || true
-rm -r ${IMAGES_PATH}/ihs/configuration &>/dev/null || true
+rm -rf ${IMAGES_PATH}/liberty/configuration &>/dev/null || true
+rm -rf ${IMAGES_PATH}/zookeeper/configuration &>/dev/null || true
+rm -rf ${IMAGES_PATH}/solr/configuration &>/dev/null || true
+rm -rf ${IMAGES_PATH}/solr2/configuration &>/dev/null || true
+rm -rf ${IMAGES_PATH}/admin_client/configuration &>/dev/null || true
+rm -rf ${IMAGES_PATH}/ihs/configuration &>/dev/null || true
 
 output "Copying the user configuration into all of the required Docker contexts"
-cp -r ${BASE_CONFIG_PATH} ${IMAGES_PATH}/liberty/configuration
-cp -r ${BASE_CONFIG_PATH} ${IMAGES_PATH}/zookeeper/configuration
-cp -r ${BASE_CONFIG_PATH} ${IMAGES_PATH}/solr/configuration
-cp -r ${BASE_CONFIG_PATH} ${IMAGES_PATH}/solr2/configuration
-cp -r ${BASE_CONFIG_PATH} ${IMAGES_PATH}/admin_client/configuration
-cp -r ${BASE_CONFIG_PATH} ${IMAGES_PATH}/ihs/configuration
+cp -r ${DEFAULT_CONFIG_PATH} ${IMAGES_PATH}/liberty/configuration
+cp -r ${DEFAULT_CONFIG_PATH} ${IMAGES_PATH}/zookeeper/configuration
+cp -r ${DEFAULT_CONFIG_PATH} ${IMAGES_PATH}/solr/configuration
+cp -r ${DEFAULT_CONFIG_PATH} ${IMAGES_PATH}/solr2/configuration
+cp -r ${DEFAULT_CONFIG_PATH} ${IMAGES_PATH}/admin_client/configuration
+cp -r ${DEFAULT_CONFIG_PATH} ${IMAGES_PATH}/ihs/configuration
 
 popd

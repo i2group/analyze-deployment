@@ -2,7 +2,7 @@
 After you deploy your system, you might need to change the maximum Java virtual machine (JVM) memory allocation allowance for Liberty.
 
 ## Before you begin
-Ensure that you can connect to the deployment and submit data using Analyst's Notebook Premium.
+Ensure that you can connect to the deployment and submit data by using Analyst's Notebook Premium.
 
 ## Modifying the `environment-advanced.properties` file
 Modify the `environment-advanced.properties` in the `src/configuration/environment` directory.
@@ -12,7 +12,7 @@ To change the JVM memory allocation, modify the value of the `was.heap.size` pro
 ## Copying the configuration
 Your changes are required by the Liberty server, this is the server that applies the changes.
 
-The changed configuration must be copied to the `liberty` container. In order to use the docker `cp` function the container must be running.
+The changed configuration must be copied to the `liberty` container. To use the docker `cp` function, the container must be running.
 
 To copy, and overwrite, your configuration to the `liberty` container, run the following command from the `src` directory:
 ```

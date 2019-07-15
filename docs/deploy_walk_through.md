@@ -1,15 +1,15 @@
 # Deploying the distributed deployment example manually
-The manual deployment of the distributed deployment example requires you to run each of the steps that were completed automatically in the Quick deploy. The following instructions detail what is required on each container, and how to translate this to deploying i2 Analyze on a physical server.
+The manual deployment of the distributed deployment example requires you to run each of the steps that were completed automatically in the Quick deploy. The following instructions detail what steps are required on each container, and how to use these steps to deploy i2 Analyze on physical servers.
 
 >**Important**: The distributed example uses a Docker environment to demonstrate a distributed deployment of i2 Analyze. The Docker environment is not designed to be used on customer sites for test or production systems. After you understand how the distributed deployment is deployed, replicate the deployment on physical servers.
 
 ## Before you begin
-- Complete the [Quick deploy](deploy_quick_start.md) section at least once before you start the manual deployment. The software prerequisites that you download for the Quick deploy are also used in this section.
-- Complete the [Clean your environment](deploy_clean_environment.md) section to ensure that none of the images, containers, or network already exist.
+- Complete the [Quick deploy](deploy_quick_start.md) section at least once, before you start the manual deployment. The software prerequisites that you download for the Quick deploy are also used here.
+- Complete the [Clean your environment](deploy_clean_environment.md) section to ensure that none of the images, containers, or network exist.
 
-You must run all Docker commands from a command line that has Docker initialized.
+You must run all Docker commands from a command line where Docker is initialized.
 
->For Windows 7, you must also forward the required ports from your local machine to the virtual machine that hosts Docker.
+>For Windows 7, you must also forward the required ports from your local workstation to the virtual machine that hosts Docker.
 >
 >In the network settings for your docker virtual machine, open the **Advanced** menu and click **Port Forwarding**. Create a new line, and enter values for the `Host IP`, `Host Port`, and `Guest Port`. You must do this for each port that is exposed in the Docker environment.
 
@@ -29,12 +29,15 @@ The `eianet` network is displayed in the list.
 In a non-Docker environment, ensure that each server that you are using to deploy i2 Analyze can connect to each other.
 
 ## Copy the i2 Analyze configuration
-The i2 Analyze configuration is required by all servers that host components of i2 Analyze, with the exception of the database server. In the `src/scripts` directory of the distributed deployment example, the `copyConfiguration` script copies the i2 Analyze configuration from the `src/configuration` directory to the `src/images/<container_name>/configuration` directory for each container.
+The i2 Analyze configuration is required by all servers that host components of i2 Analyze, except for the database server. In the `src/scripts` directory of the distributed deployment example, the `copyConfiguration` script copies the i2 Analyze configuration from the `src/configuration` directory to the `src/images/<container_name>/configuration` directory for each container.
 
 From the `src/scripts` directory, run the `copyConfiguration` script file.
+```
+./copyConfiguration
+```
 
 ### Results
-In a non-Docker environment, copying the configuration translates to following steps:  
+In a non-Docker environment, copying the configuration is equivalent to the following steps:  
 Downloading and extracting the i2 Analyze toolkit onto a server.
 
 Copying the `examples/configurations/information-store-opal/configuration` directory into the `toolkit` directory of your extracted i2 Analyze toolkit.
@@ -51,7 +54,7 @@ The `ubuntu_toolkit_image` is an image that contains the Ubuntu operating system
 
 When you build the `ubuntu_toolkit_image`, the `i2analyze.tar.gz` that you copied into the `src/images/ubuntu_toolkit/i2analyze` directory as part of the Quick deploy is copied and extracted into the image.
 
-To build the ubuntu toolkit image, run the following from the `src/images` folder:
+To build the Ubuntu toolkit image, run the following from the `src/images` folder:
 ```
 docker build -t ubuntu_toolkit_image ubuntu_toolkit
 ```
@@ -100,14 +103,21 @@ docker logs -f db2
 ```
 >Note: To exit the log display, use `Ctrl + C`.
 
+After you run the DB2 container, set the password for the `i2analyze` user. Enter the password that you specified in the `credentials.properties` file for the `db2.infostore.password` credential.
+
+To set the password, run the following command and enter the password when you are prompted:
+```
+docker exec -u root -it db2 passwd i2analyze
+```
+
 Inspect the `Dockerfile` in the `src/images/db2` directory to see the commands that are required to install DB2 on a server in a non-Docker environment.
 
-DB2 is installed using a response file, and an instance of DB2 is created with the required DB2 users.
+DB2 is installed by using a response file, and an instance of DB2 is created with the required DB2 users.
 
 ### ZooKeeper container
-ZooKeeper is the service that is used to maintain configuration information and distributed synchronization across Solr. In this deployment, ZooKeeper is deployed on its own server. On the ZooKeeper server, you must have your configured i2 Analyze toolkit installed.
+ZooKeeper is the service that is used to maintain configuration information and distributed synchronization across Solr. In this deployment, ZooKeeper is deployed on its own server. Your configured i2 Analyze toolkit must be installed on the ZooKeeper server.
 
-To build the `zookeeper` image, run the following from the `src/images` folder:
+To build the `zookeeper` image, run the following command from the `src/images` folder:
 ```
 docker build -t zookeeper_image zookeeper
 ```
@@ -124,9 +134,9 @@ Inspect the `Dockerfile` in the `src/images/zookeeper` directory to see the comm
 The ZooKeeper container is started. The container starts and configures ZooKeeper, and hosts the ZooKeeper server. The `topology.xml` file in the i2 Analyze configuration defines the values for the ZooKeeper server.
 
 ### Solr containers
-Solr is used to manage the search index in a deployment of i2 Analyze. In this deployment, Solr is distributed across 2 servers. On each Solr server, you must have your configured i2 Analyze toolkit installed.
+Solr is used to manage the search index in a deployment of i2 Analyze. In this deployment, Solr is distributed across two servers. Your configured i2 Analyze toolkit must be installed on each Solr server.
 
-To build the Solr images, run the following from the `src/images` folder:
+To build the Solr images, run the following commands from the `src/images` folder:
 ```
 docker build -t solr_image solr
 docker build -t solr2_image solr2
@@ -150,16 +160,16 @@ Inspect the `Dockerfiles` in the `src/images/solr` and `src/images/solr2` direct
 
 The images include an i2 Analyze `topology.xml` file that defines the values for the configuration of Solr. When the server starts, the appropriate Solr nodes are started.
 
-When you start the Solr container, the port that Solr runs on in the container is specified, in this example it is either `8983` or `8984`. The specified port is mapped on the host machine, so that you can access Solr and the Solr web UI from the host machine.
+When you start the Solr container, the port that Solr runs on in the container is specified, in this example it is either `8983` or `8984`. The specified port is mapped on the host machine so that you can access Solr and the Solr web UI from the host machine.
 
-After the Solr nodes are running, you can use the Solr Web UI to inspect the Solr and ZooKeeper configurations. Connect to the Solr Web UI on the `solr` container. In a web browser, go to the following URL to connect to the Solr Web UI: [http://localhost:8983/solr/#](http://localhost:8983/solr/#). The username is `solradmin` and the password is the solr password set in the `credentials.properties` file.  
+After the Solr nodes are running, you can use the Solr Web UI to inspect the Solr and ZooKeeper configurations. Connect to the Solr Web UI on the `solr` container. In a web browser, go to the following URL to connect to the Solr Web UI: [http://localhost:8983/solr/#](http://localhost:8983/solr/#). The user name is `solradmin` and the password is the Solr password set in the `credentials.properties` file.  
 >Where the port number is the same as the one that is mapped to local machine when the Solr container is run.
->The URL uses `localhost` because the `8983` port is mapped from the host machine to the docker container. In a non-Docker environment, connect using the host name of the Solr server.
+>The URL uses `localhost` because the `8983` port is mapped from the host machine to the docker container. In a non-Docker environment, connect by using the host name of the Solr server.
 
 ### Admin client container
-In this deployment, the Admin client is a separate server that is designed for running toolkit tasks in a distributed environment. Your configured i2 Analyze toolkit, and a DB2 client must be installed on the the server that you want to use to interact with Liberty and DB2.
+In this deployment, the Admin client is a separate server that is designed for running toolkit tasks in a distributed environment. Your configured i2 Analyze toolkit, and a DB2 client must be installed on the server that you want to use to interact with Liberty and DB2.
 
-To build the Admin client image, run the following from the `src/images` folder:
+To build the Admin client image, run the following command from the `src/images` folder:
 ```
 docker build -t admin_client_image admin_client
 ```
@@ -171,7 +181,7 @@ docker run -d --name admin_client --net eianet -u i2analyze admin_client_image
 ```
 Inspect the `Dockerfile` in the `src/images/admin_client` directory to see the commands that are required to configure the Admin client.
 
-Use the following format to run toolkit tasks using the Admin Client:
+Use the following format to run toolkit tasks by using the Admin Client:
 ```
 docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t <toolkit task>
 ```
@@ -187,7 +197,7 @@ docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setu
 ```
 The Solr collection is created.
 
-To test the Solr Collection, click **Cloud** in the Solr Web UI, or you can go to [http://localhost:8983/solr/#/~cloud](http://localhost:8983/solr/#/~cloud). The username is `solradmin` and the password is the solr password set in the `credentials.properties` file.
+To test the Solr Collection, click **Cloud** in the Solr Web UI, or you can go to [http://localhost:8983/solr/#/~cloud](http://localhost:8983/solr/#/~cloud). The user name is `solradmin` and the password is the Solr password set in the `credentials.properties` file.
 A horizontal tree with the collection as the root is displayed. Here you can see the breakdown of the shards, nodes, and replicas on the collection.
 
 #### Create the Information Store database
@@ -197,13 +207,13 @@ To create the Information Store database by using the Admin client, run the foll
 ```
 docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createDatabases
 ```
-To check that the database is created correctly, connect to the database. For example, connect using IBM Data Studio. The user name is `i2analyze` and the password is the database password set in the `credentials.properties` file.
+To check that the database is created correctly, connect to the database. For example, connect by using IBM Data Studio. The user name is `i2analyze` and the password is the database password set in the `credentials.properties` file.
 >If you are using Windows 7, you must forward port `50000` from your Virtual Box virtual machine.)
 
 ### Liberty container
 The Liberty application server hosts the i2 Analyze application, and provides all of the REST services that the client uses. In this deployment, Liberty is deployed on its own server. Your configured i2 Analyze toolkit, and a DB2 client must be installed on the Liberty server.
 
-To build the liberty image, run the following from the `src/images` folder:
+To build the liberty image, run the following command from the `src/images` folder:
 ```
 docker build -t liberty_image liberty
 ```
@@ -217,17 +227,10 @@ The i2 Analyze application is installed on the Liberty server. Inspect the `Dock
 
 The Liberty server is configured, and the `opal-server` is started.
 
-The remote Information Store database must be cataloged to enable to run DB2 operations remotely on the database from the Liberty server.
-To catalog the database, run the following command:
-```
-docker exec -u i2analyze -t liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t catalogDB2Databases
-```
-Your remote database is now cataloged on the Liberty server.
-
 ---
 
 ## Results
-After you have completed the previous instructions, you have an i2 Analyze deployment distributed across 5 Docker containers. By inspecting the Dockerfiles and the toolkit tasks used in the above commands, you can identify the steps required to replicate the distributed deployment in a non-Docker environment.
+After you complete the previous instructions, i2 Analyze is deployed across five Docker containers. By inspecting the Dockerfiles and the toolkit tasks that are used in the previous commands, you can identify the steps that are required to replicate the distributed deployment in a non-Docker environment.
 
 ---
 
@@ -236,4 +239,4 @@ To test the deployment, connect to i2 Analyze from Analyst's Notebook Premium. T
 
 Log in using the user name `Jenny` with the password `Jenny`.
 
-You can use the **Upload records** functionality to add data to the Information Store, and then search for that data.
+You can use the **Upload records** function to add data to the Information Store, and then search for that data.

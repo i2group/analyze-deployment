@@ -2,7 +2,7 @@
 During development, to make destructive schema changes or completely changing your schema, you must recreate the Information Store database.
 
 ## Before you begin
-This process can permanently remove data and the database from your system, ensure that there is no data in the system that you want to keep.
+This process can permanently remove data and the database from your system, ensure that no data is in the system that you want to keep.
 
 For more information about making a backup of your deployment, see [Backing up a deployment](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/c_back_up_and_recovery.html).
 
@@ -41,7 +41,7 @@ The following is an example of how to stop two active connections with the appli
 ```
 docker exec -u i2analyze -t db2 db2 "force application (1414, 1415)"
 ```
-Any connections that you stop in this way should not be in the list when you run the command to identify the active connections.
+Any connections that you stop in this way are not be in the list when you run the command to identify the active connections.
 
 ### Drop the database
 After you ensure that there are no active connections to your database, you can drop the database by running the following command:
@@ -70,7 +70,7 @@ docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t sta
 ```
 The console output from the `startLiberty` task is output directly to the console.
 
-Liberty is now started and you can connect to i2Analyze.
+Liberty is now started and you can connect to i2 Analyze.
 
 ## Testing the deployment
-Connect to i2Analyze and search for data. If you perform a wild card search for `*`, all of the data in your system is returned. After you remove the database from the system, this search returns no results.
+Connect to i2 Analyze and search for data. If you perform a wildcard search for `*`, all of the data in your system is returned. After you remove the database from the system, this search returns no results.

@@ -20,7 +20,7 @@
             <file-store-id value="recordgroup-daod-store" />
           </file-store-ids>
           <fragments>
-            <fragment name="opal-services-daod" />
+            <fragment name="opal-services" />
             <fragment name="common" />
           </fragments>
           <solr-collection-ids>

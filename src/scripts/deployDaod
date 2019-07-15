@@ -12,9 +12,10 @@
 
 #####################################################################################
 #                                                                                   #
-#  Script to set up i2 Connect for use with i2 Analyze.                             #
+#  Script to set up i2 connect for use with i2 Analyze.                             #
 #                                                                                   #
-#  Usage : deployDaod                                                               #
+#  Usage : deployDaod [<configModsName>]                                            #
+#  Defaults to i2connect configuration directory                                    #
 #                                                                                   #
 #####################################################################################
 
@@ -26,9 +27,15 @@ pushd ..
 
 . ${UTILS_PATH}/functions
 
+configModsName=${1:-i2connect}
+
+if [[ $configModsName != "i2connect" &&  $configModsName != "i2connect_istore" ]]; then
+    echo "Error: Invalid configuration. Please provide an i2Connect configuration name."
+    exit 1
+fi
+
 pushd ${SCRIPTS_PATH}
-. resetEnvironment
-. updateServerConfigurations i2connect
+. updateServerConfigurations ${configModsName}
 popd
 
 output "Stopping Liberty"

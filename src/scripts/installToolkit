@@ -16,7 +16,7 @@
 #  toolkit. This scripts assumes the original configuration has been backed up,     #
 #  as it will override any files in the configuration folder.                       #
 #                                                                                   #
-#  Usage : installToolkit $toolkitPath                                              #
+#  Usage : installToolkit <toolkitPath>                                             #
 #                                                                                   #
 #####################################################################################
 
@@ -54,7 +54,7 @@ function removeOldToolkitFromContainer
     echo ""
     echo "############################################################"
     echo "Removing previous toolkit from $1 container"
-    docker exec -u i2analyze $1 sh -c "rm -R /opt/IBM/i2analyze/toolkit &>/dev/null || true"
+    docker exec -u i2analyze $1 sh -c "rm -Rf /opt/IBM/i2analyze/toolkit &>/dev/null || true"
 }
 
 function copyAndExtractToolkit

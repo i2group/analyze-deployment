@@ -11,11 +11,11 @@ As part of the distributed deployment example, scripts are provided that demonst
 
 To create the keystores, certificates, and certificate authority, run the `createKeysAndStores` script file.
 
-These scripts contain comments that explain the processes that are completed. As an overview, a certificate authority image is built and run as a certificate authority container. A keystore, truststore, and private key certificate are created for each component of i2 Analyze. A certificate signing request is created for each certificate. Each signing request is sent to the certificate authority, which signs and returns the certificate. At the end of this process, each container has a keystore populated with its signed private key certificate and a truststore populated with the certificate authority's signer certificate.
+These scripts contain comments that explain the processes that are completed. As an overview, a certificate authority image is built and run as a certificate authority container. A keystore, truststore, and private key certificate are created for each component of i2 Analyze. A certificate signing request is created for each certificate. Each signing request is sent to the certificate authority, which signs and returns the certificate. At the end of this process, each container contains a keystore that is populated with its signed private key certificate and a truststore that is populated with the certificate authority's signer certificate.
 
 The certificate authority's signer certificate is used to verify the certificates that are received from the other components of i2 Analyze.
 
 After you run the `createKeysAndStores` script, the environment is as follows:
 ![Distributed deployment keystore, truststore, and certificate](./images/distributed_topology_ssl.png)
 
-In a non-Docker environment, you must ensure that the correct stores and certificates are in place. You can use the example scripts and information in the Knowledge Center to identify methods for creating the stores.
+In a non-Docker environment, you must ensure that the correct stores and certificates are in place. You can use the example scripts and information in the IBM Knowledge Center to identify methods for creating the stores.

@@ -40,6 +40,6 @@ The Solr node is restarted with the new JVM maximum memory allocation.
 
 ## Testing the deployment
 
-You can use the Solr Web UI to inspect the Solr node that you modified to see the new memory allocation. To connect to the Solr Web UI of the Solr node on the `solr` container, go to: <http://localhost:8983/solr/#/>. The username is `solradmin` and the password is the solr password set in the `credentials.properties` file. 
+You can use the Solr Web UI to inspect the Solr node that you modified to see the new memory allocation. To connect to the Solr Web UI of the Solr node on the `solr` container, go to: <http://localhost:8983/solr/#/>. The user name is `solradmin` and the password is the Solr password set in the `credentials.properties` file. 
 
-On the right hand side of the dashboard, see that the **JVM-Memory** has a value of **4GB**.
+On the right side of the dashboard, see that the **JVM-Memory** has a value of **4GB**.

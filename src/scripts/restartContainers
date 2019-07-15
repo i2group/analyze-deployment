@@ -18,10 +18,19 @@
 #                                                                                   #
 #####################################################################################
 
-docker stop zookeeper solr solr2 liberty db2 ihs etl_client admin_client connector
+set -e
 
-docker start zookeeper
+. utils/variables
+
+pushd ..
+
+. ${UTILS_PATH}/functions
+
+output "Stopping existing containers if still running"
+docker stop zookeeper solr solr2 liberty db2 admin_client ihs etl_client connector > /dev/null || true
+
+output "Starting existing containers"
+docker start zookeeper > /dev/null || true
 # SSH process needs to start first and as root
-docker exec -u root zookeeper service ssh start
-
-docker start solr solr2 liberty db2 ihs etl_client admin_client connector
+docker exec -u root zookeeper service ssh start > /dev/null || true
+docker start solr solr2 liberty db2 admin_client ihs etl_client connector > /dev/null || true

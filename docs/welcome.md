@@ -3,7 +3,7 @@ An example environment is provided to demonstrate how to build a distributed dep
 
 >**Important**: The distributed deployment example uses a Docker environment to demonstrate a distributed deployment of i2 Analyze. The Docker environment is not designed to be used on customer sites for test or production systems. The objective of the distributed deployment example on Docker is to give you an understanding of how a distributed deployment of i2 Analyze is deployed, so that you can replicate the deployment on physical servers.
 
-This information is intended for users who want to learn how to deploy i2 Analyze distributed across multiple servers. Readers must be familiar with i2 Analyze and the prerequisite components.
+This information is intended for IBM personnel who want to learn how to deploy i2 Analyze distributed across multiple servers. Readers must be familiar with i2 Analyze and the prerequisite components.
 
 The documentation for understanding, deploying, and configuring the distributed deployment example is divided into the following sections:
 

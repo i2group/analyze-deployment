@@ -9,12 +9,6 @@
 # * SPDX-License-Identifier: EPL-2.0
 # *
 # ********************************************************************************/
-
-#####################################################################################
-#                                                                                   #
-#  Script to set up the key stores used for SSL.                                    #
-#                                                                                   #
-#####################################################################################
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/ibm/gsk8_64/lib64
 cd /opt/IBM/i2analyze/deploy/keys/stores
 /usr/local/ibm/gsk8_64/bin/gsk8capicmd_64 -keydb -stashpw -db /opt/IBM/i2analyze/deploy/keys/stores/i2-db2-truststore.kdb

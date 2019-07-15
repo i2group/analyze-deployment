@@ -1,11 +1,11 @@
 # Creating a Solr collection using the `createSolrCollection` script file
-Your `createSolrCollection` script in the `toolkit\configuration\environment\opal-server\main_index` directory must contain a `CREATE` call  to the Solr Collections API.
+Your `createSolrCollection` script in the `toolkit\configuration\environment\opal-server\main_index` directory must contain a `CREATE` call to the Solr Collections API.
 
 ## Before you begin
 You must specify that you are using the `createSolrCollection` script to configure Solr. For more information, see [Choosing the method for configuring Solr](configure_solr_method.md).
 
 ## `CREATE` REST call
-To create a collection, use the `CREATE` REST call in the `createSolrCollection` file. For more information about the `CREATE` REST call, and additional parameters that you can use, see [CREATE: Create a Collection](https://lucene.apache.org/solr/guide/6_6/collections-api.html#CollectionsAPI-create).
+To create a collection, use the `CREATE` REST call in the `createSolrCollection` file. For more information about the `CREATE` REST call, and extra parameters that you can use, see [CREATE: Create a Collection](https://lucene.apache.org/solr/guide/6_6/collections-api.html#CollectionsAPI-create).
 
 To create a collection, open the `createSolrCollection` script in a text editor.
 
@@ -18,12 +18,12 @@ This example of a `CREATE` call creates a collection that has the following attr
 
 - Named `main_index`
 - A configuration named `main_index` in ZooKeeper
-- 4 shards
-- A maximum of 4 shards per node
-- 1 replica of each shard
+- Four shards
+- A maximum of four shards per node
+- One replica of each shard
 
 ## Recreating the collection
-After you make a change to the `createSolrCollection` script, you can recreate the Solr collection by completing the following steps.
+After you change the `createSolrCollection` script, you can recreate the Solr collection by completing the following steps.
 
 To stop Liberty, run the following command:
 ```
@@ -45,7 +45,7 @@ Liberty is now started and you can connect to i2 Analyze.
 ## Modifying a collection
 If you change the configuration of your Solr collection on a live deployment, you must replicate the changes in your `createSolrCollection` script. This ensures that if your Solr collection is recreated, it aligns with your configuration changes.
 
-For example, if you add 2 shards to your live collection, you must increase the number of shards in the collection definition by 2.
+For example, if you add two shards to your live collection, you must increase the number of shards in the collection definition by 2.
 
 For information about changing the Solr collection configuration on a live deployment, see [Adding another Solr server and Solr node](configure_solr_add_node.md), [Adding Solr shards to your deployment](configure_solr_add_shard.md), and [Adding Solr replicas to your deployment](configure_solr_add_replica.md).
 

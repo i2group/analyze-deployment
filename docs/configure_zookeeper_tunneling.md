@@ -1,16 +1,16 @@
 # Configuring ZooKeeper and i2 Analyze to use an SSH tunnel
-To secure the connection between ZooKeeper and i2 Analyze, you configure an SSH tunnel to be used for communication between the servers. The following instructions detail what is required on each container, and how to translate this to implement an SSH tunnel on a physical server.
+To secure the connection between ZooKeeper and i2 Analyze, you configure an SSH tunnel to be used for communication between the servers. The following instructions detail what is required on each container, and how to use these steps to implement an SSH tunnel on a physical server.
 
 ## Before you begin
-- Ensure that you can connect to the deployment and submit data using Analyst's Notebook Premium.
+- Ensure that you can connect to the deployment and submit data by using Analyst's Notebook Premium.
 - Ensure that all of the Docker containers are running.
-- If you have already deployed the example with one of the configurations in the `configuration_mods` directory or changed the `topology.xml` file. Reset your example deployment to the base configuration before you configure ZooKeeper and i2 Analyze to use an SSH tunnel. To reset your environment, run the following command from the `src/scripts` directory:
+- If you deployed the example with one of the configurations in the `configuration_mods` directory or changed the `topology.xml` file. Reset your example deployment to the base configuration before you configure ZooKeeper and i2 Analyze to use an SSH tunnel. To reset your environment, run the following command from the `src/scripts` directory:
 ```
 resetEnvironment
 ```
 
 In a deployment of i2 Analyze, ZooKeeper acts as a server with Liberty and Solr connecting as clients. In the Docker distributed deployment example, the Admin Client also connects as a client.
-An SSH tunnel enables secure connection between a client and server using an SSH client and SSH server. For more information about SSH, see [SSH Tunnel](https://www.ssh.com/ssh/tunneling/).
+An SSH tunnel enables secure connection between a client and server by using an SSH client and SSH server. For more information about SSH, see [SSH Tunnel](https://www.ssh.com/ssh/tunneling/).
 
 ## Prerequisites
 The server that hosts ZooKeeper must have an implementation of SSH Server installed, the Liberty and Solr servers must have an implementation of SSH Client installed.
@@ -21,12 +21,15 @@ In the distributed example, OpenSSH is installed on the containers.
 
 You can complete a quick tunneling setup or you can complete the tunneling setup manually. Completing the tunneling setup manually requires you to run each of the steps completed automatically in the quick tunneling setup so that you can replicate the steps in a non-Docker environment.
 
-If you have SSL enabled in your deployment, you cannot use the quick tunneling setup. You can either turn off SSL, or use the manual configuration instructions.
+When SSL is enabled in your deployment, you cannot use the quick tunneling setup. You can either turn off SSL, or use the manual configuration instructions.
 
 ## Quick tunneling setup
-To setup the tunneling in the distributed deployment example, a script is provided that configures the SSH tunnel, i2 Analyze, and ZooKeeper.
+To set up the tunneling in the distributed deployment example, a script is provided that configures the SSH tunnel, i2 Analyze, and ZooKeeper.
 
 To configure SSH tunneling, run the `setupTunneling` script from the `src/scripts` directory.
+```
+./setupTunneling
+```
 
 The `setupTunneling` script prompts you for a number of passwords. You must provide passwords that are used to encrypt the SSH keys and for the *i2analyze* (UNIX password) user on the `zookeeper` container. When you are prompted for the `i2analyze@zookeeper` password, use the password that you specified for the *i2analyze* user.
 
@@ -55,7 +58,7 @@ docker exec -u root -it zookeeper passwd i2analyze
 ```
 
 ### Starting the SSH Server
-To start the SSH Server, run the following:
+To start the SSH Server, run the following command:
 ```
 docker exec -u root zookeeper service ssh start
 ```
@@ -97,7 +100,7 @@ docker exec -u i2analyze -d liberty ssh -4 i2analyze@zookeeper -L 9983:zookeeper
 Configure i2 Analyze to use the SSH tunnel. The `topology.xml` file must contain `secure-connection="true"` and `host-name="127.0.0.1"` attributes in the `<zookeeper` and `<zkhost>` elements.
 In the distributed deployment example, you can see the configuration modifications in the `src/configuration_mods/tunneling` directory.
 
-The `updateServerConfigurations` script copies a configuration to each of the example containers. To copy the tunelling configuration, run the following command:
+The `updateServerConfigurations` script copies a configuration to each of the example containers. To copy the tunneling configuration, run the following command:
 ```
 updateServerConfigurations tunneling
 ```
@@ -130,10 +133,10 @@ All the setup is completed and the application is started.
 ---
 
 ## Testing the deployment
-To test the deployment was configured successfully, connect to i2 Analyze from Analyst's Notebook Premium. The URL that you use to connect is the same as you used to before running the upgrade process.
+To test the deployment was configured successfully, connect to i2 Analyze from Analyst's Notebook Premium. The URL that you use to connect is the same as you used to before you ran the upgrade process.
 
 Log in using the user name `Jenny` with the password `Jenny`.
 
 You can use the **Upload records** functionality to add data to the Information Store, and then search for that data or data that already existed.
 
-Additionally, after the Solr node is running, you can use the Solr Web UI to inspect the configuration. Connect to the Solr Web UI on the `solr` container. In a web browser, go to the following URL to connect to the Solr Web UI: <http://localhost:8983/solr/#>. The username is `solradmin` and the password is the solr password set in the `credentials.properties` file. There the configuration points to `127.0.0.1` as Zookeeper host.
+Additionally, after the Solr node is running, you can use the Solr Web UI to inspect the configuration. Connect to the Solr Web UI on the `solr` container. In a web browser, go to the following URL to connect to the Solr Web UI: <http://localhost:8983/solr/#>. The user name is `solradmin` and the password is the Solr password set in the `credentials.properties` file. There the configuration points to `127.0.0.1` as Zookeeper host.

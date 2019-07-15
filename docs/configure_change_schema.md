@@ -2,7 +2,7 @@
 In a deployment of i2 Analyze, the database structure is defined by a schema. To update the schema, you must update the database and then restart Liberty to load the updated schema. Solr requires no changes.
 
 ## Before you begin
-- Ensure that you can connect to the deployment with the current schema, and submit data using Analyst's Notebook Premium.
+- Ensure that you can connect to the deployment with the current schema, and submit data by using Analyst's Notebook Premium.
 - Ensure that all of the Docker containers are running.
 
 ## Modifying the schema file
@@ -33,7 +33,7 @@ In a non-Docker environment, copy the `law-enforcement-schema.xml` and `law-enfo
 ## Stopping Liberty
 Before you update the Information Store with your modified schema, you must stop the application server.
 
-You can shutdown the application using the `stopLiberty` i2 Analyze toolkit task. In this distributed deployment example, run the i2 Analyze toolkit commands in the `liberty` Docker container. To run the command in the `liberty` Docker container, run the following command:
+You can shut down the application by using the `stopLiberty` i2 Analyze toolkit task. In this distributed deployment example, run the i2 Analyze toolkit commands in the `liberty` Docker container. To run the command in the `liberty` Docker container, run the following command:
 ```
 docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty
 ```

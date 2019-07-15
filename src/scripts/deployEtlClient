@@ -10,13 +10,13 @@
 # *
 # ********************************************************************************/
 
-#####################################################################################
-#                                                                                   #
-#  Script to set up the etl_client for use and to ingest example data               #
-#                                                                                   #
-#  Usage : deployEtlClient                                                          #
-#                                                                                   #
-#####################################################################################
+ #####################################################################################
+ #                                                                                   #
+ #  Script to set up the etl_client for use and to ingest example data               #
+ #                                                                                   #
+ #  Usage : deployEtlClient                                                          #
+ #                                                                                   #
+ #####################################################################################
 
 set -e
 
@@ -35,7 +35,7 @@ docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -
 
 rm -rf etltoolkit &>/dev/null || true
 docker cp admin_client:/opt/IBM/i2analyze/etltoolkit ./
-docker exec -u i2analyze admin_client rm -R /opt/IBM/i2analyze/etltoolkit
+docker exec -u i2analyze admin_client rm -Rf /opt/IBM/i2analyze/etltoolkit
 
 docker cp ./etltoolkit etl_client:/opt/IBM/i2analyze/etltoolkit
 rm -rf etltoolkit &>/dev/null || true

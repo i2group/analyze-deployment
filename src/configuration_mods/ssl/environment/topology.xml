@@ -37,6 +37,7 @@
           </file-store-ids>
           <fragments>
             <fragment name="opal-services-is" />
+			<fragment name="opal-services" />
             <fragment name="common" />
             <fragment name="default-user-profile-provider" />
           </fragments>

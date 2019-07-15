@@ -5,14 +5,14 @@ The distributed deployment example shows you how to set up the ETL logic on a se
 For more information about the ingestion architecture and the ETL toolkit, see [Understanding the architecture](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.iap.admin.ingestion.doc/architecture_and_ingestion.html).
 
 ## Before you begin
-Ensure that you can connect to the deployment and submit data using Analyst's Notebook Premium.
+Ensure that you can connect to the deployment and submit data by using Analyst's Notebook Premium.
 
 ## Deploying the ETL toolkit
 In the distributed deployment example, the ETL toolkit is deployed in its own server. Your configured i2 Analyze toolkit and DB2 Client must be installed on the ETL toolkit server.
 
 The `createEtlToolkit` toolkit task creates the ETL toolkit. In the Docker environment, the ETL toolkit is created inside the `admin_client` container and then copied into the ETL client container.
 
-In the Docker environment, the `etl_client_image` is created when you run the `buildImages` script. The ETL client container is started when you run the `runContainers` script. If you have cleaned your environment, rebuild and run the container.
+In the Docker environment, the `etl_client_image` is created when you run the `buildImages` script. The ETL client container is started when you run the `runContainers` script. If you cleaned your environment, rebuild and run the container.
 To build the ETL client image, run the following command from the `src/images` folder:
 ```
 docker build -t etl_client_image etl_client
@@ -25,7 +25,10 @@ To run the ETL client container, run the following command:
 docker run -d --name etl_client --net eianet -u i2analyze etl_client_image
 ```
 
-Run the `deployEtlClient` script from the `src/scripts` directory to create a new ETL toolkit and copy it to the `etl_client` container.
+Run the `deployEtlClient` script from the `src/scripts` directory to create a new ETL toolkit and copy it to the `etl_client` container:
+```
+./deployEtlClient
+```
 
 For more information about deploying the ETL toolkit in a non-Docker environment, see [Deploying the ETL toolkit](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.iap.admin.ingestion.doc/deploying_the_etl_toolkit.html).
 

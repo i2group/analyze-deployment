@@ -14,6 +14,7 @@
 #                                                                                   #
 #  Script to sign the certificates from the certificate signing requests            #
 #                                                                                   #
+#                                                                                   #
 #####################################################################################
 
 mkdir ${SRC_DIR}/keys/responses

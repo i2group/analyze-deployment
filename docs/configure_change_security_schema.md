@@ -4,7 +4,7 @@ An i2 Analyze security schema defines the security dimension values that you can
 For more information about the i2 Analyze security schema, see [Configuring the security schema and users](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/t_changing_sec_schema.html).
 
 ## Before you begin
-- Ensure that you can connect to the deployment with the current security schema, and submit data using Analyst's Notebook Premium.
+- Ensure that you can connect to the deployment with the current security schema, and submit data by using Analyst's Notebook Premium.
 - Ensure that all of the Docker containers are running.
 
 ## Modifying the security schema file
@@ -37,7 +37,7 @@ In a non-Docker environment, copy the `example-dynamic-security-schema.xml` file
 ## Stopping Liberty
 Before you update the security schema, you must stop the application server.
 
-You can shutdown the application using the `stopLiberty` i2 Analyze toolkit task. In this distributed deployment example, you run the i2 Analyze toolkit commands in the `liberty` Docker container. To run the command in the `liberty` Docker container, run the following command:
+You can shut down the application by using the `stopLiberty` i2 Analyze toolkit task. In this distributed deployment example, you run the i2 Analyze toolkit commands in the `liberty` Docker container. To run the command in the `liberty` Docker container, run the following command:
 ```
 docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty
 ```
@@ -87,6 +87,6 @@ The console output from the `startLiberty` task is output directly to the consol
 
 
 ## Testing the deployment
-To test that the security schema is updated successfully, you can change the `user.registry.xml` file to add a users to your new or updated groups and connect to the Information Store in Analyst's Notebook Premium.
+To test that the security schema is updated successfully, you can change the `user.registry.xml` file to add a user to your new or updated groups and connect to the Information Store in Analyst's Notebook Premium.
 
 For more information about changing the `user.registry.xml` file, see [Administering user access](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.maintain.doc/security_users_addremove.html).

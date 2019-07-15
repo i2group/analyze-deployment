@@ -28,7 +28,7 @@ pushd ..
 
 . ${UTILS_PATH}/functions
 
-rm -r ${CONFIG_MODS_PATH}/configuration_backup &>/dev/null || true
+rm -rf ${CONFIG_MODS_PATH}/configuration_backup &>/dev/null || true
 
 output "Backing up the configuration from the admin_client container."
 docker cp admin_client:/opt/IBM/i2analyze/toolkit/configuration ${CONFIG_MODS_PATH}/configuration_backup

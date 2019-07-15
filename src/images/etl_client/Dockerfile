@@ -15,7 +15,7 @@ FROM base_client_image
 USER i2analyze:db2iusr1
 
 #Remove the previous i2 Analyze deployment toolkit, to simulate the fact you wouldn't normally have the ETL toolkit and i2 Analyze toolkit on the same server.
-RUN rm -r ${i2analyzeDir}/*
+RUN rm -rf ${i2analyzeDir}/*
 
 #Copy the example data to ingest.
 COPY --chown=i2analyze:db2iusr1 example ${i2analyzeDir}/example

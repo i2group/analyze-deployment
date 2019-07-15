@@ -5,4 +5,3 @@ docs/override.xsl
 src/keys/
 src/configuration_mods/configuration_backup
 src/configuration_mods/configuration_upgraded
-src/configuration/environment/credentials.properties

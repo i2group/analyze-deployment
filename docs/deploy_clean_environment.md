@@ -16,7 +16,7 @@ To remove all of the containers that are used in the distributed deployment exam
 docker rm -f zookeeper solr solr2 db2 liberty admin_client etl_client ihs ca zookeeper2 zookeeper3 solr3 connector
 ```
 
-Attempting to remove containers that do not exist will error but will not stop the rest of the command and the existing containers from being removed.
+Attempting to remove containers that do not exist errors but does not stop the rest of the existing containers from being removed.
 
 You can now restart any of the containers that were removed.
 

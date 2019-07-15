@@ -14,7 +14,7 @@
 #                                                                                   #
 #  Script to update the configuration on all containers                             #
 #                                                                                   #
-#  Usage : updateServerConfigurations $configModsName                               #
+#  Usage : updateServerConfigurations [<configModsName>]                            #
 #                                                                                   #
 #####################################################################################
 
@@ -26,12 +26,12 @@ pushd ..
 
 configModsName=$1
 
-if [ -z "$configModsName" ]; then
+if [[ -z "$configModsName" ]]; then
     echo "Error: Configuration not specified."
     exit 1
 fi
 
-if [ ! -d "${CONFIG_MODS_PATH}/$configModsName" ]; then
+if [[ ! -d "${CONFIG_MODS_PATH}/$configModsName" ]]; then
     echo "Error: Specified configuration $configModsName does not exist."
     exit 1
 fi
@@ -46,12 +46,12 @@ docker cp "${CONFIG_MODS_PATH}/${configModsName}/." solr:/opt/IBM/i2analyze/tool
 docker cp "${CONFIG_MODS_PATH}/${configModsName}/." solr2:/opt/IBM/i2analyze/toolkit/configuration
 
 # Make sure the credentials file is up-to-date
-docker cp "${BASE_CONFIG_PATH}/environment/credentials.properties" admin_client:/opt/IBM/i2analyze/toolkit/configuration/environment/credentials.properties
-docker cp "${BASE_CONFIG_PATH}/environment/credentials.properties" ihs:/opt/IBM/i2analyze/toolkit/configuration/environment/credentials.properties
-docker cp "${BASE_CONFIG_PATH}/environment/credentials.properties" liberty:/opt/IBM/i2analyze/toolkit/configuration/environment/credentials.properties
-docker cp "${BASE_CONFIG_PATH}/environment/credentials.properties" zookeeper:/opt/IBM/i2analyze/toolkit/configuration/environment/credentials.properties
-docker cp "${BASE_CONFIG_PATH}/environment/credentials.properties" solr:/opt/IBM/i2analyze/toolkit/configuration/environment/credentials.properties
-docker cp "${BASE_CONFIG_PATH}/environment/credentials.properties" solr2:/opt/IBM/i2analyze/toolkit/configuration/environment/credentials.properties
+docker cp "${DEFAULT_CONFIG_PATH}/environment/credentials.properties" admin_client:/opt/IBM/i2analyze/toolkit/configuration/environment/credentials.properties
+docker cp "${DEFAULT_CONFIG_PATH}/environment/credentials.properties" ihs:/opt/IBM/i2analyze/toolkit/configuration/environment/credentials.properties
+docker cp "${DEFAULT_CONFIG_PATH}/environment/credentials.properties" liberty:/opt/IBM/i2analyze/toolkit/configuration/environment/credentials.properties
+docker cp "${DEFAULT_CONFIG_PATH}/environment/credentials.properties" zookeeper:/opt/IBM/i2analyze/toolkit/configuration/environment/credentials.properties
+docker cp "${DEFAULT_CONFIG_PATH}/environment/credentials.properties" solr:/opt/IBM/i2analyze/toolkit/configuration/environment/credentials.properties
+docker cp "${DEFAULT_CONFIG_PATH}/environment/credentials.properties" solr2:/opt/IBM/i2analyze/toolkit/configuration/environment/credentials.properties
 
 #Change the ownership of the copied files
 docker exec -u root liberty chown -R i2analyze:db2iusr1 /opt/IBM/i2analyze/toolkit/configuration
