@@ -1,0 +1,43 @@
+#!/bin/bash
+. /opt/IBM/utils/functions
+
+uri=$1
+
+keystoreFile=/opt/IBM/keys/stores/i2-${uri}-keystore.kdb
+keyName=${uri}key
+out=/opt/IBM/keys/requests/${uri}-key.csr
+
+if [ -e /opt/IBM/db2/gskit/bin/gsk8capicmd_64 ]
+then
+  gsk=/opt/IBM/db2/gskit/bin/gsk8capicmd_64
+  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/db2inst1/sqllib/lib64/gskit
+elif [ -e /opt/IBM/HTTPServer/gsk8/bin/gsk8capicmd_64 ]
+then
+  gsk=/opt/IBM/HTTPServer/gsk8/bin/gsk8capicmd_64
+  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/opt/IBM/HTTPServer/gsk8/lib64
+elif [ -e /usr/local/ibm/gsk8_64/bin/gsk8capicmd_64 ]
+then
+  gsk=/usr/local/ibm/gsk8_64/bin/gsk8capicmd_64
+  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/ibm/gsk8_64/lib64
+else
+  echo "Could not find gsk toolkit"
+  exit -1
+fi
+
+#Make the requests directory
+mkdir -p /opt/IBM/keys/requests
+
+#Create the stores directory
+mkdir -p /opt/IBM/keys/stores
+
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/ibm/gsk8_64/lib64
+
+#Generate new certificate pair
+runCommandUntilSuccess "$gsk -keydb -create -db $keystoreFile -genpw -stash"
+
+#Create signing request for public certificate
+runCommandUntilSuccess "$gsk -certreq -create -db $keystoreFile -label $keyName -sigalg SHA512WithRSA -size 2048 -dn CN=${uri} -stashed -file $out"
+
+#Change ownership to make visible to keys group
+chown -R root:keys /opt/IBM/keys
+chmod -R 650 /opt/IBM/keys

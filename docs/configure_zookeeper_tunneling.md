@@ -6,7 +6,7 @@ To secure the connection between ZooKeeper and i2 Analyze, you configure an SSH 
 - Ensure that all of the Docker containers are running.
 - If you deployed the example with one of the configurations in the `configuration_mods` directory or changed the `topology.xml` file. Reset your example deployment to the base configuration before you configure ZooKeeper and i2 Analyze to use an SSH tunnel. To reset your environment, run the following command from the `src/scripts` directory:
 ```
-resetEnvironment
+./resetEnvironment
 ```
 
 In a deployment of i2 Analyze, ZooKeeper acts as a server with Liberty and Solr connecting as clients. In the Docker distributed deployment example, the Admin Client also connects as a client.
@@ -39,7 +39,7 @@ The SSH setup is completed and i2 Analyze is restarted. You can test the deploym
 
 ---
 
-## Securing Zookeeper through SSH tunnel manually
+## Securing ZooKeeper through SSH tunnel manually
 ### Stopping Liberty
 Before you configure SSH tunneling, you must stop the application server.
 
@@ -98,7 +98,7 @@ docker exec -u i2analyze -d liberty ssh -4 i2analyze@zookeeper -L 9983:zookeeper
 
 ### Configuring i2 Analyze
 Configure i2 Analyze to use the SSH tunnel. The `topology.xml` file must contain `secure-connection="true"` and `host-name="127.0.0.1"` attributes in the `<zookeeper` and `<zkhost>` elements.
-In the distributed deployment example, you can see the configuration modifications in the `src/configuration_mods/tunneling` directory.
+In the distributed deployment example, you can see the configuration modifications in the `src/configuration_mods/<database>/tunneling` directory.
 
 The `updateServerConfigurations` script copies a configuration to each of the example containers. To copy the tunneling configuration, run the following command:
 ```

@@ -23,8 +23,13 @@ UTILS_PATH=${SCRIPTS_PATH}/utils
 SSL_SCRIPTS_PATH=${SCRIPTS_PATH}/ssl
 IMAGES_PATH=${SRC_DIR}/images
 DEFAULT_CONFIG_PATH=${SRC_DIR}/configuration
-BASE_CONFIG_PATH=${IMAGES_PATH}/ubuntu_toolkit/configuration
+BASE_CONFIG_PATH=${IMAGES_PATH}/common/ubuntu_toolkit/configuration
 CONFIG_MODS_PATH=${SRC_DIR}/configuration_mods
 NON_BASIC_CONTAINERS="ihs etl_client connector"
-I2ANALYZE_VERSION=4.2.1.0
-EIA_VERSION=2.2.1.0
+I2ANALYZE_VERSION=4.3.0.0
+EIA_VERSION=2.3.0.0
+
+# Dynamic variables
+
+DB_DIALECT=$(docker ps -a | grep -o "liberty_\w*_image" | cut -d_ -f2)
+DB_DIALECT=${DB_DIALECT:-sqlserver}

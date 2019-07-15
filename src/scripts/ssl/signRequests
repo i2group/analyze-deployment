@@ -14,8 +14,13 @@
 #                                                                                   #
 #  Script to sign the certificates from the certificate signing requests            #
 #                                                                                   #
+#  This script is called as part of the createKeysAndStores script.                 #
 #                                                                                   #
 #####################################################################################
+
+. ${UTILS_PATH}/variables
+
+dbDialect=${1:-${DB_DIALECT}}
 
 mkdir ${SRC_DIR}/keys/responses
 
@@ -44,10 +49,17 @@ docker cp ${SRC_DIR}/keys/requests/solr2-key.csr ca:/opt/IBM/ca
 docker exec -it ca /opt/IBM/ca/signCertificate solr solr2-key.csr solr2-key.cer
 docker cp ca:/opt/IBM/ca/solr2-key.cer ${SRC_DIR}/keys/responses/solr2-key.cer
 
-output "Signing db2 container certificate"
-docker cp ${SRC_DIR}/keys/requests/db2-key.csr ca:/opt/IBM/ca
-docker exec -it ca /opt/IBM/ca/signCertificate db2 db2-key.csr db2-key.cer
-docker cp ca:/opt/IBM/ca/db2-key.cer ${SRC_DIR}/keys/responses/db2-key.cer
+if [[ $dbDialect == "db2" ]]; then
+	output "Signing db2 container certificate"
+	docker cp ${SRC_DIR}/keys/requests/db2-key.csr ca:/opt/IBM/ca
+	docker exec -it ca /opt/IBM/ca/signCertificate db2 db2-key.csr db2-key.cer
+	docker cp ca:/opt/IBM/ca/db2-key.cer ${SRC_DIR}/keys/responses/db2-key.cer
+elif [[ $dbDialect == "sqlserver" ]]; then
+	output "Signing sqlserver container certificate"
+	docker cp ${SRC_DIR}/keys/requests/sqlserver-key.csr ca:/opt/IBM/ca
+	docker exec -it ca /opt/IBM/ca/signCertificate sqlserver sqlserver-key.csr sqlserver-key.cer
+	docker cp ca:/opt/IBM/ca/sqlserver-key.cer ${SRC_DIR}/keys/responses/sqlserver-key.cer
+fi
 
 output "Signing ihs container certificate"
 docker cp ${SRC_DIR}/keys/requests/ihs-key.csr ca:/opt/IBM/ca

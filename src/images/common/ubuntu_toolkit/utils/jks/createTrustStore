@@ -1,0 +1,33 @@
+#!/bin/bash
+#/********************************************************************************
+# * (C) Copyright IBM Corporation 2018, 2019.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# *
+# ********************************************************************************/
+
+#####################################################################################
+#                                                                                   #
+#  Script to create a trust store using Java keytool.                               #
+#  One trust store is used by all of the containers, because it contains the        #
+#  certificate authority signer certificate.                                        #
+#                                                                                   #
+#####################################################################################
+. /opt/IBM/utils/functions
+
+utils=/opt/IBM/utils
+keystoreFile=/opt/IBM/keys/stores/i2-jks-truststore.jks
+
+#Create the stores directory
+mkdir -p /opt/IBM/keys/stores
+
+#Import the certificate authority certificate into the trust store
+runCommandUntilSuccess "/opt/IBM/i2analyze/toolkit/tools/java/bin/keytool -importcert -alias ca -keystore $keystoreFile -file ${utils}/keys/CA.cer"
+
+#Change ownership of the directory for the keys group
+chown -R root:keys /opt/IBM/keys
+chmod -R 650 /opt/IBM/keys

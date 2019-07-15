@@ -1,0 +1,60 @@
+#!/bin/bash
+#/********************************************************************************
+# * (C) Copyright IBM Corporation 2018, 2019.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# *
+# ********************************************************************************/
+
+#####################################################################################
+#                                                                                   #
+#  Script to ingest data using the etl_client                                       #
+#  sql_server_image for the Microsoft SQL Server server                             #
+#                                                                                   #
+#####################################################################################
+
+# $1 - command to run
+function runCommandUntilSuccess
+{
+    set +e
+
+    eval $1
+    while [ $? -ne 0 ]; do
+        eval $1
+    done
+
+    set -e
+}
+
+cd /opt/IBM/i2analyze/etltoolkit
+
+#create an entity staging table
+/opt/IBM/i2analyze/etltoolkit/createInformationStoreStagingTable -stid ET5 -sn IS_Staging -tn E_Person
+
+#create a link staging table
+/opt/IBM/i2analyze/etltoolkit/createInformationStoreStagingTable -stid LAS1 -sn IS_Staging -tn L_Associate
+
+#populate the newly created E_Person staging table
+echo "Enter the password that you specified for db.infostore.password in the credentials.properties file"
+bcp IS_Staging.E_Person in "/opt/IBM/i2analyze/example/person.csv" -f "/opt/IBM/i2analyze/example/person.fmt" -F 2 -U i2analyze -S "sqlserver,1433" -d ISTORE
+
+#populate the newly created L_Associate staging table
+echo "Enter the password that you specified for db.infostore.password in the credentials.properties file"
+bcp IS_Staging.L_Associate in "/opt/IBM/i2analyze/example/person_association_person.csv" -f "/opt/IBM/i2analyze/example/person_association_person.fmt" -F 2 -U i2analyze -S "sqlserver,1433" -d ISTORE
+
+#create the ingestion source
+./addInformationStoreIngestionSource -n REMOTE -d "Remote ingestion source"
+
+#ingest from the E_Person staging table to the InformationStore
+./ingestInformationStoreRecords -imf /opt/IBM/i2analyze/example/mapping.xml -imid Person
+
+#ingest from the L_Associate staging table to the InformationStore
+./ingestInformationStoreRecords -imf /opt/IBM/i2analyze/example/mapping.xml -imid Associate
+
+echo "Cleaning staging tables"
+echo "Enter the password that you specified for db.infostore.password in the credentials.properties file"
+sqlcmd -U i2analyze -S "sqlserver,1433" -d ISTORE -Q "TRUNCATE TABLE IS_Staging.E_Person; TRUNCATE TABLE IS_Staging.L_Associate;"

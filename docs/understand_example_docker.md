@@ -19,7 +19,7 @@ In the distributed deployment example, `Dockerfiles` are used to define what is 
 
 For more information about `Dockerfile` definitions, see [Dockerfile format](https://docs.docker.com/engine/reference/builder/#format).
 
-The `Dockerfiles` are in each `src/<container_name>` directory. You can use a text editor to inspect the `Dockerfiles`. The `Dockerfiles` contain the commands that are used to build the Docker image.
+The `Dockerfiles` are in each `src/images/<container_name>` directory. You can use a text editor to inspect the `Dockerfiles`. The `Dockerfiles` contain the commands that are used to build the Docker image.
 
 Some commands in the `Dockerfiles` are specific to Docker, and required for the distributed deployment example to work in a Docker environment. However, all of the actions or commands that a system implementer must complete in a non-Docker environment are surfaced here. To identify the commands a system implementer requires, you must understand the `Dockerfiles`.
 

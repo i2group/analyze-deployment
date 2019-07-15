@@ -1,0 +1,45 @@
+*-----------------------------------------------------
+* (C) Copyright IBM Corporation 2018, 2019.
+*
+* This program and the accompanying materials are made available under the
+* terms of the Eclipse Public License 2.0 which is available at
+* http://www.eclipse.org/legal/epl-2.0.
+*
+* SPDX-License-Identifier: EPL-2.0
+*-----------------------------------------------------
+* Generated response file used by the DB2 Setup wizard
+* generation time: 12/30/17 8:25 AM
+*-----------------------------------------------------
+*  Product Installation
+LIC_AGREEMENT       = ACCEPT
+PROD       = CLIENT
+FILE       = /opt/IBM/db2
+INSTALL_TYPE       = CUSTOM
+COMP       = SQL_PROCEDURES
+COMP       = BASE_CLIENT
+COMP       = JAVA_SUPPORT
+COMP       = SPATIAL_EXTENDER_CLIENT_SUPPORT
+INSTALL_ENCRYPTION = YES
+* ----------------------------------------------
+*  Instance properties
+* ----------------------------------------------
+INSTANCE       = inst1
+inst1.TYPE       = client
+*  Instance-owning user
+inst1.NAME       = db2inst1
+inst1.GROUP_NAME       = db2iadm1
+inst1.HOME_DIRECTORY       = /home/db2inst1
+inst1.PASSWORD       = 483576880148902022456086760518323368211358444830355922331482826444794242664304052379061922827668459840444568253352555543288444362376671815392264088336132632569642373583636258263447637115922721583597360526684123964203416176721839273464331407665433364220259377376586722187453936201539963257792197115716521832223622166422483920687144155942081335423293446845028002320507711276646942861931536148653818007427031914767765846526243551223162062743642351762317187943422997946073233632414597456783024633142696284425284934526585725537422065423450047832746015015339382350845320261632233151953536322530446165192945563589271262917723133374268613170494029054139699535933114245664393626827333060041227135205753534223634758156222335169346493242436030449577433214531334349353788135477917
+ENCRYPTED       = inst1.PASSWORD
+inst1.AUTOSTART       = NO
+
+*-----------------------------------------------
+*  Installed Languages
+*-----------------------------------------------
+LANG       = EN
+
+*-----------------------------------------------
+*  Instance DBM CFG Settings
+*-----------------------------------------------
+inst1.SYSADM_GROUP    = db2iadm1
+inst1.SYSCTRL_GROUP   = db2ictl1

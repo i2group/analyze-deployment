@@ -13,7 +13,7 @@ docker rm -f container_name
 ```
 To remove all of the containers that are used in the distributed deployment example, run the following command:
 ```
-docker rm -f zookeeper solr solr2 db2 liberty admin_client etl_client ihs ca zookeeper2 zookeeper3 solr3 connector
+docker rm -f zookeeper solr solr2 db2 sqlserver liberty admin_client etl_client ihs ca zookeeper2 zookeeper3 solr3 connector
 ```
 
 Attempting to remove containers that do not exist errors but does not stop the rest of the existing containers from being removed.
@@ -30,8 +30,8 @@ docker rmi -f image_name
 
 To remove the images that are used in the distributed deployment example, run the following commands:
 ```
-docker rmi -f zookeeper_image solr_image solr2_image ihs_image liberty_image etl_client_image ca_image connector_image
-docker rmi -f db2_installer_image db2_image admin_client_image base_client_image
+docker rmi -f zookeeper_image solr_image solr2_image ihs_image liberty_db2_image liberty_sqlserver_image etl_client_db2_image etl_client_sqlserver_image
+docker rmi -f ca_image connector_image db2_installer_image db2_image admin_client_db2_image admin_client_sqlserver_image base_client_image
 docker rmi -f ubuntu_toolkit_image
 ```
 >Note: If the image that you want to remove is used to derive other images, you must remove all of the derived images before you can remove the image.

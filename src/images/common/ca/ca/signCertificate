@@ -1,0 +1,14 @@
+#!/bin/bash
+type=$1
+in=$2
+out=$3
+
+#Original CA.key was made using these commands
+#openssl req -new -sha256 -nodes -newkey rsa:4096 -keyout CA.key -out CA.csr
+#openssl x509 -req -sha256 -extfile x509.ext -extensions ca -in CA.csr -signkey CA.key -days 1095 -out CA.cer
+
+
+cd opt/IBM/ca
+
+#Signs the the request creating a new certificate
+openssl x509 -req -sha256 -CA CA.cer -CAkey CA.key -days 730 -CAcreateserial -CAserial CA.srl -extfile x509.ext -extensions $type -in $in -out $out

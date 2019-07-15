@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><Config IISDisableNagle="false" AppServerPortPreference="HostHeader" VHostMatchingCompat="false" AcceptAllContent="true" OS400ConvertQueryStringToJobCCSID="false" ResponseChunkSize="64" UseInsecure="true" IISPluginPriority="High" SSLConsolidate="true" ASDisableNagle="false" IgnoreDNSFailures="false" ChunkedResponse="false" RefreshInterval="60" HTTPMaxHeaders="300" FailoverToNext="false" FIPSEnable="false" TrustedProxyEnable="false">
+  <Log LogLevel="ERROR" Name="/opt/IBM/HTTPServer/plugins/iap/logs/plugin-cfg.log"/>
+  <Property Value="true" Name="ESIEnable"/>
+  <Property Value="1024" Name="ESIMaxCacheSize"/>
+  <Property Value="false" Name="ESIInvalidationMonitor"/>
+  <Property Value="false" Name="ESIEnableToPassCookies"/>
+  <Property Name="PluginInstallRoot" Value="/opt/IBM/HTTPServer/plugins/iap/config"/>
+  <RequestMetrics armEnabled="false" loggingEnabled="false" rmEnabled="false" traceLevel="HOPS">
+    <filters enable="false" type="URI">
+      <filterValues enable="false" value="/snoop"/>
+      <filterValues enable="false" value="/hitcount"/>
+    </filters>
+    <filters enable="false" type="SOURCE_IP">
+      <filterValues enable="false" value="255.255.255.255"/>
+      <filterValues enable="false" value="254.254.254.254"/>
+    </filters>
+    <filters enable="false" type="JMS">
+      <filterValues enable="false" value="destination=aaa"/>
+    </filters>
+    <filters enable="false" type="WEB_SERVICES">
+      <filterValues enable="false" value="wsdlPort=aaa:op=bbb:nameSpace=ccc"/>
+    </filters>
+  </RequestMetrics>
+  <ServerCluster GetDWLMTable="false" PostSizeLimit="-1" LoadBalance="Round Robin" CloneSeparatorChange="false" RetryInterval="60" PostBufferSize="64" RemoveSpecialHeaders="true" IgnoreAffinityRequests="true" Name="opal-server_cluster">
+    <Server ConnectTimeout="0" MaxConnections="-1" ExtendedHandshake="false" WaitForContinue="false" ServerIOTimeout="900" Name="opal-server">
+      <Transport Port="9445" Hostname="liberty" Protocol="https">
+        <Property Name="Keyring" Value="/opt/IBM/keys/stores/i2-cms-truststore.kdb"/>
+        <Property Name="Stashfile" Value="/opt/IBM/keys/stores/i2-cms-truststore.sth"/>
+      </Transport>
+    </Server>
+    <PrimaryServers>
+      <Server Name="opal-server"/>
+    </PrimaryServers>
+  </ServerCluster>
+  <VirtualHostGroup Name="opal-server_host">
+    <VirtualHost Name="*:443"/>
+  </VirtualHostGroup>
+  <UriGroup Name="opal-services-is_URIs">
+    <Uri AffinityCookie="JSESSIONID" AffinityURLIdentifier="jsessionid" Name="/opal/*"/>
+    <Uri AffinityCookie="JSESSIONID" AffinityURLIdentifier="jsessionid" Name="/opal/api/*"/>
+    <Uri AffinityCookie="JSESSIONID" AffinityURLIdentifier="jsessionid" Name="/opal/api/v1/authsessions/current/logout/*"/>
+    <Uri AffinityCookie="JSESSIONID" AffinityURLIdentifier="jsessionid" Name="/opal/authenticated.html/*"/>
+    <Uri AffinityCookie="JSESSIONID" AffinityURLIdentifier="jsessionid" Name="/opal/index.html/*"/>
+    <Uri AffinityCookie="JSESSIONID" AffinityURLIdentifier="jsessionid" Name="/opal/js/*"/>
+  </UriGroup>
+  <Route ServerCluster="opal-server_cluster" UriGroup="opal-services-is_URIs" VirtualHostGroup="opal-server_host"/>
+  <UriGroup Name="opal-server_custom_URIs">
+    <!--Manually configured URIs for the opal-server_host may be added in this section.-->
+  </UriGroup>
+  <Route ServerCluster="opal-server_cluster" UriGroup="opal-server_custom_URIs" VirtualHostGroup="opal-server_host"/>
+</Config>

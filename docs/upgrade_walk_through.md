@@ -1,10 +1,8 @@
-# Upgrading a distributed deployment to version 4.2.0 of i2 Analyze
+# Upgrading a distributed deployment to version 4.3.0 of i2 Analyze
 To upgrade the example distributed deployment, you must run an upgrade command on each server in your deployment. The following instructions detail what is required on each container, and how to use these steps to upgrade i2 Analyze on physical servers.
 
 ## Before you begin
-- Complete the [Quick deploy](deploy_quick_start.md) section at least once with an earlier version of the software.
-
-You must run all Docker commands from a command line where Docker is initialized.
+- You must have a working distributed deployment of a previous version of i2 Analyze, completed with a previous version of the distributed deployment example.
 
 >Important: If you are upgrading a distributed deployment that was created by using V1.x of the distributed deployment example, you must not update your distributed deployment example source code. Continue to use the same scripts, images, and containers from V1.x of the distributed deployment example.
 In addition, you must run any commands on the Docker container as the `root` user instead of the `i2analyze` user. For example, `docker exec -u root liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty` instead of `docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty`.
@@ -13,15 +11,22 @@ In addition, you must run any commands on the Docker container as the `root` use
 ## Prerequisites for upgrading the distributed deployment
 Download, install, and configure the prerequisites for upgrading a distributed deployment.
 
+### Example code
+Clone or download the distributed deployment example from <https://github.ibm.com/ibmi2/distributedExample/releases>.
+
+Remove the current distributed example code, but ensure the containers stay running.
+
+Extract the distributed Example that you just downloaded.
+
 ### i2 Analyze
-Download i2 Analyze version 4.2.0 for Linux. You download the IBM i2 Analyze (Archive install) for Linux using part number *CNSL7ML*.
+Download i2 Analyze version 4.3.0 for Linux. You download the IBM i2 Analyze (Archive install) for Linux using part number *CNSL7ML*.
 
-Rename the `I2_ANA_4.2.0__ARCHIVE_INSTALL_LIN.gz` file to `i2analyze.tar.gz`.
+Rename the `I2_ANA_4.3.0__ARCHIVE_INSTALL_LIN.gz` file to `i2analyze.tar.gz`.
 
-Copy the archive file to the `src` directory.
+Copy the archive file to the `src/images/common/ubuntu_toolkit/i2analyze` directory.
 
 ### Analyst's Notebook Premium
-Download *i2 Analyst's Notebook Premium* version 9.1.0 using the following part number: *CNSL4ML*.
+Download *i2 Analyst's Notebook Premium* version 9.2.0 using the following part number: *CNSL4ML*.
 
 Upgrade Analyst's Notebook Premium. For more information, see [Upgrading IBM i2 Analyst's Notebook Premium](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.iap.upgrade.doc/upgrading_anbp.html).
 
@@ -44,11 +49,11 @@ Before you upgrade your deployment, you must backup your current configuration. 
 In a non-Docker environment, ensure that you have a copy of the `configuration` directory that contains your complete configuration in a location outside of the i2 Analyze toolkit. The process of upgrading i2 Analyze removes the deployment toolkit from each server in the deployment. Ensure that the backup of your configuration is up-to-date for each server in your deployment.
 
 ### Installing i2 Analyze
-You must install version 4.2.0 of i2 Analyze on each server in the deployment. In the distributed deployment example, you can use the `installToolkit` script to install i2 Analyze on each container.
+You must install version 4.3.0 of i2 Analyze on each server in the deployment. In the distributed deployment example, you can use the `installToolkit` script to install i2 Analyze on each container.
 
 To install i2 Analyze on each container, run the following command from the `src/scripts` directory:
 ```
-installToolkit ../images/ubuntu_toolkit/i2analyze/i2analyze.tar.gz
+installToolkit ./images/common/ubuntu_toolkit/i2analyze/i2analyze.tar.gz
 ```
 
 In a non-Docker environment, install i2 Analyze on each server by using the following instructions: [Upgrading the deployment toolkit](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.iap.upgrade.doc/upgrading_4_1_3.html).
@@ -60,6 +65,10 @@ To copy your backed up configuration to the `admin_client` container, run the fo
 ```
 docker cp ./configuration_mods/configuration_backup admin_client:/opt/IBM/i2analyze/toolkit/configuration
 ```
+When the directory is copied, the owner of the directory, and all files within it, is changed. The user that runs the deployment script must be able to write to files within the `configuration` directory. To change the ownership of the directory and the files, run the following command:
+```
+docker exec -u root admin_client chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
+```
 The configuration is now on the `admin_client` container.
 
 In a non-Docker environment, copy your backed up configuration directory to the `i2analyze/toolkit/configuration` directory on your equivalent of the Admin Client server.
@@ -70,7 +79,7 @@ You can complete a quick upgrade or you can upgrade manually. Completing the upg
 ## Quick upgrade
 To upgrade the example distributed deployment, a script is provided that upgrades i2 Analyze and its components.
 
-To upgrade your deployment, run the `upgradeToolkit` script from the `src/scripts` directory.
+To upgrade your deployment, run the `upgradeDeployment` script from the `src/scripts` directory.
 
 All of the components of i2 Analyze are upgraded and the application is started. You can test the deployment by completing the steps in *Testing the deployment*.
 
@@ -78,7 +87,7 @@ All of the components of i2 Analyze are upgraded and the application is started.
 
 ## Upgrade the deployment manually
 ## Upgrading and copying the configuration
-Upgrade the i2 Analyze configuration to version 4.2.0. To upgrade the configuration, run the following command on the `admin_client` container:
+Upgrade the i2 Analyze configuration to version 4.3.0. To upgrade the configuration, run the following command on the `admin_client` container:
 ```
 docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeConfiguration
 ```
@@ -97,7 +106,7 @@ updateServerConfigurations upgraded_configuration
 In a non-Docker environment, copy the upgraded configuration to the `i2analyze/toolkit/configuration` directory on each server.
 
 ## Upgrading and starting the components of i2 Analyze
-After the upgraded configuration is present on each server, you must upgrade each component of the deployment to version 4.2.0.
+After the upgraded configuration is present on each server, you must upgrade each component of the deployment to version 4.3.0.
 
 You must upgrade and start the components of a deployment in the order that they are described here.
 
@@ -165,7 +174,7 @@ The console output from the `startLiberty` task is output directly to the consol
 ### (Optional) Upgrading the ETL Client
 If your deployment uses an ETL Client, you must recreate it with the new upgraded toolkit.
 
-In the distributed deployment example, the `runEtlClient` script removes the old installation from your running etl_client container, creates a new etl_client in the admin_client container and copies it over to the etl_client container creates a copy of your configuration directory on the Admin Client container. The backup of your configuration is in the `src/configuration_mods/configuration_backup` directory.
+In the distributed deployment example, the `runEtlClient` script removes the old installation from your running etl_client container, creates a new etl_client in the admin_client container and copies it over to the `etl_client` container creates a copy of your configuration directory on the Admin Client container. The backup of your configuration is in the `src/configuration_mods/configuration_backup` directory.
 
 ---
 

@@ -1,0 +1,27 @@
+#!/bin/bash
+#/********************************************************************************
+# * (C) Copyright IBM Corporation 2018, 2019.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# *
+# ********************************************************************************/
+
+#####################################################################################
+#                                                                                   #
+#  Script to set up the key stores used for SSL.                                    #
+#                                                                                   #
+#####################################################################################
+. /home/db2inst1/sqllib/db2profile
+
+keystoreFile=/opt/IBM/keys/stores/i2-db2-keystore.kdb
+stashFile=/opt/IBM/keys/stores/i2-db2-keystore.sth
+
+cd /opt/IBM/keys/stores
+chown root:keys $keystoreFile
+chmod g+r $keystoreFile
+chown root:keys $stashFile
+chmod g+r $stashFile

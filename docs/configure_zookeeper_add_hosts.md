@@ -9,10 +9,10 @@ A ZooKeeper ensemble is usually made up of an odd number of ZooKeeper servers. F
 ## Before you begin
 - If you deployed the example with one of the configurations in the `configuration_mods` directory or changed the `topology.xml` file. Reset your example deployment to the base configuration before you add other ZooKeeper servers. To reset your environment, run the following command from the `src/scripts` directory:
 ```
-resetEnvironment
+./resetEnvironment
 ```
 
-- Create two directories that are named `zookeeper2` and `zookeeper3` in the `src/images` directory, and copy the contents of the `src/images/zookeeper` directory into the new `zookeeper2` and `zookeeper3` directories.
+- Create two directories that are named `zookeeper2` and `zookeeper3` in the `src/images/common` directory, and copy the contents of the `src/images/common/zookeeper` directory into the new `zookeeper2` and `zookeeper3` directories.
 
 ## Modifying the `Dockerfiles`
 In the Docker environment, create two more containers to represent the extra servers. The new containers are copies of the ZooKeeper container, which are modified to use a different host name and port.
@@ -34,7 +34,7 @@ This is the host name of the new container.
 This is the port that is exposed to enable connection to ZooKeeper from the host machine.
 
 ## Adding the ZooKeeper servers to the `topology.xml`
-Modify the `topology.xml` file in the `src/images/zookeeper2/configuration/environment` and `src/images/zookeeper3/configuration/environment` directories to include the new ZooKeeper host ports that are specified in the `Dockerfile`.  
+Modify the `topology.xml` file in the `src/images/common/zookeeper2/configuration/environment` and `src/images/common/zookeeper3/configuration/environment` directories to include the new ZooKeeper host ports that are specified in the `Dockerfile`.  
 
 >Note: If all of your servers are intended to run on separate machines, you can configure them to use the same port numbers.
 
@@ -49,10 +49,10 @@ Make the same modification to the `topology.xml` file in the `src/configuration/
 ## Build and create the ZooKeeper containers
 Build the ZooKeeper image, run the following commands from the `src/images` folder:
 ```
-docker build -t zookeeper2_image zookeeper2
-docker build -t zookeeper3_image zookeeper3
+docker build -t zookeeper2_image /common/zookeeper2
+docker build -t zookeeper3_image /common/zookeeper3
 ```
-The `zookeeper2` and `zookeeper3` images are created. Inspect the `Dockerfiles` in the `src/images/zookeper2` and `src/images/zookeeper3` directories to see the commands that are required to configure the ZooKeeper servers.
+The `zookeeper2` and `zookeeper3` images are created. Inspect the `Dockerfiles` in the `src/images/common/zookeper2` and `src/images/common/zookeeper3` directories to see the commands that are required to configure the ZooKeeper servers.
 
 Run the ZooKeeper containers:
 ```

@@ -16,7 +16,7 @@ In the distributed deployment example, the IBM HTTP Server is deployed in its ow
 In the Docker environment, the `ihs_image` is created when you run the `buildImages` script. The IBM HTTP Server container is started when you run the `runContainers` script. If you cleaned your environment, rebuild and run the container.
 To build the IBM HTTP Server image, run the following command from the `src/images` folder:
 ```
-docker build -t ihs_image ihs
+docker build -t ihs_image common/ihs
 ```
 
 The IBM HTTP Server image is created with the name `ihs_image`.
@@ -34,7 +34,7 @@ The current configuration is set up for a deployment that does not use the HTTP 
 
 The configuration is now on each container.
 
-In a non-Docker environment, modify each configuration to match the configuration in the `src/configuration_mods/ihs` directory.
+In a non-Docker environment, modify each configuration to match the configuration in the `src/configuration_mods/<database management system>/ihs` directory.
 
 ### Redeploying and starting the components of i2 Analyze
 After the configuration is present on each server, you must redeploy and start each component of i2 Analyze.
@@ -49,7 +49,7 @@ docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t sto
 The console output from the `stopLiberty` task is output directly to the console.
 
 #### Deploying Liberty
-To deploy Liberty, run got following command on the `liberty` container:
+To deploy Liberty, run following command on the `liberty` container:
 ```
 docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t deployLiberty
 ```

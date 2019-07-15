@@ -10,13 +10,13 @@
 # *
 # ********************************************************************************/
 
- #####################################################################################
- #                                                                                   #
- #  Script to set up the etl_client for use and to ingest example data               #
- #                                                                                   #
- #  Usage : deployEtlClient                                                          #
- #                                                                                   #
- #####################################################################################
+#####################################################################################
+#                                                                                   #
+#  Script to set up the etl_client for use and to ingest example data               #
+#                                                                                   #
+#  Usage : deployEtlClient                                                          #
+#                                                                                   #
+#####################################################################################
 
 set -e
 
@@ -25,6 +25,13 @@ set -e
 pushd ..
 
 . ${UTILS_PATH}/functions
+
+dbDialect=${1:-${DB_DIALECT}}
+
+if [[ $dbDialect != "sqlserver" &&  $dbDialect != "db2" ]]; then
+    echo "Error: Unrecognized dialect."
+    exit 1
+fi
 
 output "Removing old etltoolkit from etl_client and admin_client if exists"
 docker exec -u i2analyze etl_client rm -Rf /opt/IBM/i2analyze/etltoolkit
@@ -39,6 +46,11 @@ docker exec -u i2analyze admin_client rm -Rf /opt/IBM/i2analyze/etltoolkit
 
 docker cp ./etltoolkit etl_client:/opt/IBM/i2analyze/etltoolkit
 rm -rf etltoolkit &>/dev/null || true
-docker exec -u root -it etl_client chown -R i2analyze:db2iusr1 /opt/IBM/i2analyze/
+
+if [[ $dbDialect == "sqlserver" ]]; then
+    docker exec -u root -it etl_client chown -R i2analyze:i2analyze /opt/IBM/i2analyze/
+else
+    docker exec -u root -it etl_client chown -R i2analyze:db2iusr1 /opt/IBM/i2analyze/
+fi
 
 popd

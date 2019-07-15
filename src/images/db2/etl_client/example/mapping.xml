@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns2:ingestionMappings xmlns:ns2="http://www.i2group.com/Schemas/2016-08-12/IngestionMappings" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <ingestionMapping id="Person">
+    <itemTypeId>ET5</itemTypeId>
+    <stagingArea xsi:type="ns2:databaseIngestionSource">
+	  <tableName>IS_Staging.E_Person</tableName>
+    </stagingArea>
+    <dataSourceName>REMOTE</dataSourceName>
+    <securityDimensionValues>
+      <securityDimensionValue>HI</securityDimensionValue>
+      <securityDimensionValue>UC</securityDimensionValue>
+      <securityDimensionValue>OSI</securityDimensionValue>
+    </securityDimensionValues>
+    <originId>
+      <type>OI.REMOTE</type>
+      <keys>
+        <key>$(SOURCE_ID)</key>
+	<key>person</key>
+	<key>i2.REMOTE</key>
+      </keys>
+    </originId>
+  </ingestionMapping>
+   <ingestionMapping id="Associate">
+    <itemTypeId>LAS1</itemTypeId>
+	<fromEntityTypeId>ET5</fromEntityTypeId>
+	<toEntityTypeId>ET5</toEntityTypeId>
+    <stagingArea xsi:type="ns2:databaseIngestionSource">
+	  <tableName>IS_Staging.L_Associate</tableName>
+    </stagingArea>
+    <dataSourceName>REMOTE</dataSourceName>
+    <securityDimensionValues>
+      <securityDimensionValue>HI</securityDimensionValue>
+      <securityDimensionValue>UC</securityDimensionValue>
+      <securityDimensionValue>OSI</securityDimensionValue>
+    </securityDimensionValues>
+    <originId>
+      <type>OI.REMOTE</type>
+      <keys>
+        <key>$(SOURCE_ID)</key>
+	<key>associate</key>
+	<key>i2.REMOTE</key>
+      </keys>
+    </originId>
+	<fromOriginId>
+      <type>OI.REMOTE</type>
+      <keys>
+        <key>$(FROM_SOURCE_ID)</key>
+	<key>person</key>
+	<key>i2.REMOTE</key>
+      </keys>
+    </fromOriginId>
+	<toOriginId>
+      <type>OI.REMOTE</type>
+      <keys>
+        <key>$(TO_SOURCE_ID)</key>
+	<key>person</key>
+	<key>i2.REMOTE</key>
+      </keys>
+    </toOriginId>
+    <createdSource>2001-03-06 17:51:36</createdSource>
+    <lastUpdatedSource>2001-03-07 12:34:36</lastUpdatedSource>
+  </ingestionMapping>
+
+</ns2:ingestionMappings>

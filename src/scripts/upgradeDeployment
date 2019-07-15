@@ -16,7 +16,8 @@
 #  Ensure that your containers already have the new version of the toolkit          #
 #  installed and that you have copied your previous configuration to the containers.#
 #                                                                                   #
-#  Usage : upgradeDeployment                                                        #
+#  Usage : upgradeDeployment [<dbDialect>]                                          #
+#  Defaults to current dialect                                                      #
 #                                                                                   #
 #####################################################################################
 
@@ -27,21 +28,19 @@ set -e
 pushd ..
 
 . ${UTILS_PATH}/functions
-
-output "Stopping Liberty"
-docker exec -t -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty
+dbDialect=${1:-${DB_DIALECT}}
 
 output "Upgrading the previous configuration"
 docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeConfiguration
 
 output "Copying the upgraded configuration from the admin_client container to your local machine"
-rm -rf ${CONFIG_MODS_PATH}/configuration_upgraded &>/dev/null || true
-docker cp admin_client:/opt/IBM/i2analyze/toolkit/configuration ${CONFIG_MODS_PATH}/configuration_upgraded
+rm -rf ${CONFIG_MODS_PATH}/${dbDialect}/configuration_upgraded &>/dev/null || true
+docker cp admin_client:/opt/IBM/i2analyze/toolkit/configuration ${CONFIG_MODS_PATH}/${dbDialect}/configuration_upgraded
 
 output "Copying the upgraded configuration to each container"
 
 pushd ${SCRIPTS_PATH}
-. updateServerConfigurations configuration_upgraded
+. updateServerConfigurations configuration_upgraded ${dbDialect}
 popd
 
 output "Upgrading Zookeeper"

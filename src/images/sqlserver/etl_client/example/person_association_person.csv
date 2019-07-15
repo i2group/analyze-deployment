@@ -1,0 +1,2 @@
+source_id,from_source_id,to_source_id,p_association_type,direction
+BLA:GEN\1,PER:GEN\101,PER:GEN\102,Associate,NONE

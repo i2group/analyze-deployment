@@ -1,0 +1,32 @@
+#!/bin/bash
+. /opt/IBM/utils/functions
+
+uri=$1
+
+utils=/opt/IBM/utils
+keystoreFile=/opt/IBM/keys/stores/i2-${uri}-keystore.kdb
+keyName=${uri}key
+in=/opt/IBM/keys/responses/${uri}-key.cer
+
+if [ -e /opt/IBM/db2/gskit/bin/gsk8capicmd_64 ]
+then
+  gsk=/opt/IBM/db2/gskit/bin/gsk8capicmd_64
+  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/db2inst1/sqllib/lib64/gskit
+elif [ -e /opt/IBM/HTTPServer/gsk8/bin/gsk8capicmd_64 ]
+then
+  gsk=/opt/IBM/HTTPServer/gsk8/bin/gsk8capicmd_64
+  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/opt/IBM/HTTPServer/gsk8/lib64
+elif [ -e /usr/local/ibm/gsk8_64/bin/gsk8capicmd_64 ]
+then
+  gsk=/usr/local/ibm/gsk8_64/bin/gsk8capicmd_64
+  export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/ibm/gsk8_64/lib64
+else
+  echo "Could not find gsk toolkit"
+  exit -1
+fi
+
+#Import the certificate authority
+runCommandUntilSuccess "$gsk -cert -add -db $keystoreFile -stashed -label \"caCer\" -file ${utils}/keys/CA.cer -format binary -trust enable"
+
+#Apply the signed certificate to the store. The existing public certificate will be replaced with the signed one
+runCommandUntilSuccess "$gsk -cert -receive -db $keystoreFile -stashed -file $in -default_cert yes"

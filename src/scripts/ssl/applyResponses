@@ -14,8 +14,13 @@
 #                                                                                   #
 #  Script to add the signed certificates into their corresponding key store.        #
 #                                                                                   #
+#  This script is called as part of the createKeysAndStores script.                 #
 #                                                                                   #
 #####################################################################################
+
+. ${UTILS_PATH}/variables
+
+dbDialect=${1:-${DB_DIALECT}}
 
 output "Adding the signed certificate to the liberty container"
 docker cp ${SRC_DIR}/keys/responses/. liberty:/opt/IBM/keys/responses
@@ -43,9 +48,14 @@ output "Adding the signed certificate to the solr2 container"
 docker cp ${SRC_DIR}/keys/responses/. solr2:/opt/IBM/keys/responses
 docker exec -u root -it solr2 /opt/IBM/utils/jks/applyResponse solr2
 
-output "Adding the signed certificate to the db2 container"
-docker cp ${SRC_DIR}/keys/responses/. db2:/opt/IBM/keys/responses
-docker exec -u root -it db2 /opt/IBM/utils/cms/applyResponse db2
+if [[ $dbDialect == "db2" ]]; then
+	output "Adding the signed certificate to the db2 container"
+	docker cp ${SRC_DIR}/keys/responses/. db2:/opt/IBM/keys/responses
+	docker exec -u root -it db2 /opt/IBM/utils/cms/applyResponse db2
+elif [[ $dbDialect == "sqlserver" ]]; then
+	output "Adding the signed certificate to the sqlserver container"
+	docker cp ${SRC_DIR}/keys/responses/. sqlserver:/opt/IBM/keys/responses
+fi
 
 output "Adding the signed certificate to the ihs container"
 docker cp ${SRC_DIR}/keys/responses/. ihs:/opt/IBM/keys/responses

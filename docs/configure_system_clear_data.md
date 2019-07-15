@@ -16,7 +16,7 @@ The console output from the `stopLiberty` task is output directly to the console
 ## Clearing data from the system
 To remove data from both the search index and the database, you can use the `clearData` toolkit task. For more information, see [Clearing data from the system](https://www.ibm.com/support/knowledgecenter/en/SSXVXZ/com.ibm.i2.eia.go.live.doc/t_clearing_data.html).
 
-To clear the data, you can run the command from the Admin client or Liberty server. In this distributed deployment example, the `admin_client` container is used to run the command. The `admin_client` container includes the i2 Analyze toolkit and a DB2 client installation. You must run commands that modify the database and Solr and ZooKeeper from this container.
+To clear the data, you can run the command from the Admin client or Liberty server. In the distributed deployment example, the `admin_client` container is used to run the command. The `admin_client` container includes the i2 Analyze toolkit and a database management client installation. You must run commands that modify the database and Solr and ZooKeeper from this container.
 
 To clear the data, run the following command:
 ```

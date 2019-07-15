@@ -21,15 +21,15 @@ The changed configuration must be copied to the `admin_client` and `liberty` con
 
 To copy, and overwrite, your configuration to the `admin_client` and `liberty` containers, run the following commands from the `src` directory:
 ```
-docker cp ./configuration admin_client:/opt/IBM/i2analyze/toolkit/
-docker cp ./configuration liberty:/opt/IBM/i2analyze/toolkit/
+docker cp ./configuration/fragments/common/WEB-INF/classes admin_client:/opt/IBM/i2analyze/toolkit/configuration/fragments/common/WEB-INF/
+docker cp ./configuration/fragments/common/WEB-INF/classes liberty:/opt/IBM/i2analyze/toolkit/configuration/fragments/common/WEB-INF/
 ```
 The new configuration is now on the `admin_client` and `liberty` containers.
 
 When the directory is copied, the owner of the directory, and all files within it, is changed. The user that runs the deployment script must be able to write to files within the `configuration` directory. To change the ownership of the directory and the files, run the following commands:
 ```
-docker exec -u root admin_client chown -R i2analyze:db2iusr1 /opt/IBM/i2analyze/toolkit/configuration
-docker exec -u root liberty chown -R i2analyze:db2iusr1 /opt/IBM/i2analyze/toolkit/configuration
+docker exec -u root admin_client chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
+docker exec -u root liberty chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
 ```
 
 In a non-Docker environment, copy the `example-dynamic-security-schema.xml` file and any other modified files to the same location on the Liberty server and ensure that the correct permissions are set.
@@ -37,7 +37,7 @@ In a non-Docker environment, copy the `example-dynamic-security-schema.xml` file
 ## Stopping Liberty
 Before you update the security schema, you must stop the application server.
 
-You can shut down the application by using the `stopLiberty` i2 Analyze toolkit task. In this distributed deployment example, you run the i2 Analyze toolkit commands in the `liberty` Docker container. To run the command in the `liberty` Docker container, run the following command:
+You can shut down the application by using the `stopLiberty` i2 Analyze toolkit task. In the distributed deployment example, run the following command in the `liberty` Docker container:
 ```
 docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty
 ```
@@ -48,7 +48,7 @@ Some modifications to the security schema require you to clear the search index.
 
 If your changes require you to clear the search index, complete the rest of this section.
 
-To clear the search index, you can run the command from Admin client or Liberty server. In this distributed deployment example, the `admin_client` container is used to run the command. The `admin_client` container includes the i2 Analyze toolkit and a DB2 client installation. When you run the container, the remote Information Store database is cataloged. You can run commands that modify the database from this container.
+To clear the search index, you can run the command from Admin client or Liberty server. In the distributed deployment example, the `admin_client` container is used to run the command. The `admin_client` container includes the i2 Analyze toolkit and a DB2 client installation. When you run the container, the remote Information Store database is cataloged. You can run commands that modify the database from this container.
 
 To clear the search index, run the following command:
 ```

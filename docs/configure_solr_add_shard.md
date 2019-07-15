@@ -18,7 +18,7 @@ The following steps are only required when you want to add a shard to a live dep
 ---
 
 ## Adding a shard to a live collection
-In the Solr collections that are created by i2 Analyze, the `compositeId` router is used that means you cannot add shards explicitly. To add a shard to an existing collection, you must split an existing one.
+In the Solr collections that are created by i2 Analyze, the `compositeId` router is used, which means that you cannot add shards explicitly. To add a shard to an existing collection, you must split an existing one.
 
 If you add a shard to a live collection, you must replicate the same changes to your Solr collection creation definition.
 
@@ -102,4 +102,4 @@ For more information about the `DELETEREPLICA` call, see [DELETEREPLICA: Delete 
 ---
 
 ## Testing the deployment
-To test that the system continues to work, create and search for data by using quick search in Analyst's Notebook Premium.
+To test that the system continues to work, create and search for data by using Quick Search in Analyst's Notebook Premium.

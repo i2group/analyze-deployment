@@ -18,13 +18,13 @@ Your results configuration file changes are required by Liberty. The modified co
 
 In a Docker environment, use the docker `cp` command to copy, and overwrite, your configuration to the running `liberty` container. In the `src` directory, run the following command:
 ```
-docker cp ./configuration liberty:/opt/IBM/i2analyze/toolkit/
+docker cp ./configuration/fragments/common/WEB-INF/classes liberty:/opt/IBM/i2analyze/toolkit/configuration/fragments/common/WEB-INF/
 ```
 The new configuration is now on the `liberty` container.
 
 When the directory is copied, the owner of the directory, and all files within it, is changed. The user that runs the deployment script must be able to write to files within the `configuration` directory. To change the ownership of the directory and the files, run the following command:
 ```
-docker exec -u root liberty chown -R i2analyze:db2iusr1 /opt/IBM/i2analyze/toolkit/configuration
+docker exec -u root liberty chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
 ```
 
 In a non-Docker environment, copy the modified results configuration file to the same location on the Liberty server and ensure that the correct permissions are set.

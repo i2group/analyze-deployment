@@ -14,8 +14,9 @@
 #                                                                                   #
 #  Script to deploy a complete SSL deployment of i2 Analyze                         #
 #                                                                                   #
-#  Usage : setupSecurity [<configurationDir>]                                       #
+#  Usage : setupSecurity [<configurationDir>] [<dbDialect>]                         #
 #  Defaults to ssl configuration directory                                          #
+#  Defaults to current dialect                                                      #
 #                                                                                   #
 #####################################################################################
 
@@ -34,19 +35,27 @@ if [[ $configurationDir != "client_cert_ssl" &&  $configurationDir != "ssl" &&  
     exit 1
 fi
 
+dbDialect=${2:-${DB_DIALECT}}
+if [[ $dbDialect != "sqlserver" &&  $dbDialect != "db2" ]]; then
+    echo "Error: Unrecognized dialect."
+    exit 1
+fi
+
 pushd ${SCRIPTS_PATH}
-. updateServerConfigurations $configurationDir
+. updateServerConfigurations $configurationDir $dbDialect
 popd
 
 header "Enabling SSL on all servers"
 
 output "Redeploying configuration"
-output "Recataloging the database on the admin_client container"
-docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogRemoteDB2Nodes
-docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogDB2Databases
-output "Recataloging the database on the liberty container"
-docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogRemoteDB2Nodes
-docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogDB2Databases
+if [[ $dbDialect == "db2" ]]; then
+    output "Recataloging the database on the admin_client container"
+    docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogRemoteDB2Nodes
+    docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogDB2Databases
+    output "Recataloging the database on the liberty container"
+    docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogRemoteDB2Nodes
+    docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogDB2Databases
+fi
 
 output "Deploying Liberty"
 docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t deployLiberty
@@ -60,8 +69,35 @@ fi
 output "Update the Solr configuration on the ZooKeeper server"
 docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname zookeeper
 
-output "Updating the DB2 configuration"
-docker exec -u db2inst1 db2 db2set DB2COMM=ssl
+if [[ $dbDialect == "db2" ]]; then
+    output "Updating the DB2 configuration"
+    docker exec -u db2inst1 db2 db2set DB2COMM=ssl
+
+    #Configure clients
+    docker exec -u db2inst1 -t liberty db2 update dbm cfg using SSL_CLNT_KEYDB /opt/IBM/keys/stores/i2-db2-truststore.kdb SSL_CLNT_STASH /opt/IBM/keys/stores/i2-db2-truststore.sth
+    docker exec -u db2inst1 -t admin_client db2 update dbm cfg using SSL_CLNT_KEYDB /opt/IBM/keys/stores/i2-db2-truststore.kdb SSL_CLNT_STASH /opt/IBM/keys/stores/i2-db2-truststore.sth
+    docker exec -u db2inst1 -t etl_client db2 update dbm cfg using SSL_CLNT_KEYDB /opt/IBM/keys/stores/i2-db2-truststore.kdb SSL_CLNT_STASH /opt/IBM/keys/stores/i2-db2-truststore.sth
+
+elif [[ $dbDialect == "sqlserver" ]]; then
+    output "Enabling Sql Server secure connection"
+    docker exec -t sqlserver /opt/mssql/bin/mssql-conf set network.tlscert /opt/IBM/keys/responses/sqlserver-key.cer
+    docker exec -t sqlserver /opt/mssql/bin/mssql-conf set network.tlskey /opt/IBM/keys/stores/i2-sqlserver-key.key
+    docker exec -t sqlserver /opt/mssql/bin/mssql-conf set network.tlsprotocols 1.2 
+    docker exec -t sqlserver /opt/mssql/bin/mssql-conf set network.forceencryption 1
+
+    #Configure clients
+    docker cp "${IMAGES_PATH}/common/ca/ca/CA.cer" liberty:/usr/share/ca-certificates/CA.cer
+    docker cp "${IMAGES_PATH}/common/ca/ca/CA.cer" etl_client:/usr/share/ca-certificates/CA.cer
+    docker cp "${IMAGES_PATH}/common/ca/ca/CA.cer" admin_client:/usr/share/ca-certificates/CA.cer
+
+    docker exec -u root liberty bash -c "grep -q \"CA.cer\" /etc/ca-certificates.conf || echo \"CA.cer\" >> /etc/ca-certificates.conf"
+    docker exec -u root etl_client bash -c "grep -q \"CA.cer\" /etc/ca-certificates.conf || echo \"CA.cer\" >> /etc/ca-certificates.conf"
+    docker exec -u root admin_client bash -c "grep -q \"CA.cer\" /etc/ca-certificates.conf || echo \"CA.cer\" >> /etc/ca-certificates.conf"
+
+    docker exec -u root -t liberty update-ca-certificates
+    docker exec -u root -t etl_client update-ca-certificates
+    docker exec -u root -t admin_client update-ca-certificates
+fi
 
 if [[ $configurationDir == "ihs_ssl" || $configurationDir == "client_cert_ssl" ]]; then
     output "Updating the HTTP Server configuration"
@@ -77,10 +113,18 @@ docker exec -u i2analyze    liberty     /opt/IBM/i2analyze/toolkit/scripts/setup
 docker exec -u i2analyze    solr        /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes   --hostname solr         &>/dev/null || true
 docker exec -u i2analyze    solr2       /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes   --hostname solr2        &>/dev/null || true
 docker exec -u i2analyze    zookeeper   /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts     --hostname zookeeper    &>/dev/null || true
-docker exec -u db2inst1     db2         db2stop                                                                             &>/dev/null || true
+if [[ $dbDialect == "db2" ]]; then
+    docker exec -u db2inst1     db2         db2stop                                                                         &>/dev/null || true
+elif [[ $dbDialect == "sqlserver" ]]; then
+    docker stop sqlserver
+fi
 
 output "Starting the containers"
-docker exec -u db2inst1     db2         db2start
+if [[ $dbDialect == "db2" ]]; then
+    docker exec -u db2inst1     db2         db2start
+elif [[ $dbDialect == "sqlserver" ]]; then
+    docker start sqlserver
+fi
 docker exec -u i2analyze    zookeeper   /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts    --hostname zookeeper
 docker exec -u i2analyze    solr        /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes  --hostname solr
 docker exec -u i2analyze    solr2       /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes  --hostname solr2

@@ -1,6 +1,6 @@
 #!/bin/bash
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2019.
+# * (C) Copyright IBM Corporation 2018.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -26,23 +26,8 @@ pushd ..
 
 . ${UTILS_PATH}/functions
 
-if [ ! -e "${IMAGES_PATH}/ubuntu_toolkit/i2analyze/i2analyze.tar.gz" ]; then
-    echo "Error: Cannot find the i2analyze.tar.gz file in '${IMAGES_PATH}/ubuntu_toolkit/i2analyze'."
-    exit 1
-fi
-
-if [ ! -e "${IMAGES_PATH}/db2_installer/installation_media/DB2_AWSE_REST_Svr.tar.gz" ]; then
-    echo "Error: Cannot find the DB2_AWSE_REST_Svr.tar.gz file in '${IMAGES_PATH}/db2_installer/installation_media'."
-    exit 1
-fi
-
-if [ ! -e "${IMAGES_PATH}/db2_installer/awse_o/db2/license/db2awse_o.lic" ]; then
-    echo "Error: Cannot find the db2awse_o.lic file in '${IMAGES_PATH}/db2_installer/awse_o/db2/license'."
-    exit 1
-fi
-
-if [ ! -e "${IMAGES_PATH}/base_client/installation_media/DB2_SF_SSLF.tar.gz" ]; then
-    echo "Error: Cannot find the DB2_SF_SSLF.tar.gz file in '${IMAGES_PATH}/base_client/installation_media'."
+if [ ! -e "${IMAGES_PATH}/common/ubuntu_toolkit/i2analyze/i2analyze.tar.gz" ]; then
+    echo "Error: Cannot find the i2analyze.tar.gz file in '${IMAGES_PATH}/common/ubuntu_toolkit/i2analyze'."
     exit 1
 fi
 
@@ -53,32 +38,28 @@ popd
 header "Building the deployment example images"
 
 output "Building ubuntu_toolkit_image"
-docker build -t ubuntu_toolkit_image ${IMAGES_PATH}/ubuntu_toolkit
+docker build -t ubuntu_toolkit_image ${IMAGES_PATH}/common/ubuntu_toolkit
 
-output "Building db2_installer_image"
-docker build -t db2_installer_image ${IMAGES_PATH}/db2_installer
-output "Building db2_image"
-docker build -t db2_image ${IMAGES_PATH}/db2
+output "Building sqlserver_image"
+docker build -t sqlserver_image ${IMAGES_PATH}/sqlserver/sqlserver
 
-output "Building base_client_image"
-docker build -t base_client_image ${IMAGES_PATH}/base_client
 output "Building liberty_image"
-docker build -t liberty_image ${IMAGES_PATH}/liberty
+docker build -t liberty_sqlserver_image ${IMAGES_PATH}/sqlserver/liberty
 output "Building admin_client_image"
-docker build -t admin_client_image ${IMAGES_PATH}/admin_client
+docker build -t admin_client_sqlserver_image ${IMAGES_PATH}/sqlserver/admin_client
 
 output "Building zookeeper_image"
-docker build -t zookeeper_image ${IMAGES_PATH}/zookeeper
+docker build -t zookeeper_image ${IMAGES_PATH}/common/zookeeper
 output "Building solr_image"
-docker build -t solr_image ${IMAGES_PATH}/solr
+docker build -t solr_image ${IMAGES_PATH}/common/solr
 output "Building solr2_image"
-docker build -t solr2_image ${IMAGES_PATH}/solr2
+docker build -t solr2_image ${IMAGES_PATH}/common/solr2
 
 output "Building etl_client_image"
-docker build -t etl_client_image ${IMAGES_PATH}/etl_client
+docker build -t etl_client_sqlserver_image ${IMAGES_PATH}/sqlserver/etl_client
 output "Building ihs_image"
-docker build -t ihs_image ${IMAGES_PATH}/ihs
+docker build -t ihs_image ${IMAGES_PATH}/common/ihs
 output "Building connector_image"
-docker build -t connector_image ${IMAGES_PATH}/connector
+docker build -t connector_image ${IMAGES_PATH}/common/connector
 
 popd

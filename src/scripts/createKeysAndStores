@@ -15,7 +15,8 @@
 #  Script to create the stores, private keys, and certificates for a                #
 #  secure deployment. The stores are populated with signed certificate.             #
 #                                                                                   #
-#  Usage : createKeysAndStores                                                      #
+#  Usage : createKeysAndStores [<dbDialect>]                                        #
+#  Defaults to current dialect                                                      #
 #                                                                                   #
 #####################################################################################
 
@@ -25,6 +26,8 @@ pushd ..
 
 . ${UTILS_PATH}/functions
 
+dbDialect=${1:-${DB_DIALECT}}
+
 output "Removing the certificate authority container, if it exists"
 docker rm -f ca &>/dev/null || true
 
@@ -32,14 +35,14 @@ output "Removing any previous keys, if they exist"
 rm -rf ${SRC_DIR}/keys &>/dev/null || true
 
 output "Building the ca_image"
-docker build -t ca_image ${IMAGES_PATH}/ca
+docker build -t ca_image ${IMAGES_PATH}/common/ca
 
 output "Running the certificate authority container"
 docker run -d --name ca ca_image
 
 header "Creating and signing the keys and certificates"
-. ${SSL_SCRIPTS_PATH}/createSigningRequests
-. ${SSL_SCRIPTS_PATH}/signRequests
-. ${SSL_SCRIPTS_PATH}/applyResponses
+. ${SSL_SCRIPTS_PATH}/createSigningRequests $dbDialect
+. ${SSL_SCRIPTS_PATH}/signRequests $dbDialect
+. ${SSL_SCRIPTS_PATH}/applyResponses $dbDialect
 
 popd

@@ -1,0 +1,43 @@
+#!/bin/bash
+#/********************************************************************************
+# * (C) Copyright IBM Corporation 2018, 2019.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# *
+# ********************************************************************************/
+
+#####################################################################################
+#                                                                                   #
+#  Script to create a certificate signing request using OpenSSL.                    #
+#                                                                                   #
+#####################################################################################
+
+. /opt/IBM/utils/functions
+
+#The value passed in when the script is called, this is the name of a container.
+uri=$1
+
+#Set the variables for the specified container name
+keyFile=/opt/IBM/keys/stores/i2-${uri}-key.key
+out=/opt/IBM/keys/requests/${uri}-key.csr
+
+#Make the requests directory
+mkdir -p /opt/IBM/keys/requests
+
+#Create the stores directory
+mkdir -p /opt/IBM/keys/stores
+
+#Generate new certificate pair for the container
+echo "Enter key passphrase:"
+runCommandUntilSuccess "openssl genrsa -passout stdin -out ${keyFile} 2048"
+
+#Create certificate signing request for the public certificate
+runCommandUntilSuccess "openssl req -new -key ${keyFile} -subj \"/C=GB/CN=${uri}\" -out ${out}"
+
+#Change ownership to make visible to keys group
+chown -R root:keys /opt/IBM/keys
+chmod -R 650 /opt/IBM/keys

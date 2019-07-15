@@ -14,8 +14,9 @@
 #                                                                                   #
 #  Script to set up i2 connect for use with i2 Analyze.                             #
 #                                                                                   #
-#  Usage : deployDaod [<configModsName>]                                            #
+#  Usage : deployDaod [<configModsName>] [<dbDialect>]                              #
 #  Defaults to i2connect configuration directory                                    #
+#  Defaults to current dialect                                                      #
 #                                                                                   #
 #####################################################################################
 
@@ -34,8 +35,14 @@ if [[ $configModsName != "i2connect" &&  $configModsName != "i2connect_istore" ]
     exit 1
 fi
 
+dbDialect=${2:-${DB_DIALECT}}
+if [[ $dbDialect != "sqlserver" &&  $dbDialect != "db2" ]]; then
+    echo "Error: Unrecognized dialect."
+    exit 1
+fi
+
 pushd ${SCRIPTS_PATH}
-. updateServerConfigurations ${configModsName}
+. updateServerConfigurations ${configModsName} ${dbDialect}
 popd
 
 output "Stopping Liberty"
@@ -51,7 +58,7 @@ output "Creating Solr collections"
 docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createSolrCollections --hostname admin_client
 
 output "Copying security configuration and restarting the connector container"
-docker cp ${IMAGES_PATH}/connector/security-config.json connector:/opt/IBM/i2analyze/example_connector/security-config.json
+docker cp ${IMAGES_PATH}/common/connector/security-config.json connector:/opt/IBM/i2analyze/example_connector/security-config.json
 # After the connector container is restarted, the example connector starts with the SSL configuration
 docker restart connector
 

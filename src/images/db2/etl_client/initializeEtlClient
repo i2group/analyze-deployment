@@ -1,0 +1,45 @@
+#!/bin/bash
+#/********************************************************************************
+# * (C) Copyright IBM Corporation 2018, 2019.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# *
+# ********************************************************************************/
+
+#####################################################################################
+#                                                                                   #
+#  Script to initialize the etl_client                                              #
+#                                                                                   #
+#  Usage : initializeEtlClient enable/disable                                       #
+#  The "security" argument will catalog the dbnode and ISTORE                       #
+#  using a secure port and SSL if set to enable. Defaults to disable.               #
+#####################################################################################
+function output
+{
+  echo ""
+  echo "############################################################"
+  echo "## $1"
+  echo "############################################################"
+}
+
+security=${1:-disable}
+
+db2 uncatalog db ISTORE &>/dev/null
+db2 uncatalog node dbnode &>/dev/null
+
+if [ $security = 'enable' ]; then
+    output "Cataloguing the dbnode and ISTORE using the secure port and SSL"
+    db2 catalog tcpip node dbnode remote db2 server 50001 security SSL
+    db2 catalog database ISTORE at node dbnode
+else
+    output "Cataloguing the dbnode and ISTORE using the non secure port and TCPIP"
+    db2 catalog tcpip node dbnode remote db2 server 50000
+    db2 catalog database ISTORE at node dbnode
+fi
+
+echo "Providing the ETL toolkit with the location of the DB2 client"
+sed -i 's/db.installation.dir=\/opt\/IBM\/db2/db.installation.dir=\/home\/db2inst1\/sqllib/g' /opt/IBM/i2analyze/etltoolkit/classes/Connection.properties

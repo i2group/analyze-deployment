@@ -14,7 +14,8 @@
 #                                                                                   #
 #  Script to update the configuration on all containers                             #
 #                                                                                   #
-#  Usage : updateServerConfigurations [<configModsName>]                            #
+#  Usage : updateServerConfigurations <configModsName> [<dbDialect>]                #
+#  Defaults to current dialect                                                      #
 #                                                                                   #
 #####################################################################################
 
@@ -25,40 +26,58 @@ pushd ..
 . ${UTILS_PATH}/functions
 
 configModsName=$1
+dbDialect=${2:-${DB_DIALECT}}
+
+if [[ $dbDialect != "sqlserver" &&  $dbDialect != "db2" ]]; then
+    echo "Error: Unrecognized dialect."
+    exit 1
+fi
 
 if [[ -z "$configModsName" ]]; then
     echo "Error: Configuration not specified."
     exit 1
 fi
 
-if [[ ! -d "${CONFIG_MODS_PATH}/$configModsName" ]]; then
+if [[ ! -d "${CONFIG_MODS_PATH}/${dbDialect}/$configModsName" ]]; then
     echo "Error: Specified configuration $configModsName does not exist."
     exit 1
 fi
 
-output "Copy the specified configuration to each container"
-#Copy Modifications
-docker cp "${CONFIG_MODS_PATH}/${configModsName}/." admin_client:/opt/IBM/i2analyze/toolkit/configuration
-docker cp "${CONFIG_MODS_PATH}/${configModsName}/." ihs:/opt/IBM/i2analyze/toolkit/configuration
-docker cp "${CONFIG_MODS_PATH}/${configModsName}/." liberty:/opt/IBM/i2analyze/toolkit/configuration
-docker cp "${CONFIG_MODS_PATH}/${configModsName}/." zookeeper:/opt/IBM/i2analyze/toolkit/configuration
-docker cp "${CONFIG_MODS_PATH}/${configModsName}/." solr:/opt/IBM/i2analyze/toolkit/configuration
-docker cp "${CONFIG_MODS_PATH}/${configModsName}/." solr2:/opt/IBM/i2analyze/toolkit/configuration
+#Copy base configuration
+pushd ${SCRIPTS_PATH}
+. copyConfiguration $dbDialect
+popd
 
-# Make sure the credentials file is up-to-date
-docker cp "${DEFAULT_CONFIG_PATH}/environment/credentials.properties" admin_client:/opt/IBM/i2analyze/toolkit/configuration/environment/credentials.properties
-docker cp "${DEFAULT_CONFIG_PATH}/environment/credentials.properties" ihs:/opt/IBM/i2analyze/toolkit/configuration/environment/credentials.properties
-docker cp "${DEFAULT_CONFIG_PATH}/environment/credentials.properties" liberty:/opt/IBM/i2analyze/toolkit/configuration/environment/credentials.properties
-docker cp "${DEFAULT_CONFIG_PATH}/environment/credentials.properties" zookeeper:/opt/IBM/i2analyze/toolkit/configuration/environment/credentials.properties
-docker cp "${DEFAULT_CONFIG_PATH}/environment/credentials.properties" solr:/opt/IBM/i2analyze/toolkit/configuration/environment/credentials.properties
-docker cp "${DEFAULT_CONFIG_PATH}/environment/credentials.properties" solr2:/opt/IBM/i2analyze/toolkit/configuration/environment/credentials.properties
+#Copy Modifications to folders
+cp -r "${CONFIG_MODS_PATH}/${dbDialect}/${configModsName}/." ${IMAGES_PATH}/common/zookeeper/configuration
+cp -r "${CONFIG_MODS_PATH}/${dbDialect}/${configModsName}/." ${IMAGES_PATH}/common/solr/configuration
+cp -r "${CONFIG_MODS_PATH}/${dbDialect}/${configModsName}/." ${IMAGES_PATH}/common/solr2/configuration
+cp -r "${CONFIG_MODS_PATH}/${dbDialect}/${configModsName}/." ${IMAGES_PATH}/common/ihs/configuration
+
+cp -r "${CONFIG_MODS_PATH}/${dbDialect}/${configModsName}/." ${IMAGES_PATH}/${dbDialect}/liberty/configuration
+cp -r "${CONFIG_MODS_PATH}/${dbDialect}/${configModsName}/." ${IMAGES_PATH}/${dbDialect}/admin_client/configuration
+
+output "Copy the configuration to each container"
+#Copy Modifications
+docker cp "${IMAGES_PATH}/${dbDialect}/admin_client/configuration/." admin_client:/opt/IBM/i2analyze/toolkit/configuration
+docker cp "${IMAGES_PATH}/${dbDialect}/liberty/configuration/." liberty:/opt/IBM/i2analyze/toolkit/configuration
+
+docker cp "${IMAGES_PATH}/common/zookeeper/configuration/." zookeeper:/opt/IBM/i2analyze/toolkit/configuration
+docker cp "${IMAGES_PATH}/common/solr/configuration/." solr:/opt/IBM/i2analyze/toolkit/configuration
+docker cp "${IMAGES_PATH}/common/solr2/configuration/." solr2:/opt/IBM/i2analyze/toolkit/configuration
 
 #Change the ownership of the copied files
-docker exec -u root liberty chown -R i2analyze:db2iusr1 /opt/IBM/i2analyze/toolkit/configuration
-docker exec -u root admin_client chown -R i2analyze:db2iusr1 /opt/IBM/i2analyze/toolkit/configuration
+docker exec -u root admin_client chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
+docker exec -u root liberty chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
 docker exec -u root zookeeper chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
 docker exec -u root solr chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
 docker exec -u root solr2 chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
-docker exec -u root ihs chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
+
+# If HTTP Server exists then reset the configuration
+contExists="$(containerExists ihs)"
+if [[ "$contExists" -eq 1 ]]; then
+    docker cp "${IMAGES_PATH}/common/ihs/configuration/." ihs:/opt/IBM/i2analyze/toolkit/configuration
+    docker exec -u root ihs chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
+fi
 
 popd

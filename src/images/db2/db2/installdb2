@@ -1,0 +1,31 @@
+#!/bin/bash
+#/********************************************************************************
+# * (C) Copyright IBM Corporation 2018, 2019.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# *
+# ********************************************************************************/
+
+#####################################################################################
+#                                                                                   #
+#  Script to install the DB2 server with the db2server.rsp in the                   #
+#  db2_image for the DB2 server                                                     #
+#                                                                                   #
+#####################################################################################
+
+#When the installer fails its aggressively sends a SIGHUP.
+#Suppress this error.
+trap '' SIGHUP
+/opt/IBM/server_awse_o/db2setup -r /opt/IBM/db2server.rsp
+
+if [ ! $? -eq 0 ]; then
+   echo Trying again
+   trap - SIGHUP
+   #The second time works. This appears to be a docker issue
+   # with how the installer is using systemd.
+   /opt/IBM/server_awse_o/db2setup -r /opt/IBM/db2server.rsp
+fi

@@ -14,8 +14,13 @@
 #                                                                                   #
 #  Script to create key stores, trust stores, and certificate signing requests      #
 #                                                                                   #
+#  This script is called as part of the createKeysAndStores script.                 #
 #                                                                                   #
 #####################################################################################
+
+. ${UTILS_PATH}/variables
+
+dbDialect=${1:-${DB_DIALECT}}
 
 output "Removing any previous keys, if they exist"
 rm -rf ${SRC_DIR}/keys
@@ -23,14 +28,14 @@ mkdir -p ${SRC_DIR}/keys/requests
 mkdir -p ${SRC_DIR}/keys/stores
 
 output "Adding the CA certificate to containers"
-docker cp ${IMAGES_PATH}/ca/ca/CA.cer liberty:/opt/IBM/utils/keys/CA.cer
-docker cp ${IMAGES_PATH}/ca/ca/CA.cer solr:/opt/IBM/utils/keys/CA.cer
-docker cp ${IMAGES_PATH}/ca/ca/CA.cer solr2:/opt/IBM/utils/keys/CA.cer
-docker cp ${IMAGES_PATH}/ca/ca/CA.cer connector:/opt/IBM/utils/keys/CA.cer
-docker cp ${IMAGES_PATH}/ca/ca/CA.cer db2:/opt/IBM/utils/keys/CA.cer
-docker cp ${IMAGES_PATH}/ca/ca/CA.cer admin_client:/opt/IBM/utils/keys/CA.cer
-docker cp ${IMAGES_PATH}/ca/ca/CA.cer etl_client:/opt/IBM/utils/keys/CA.cer
-docker cp ${IMAGES_PATH}/ca/ca/CA.cer ihs:/opt/IBM/utils/keys/CA.cer
+docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer liberty:/opt/IBM/utils/keys/CA.cer
+docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer solr:/opt/IBM/utils/keys/CA.cer
+docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer solr2:/opt/IBM/utils/keys/CA.cer
+docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer connector:/opt/IBM/utils/keys/CA.cer
+docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer $dbDialect:/opt/IBM/utils/keys/CA.cer
+docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer admin_client:/opt/IBM/utils/keys/CA.cer
+docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer etl_client:/opt/IBM/utils/keys/CA.cer
+docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer ihs:/opt/IBM/utils/keys/CA.cer
 
 output "Creating the liberty container key store and certificate signing request"
 docker exec -u root -it liberty rm -rf /opt/IBM/keys
@@ -55,11 +60,18 @@ docker exec -u root -it solr2 rm -rf /opt/IBM/keys
 docker exec -u root -it solr2 /opt/IBM/utils/jks/createCSR solr2
 docker cp solr2:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
 
-output "Creating the db2 container key store and certificate signing request"
-docker exec -u root -it db2 rm -rf /opt/IBM/keys
-docker exec -u root -it db2 /opt/IBM/utils/cms/createCSR db2
-docker cp db2:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
-docker exec -u root -it db2 /opt/IBM/utils/cms/createTrustStore cms
+if [[ $dbDialect == "db2" ]]; then
+	output "Creating the db2 container key store and certificate signing request"
+	docker exec -u root -it db2 rm -rf /opt/IBM/keys
+	docker exec -u root -it db2 /opt/IBM/utils/cms/createCSR db2
+	docker cp db2:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
+	docker exec -u root -it db2 /opt/IBM/utils/cms/createTrustStore cms
+elif [[ $dbDialect == "sqlserver" ]]; then
+	output "Creating the sqlserver container key store and certificate signing request"
+	docker exec -u root -it sqlserver rm -rf /opt/IBM/keys
+	docker exec -u root -it sqlserver /opt/IBM/utils/openssl/createCSR sqlserver
+	docker cp sqlserver:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
+fi
 
 output "Creating the ihs container key store and certificate signing request"
 docker exec -u root -it ihs rm -rf /opt/IBM/keys
@@ -70,12 +82,16 @@ docker exec -u root -it ihs /opt/IBM/utils/cms/createTrustStore cms
 output "Creating the admin_client container trust stores"
 docker exec -u root -it admin_client rm -rf /opt/IBM/keys
 docker exec -u root -it admin_client /opt/IBM/utils/jks/createTrustStore admin_client
-docker exec -u root -it admin_client /opt/IBM/utils/cms/createTrustStore db2
+if [[ $dbDialect == "db2" ]]; then
+	docker exec -u root -it admin_client /opt/IBM/utils/cms/createTrustStore db2
+fi
 
 output "Creating the etl_client container trust store"
 docker exec -u root -it etl_client rm -rf /opt/IBM/keys
 docker exec -u root -it etl_client mkdir -p /opt/IBM/keys/stores
-docker exec -u root -it etl_client /opt/IBM/utils/cms/createTrustStore db2
+if [[ $dbDialect == "db2" ]]; then
+	docker exec -u root -it etl_client /opt/IBM/utils/cms/createTrustStore db2
+fi
 
 output "Creating i2 Connect connector key store and certificate signing request"
 docker exec -u root -it connector rm -rf /opt/IBM/keys

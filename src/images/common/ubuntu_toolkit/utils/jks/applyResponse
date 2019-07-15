@@ -1,0 +1,34 @@
+#!/bin/bash
+#/********************************************************************************
+# * (C) Copyright IBM Corporation 2018, 2019.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# *
+# ********************************************************************************/
+
+#####################################################################################
+#                                                                                   #
+#  Script to add the signed certificates into their corresponding key store.        #
+#                                                                                   #
+#####################################################################################
+. /opt/IBM/utils/functions
+
+#The value passed in when the script is called, this is the name of a container
+uri=$1
+
+#Set the variables for the specified container name
+utils=/opt/IBM/utils
+keystoreFile=/opt/IBM/keys/stores/i2-${uri}-keystore.jks
+keyName=${uri}key
+in=/opt/IBM/keys/responses/${uri}-key.cer
+
+
+#Import the certificate authority certificate
+runCommandUntilSuccess "/opt/IBM/i2analyze/toolkit/tools/java/bin/keytool -importcert -alias ca -keystore $keystoreFile -file ${utils}/keys/CA.cer"
+
+#Import the signed public certificate to the store. The existing unsigned public certificate is replaced with the signed version.
+runCommandUntilSuccess "/opt/IBM/i2analyze/toolkit/tools/java/bin/keytool -importcert -alias $keyName -keystore $keystoreFile -file $in"

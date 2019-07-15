@@ -1,0 +1,21 @@
+#!/bin/bash
+#/********************************************************************************
+# * (C) Copyright IBM Corporation 2018, 2019.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# *
+# ********************************************************************************/
+
+#####################################################################################
+#                                                                                   #
+#  Script to set up the key stores used for SSL.                                    #
+#                                                                                   #
+#####################################################################################
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/IBM/HTTPServer/gsk8/lib64
+cd /opt/IBM/keys/stores
+/opt/IBM/HTTPServer/gsk8/bin/gsk8capicmd_64 -keydb -stashpw -db i2-ihs-keystore.kdb
+/opt/IBM/HTTPServer/gsk8/bin/gsk8capicmd_64 -keydb -stashpw -db i2-db2-truststore.kdb

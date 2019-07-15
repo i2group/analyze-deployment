@@ -1,0 +1,62 @@
+#!/bin/bash
+#/********************************************************************************
+# * (C) Copyright IBM Corporation 2018, 2019.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# *
+# ********************************************************************************/
+
+#####################################################################################
+#                                                                                   #
+#  Script to ingest data using the etl_client                                       #
+#  db2_image for the DB2 server                                                     #
+#                                                                                   #
+#####################################################################################
+
+# $1 - command to run
+function runCommandUntilSuccess
+{
+    set +e
+
+    eval $1
+    while [ $? -ne 0 ]; do
+        eval $1
+    done
+
+    set -e
+}
+
+runCommandUntilSuccess "db2 connect to ISTORE user i2analyze"
+
+cd /opt/IBM/i2analyze/etltoolkit
+
+#create an entity staging table
+/opt/IBM/i2analyze/etltoolkit/createInformationStoreStagingTable -stid ET5 -sn IS_Staging -tn E_Person
+
+#create a link staging table
+/opt/IBM/i2analyze/etltoolkit/createInformationStoreStagingTable -stid LAS1 -sn IS_Staging -tn L_Associate
+
+#populate the newly created E_Person staging table
+db2 "import from /opt/IBM/i2analyze/example/person.csv of del modified by timestampformat=\"dd/mm/yyyy hh:mm:ss\" dateformat=\"dd/mm/yyyy\" method P(1,2,3,4,5,6) SKIPCOUNT 1 replace into IS_Staging.E_Person (SOURCE_ID,P_DATE_OF_BIRTH,P_FIRST_GIVEN_NAME,P_FAMILY_NAME,P_OCCUPATION,P_GENDER)"
+
+#populate the newly created L_Associate staging table
+db2 "import from /opt/IBM/i2analyze/example/person_association_person.csv of del modified by timestampformat=\"dd/mm/yyyy hh:mm:ss\" dateformat=\"dd/mm/yyyy\" method P(1,2,3,4,5) SKIPCOUNT 1  replace into IS_Staging.L_Associate (SOURCE_ID,FROM_SOURCE_ID,TO_SOURCE_ID,P_ASSOCIATION_TYPE,DIRECTION)"
+
+#create the ingestion source
+./addInformationStoreIngestionSource -n REMOTE -d "Remote ingestion source"
+
+#ingest from the E_Person staging table to the InformationStore
+./ingestInformationStoreRecords -imf /opt/IBM/i2analyze/example/mapping.xml -imid Person
+
+#ingest from the L_Associate staging table to the InformationStore
+./ingestInformationStoreRecords -imf /opt/IBM/i2analyze/example/mapping.xml -imid Associate
+
+db2 TRUNCATE IS_Staging.E_Person IMMEDIATE;
+db2 TRUNCATE IS_Staging.L_Associate IMMEDIATE;
+
+#db2 DROP TABLE IS_Staging.E_Person;
+#db2 DROP TABLE IS_Staging.L_Associate;

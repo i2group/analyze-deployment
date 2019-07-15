@@ -2,10 +2,10 @@
 You can deploy the distributed deployment example with additional security configured. You can use the scripts and configurations that are provided to understand how to deploy with security in a non-Docker environment.
 
 ## Before you begin
-- You must complete the [Quick deploy](deploy_quick_start.md) or [Deploying the example manually](deploy_walk_through.md), and your deployment must be running.
+- You must complete the [Quick deploy](deploy_quick_start.md) or deploy the example manually, and your deployment must be running.
 - If you deployed the example with one of the configurations in the `configuration_mods` directory or changed the `topology.xml` file. Reset your example deployment to the base configuration before you deploy with security. To reset your environment, run the following command from the `src/scripts` directory:
 ```
-resetEnvironment
+./resetEnvironment
 ```
 
 ---
@@ -24,7 +24,7 @@ For more information about configuring client certificate authentication, see [C
 ## Creating the keystores and certificates
 Run the `createKeysAndStores` script to create the stores, certificates, and certificate authority. For example, run the following command from the `src/scripts` directory:
 ```
-createKeysAndStores
+./createKeysAndStores
 ```
 You are prompted to enter passwords to each of the keystores and truststores that are created. The passwords that you specify here are used later.
 
@@ -38,7 +38,7 @@ For more information about the credentials file, see [Modifying the credentials]
 ## Updating your deployment to use a secure configuration
 Run the `setupSecurity` script, and pass the name of the configuration as a parameter. For example, to update the deployment with the **ssl** configuration, run the following command from the `src/scripts` directory:
 ```
-setupSecurity ssl
+./setupSecurity ssl
 ```
 
 ## Results

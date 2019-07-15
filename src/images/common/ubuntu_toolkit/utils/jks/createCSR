@@ -1,0 +1,42 @@
+#!/bin/bash
+#/********************************************************************************
+# * (C) Copyright IBM Corporation 2018, 2019.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0.
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# *
+# ********************************************************************************/
+
+#####################################################################################
+#                                                                                   #
+#  Script to create a certificate signing request using Java keytool.               #
+#                                                                                   #
+#####################################################################################
+. /opt/IBM/utils/functions
+
+#The value passed in when the script is called, this is the name of a container.
+uri=$1
+
+#Set the variables for the specified container name
+keystoreFile=/opt/IBM/keys/stores/i2-${uri}-keystore.jks
+keyName=${uri}key
+out=/opt/IBM/keys/requests/${uri}-key.csr
+
+#Create the requests directory
+mkdir -p /opt/IBM/keys/requests
+
+#Create the stores directory
+mkdir -p /opt/IBM/keys/stores
+
+#Generate new certificate pair for the container, where the CN matches the host name of the container
+runCommandUntilSuccess "/opt/IBM/i2analyze/toolkit/tools/java/bin/keytool -genkeypair -alias $keyName -keystore $keystoreFile -dname CN=$uri -keyalg RSA"
+
+#Create certificate signing request for the public certificate
+runCommandUntilSuccess "/opt/IBM/i2analyze/toolkit/tools/java/bin/keytool -certreq -keystore $keystoreFile -alias $keyName -keyalg RSA -keysize 2048 -file $out"
+
+#Change ownership to make visible to keys group
+chown -R root:keys /opt/IBM/keys
+chmod -R 650 /opt/IBM/keys

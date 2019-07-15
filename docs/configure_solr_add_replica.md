@@ -21,16 +21,16 @@ You only need to complete the following steps when you are adding replicas to a 
 Add a replica of each shard in the Solr collection.
 To add a replica of each shard in the distributed deployment example, enter the following lines into the URL field in a web browser:
 ```
-http://solr:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard1&node=solr2:8984_solr
+http://localhost:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard1&node=solr2:8984_solr
 ```
 ```
-http://solr:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard2&node=solr:8983_solr
+http://localhost:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard2&node=solr:8983_solr
 ```
 ```
-http://solr:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard3&node=solr2:8984_solr
+http://localhost:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard3&node=solr2:8984_solr
 ```
 ```
-http://solr:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard4&node=solr:8983_solr
+http://localhost:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard4&node=solr:8983_solr
 ```
 These send a REST call to the Solr Collections API to add a replica of a specific shard on a specific node. Each of the shards now has an extra replica, on a different node to the original shard.
 
@@ -51,7 +51,7 @@ solr2:8984_solr
 >Note: Only live Solr nodes are displayed.
 
 You can use this method to choose the number of replicas to create, and where they are located.
-To show the *Graph View* that shows replicas in the Solr Web UI, connect to the Solr Web UI by using the following URL: <http://localhost:8983/solr/#/~cloud>. The user name is `solradmin` and the password is the Solr password set in the `credentials.properties` file. 
+To show the *Graph View* that shows replicas in the Solr Web UI, connect to the Solr Web UI by using the following URL: <http://localhost:8983/solr/#/~cloud>. The user name is `solradmin` and the password is the Solr password set in the `credentials.properties` file.
 
 >Important: After you change the Solr collection in a live deployment, replicate the changes in the definition of how the Solr collection is created.
 
