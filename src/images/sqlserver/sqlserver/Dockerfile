@@ -9,7 +9,7 @@
 # *
 # ********************************************************************************/
 
-FROM mcr.microsoft.com/mssql/server
+FROM mcr.microsoft.com/mssql/server:2017-latest
 
 #Install the prerequisites.
 RUN dpkg --add-architecture i386 && \

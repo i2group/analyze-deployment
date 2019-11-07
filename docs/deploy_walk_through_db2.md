@@ -44,6 +44,10 @@ The `eianet` network is displayed in the list.
 In a non-Docker environment, ensure that each server that you are using to deploy i2 Analyze can connect to each other.
 
 ## Copy the i2 Analyze configuration
+Update the distributed deployment example configuration for Db2.
+
+Copy the `src/configuration_mods/db2/base/environment` directory to the `src/configuration` directory. Accept any file overwrites.
+
 The i2 Analyze configuration is required by all servers that host components of i2 Analyze, except for the database server. In the `src/scripts` directory of the distributed deployment example, the `copyConfiguration` script copies the i2 Analyze configuration from the `src/configuration` directory to the `src/images/<container_name>/configuration` directory for each container.
 
 From the `src/scripts` directory, run the `copyConfiguration` script file.
