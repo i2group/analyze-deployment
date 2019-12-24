@@ -96,7 +96,7 @@ docker build -t zookeeper_image zookeeper
 ```
 Run the ZooKeeper container:
 ```
-docker run -d --name zookeeper --net eianet -u i2analyze zookeeper_image
+docker run -d --name zookeeper --net eianet --memory=512m -u i2analyze zookeeper_image
 ```
 Then, check that ZooKeeper started correctly by using the docker logs:
 ```
@@ -105,6 +105,37 @@ docker logs -f zookeeper
 Inspect the [`Dockerfile`](../src/images/common/zookeeper/Dockerfile) in the `src/images/common/zookeeper` directory to see the commands that are required to configure a ZooKeeper server in a non-Docker environment.
 
 The ZooKeeper container is started. The container starts and configures ZooKeeper, and hosts the ZooKeeper server. The `topology.xml` file in the i2 Analyze configuration defines the values for the ZooKeeper server.
+
+### Admin client container
+In this deployment, the Admin client is a separate server that is designed for running toolkit tasks in a distributed environment. Your configured i2 Analyze toolkit, and a Db2 client must be installed on the server that you want to use to interact with Liberty and Db2.
+
+To build the Admin client image, run the following command from the `src/images/sqlserver` folder:
+```
+docker build -t admin_client_sqlserver_image admin_client
+```
+The Admin client image is created with the name `admin_client_sqlserver_image`.
+
+Run the Admin client container:
+```
+docker run -d --name admin_client --net eianet --memory=512m -u i2analyze admin_client_sqlserver_image
+```
+Inspect the [`Dockerfile`](../src/images/sqlserver/admin_client/Dockerfile) in the `src/images/sqlserver/admin_client` directory to see the commands that are required to configure the Admin client.
+
+Use the following format to run toolkit tasks by using the Admin Client:
+```
+docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t <toolkit task>
+```
+
+#### Solr configuration
+Before the Solr configuration can be created, all of the ZooKeeper hosts must be running. In the Docker environment, ensure that the ZooKeeper container is running.
+
+You can create and upload the Solr configuration from the Admin client, or you can run the command from one of the ZooKeeper servers.
+
+To create the Solr configuration by using the Admin client, run the following command:
+```
+docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
+```
+The Solr configuration is created and uploaded.
 
 ### Solr containers
 Solr is used to manage the search index in a deployment of i2 Analyze. In this deployment, Solr is distributed across two servers. Your configured i2 Analyze toolkit must be installed on each Solr server.
@@ -119,8 +150,8 @@ The Solr images are created with the names `solr_image` and `solr2_image`.
 
 Run the Solr containers:
 ```
-docker run -d --name solr -p 8983:8983 --net eianet -u i2analyze solr_image
-docker run -d --name solr2 -p 8984:8984 --net eianet -u i2analyze solr2_image
+docker run -d --name solr -p 8983:8983 --net eianet --memory=2g -u i2analyze solr_image
+docker run -d --name solr2 -p 8984:8984 --net eianet --memory=2g -u i2analyze solr2_image
 ```
 
 Check that the containers started correctly by using the docker logs:
@@ -138,26 +169,6 @@ When you start the Solr container, the port that Solr runs on in the container i
 After the Solr nodes are running, you can use the Solr Web UI to inspect the Solr and ZooKeeper configurations. Connect to the Solr Web UI on the `solr` container. In a web browser, go to the following URL to connect to the Solr Web UI: [http://localhost:8983/solr/#](http://localhost:8983/solr/#). The user name is `solradmin` and the password is the Solr password set in the `credentials.properties` file.  
 >Where the port number is the same as the one that is mapped to local machine when the Solr container is run.
 >The URL uses `localhost` because the `8983` port is mapped from the host machine to the docker container. In a non-Docker environment, connect by using the host name of the Solr server.
-
-### Admin client container
-In this deployment, the Admin client is a separate server that is designed for running toolkit tasks in a distributed environment. Your configured i2 Analyze toolkit, and a Db2 client must be installed on the server that you want to use to interact with Liberty and Db2.
-
-To build the Admin client image, run the following command from the `src/images/sqlserver` folder:
-```
-docker build -t admin_client_sqlserver_image admin_client
-```
-The Admin client image is created with the name `admin_client_sqlserver_image`.
-
-Run the Admin client container:
-```
-docker run -d --name admin_client --net eianet -u i2analyze admin_client_sqlserver_image
-```
-Inspect the [`Dockerfile`](../src/images/sqlserver/admin_client/Dockerfile) in the `src/images/sqlserver/admin_client` directory to see the commands that are required to configure the Admin client.
-
-Use the following format to run toolkit tasks by using the Admin Client:
-```
-docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t <toolkit task>
-```
 
 #### Solr collection
 Before the Solr collection can be created, all of the Solr nodes that the collection comprises must be running. In the Docker environment, ensure that both of the Solr containers are running.
@@ -194,7 +205,7 @@ The Liberty image is created with the name `liberty_sqlserver_image`.
 
 Run the Liberty container:
 ```
-docker run -d --name liberty -p 9082:9082 -p 9445:9445 --net eianet -u i2analyze liberty_sqlserver_image
+docker run -d --name liberty -p 9082:9082 -p 9445:9445 --net eianet --memory=2g -u i2analyze liberty_sqlserver_image
 ```
 The i2 Analyze application is installed on the Liberty server. Inspect the [`Dockerfile`](../src/images/sqlserver/liberty/Dockerfile) in the `src/images/sqlserver/liberty` directory to see the commands that are run to create the Liberty server in a non-Docker environment.
 

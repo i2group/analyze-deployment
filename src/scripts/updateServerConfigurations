@@ -12,10 +12,10 @@
 
 #####################################################################################
 #                                                                                   #
-#  Script to update the configuration on all containers                             #
+#  Script to update the configuration on all containers.                            #
 #                                                                                   #
 #  Usage : updateServerConfigurations <configModsName> [<dbDialect>]                #
-#  Defaults to current dialect                                                      #
+#  Defaults to current database dialect                                             #
 #                                                                                   #
 #####################################################################################
 

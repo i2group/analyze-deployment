@@ -14,7 +14,7 @@
 #                                                                                   #
 #  Script to remove the previous version of the toolkit and installs the new        #
 #  toolkit. This scripts assumes the original configuration has been backed up,     #
-#  as it will override any files in the configuration folder.                       #
+#  as it overrides any files in the configuration folder.                           #
 #                                                                                   #
 #  Usage : installToolkit <toolkitPath>                                             #
 #                                                                                   #
@@ -57,16 +57,27 @@ function removeOldToolkitFromContainer
     docker exec -u i2analyze $1 sh -c "rm -Rf /opt/IBM/i2analyze/toolkit &>/dev/null || true"
 }
 
+function installNewDependencies
+{
+    echo ""
+    echo "############################################################"
+    echo "Installing new dependencies to $1 container"
+	docker exec -u root $1 apt-get install -y net-tools
+    echo ""
+}
+
 function copyAndExtractToolkit
 {
     echo ""
     echo "############################################################"
     echo "Copying the toolkit to $1 container"
     docker cp $2 $1:/opt/IBM/i2analyze.tar.gz
-    echo "Extracting the toolkit tar.gz"
+    echo "Changing the permissions on the toolkit tar.gz before extracting it"
+	docker exec -u root $1 chown i2analyze:i2analyze /opt/IBM/i2analyze.tar.gz
+	echo "Extracting the toolkit tar.gz"
     #Don't extract license file
     docker exec -u i2analyze $1 bsdtar -xpf /opt/IBM/i2analyze.tar.gz -C /opt/IBM/i2analyze --exclude='*license_acknowledgment.txt'
-    docker exec $1 rm -f /opt/IBM/i2analyze.tar.gz
+    docker exec -u root $1 rm -f /opt/IBM/i2analyze.tar.gz
     echo ""
 }
 
@@ -77,6 +88,9 @@ removeOldToolkitFromContainer solr
 removeOldToolkitFromContainer solr2
 removeOldToolkitFromContainer liberty
 removeOldToolkitFromContainer ihs
+
+output "Install new dependencies required by the new toolkit to the containers"
+installNewDependencies liberty $1
 
 output "Copy and extract the toolkit to the containers"
 copyAndExtractToolkit admin_client $1

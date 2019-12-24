@@ -15,7 +15,8 @@ RUN apt-get install -y \
     openssh-server
 
 #The host name of the Docker container.
-ENV hostname zookeeper
+ARG hostname=zookeeper
+ENV hostname $hostname
 
 #The custom configuration overrides the base configuration in the ubuntu_toolkit_image.
 COPY --chown=i2analyze:i2analyze configuration ${toolkitDir}/configuration
@@ -29,7 +30,7 @@ RUN /opt/IBM/i2analyze/toolkit/scripts/setup -t installZookeeper
 #Create the ZooKeeper host and the configuration for the ZooKeeper hosts on this server.
 RUN /opt/IBM/i2analyze/toolkit/scripts/setup -t createZkHosts --hostname ${hostname}
 
-RUN echo "/opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname ${hostname} || echo \"Error stating Zookeeper host in ${hostname}\"" >> /opt/IBM/startupExt
+RUN echo "/opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname ${hostname} || echo \"Error stating Zookeeper host in ${hostname}\"" >> /opt/IBM/startupExt
 
 EXPOSE 9983 22
 

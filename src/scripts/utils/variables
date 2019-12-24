@@ -26,8 +26,7 @@ DEFAULT_CONFIG_PATH=${SRC_DIR}/configuration
 BASE_CONFIG_PATH=${IMAGES_PATH}/common/ubuntu_toolkit/configuration
 CONFIG_MODS_PATH=${SRC_DIR}/configuration_mods
 NON_BASIC_CONTAINERS="ihs etl_client connector"
-I2ANALYZE_VERSION=4.3.0.0
-EIA_VERSION=2.3.0.0
+I2ANALYZE_VERSION=4.3.1.0
 
 # Dynamic variables
 

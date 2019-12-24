@@ -12,8 +12,8 @@
 
 #####################################################################################
 #                                                                                   #
-#  Script to remove all the containers, images and networks plus clean up           #
-#  the configuration in all folders                                                 #
+#  Script to remove all the containers, images, and networks.                       #
+#  Additionally, it returns to the default configuration in all folders.            #
 #                                                                                   #
 #  Usage : clean                                                                    #
 #                                                                                   #

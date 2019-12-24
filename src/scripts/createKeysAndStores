@@ -16,7 +16,7 @@
 #  secure deployment. The stores are populated with signed certificate.             #
 #                                                                                   #
 #  Usage : createKeysAndStores [<dbDialect>]                                        #
-#  Defaults to current dialect                                                      #
+#  Defaults to current database dialect                                             #
 #                                                                                   #
 #####################################################################################
 

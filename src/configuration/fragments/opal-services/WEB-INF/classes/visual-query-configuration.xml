@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tns:VisualQueryConfiguration xmlns:tns="http://www.i2group.com/Schemas/2016-04-25/VisualQueryConfiguration"
                               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                              xsi:schemaLocation="http://www.i2group.com/Schemas/2016-04-25/VisualQueryConfiguration/VisualQueryConfiguration.xsd">
+                              xsi:schemaLocation="http://www.i2group.com/Schemas/2016-04-25/VisualQueryConfiguration VisualQueryConfiguration.xsd">
     <OperatorUsageRules>
         <!-- By default, subject to data type compatibility, there are no    -->
         <!-- restrictions on which operators can be used with which property -->

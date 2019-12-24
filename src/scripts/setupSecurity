@@ -12,11 +12,11 @@
 
 #####################################################################################
 #                                                                                   #
-#  Script to deploy a complete SSL deployment of i2 Analyze                         #
+#  Script to deploy a complete SSL deployment of i2 Analyze.                        #
 #                                                                                   #
 #  Usage : setupSecurity [<configurationDir>] [<dbDialect>]                         #
 #  Defaults to ssl configuration directory                                          #
-#  Defaults to current dialect                                                      #
+#  Defaults to current  database dialect                                            #
 #                                                                                   #
 #####################################################################################
 
@@ -67,7 +67,7 @@ if [[ $configurationDir == "client_cert_ssl" ]]; then
 fi
 
 output "Update the Solr configuration on the ZooKeeper server"
-docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname zookeeper
+docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
 
 if [[ $dbDialect == "db2" ]]; then
     output "Updating the DB2 configuration"

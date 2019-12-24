@@ -12,11 +12,11 @@
 
 #####################################################################################
 #                                                                                   #
-#  Script to set up i2 connect for use with i2 Analyze.                             #
+#  Script to set up i2 Connect for use with i2 Analyze.                             #
 #                                                                                   #
 #  Usage : deployDaod [<configModsName>] [<dbDialect>]                              #
 #  Defaults to i2connect configuration directory                                    #
-#  Defaults to current dialect                                                      #
+#  Defaults to current database dialect                                             #
 #                                                                                   #
 #####################################################################################
 
@@ -52,7 +52,7 @@ output "Deploying Liberty"
 docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t deployLiberty
 
 output "Updating the Solr configuration on the ZooKeeper server"
-docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname zookeeper
+docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
 
 output "Creating Solr collections"
 docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createSolrCollections --hostname admin_client

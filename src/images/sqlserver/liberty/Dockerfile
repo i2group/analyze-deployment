@@ -12,7 +12,7 @@
 FROM mcr.microsoft.com/mssql-tools
 
 LABEL maintainer="IBM i2"
-LABEL version="2.0"
+LABEL version="2.1.0"
 
 ENV i2analyzeDir /opt/IBM/i2analyze
 ENV toolkitDir ${i2analyzeDir}/toolkit
@@ -23,7 +23,8 @@ RUN dpkg --add-architecture i386 && \
   apt-get install -y \
     nano \
     bsdtar \
-    openssh-client
+    openssh-client \
+    net-tools
 
 RUN groupadd i2analyze
 RUN useradd -m -g i2analyze i2analyze

@@ -102,7 +102,7 @@ In the distributed deployment example, you can see the configuration modificatio
 
 The `updateServerConfigurations` script copies a configuration to each of the example containers. To copy the tunneling configuration, run the following command:
 ```
-updateServerConfigurations tunneling
+./updateServerConfigurations tunneling
 ```
 
 If your deployment uses SSL, you must manually update the `topology.xml` file with the required attributes on each container instead of running the `updateServerConfigurations` script.

@@ -15,7 +15,7 @@
 #  Script to copy default configuration into image folders for building images.     #
 #                                                                                   #
 #  Usage : copyConfiguration [<dbDialect>]                                          #
-#  Defaults to current dialect                                                      #
+#  Defaults to current database dialect                                             #
 #                                                                                   #
 #####################################################################################
 

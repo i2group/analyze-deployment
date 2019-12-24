@@ -21,7 +21,7 @@ The documentation for understanding, deploying, and configuring the distributed 
   - [Deploying the distributed deployment example with security](securing_ssl.md)
   - [Configuring ZooKeeper and i2 Analyze to use an SSH tunnel](configure_zookeeper_tunneling.md)
   - [Deploying i2 Analyze with i2 Connect](deploy_i2_connect.md)
-  - [Upgrading a distributed deployment to version 4.3.0 of i2 Analyze](upgrade_walk_through.md)
+  - [Upgrading a distributed deployment to version 4.3.1 of i2 Analyze](upgrade_walk_through.md)
   - [Cleaning your environment](deploy_clean_environment.md)
 
 
@@ -40,4 +40,3 @@ The documentation for understanding, deploying, and configuring the distributed 
     - [Adding Solr shards to your deployment](configure_solr_add_shard.md)
     - [Adding another Solr server and Solr node](configure_solr_add_node.md)
     - [Changing the memory allocation for a Solr node](configure_solr_change_node_memory.md)
-  - [Adding other ZooKeeper servers](configure_zookeeper_add_hosts.md)

@@ -49,7 +49,7 @@
   <solr-clusters>
     <solr-cluster id="is_cluster" zookeeper-id="zoo">
       <solr-collections>
-        <solr-collection id="daod_index" max-shards-per-node="4" num-shards="4" num-replicas="1" />
+        <solr-collection id="daod_index" type="daod" max-shards-per-node="4" num-shards="4" num-replicas="1" />
       </solr-collections>
       <solr-nodes>
         <solr-node memory="2g" id="node1" host-name="solr" data-dir="/opt/IBM/i2analyze/data/solr" port-number="8983" />

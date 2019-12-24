@@ -9,7 +9,7 @@ In the Docker environment, create another container to represent the extra serve
 
 Modify the `Dockerfile` in the `src/images/common/solr3` directory to specify the host name and port to expose:
 
-Set the `ENV` instruction to `ENV hostname solr3`.  
+Set the `ARG` instruction to `ARG hostname=solr3`.  
 This is the host name of the new container.
 
 Set the `EXPOSE` instruction to `EXPOSE 8985`.  
@@ -32,7 +32,7 @@ The Solr image is created with the name `solr3_image`. Inspect the `Dockerfile` 
 
 Run the Solr3 container:
 ```
-docker run -d --name solr3 -p 8985:8985 --net eianet -u i2analyze solr3_image
+docker run -d --name solr3 -p 8985:8985 --net eianet --memory=2g -u i2analyze solr3_image
 ```
 Check that the container started correctly by using the docker logs:
 ```

@@ -1,79 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ns1:topology xmlns:ns1="http://www.i2group.com/Schemas/2013-11-18/Topology">
-  <i2-data-sources>
-    <i2-data-source ar="false" default="false" id="infostore">
-      <DataSource Version="0" Id="">
-        <Shape>InfoStore</Shape>
-        <Name>Information Store</Name>
-      </DataSource>
-    </i2-data-source>
-  </i2-data-sources>
-  <databases>
-    <!-- The instance-name must be set according to your DB2 configuration.
-      For example, this defaults to DB2 on Windows and db2inst1 on Linux. -->
-    <database database-type="InfoStore" dialect="db2"
-              database-name="ISTORE" instance-name="db2inst1" xa="false" edition="db2awse"
-              version="11.1" host-name="db2" id="infostore" port-number="50001"
-              node-name="dbnode" os-type="unix"
-              secure-connection="true"
-              trust-store="/opt/IBM/keys/stores/i2-jks-truststore.jks" />
-  </databases>
-  <applications>
-    <application http-server-host="true" name="opal-server" host-name="liberty"
-                 secure-connection="true">
-      <key-stores>
-         <key-store type="key-store" file="/opt/IBM/keys/stores/i2-liberty-keystore.jks" />
-         <key-store type="trust-store" file="/opt/IBM/keys/stores/i2-jks-truststore.jks" />
-      </key-stores>
-      <wars>
-        <war context-root="opal" name="opal-services-is" i2-data-source-id="infostore" target="opal-services-is">
-          <data-sources>
-            <data-source database-id="infostore" create-database="true" />
-          </data-sources>
-          <file-store-ids>
-            <file-store-id value="chart-store" />
-            <file-store-id value="job-store" />
-            <file-store-id value="recordgroup-store" />
-          </file-store-ids>
-          <fragments>
-            <fragment name="opal-services-is" />
-			<fragment name="opal-services" />
-            <fragment name="common" />
-            <fragment name="default-user-profile-provider" />
-          </fragments>
-          <solr-collection-ids>
-            <solr-collection-id collection-id="main_index" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
-          </solr-collection-ids>
-        </war>
-      </wars>
-      <file-stores>
-        <file-store location="/opt/IBM/i2analyze/data/chart/main" id="chart-store" type="chart-store" />
-        <file-store location="/opt/IBM/i2analyze/data/job/main" id="job-store" type="job-store" />
-        <file-store location="/opt/IBM/i2analyze/data/recordgroup/recordgroup-store/main" id="recordgroup-store" type="recordgroup-store" />
-      </file-stores>
-    </application>
-  </applications>
-  <zookeepers>
-    <zookeeper id="zoo">
-      <zkhosts>
-        <zkhost id="1" host-name="zookeeper" data-dir="/opt/IBM/i2analyze/data/zookeeper" port-number="9983" quorum-port-number="10483" leader-port-number="10983" />
-      </zkhosts>
-    </zookeeper>
-  </zookeepers>
-  <solr-clusters>
-    <solr-cluster id="is_cluster" zookeeper-id="zoo"
+    <i2-data-sources>
+        <i2-data-source ar="false" default="false" id="infostore">
+            <DataSource Version="0" Id="">
+                <Shape>InfoStore</Shape>
+                <Name>Information Store</Name>
+            </DataSource>
+        </i2-data-source>
+    </i2-data-sources>
+    <databases>
+        <database database-type="InfoStore" dialect="db2"
+                  database-name="ISTORE" instance-name="db2inst1" xa="false" edition="db2awse"
+                  version="11.1" host-name="db2" id="infostore" port-number="50001"
+                  node-name="dbnode" os-type="unix"
                   secure-connection="true"
-                  key-store="/opt/IBM/keys/stores/i2-jks-truststore.jks"
-                  trust-store="/opt/IBM/keys/stores/i2-jks-truststore.jks">
-      <solr-collections>
-        <solr-collection id="main_index" max-shards-per-node="4" num-shards="4" num-replicas="1" />
-      </solr-collections>
-      <solr-nodes>
-        <solr-node memory="2g" id="node1" host-name="solr" data-dir="/opt/IBM/i2analyze/data/solr" port-number="8983"
-                   key-store="/opt/IBM/keys/stores/i2-solr-keystore.jks" />
-        <solr-node memory="2g" id="node2" host-name="solr2" data-dir="/opt/IBM/i2analyze/data/solr" port-number="8984"
-                   key-store="/opt/IBM/keys/stores/i2-solr2-keystore.jks" />
-      </solr-nodes>
-    </solr-cluster>
-  </solr-clusters>
+                  trust-store="/opt/IBM/keys/stores/i2-jks-truststore.jks" />
+    </databases>
+    <applications>
+        <application http-server-host="true" name="opal-server" host-name="liberty"
+                     secure-connection="true">
+            <key-stores>
+                <key-store type="key-store" file="/opt/IBM/keys/stores/i2-liberty-keystore.jks" />
+                <key-store type="trust-store" file="/opt/IBM/keys/stores/i2-jks-truststore.jks" />
+            </key-stores>
+            <wars>
+                <war context-root="opal" name="opal-services-is" i2-data-source-id="infostore" target="opal-services-is">
+                    <data-sources>
+                        <data-source database-id="infostore" create-database="true" />
+                    </data-sources>
+                    <file-store-ids>
+                        <file-store-id value="chart-store" />
+                        <file-store-id value="job-store" />
+                        <file-store-id value="recordgroup-store" />
+                    </file-store-ids>
+                    <fragments>
+                        <fragment name="opal-services-is" />
+                        <fragment name="opal-services" />
+                        <fragment name="common" />
+                        <fragment name="default-user-profile-provider" />
+                    </fragments>
+                    <solr-collection-ids>
+                        <solr-collection-id collection-id="main_index" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
+                        <solr-collection-id collection-id="match_index1" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
+                        <solr-collection-id collection-id="match_index2" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
+                        <solr-collection-id collection-id="highlight_index" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
+                    </solr-collection-ids>
+                </war>
+            </wars>
+            <file-stores>
+                <file-store location="/opt/IBM/i2analyze/data/chart/main" id="chart-store" type="chart-store" />
+                <file-store location="/opt/IBM/i2analyze/data/job/main" id="job-store" type="job-store" />
+                <file-store location="/opt/IBM/i2analyze/data/recordgroup/main" id="recordgroup-store" type="recordgroup-store" />
+            </file-stores>
+        </application>
+    </applications>
+    <zookeepers>
+        <zookeeper id="zoo">
+            <zkhosts>
+                <zkhost id="1" host-name="zookeeper" data-dir="/opt/IBM/i2analyze/data/zookeeper" port-number="9983" quorum-port-number="10483" leader-port-number="10983" />
+            </zkhosts>
+        </zookeeper>
+    </zookeepers>
+    <solr-clusters>
+        <solr-cluster id="is_cluster" zookeeper-id="zoo"
+                      secure-connection="true"
+                      key-store="/opt/IBM/keys/stores/i2-jks-truststore.jks"
+                      trust-store="/opt/IBM/keys/stores/i2-jks-truststore.jks">
+            <solr-collections>
+                <solr-collection id="main_index" type="main" max-shards-per-node="4" num-shards="4" num-replicas="1" />
+                <solr-collection id="match_index1" type="match" max-shards-per-node="4" num-shards="4" num-replicas="1" />
+                <solr-collection id="match_index2" type="match" max-shards-per-node="4" num-shards="4" num-replicas="1" />
+                <solr-collection id="highlight_index" type="highlight" max-shards-per-node="4" num-shards="4" num-replicas="1" />
+            </solr-collections>
+            <solr-nodes>
+                <solr-node memory="2g" id="node1" host-name="solr" data-dir="/opt/IBM/i2analyze/data/solr" port-number="8983"
+                           key-store="/opt/IBM/keys/stores/i2-solr-keystore.jks" />
+                <solr-node memory="2g" id="node2" host-name="solr2" data-dir="/opt/IBM/i2analyze/data/solr" port-number="8984"
+                           key-store="/opt/IBM/keys/stores/i2-solr2-keystore.jks" />
+            </solr-nodes>
+        </solr-cluster>
+    </solr-clusters>
 </ns1:topology>

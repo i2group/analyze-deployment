@@ -15,7 +15,7 @@
 #  Script to reset the environment to the default configuration.                    #
 #                                                                                   #
 #  Usage : resetEnvironment [<dbDialect>]                                           #
-#  Defaults to current dialect                                                      #
+#  Defaults to current database dialect                                             #
 #                                                                                   #
 #####################################################################################
 
@@ -86,7 +86,7 @@ docker exec -u root -it solr sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/se
 docker exec -u root -it solr2 sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr2 || echo \"Error stating Solr node in solr2\"\" > /opt/IBM/startupExt"
 docker exec -u root -it admin_client sh -c "echo \"\" > /opt/IBM/startupExt"
 docker exec -u root -it liberty sh -c "echo \"export JAVA_HOME=/opt/IBM/i2analyze/deploy/java && /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty || echo \"Error starting Liberty\"\" > /opt/IBM/startupExt"
-docker exec -u root -it zookeeper sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname zookeeeper || echo \"Error stating Zookeeper host in zookeeeper\"\" > /opt/IBM/startupExt"
+docker exec -u root -it zookeeper sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper || echo \"Error stating Zookeeper host in zookeeeper\"\" > /opt/IBM/startupExt"
 
 output "Resetting configuration"
 docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty

@@ -39,4 +39,3 @@ The documentation for understanding, deploying, and configuring the distributed 
     - [Adding Solr shards to your deployment](configure_solr_add_shard.md)
     - [Adding another Solr server and Solr node](configure_solr_add_node.md)
     - [Changing the memory allocation for a Solr node](configure_solr_change_node_memory.md)
-  - [Adding other ZooKeeper servers](configure_zookeeper_add_hosts.md)

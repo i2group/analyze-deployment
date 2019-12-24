@@ -2,10 +2,10 @@
 To deploy the distributed deployment example in a topology that uses the IBM HTTP Server. The following instructions detail what is required on each container, and how to use these steps to deploy i2 Analyze on physical servers.
 
 ## Before you begin
-- Complete the [Quick deploy](deploy_quick_start.md) section or [Deploying the example manually](deploy_walk_through.md) and your deployment must be running.
+- Complete the [Quick deploy](deploy_quick_start.md) section and your deployment must be running.
 - If you deployed the example with one of the configurations in the `configuration_mods` directory or changed the `topology.xml` file. Reset your example deployment to the base configuration before you deploy with IBM HTTP Server. To reset your environment, run the following command from the `src/scripts` directory:
 ```
-resetEnvironment
+./resetEnvironment
 ```
 
 You must run all Docker commands from a command line where Docker is initialized.

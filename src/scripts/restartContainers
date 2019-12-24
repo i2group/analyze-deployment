@@ -12,7 +12,7 @@
 
 #####################################################################################
 #                                                                                   #
-#  Script to restart all the servers                                                #
+#  Script to restart all the containers.                                            #
 #                                                                                   #
 #  Usage : restartContainers                                                        #
 #                                                                                   #
@@ -27,10 +27,10 @@ pushd ..
 . ${UTILS_PATH}/functions
 
 output "Stopping existing containers if still running"
-docker stop zookeeper solr solr2 liberty db2 sqlserver admin_client ihs etl_client connector > /dev/null || true
+docker stop zookeeper solr solr2 liberty db2 sqlserver admin_client ihs etl_client connector &>/dev/null || true
 
 output "Starting existing containers"
-docker start zookeeper > /dev/null || true
+docker start zookeeper &>/dev/null || true
 # SSH process needs to start first and as root
-docker exec -u root zookeeper service ssh start > /dev/null || true
-docker start solr solr2 liberty db2 sqlserver admin_client ihs etl_client connector > /dev/null || true
+docker exec -u root zookeeper service ssh start &>/dev/null || true
+docker start solr solr2 liberty db2 sqlserver admin_client ihs etl_client connector &>/dev/null || true

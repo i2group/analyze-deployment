@@ -1,0 +1,56 @@
+{
+  "mapConfig": {
+    "baseMaps": [
+      {
+        "id": "ESRI_WorldStreetMap",
+        "displayName": "ESRI World Street Map",
+        "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+        "attribution": "Sources: Esri, HERE, Garmin, USGS, Intermap, INCREMENT P, NRCan, Esri Japan, METI, Esri China (Hong Kong), Esri Korea, Esri (Thailand), NGCC, © OpenStreetMap contributors, and the GIS User Community"
+      }
+    ]
+  },
+  "coordinateSystems": [
+    {
+      "id": "EPSG:27700",
+      "displayName": "OSGB 1936 / British National Grid - United Kingdom Ordnance Survey",
+      "projString": "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +datum=OSGB36 +units=m +no_defs",
+      "editorType": "EASTING_NORTHING",
+      "bounds": {
+        "north": 1300000,
+        "east": 700000,
+        "south": 0,
+        "west": 0
+      }
+    },
+    {
+      "id": "EPSG:26910",
+      "displayName": "NAD83 / UTM zone 10N",
+      "projString": "+proj=utm +zone=10 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
+      "editorType": "EASTING_NORTHING"
+    },
+    {
+      "id": "EPSG:3005",
+      "displayName": "NAD83 / BC Albers",
+      "projString": "+proj=aea +lat_1=50 +lat_2=58.5 +lat_0=45 +lon_0=-126 +x_0=1000000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
+      "editorType": "EASTING_NORTHING"
+    },
+    {
+      "id": "EPSG:32661",
+      "displayName": "WGS 84 / UPS North (N,E)",
+      "projString": "proj4.defs(\"EPSG:32661\",\"+proj=stere +lat_0=90 +lat_ts=90 +lon_0=0 +k=0.994 +x_0=2000000 +y_0=2000000 +datum=WGS84 +units=m +no_defs\");",
+      "editorType": "EASTING_NORTHING"
+    },
+    {
+      "id": "EPSG:32761",
+      "displayName": "WGS 84 / UPS South (N,E)",
+      "projString": "+proj=stere +lat_0=-90 +lat_ts=-90 +lon_0=0 +k=0.994 +x_0=2000000 +y_0=2000000 +datum=WGS84 +units=m +no_defs",
+      "editorType": "EASTING_NORTHING"
+    },
+    {
+      "id": "EPSG:3857",
+      "displayName": "WGS 84 / Pseudo-Mercator -- Spherical Mercator, Google Maps, OpenStreetMap, Bing, ArcGIS, ESRI",
+      "projString": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs",
+      "editorType": "EASTING_NORTHING"
+    }
+  ]
+}

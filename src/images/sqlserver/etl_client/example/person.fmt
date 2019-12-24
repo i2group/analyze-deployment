@@ -1,8 +1,10 @@
 13.0
-6
+8
 1       SQLCHAR             0       100     ","      1     source_id                                            Latin1_General_100_CI_AI_SC
 2       SQLCHAR             0       11      ","      15    p_date_of_birth                                      ""
 3       SQLCHAR             0       500     ","      8     p_first_given_name                                   Latin1_General_100_CI_AI_SC
 4       SQLCHAR             0       500     ","      10    p_family_name                                        Latin1_General_100_CI_AI_SC
 5       SQLCHAR             0       500     ","      44    p_occupation                                         Latin1_General_100_CI_AI_SC
-6       SQLCHAR             0       500     "\n"     16    p_gender                                             Latin1_General_100_CI_AI_SC
+6       SQLCHAR             0       500     ","      16    p_gender                                             Latin1_General_100_CI_AI_SC
+7       SQLCHAR             0       400     ","      64    source_ref_source_type                               Latin1_General_100_CI_AI_SC
+8       SQLCHAR             0       4000    "\n"     65    source_ref_source_location                           Latin1_General_100_CI_AI_SC

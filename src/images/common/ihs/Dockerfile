@@ -9,10 +9,10 @@
 # *
 # ********************************************************************************/
 
-FROM ibmcom/ibm-http-server:9.0.0.7
+FROM ibmcom/ibm-http-server:9.0.5.0
 
 LABEL maintainer="IBM i2"
-LABEL version="2.0"
+LABEL version="2.1.0"
 
 #Install the prerequisites.
 RUN dpkg --add-architecture i386 && \

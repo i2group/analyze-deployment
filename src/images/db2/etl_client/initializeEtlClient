@@ -12,10 +12,10 @@
 
 #####################################################################################
 #                                                                                   #
-#  Script to initialize the etl_client                                              #
+#  Script to initialize the etl_client.                                             #
 #                                                                                   #
 #  Usage : initializeEtlClient enable/disable                                       #
-#  The "security" argument will catalog the dbnode and ISTORE                       #
+#  The "security" argument will catalog the dbnode and ISTORE database.             #
 #  using a secure port and SSL if set to enable. Defaults to disable.               #
 #####################################################################################
 function output

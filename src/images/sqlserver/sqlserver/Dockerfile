@@ -9,7 +9,7 @@
 # *
 # ********************************************************************************/
 
-FROM mcr.microsoft.com/mssql/server:2017-latest
+FROM mcr.microsoft.com/mssql/server:2017-CU13-ubuntu
 
 #Install the prerequisites.
 RUN dpkg --add-architecture i386 && \
