@@ -12,7 +12,7 @@
 
 #####################################################################################
 #                                                                                   #
-#  Script to switch from Sql Server deployment to Db2 deployment                    #
+#  Script to switch from Sql Server deployment to Db2 deployment.                   #
 #                                                                                   #
 #  Usage : deployDb2                                                                #
 #                                                                                   #
@@ -101,11 +101,24 @@ waitForContainer admin_client 'Started'
 output "Running the admin_client container to create the database"
 docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createDatabases
 
+output "Restarting ZooKeeper"
+docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t restartZkHosts --hostname zookeeper
+
+output "Updating the Solr configuration on the ZooKeeper server"
+docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
+
+output "Restarting Solr"
+docker exec -u i2analyze -t solr /opt/IBM/i2analyze/toolkit/scripts/setup -t restartSolrNodes --hostname solr
+
+docker exec -u i2analyze -t solr2 /opt/IBM/i2analyze/toolkit/scripts/setup -t restartSolrNodes --hostname solr2
+
 output "Clear old search index"
-docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearSearchIndex --force --hostname admin_client
+docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearSearchIndex --all --force --hostname admin_client
 
 output "Running the liberty container on the eia network"
 docker run -d --name liberty -p 9082:9082 -p 9445:9445 --net eianet -u i2analyze liberty_db2_image
+
+waitForContainer liberty 'Application started'
 
 output "Running the etl client on the eia network"
 docker run -d --name etl_client --net eianet -u i2analyze etl_client_db2_image

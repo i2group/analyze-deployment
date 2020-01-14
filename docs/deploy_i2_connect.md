@@ -87,6 +87,15 @@ Run the `deployLiberty` task on the `liberty` container:
 docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t deployLiberty
 ```
 
+## Creating the Solr configuration on ZooKeeper
+You can create and upload the Solr configuration from the Admin client, or you can run the command from one of the ZooKeeper servers.
+
+To create the Solr configuration by using the Admin client, run the following command:
+```
+docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
+```
+The Solr configuration is created and uploaded.
+
 ## Creating the Solr Collection
 Create the Solr Collection that is used by a deployment with i2 Connect, run the `createSolrCollections` task on the `admin_client` container.
 ```

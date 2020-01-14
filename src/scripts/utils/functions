@@ -38,19 +38,28 @@ function header
 
 function waitForContainer() {
     echo $1
-    echo $2
     attempt=0
-    while [ $attempt -le 100 ]; do
+    success=0
+    while [ $attempt -le 100 ] && [ $success -eq 0 ]; do
         attempt=$(( $attempt + 1 ))
         echo "Waiting for container to start (attempt: $attempt)..."
-        result=$(docker logs $1)
-        if grep -q "$2" <<< $result ; then
-          echo $1
+        result=$(docker logs "$1")
+        if echo "$result" | grep -q "$2" ; then
           echo "Container $1 has started"
+          success=1
           break
+        elif [ -n "$3" ] ; then
+          if echo "$result" | grep -q "$3" ; then
+            echo "ERROR: Container $1 did NOT start"
+            exit 1
+          fi
         fi
         sleep 10
     done
+    if [ $success -eq 0 ]; then
+      echo "ERROR: Container $1 did NOT start"
+      exit 1
+    fi
 }
 
 function containerExists()

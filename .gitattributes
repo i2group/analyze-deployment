@@ -4,7 +4,6 @@
 
 *.png binary
 *.jpg binary
-*.vsd binary
 *.doc binary
 *.pos binary
 *.tim binary

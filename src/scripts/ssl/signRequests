@@ -12,7 +12,7 @@
 
 #####################################################################################
 #                                                                                   #
-#  Script to sign the certificates from the certificate signing requests            #
+#  Script to sign the certificates from the certificate signing requests.           #
 #                                                                                   #
 #  This script is called as part of the createKeysAndStores script.                 #
 #                                                                                   #

@@ -15,7 +15,7 @@
       database-name="ISTORE" instance-name="" xa="false" host-name="" id="infostore" port-number="50000" />
   </databases>
   <applications>
-    <application http-server-host="true" name="opal-server" host-name="">
+    <application http-server-host="false" name="opal-server" host-name="">
       <wars>
         <war context-root="opal" name="opal-services-is" i2-data-source-id="infostore" target="opal-services-is">
           <data-sources>
@@ -33,7 +33,10 @@
             <fragment name="default-user-profile-provider" />
           </fragments>
           <solr-collection-ids>
-            <solr-collection-id collection-id="main_index" data-dir="" cluster-id="is_cluster" />
+            <solr-collection-id collection-id="main_index" cluster-id="is_cluster" />
+            <solr-collection-id collection-id="match_index1" cluster-id="is_cluster" />
+            <solr-collection-id collection-id="match_index2" cluster-id="is_cluster" />
+            <solr-collection-id collection-id="highlight_index" cluster-id="is_cluster" />
           </solr-collection-ids>
         </war>
       </wars>
@@ -54,7 +57,10 @@
   <solr-clusters>
     <solr-cluster id="is_cluster" zookeeper-id="zoo">
       <solr-collections>
-        <solr-collection id="main_index" max-shards-per-node="4" num-shards="4" num-replicas="1" />
+        <solr-collection id="main_index" type="main" max-shards-per-node="4" num-shards="4" num-replicas="1" />
+        <solr-collection id="match_index1" type="match" max-shards-per-node="4" num-shards="4" num-replicas="1" />
+        <solr-collection id="match_index2" type="match" max-shards-per-node="4" num-shards="4" num-replicas="1" />
+        <solr-collection id="highlight_index" type="highlight" max-shards-per-node="4" num-shards="4" num-replicas="1" />
       </solr-collections>
       <solr-nodes>
         <solr-node memory="2g" id="node1" host-name="" data-dir="" port-number="8983" />

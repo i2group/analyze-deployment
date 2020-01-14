@@ -40,24 +40,24 @@ After you install Docker, you must ensure that is Docker initialized in your com
 Clone or download the distributed deployment example from <https://github.com/IBM-i2/Analyze-Deployment/releases>.
 
 ### Analyst's Notebook Premium
-Download *i2 Analyst's Notebook Premium* using the following part number: *CC1GNML*.
+Download *i2 Analyst's Notebook Premium* using the following part number: *CC42AML*.
 
 Install Analyst's Notebook Premium with the Opal connector on a Windows machine that can access the machine where Docker is running.
 
 >Note: If you are running Docker on Mac OS, you can install Analyst's Notebook Premium on a Windows virtual machine.
 
-For more information, see [Installing IBM i2 Analyst's Notebook Premium](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.install.doc/installing_anbp.html).
+For more information, see [Installing IBM i2 Analyst's Notebook Premium](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.deploy.example.doc/installing_anbp.html).
 
 ### i2 Analyze
-Download i2 Analyze for Linux. You download the IBM i2 Analyze (Archive install) for Linux using part number *CC1HBML*, or the IBM i2 Enterprise Insight Analysis (Archive install) for Linux using part number *CC1H8ML*.
+Download i2 Analyze for Linux. You download the IBM i2 Analyze (Archive install) for Linux using part number *CC42CML*.
 
 Depending on the download that you used, rename the `.tar.gz` file to `i2analyze.tar.gz`, then copy it to the `src/images/common/ubuntu_toolkit/i2analyze` directory.
 
 Accept the license, open `license_acknowledgment.txt` in the `src/images/common/ubuntu_toolkit/i2analyze` directory and change the value of `LIC_AGREEMENT` to `ACCEPT`.
 
-Add the `sqljdbc42.jar` file to the `src/configuration/environment/common/jdbc-drivers` directory.  
+Add the `mssql-jdbc-7.4.1.jre8.jar` file to the `src/configuration/environment/common/jdbc-drivers` directory.  
 You must create the `common/jdbc-drivers` directories.
->Note: Download the Microsoft JDBC Driver 6.0 for SQL Server from [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/en-us/download/details.aspx?id=11774). Extract the contents of the download, and locate the `sqljdbc_6.0\enu\jre8\sqljdbc42.jar` file.
+>Note: Download the Microsoft JDBC Driver 7.4 for SQL Server from [Microsoft JDBC Driver 7.4 for SQL Server](https://www.microsoft.com/en-us/download/details.aspx?id=58505). Extract the contents of the `tar.gz`, and locate the `sqljdbc_7.4\enu\mssql-jdbc-7.4.1.jre8.jar` file.
 
 ### Specifying the credentials
 You must specify the credentials for a deployment in the `src/configuration/environment/credentials.properties`. Set the passwords to be used for the Information Store, Solr, and the LTPA keys.

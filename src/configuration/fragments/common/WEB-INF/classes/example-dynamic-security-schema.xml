@@ -50,4 +50,6 @@
 			</Permissions>
 		</GroupPermissions>
 	</SecurityPermissions>
+
+	<DefaultSecurityDimensionValues>CON,OSI,HI</DefaultSecurityDimensionValues>
 </tns:SecuritySchema>

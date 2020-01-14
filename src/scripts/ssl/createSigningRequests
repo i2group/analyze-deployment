@@ -12,7 +12,7 @@
 
 #####################################################################################
 #                                                                                   #
-#  Script to create key stores, trust stores, and certificate signing requests      #
+#  Script to create key stores, trust stores, and certificate signing requests.     #
 #                                                                                   #
 #  This script is called as part of the createKeysAndStores script.                 #
 #                                                                                   #

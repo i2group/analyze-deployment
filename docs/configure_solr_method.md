@@ -24,7 +24,7 @@ The Solr collection is created when the `createSolrCollections` toolkit task is 
 
 
 ## Configure the Solr collection in the `createSolrCollection` script file
-If you deployed the distributed deployment example, the `createSolrCollection` script is in the `toolkit\configuration\environment\opal-server\main_index` directory on the server that the `createSolrCollection` script was run. You can then change the topology file to `toolkit-configured=false`.
+If you deployed the distributed deployment example, the `createSolrCollection` script is in the `toolkit\configuration\environment\opal-server\main_index` directory on the server that the `createSolrCollection` script was run. You can then change the topology file to `toolkit-configured="false"`.
 
 >Note: If the script doesn't exist, run `setup -t createSolrCollections` toolkit task with `toolkit-configured="true"` in the `topology.xml` file.
 

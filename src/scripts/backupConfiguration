@@ -12,7 +12,7 @@
 
 #####################################################################################
 #                                                                                   #
-#  Script to back up the current configuration of the admin client container.       #
+#  Script to back up the current configuration of the admin_client container.       #
 #  This scripts assumes the admin_client contains the complete configuration        #
 #  for the deployment.                                                              #
 #                                                                                   #

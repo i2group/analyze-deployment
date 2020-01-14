@@ -53,8 +53,11 @@ docker exec -u i2analyze solr2 /opt/IBM/i2analyze/toolkit/scripts/setup -t upgra
 output "Upgrading the Information Store database"
 docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeDatabases --hostname admin_client
 
-output "Starting ZooKeeper and Solr"
+output "Starting ZooKeeper and uploading new configuration"
 docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper
+docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
+
+output "Starting Solr"
 docker exec -u i2analyze solr /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolr --hostname solr
 docker exec -u i2analyze solr2 /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolr --hostname solr2
 

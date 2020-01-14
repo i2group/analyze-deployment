@@ -12,7 +12,7 @@
 
 #####################################################################################
 #                                                                                   #
-#  Script to set up the etl_client for use and to ingest example data               #
+#  Script to set up the etl_client for use and to ingest example data.              #
 #                                                                                   #
 #  Usage : deployEtlClient                                                          #
 #                                                                                   #

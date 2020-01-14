@@ -33,19 +33,22 @@
           </file-store-ids>
           <fragments>
             <fragment name="opal-services-is" />
-			<fragment name="opal-services" />
+            <fragment name="opal-services" />
             <fragment name="common" />
             <fragment name="default-user-profile-provider" />
           </fragments>
           <solr-collection-ids>
             <solr-collection-id collection-id="main_index" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
+            <solr-collection-id collection-id="match_index1" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
+            <solr-collection-id collection-id="match_index2" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
+            <solr-collection-id collection-id="highlight_index" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
           </solr-collection-ids>
         </war>
       </wars>
       <file-stores>
         <file-store location="/opt/IBM/i2analyze/data/chart/main" id="chart-store" type="chart-store" />
         <file-store location="/opt/IBM/i2analyze/data/job/main" id="job-store" type="job-store" />
-        <file-store location="/opt/IBM/i2analyze/data/recordgroup/recordgroup-store/main" id="recordgroup-store" type="recordgroup-store" />
+        <file-store location="/opt/IBM/i2analyze/data/recordgroup/main" id="recordgroup-store" type="recordgroup-store" />
       </file-stores>
     </application>
   </applications>
@@ -62,7 +65,10 @@
                   key-store="/opt/IBM/keys/stores/i2-jks-truststore.jks"
                   trust-store="/opt/IBM/keys/stores/i2-jks-truststore.jks">
       <solr-collections>
-        <solr-collection id="main_index" max-shards-per-node="4" num-shards="4" num-replicas="1" />
+        <solr-collection id="main_index" type="main" max-shards-per-node="4" num-shards="4" num-replicas="1" />
+        <solr-collection id="match_index1" type="match" max-shards-per-node="4" num-shards="4" num-replicas="1" />
+        <solr-collection id="match_index2" type="match" max-shards-per-node="4" num-shards="4" num-replicas="1" />
+        <solr-collection id="highlight_index" type="highlight" max-shards-per-node="4" num-shards="4" num-replicas="1" />
       </solr-collections>
       <solr-nodes>
         <solr-node memory="2g" id="node1" host-name="solr" data-dir="/opt/IBM/i2analyze/data/solr" port-number="8983"

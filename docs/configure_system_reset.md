@@ -18,7 +18,7 @@ To clear the search index, you can run the commands from the Admin client or Lib
 
 To clear the search index, run the following command:
 ```
-docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearSearchIndex --hostname admin_client
+docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearSearchIndex --all --hostname admin_client
 ```
 
 The search index is cleared, however any data that was in the database remains in the database.
@@ -61,7 +61,7 @@ Any connections that you stop in this way are not in the list when you run the c
 ### Drop the database
 After you ensure that there are no active connections to your database, you can drop the database by running the following command:
 ```
-docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t dropDatabases
+docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t dropDatabases --hostname admin_client
 ```
 The `ISTORE` database is removed.
 

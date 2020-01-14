@@ -34,15 +34,15 @@ The output from the `stopLiberty` task is output directly to the console.
 
 To remove the current Solr collection, run the following command:
 ```
-docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t deleteSolrCollections --hostname admin_client
+docker exec -it -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t deleteSolrCollections --all --hostname admin_client
 ```
 To create the Solr collection with the modified configuration, run the following command:
 ```
-docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createSolrCollections --hostname admin_client
+docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createSolrCollections --all --hostname admin_client
 ```
 To clear the search index, run the following command:
 ```
-docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearSearchIndex --hostname admin_client
+docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearSearchIndex --all --hostname admin_client
 ```
 To restart Liberty, run the following command:
 ```
