@@ -87,24 +87,31 @@ Where `<SAPassword>` is the same password that you entered in the previous comma
 
 The container is started with SQL Server installed and running. The port number of the SQL Server instance is `1433`.
 
-### ZooKeeper container
-ZooKeeper is the service that is used to maintain configuration information and distributed synchronization across Solr. In this deployment, ZooKeeper is deployed on its own server. Your configured i2 Analyze toolkit must be installed on the ZooKeeper server.
+### ZooKeeper containers
+ZooKeeper is the service that is used to maintain configuration information and distributed synchronization across Solr. In this deployment, ZooKeeper is distributed across three servers in a ZooKeeper Quorum. Your configured i2 Analyze toolkit must be installed on each Zookeeper server.
 
-To build the `zookeeper` image, run the following command from the `src/images/common` folder:
+To build the `zookeeper`, `zookeeper2`, and `zookeeper3` images, run the following commands from the `src/images/common` folder:
 ```
 docker build -t zookeeper_image zookeeper
+docker build -t zookeeper2_image zookeeper2
+docker build -t zookeeper3_image zookeeper3
 ```
-Run the ZooKeeper container:
+Run the ZooKeeper containers:
 ```
 docker run -d --name zookeeper --net eianet --memory=512m -u i2analyze zookeeper_image
+docker run -d --name zookeeper2 --net eianet --memory=512m -u i2analyze zookeeper2_image
+docker run -d --name zookeeper3 --net eianet --memory=512m -u i2analyze zookeeper3_image
 ```
-Then, check that ZooKeeper started correctly by using the docker logs:
+
+Check that the containers started correctly by using the docker logs:
 ```
 docker logs -f zookeeper
+docker logs -f zookeeper2
+docker logs -f zookeeper3
 ```
 Inspect the [`Dockerfile`](../src/images/common/zookeeper/Dockerfile) in the `src/images/common/zookeeper` directory to see the commands that are required to configure a ZooKeeper server in a non-Docker environment.
 
-The ZooKeeper container is started. The container starts and configures ZooKeeper, and hosts the ZooKeeper server. The `topology.xml` file in the i2 Analyze configuration defines the values for the ZooKeeper server.
+Each ZooKeeper container is started. The container starts and configures ZooKeeper, and hosts the ZooKeeper server. The `topology.xml` file in the i2 Analyze configuration defines the values for the ZooKeeper server.
 
 ### Admin client container
 In this deployment, the Admin client is a separate server that is designed for running toolkit tasks in a distributed environment. Your configured i2 Analyze toolkit, and a Db2 client must be installed on the server that you want to use to interact with Liberty and Db2.
@@ -127,7 +134,7 @@ docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setu
 ```
 
 #### Solr configuration
-Before the Solr configuration can be created, all of the ZooKeeper hosts must be running. In the Docker environment, ensure that the ZooKeeper container is running.
+Before the Solr configuration can be created, all of the ZooKeeper hosts must be running. In the Docker environment, ensure that the ZooKeeper containers are running.
 
 You can create and upload the Solr configuration from the Admin client, or you can run the command from one of the ZooKeeper servers.
 
@@ -150,8 +157,8 @@ The Solr images are created with the names `solr_image` and `solr2_image`.
 
 Run the Solr containers:
 ```
-docker run -d --name solr -p 8983:8983 --net eianet --memory=2g -u i2analyze solr_image
-docker run -d --name solr2 -p 8984:8984 --net eianet --memory=2g -u i2analyze solr2_image
+docker run -d --name solr -p 8983:8983 --net eianet --memory=1g -u i2analyze solr_image
+docker run -d --name solr2 -p 8984:8984 --net eianet --memory=1g -u i2analyze solr2_image
 ```
 
 Check that the containers started correctly by using the docker logs:

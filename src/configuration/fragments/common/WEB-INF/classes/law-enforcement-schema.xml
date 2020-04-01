@@ -118,7 +118,22 @@
           <PropertyType Position="35" Mandatory="false" LogicalType="XML" Id="f5916739-a962-4c01-95d3-2598bfabc1b5" DisplayName="Query Definition (XML)" Description="Stored Query XML Definition. This data is private to the stored query and is not directly editable."/>
         </PropertyTypes>
       </EntityType>
-
+      
+      <!-- 
+      Mandatory Opal Information Store Chart type 
+      -->
+      <EntityType Description="Opal Chart" DisplayName="Opal Chart" Id="CHART" Icon="Anbchart">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Description="The file name of the chart" DisplayName="Name" Id="CHART1" LogicalType="SINGLE_LINE_STRING" Mandatory="true" Position="0" SemanticTypeId="" MaximumLengthChars="255">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Description="The description of the chart" DisplayName="Description" Id="CHART2" LogicalType="MULTIPLE_LINE_STRING" Mandatory="false" Position="1" SemanticTypeId="">
+            <PossibleValues/>
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      
       <!--
       End of mandatory entity types
       Subsequent entity types are optional and can be customized or removed as required.
@@ -3154,6 +3169,11 @@
             <LabelPart LabelPartType="PROPERTY_TYPE" Value="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd"/>
           </LabelParts>
         </LabelDefinition>
+        <LabelDefinition ItemTypeId="CHART">
+          <LabelParts>
+            <LabelPart Value="CHART1" LabelPartType="PROPERTY_TYPE"/>
+          </LabelParts>
+        </LabelDefinition>
         <!-- Non-mandatory types... -->
         <LabelDefinition ItemTypeId="ET10">
           <LabelParts>
@@ -3293,3 +3313,4 @@
     <lcx:LibraryCatalogue VersionMajor="1" VersionMinor="18" VersionRelease="27" VersionBuild="60" xmlns:lcx="http://www.i2group.com/Schemas/2001-12-07/LCXSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" LocaleHex="0809" />
   </SemanticTypeLibrary>
 </ns2:Schema>
+

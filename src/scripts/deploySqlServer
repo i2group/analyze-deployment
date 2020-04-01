@@ -1,6 +1,6 @@
 #!/bin/bash
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2019.
+# * (C) Copyright IBM Corporation 2018, 2020.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -36,11 +36,15 @@ popd
 output "Copy the configuration to each container"
 #Copy Modifications
 docker cp "${IMAGES_PATH}/common/zookeeper/configuration/." zookeeper:/opt/IBM/i2analyze/toolkit/configuration
+docker cp "${IMAGES_PATH}/common/zookeeper2/configuration/." zookeeper2:/opt/IBM/i2analyze/toolkit/configuration
+docker cp "${IMAGES_PATH}/common/zookeeper3/configuration/." zookeeper3:/opt/IBM/i2analyze/toolkit/configuration
 docker cp "${IMAGES_PATH}/common/solr/configuration/." solr:/opt/IBM/i2analyze/toolkit/configuration
 docker cp "${IMAGES_PATH}/common/solr2/configuration/." solr2:/opt/IBM/i2analyze/toolkit/configuration
 
 #Change the ownership of the copied files
 docker exec -u root zookeeper chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
+docker exec -u root zookeeper2 chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
+docker exec -u root zookeeper3 chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
 docker exec -u root solr chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
 docker exec -u root solr2 chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
 
@@ -74,10 +78,10 @@ waitForContainer sqlserver "Service Broker manager has started"
 
 output "Enter the password that you specified for db.infostore.password in the credentials.properties file:"
 read -s password
-docker exec -t sqlserver /opt/mssql-tools/bin/sqlcmd -U SA -P ${saPassword} -Q "CREATE LOGIN i2analyze WITH PASSWORD = '${password}'; CREATE USER i2analyze FOR LOGIN i2analyze; ALTER SERVER ROLE sysadmin ADD MEMBER i2analyze"
+docker exec -t sqlserver /opt/mssql-tools/bin/sqlcmd -U sa -P ${saPassword} -Q "CREATE LOGIN i2analyze WITH PASSWORD = '${password}'; CREATE USER i2analyze FOR LOGIN i2analyze; ALTER SERVER ROLE sysadmin ADD MEMBER i2analyze"
 
 output "Running the admin client container on the eia network."
-docker run -d --name admin_client --net eianet -u i2analyze admin_client_sqlserver_image
+docker run -d --name admin_client --memory=1g --net eianet -u i2analyze admin_client_sqlserver_image
 waitForContainer admin_client 'Started'
 
 output "Running the admin_client container to create the database"
@@ -85,9 +89,11 @@ docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setu
 
 output "Restarting ZooKeeper"
 docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t restartZkHosts --hostname zookeeper
+docker exec -u i2analyze zookeeper2 /opt/IBM/i2analyze/toolkit/scripts/setup -t restartZkHosts --hostname zookeeper2
+docker exec -u i2analyze zookeeper3 /opt/IBM/i2analyze/toolkit/scripts/setup -t restartZkHosts --hostname zookeeper3
 
 output "Updating the Solr configuration on the ZooKeeper server"
-docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
+docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
 
 output "Restarting Solr"
 docker exec -u i2analyze -t solr /opt/IBM/i2analyze/toolkit/scripts/setup -t restartSolrNodes --hostname solr
@@ -98,11 +104,11 @@ output "Clear old search index"
 docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearSearchIndex --all --force --hostname admin_client
 
 output "Running the liberty container on the eia network"
-docker run -d --name liberty -p 9082:9082 -p 9445:9445 --net eianet -u i2analyze liberty_sqlserver_image
+docker run -d --name liberty --memory=2g -p 9082:9082 -p 9445:9445 --net eianet -u i2analyze liberty_sqlserver_image
 
 waitForContainer liberty 'Application started'
 
 output "Running the etl client on the eia network"
-docker run -d --name etl_client --net eianet -u i2analyze etl_client_sqlserver_image
+docker run -d --name etl_client --memory=512m --net eianet -u i2analyze etl_client_sqlserver_image
 
 popd

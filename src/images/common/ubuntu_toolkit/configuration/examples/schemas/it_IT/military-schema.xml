@@ -156,6 +156,19 @@
           </PropertyType>
         </PropertyTypes>
       </EntityType>
+      
+      <EntityType Description="Analyst's Notebook Chart" DisplayName="Analyst's Notebook Chart" Id="CHART" Icon="Anbchart">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Description="The file name of the chart" DisplayName="Name" Id="CHART1" LogicalType="SINGLE_LINE_STRING" Mandatory="true" Position="0" SemanticTypeId="" MaximumLengthChars="255">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Description="The description of the chart" DisplayName="Description" Id="CHART2" LogicalType="MULTIPLE_LINE_STRING" Mandatory="false" Position="1" SemanticTypeId="">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      
       <EntityType Id="ET1" SemanticTypeId="guidC6A2C76F-5637-43DC-92F8-8F3563226307" Description="Dettagli indirizzo" DisplayName="Posizione" Icon="House">
         <PropertyGroupTypes>
           <PropertyGroupType Mandatory="false" Position="19" Description="" DisplayName="Immagini" Id="ADD20">

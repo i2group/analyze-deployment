@@ -7,26 +7,33 @@ This file allows you to assign access to specific functions to different user gr
  *  i2:Notes - Allows the notes on records to be created and accessed
  *  i2:RecordsUpload - Allows records to be uploaded to the Information Store
  *  i2:RecordsDelete - Allows records to be deleted from the Information Store
+ *  i2:ChartsUpload - Allows charts to be uploaded to the Information Store
+ *  i2:ChartsDelete - Allows charts to be deleted from the Information Store
+ *  i2:ChartsRead - Allows charts to be retrieved from the Information Store
  *  i2:RecordsExport - Allows records to be exported to a CSV file
 Note:  You can use a wildcard (*) to specify all user groups
 -->
 
-	<CommandAccessPermissions UserGroup="Administrator">
-		<Permission Value="i2:Administrator" />
-	</CommandAccessPermissions>
+    <CommandAccessPermissions UserGroup="Administrator">
+        <Permission Value="i2:Administrator" />
+    </CommandAccessPermissions>
 
-	<CommandAccessPermissions UserGroup="*">
-		<Permission Value="i2:Notes" />
-	</CommandAccessPermissions>
+    <CommandAccessPermissions UserGroup="*">
+        <Permission Value="i2:Notes" />
+        <Permission Value="i2:ChartsRead" />
+    </CommandAccessPermissions>
 
-	<CommandAccessPermissions UserGroup="Clerk">
-		<Permission Value="i2:RecordsUpload" />
-	</CommandAccessPermissions>
+    <CommandAccessPermissions UserGroup="Clerk">
+        <Permission Value="i2:RecordsUpload" />
+        <Permission Value="i2:ChartsUpload" />
+    </CommandAccessPermissions>
 
-	<CommandAccessPermissions UserGroup="Analyst">
-		<Permission Value="i2:RecordsUpload" />
-		<Permission Value="i2:RecordsDelete" />
-		<Permission Value="i2:RecordsExport" />
-	</CommandAccessPermissions>
+    <CommandAccessPermissions UserGroup="Analyst">
+        <Permission Value="i2:RecordsUpload" />
+        <Permission Value="i2:RecordsDelete" />
+        <Permission Value="i2:RecordsExport" />
+        <Permission Value="i2:ChartsUpload" />
+        <Permission Value="i2:ChartsDelete" />
+    </CommandAccessPermissions>
 
 </tns:CommandAccessControl>

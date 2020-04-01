@@ -1,6 +1,6 @@
 #!/bin/bash
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2019.
+# * (C) Copyright IBM Corporation 2018, 2020.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -26,7 +26,7 @@ DEFAULT_CONFIG_PATH=${SRC_DIR}/configuration
 BASE_CONFIG_PATH=${IMAGES_PATH}/common/ubuntu_toolkit/configuration
 CONFIG_MODS_PATH=${SRC_DIR}/configuration_mods
 NON_BASIC_CONTAINERS="ihs etl_client connector"
-I2ANALYZE_VERSION=4.3.1.0
+I2ANALYZE_VERSION=4.3.1.1
 
 # Dynamic variables
 

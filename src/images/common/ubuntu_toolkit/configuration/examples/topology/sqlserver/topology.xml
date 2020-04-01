@@ -35,6 +35,7 @@
             <solr-collection-id collection-id="match_index1" cluster-id="is_cluster" />
             <solr-collection-id collection-id="match_index2" cluster-id="is_cluster" />
             <solr-collection-id collection-id="highlight_index" cluster-id="is_cluster" />
+            <solr-collection-id collection-id="chart_index" cluster-id="is_cluster" />
           </solr-collection-ids>
         </war>
       </wars>
@@ -55,10 +56,11 @@
   <solr-clusters>
     <solr-cluster id="is_cluster" zookeeper-id="zoo">
       <solr-collections>
-        <solr-collection id="main_index" type="main" max-shards-per-node="4" num-shards="4" num-replicas="1" />
-        <solr-collection id="match_index1" type="match" max-shards-per-node="4" num-shards="4" num-replicas="1" />
-        <solr-collection id="match_index2" type="match" max-shards-per-node="4" num-shards="4" num-replicas="1" />
-        <solr-collection id="highlight_index" type="highlight" max-shards-per-node="4" num-shards="4" num-replicas="1" />
+        <solr-collection id="main_index" type="main" max-shards-per-node="4" num-shards="4" num-replicas="1" lucene-match-version="" />
+        <solr-collection id="match_index1" type="match" max-shards-per-node="4" num-shards="4" num-replicas="1" lucene-match-version="" />
+        <solr-collection id="match_index2" type="match" max-shards-per-node="4" num-shards="4" num-replicas="1" lucene-match-version="" />
+        <solr-collection id="highlight_index" type="highlight" max-shards-per-node="4" num-shards="4" num-replicas="1" lucene-match-version="" />
+        <solr-collection id="chart_index" type="chart" max-shards-per-node="4" num-shards="4" num-replicas="1" lucene-match-version="" />
       </solr-collections>
       <solr-nodes>
         <solr-node memory="2g" id="node1" host-name="" data-dir="" port-number="8983" />

@@ -22,19 +22,19 @@ To change the database management system to use Microsoft SQL Server, see [Chang
 ## Change the deployment to use IBM Db2
 
 ### Prerequisites for the distributed deployment example with IBM Db2
-Download *IBM Db2 Advanced Workgroup Server Edition for Linux* by using the following part numbers: *CNB21ML* and *CNB8FML*.
+Download *IBM Db2 Advanced Edition for Linux* by using the following part numbers: *CC1U0ML* and *CC1VRML*.
 
-Unzip the `DB2_AWSE_Restricted_Activation_11.1.zip` file, then copy the `awse_o` directory into the `src/images/db2/db2_installer` directory.
+Unzip the `DB2_DAE_Activation_11.5.zip` file, then copy the `adv_vpc` directory into the `src/images/db2/db2_installer` directory.
 
-Rename the `DB2_AWSE_REST_Svr_11.1_Lnx_86-64.tar.gz` file to `DB2_AWSE_REST_Svr.tar.gz`, then copy it to the `src/images/db2/db2_installer/installation_media` directory. Do not decompress the file.
+Rename the `DB2_Svr_11.5_Linux_x86-64.tar.gz` file to `DB2_AWSE_REST_Svr.tar.gz`, then copy it to the `src/images/db2/db2_installer/installation_media` directory. Do not decompress the file.
 
-Download the SSL support file for Db2 by using the following part number: *CNS6QML*.
+Download the SSL support file for Db2 by using the following part number: *CC1UPML*.
 
-Rename the `DB2_SF_SSLF_V11.1_Linux_x86-64.tar.gz` file to `DB2_SF_SSLF.tar.gz`, then copy it to the `src/images/db2/base_client/installation_media` directory. Do not decompress the file.
+Rename the `DB2_SF_SSL_11.5_Linux_x86-64.tar.gz` file to `DB2_SF_SSLF.tar.gz`, then copy it to the `src/images/db2/base_client/installation_media` directory. Do not decompress the file.
 
 Add the `db2jcc4.jar` file to the `src/configuration/environment/common/jdbc-drivers` directory.
 >Note: In an installation of Db2, the `db2jcc4.jar` file is in the `IBM/SQLLIB/java` directory.  
-If you do not have a Db2 installation, you can download the file. Download the file for `v11.1 M4 FP4`. For more information about downloading the `db2jcc4.jar` file, see: <http://www-01.ibm.com/support/docview.wss?uid=swg21363866>.
+If you do not have a Db2 installation, you can download the file. Download the file for `v11.5 FP0 (GA)`. For more information about downloading the `db2jcc4.jar` file, see: <http://www-01.ibm.com/support/docview.wss?uid=swg21363866>.
 
 
 ### Run the script to deploy with Db2

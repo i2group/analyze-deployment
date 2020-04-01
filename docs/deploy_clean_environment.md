@@ -30,7 +30,7 @@ docker rmi -f image_name
 
 To remove the images that are used in the distributed deployment example, run the following commands:
 ```
-docker rmi -f zookeeper_image solr_image solr2_image ihs_image liberty_db2_image liberty_sqlserver_image etl_client_db2_image etl_client_sqlserver_image
+docker rmi -f zookeeper_image solr_image zookeeper2_image solr_image zookeeper3_image solr_image solr2_image ihs_image liberty_db2_image liberty_sqlserver_image etl_client_db2_image etl_client_sqlserver_image
 docker rmi -f ca_image connector_image db2_installer_image db2_image admin_client_db2_image admin_client_sqlserver_image base_client_image
 docker rmi -f ubuntu_toolkit_image
 ```

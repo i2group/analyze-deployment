@@ -14,19 +14,19 @@ You must run all Docker commands from a command line where Docker is initialized
 >In the network settings for your docker virtual machine, open the **Advanced** menu and click **Port Forwarding**. Create a new line, and enter values for the `Host IP`, `Host Port`, and `Guest Port`. You must do this for each port that is exposed in the Docker environment.
 
 ### Db2
-Download *IBM DB2 Advanced Workgroup Server Edition for Linux* by using the following part numbers: *CNB21ML* and *CNB8FML*.
+Download *IBM Db2 Advanced Edition for Linux* by using the following part numbers: *CC1U0ML* and *CC1VRML*.
 
-Unzip the `DB2_AWSE_Restricted_Activation_11.1.zip` file, then copy the `awse_o` directory into the `src/images/db2/db2_installer` directory.
+Unzip the `DB2_DAE_Activation_11.5.zip` file, then copy the `adv_vpc` directory into the `src/images/db2/db2_installer` directory.
 
-Rename the `DB2_AWSE_REST_Svr_11.1_Lnx_86-64.tar.gz` file to `DB2_AWSE_REST_Svr.tar.gz`, then copy it to the `src/images/db2/db2_installer/installation_media` directory. Do not decompress the file.
+Rename the `DB2_Svr_11.5_Linux_x86-64.tar.gz` file to `DB2_AWSE_REST_Svr.tar.gz`, then copy it to the `src/images/db2/db2_installer/installation_media` directory. Do not decompress the file.
 
-Download the SSL support file for DB2 by using the following part number: *CNS6QML*.
+Download the SSL support file for Db2 by using the following part number: *CC1UPML*.
 
-Rename the `DB2_SF_SSLF_V11.1_Linux_x86-64.tar.gz` file to `DB2_SF_SSLF.tar.gz`, then copy it to the `src/images/db2/base_client/installation_media` directory. Do not decompress the file.
+Rename the `DB2_SF_SSL_11.5_Linux_x86-64.tar.gz` file to `DB2_SF_SSLF.tar.gz`, then copy it to the `src/images/db2/base_client/installation_media` directory. Do not decompress the file.
 
 Add the `db2jcc4.jar` file to the `src/configuration/environment/common/jdbc-drivers` directory.
 >Note: In an installation of Db2, the `db2jcc4.jar` file is in the `IBM/SQLLIB/java` directory.  
-If you do not have a Db2 installation, you can download the file. Download the file for `v11.1 M4 FP4`. For more information about downloading the `db2jcc4.jar` file, see: <http://www-01.ibm.com/support/docview.wss?uid=swg21363866>.
+If you do not have a Db2 installation, you can download the file. Download the file for `v11.5 FP0 (GA)`. For more information about downloading the `db2jcc4.jar` file, see: <http://www-01.ibm.com/support/docview.wss?uid=swg21363866>.
 
 ## Create the network
 To enable communication between the docker containers, all the containers must be connected to a single network. You can create a bridge network that only the docker containers can access. When each container is run, the `--net` flag is used to specify that the container connects to a specific network.
@@ -112,7 +112,7 @@ The DB2 image is created with the name `db2_image`.
 
 Run the db2 container:
 ```
- docker run -d --privileged --name db2 -p 50000:50000 -p 50001:50001 --net eianet -u db2inst1 db2_image
+docker run -d --privileged --name db2 -p 50000:50000 -p 50001:50001 --net eianet -u db2inst1 db2_image
 ```
 >Note: Ports 50000 and 50001 are exposed so that the database can be accessed from outside of the `eianet` network. In a production environment this is not necessary, because clients only access Liberty.
 
@@ -133,24 +133,31 @@ Inspect the [`Dockerfile`](../src/images/db2/db2/Dockerfile) in the `src/images/
 
 Db2 is installed by using a response file, and an instance of Db2 is created with the required Db2 users.
 
-### ZooKeeper container
-ZooKeeper is the service that is used to maintain configuration information and distributed synchronization across Solr. In this deployment, ZooKeeper is deployed on its own server. Your configured i2 Analyze toolkit must be installed on the ZooKeeper server.
+### ZooKeeper containers
+ZooKeeper is the service that is used to maintain configuration information and distributed synchronization across Solr. In this deployment, ZooKeeper is distributed across three servers in a ZooKeeper Quorum. Your configured i2 Analyze toolkit must be installed on each Zookeeper server.
 
-To build the `zookeeper` image, run the following command from the `src/images/common` folder:
+To build the `zookeeper`, `zookeeper2`, and `zookeeper3` images, run the following commands from the `src/images/common` folder:
 ```
 docker build -t zookeeper_image zookeeper
+docker build -t zookeeper2_image zookeeper2
+docker build -t zookeeper3_image zookeeper3
 ```
-Run the ZooKeeper container:
+Run the ZooKeeper containers:
 ```
-docker run -d --name zookeeper --net eianet -u i2analyze zookeeper_image
+docker run -d --name zookeeper --net eianet --memory=512m -u i2analyze zookeeper_image
+docker run -d --name zookeeper2 --net eianet --memory=512m -u i2analyze zookeeper2_image
+docker run -d --name zookeeper3 --net eianet --memory=512m -u i2analyze zookeeper3_image
 ```
-Then, check that ZooKeeper started correctly by using the docker logs:
+
+Check that the containers started correctly by using the docker logs:
 ```
 docker logs -f zookeeper
+docker logs -f zookeeper2
+docker logs -f zookeeper3
 ```
 Inspect the [`Dockerfile`](../src/images/common/zookeeper/Dockerfile) in the `src/images/common/zookeeper` directory to see the commands that are required to configure a ZooKeeper server in a non-Docker environment.
 
-The ZooKeeper container is started. The container starts and configures ZooKeeper, and hosts the ZooKeeper server. The `topology.xml` file in the i2 Analyze configuration defines the values for the ZooKeeper server.
+Each ZooKeeper container is started. The container starts and configures ZooKeeper, and hosts the ZooKeeper server. The `topology.xml` file in the i2 Analyze configuration defines the values for the ZooKeeper server.
 
 ### Admin client container
 In this deployment, the Admin client is a separate server that is designed for running toolkit tasks in a distributed environment. Your configured i2 Analyze toolkit, and a DB2 client must be installed on the server that you want to use to interact with Liberty and Db2.
@@ -173,7 +180,7 @@ docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setu
 ```
 
 #### Solr configuration
-Before the Solr configuration can be created, all of the ZooKeeper hosts must be running. In the Docker environment, ensure that the ZooKeeper container is running.
+Before the Solr configuration can be created, all of the ZooKeeper hosts must be running. In the Docker environment, ensure that the ZooKeeper containers are running.
 
 You can create and upload the Solr configuration from the Admin client, or you can run the command from one of the ZooKeeper servers.
 
@@ -196,8 +203,8 @@ The Solr images are created with the names `solr_image` and `solr2_image`.
 
 Run the Solr containers:
 ```
-docker run -d --name solr -p 8983:8983 --net eianet --memory=2g -u i2analyze solr_image
-docker run -d --name solr2 -p 8984:8984 --net eianet --memory=2g -u i2analyze solr2_image
+docker run -d --name solr -p 8983:8983 --net eianet --memory=1g -u i2analyze solr_image
+docker run -d --name solr2 -p 8984:8984 --net eianet --memory=1g -u i2analyze solr2_image
 ```
 
 Check that the containers started correctly by using the docker logs:
@@ -235,7 +242,7 @@ Create the Information Store database in the Db2 instance on the Db2 container.
 
 To create the Information Store database by using the Admin client, run the following command:
 ```
-docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createDatabases
+docker exec -t -u i2analyze admin_client bash -c ". home/db2inst1/sqllib/db2profile && /opt/IBM/i2analyze/toolkit/scripts/setup -t createDatabases"
 ```
 To check that the database is created correctly, connect to the database. For example, connect by using IBM Data Studio. The user name is `i2analyze` and the password is the database password set in the `credentials.properties` file.
 >If you are using Windows 7, you must forward port `50000` from your Virtual Box virtual machine.)

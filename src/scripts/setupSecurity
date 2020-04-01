@@ -1,6 +1,6 @@
 #!/bin/bash
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2019.
+# * (C) Copyright IBM Corporation 2018, 2020.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -66,8 +66,8 @@ if [[ $configurationDir == "client_cert_ssl" ]]; then
     sed -i 's/<ssl id=\"defaultSSLConfig\"/<ssl clientAuthenticationSupported=\"true\" id=\"defaultSSLConfig\"/g' server.xml"
 fi
 
-output "Update the Solr configuration on the ZooKeeper server"
-docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
+output "Update the Solr configuration on the ZooKeeper servers"
+docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
 
 if [[ $dbDialect == "db2" ]]; then
     output "Updating the DB2 configuration"
@@ -113,6 +113,8 @@ docker exec -u i2analyze    liberty     /opt/IBM/i2analyze/toolkit/scripts/setup
 docker exec -u i2analyze    solr        /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes   --hostname solr         &>/dev/null || true
 docker exec -u i2analyze    solr2       /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes   --hostname solr2        &>/dev/null || true
 docker exec -u i2analyze    zookeeper   /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts     --hostname zookeeper    &>/dev/null || true
+docker exec -u i2analyze    zookeeper2   /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts     --hostname zookeeper2    &>/dev/null || true
+docker exec -u i2analyze    zookeeper3   /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts     --hostname zookeeper3    &>/dev/null || true
 if [[ $dbDialect == "db2" ]]; then
     docker exec -u db2inst1     db2         db2stop                                                                         &>/dev/null || true
 elif [[ $dbDialect == "sqlserver" ]]; then
@@ -126,6 +128,8 @@ elif [[ $dbDialect == "sqlserver" ]]; then
     docker start sqlserver
 fi
 docker exec -u i2analyze    zookeeper   /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts    --hostname zookeeper
+docker exec -u i2analyze    zookeeper2   /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts    --hostname zookeeper2
+docker exec -u i2analyze    zookeeper3   /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts    --hostname zookeeper3
 docker exec -u i2analyze    solr        /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes  --hostname solr
 docker exec -u i2analyze    solr2       /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes  --hostname solr2
 docker exec -u i2analyze    liberty     /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty

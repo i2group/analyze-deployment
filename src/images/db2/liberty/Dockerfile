@@ -1,5 +1,5 @@
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2019.
+# * (C) Copyright IBM Corporation 2018, 2020.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -21,8 +21,8 @@ COPY --chown=i2analyze:i2analyze configuration ${toolkitDir}/configuration
 USER i2analyze:db2iusr1
 
 #Catalog the remote DB2 node to enable deletion by rule.
-RUN ${toolkitDir}/scripts/setup -t catalogRemoteDB2Nodes
-RUN ${toolkitDir}/scripts/setup -t catalogDB2Databases
+RUN . /home/db2inst1/sqllib/db2profile && ${toolkitDir}/scripts/setup -t catalogRemoteDB2Nodes
+RUN . /home/db2inst1/sqllib/db2profile && ${toolkitDir}/scripts/setup -t catalogDB2Databases
 
 USER i2analyze:i2analyze
 

@@ -19,7 +19,7 @@ This is the port that is exposed to enable a connection the Solr web UI.
 Modify the `topology.xml` in the `src/images/common/solr3/configuration/environment` directory to include the new host name and ports that are specified in the `Dockerfile`.  
 Add the following `<solr-node>` element as a child of the `<solr-nodes>` element:
 ```
-<solr-node memory="2g" data-dir="/opt/IBM/i2analyze/data/solr" host-name="solr3" id="node3" port-number="8985"/>
+<solr-node memory="512m" data-dir="/opt/IBM/i2analyze/data/solr" host-name="solr3" id="node3" port-number="8985"/>
 ```
 Make the same modification to the `topology.xml` in the `src/configuration/environment` directory to ensure that the configuration is consistent.
 

@@ -46,7 +46,7 @@ Any connections that you stop in this way are not in the list when you run the c
 ### Stopping active connections to your Db2 database
 You can identify the active connections to the database by running the following command:
 ```
-docker exec -u i2analyze -t db2 db2 list applications
+docker exec -u i2analyze -t db2 bash -c ". /home/db2inst1/sqllib/db2profile && db2 list applications"
 ```
 If the command returns the `No data was returned by Database System Monitor` warning, or there are no rows in the list with a *DB Name* of `ISTORE`, there are no active connections to the Information Store.
 
@@ -54,14 +54,19 @@ Otherwise, make a note of all of the values in the `Appli. Handle` column with a
 
 The following is an example of how to stop two active connections with the application handles of `1414` and `1415`:
 ```
-docker exec -u i2analyze -t db2 db2 "force application (1414, 1415)"
+docker exec -u i2analyze -t db2 bash -c ". /home/db2inst1/sqllib/db2profile && db2 'force application (1414, 1415)'"
 ```
 Any connections that you stop in this way are not in the list when you run the command to identify the active connections.
 
 ### Drop the database
 After you ensure that there are no active connections to your database, you can drop the database by running the following command:
+In SQL Server:
 ```
 docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t dropDatabases --hostname admin_client
+```
+In Db2:
+```
+docker exec -u i2analyze -it admin_client bash -c ". /home/db2inst1/sqllib/db2profile && /opt/IBM/i2analyze/toolkit/scripts/setup -t dropDatabases --hostname admin_client"
 ```
 The `ISTORE` database is removed.
 
@@ -76,9 +81,15 @@ docker exec -u i2analyze -t liberty rm /opt/IBM/i2analyze/toolkit/configuration/
 Before you can restart i2 Analyze, you must recreate the database.
 
 To create the database, run the following command:
+In SQL Server:
 ```
 docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createDatabases
 ```
+In Db2:
+```
+docker exec -u i2analyze -t admin_client bash -c ". /home/db2inst1/sqllib/db2profile && /opt/IBM/i2analyze/toolkit/scripts/setup -t createDatabases"
+```
+
 You must start Liberty:
 ```
 docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty

@@ -10,7 +10,7 @@ For example, the memory allocation for `node1`, which runs on the `solr` contain
 ```
 <solr-nodes>
   <solr-node memory="4g" data-dir="/opt/IBM/i2analyze/data/solr" host-name="solr" id="node1" port-number="8983"/>
-  <solr-node memory="2g" data-dir="/opt/IBM/i2analyze/data/solr" host-name="solr2" id="node2" port-number="8984"/>
+  <solr-node memory="512m" data-dir="/opt/IBM/i2analyze/data/solr" host-name="solr2" id="node2" port-number="8984"/>
 </solr-nodes>
 ```
 

@@ -10,8 +10,8 @@
     </i2-data-sources>
     <databases>
         <database database-type="InfoStore" dialect="db2"
-                  database-name="ISTORE" instance-name="db2inst1" xa="false" edition="db2awse"
-                  version="11.1" host-name="db2" id="infostore" port-number="50001"
+                  database-name="ISTORE" instance-name="db2inst1" xa="false" host-name="db2"
+                  id="infostore" port-number="50001"
                   node-name="dbnode" os-type="unix"
                   secure-connection="true"
                   trust-store="/opt/IBM/keys/stores/i2-jks-truststore.jks" />
@@ -44,6 +44,7 @@
                         <solr-collection-id collection-id="match_index1" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
                         <solr-collection-id collection-id="match_index2" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
                         <solr-collection-id collection-id="highlight_index" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
+                        <solr-collection-id collection-id="chart_index" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
                     </solr-collection-ids>
                 </war>
             </wars>
@@ -57,7 +58,9 @@
     <zookeepers>
         <zookeeper id="zoo">
             <zkhosts>
-                <zkhost id="1" host-name="zookeeper" data-dir="/opt/IBM/i2analyze/data/zookeeper" port-number="9983" quorum-port-number="10483" leader-port-number="10983" />
+				<zkhost id="1" host-name="zookeeper" data-dir="/opt/IBM/i2analyze/data/zookeeper" port-number="9983" quorum-port-number="10483" leader-port-number="10983" />
+				<zkhost id="2" host-name="zookeeper2" data-dir="/opt/IBM/i2analyze/data/zookeeper" port-number="9984" quorum-port-number="10484" leader-port-number="10984" />
+				<zkhost id="3" host-name="zookeeper3" data-dir="/opt/IBM/i2analyze/data/zookeeper" port-number="9985" quorum-port-number="10485" leader-port-number="10985" />
             </zkhosts>
         </zookeeper>
     </zookeepers>
@@ -71,11 +74,12 @@
                 <solr-collection id="match_index1" type="match" max-shards-per-node="4" num-shards="4" num-replicas="1" />
                 <solr-collection id="match_index2" type="match" max-shards-per-node="4" num-shards="4" num-replicas="1" />
                 <solr-collection id="highlight_index" type="highlight" max-shards-per-node="4" num-shards="4" num-replicas="1" />
+                <solr-collection id="chart_index" type="chart" max-shards-per-node="4" num-shards="4" num-replicas="1" />
             </solr-collections>
             <solr-nodes>
-                <solr-node memory="2g" id="node1" host-name="solr" data-dir="/opt/IBM/i2analyze/data/solr" port-number="8983"
+                <solr-node memory="512m" id="node1" host-name="solr" data-dir="/opt/IBM/i2analyze/data/solr" port-number="8983"
                            key-store="/opt/IBM/keys/stores/i2-solr-keystore.jks" />
-                <solr-node memory="2g" id="node2" host-name="solr2" data-dir="/opt/IBM/i2analyze/data/solr" port-number="8984"
+                <solr-node memory="512m" id="node2" host-name="solr2" data-dir="/opt/IBM/i2analyze/data/solr" port-number="8984"
                            key-store="/opt/IBM/keys/stores/i2-solr2-keystore.jks" />
             </solr-nodes>
         </solr-cluster>

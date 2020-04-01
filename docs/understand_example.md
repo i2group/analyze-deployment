@@ -3,11 +3,11 @@ The distributed deployment example demonstrates how to build a distributed deplo
 
 The distributed deployment example not only provides the environment for the deployment, but configures and deploys i2 Analyze across the servers in the same way that a system implementer does.
 
-In the distributed deployment example, i2 Analyze with the Opal services is deployed on five servers:
+In the distributed deployment example, i2 Analyze with the Opal services is deployed on seven servers:
 - One for Liberty and the i2 Analyze application
 - One for the database management system for the Information Store database
 - Two for each Solr node
-- One for ZooKeeper that manages the Solr configuration
+- Three for ZooKeeper that manages the Solr configuration
 
 The following diagram shows the servers that i2 Analyze is deployed on, and what is required on each server:
 ![Distributed deployment server topology](./images/distributed_topology.png)
@@ -34,7 +34,7 @@ After you deploy the distributed deployment example, information is provided for
 ---
 
 ## Host names in a distributed environment
-When i2 Analyze is deployed in a distributed environment, the `topology.xml` file contains multiple host names. In the distributed deployment example, the host names that are used include; `sqlserver`, `db2`, `solr`, `solr2`, `zookeeper`, and `liberty`.
+When i2 Analyze is deployed in a distributed environment, the `topology.xml` file contains multiple host names. In the distributed deployment example, the host names that are used include; `sqlserver`, `db2`, `solr`, `solr2`, `zookeeper`, `zookeeper2`, `zookeeper3`, and `liberty`.
 
 To deploy and configure i2 Analyze is a distributed environment, you can use the `--hostname` argument restrict the effect of the toolkit task to the host name that you provide. For example, `setup -t startSolrNodes --hostname solr` starts the Solr nodes on the server with the host name `solr`. If you run `setup -t startSolr --hostname solr2`, only the Solr nodes on the server with host name `solr2` start.
 

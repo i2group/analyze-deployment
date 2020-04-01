@@ -59,7 +59,7 @@
           </PropertyType>
         </PropertyTypes>
       </EntityType>
-      <EntityType Id="cf17d636-44c9-4897-b19d-7d2eda002e57" Description="Analyst's Notebook chart" DisplayName="Analyst's Notebook Chart" Icon="Anbchart">
+      <EntityType Id="cf17d636-44c9-4897-b19d-7d2eda002e57" Description="Analysis Repository Chart" DisplayName="Analysis Repository Chart" Icon="Anbchart">
         <PropertyGroupTypes />
         <PropertyTypes>
           <PropertyType Position="0" Mandatory="true" MaximumLengthChars="255" SemanticTypeId="" DisplayName="Name" Description="The file name of the chart" LogicalType="SINGLE_LINE_STRING" Id="d6d03ce2-3cd6-49c1-8a66-366d0e434fd4">
@@ -119,6 +119,21 @@
         </PropertyTypes>
       </EntityType>
 
+      <!-- 
+      Mandatory Opal Information Store Chart type 
+      -->
+      <EntityType Description="Analyst's Notebook Chart" DisplayName="Analyst's Notebook Chart" Id="CHART" Icon="Anbchart">
+        <PropertyGroupTypes />
+        <PropertyTypes>
+          <PropertyType Description="The file name of the chart" DisplayName="Name" Id="CHART1" LogicalType="SINGLE_LINE_STRING" Mandatory="true" Position="0" SemanticTypeId="" MaximumLengthChars="255">
+            <PossibleValues />
+          </PropertyType>
+          <PropertyType Description="The description of the chart" DisplayName="Description" Id="CHART2" LogicalType="MULTIPLE_LINE_STRING" Mandatory="false" Position="1" SemanticTypeId="">
+            <PossibleValues />
+          </PropertyType>
+        </PropertyTypes>
+      </EntityType>
+      
       <!--
       End of mandatory entity types
       Subsequent entity types are optional and can be customized or removed as required.
@@ -2009,6 +2024,11 @@
         <LabelDefinition ItemTypeId="43cd717c-0204-4c81-93ea-f9f0458bc5ea">
           <LabelParts>
             <LabelPart LabelPartType="PROPERTY_TYPE" Value="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd"/>
+          </LabelParts>
+        </LabelDefinition>
+        <LabelDefinition ItemTypeId="CHART">
+          <LabelParts>
+            <LabelPart Value="CHART1" LabelPartType="PROPERTY_TYPE"/>
           </LabelParts>
         </LabelDefinition>
         <!-- Non-mandatory types... -->

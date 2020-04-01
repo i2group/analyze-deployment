@@ -1,5 +1,5 @@
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2019.
+# * (C) Copyright IBM Corporation 2018, 2020.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -27,7 +27,7 @@ RUN ${toolkitDir}/scripts/setup -t installSolr
 USER i2analyze:db2iusr1
 
 #Catalog the remote DB2 node to enable running commands on the remote instance of DB2.
-RUN ${toolkitDir}/scripts/setup -t catalogRemoteDB2Nodes
+RUN . /home/db2inst1/sqllib/db2profile && ${toolkitDir}/scripts/setup -t catalogRemoteDB2Nodes
 
 RUN echo "echo \"Admin client: Started\"" >> /opt/IBM/startupExt
 

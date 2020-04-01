@@ -1,6 +1,6 @@
 #!/bin/bash
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2019.
+# * (C) Copyright IBM Corporation 2018, 2020.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -38,6 +38,8 @@ output "Remove the configuration directory on each container"
 docker exec admin_client sh -c "rm -rf /opt/IBM/i2analyze/toolkit/configuration/*"
 docker exec liberty sh -c "rm -rf /opt/IBM/i2analyze/toolkit/configuration/*"
 docker exec zookeeper sh -c "rm -rf /opt/IBM/i2analyze/toolkit/configuration/*"
+docker exec zookeeper2 sh -c "rm -rf /opt/IBM/i2analyze/toolkit/configuration/*"
+docker exec zookeeper3 sh -c "rm -rf /opt/IBM/i2analyze/toolkit/configuration/*"
 docker exec solr sh -c "rm -rf /opt/IBM/i2analyze/toolkit/configuration/*"
 docker exec solr2 sh -c "rm -rf /opt/IBM/i2analyze/toolkit/configuration/*"
 
@@ -46,6 +48,8 @@ output "Copy the configuration from the src/configuration directory to each cont
 docker cp "${BASE_CONFIG_PATH}/." admin_client:/opt/IBM/i2analyze/toolkit/configuration
 docker cp "${BASE_CONFIG_PATH}/." liberty:/opt/IBM/i2analyze/toolkit/configuration
 docker cp "${BASE_CONFIG_PATH}/." zookeeper:/opt/IBM/i2analyze/toolkit/configuration
+docker cp "${BASE_CONFIG_PATH}/." zookeeper2:/opt/IBM/i2analyze/toolkit/configuration
+docker cp "${BASE_CONFIG_PATH}/." zookeeper3:/opt/IBM/i2analyze/toolkit/configuration
 docker cp "${BASE_CONFIG_PATH}/." solr:/opt/IBM/i2analyze/toolkit/configuration
 docker cp "${BASE_CONFIG_PATH}/." solr2:/opt/IBM/i2analyze/toolkit/configuration
 
@@ -59,6 +63,8 @@ popd
 docker cp "${IMAGES_PATH}/${dbDialect}/admin_client/configuration/." admin_client:/opt/IBM/i2analyze/toolkit/configuration
 docker cp "${IMAGES_PATH}/${dbDialect}/liberty/configuration/." liberty:/opt/IBM/i2analyze/toolkit/configuration
 docker cp "${IMAGES_PATH}/common/zookeeper/configuration/." zookeeper:/opt/IBM/i2analyze/toolkit/configuration
+docker cp "${IMAGES_PATH}/common/zookeeper2/configuration/." zookeeper2:/opt/IBM/i2analyze/toolkit/configuration
+docker cp "${IMAGES_PATH}/common/zookeeper3/configuration/." zookeeper3:/opt/IBM/i2analyze/toolkit/configuration
 docker cp "${IMAGES_PATH}/common/solr/configuration/." solr:/opt/IBM/i2analyze/toolkit/configuration
 docker cp "${IMAGES_PATH}/common/solr2/configuration/." solr2:/opt/IBM/i2analyze/toolkit/configuration
 
@@ -66,6 +72,8 @@ docker cp "${IMAGES_PATH}/common/solr2/configuration/." solr2:/opt/IBM/i2analyze
 docker exec -u root admin_client chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
 docker exec -u root liberty chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
 docker exec -u root zookeeper chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
+docker exec -u root zookeeper2 chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
+docker exec -u root zookeeper3 chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
 docker exec -u root solr chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
 docker exec -u root solr2 chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
 
@@ -87,16 +95,24 @@ docker exec -u root -it solr2 sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/s
 docker exec -u root -it admin_client sh -c "echo \"\" > /opt/IBM/startupExt"
 docker exec -u root -it liberty sh -c "echo \"export JAVA_HOME=/opt/IBM/i2analyze/deploy/java && /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty || echo \"Error starting Liberty\"\" > /opt/IBM/startupExt"
 docker exec -u root -it zookeeper sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper || echo \"Error stating Zookeeper host in zookeeeper\"\" > /opt/IBM/startupExt"
+docker exec -u root -it zookeeper2 sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper2 || echo \"Error stating Zookeeper host in zookeeeper2\"\" > /opt/IBM/startupExt"
+docker exec -u root -it zookeeper3 sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper3 || echo \"Error stating Zookeeper host in zookeeeper3\"\" > /opt/IBM/startupExt"
 
 output "Resetting configuration"
 docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty
 
-# Resetting the Solr configuration in the Zookeeper server
-docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname zookeeper
+# Resetting the Solr configuration in the Zookeeper servers
+docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
 
-# Restarting zookeeper container
+# Restarting zookeeper containers
 docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts --hostname zookeeper
 docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper
+
+docker exec -u i2analyze zookeeper2 /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts --hostname zookeeper2
+docker exec -u i2analyze zookeeper2 /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper2
+
+docker exec -u i2analyze zookeeper3 /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts --hostname zookeeper3
+docker exec -u i2analyze zookeeper3 /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper3
 
 # Restarting solr containers
 docker exec -u i2analyze solr /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes --hostname solr

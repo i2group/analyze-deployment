@@ -1,6 +1,6 @@
 #!/bin/bash
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2019.
+# * (C) Copyright IBM Corporation 2018, 2020.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -27,7 +27,7 @@ pushd ..
 . ${UTILS_PATH}/functions
 
 output "Cleaning up any previously created deployment example containers if they exist."
-docker rm -f zookeeper solr solr2 sqlserver admin_client liberty etl_client ihs connector &>/dev/null || true
+docker rm -f zookeeper zookeeper2 zookeeper3 solr solr2 sqlserver db2 admin_client liberty etl_client ihs connector &>/dev/null || true
 
 output "Clean up the previously created deployment example network if it exists."
 docker network rm eianet &>/dev/null || true
@@ -35,20 +35,24 @@ docker network rm eianet &>/dev/null || true
 output "Creating the (eianet) deployment example network."
 docker network create eianet
 
-output "Running the zookeeper container on the eia network."
+output "Running the zookeeper, zookeeper2 and zookeeper3 containers on the eia network."
 docker run -d --name zookeeper --net eianet --memory=512m -u i2analyze zookeeper_image
+docker run -d --name zookeeper2 --net eianet --memory=512m -u i2analyze zookeeper2_image
+docker run -d --name zookeeper3 --net eianet --memory=512m -u i2analyze zookeeper3_image
 
-output "Waiting to ensure that the ZooKeeper server is running."
+output "Waiting to ensure that the ZooKeeper servers are running."
 waitForContainer zookeeper '\.Started' '\.Not Started'
+waitForContainer zookeeper2 '\.Started' '\.Not Started'
+waitForContainer zookeeper3 '\.Started' '\.Not Started'
 
 output "Running the admin_client container to create and upload solr configuration"
-docker run -d --name admin_client --net eianet --memory=512m -u i2analyze admin_client_sqlserver_image
+docker run -d --name admin_client --net eianet --memory=1g -u i2analyze admin_client_sqlserver_image
 waitForContainer admin_client 'Started'
 docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
 
 output "Running the solr and solr2 containers on the eia network."
-docker run -d --name solr -p 8983:8983 --net eianet --memory=2g -u i2analyze solr_image
-docker run -d --name solr2 -p 8984:8984 --net eianet --memory=2g -u i2analyze solr2_image
+docker run -d --name solr -p 8983:8983 --net eianet --memory=1g -u i2analyze solr_image
+docker run -d --name solr2 -p 8984:8984 --net eianet --memory=1g -u i2analyze solr2_image
 
 output "Waiting to ensure that the Solr servers are running and create the Solr collection on the eia network."
 waitForContainer solr ': Started' 'not started'
@@ -58,7 +62,7 @@ docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setu
 output "Running the sqlserver container on the eia network."
 echo -n "Enter a password for the SA account: "
 read -s saPassword
-docker run -d -e 'ACCEPT_EULA=Y' -e "SA_PASSWORD=${saPassword}" --memory=3g --name sqlserver -p 1433:1433 --net eianet sqlserver_image
+docker run -d -u root -e 'ACCEPT_EULA=Y' -e "SA_PASSWORD=${saPassword}" --memory=3.5g --name sqlserver -p 1433:1433 --net eianet sqlserver_image
 
 output "Waiting to ensure that the Microsoft SQL Server is running"
 waitForContainer sqlserver "Service Broker manager has started"

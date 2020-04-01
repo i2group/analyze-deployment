@@ -1,6 +1,6 @@
 #!/bin/bash
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2019.
+# * (C) Copyright IBM Corporation 2018, 2020.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -31,8 +31,8 @@ if [ ! -e "${IMAGES_PATH}/db2/db2_installer/installation_media/DB2_AWSE_REST_Svr
     exit 1
 fi
 
-if [ ! -e "${IMAGES_PATH}/db2/db2_installer/awse_o/db2/license/db2awse_o.lic" ]; then
-    echo "Error: Cannot find the db2awse_o.lic file in '${IMAGES_PATH}/db2/db2_installer/awse_o/db2/license'."
+if [ ! -e "${IMAGES_PATH}/db2/db2_installer/adv_vpc/db2/license/db2adv_vpc.lic" ]; then
+    echo "Error: Cannot find the db2adv_vpc.lic file in '${IMAGES_PATH}/db2/db2_installer/adv_vpc/db2/license'."
     exit 1
 fi
 
@@ -51,11 +51,15 @@ popd
 output "Copy the configuration to each container"
 #Copy modifications
 docker cp "${IMAGES_PATH}/common/zookeeper/configuration/." zookeeper:/opt/IBM/i2analyze/toolkit/configuration
+docker cp "${IMAGES_PATH}/common/zookeeper2/configuration/." zookeeper2:/opt/IBM/i2analyze/toolkit/configuration
+docker cp "${IMAGES_PATH}/common/zookeeper3/configuration/." zookeeper3:/opt/IBM/i2analyze/toolkit/configuration
 docker cp "${IMAGES_PATH}/common/solr/configuration/." solr:/opt/IBM/i2analyze/toolkit/configuration
 docker cp "${IMAGES_PATH}/common/solr2/configuration/." solr2:/opt/IBM/i2analyze/toolkit/configuration
 
 #Change the ownership of the copied files
 docker exec -u root zookeeper chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
+docker exec -u root zookeeper2 chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
+docker exec -u root zookeeper3 chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
 docker exec -u root solr chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
 docker exec -u root solr2 chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
 
@@ -86,7 +90,7 @@ docker stop sqlserver &>/dev/null || true
 docker rm -f db2 admin_client liberty etl_client &>/dev/null || true
 
 output "Running the db2 container on the eia network."
-docker run -d --privileged --name db2 -p 50000:50000 -p 50001:50001 --net eianet -u db2inst1 db2_image
+docker run -u db2inst1 -d --privileged --name db2 -p 50000:50000 -p 50001:50001 --net eianet -u db2inst1 db2_image
 
 output "Waiting to ensure that the db2 server is running"
 waitForContainer db2 "DB2START processing was successful"
@@ -95,17 +99,19 @@ output "Enter the password that you specified for db.infostore.password in the c
 runCommandUntilSuccess "docker exec -u root -it db2 passwd i2analyze"
 
 output "Running the admin client container on the eia network."
-docker run -d --name admin_client --net eianet -u i2analyze admin_client_db2_image
+docker run -d --name admin_client --net eianet --memory=1g -u i2analyze admin_client_db2_image
 waitForContainer admin_client 'Started'
 
 output "Running the admin_client container to create the database"
-docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createDatabases
+docker exec -t -u i2analyze admin_client bash -c ". home/db2inst1/sqllib/db2profile && /opt/IBM/i2analyze/toolkit/scripts/setup -t createDatabases"
 
 output "Restarting ZooKeeper"
 docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t restartZkHosts --hostname zookeeper
+docker exec -u i2analyze zookeeper2 /opt/IBM/i2analyze/toolkit/scripts/setup -t restartZkHosts --hostname zookeeper2
+docker exec -u i2analyze zookeeper3 /opt/IBM/i2analyze/toolkit/scripts/setup -t restartZkHosts --hostname zookeeper3
 
-output "Updating the Solr configuration on the ZooKeeper server"
-docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
+output "Updating the Solr configuration on the ZooKeeper servers"
+docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
 
 output "Restarting Solr"
 docker exec -u i2analyze -t solr /opt/IBM/i2analyze/toolkit/scripts/setup -t restartSolrNodes --hostname solr
@@ -116,11 +122,11 @@ output "Clear old search index"
 docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearSearchIndex --all --force --hostname admin_client
 
 output "Running the liberty container on the eia network"
-docker run -d --name liberty -p 9082:9082 -p 9445:9445 --net eianet -u i2analyze liberty_db2_image
+docker run -d --name liberty --memory=2g -p 9082:9082 -p 9445:9445 --net eianet -u i2analyze liberty_db2_image
 
 waitForContainer liberty 'Application started'
 
 output "Running the etl client on the eia network"
-docker run -d --name etl_client --net eianet -u i2analyze etl_client_db2_image
+docker run -d --name etl_client --memory=512m --net eianet -u i2analyze etl_client_db2_image
 
 popd

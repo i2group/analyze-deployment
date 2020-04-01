@@ -1,5 +1,5 @@
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2019.
+# * (C) Copyright IBM Corporation 2018, 2020.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -9,7 +9,9 @@
 # *
 # ********************************************************************************/
 
-FROM mcr.microsoft.com/mssql/server:2017-CU13-ubuntu
+FROM mcr.microsoft.com/mssql/server:2019-CU3-ubuntu-16.04
+
+USER root:root
 
 #Install the prerequisites.
 RUN dpkg --add-architecture i386 && \
@@ -19,11 +21,13 @@ RUN dpkg --add-architecture i386 && \
     bsdtar \
     openssh-client
 
-#Copy utils
-COPY --from=ubuntu_toolkit_image /opt/IBM/utils /opt/IBM/utils
-
 #Create a group for securing the keys
 RUN groupadd keys
+
+USER mssql:root
+
+#Copy utils
+COPY --from=ubuntu_toolkit_image /opt/IBM/utils /opt/IBM/utils
 
 #Copy sql server config 
 COPY mssql.conf /var/opt/mssql/

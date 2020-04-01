@@ -1,6 +1,6 @@
 #!/bin/bash
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2019.
+# * (C) Copyright IBM Corporation 2018, 2020.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -84,6 +84,8 @@ function copyAndExtractToolkit
 output "Remove the previous toolkit from the containers"
 removeOldToolkitFromContainer admin_client
 removeOldToolkitFromContainer zookeeper
+removeOldToolkitFromContainer zookeeper2
+removeOldToolkitFromContainer zookeeper3
 removeOldToolkitFromContainer solr
 removeOldToolkitFromContainer solr2
 removeOldToolkitFromContainer liberty
@@ -95,6 +97,8 @@ installNewDependencies liberty $1
 output "Copy and extract the toolkit to the containers"
 copyAndExtractToolkit admin_client $1
 copyAndExtractToolkit zookeeper $1
+copyAndExtractToolkit zookeeper2 $1
+copyAndExtractToolkit zookeeper3 $1
 copyAndExtractToolkit solr $1
 copyAndExtractToolkit solr2 $1
 copyAndExtractToolkit liberty $1

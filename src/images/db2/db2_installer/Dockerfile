@@ -1,5 +1,5 @@
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2019.
+# * (C) Copyright IBM Corporation 2018, 2020.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -20,10 +20,10 @@ RUN usermod -g db2iusr1 i2analyze && usermod -a -G db2ictl1 i2analyze
 
 ENV installation_media_Dir /opt/IBM/installation_media
 
-#Copy the awse_o directory to the correct location.
-COPY awse_o /opt/IBM/awse_o
+#Copy the adv_vpc directory to the correct location.
+COPY adv_vpc /opt/IBM/adv_vpc
 
-#Copy and extract the server_awse_o directory to the correct location.
+#Copy and extract the server_dec directory to the correct location.
 COPY installation_media ${installation_media_Dir}
 
 RUN bsdtar -xzpf ${installation_media_Dir}/DB2_AWSE_REST_Svr.tar.gz -C /opt/IBM/ \
@@ -32,3 +32,7 @@ RUN bsdtar -xzpf ${installation_media_Dir}/DB2_AWSE_REST_Svr.tar.gz -C /opt/IBM/
 
 #Add DB2 to the PATH.
 ENV PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/db2inst1/sqllib/bin:/home/db2inst1/sqllib/adm:/home/db2inst1/sqllib/misc
+
+#Add db2profile to the i2analyze user .profile
+RUN echo "" >> /home/i2analyze/.profile
+RUN echo ". /home/db2inst1/sqllib/db2profile" >> /home/i2analyze/.profile
