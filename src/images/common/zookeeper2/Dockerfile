@@ -15,7 +15,7 @@ RUN apt-get install -y \
     openssh-server
 
 #The host name of the Docker container.
-ARG hostname=zookeeper2
+ARG hostname=zookeeper2.eianet
 ENV hostname $hostname
 
 #The custom configuration overrides the base configuration in the ubuntu_toolkit_image.

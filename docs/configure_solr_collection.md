@@ -11,7 +11,7 @@ To create a collection, open the `createSolrCollection` script in a text editor.
 
 The existing script might contain a `CREATE` call that is similar to the following example:
 ```
-curl ?CERTIFICATE_PLACEHOLDER? ?CREDENTIALS_PLACEHOLDER? "?SCHEME_PLACEHOLDER?://solr:8983/solr/admin/collections?action=CREATE&name=main_index&collection.configName=main_index&numShards=4&maxShardsPerNode=4&replicationFactor=1"
+curl ?CERTIFICATE_PLACEHOLDER? ?CREDENTIALS_PLACEHOLDER? "?SCHEME_PLACEHOLDER?://solr.eianet:8983/solr/admin/collections?action=CREATE&name=main_index&collection.configName=main_index&numShards=4&maxShardsPerNode=4&replicationFactor=1"
 ```
 The `?CERTIFICATE_PLACEHOLDER?, ?CREDENTIALS_PLACEHOLDER?, ?SCHEME_PLACEHOLDER?` variables are resolved by the toolkit when the script is run.
 
@@ -34,15 +34,15 @@ The output from the `stopLiberty` task is output directly to the console.
 
 To remove the current Solr collection, run the following command:
 ```
-docker exec -it -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t deleteSolrCollections --all --hostname admin_client
+docker exec -it -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t deleteSolrCollections --all --hostname admin_client.eianet
 ```
 To create the Solr collection with the modified configuration, run the following command:
 ```
-docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createSolrCollections --all --hostname admin_client
+docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createSolrCollections --all --hostname admin_client.eianet
 ```
 To clear the search index, run the following command:
 ```
-docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearSearchIndex --all --hostname admin_client
+docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearSearchIndex --all --hostname admin_client.eianet
 ```
 To restart Liberty, run the following command:
 ```

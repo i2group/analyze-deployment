@@ -19,8 +19,8 @@ The documentation for understanding, deploying, and configuring the distributed 
   - [Deploying the distributed deployment example with IBM HTTP Server](deploy_walk_through_http.md)
   - [Keystores and certificates for components of i2 Analyze](securing_certificates.md)
   - [Deploying the distributed deployment example with security](securing_ssl.md)
-  - [Configuring ZooKeeper and i2 Analyze to use an SSH tunnel](configure_zookeeper_tunneling.md)
   - [Deploying i2 Analyze with i2 Connect](deploy_i2_connect.md)
+  - [Upgrading a distributed deployment to version 4.3.2 of i2 Analyze](upgrade_walk_through.md)
   - [Cleaning your environment](deploy_clean_environment.md)
 
 

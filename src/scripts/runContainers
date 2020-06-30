@@ -48,7 +48,7 @@ waitForContainer zookeeper3 '\.Started' '\.Not Started'
 output "Running the admin_client container to create and upload solr configuration"
 docker run -d --name admin_client --net eianet --memory=1g -u i2analyze admin_client_sqlserver_image
 waitForContainer admin_client 'Started'
-docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
+docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client.eianet
 
 output "Running the solr and solr2 containers on the eia network."
 docker run -d --name solr -p 8983:8983 --net eianet --memory=1g -u i2analyze solr_image
@@ -57,7 +57,7 @@ docker run -d --name solr2 -p 8984:8984 --net eianet --memory=1g -u i2analyze so
 output "Waiting to ensure that the Solr servers are running and create the Solr collection on the eia network."
 waitForContainer solr ': Started' 'not started'
 waitForContainer solr2 ': Started' 'not started'
-docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createSolrCollections --hostname admin_client
+docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createSolrCollections --hostname admin_client.eianet
 
 output "Running the sqlserver container on the eia network."
 echo -n "Enter a password for the SA account: "

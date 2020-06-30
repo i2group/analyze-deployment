@@ -52,7 +52,7 @@ To clear the search index, you can run the command from Admin client or Liberty 
 
 To clear the search index, run the following command:
 ```
-docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearSearchIndex --all --hostname admin_client
+docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearSearchIndex --all --hostname admin_client.eianet
 ```
 
 The search index is cleared, however any data that was in the database remains in the database.

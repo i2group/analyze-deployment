@@ -12,7 +12,7 @@
 FROM mcr.microsoft.com/mssql-tools
 
 LABEL maintainer="IBM i2"
-LABEL version="2.2.0"
+LABEL version="2.3.0"
 
 ENV i2analyzeDir /opt/IBM/i2analyze
 ENV toolkitDir ${i2analyzeDir}/toolkit

@@ -19,6 +19,7 @@
 #####################################################################################
 
 . ${UTILS_PATH}/variables
+. ${UTILS_PATH}/functions
 
 dbDialect=${1:-${DB_DIALECT}}
 
@@ -31,6 +32,9 @@ output "Adding the CA certificate to containers"
 docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer liberty:/opt/IBM/utils/keys/CA.cer
 docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer solr:/opt/IBM/utils/keys/CA.cer
 docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer solr2:/opt/IBM/utils/keys/CA.cer
+docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer zookeeper:/opt/IBM/utils/keys/CA.cer
+docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer zookeeper2:/opt/IBM/utils/keys/CA.cer
+docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer zookeeper3:/opt/IBM/utils/keys/CA.cer
 docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer connector:/opt/IBM/utils/keys/CA.cer
 docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer $dbDialect:/opt/IBM/utils/keys/CA.cer
 docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer admin_client:/opt/IBM/utils/keys/CA.cer
@@ -38,64 +42,83 @@ docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer etl_client:/opt/IBM/utils/keys/CA.c
 docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer ihs:/opt/IBM/utils/keys/CA.cer
 
 output "Creating the liberty container key store and certificate signing request"
-docker exec -u root -it liberty rm -rf /opt/IBM/keys
-docker exec -u root -it liberty /opt/IBM/utils/jks/createCSR liberty
+docker exec -u root -t liberty rm -rf /opt/IBM/keys
+runDockerExecWithSSLPassword liberty "/opt/IBM/utils/jks/createCSR liberty jks"
 
 output "Creating 'Jenny' user key store and certificate signing request"
-docker exec -u root -it liberty /opt/IBM/utils/jks/createCSR Jenny
+runDockerExecWithSSLPassword liberty "/opt/IBM/utils/jks/createCSR Jenny"
 
 output "Creating 'Imogen' user key store and certificate signing request"
-docker exec -u root -it liberty /opt/IBM/utils/jks/createCSR Imogen
+runDockerExecWithSSLPassword liberty "/opt/IBM/utils/jks/createCSR Imogen"
 
 #Copy the liberty and users certificates signing requests to the local machine
 docker cp liberty:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
 
 output "Creating the solr container key store and certificate signing request"
-docker exec -u root -it solr rm -rf /opt/IBM/keys
-docker exec -u root -it solr /opt/IBM/utils/jks/createCSR solr
+docker exec -u root -t solr rm -rf /opt/IBM/keys
+runDockerExecWithSSLPassword solr "/opt/IBM/utils/jks/createCSR solr"
 docker cp solr:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
 
 output "Creating the solr2 container key store and certificate signing request"
-docker exec -u root -it solr2 rm -rf /opt/IBM/keys
-docker exec -u root -it solr2 /opt/IBM/utils/jks/createCSR solr2
+docker exec -u root -t solr2 rm -rf /opt/IBM/keys
+runDockerExecWithSSLPassword solr2 "/opt/IBM/utils/jks/createCSR solr2"
 docker cp solr2:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
+
+output "Creating the zookeeper container key store and certificate signing request"
+docker exec -u root -t zookeeper rm -rf /opt/IBM/keys
+runDockerExecWithSSLPassword zookeeper "/opt/IBM/utils/jks/createCSR zookeeper"
+docker cp zookeeper:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
+
+output "Creating the zookeeper2 container key store and certificate signing request"
+docker exec -u root -t zookeeper2 rm -rf /opt/IBM/keys
+runDockerExecWithSSLPassword zookeeper2 "/opt/IBM/utils/jks/createCSR zookeeper2"
+docker cp zookeeper2:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
+
+output "Creating the zookeeper3 container key store and certificate signing request"
+docker exec -u root -t zookeeper3 rm -rf /opt/IBM/keys
+runDockerExecWithSSLPassword zookeeper3 "/opt/IBM/utils/jks/createCSR zookeeper3"
+docker cp zookeeper3:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
 
 if [[ $dbDialect == "db2" ]]; then
 	output "Creating the db2 container key store and certificate signing request"
-	docker exec -u root -it db2 rm -rf /opt/IBM/keys
-	docker exec -u root -it db2 /opt/IBM/utils/cms/createCSR db2
+	docker exec -u root -t db2 rm -rf /opt/IBM/keys
+	runDockerExecWithSSLPassword db2 "/opt/IBM/utils/cms/createCSR db2"
 	docker cp db2:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
-	docker exec -u root -it db2 /opt/IBM/utils/cms/createTrustStore cms
+	runDockerExecWithSSLPassword db2 "/opt/IBM/utils/cms/createTrustStore cms"
 elif [[ $dbDialect == "sqlserver" ]]; then
 	output "Creating the sqlserver container key store and certificate signing request"
-	docker exec -u root -it sqlserver rm -rf /opt/IBM/keys
-	docker exec -u root -it sqlserver /opt/IBM/utils/openssl/createCSR sqlserver
+	docker exec -u root -t sqlserver rm -rf /opt/IBM/keys
+	runDockerExecWithSSLPassword sqlserver "/opt/IBM/utils/openssl/createCSR sqlserver"
 	docker cp sqlserver:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
 fi
 
 output "Creating the ihs container key store and certificate signing request"
-docker exec -u root -it ihs rm -rf /opt/IBM/keys
-docker exec -u root -it ihs /opt/IBM/utils/cms/createCSR ihs
+docker exec -u root -t ihs rm -rf /opt/IBM/keys
+runDockerExecWithSSLPassword ihs "/opt/IBM/utils/cms/createCSR ihs"
 docker cp ihs:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
-docker exec -u root -it ihs /opt/IBM/utils/cms/createTrustStore cms
+runDockerExecWithSSLPassword ihs "/opt/IBM/utils/cms/createTrustStore cms"
+
+output "Creating the admin_client container key store and certificate signing request"
+docker exec -u root -t admin_client rm -rf /opt/IBM/keys
+runDockerExecWithSSLPassword admin_client "/opt/IBM/utils/jks/createCSR admin_client jks"
+docker cp admin_client:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
 
 output "Creating the admin_client container trust stores"
-docker exec -u root -it admin_client rm -rf /opt/IBM/keys
-docker exec -u root -it admin_client /opt/IBM/utils/jks/createTrustStore admin_client
+runDockerExecWithSSLPassword admin_client "/opt/IBM/utils/jks/createTrustStore admin_client"
 if [[ $dbDialect == "db2" ]]; then
-	docker exec -u root -it admin_client /opt/IBM/utils/cms/createTrustStore db2
+	runDockerExecWithSSLPassword admin_client "/opt/IBM/utils/cms/createTrustStore db2"
 fi
 
 output "Creating the etl_client container trust store"
-docker exec -u root -it etl_client rm -rf /opt/IBM/keys
-docker exec -u root -it etl_client mkdir -p /opt/IBM/keys/stores
+docker exec -u root -t etl_client rm -rf /opt/IBM/keys
+docker exec -u root -t etl_client mkdir -p /opt/IBM/keys/stores
 if [[ $dbDialect == "db2" ]]; then
-	docker exec -u root -it etl_client /opt/IBM/utils/cms/createTrustStore db2
+	runDockerExecWithSSLPassword etl_client "/opt/IBM/utils/cms/createTrustStore db2"
 fi
 
 output "Creating i2 Connect connector key store and certificate signing request"
-docker exec -u root -it connector rm -rf /opt/IBM/keys
-docker exec -u root -it connector /opt/IBM/utils/openssl/createCSR connector
+docker exec -u root -t connector rm -rf /opt/IBM/keys
+runDockerExecWithSSLPassword connector "/opt/IBM/utils/openssl/createCSR connector"
 docker cp connector:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
 
 output "Copy the common trust store to each container"
@@ -103,10 +126,16 @@ docker cp admin_client:/opt/IBM/keys/stores/i2-jks-truststore.jks ${SRC_DIR}/key
 docker cp ${SRC_DIR}/keys/stores/i2-jks-truststore.jks liberty:/opt/IBM/keys/stores/i2-jks-truststore.jks
 docker cp ${SRC_DIR}/keys/stores/i2-jks-truststore.jks solr:/opt/IBM/keys/stores/i2-jks-truststore.jks
 docker cp ${SRC_DIR}/keys/stores/i2-jks-truststore.jks solr2:/opt/IBM/keys/stores/i2-jks-truststore.jks
+docker cp ${SRC_DIR}/keys/stores/i2-jks-truststore.jks zookeeper:/opt/IBM/keys/stores/i2-jks-truststore.jks
+docker cp ${SRC_DIR}/keys/stores/i2-jks-truststore.jks zookeeper2:/opt/IBM/keys/stores/i2-jks-truststore.jks
+docker cp ${SRC_DIR}/keys/stores/i2-jks-truststore.jks zookeeper3:/opt/IBM/keys/stores/i2-jks-truststore.jks
 docker cp ${SRC_DIR}/keys/stores/i2-jks-truststore.jks etl_client:/opt/IBM/keys/stores/i2-jks-truststore.jks
 
 #Change the file ownership of the copied files
 docker exec -u root liberty chown root:keys /opt/IBM/keys/stores/i2-jks-truststore.jks
 docker exec -u root solr chown root:keys /opt/IBM/keys/stores/i2-jks-truststore.jks
 docker exec -u root solr2 chown root:keys /opt/IBM/keys/stores/i2-jks-truststore.jks
+docker exec -u root zookeeper chown root:keys /opt/IBM/keys/stores/i2-jks-truststore.jks
+docker exec -u root zookeeper2 chown root:keys /opt/IBM/keys/stores/i2-jks-truststore.jks
+docker exec -u root zookeeper3 chown root:keys /opt/IBM/keys/stores/i2-jks-truststore.jks
 docker exec -u root etl_client chown root:keys /opt/IBM/keys/stores/i2-jks-truststore.jks

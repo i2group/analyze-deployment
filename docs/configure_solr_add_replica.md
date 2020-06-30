@@ -21,16 +21,16 @@ You only need to complete the following steps when you are adding replicas to a 
 Add a replica of each shard in the Solr collection.
 To add a replica of each shard in the distributed deployment example, enter the following lines into the URL field in a web browser:
 ```
-http://localhost:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard1&node=solr2:8984_solr
+http://localhost:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard1&node=solr2.eianet:8984_solr
 ```
 ```
-http://localhost:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard2&node=solr:8983_solr
+http://localhost:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard2&node=solr.eianet:8983_solr
 ```
 ```
-http://localhost:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard3&node=solr2:8984_solr
+http://localhost:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard3&node=solr2.eianet:8984_solr
 ```
 ```
-http://localhost:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard4&node=solr:8983_solr
+http://localhost:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard4&node=solr.eianet:8983_solr
 ```
 These send a REST call to the Solr Collections API to add a replica of a specific shard on a specific node. Each of the shards now has an extra replica, on a different node to the original shard.
 
@@ -45,7 +45,7 @@ http://localhost:8983/solr/#/~cloud?view=tree
 
 Go to `/live_nodes`, and choose the name of the node that you want to move your replica to. For example:
 ```
-solr2:8984_solr
+solr2.eianet:8984_solr
 ```
 
 >Note: Only live Solr nodes are displayed.
@@ -60,7 +60,7 @@ To test that the replicas are added successfully, and that your system has a lev
 
 To stop the Solr node on the `solr` container, run the following command:
 ```
-docker exec -u i2analyze -t solr /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes --hostname solr  
+docker exec -u i2analyze -t solr /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes --hostname solr.eianet  
 ```
 In the Solr Web UI *Tree View* on the `solr2` container, all the shards are still up and active. The newly created replicas are now the leaders for the shards.
 
@@ -70,6 +70,6 @@ You can start the `solr` container, and the Solr node starts again.
 
 To start the `solr` container, run the following command:
 ```
-docker exec -u i2analyze -t solr /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr  
+docker exec -u i2analyze -t solr /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr.eianet  
 ```
 In the Solr Web UI *Tree View*, you can see that the Solr node and shards are active.

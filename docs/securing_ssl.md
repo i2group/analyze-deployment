@@ -26,12 +26,12 @@ Run the `createKeysAndStores` script to create the stores, certificates, and cer
 ```
 ./createKeysAndStores
 ```
-You are prompted to enter passwords to each of the keystores and truststores that are created. The passwords that you specify here are used later.
+You are prompted to enter a password that is used for each of the keystores and truststores that are created. The password that you specify here is used later.
 
 For more information about the stores and certificates that are created, see [Keystores and certificates for components of i2 Analyze](./securing_certificates.md).
 
 ### Specifying the credentials
-You must specify the credentials for your deployment in the `src/configuration/environment/credentials.properties`. Set the passwords to use for each of the keystore and truststore credentials. The passwords must match the values that you entered for the corresponding keystores and truststores when you ran the `createKeysAndStores` script.
+You must specify the credentials for your deployment in the `src/configuration/environment/credentials.properties`. Set the passwords to use for each of the keystore and truststore credentials. The passwords must match the value that you entered when you ran the `createKeysAndStores` script.
 
 For more information about the credentials file, see [Modifying the credentials](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/t_specifying_credentials.html).
 

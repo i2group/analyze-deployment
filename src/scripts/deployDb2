@@ -106,20 +106,20 @@ output "Running the admin_client container to create the database"
 docker exec -t -u i2analyze admin_client bash -c ". home/db2inst1/sqllib/db2profile && /opt/IBM/i2analyze/toolkit/scripts/setup -t createDatabases"
 
 output "Restarting ZooKeeper"
-docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t restartZkHosts --hostname zookeeper
-docker exec -u i2analyze zookeeper2 /opt/IBM/i2analyze/toolkit/scripts/setup -t restartZkHosts --hostname zookeeper2
-docker exec -u i2analyze zookeeper3 /opt/IBM/i2analyze/toolkit/scripts/setup -t restartZkHosts --hostname zookeeper3
+docker restart zookeeper
+docker restart zookeeper2
+docker restart zookeeper3
 
 output "Updating the Solr configuration on the ZooKeeper servers"
-docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
+docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client.eianet
 
 output "Restarting Solr"
-docker exec -u i2analyze -t solr /opt/IBM/i2analyze/toolkit/scripts/setup -t restartSolrNodes --hostname solr
+docker exec -u i2analyze -t solr /opt/IBM/i2analyze/toolkit/scripts/setup -t restartSolrNodes --hostname solr.eianet
 
-docker exec -u i2analyze -t solr2 /opt/IBM/i2analyze/toolkit/scripts/setup -t restartSolrNodes --hostname solr2
+docker exec -u i2analyze -t solr2 /opt/IBM/i2analyze/toolkit/scripts/setup -t restartSolrNodes --hostname solr2.eianet
 
 output "Clear old search index"
-docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearSearchIndex --all --force --hostname admin_client
+docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearSearchIndex --all --force --hostname admin_client.eianet
 
 output "Running the liberty container on the eia network"
 docker run -d --name liberty --memory=2g -p 9082:9082 -p 9445:9445 --net eianet -u i2analyze liberty_db2_image

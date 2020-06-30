@@ -2,7 +2,7 @@
   <!--Add your basicRegistry or ldapRegistry(s) here.-->
   <basicRegistry id="basic" realm="WebRealm">
     <user name="Jenny" password="{xor}FToxMSY="/>
-    <user name="Imogen" password="{xor}FToxMSY="/>
+    <user name="Imogen" password="{xor}FjIwODox"/>
     <group name="Analyst">
       <member name="Jenny"/>
       <member name="Imogen"/>

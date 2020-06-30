@@ -19,39 +19,56 @@
 #####################################################################################
 
 . ${UTILS_PATH}/variables
+. ${UTILS_PATH}/functions
 
 dbDialect=${1:-${DB_DIALECT}}
 
 output "Adding the signed certificate to the liberty container"
 docker cp ${SRC_DIR}/keys/responses/. liberty:/opt/IBM/keys/responses
-docker exec -u root -it liberty /opt/IBM/utils/jks/applyResponse liberty
+runDockerExecWithSSLPassword liberty "/opt/IBM/utils/jks/applyResponse liberty jks"
+
+output "Adding the signed certificate to the admin_client container"
+docker cp ${SRC_DIR}/keys/responses/. admin_client:/opt/IBM/keys/responses
+runDockerExecWithSSLPassword admin_client "/opt/IBM/utils/jks/applyResponse admin_client jks"
 
 output "Adding the signed 'Jenny' user certificate to the liberty container"
-docker exec -u root -it liberty /opt/IBM/utils/jks/applyResponse Jenny
+runDockerExecWithSSLPassword liberty "/opt/IBM/utils/jks/applyResponse Jenny"
 
 output "Converting the 'Jenny' user key store to PKCS12 format"
-docker exec -u root -it liberty /opt/IBM/utils/jks/convertKeyStore Jenny
+runDockerExecWithSSLPassword liberty "/opt/IBM/utils/jks/convertKeyStore Jenny"
 docker cp liberty:/opt/IBM/keys/stores/i2-Jenny-keystore.p12 ${SRC_DIR}/keys/stores/
 
 output "Adding the signed 'Imogen' user certificate to the liberty container"
-docker exec -u root -it liberty /opt/IBM/utils/jks/applyResponse Imogen
+runDockerExecWithSSLPassword liberty "/opt/IBM/utils/jks/applyResponse Imogen"
 
 output "Converting the 'Imogen' user key store to PKCS12 format"
-docker exec -u root -it liberty /opt/IBM/utils/jks/convertKeyStore Imogen
+runDockerExecWithSSLPassword liberty "/opt/IBM/utils/jks/convertKeyStore Imogen"
 docker cp liberty:/opt/IBM/keys/stores/i2-Imogen-keystore.p12 ${SRC_DIR}/keys/stores/
 
 output "Adding the signed certificate to the solr container"
 docker cp ${SRC_DIR}/keys/responses/. solr:/opt/IBM/keys/responses
-docker exec -u root -it solr /opt/IBM/utils/jks/applyResponse solr
+runDockerExecWithSSLPassword solr "/opt/IBM/utils/jks/applyResponse solr"
 
 output "Adding the signed certificate to the solr2 container"
 docker cp ${SRC_DIR}/keys/responses/. solr2:/opt/IBM/keys/responses
-docker exec -u root -it solr2 /opt/IBM/utils/jks/applyResponse solr2
+runDockerExecWithSSLPassword solr2 "/opt/IBM/utils/jks/applyResponse solr2"
+
+output "Adding the signed certificate to the zookeeper container"
+docker cp ${SRC_DIR}/keys/responses/. zookeeper:/opt/IBM/keys/responses
+runDockerExecWithSSLPassword zookeeper "/opt/IBM/utils/jks/applyResponse zookeeper"
+
+output "Adding the signed certificate to the zookeeper2 container"
+docker cp ${SRC_DIR}/keys/responses/. zookeeper2:/opt/IBM/keys/responses
+runDockerExecWithSSLPassword zookeeper2 "/opt/IBM/utils/jks/applyResponse zookeeper2"
+
+output "Adding the signed certificate to the zookeeper3 container"
+docker cp ${SRC_DIR}/keys/responses/. zookeeper3:/opt/IBM/keys/responses
+runDockerExecWithSSLPassword zookeeper3 "/opt/IBM/utils/jks/applyResponse zookeeper3"
 
 if [[ $dbDialect == "db2" ]]; then
 	output "Adding the signed certificate to the db2 container"
 	docker cp ${SRC_DIR}/keys/responses/. db2:/opt/IBM/keys/responses
-	docker exec -u root -it db2 /opt/IBM/utils/cms/applyResponse db2
+	runDockerExecWithSSLPassword db2 "/opt/IBM/utils/cms/applyResponse db2"
 elif [[ $dbDialect == "sqlserver" ]]; then
 	output "Adding the signed certificate to the sqlserver container"
 	docker cp ${SRC_DIR}/keys/responses/. sqlserver:/opt/IBM/keys/responses
@@ -59,7 +76,7 @@ fi
 
 output "Adding the signed certificate to the ihs container"
 docker cp ${SRC_DIR}/keys/responses/. ihs:/opt/IBM/keys/responses
-docker exec -u root -it ihs /opt/IBM/utils/cms/applyResponse ihs
+runDockerExecWithSSLPassword ihs "/opt/IBM/utils/cms/applyResponse ihs"
 
 output "Adding the signed certificate to the connector container"
 docker cp ${SRC_DIR}/keys/responses/. connector:/opt/IBM/keys/responses

@@ -48,9 +48,9 @@ docker cp ./etltoolkit etl_client:/opt/IBM/i2analyze/etltoolkit
 rm -rf etltoolkit &>/dev/null || true
 
 if [[ $dbDialect == "sqlserver" ]]; then
-    docker exec -u root -it etl_client chown -R i2analyze:i2analyze /opt/IBM/i2analyze/
+    docker exec -u root etl_client chown -R i2analyze:i2analyze /opt/IBM/i2analyze/
 else
-    docker exec -u root -it etl_client chown -R i2analyze:db2iusr1 /opt/IBM/i2analyze/
+    docker exec -u root etl_client chown -R i2analyze:db2iusr1 /opt/IBM/i2analyze/
 fi
 
 popd

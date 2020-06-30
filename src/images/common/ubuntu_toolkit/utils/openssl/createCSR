@@ -32,11 +32,10 @@ mkdir -p /opt/IBM/keys/requests
 mkdir -p /opt/IBM/keys/stores
 
 #Generate new certificate pair for the container
-echo "Enter key passphrase:"
-runCommandUntilSuccess "openssl genrsa -passout stdin -out ${keyFile} 2048"
+runCommandUntilSuccess "openssl genrsa -passout env:SSL_PASSWORD -out ${keyFile} 2048"
 
 #Create certificate signing request for the public certificate
-runCommandUntilSuccess "openssl req -new -key ${keyFile} -subj \"/C=GB/CN=${uri}\" -out ${out}"
+runCommandUntilSuccess "openssl req -new -key ${keyFile} -subj \"/C=GB/CN=${uri}.eianet\" -out ${out}"
 
 #Change ownership to make visible to keys group
 chown -R root:keys /opt/IBM/keys

@@ -32,6 +32,9 @@ function runCommandUntilSuccess
 
 cd /opt/IBM/i2analyze/etltoolkit
 
+echo "Enter the password that you specified for db.infostore.password in the credentials.properties file"
+read -sp "Password: " PASSWORD
+
 echo "Load data"
 
 #create an entity staging table
@@ -41,12 +44,10 @@ echo "Load data"
 /opt/IBM/i2analyze/etltoolkit/createInformationStoreStagingTable -stid LAS1 -sn IS_Staging -tn L_Associate
 
 #populate the newly created E_Person staging table
-echo "Enter the password that you specified for db.infostore.password in the credentials.properties file"
-bcp IS_Staging.E_Person in "/opt/IBM/i2analyze/example/person.csv" -f "/opt/IBM/i2analyze/example/person.fmt" -F 2 -U i2analyze -S "sqlserver,1433" -d ISTORE
+bcp IS_Staging.E_Person in "/opt/IBM/i2analyze/example/person.csv" -f "/opt/IBM/i2analyze/example/person.fmt" -F 2 -U i2analyze -S "sqlserver,1433" -d ISTORE -P "${PASSWORD}"
 
 #populate the newly created L_Associate staging table
-echo "Enter the password that you specified for db.infostore.password in the credentials.properties file"
-bcp IS_Staging.L_Associate in "/opt/IBM/i2analyze/example/person_association_person.csv" -f "/opt/IBM/i2analyze/example/person_association_person.fmt" -F 2 -U i2analyze -S "sqlserver,1433" -d ISTORE
+bcp IS_Staging.L_Associate in "/opt/IBM/i2analyze/example/person_association_person.csv" -f "/opt/IBM/i2analyze/example/person_association_person.fmt" -F 2 -U i2analyze -S "sqlserver,1433" -d ISTORE -P "${PASSWORD}"
 
 #create the ingestion source
 ./addInformationStoreIngestionSource -n REMOTE -d "Remote ingestion source"
@@ -58,5 +59,4 @@ bcp IS_Staging.L_Associate in "/opt/IBM/i2analyze/example/person_association_per
 ./ingestInformationStoreRecords -imf /opt/IBM/i2analyze/example/mapping.xml -imid Associate
 
 echo "Cleaning staging tables"
-echo "Enter the password that you specified for db.infostore.password in the credentials.properties file"
-sqlcmd -U i2analyze -S "sqlserver,1433" -d ISTORE -Q "TRUNCATE TABLE IS_Staging.E_Person; TRUNCATE TABLE IS_Staging.L_Associate;"
+sqlcmd -U i2analyze -P "${PASSWORD}" -S "sqlserver,1433" -d ISTORE -Q "TRUNCATE TABLE IS_Staging.E_Person; TRUNCATE TABLE IS_Staging.L_Associate;"

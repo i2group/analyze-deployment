@@ -20,7 +20,7 @@ To clear the data, you can run the command from the Admin client or Liberty serv
 
 To clear the data, run the following command:
 ```
-docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearData --hostname admin_client
+docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearData --hostname admin_client.eianet
 ```
 The database is now clear of data and the search index is now empty.
 

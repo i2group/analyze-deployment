@@ -36,7 +36,7 @@ After you deploy the distributed deployment example, information is provided for
 ## Host names in a distributed environment
 When i2 Analyze is deployed in a distributed environment, the `topology.xml` file contains multiple host names. In the distributed deployment example, the host names that are used include; `sqlserver`, `db2`, `solr`, `solr2`, `zookeeper`, `zookeeper2`, `zookeeper3`, and `liberty`.
 
-To deploy and configure i2 Analyze is a distributed environment, you can use the `--hostname` argument restrict the effect of the toolkit task to the host name that you provide. For example, `setup -t startSolrNodes --hostname solr` starts the Solr nodes on the server with the host name `solr`. If you run `setup -t startSolr --hostname solr2`, only the Solr nodes on the server with host name `solr2` start.
+To deploy and configure i2 Analyze is a distributed environment, you can use the `--hostname` argument restrict the effect of the toolkit task to the host name that you provide. For example, `setup -t startSolrNodes --hostname solr.eianet` starts the Solr nodes on the server with the host name `solr`. If you run `setup -t startSolr --hostname solr2.eianet`, only the Solr nodes on the server with host name `solr2` start.
 
 If a toolkit task that you run with a specific host name impacts multiple servers, you must run that toolkit task for each server with their host name specified.
 

@@ -18,10 +18,12 @@
 . /opt/IBM/utils/functions
 
 #The value passed in when the script is called, this is the name of a container.
+#If optional second parameter is passed in, the second parameter will be used as the keyStoreId.
 uri=$1
+keyStoreId=${2:-$1}
 
 #Set the variables for the specified container name
-keystoreFile=/opt/IBM/keys/stores/i2-${uri}-keystore.jks
+keystoreFile=/opt/IBM/keys/stores/i2-${keyStoreId}-keystore.jks
 keyName=${uri}key
 out=/opt/IBM/keys/requests/${uri}-key.csr
 
@@ -32,10 +34,10 @@ mkdir -p /opt/IBM/keys/requests
 mkdir -p /opt/IBM/keys/stores
 
 #Generate new certificate pair for the container, where the CN matches the host name of the container
-runCommandUntilSuccess "/opt/IBM/i2analyze/toolkit/tools/java/bin/keytool -genkeypair -alias $keyName -keystore $keystoreFile -dname CN=$uri -keyalg RSA"
+runCommandUntilSuccess "/opt/IBM/i2analyze/toolkit/tools/java/bin/keytool -genkeypair -alias $keyName -keystore $keystoreFile -dname CN=${uri}.eianet -keyalg RSA -keypass:env SSL_PASSWORD -storepass:env SSL_PASSWORD"
 
 #Create certificate signing request for the public certificate
-runCommandUntilSuccess "/opt/IBM/i2analyze/toolkit/tools/java/bin/keytool -certreq -keystore $keystoreFile -alias $keyName -keyalg RSA -keysize 2048 -file $out"
+runCommandUntilSuccess "/opt/IBM/i2analyze/toolkit/tools/java/bin/keytool -certreq -keystore $keystoreFile -alias $keyName -keyalg RSA -keysize 2048 -file $out -storepass:env SSL_PASSWORD"
 
 #Change ownership to make visible to keys group
 chown -R root:keys /opt/IBM/keys

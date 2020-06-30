@@ -47,7 +47,7 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/ibm/gsk8_64/lib64
 runCommandUntilSuccess "$gsk -keydb -create -db $keystoreFile -genpw -stash"
 
 #Create signing request for public certificate
-runCommandUntilSuccess "$gsk -certreq -create -db $keystoreFile -label $keyName -sigalg SHA512WithRSA -size 2048 -dn CN=${uri} -stashed -file $out"
+runCommandUntilSuccess "$gsk -certreq -create -db $keystoreFile -label $keyName -sigalg SHA512WithRSA -size 2048 -dn CN=${uri}.eianet -stashed -file $out"
 
 #Change ownership to make visible to keys group
 chown -R root:keys /opt/IBM/keys

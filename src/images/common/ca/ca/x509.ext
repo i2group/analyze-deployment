@@ -17,6 +17,14 @@ basicConstraints        = critical,CA:FALSE
 subjectKeyIdentifier    = hash
 authorityKeyIdentifier  = keyid,issuer:always
 
+[ zookeeper ]
+# X509 extensions for a server
+keyUsage                = critical,digitalSignature,keyEncipherment
+extendedKeyUsage        = serverAuth,clientAuth
+basicConstraints        = critical,CA:FALSE
+subjectKeyIdentifier    = hash
+authorityKeyIdentifier  = keyid,issuer:always
+
 [ daod ]
 # X509 extensions for a server
 keyUsage                = critical,digitalSignature,keyEncipherment
@@ -33,6 +41,14 @@ basicConstraints        = critical,CA:FALSE
 subjectKeyIdentifier    = hash
 authorityKeyIdentifier  = keyid,issuer:always
 subjectAltName          = @my_subject_alt_names
+
+[ admin_client ]
+# X509 extensions for a server
+keyUsage                = critical,digitalSignature,keyEncipherment
+extendedKeyUsage        = serverAuth,clientAuth
+basicConstraints        = critical,CA:FALSE
+subjectKeyIdentifier    = hash
+authorityKeyIdentifier  = keyid,issuer:always
 
 [ user ]
 # X509 extensions for a user

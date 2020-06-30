@@ -1,7 +1,7 @@
 13.0
 5
-1       SQLCHAR             0       100     ","      1     source_id                                          Latin1_General_100_CI_AI_SC
-2       SQLCHAR             0       100     ","      6     from_source_id                                     Latin1_General_100_CI_AI_SC
-3       SQLCHAR             0       100     ","      7     to_source_id                                       Latin1_General_100_CI_AI_SC
-4       SQLCHAR             0       500     ","      11    p_association_type                                 Latin1_General_100_CI_AI_SC
-5       SQLCHAR             0       14      "\n"     8     direction                                          Latin1_General_100_CI_AI_SC
+1       SQLCHAR             0       100     ","      3     source_id                                          Latin1_General_100_CI_AI_SC
+2       SQLCHAR             0       100     ","      12    from_source_id                                     Latin1_General_100_CI_AI_SC
+3       SQLCHAR             0       100     ","      13    to_source_id                                       Latin1_General_100_CI_AI_SC
+4       SQLCHAR             0       500     ","      17    p_association_type                                 Latin1_General_100_CI_AI_SC
+5       SQLCHAR             0       14      "\n"     14    direction                                          Latin1_General_100_CI_AI_SC

@@ -186,7 +186,7 @@ You can create and upload the Solr configuration from the Admin client, or you c
 
 To create the Solr configuration by using the Admin client, run the following command:
 ```
-docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
+docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client.eianet
 ```
 The Solr configuration is created and uploaded.
 
@@ -230,7 +230,7 @@ You can create the Solr collection from the Admin client, or you can run the com
 
 To create the Solr collection by using the Admin client, run the following command:
 ```
-docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createSolrCollections --hostname admin_client
+docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createSolrCollections --hostname admin_client.eianet
 ```
 The Solr collection is created.
 

@@ -12,7 +12,7 @@
 FROM ubuntu:18.04
 
 LABEL maintainer="IBM i2"
-LABEL version="2.2.0"
+LABEL version="2.3.0"
 
 #Install the prerequisites.
 RUN dpkg --add-architecture i386 && \
@@ -44,6 +44,10 @@ COPY --chown=i2analyze:i2analyze security-config.json /opt/IBM/i2analyze/example
 
 #Copy the utils to the container.
 COPY --chown=i2analyze:i2analyze --from=ubuntu_toolkit_image /opt/IBM/utils /opt/IBM/utils
+
+#Remove hard coded reference to user random file
+#see https://github.com/openssl/openssl/issues/7754
+RUN sed -i -E 's/^(RANDFILE.*HOME.*)/#\1/' /etc/ssl/openssl.cnf
 
 WORKDIR /opt/IBM/i2analyze/example_connector
 

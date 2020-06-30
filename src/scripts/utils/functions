@@ -83,3 +83,10 @@ function runCommandUntilSuccess
 
     set -e
 }
+
+# $1 - container
+# $2 - command to run
+function runDockerExecWithSSLPassword
+{
+    docker exec -u root -t -e SSL_PASSWORD=$SSL_PASSWORD $1 $2
+}

@@ -64,13 +64,13 @@ http://localhost:8983/solr/#/~cloud?view=tree
 ```
 Go to `/live_nodes` and choose the name of the node that you want to move your replica to. For example:
 ```
-solr3:8985_solr
+solr3.eianet:8985_solr
 ```
 >Note: Only live Solr nodes are displayed.
 
 To add a replica of the new `shard1_1` shard to the new Solr node 3, paste the following line into your browser:
 ```
-http://localhost:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard1_1&node=solr3:8985_solr
+http://localhost:8983/solr/admin/collections?action=ADDREPLICA&collection=main_index&shard=shard1_1&node=solr3.eianet:8985_solr
 ```
 This sends a REST call to the Solr Collections API to create a replica of `shard1_1` on `solr3` that is on port 8985.
 

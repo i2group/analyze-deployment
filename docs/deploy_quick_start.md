@@ -40,7 +40,7 @@ After you install Docker, you must ensure that is Docker initialized in your com
 Clone or download the distributed deployment example from <https://github.com/IBM-i2/Analyze-Deployment/releases>.
 
 ### Analyst's Notebook Premium
-Download *i2 Analyst's Notebook Premium* from Fix Central: [Download IBM i2 Analyst's Notebook Premium 9.2.1 Fix Pack 1](http://www.ibm.com/support/docview.wss?uid=ibm1283782).
+Download *i2 Analyst's Notebook Premium* version 9.2.2 using the following part number: *CC6ZPML*.
 
 Install Analyst's Notebook Premium with the Opal connector on a Windows machine that can access the machine where Docker is running.
 
@@ -49,7 +49,7 @@ Install Analyst's Notebook Premium with the Opal connector on a Windows machine 
 For more information, see [Installing IBM i2 Analyst's Notebook Premium](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.deploy.example.doc/installing_anbp.html).
 
 ### i2 Analyze
-Download i2 Analyze for Linux. You download the `IBM_i2_Analyze_4.3.1_Fix_Pack_1_Linux_Archive.tar.gz` from Fix Central: [Download IBM i2 Analyze 4.3.1 Fix Pack 1](https://www.ibm.com/support/pages/node/1283776).
+Download i2 Analyze for Linux. You download the `IBM_i2_Analyze_4.3.2_Linux_Archive.tar.gz` version 4.3.2 using the following part number: *CC72BML*
 
 Rename the `.tar.gz` file to `i2analyze.tar.gz`, then copy it to the `src/images/common/ubuntu_toolkit/i2analyze` directory.
 

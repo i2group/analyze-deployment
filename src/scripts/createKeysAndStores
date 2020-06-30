@@ -40,9 +40,17 @@ docker build -t ca_image ${IMAGES_PATH}/common/ca
 output "Running the certificate authority container"
 docker run -d --name ca ca_image
 
+output "Enter the SSL password"
+read -s -p "Password: " SSL_PASSWORD
+while [[ ${#SSL_PASSWORD} -lt 6 ]]
+do
+  echo "Length of password must be at least 6 characters long. Try again..."
+  read -s -p "Password: " SSL_PASSWORD
+done
+
 header "Creating and signing the keys and certificates"
-. ${SSL_SCRIPTS_PATH}/createSigningRequests $dbDialect
-. ${SSL_SCRIPTS_PATH}/signRequests $dbDialect
-. ${SSL_SCRIPTS_PATH}/applyResponses $dbDialect
+. ${SSL_SCRIPTS_PATH}/createSigningRequests $dbDialect $SSL_PASSWORD
+. ${SSL_SCRIPTS_PATH}/signRequests $dbDialect $SSL_PASSWORD
+. ${SSL_SCRIPTS_PATH}/applyResponses $dbDialect $SSL_PASSWORD
 
 popd

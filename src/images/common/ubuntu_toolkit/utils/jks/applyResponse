@@ -17,18 +17,20 @@
 #####################################################################################
 . /opt/IBM/utils/functions
 
-#The value passed in when the script is called, this is the name of a container
+#The value passed in when the script is called, this is the name of a container.
+#If optional second parameter is passed in, the second parameter will be used as the keyStoreId.
 uri=$1
+keyStoreId=${2:-$1}
 
 #Set the variables for the specified container name
 utils=/opt/IBM/utils
-keystoreFile=/opt/IBM/keys/stores/i2-${uri}-keystore.jks
+keystoreFile=/opt/IBM/keys/stores/i2-${keyStoreId}-keystore.jks
 keyName=${uri}key
 in=/opt/IBM/keys/responses/${uri}-key.cer
 
 
 #Import the certificate authority certificate
-runCommandUntilSuccess "/opt/IBM/i2analyze/toolkit/tools/java/bin/keytool -importcert -alias ca -keystore $keystoreFile -file ${utils}/keys/CA.cer"
+runCommandUntilSuccess "/opt/IBM/i2analyze/toolkit/tools/java/bin/keytool -importcert -alias ca -keystore $keystoreFile -file ${utils}/keys/CA.cer -keypass:env SSL_PASSWORD -storepass:env SSL_PASSWORD -noprompt"
 
 #Import the signed public certificate to the store. The existing unsigned public certificate is replaced with the signed version.
-runCommandUntilSuccess "/opt/IBM/i2analyze/toolkit/tools/java/bin/keytool -importcert -alias $keyName -keystore $keystoreFile -file $in"
+runCommandUntilSuccess "/opt/IBM/i2analyze/toolkit/tools/java/bin/keytool -importcert -alias $keyName -keystore $keystoreFile -file $in -keypass:env SSL_PASSWORD -storepass:env SSL_PASSWORD -noprompt"

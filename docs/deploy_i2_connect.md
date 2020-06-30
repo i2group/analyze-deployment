@@ -18,7 +18,7 @@ Run the `createKeysAndStores` script to create the stores, certificates, and cer
 ```
 ./createKeysAndStores
 ```
-You are prompted to enter passwords to each of the keystores and truststores that are created. The passwords that you specify here are used later.
+You are prompted to enter a password that is used for each of the keystores and truststores that are created. The password that you specify here is used later.
 
 For more information about the stores and certificates that are created, see [Keystores and certificates for components of i2 Analyze](./securing_certificates.md).
 
@@ -92,14 +92,14 @@ You can create and upload the Solr configuration from the Admin client, or you c
 
 To create the Solr configuration by using the Admin client, run the following command:
 ```
-docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
+docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client.eianet
 ```
 The Solr configuration is created and uploaded.
 
 ## Creating the Solr Collection
 Create the Solr Collection that is used by a deployment with i2 Connect, run the `createSolrCollections` task on the `admin_client` container.
 ```
-docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createSolrCollections --hostname admin_client
+docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createSolrCollections --hostname admin_client.eianet
 ```
 
 ## Copying configuration to example connector

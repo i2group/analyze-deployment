@@ -5,5 +5,5 @@
   "keyPassphrase": "",
   "certificateFileName": "../../keys/responses/connector-key.cer",
   "certificateAuthorityFileName": "../../utils/keys/CA.cer",
-  "gatewayCN": "liberty"
+  "gatewayCN": "liberty.eianet"
 }

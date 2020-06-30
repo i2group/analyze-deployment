@@ -90,48 +90,48 @@ docker exec -u i2analyze liberty sh -c "cd /opt/IBM/i2analyze/deploy/wlp/usr/ser
     sed -i 's/<ssl clientAuthenticationSupported=\"true\" id=\"defaultSSLConfig\"/<ssl id=\"defaultSSLConfig\"/g' server.xml"
 
 # Resetting start extensions
-docker exec -u root -it solr sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr || echo \"Error stating Solr node in solr\"\" > /opt/IBM/startupExt"
-docker exec -u root -it solr2 sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr2 || echo \"Error stating Solr node in solr2\"\" > /opt/IBM/startupExt"
+docker exec -u root -it solr sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr.eianet || echo \"Error stating Solr node in solr\"\" > /opt/IBM/startupExt"
+docker exec -u root -it solr2 sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr2.eianet || echo \"Error stating Solr node in solr2\"\" > /opt/IBM/startupExt"
 docker exec -u root -it admin_client sh -c "echo \"\" > /opt/IBM/startupExt"
 docker exec -u root -it liberty sh -c "echo \"export JAVA_HOME=/opt/IBM/i2analyze/deploy/java && /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty || echo \"Error starting Liberty\"\" > /opt/IBM/startupExt"
-docker exec -u root -it zookeeper sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper || echo \"Error stating Zookeeper host in zookeeeper\"\" > /opt/IBM/startupExt"
-docker exec -u root -it zookeeper2 sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper2 || echo \"Error stating Zookeeper host in zookeeeper2\"\" > /opt/IBM/startupExt"
-docker exec -u root -it zookeeper3 sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper3 || echo \"Error stating Zookeeper host in zookeeeper3\"\" > /opt/IBM/startupExt"
+docker exec -u root -it zookeeper sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper.eianet || echo \"Error stating Zookeeper host in zookeeeper\"\" > /opt/IBM/startupExt"
+docker exec -u root -it zookeeper2 sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper2.eianet || echo \"Error stating Zookeeper host in zookeeeper2\"\" > /opt/IBM/startupExt"
+docker exec -u root -it zookeeper3 sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper3.eianet || echo \"Error stating Zookeeper host in zookeeeper3\"\" > /opt/IBM/startupExt"
 
 output "Resetting configuration"
 docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty
 
 # Resetting the Solr configuration in the Zookeeper servers
-docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
+docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client.eianet
 
 # Restarting zookeeper containers
-docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts --hostname zookeeper
-docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper
+docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts --hostname zookeeper.eianet
+docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper.eianet
 
-docker exec -u i2analyze zookeeper2 /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts --hostname zookeeper2
-docker exec -u i2analyze zookeeper2 /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper2
+docker exec -u i2analyze zookeeper2 /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts --hostname zookeeper2.eianet
+docker exec -u i2analyze zookeeper2 /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper2.eianet
 
-docker exec -u i2analyze zookeeper3 /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts --hostname zookeeper3
-docker exec -u i2analyze zookeeper3 /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper3
+docker exec -u i2analyze zookeeper3 /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts --hostname zookeeper3.eianet
+docker exec -u i2analyze zookeeper3 /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper3.eianet
 
 # Restarting solr containers
-docker exec -u i2analyze solr /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes --hostname solr
-docker exec -u i2analyze solr2 /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes --hostname solr2
+docker exec -u i2analyze solr /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes --hostname solr.eianet
+docker exec -u i2analyze solr2 /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes --hostname solr2.eianet
 
-docker exec -u i2analyze solr /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr
-docker exec -u i2analyze solr2 /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr2
+docker exec -u i2analyze solr /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr.eianet
+docker exec -u i2analyze solr2 /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr2.eianet
 
 if [[ $dbDialect == "db2" ]]; then
     # Resetting the DB2COMM property in the db2 server
-    docker exec -u db2inst1 db2 db2set DB2COMM=tcpip
+    docker exec -u db2inst1 -t db2 bash -c ". /home/db2inst1/sqllib/db2profile && db2set DB2COMM=tcpip"
 
     # Recataloging the database on the admin_client container
-    docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogRemoteDB2Nodes
-    docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogDB2Databases
+    docker exec -u i2analyze admin_client bash -c ". /home/db2inst1/sqllib/db2profile && /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogRemoteDB2Nodes"
+    docker exec -u i2analyze admin_client bash -c ". /home/db2inst1/sqllib/db2profile && /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogDB2Databases"
 
     # Recataloging the database on the liberty container
-    docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogRemoteDB2Nodes
-    docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogDB2Databases
+    docker exec -u i2analyze liberty bash -c ". /home/db2inst1/sqllib/db2profile && /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogRemoteDB2Nodes"
+    docker exec -u i2analyze liberty bash -c ". /home/db2inst1/sqllib/db2profile && /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogDB2Databases"
 elif [[ $dbDialect == "sqlserver" ]]; then
     # Resetting the connection properties in the sqlserver server
     docker exec -t sqlserver /opt/mssql/bin/mssql-conf unset network.tlscert
@@ -145,8 +145,8 @@ docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t dep
 
 if [[ $dbDialect == "db2" ]]; then
     # Restart db2
-    docker exec -u db2inst1     db2         db2stop
-    docker exec -u db2inst1     db2         db2start
+    docker exec -u db2inst1 -t db2 bash -c ". /home/db2inst1/sqllib/db2profile && db2stop"
+    docker exec -u db2inst1 -t db2 bash -c ". /home/db2inst1/sqllib/db2profile && db2start"
 elif [[ $dbDialect == "sqlserver" ]]; then
     # Restart sqlserver
     docker restart sqlserver

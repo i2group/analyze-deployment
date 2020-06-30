@@ -15,7 +15,7 @@ RUN apt-get install -y \
     openssh-client
 
 #The host name of the Docker container.
-ARG hostname=solr
+ARG hostname=solr.eianet
 ENV hostname $hostname
 
 #The custom configuration overrides the base configuration in the ubuntu_toolkit_image.

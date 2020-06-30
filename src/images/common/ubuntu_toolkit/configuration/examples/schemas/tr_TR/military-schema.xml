@@ -3697,6 +3697,11 @@
             <LabelPart Value="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd" LabelPartType="PROPERTY_TYPE" />
           </LabelParts>
         </LabelDefinition>
+        <LabelDefinition ItemTypeId="CHART">
+          <LabelParts>
+            <LabelPart Value="CHART1" LabelPartType="PROPERTY_TYPE"/>
+          </LabelParts>
+        </LabelDefinition>
         <LabelDefinition ItemTypeId="ET10">
           <LabelParts>
             <LabelPart Value="ACC5" LabelPartType="PROPERTY_TYPE" />

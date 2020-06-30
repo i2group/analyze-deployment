@@ -44,25 +44,29 @@ pushd ${SCRIPTS_PATH}
 popd
 
 output "Upgrading Zookeeper"
-docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeZookeeper --hostname zookeeper
+docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeZookeeper --hostname zookeeper.eianet
+docker exec -u i2analyze zookeeper2 /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeZookeeper --hostname zookeeper2.eianet
+docker exec -u i2analyze zookeeper3 /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeZookeeper --hostname zookeeper3.eianet
 
 output "Upgrading Solr"
-docker exec -u i2analyze solr /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeSolr --hostname solr
-docker exec -u i2analyze solr2 /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeSolr --hostname solr2
+docker exec -u i2analyze solr /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeSolr --hostname solr.eianet
+docker exec -u i2analyze solr2 /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeSolr --hostname solr2.eianet
 
 output "Upgrading the Information Store database"
-docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeDatabases --hostname admin_client
+docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeDatabases --hostname admin_client.eianet
 
 output "Starting ZooKeeper and uploading new configuration"
-docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper
-docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client
+docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper.eianet
+docker exec -u i2analyze zookeeper2 /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper2.eianet
+docker exec -u i2analyze zookeeper3 /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper3.eianet
+docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client.eianet
 
 output "Starting Solr"
-docker exec -u i2analyze solr /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolr --hostname solr
-docker exec -u i2analyze solr2 /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolr --hostname solr2
+docker exec -u i2analyze solr /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolr --hostname solr.eianet
+docker exec -u i2analyze solr2 /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolr --hostname solr2.eianet
 
 output "Upgrading the Solr collection"
-docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeSolrCollections --hostname admin_client
+docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeSolrCollections --hostname admin_client.eianet
 
 output "Upgrading Liberty"
 docker exec -t -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeLiberty

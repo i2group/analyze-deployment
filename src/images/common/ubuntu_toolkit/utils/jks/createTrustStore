@@ -26,7 +26,7 @@ keystoreFile=/opt/IBM/keys/stores/i2-jks-truststore.jks
 mkdir -p /opt/IBM/keys/stores
 
 #Import the certificate authority certificate into the trust store
-runCommandUntilSuccess "/opt/IBM/i2analyze/toolkit/tools/java/bin/keytool -importcert -alias ca -keystore $keystoreFile -file ${utils}/keys/CA.cer"
+runCommandUntilSuccess "/opt/IBM/i2analyze/toolkit/tools/java/bin/keytool -importcert -alias ca -keystore $keystoreFile -file ${utils}/keys/CA.cer -keypass:env SSL_PASSWORD -storepass:env SSL_PASSWORD -noprompt"
 
 #Change ownership of the directory for the keys group
 chown -R root:keys /opt/IBM/keys
