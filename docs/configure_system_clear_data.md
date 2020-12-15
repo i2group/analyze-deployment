@@ -4,7 +4,7 @@ During development, it is common to need to clear data from the i2 data stores.
 ## Before you begin
 This process can permanently remove data from your system, ensure that no data is in the system that you want to keep.
 
-For information about making a backup of your deployment, see [Backing up a deployment](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/c_back_up_and_recovery.html).
+For information about making a backup of your deployment, see [Backing up a deployment](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_back_up_and_recovery.html).
 
 ## Stopping Liberty
 Run the following command on the Liberty server to stop Liberty:
@@ -14,7 +14,7 @@ docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t sto
 The console output from the `stopLiberty` task is output directly to the console.
 
 ## Clearing data from the system
-To remove data from both the search index and the database, you can use the `clearData` toolkit task. For more information, see [Clearing data from the system](https://www.ibm.com/support/knowledgecenter/en/SSXVXZ/com.ibm.i2.eia.go.live.doc/t_clearing_data.html).
+To remove data from both the search index and the database, you can use the `clearData` toolkit task. For more information, see [Clearing data from the system](https://www.ibm.com/support/knowledgecenter/en/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/t_clearing_data.html).
 
 To clear the data, you can run the command from the Admin client or Liberty server. In the distributed deployment example, the `admin_client` container is used to run the command. The `admin_client` container includes the i2 Analyze toolkit and a database management client installation. You must run commands that modify the database and Solr and ZooKeeper from this container.
 

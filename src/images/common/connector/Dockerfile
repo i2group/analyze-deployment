@@ -12,7 +12,7 @@
 FROM ubuntu:18.04
 
 LABEL maintainer="IBM i2"
-LABEL version="2.3.0"
+LABEL version="2.4.0"
 
 #Install the prerequisites.
 RUN dpkg --add-architecture i386 && \
@@ -21,7 +21,7 @@ RUN dpkg --add-architecture i386 && \
     curl \
     nano
 
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 
 #Install Node.js to host the example connector.
 RUN apt-get install -y nodejs

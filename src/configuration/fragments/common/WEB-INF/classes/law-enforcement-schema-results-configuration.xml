@@ -19,6 +19,8 @@
             <PropertyTypeFacet TypeId="ADD14" />
             <!-- Combined Coordinates -->
             <PropertyTypeFacet TypeId="ADD24" />
+            <!-- Example of a Metadata Facet -->
+            <!--  <MetadataFacet Criterion="FirstUploaded" /> -->
         </ItemTypeFacet>
 
         <!-- Event -->

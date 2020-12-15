@@ -12,7 +12,7 @@
 FROM mcr.microsoft.com/mssql-tools
 
 LABEL maintainer="IBM i2"
-LABEL version="2.3.0"
+LABEL version="2.4.0"
 
 #Install the prerequisites.
 RUN dpkg --add-architecture i386 && \

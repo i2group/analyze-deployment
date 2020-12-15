@@ -16,10 +16,10 @@ There are a number of secure configurations that you can choose to deploy:
 This configuration deploys with SSL configured between each of the distributed components in an i2 Analyze deployment.
 - **ihs_ssl**  
 This configuration deploys with SSL configured between each of the distributed components in an i2 Analyze deployment that includes the IBM HTTP Server.  
-For information about configuring SSL with i2 Analyze, see [Secure Sockets Layer connections with i2 Analyze](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/c_kc_intro_ssl.html)
+For information about configuring SSL with i2 Analyze, see [Secure Sockets Layer connections with i2 Analyze](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_kc_intro_ssl.html)
 - **client_cert_ssl**  
 This configuration deploys with SSL configured between each of the distributed components in an i2 Analyze deployment that includes the IBM HTTP Server. The user can log in to the system by using a client certificate.  
-For more information about configuring client certificate authentication, see [Configuring X.509 client certificate authentication with i2 Analyze](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/c_kc_intro_x509.html)
+For more information about configuring client certificate authentication, see [Configuring X.509 client certificate authentication with i2 Analyze](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_kc_intro_x509.html)
 
 ## Creating the keystores and certificates
 Run the `createKeysAndStores` script to create the stores, certificates, and certificate authority. For example, run the following command from the `src/scripts` directory:
@@ -33,7 +33,7 @@ For more information about the stores and certificates that are created, see [Ke
 ### Specifying the credentials
 You must specify the credentials for your deployment in the `src/configuration/environment/credentials.properties`. Set the passwords to use for each of the keystore and truststore credentials. The passwords must match the value that you entered when you ran the `createKeysAndStores` script.
 
-For more information about the credentials file, see [Modifying the credentials](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/t_specifying_credentials.html).
+For more information about the credentials file, see [Modifying the credentials](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/t_specifying_credentials.html).
 
 ## Updating your deployment to use a secure configuration
 Run the `setupSecurity` script, and pass the name of the configuration as a parameter. For example, to update the deployment with the **ssl** configuration, run the following command from the `src/scripts` directory:
@@ -56,7 +56,7 @@ The protocol is changed to `https`, and the port number is changed to `9445`.
 ## Learning how to deploy the configuration in a non-Docker environment
 To understand the differences between the configurations, and the base configuration, you can use a file comparison tool. You can see which properties files are modified, and the configuration settings that are required. For detailed explanations of the properties and the process for changing them, you can use the information that is provided in IBM Knowledge Center.
 
-For information about securing the components of i2 Analyze, see [Secure Sockets Layer connections with i2 Analyze](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/c_kc_intro_ssl.html) and [Configuring X.509 client certificate authentication with i2 Analyze](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/c_kc_intro_x509.html).
+For information about securing the components of i2 Analyze, see [Secure Sockets Layer connections with i2 Analyze](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_kc_intro_ssl.html) and [Configuring X.509 client certificate authentication with i2 Analyze](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_kc_intro_x509.html).
 
 To see the toolkit commands that are run to deploy the components of i2 Analyze in a secure deployment, you can inspect the `setupSecurity` script.
 

@@ -3,7 +3,7 @@ IBM i2 Connect enables analysts to search for and retrieve data from external da
 
 You can deploy i2 Analyze with support for i2 Connect only, or with the Information Store and i2 Connect.
 
-For more information about deploying i2 Analyze with i2 Connect, see [IBM i2 Analyze and i2 Connect](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.connect.developer.doc/i2_connect_overview.html).
+For more information about deploying i2 Analyze with i2 Connect, see [IBM i2 Analyze and i2 Connect](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.connect.developer.doc/i2_connect_overview.html).
 
 ## Before you begin
 - You must complete the [Quick deploy](deploy_quick_start.md) or deploy the example manually, and your deployment must be running.
@@ -25,12 +25,12 @@ For more information about the stores and certificates that are created, see [Ke
 ## Configuring connector
 You must specify the passphrase for the key that the connector uses. Specify the `keyPassphrase` in the `src/images/common/connector/security-config.json` file. The passphrase that you specify must match the value that you entered for i2 Connect connector key store and certificate signing request when you ran the `createKeysAndStores` script.
 
-For more information about securing the example connector, see [Securing the example connector](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/t_connect_example_security.html).
+For more information about securing the example connector, see [Securing the example connector](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/t_connect_example_security.html).
 
 ### Specifying the credentials
 You must specify the credentials for your deployment in the `src/configuration/environment/credentials.properties`. Set the passwords to use for each of the keystore and truststore credentials. The passwords must match the values that you entered for the corresponding keystores and truststores when you ran the `createKeysAndStores` script.
 
-For more information about the credentials file, see [Modifying the credentials](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/t_specifying_credentials.html).
+For more information about the credentials file, see [Modifying the credentials](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/t_specifying_credentials.html).
 
 ## Deploying the example connector
 In the distributed deployment example, the example connector is deployed in its own server.
@@ -61,7 +61,7 @@ Run the `deployDaod` script from the `src/scripts` directory to set up the i2 An
 ./deployDaod i2connect
 ```
 
-For more information about deploying a connector for i2 Connect in a non-Docker environment, see [Creating a connector for i2 Connect](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.connect.developer.doc/creating_a_connector.html).
+For more information about deploying a connector for i2 Connect in a non-Docker environment, see [Creating a connector for i2 Connect](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.connect.developer.doc/creating_a_connector.html).
 
 ---
 ## Deploy example connector manually

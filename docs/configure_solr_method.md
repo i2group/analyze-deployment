@@ -18,7 +18,7 @@ For example, the `<solr-collection>` element is defined as follows:
 <solr-collection toolkit-configured="true" num-replicas="1" id="main_index" max-shards-per-node="4" num-shards="4"/>
 ```
 
-For more information about configuring the collection and the values that you can set in the topology file, see [ZooKeeper and Solr](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/c_solr.html).
+For more information about configuring the collection and the values that you can set in the topology file, see [ZooKeeper and Solr](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_solr.html).
 
 The Solr collection is created when the `createSolrCollections` toolkit task is run the first time. After, you can use the `clearSearchIndex` toolkit task. This task clears the search index, and then recreates the collection. When Liberty starts, the search index is recreated.
 

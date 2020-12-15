@@ -53,23 +53,6 @@
           </PropertyType>
         </PropertyTypes>
       </EntityType>
-      <EntityType Id="cf17d636-44c9-4897-b19d-7d2eda002e57" Description="Analyst's Notebook 차트" DisplayName="Analyst's Notebook 차트" Icon="Anbchart">
-        <PropertyGroupTypes />
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="255" SemanticTypeId="" DisplayName="이름" Description="차트의 파일 이름" LogicalType="SINGLE_LINE_STRING" Id="d6d03ce2-3cd6-49c1-8a66-366d0e434fd4">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="차트 이진 데이터" Description="차트의 내용을 저장하는 이진 파일" LogicalType="DOCUMENT" Id="a20fef80-5c5f-4cf6-a597-c869193792e7">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="차트 미리보기 이미지" Description="차트의 축소판 그림 이미지" LogicalType="PICTURE" Id="8690b4d1-421d-4df1-8a9b-b1d25a1676e3">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="차트 색인 데이터" Description="차트 색인 작성에 사용된 데이터" LogicalType="DOCUMENT" Id="c84133b6-7c02-466f-ba14-c1bf28787f2c">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
       <EntityType Id="1274e2e7-7751-4dae-a994-648718e19f04" Description="경고 피드" DisplayName="경고 피드" Icon="Search">
         <PropertyGroupTypes>
           <PropertyGroupType Mandatory="true" Position="3" Description="이 피드에서 경고를 시작할 이벤트" DisplayName="경고 트리거 이벤트" Id="566eaa37-01d2-4628-9231-a0448ef4a44c">
@@ -2819,7 +2802,7 @@
           </PropertyType>
         </PropertyTypes>
       </LinkType>
-      <LinkType Id="LSU1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="링크 주제" DisplayName="주제" FromTypeIds="ET6 cf17d636-44c9-4897-b19d-7d2eda002e57" ToTypeIds="ET1 ET2 ET4 ET3 ET8 ET7 ET9 ET10 ET5 cf17d636-44c9-4897-b19d-7d2eda002e57">
+      <LinkType Id="LSU1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="링크 주제" DisplayName="주제" FromTypeIds="ET6" ToTypeIds="ET1 ET2 ET4 ET3 ET8 ET7 ET9 ET10 ET5">
         <PropertyGroupTypes />
         <PropertyTypes>
           <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="고유 참조값" Description="항목의 고유 ID" LogicalType="SINGLE_LINE_STRING" Id="LSU2">
@@ -3174,11 +3157,6 @@
         <LabelDefinition ItemTypeId="dab2f6f2-813c-4a47-b630-b91f52a1e0e1">
           <LabelParts>
             <LabelPart Value="등록 대상" LabelPartType="LITERAL" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="cf17d636-44c9-4897-b19d-7d2eda002e57">
-          <LabelParts>
-            <LabelPart Value="d6d03ce2-3cd6-49c1-8a66-366d0e434fd4" LabelPartType="PROPERTY_TYPE" />
           </LabelParts>
         </LabelDefinition>
         <LabelDefinition ItemTypeId="43cd717c-0204-4c81-93ea-f9f0458bc5ea">

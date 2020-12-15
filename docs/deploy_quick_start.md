@@ -17,9 +17,9 @@ To run Shell scripts, you can use Cygwin. You can download Cygwin from [https://
 To run the scripts in the distributed example, start `Cygwin.bat` from the command line in the `cygwin64` directory.
 
 ### Docker
-You must install *Docker CE* for your operating system. For more information about installing Docker CE, see <https://docs.docker.com/engine/installation/>.
+You must install *Docker CE* for your operating system. For more information about installing Docker CE, see <https://docs.docker.com/engine/install/>.
 
->If you are using Windows 7, you must install Docker Toolbox. For information about installing Docker Toolbox, see <https://docs.docker.com/toolbox/overview/>.  
+>If you are using Windows 7, you must install Docker Toolbox. For information about installing Docker Toolbox, see <https://docs.docker.com/docker-for-windows/docker-toolbox/>.  
 If you are using Windows 7, use Oracle Virtual Box to host your Docker virtual machine.
 
 After you install Docker, you must ensure that is Docker initialized in your command line environment.
@@ -40,16 +40,16 @@ After you install Docker, you must ensure that is Docker initialized in your com
 Clone or download the distributed deployment example from <https://github.com/IBM-i2/Analyze-Deployment/releases>.
 
 ### Analyst's Notebook Premium
-Download *i2 Analyst's Notebook Premium* version 9.2.2 using the following part number: *CC6ZPML*.
+Download *i2 Analyst's Notebook Premium* version 9.2.3 using the following part number: *CC8N9ML*.
 
 Install Analyst's Notebook Premium with the Opal connector on a Windows machine that can access the machine where Docker is running.
 
 >Note: If you are running Docker on Mac OS, you can install Analyst's Notebook Premium on a Windows virtual machine.
 
-For more information, see [Installing IBM i2 Analyst's Notebook Premium](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.deploy.example.doc/installing_anbp.html).
+For more information, see [Installing IBM i2 Analyst's Notebook Premium](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.deploy.example.doc/installing_anbp.html).
 
 ### i2 Analyze
-Download i2 Analyze for Linux. You download the `IBM_i2_Analyze_4.3.2_Linux_Archive.tar.gz` version 4.3.2 using the following part number: *CC72BML*
+Download i2 Analyze for Linux. You download the `IBM_I2A_V4.3.3_LINUX.tar.gz` version 4.3.3 using the following part number: *CC8NAML*
 
 Rename the `.tar.gz` file to `i2analyze.tar.gz`, then copy it to the `src/images/common/ubuntu_toolkit/i2analyze` directory.
 
@@ -62,7 +62,7 @@ You must create the `common/jdbc-drivers` directories.
 ### Specifying the credentials
 You must specify the credentials for a deployment in the `src/configuration/environment/credentials.properties`. Set the passwords to be used for the Information Store, Solr, and the LTPA keys.
 
-For more information about the credentials file, see [Modifying the credentials](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/t_specifying_credentials.html).
+For more information about the credentials file, see [Modifying the credentials](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/t_specifying_credentials.html).
 To complete the quick deployment, enter passwords for the `db.infostore.password`, `solr.password`, and `ltpakeys.password` credentials.
 
 ---

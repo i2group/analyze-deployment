@@ -2,7 +2,7 @@
 i2 Analyze supports physical architectures in which the database is hosted on the same server as the application, or on a different one. You can also choose to locate your Extract Transform Load (ETL) logic on the same server as the i2 Analyze application, or on the same server as the database, or on an entirely separate server.
 The distributed deployment example shows you how to set up the ETL logic on a separate server.
 
-For more information about the ingestion architecture and the ETL toolkit, see [Understanding the architecture](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.iap.admin.ingestion.doc/architecture_and_ingestion.html).
+For more information about the ingestion architecture and the ETL toolkit, see [Understanding the architecture](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.iap.admin.ingestion.doc/architecture_and_ingestion.html).
 
 ## Before you begin
 Ensure that you can connect to the deployment and submit data by using Analyst's Notebook Premium.
@@ -40,12 +40,12 @@ Run the `deployEtlClient` script from the `src/scripts` directory to create a ne
 ./deployEtlClient
 ```
 
-For more information about deploying the ETL toolkit in a non-Docker environment, see [Deploying the ETL toolkit](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.iap.admin.ingestion.doc/deploying_the_etl_toolkit.html).
+For more information about deploying the ETL toolkit in a non-Docker environment, see [Deploying the ETL toolkit](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.iap.admin.ingestion.doc/deploying_the_etl_toolkit.html).
 
 ## Configuring the ETL toolkit for Db2
 The `etl_client` container includes the `initializeEtlClient` script that you must run in the Docker environment when you are using Db2.
 
-The `initializeEtlClient` script catalogs the remote Db2 node and database with the Db2 Client that is installed on the ETL client. To complete this process in a non-Docker environment, see [Deploying the ETL toolkit](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.iap.admin.ingestion.doc/deploying_the_etl_toolkit.html).
+The `initializeEtlClient` script catalogs the remote Db2 node and database with the Db2 Client that is installed on the ETL client. To complete this process in a non-Docker environment, see [Deploying the ETL toolkit](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.iap.admin.ingestion.doc/deploying_the_etl_toolkit.html).
 
 Run the `initializeEtlClient` script on the `etl_client` container:
 ```
@@ -59,7 +59,7 @@ You can inspect the [`initializeEtlClient`](../src/images/db2/etl_client/initial
 The ETL client container includes the `ingestExampleData` script that you can run in the Docker environment to ingest example data into the Information Store.
 You can now use the ETL toolkit on the ETL client server to ingest data into the Information Store.
 
-The `ingestExampleData` script in the Docker container ingests example data into the Information Store. To complete this process in a non-Docker environment, see [Running ingestion commands](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.iap.admin.ingestion.doc/running_ingestion_commands.html).
+The `ingestExampleData` script in the Docker container ingests example data into the Information Store. To complete this process in a non-Docker environment, see [Running ingestion commands](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.iap.admin.ingestion.doc/running_ingestion_commands.html).
 
 Run the `ingestExampleData` script on the `etl_client`. Type the password that you set in the `credentials.properties` file for Information Store database:
 ```

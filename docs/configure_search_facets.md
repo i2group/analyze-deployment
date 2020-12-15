@@ -4,14 +4,14 @@ Modify the results filters in the i2 Analyze configuration, then redeploy the ap
 ## Before you begin
 Ensure that you can connect to the deployment and submit data by using Analyst's Notebook Premium.
 
-To understand what search result filtering is, and why you might need to modify the filters, see [Setting up search results filtering](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/t_property_facets.html).
+To understand what search result filtering is, and why you might need to modify the filters, see [Setting up search results filtering](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/t_property_facets.html).
 
 ## Modifying the results configuration file
 The `law-enforcement-schema-results-configuration.xml` file in the distributed deployment example is in the following directory: `src/configuration/fragments/common/WEB-INF/classes`.
 
 In an XML editor, open the `law-enforcement-schema-results-configuration.xml` file from the `classes` directory, and modify the filters that are available for an item type. After you modify the file, save your changes.
 
-For more information about the results configuration file, see [Understanding the results configuration file](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/understanding_facets_file.html).
+For more information about the results configuration file, see [Understanding the results configuration file](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/understanding_facets_file.html).
 
 ## Copying the configuration
 Your results configuration file changes are required by Liberty. The modified configuration must be copied to the Liberty server.

@@ -1,3 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><web-bnd xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://websphere.ibm.com/xml/ns/javaee" xsi:schemaLocation="http://websphere.ibm.com/xml/ns/javaee http://websphere.ibm.com/xml/ns/javaee/ibm-web-bnd_1_0.xsd" version="1.0">
+<?xml version="1.0" encoding="UTF-8"?><!--
+  ~ Licensed Materials - Property of IBM
+  ~ 5725-G22
+  ~ (C) Copyright IBM Corp. 2012, 2020 All Rights Reserved.
+  ~ US Government Users Restricted Rights - Use, duplication or
+  ~ disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+  -->
+
+<web-bnd xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://websphere.ibm.com/xml/ns/javaee" xsi:schemaLocation="http://websphere.ibm.com/xml/ns/javaee http://websphere.ibm.com/xml/ns/javaee/ibm-web-bnd_1_0.xsd" version="1.0">
   <virtual-host name="default_host"/>
 </web-bnd> 

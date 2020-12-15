@@ -3,7 +3,7 @@ The distributed deployment example demonstrates how to build a distributed deplo
 
 ## Docker
 Docker is used to build and maintain Docker images and containers.
-For more information about Docker, see [Docker overview](https://docs.docker.com/engine/docker-overview/#the-docker-platform).
+For more information about Docker, see [Docker overview](https://docs.docker.com/get-started/overview/#the-docker-platform).
 
 ### Docker containers and images
 A Docker container represents a physical server in a non-Docker environment. In the distributed deployment example i2 Analyze is deployed across the Docker containers, this represents the deployment of i2 Analyze across physical servers in a non-Docker environment.
@@ -12,7 +12,7 @@ In the example, there are Docker images and containers for the servers that host
 
 To simulate starting a server, run a container from its corresponding image.
 
-For more information about Docker containers and images, see [Docker objects](https://docs.docker.com/engine/docker-overview/#docker-objects).
+For more information about Docker containers and images, see [Docker objects](https://docs.docker.com/get-started/overview/#docker-objects).
 
 ### Dockerfiles
 In the distributed deployment example, `Dockerfiles` are used to define what is installed onto the file system and what is run on startup of the server.

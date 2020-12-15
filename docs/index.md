@@ -20,7 +20,7 @@ The documentation for understanding, deploying, and configuring the distributed 
   - [Keystores and certificates for components of i2 Analyze](securing_certificates.md)
   - [Deploying the distributed deployment example with security](securing_ssl.md)
   - [Deploying i2 Analyze with i2 Connect](deploy_i2_connect.md)
-  - [Upgrading a distributed deployment to version 4.3.2 of i2 Analyze](upgrade_walk_through.md)
+  - [Upgrading a distributed deployment to version 4.3.3 of i2 Analyze](upgrade_walk_through.md)
   - [Cleaning your environment](deploy_clean_environment.md)
 
 

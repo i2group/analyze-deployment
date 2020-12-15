@@ -59,23 +59,6 @@
           </PropertyType>
         </PropertyTypes>
       </EntityType>
-      <EntityType Id="cf17d636-44c9-4897-b19d-7d2eda002e57" Description="Analyst's Notebook chart" DisplayName="Analyst's Notebook Chart" Icon="Anbchart">
-        <PropertyGroupTypes />
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="255" SemanticTypeId="" DisplayName="Name" Description="The file name of the chart" LogicalType="SINGLE_LINE_STRING" Id="d6d03ce2-3cd6-49c1-8a66-366d0e434fd4">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Chart Binary Data" Description="The binary file that stores the contents of the chart" LogicalType="DOCUMENT" Id="a20fef80-5c5f-4cf6-a597-c869193792e7">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Chart Preview Image" Description="A thumbnail image of the chart" LogicalType="PICTURE" Id="8690b4d1-421d-4df1-8a9b-b1d25a1676e3">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="Chart Index Data" Description="Data used to index the chart" LogicalType="DOCUMENT" Id="c84133b6-7c02-466f-ba14-c1bf28787f2c">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
       <EntityType Icon="Search" Id="1274e2e7-7751-4dae-a994-648718e19f04" DisplayName="Alert Feed" Description="Alert Feed">
         <PropertyGroupTypes>
           <PropertyGroupType Position="10" Mandatory="true" Id="566eaa37-01d2-4628-9231-a0448ef4a44c" DisplayName="Alert Trigger Events" Description="Events that will trigger alerts from this feed">
@@ -122,14 +105,14 @@
       <!-- 
       Mandatory Opal Information Store Chart type 
       -->
-      <EntityType Description="Opal Chart" DisplayName="Opal Chart" Id="CHART" Icon="Anbchart">
+      <EntityType Description="Analyst's Notebook Chart" DisplayName="Analyst's Notebook Chart" Id="CHART" Icon="Anbchart">
         <PropertyGroupTypes />
         <PropertyTypes>
           <PropertyType Description="The file name of the chart" DisplayName="Name" Id="CHART1" LogicalType="SINGLE_LINE_STRING" Mandatory="true" Position="0" SemanticTypeId="" MaximumLengthChars="255">
             <PossibleValues />
           </PropertyType>
           <PropertyType Description="The description of the chart" DisplayName="Description" Id="CHART2" LogicalType="MULTIPLE_LINE_STRING" Mandatory="false" Position="1" SemanticTypeId="">
-            <PossibleValues/>
+            <PossibleValues />
           </PropertyType>
         </PropertyTypes>
       </EntityType>
@@ -2801,7 +2784,7 @@
           </PropertyType>
         </PropertyTypes>
       </LinkType>
-      <LinkType Id="LSU1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="Subject of link" DisplayName="Subject Of" FromTypeIds="ET6 cf17d636-44c9-4897-b19d-7d2eda002e57" ToTypeIds="ET1 ET2 ET4 ET3 ET8 ET7 ET9 ET10 ET5 cf17d636-44c9-4897-b19d-7d2eda002e57">
+      <LinkType Id="LSU1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="Subject of link" DisplayName="Subject Of" FromTypeIds="ET6" ToTypeIds="ET1 ET2 ET4 ET3 ET8 ET7 ET9 ET10 ET5">
         <PropertyGroupTypes />
         <PropertyTypes>
           <PropertyType Position="0" Mandatory="false" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Unique Reference" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="LSU2">
@@ -3159,11 +3142,6 @@
             <LabelPart Value="Subscribed to" LabelPartType="LITERAL" />
           </LabelParts>
         </LabelDefinition>
-        <LabelDefinition ItemTypeId="cf17d636-44c9-4897-b19d-7d2eda002e57">
-          <LabelParts>
-            <LabelPart Value="d6d03ce2-3cd6-49c1-8a66-366d0e434fd4" LabelPartType="PROPERTY_TYPE" />
-          </LabelParts>
-        </LabelDefinition>
         <LabelDefinition ItemTypeId="43cd717c-0204-4c81-93ea-f9f0458bc5ea">
           <LabelParts>
             <LabelPart LabelPartType="PROPERTY_TYPE" Value="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd"/>
@@ -3313,4 +3291,3 @@
     <lcx:LibraryCatalogue VersionMajor="1" VersionMinor="18" VersionRelease="27" VersionBuild="60" xmlns:lcx="http://www.i2group.com/Schemas/2001-12-07/LCXSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" LocaleHex="0809" />
   </SemanticTypeLibrary>
 </ns2:Schema>
-

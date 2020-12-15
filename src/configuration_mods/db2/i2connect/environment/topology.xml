@@ -1,62 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Licensed Materials - Property of IBM
+  ~ 5725-G22
+  ~ (C) Copyright IBM Corp. 2012, 2020 All Rights Reserved.
+  ~ US Government Users Restricted Rights - Use, duplication or
+  ~ disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+  -->
+
 <ns1:topology xmlns:ns1="http://www.i2group.com/Schemas/2013-11-18/Topology">
-    <i2-data-sources>
-        <i2-data-source ar="false" default="false" id="opalDAOD">
-            <DataSource Version="0" Id="">
-                <Shape>DAOD</Shape>
-                <Name>Opal DAOD</Name>
-            </DataSource>
-        </i2-data-source>
-    </i2-data-sources>
-    <applications>
-        <application http-server-host="false" name="opal-server" host-name="liberty.eianet">
-            <key-stores>
-                <key-store type="key-store" file="/opt/IBM/keys/stores/i2-jks-keystore.jks" />
-                <key-store type="trust-store" file="/opt/IBM/keys/stores/i2-jks-truststore.jks" />
-            </key-stores>
-            <wars>
-                <war context-root="opaldaod" name="opal-services-daod" i2-data-source-id="opalDAOD" target="opal-services-daod">
-                    <file-store-ids>
-                        <file-store-id value="recordgroup-daod-store" />
-                    </file-store-ids>
-                    <fragments>
-                        <fragment name="opal-services" />
-                        <fragment name="common" />
-                    </fragments>
-                    <solr-collection-ids>
-                        <solr-collection-id collection-id="daod_index" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster"/>
-                    </solr-collection-ids>
-                    <connector-ids>
-                        <connector-id value="example-connector" />
-                    </connector-ids>
-                </war>
-            </wars>
-            <file-stores>
-                <file-store location="/opt/IBM/i2analyze/data/recordgroup/main" id="recordgroup-daod-store" type="recordgroup-store" />
-            </file-stores>
-        </application>
-    </applications>
-    <connectors>
-        <connector id="example-connector" name="Example Connector" base-url="https://connector.eianet:3700/"/>
-    </connectors>
-    <zookeepers>
-        <zookeeper id="zoo">
-            <zkhosts>
-				<zkhost id="1" host-name="zookeeper.eianet" data-dir="/opt/IBM/i2analyze/data/zookeeper" port-number="9983" quorum-port-number="10483" leader-port-number="10983" />
-				<zkhost id="2" host-name="zookeeper2.eianet" data-dir="/opt/IBM/i2analyze/data/zookeeper" port-number="9984" quorum-port-number="10484" leader-port-number="10984" />
-				<zkhost id="3" host-name="zookeeper3.eianet" data-dir="/opt/IBM/i2analyze/data/zookeeper" port-number="9985" quorum-port-number="10485" leader-port-number="10985" />
-            </zkhosts>
-        </zookeeper>
-    </zookeepers>
-    <solr-clusters>
-        <solr-cluster id="is_cluster" zookeeper-id="zoo">
-            <solr-collections>
-                <solr-collection id="daod_index" type="daod" max-shards-per-node="4" num-shards="4" num-replicas="1" />
-            </solr-collections>
-            <solr-nodes>
-                <solr-node memory="512m" id="node1" host-name="solr.eianet" data-dir="/opt/IBM/i2analyze/data/solr" port-number="8983" />
-                <solr-node memory="512m" id="node2" host-name="solr2.eianet" data-dir="/opt/IBM/i2analyze/data/solr" port-number="8984" />
-            </solr-nodes>
-        </solr-cluster>
-    </solr-clusters>
+  <i2-data-sources>
+    <i2-data-source default="false" id="opalDAOD">
+      <DataSource Version="0" Id="">
+        <Name>Opal DAOD</Name>
+      </DataSource>
+    </i2-data-source>
+  </i2-data-sources>
+  <applications>
+    <application http-server-host="false" name="opal-server" host-name="liberty.eianet">
+      <key-stores>
+         <key-store type="key-store" file="/opt/IBM/keys/stores/i2-jks-keystore.jks" />
+         <key-store type="trust-store" file="/opt/IBM/keys/stores/i2-jks-truststore.jks" />
+      </key-stores>
+      <wars>
+        <war context-root="opaldaod" name="opal-services-daod" i2-data-source-id="opalDAOD" target="opal-services-daod">
+          <file-store-ids>
+            <file-store-id value="recordgroup-daod-store" />
+            <file-store-id value="job-store" />
+          </file-store-ids>
+          <fragments>
+            <fragment name="opal-services" />
+            <fragment name="common" />
+          </fragments>
+          <solr-collection-ids>
+            <solr-collection-id collection-id="daod_index" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster"/>
+          </solr-collection-ids>
+          <connector-ids>
+            <connector-id value="example-connector" />
+          </connector-ids>
+        </war>
+      </wars>
+      <file-stores>
+        <file-store location="/opt/IBM/i2analyze/data/recordgroup/main" id="recordgroup-daod-store" type="recordgroup-store" />
+        <file-store location="/opt/IBM/i2analyze/data/job/main" id="job-store" type="job-store" />
+      </file-stores>
+    </application>
+  </applications>
+  <connectors>
+    <connector id="example-connector" name="Example Connector" base-url="https://connector.eianet:3700/"/>
+  </connectors>
+  <zookeepers>
+    <zookeeper id="zoo">
+      <zkhosts>
+        <zkhost id="1" host-name="zookeeper.eianet" data-dir="/opt/IBM/i2analyze/data/zookeeper" port-number="9983" quorum-port-number="10483" leader-port-number="10983" />
+        <zkhost id="2" host-name="zookeeper2.eianet" data-dir="/opt/IBM/i2analyze/data/zookeeper" port-number="9984" quorum-port-number="10484" leader-port-number="10984" />
+        <zkhost id="3" host-name="zookeeper3.eianet" data-dir="/opt/IBM/i2analyze/data/zookeeper" port-number="9985" quorum-port-number="10485" leader-port-number="10985" />
+      </zkhosts>
+    </zookeeper>
+  </zookeepers>
+  <solr-clusters>
+    <solr-cluster id="is_cluster" zookeeper-id="zoo">
+      <solr-collections>
+        <solr-collection id="daod_index" type="daod" max-shards-per-node="4" num-shards="4" num-replicas="1" />
+      </solr-collections>
+      <solr-nodes>
+        <solr-node memory="512m" id="node1" host-name="solr.eianet" data-dir="/opt/IBM/i2analyze/data/solr" port-number="8983" />
+        <solr-node memory="512m" id="node2" host-name="solr2.eianet" data-dir="/opt/IBM/i2analyze/data/solr" port-number="8984" />
+      </solr-nodes>
+    </solr-cluster>
+  </solr-clusters>
 </ns1:topology>

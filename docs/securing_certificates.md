@@ -5,7 +5,7 @@ Certificates are exchanged to establish trust during the handshake process that 
 
 As part of the SSL handshake process, certificates are exchanged that are signed by a trusted certificate authority to verify that a certificate is authentic.
 
-For more information about the keystores and certificates that are required in an i2 Analyze deployment, see [SSL certificates for i2 Analyze](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/c_ssl_only_intro.html) and [SSL keystores for i2 Analyze](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/c_creating_keystores.html).
+For more information about the keystores and certificates that are required in an i2 Analyze deployment, see [SSL certificates for i2 Analyze](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_ssl_only_intro.html) and [SSL keystores for i2 Analyze](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_creating_keystores.html).
 
 As part of the distributed deployment example, scripts are provided that demonstrate how to create the required keystores and certificates. The certificates are created and signed by a certificate authority, which is also included as part of the example.
 

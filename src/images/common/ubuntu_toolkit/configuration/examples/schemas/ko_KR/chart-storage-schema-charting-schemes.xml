@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<trn:ChartingSchemeList xmlns:trn="http://www.i2group.com/Schemas/2012-05-29/ModelData/v2">
+  <ChartingSchemes>
+    <ChartingScheme Name="Analysis">
+      <XmlChartingScheme>
+        <ChartItemAttributes>
+          <!-- FLAGS -->
+          <!-- Firearm Used? -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true">
+            <Name>Firearm Used?</Name>
+            <Type>AttFlag</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- NUMBERS -->
+          <!-- Age -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" MergeBehaviour="AttMergeMax" PasteBehaviour="AttMergeMax" DecimalPlaces="0">
+            <Name>Age</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Total -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Transaction Total</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Value -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Value</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- DATE TIMES -->
+          <!-- Communication Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false"  ShowTime="true" >
+            <Name>Earliest Communication</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Communication Latest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Latest Communication</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date Opened -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date Opened</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date Closed -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date Closed</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date of Birth -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date of Birth</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Earliest</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Event Start Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Event Start</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Event End Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Event End</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Earliest Transaction</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Latest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Latest Transaction</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- TEXT -->
+          <!-- Datum -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E" >
+            <Name>Datum</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+           <!-- Easting -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid7877FB38-38DC-4fea-87BD-838A6EA66F51">
+            <Name>Easting</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+            <!-- Northing -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guidC319A593-C6D6-4cd0-91EF-14A932488F3B" >
+            <Name>Northing</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>         
+           <!-- Latitude -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid5304A03B-FE47-4406-91E7-0D49EC8409A6" >
+            <Name>Latitude</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Longitude -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9" >
+            <Name>Longitude</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+        </ChartItemAttributes>
+
+          <ChartItemDataRecordProperties IncludeGrades="true" IncludeProperties="true"/>
+
+        <EntityMappings>
+          <!-- Default -->
+          <Default>
+          </Default>
+
+        </EntityMappings>
+
+        <LinkMappings>
+          <!-- Default -->
+          <Default>
+          <LinkSummarization Method="Multiple"/>
+          </Default>
+
+        </LinkMappings>
+      </XmlChartingScheme>
+    </ChartingScheme>
+    
+    <ChartingScheme Name="Analysis (no link summarization)">
+      <XmlChartingScheme>
+        <ChartItemAttributes>
+          <!-- FLAGS -->
+          <!-- Firearm Used? -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true">
+            <Name>Firearm Used?</Name>
+            <Type>AttFlag</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- NUMBERS -->
+          <!-- Age -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" MergeBehaviour="AttMergeMax" PasteBehaviour="AttMergeMax" DecimalPlaces="0">
+            <Name>Age</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Total -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Transaction Total</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Value -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Value</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- DATE TIMES -->
+          <!-- Communication Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false"  ShowTime="true" >
+            <Name>Earliest Communication</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Communication Latest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Latest Communication</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date Opened -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date Opened</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date Closed -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date Closed</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date of Birth -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date of Birth</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Earliest</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Event Start Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Event Start</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Event End Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Event End</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Earliest Transaction</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Latest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Latest Transaction</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- TEXT -->
+          <!-- Datum -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E" >
+            <Name>Datum</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Easting -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid7877FB38-38DC-4fea-87BD-838A6EA66F51">
+            <Name>Easting</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Northing -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guidC319A593-C6D6-4cd0-91EF-14A932488F3B" >
+            <Name>Northing</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Latitude -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid5304A03B-FE47-4406-91E7-0D49EC8409A6" >
+            <Name>Latitude</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Longitude -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9" >
+            <Name>Longitude</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+        </ChartItemAttributes>
+
+        <ChartItemDataRecordProperties IncludeGrades="true" IncludeProperties="true"/>
+
+        <EntityMappings>
+          <!-- Default -->
+          <Default>
+          </Default>
+
+        </EntityMappings>
+
+        <LinkMappings>
+          <!-- Default -->
+          <Default>
+            <LinkSummarization Method="Multiple"/>
+          </Default>
+
+        </LinkMappings>
+      </XmlChartingScheme>
+    </ChartingScheme>
+    
+    <ChartingScheme Name="Presentation">
+      <XmlChartingScheme>
+        <ChartItemAttributes>
+          <!-- FLAGS -->
+          <!-- Firearm Used? -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true">
+            <Name>Firearm Used?</Name>
+            <Type>AttFlag</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- NUMBERS -->
+          <!-- Age -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" MergeBehaviour="AttMergeMax" PasteBehaviour="AttMergeMax" DecimalPlaces="0">
+            <Name>Age</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Total -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Transaction Total</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Value -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Value</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- DATE TIMES -->
+          <!-- Communication Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false"  ShowTime="true" >
+            <Name>Earliest Communication</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Communication Latest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Latest Communication</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date Opened -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date Opened</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date Closed -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date Closed</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date of Birth -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date of Birth</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Earliest</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Event Start Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Event Start</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Event End Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Event End</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Earliest Transaction</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Latest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Latest Transaction</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- TEXT -->
+          <!-- Datum -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E" >
+            <Name>Datum</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Easting -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid7877FB38-38DC-4fea-87BD-838A6EA66F51">
+            <Name>Easting</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Northing -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guidC319A593-C6D6-4cd0-91EF-14A932488F3B" >
+            <Name>Northing</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Latitude -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid5304A03B-FE47-4406-91E7-0D49EC8409A6" >
+            <Name>Latitude</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Longitude -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9" >
+            <Name>Longitude</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+        </ChartItemAttributes>
+
+        <ChartItemDataRecordProperties IncludeGrades="false" IncludeProperties="false"/>
+
+        <EntityMappings>
+          <!-- Default -->
+          <Default>
+          </Default>
+
+        </EntityMappings>
+
+        <LinkMappings>
+          <!-- Default -->
+          <Default>
+            <LinkSummarization Method="Multiple"/>
+            
+          </Default>
+
+        </LinkMappings>
+      </XmlChartingScheme>
+    </ChartingScheme>
+    
+    <ChartingScheme Name="Network Structure">
+      <XmlChartingScheme>
+        <ChartItemAttributes>
+          <!-- FLAGS -->
+          <!-- Firearm Used? -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true">
+            <Name>Firearm Used?</Name>
+            <Type>AttFlag</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- NUMBERS -->
+          <!-- Age -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" MergeBehaviour="AttMergeMax" PasteBehaviour="AttMergeMax" DecimalPlaces="0">
+            <Name>Age</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Total -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Transaction Total</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Value -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Value</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- DATE TIMES -->
+          <!-- Communication Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false"  ShowTime="true" >
+            <Name>Earliest Communication</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Communication Latest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Latest Communication</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date Opened -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date Opened</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date Closed -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date Closed</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date of Birth -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date of Birth</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Earliest</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Event Start Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Event Start</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Event End Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Event End</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Earliest Transaction</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Latest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Latest Transaction</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- TEXT -->
+          <!-- Datum -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E" >
+            <Name>Datum</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Easting -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid7877FB38-38DC-4fea-87BD-838A6EA66F51">
+            <Name>Easting</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Northing -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guidC319A593-C6D6-4cd0-91EF-14A932488F3B" >
+            <Name>Northing</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Latitude -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid5304A03B-FE47-4406-91E7-0D49EC8409A6" >
+            <Name>Latitude</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Longitude -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9" >
+            <Name>Longitude</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+        </ChartItemAttributes>
+
+        <ChartItemDataRecordProperties IncludeGrades="false" IncludeProperties="false"/>
+
+        <EntityMappings>
+          <!-- Default -->
+          <Default>
+            
+          </Default>
+
+        </EntityMappings>
+
+        <LinkMappings>
+          <!-- Default -->
+          <Default>
+            <LinkSummarization Method="Single" SeparateStrengths="false"/>
+            
+          </Default>
+
+        </LinkMappings>
+      </XmlChartingScheme>
+    </ChartingScheme>
+  </ChartingSchemes>
+</trn:ChartingSchemeList>
+

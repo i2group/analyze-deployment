@@ -53,23 +53,6 @@
           </PropertyType>
         </PropertyTypes>
       </EntityType>
-      <EntityType Id="cf17d636-44c9-4897-b19d-7d2eda002e57" Description="Graphe Analyst's Notebook" DisplayName="Graphe Analyst's Notebook" Icon="Anbchart">
-        <PropertyGroupTypes />
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="255" SemanticTypeId="" DisplayName="Nom" Description="Nom de fichier du graphe" LogicalType="SINGLE_LINE_STRING" Id="d6d03ce2-3cd6-49c1-8a66-366d0e434fd4">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Données binaires du graphe" Description="Fichier binaire de stockage du contenu du graphe" LogicalType="DOCUMENT" Id="a20fef80-5c5f-4cf6-a597-c869193792e7">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Image d'aperçu du graphe" Description="Image miniature du graphe" LogicalType="PICTURE" Id="8690b4d1-421d-4df1-8a9b-b1d25a1676e3">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="Données d'index du graphe" Description="Données utilisées pour l'indexation du graphe" LogicalType="DOCUMENT" Id="c84133b6-7c02-466f-ba14-c1bf28787f2c">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
       <EntityType Id="1274e2e7-7751-4dae-a994-648718e19f04" Description="Flux d'alertes" DisplayName="Flux d'alertes" Icon="Search">
         <PropertyGroupTypes>
           <PropertyGroupType Mandatory="true" Position="3" Description="Evénements déclenchant des alertes à partir de ce flux" DisplayName="Evénements déclencheurs d'alertes" Id="566eaa37-01d2-4628-9231-a0448ef4a44c">
@@ -2818,7 +2801,7 @@
           </PropertyType>
         </PropertyTypes>
       </LinkType>
-      <LinkType Id="LSU1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="Lien Sujet de" DisplayName="Sujet de" FromTypeIds="ET6 cf17d636-44c9-4897-b19d-7d2eda002e57" ToTypeIds="ET1 ET2 ET4 ET3 ET8 ET7 ET9 ET10 ET5 cf17d636-44c9-4897-b19d-7d2eda002e57">
+      <LinkType Id="LSU1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="Lien Sujet de" DisplayName="Sujet de" FromTypeIds="ET6" ToTypeIds="ET1 ET2 ET4 ET3 ET8 ET7 ET9 ET10 ET5">
         <PropertyGroupTypes />
         <PropertyTypes>
           <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Référence unique" Description="Identificateur unique de l'élément" LogicalType="SINGLE_LINE_STRING" Id="LSU2">
@@ -3172,11 +3155,6 @@
         <LabelDefinition ItemTypeId="dab2f6f2-813c-4a47-b630-b91f52a1e0e1">
           <LabelParts>
             <LabelPart Value="Souscrit" LabelPartType="LITERAL" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="cf17d636-44c9-4897-b19d-7d2eda002e57">
-          <LabelParts>
-            <LabelPart Value="d6d03ce2-3cd6-49c1-8a66-366d0e434fd4" LabelPartType="PROPERTY_TYPE" />
           </LabelParts>
         </LabelDefinition>
         <LabelDefinition ItemTypeId="43cd717c-0204-4c81-93ea-f9f0458bc5ea">

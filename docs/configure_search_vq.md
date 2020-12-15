@@ -4,14 +4,14 @@ Modify the Visual Query conditions file in the i2 Analyze configuration, then re
 ## Before you begin
 Ensure that you can connect to the deployment and submit data by using Analyst's Notebook Premium.
 
-To understand what Visual Query conditions are, and why you might need to modify the conditions, see [Visual Query condition restrictions](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/vq_understanding.html).
+To understand what Visual Query conditions are, and why you might need to modify the conditions, see [Visual Query condition restrictions](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/vq_understanding.html).
 
 ## Modifying the Visual Query conditions file
 The `visual-query-configuration.xml` file in the distributed deployment example is in the following directory: `src/configuration/fragments/opal-services/WEB-INF/classes`.
 
 In an XML editor, open the `visual-query-configuration.xml` file from the `classes` directory, and modify the Visual Query conditions. After you modify the file, save your changes.
 
-For more information about the Visual Query conditions file, see [Visual Query condition restrictions](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/vq_understanding.html).
+For more information about the Visual Query conditions file, see [Visual Query condition restrictions](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/vq_understanding.html).
 
 ## Updating the `DiscoServerSettingsCommon.properties` file
 The `DiscoServerSettingsCommon.properties` file in the distributed deployment example is in the following directory: `src/configuration/fragments/opal-services/WEB-INF/classes`.

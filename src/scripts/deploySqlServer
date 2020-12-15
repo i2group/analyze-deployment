@@ -88,9 +88,9 @@ output "Running the admin_client container to create the database"
 docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createDatabases
 
 output "Restarting ZooKeeper"
-docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t restartZkHosts --hostname zookeeper.eianet
-docker exec -u i2analyze zookeeper2 /opt/IBM/i2analyze/toolkit/scripts/setup -t restartZkHosts --hostname zookeeper2.eianet
-docker exec -u i2analyze zookeeper3 /opt/IBM/i2analyze/toolkit/scripts/setup -t restartZkHosts --hostname zookeeper3.eianet
+docker restart zookeeper
+docker restart zookeeper2
+docker restart zookeeper3
 
 output "Updating the Solr configuration on the ZooKeeper server"
 docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client.eianet

@@ -9,7 +9,7 @@
 # *
 # ********************************************************************************/
 
-FROM mcr.microsoft.com/mssql/server:2019-CU3-ubuntu-16.04
+FROM mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-16.04
 
 USER root:root
 

@@ -53,23 +53,6 @@
           </PropertyType>
         </PropertyTypes>
       </EntityType>
-      <EntityType Id="cf17d636-44c9-4897-b19d-7d2eda002e57" Description="Grafico di Analyst's Notebook" DisplayName="Grafico di Analyst's Notebook" Icon="Anbchart">
-        <PropertyGroupTypes />
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="255" SemanticTypeId="" DisplayName="Nome" Description="Il nome del file del grafico" LogicalType="SINGLE_LINE_STRING" Id="d6d03ce2-3cd6-49c1-8a66-366d0e434fd4">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Dati Binari grafico" Description="Il file binario che archivia i contenuti del grafico" LogicalType="DOCUMENT" Id="a20fef80-5c5f-4cf6-a597-c869193792e7">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Immagine Anteprima grafico" Description="Immagine di anteprima del grafico" LogicalType="PICTURE" Id="8690b4d1-421d-4df1-8a9b-b1d25a1676e3">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="Dati Indice grafico" Description="I dati utilizzati per indicizzare il grafico" LogicalType="DOCUMENT" Id="c84133b6-7c02-466f-ba14-c1bf28787f2c">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
       <EntityType Id="1274e2e7-7751-4dae-a994-648718e19f04" Description="Feed di Avviso" DisplayName="Feed di Avviso" Icon="Search">
         <PropertyGroupTypes>
           <PropertyGroupType Mandatory="true" Position="3" Description="Eventi che attivano gli avvisi da questo feed" DisplayName="Eventi Attivazione Avvisi" Id="566eaa37-01d2-4628-9231-a0448ef4a44c">
@@ -1972,7 +1955,7 @@
           </PropertyType>
         </PropertyTypes>
       </LinkType>
-      <LinkType Id="SUB1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" DisplayName="Oggetto di" FromTypeIds="cf17d636-44c9-4897-b19d-7d2eda002e57 INT1" ToTypeIds="ADD1 ACC1 CLA1 CRC1 INT1 EM1 IP1 ORG1 PER1 TEL1 VEH1 cf17d636-44c9-4897-b19d-7d2eda002e57">
+      <LinkType Id="SUB1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" DisplayName="Oggetto di" FromTypeIds="INT1" ToTypeIds="ADD1 ACC1 CLA1 CRC1 INT1 EM1 IP1 ORG1 PER1 TEL1 VEH1">
         <PropertyGroupTypes />
         <PropertyTypes>
           <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Riferimento Univoco" Description="" LogicalType="SINGLE_LINE_STRING" Id="SUB2">
@@ -2030,11 +2013,6 @@
         <LabelDefinition ItemTypeId="dab2f6f2-813c-4a47-b630-b91f52a1e0e1">
           <LabelParts>
             <LabelPart Value="Sottoscritto da" LabelPartType="LITERAL" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="cf17d636-44c9-4897-b19d-7d2eda002e57">
-          <LabelParts>
-            <LabelPart Value="d6d03ce2-3cd6-49c1-8a66-366d0e434fd4" LabelPartType="PROPERTY_TYPE" />
           </LabelParts>
         </LabelDefinition>
         <LabelDefinition ItemTypeId="43cd717c-0204-4c81-93ea-f9f0458bc5ea">

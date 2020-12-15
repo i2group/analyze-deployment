@@ -4,7 +4,7 @@ During development, to make destructive schema changes or to completely change y
 ## Before you begin
 This process can permanently remove data and the database from your system, ensure that no data is in the system that you want to keep.
 
-For more information about making a backup of your deployment, see [Backing up a deployment](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/c_back_up_and_recovery.html).
+For more information about making a backup of your deployment, see [Backing up a deployment](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_back_up_and_recovery.html).
 
 ## Stopping Liberty
 Run the following command on the Liberty server to stop Liberty:
@@ -24,7 +24,7 @@ docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/set
 The search index is cleared, however any data that was in the database remains in the database.
 
 ## Removing databases from the system
-To remove the database from your system, you can use the `dropDatabases` toolkit task. For more information, see [Removing databases from the system](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/t_drop_databases.html).
+To remove the database from your system, you can use the `dropDatabases` toolkit task. For more information, see [Removing databases from the system](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/t_drop_databases.html).
 
 To drop the database, you must ensure that there are no active connections to it.
 

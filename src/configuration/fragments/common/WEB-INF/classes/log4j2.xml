@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Licensed Materials - Property of IBM
+  ~ 5725-G22
+  ~ (C) Copyright IBM Corp. 2012, 2020 All Rights Reserved.
+  ~ US Government Users Restricted Rights - Use, duplication or
+  ~ disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+  -->
+
+<Configuration>
+  <Properties>
+    <Property name="rootDir">${sys:apollo.log.dir}/opal-services</Property>
+    <Property name="statusPatternLayout">%d %-5p %-30c{1} - %m%n</Property>
+    <Property name="detailedPatternLayout">%d %-4r [%t] %-5p %c - %X{requestSessionId} %X{requestUniqueId} %x - %m%n</Property>
+    <Property name="archiveDirFormat">$$${date:yyyy-MM}</Property>
+    <Property name="archiveDir">${rootDir}/${archiveDirFormat}</Property>
+    <Property name="archiveFileDateFormat">%d{dd-MM-yyyy}-%i</Property>
+    <Property name="triggerSize">1MB</Property>
+    <Property name="maxRollover">10</Property>
+  </Properties>
+  <Appenders>
+    <Console name="CONSOLE" target="SYSTEM_OUT">
+      <PatternLayout>
+        <Pattern>%-5p %d - %-30c{10} - %m%n</Pattern>
+      </PatternLayout>
+    </Console>
+    <Console name="TOOLKITCONSOLE" target="SYSTEM_OUT">
+      <PatternLayout>
+        <Pattern>%d - [%c] - %m%n</Pattern>
+      </PatternLayout>
+    </Console>
+    <RollingFile name="ROOTLOG" append="true">
+      <FileName>${rootDir}/IBM_i2_General.log</FileName>
+      <FilePattern>${archiveDir}/IBM_i2_General-${archiveFileDateFormat}.log</FilePattern>
+      <PatternLayout charset="UTF-8" pattern="${detailedPatternLayout}" />
+      <Policies>
+        <SizeBasedTriggeringPolicy size="${triggerSize}" />
+      </Policies>
+      <DefaultRolloverStrategy max="${maxRollover}" />
+    </RollingFile>
+    <RollingFile name="APOLLOLOG" append="true">
+      <FileName>${rootDir}/IBM_i2_Analysis_Repository.log</FileName>
+      <FilePattern>${archiveDir}/IBM_i2_Analysis_Repository-${archiveFileDateFormat}.log</FilePattern>
+      <PatternLayout charset="UTF-8" pattern="${detailedPatternLayout}" />
+      <Policies>
+        <SizeBasedTriggeringPolicy size="${triggerSize}" />
+      </Policies>
+      <DefaultRolloverStrategy max="${maxRollover}" />
+    </RollingFile>
+    <RollingFile name="APOLLOLOGRETRY" append="true">
+      <FileName>${rootDir}/IBM_i2_Analysis_Repository_Retry.log</FileName>
+      <FilePattern>${archiveDir}/IBM_i2_Analysis_Repository_Retry-${archiveFileDateFormat}.log</FilePattern>
+      <PatternLayout charset="UTF-8" pattern="${detailedPatternLayout}" />
+      <Policies>
+        <SizeBasedTriggeringPolicy size="${triggerSize}" />
+      </Policies>
+      <DefaultRolloverStrategy max="${maxRollover}" />
+    </RollingFile>
+    <RollingFile name="HALOG" append="true">
+      <FileName>${rootDir}/IBM_i2_Component_Availability.log</FileName>
+      <FilePattern>${archiveDir}/IBM_i2_Component_Availability-${archiveFileDateFormat}.log</FilePattern>
+      <PatternLayout charset="UTF-8" pattern="${statusPatternLayout}" />
+      <Policies>
+        <SizeBasedTriggeringPolicy size="${triggerSize}" />
+        <OnStartupTriggeringPolicy />
+      </Policies>
+      <DefaultRolloverStrategy max="${maxRollover}" />
+    </RollingFile>
+    <RollingFile name="RELOAD" append="true">
+      <FileName>${rootDir}/IBM_Update_Live_Configuration.log</FileName>
+      <FilePattern>${archiveDir}/IBM_i2_Update_Live_Configuration-${archiveFileDateFormat}.log</FilePattern>
+      <PatternLayout charset="UTF-8" pattern="${statusPatternLayout}" />
+      <Policies>
+        <SizeBasedTriggeringPolicy size="${triggerSize}" />
+        <OnStartupTriggeringPolicy />
+      </Policies>
+      <DefaultRolloverStrategy max="${maxRollover}" />
+    </RollingFile>
+    <RollingFile name="ALERTSCHEDULERLOG" append="true">
+      <FileName>${rootDir}/IBM_i2_Alert_Scheduler.log</FileName>
+      <FilePattern>${archiveDir}/IBM_i2_Alert_Scheduler-${archiveFileDateFormat}.log</FilePattern>
+      <PatternLayout charset="UTF-8" pattern="${statusPatternLayout}" />
+      <Policies>
+        <SizeBasedTriggeringPolicy size="${triggerSize}" />
+        <OnStartupTriggeringPolicy />
+      </Policies>
+      <DefaultRolloverStrategy max="${maxRollover}" />
+    </RollingFile>
+    <RollingFile name="I2CONNECTASYNCQUERYLOG" append="true">
+      <FileName>${rootDir}/IBM_i2_Connect_Async_Query.log</FileName>
+      <FilePattern>${archiveDir}/IBM_i2_Connect_Async_Query-${archiveFileDateFormat}.log</FilePattern>
+      <PatternLayout charset="UTF-8" pattern="%d %-4r [%t] %-5p %c - %x - %m%n" />
+      <Policies>
+        <SizeBasedTriggeringPolicy size="${triggerSize}" />
+      </Policies>
+      <DefaultRolloverStrategy max="${maxRollover}" />
+    </RollingFile>
+    <RollingFile name="SOLRLOG" append="true">
+      <FileName>${rootDir}/IBM_Solr.log</FileName>
+      <FilePattern>${archiveDir}/IBM_Solr-${archiveFileDateFormat}.log</FilePattern>
+      <PatternLayout charset="UTF-8" pattern="%maxLen{%-5p - %d{yyyy-MM-dd HH:mm:ss.SSS}; %c; %m%notEmpty{ =>%ex{short}}}{10240}%n" />
+      <Policies>
+        <SizeBasedTriggeringPolicy size="${triggerSize}" />
+        <OnStartupTriggeringPolicy />
+      </Policies>
+      <DefaultRolloverStrategy max="${maxRollover}" />
+    </RollingFile>
+    <RollingFile name="PUBSUBLOGMAIN" append="true">
+      <FileName>${rootDir}/main_index/IBM_i2_Indexer.log</FileName>
+      <FilePattern>${archiveDir}/main_index/IBM_i2_Indexer-${archiveFileDateFormat}.log</FilePattern>
+      <PatternLayout charset="UTF-8" pattern="${statusPatternLayout}" />
+      <Policies>
+        <SizeBasedTriggeringPolicy size="${triggerSize}" />
+      </Policies>
+      <DefaultRolloverStrategy max="${maxRollover}" />
+    </RollingFile>
+    <RollingFile name="PUBSUBLOGMATCH1" append="true">
+      <FileName>${rootDir}/match_index1/IBM_i2_Indexer.log</FileName>
+      <FilePattern>${archiveDir}/match_index1/IBM_i2_Indexer-${archiveFileDateFormat}.log</FilePattern>
+      <PatternLayout charset="UTF-8" pattern="${statusPatternLayout}" />
+      <Policies>
+        <SizeBasedTriggeringPolicy size="${triggerSize}" />
+      </Policies>
+      <DefaultRolloverStrategy max="${maxRollover}" />
+    </RollingFile>
+    <RollingFile name="PUBSUBLOGMATCH2" append="true">
+      <FileName>${rootDir}/match_index2/IBM_i2_Indexer.log</FileName>
+      <FilePattern>${archiveDir}/match_index2/IBM_i2_Indexer-${archiveFileDateFormat}.log</FilePattern>
+      <PatternLayout charset="UTF-8" pattern="${statusPatternLayout}" />
+      <Policies>
+        <SizeBasedTriggeringPolicy size="${triggerSize}" />
+      </Policies>
+      <DefaultRolloverStrategy max="${maxRollover}" />
+    </RollingFile>
+    <RollingFile name="INDEXPROGRESSMAIN" append="true">
+      <FileName>${rootDir}/main_index/IBM_i2_Indexing_Progress.csv</FileName>
+      <FilePattern>${archiveDir}/main_index/IBM_i2_Indexing_Progress-${archiveFileDateFormat}.csv
+      </FilePattern>
+      <PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd'T'HH:mm:ss},%m%n" />
+      <Policies>
+        <SizeBasedTriggeringPolicy size="${triggerSize}" />
+      </Policies>
+      <DefaultRolloverStrategy max="${maxRollover}" />
+    </RollingFile>
+    <RollingFile name="INDEXPROGRESSMATCH1" append="true">
+      <FileName>${rootDir}/match_index1/IBM_i2_Indexing_Progress.csv</FileName>
+      <FilePattern>${archiveDir}/match_index1/IBM_i2_Indexing_Progress-${archiveFileDateFormat}.csv</FilePattern>
+      <PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd'T'HH:mm:ss},%m%n" />
+      <Policies>
+        <SizeBasedTriggeringPolicy size="${triggerSize}" />
+      </Policies>
+      <DefaultRolloverStrategy max="${maxRollover}" />
+    </RollingFile>
+    <RollingFile name="INDEXPROGRESSMATCH2" append="true">
+      <FileName>${rootDir}/match_index2/IBM_i2_Indexing_Progress.csv</FileName>
+      <FilePattern>${archiveDir}/match_index2/IBM_i2_Indexing_Progress-${archiveFileDateFormat}.csv</FilePattern>
+      <PatternLayout charset="UTF-8" pattern="%d{yyyy-MM-dd'T'HH:mm:ss},%m%n" />
+      <Policies>
+        <SizeBasedTriggeringPolicy size="${triggerSize}" />
+      </Policies>
+      <DefaultRolloverStrategy max="${maxRollover}" />
+    </RollingFile>
+    <RollingFile name="VQLOG" append="true">
+      <FileName>${rootDir}/IBM_i2_vq_config.log</FileName>
+      <FilePattern>${archiveDir}/IBM_i2_vq_config-${archiveFileDateFormat}.log</FilePattern>
+      <PatternLayout charset="UTF-8" pattern="${detailedPatternLayout}" />
+      <Policies>
+        <SizeBasedTriggeringPolicy size="${triggerSize}" />
+      </Policies>
+      <DefaultRolloverStrategy max="${maxRollover}" />
+    </RollingFile>
+  </Appenders>
+  <Loggers>
+    <Root level="WARN">
+      <AppenderRef ref="ROOTLOG" />
+    </Root>
+    <!-- The ConsoleLogger must be set to INFO, TOOLKITCONSOLE otherwise the startup log checker will not work.-->
+    <Logger name="com.i2group.apollo.common.toolkit.internal.ConsoleLogger" level="INFO" additivity="false">
+      <AppenderRef ref="TOOLKITCONSOLE" />
+    </Logger>
+    <!-- Root of i2 analyze logging -->
+    <Logger name="com.i2group" level="WARN" additivity="false">
+      <AppenderRef ref="APOLLOLOG" />
+      <AppenderRef ref="CONSOLE" />
+    </Logger>
+    <!-- Retry logging -->
+    <Logger name="com.i2group.apollo.common.orm.internal.RobustDatabaseTaskExecutor" level="INFO" additivity="false">
+      <AppenderRef ref="APOLLOLOGRETRY" />
+      <AppenderRef ref="CONSOLE" level="WARN" />
+    </Logger>
+    <Logger name="com.i2group.disco.data.publication.executor.internal.RobustExecutor" level="INFO" additivity="false">
+      <AppenderRef ref="APOLLOLOGRETRY" />
+      <AppenderRef ref="CONSOLE" level="WARN" />
+    </Logger>
+    <Logger name="com.i2group.opal.daod.resultsets.background.internal.ResultSetCleaner" level="INFO" additivity="false">
+      <AppenderRef ref="APOLLOLOGRETRY" />
+      <AppenderRef ref="CONSOLE" level="WARN" />
+    </Logger>
+    <!-- HA Logging -->
+    <Logger name="com.i2group.disco.sync" level="INFO" additivity="false">
+      <AppenderRef ref="HALOG" />
+      <AppenderRef ref="CONSOLE" level="WARN" />
+    </Logger>
+    <Logger name="com.i2group.disco.sync.ApplicationControl" level="WARN" />
+    <Logger name="com.i2group.disco.search.indexing.internal.SolrHealthStatusLogger" level="INFO" additivity="false">
+      <AppenderRef ref="HALOG" />
+    </Logger>
+    <!-- Reload -->
+    <Logger name="com.i2group.disco.reload.guice.internal.ConfigurationStartupHandler" level="ERROR" additivity="false">
+      <AppenderRef ref="RELOAD" />
+      <AppenderRef ref="CONSOLE" />
+    </Logger>
+    <Logger name="com.i2group.disco.reload.guice.internal.LiveConfigurationReloader" level="WARN" additivity="false">
+      <AppenderRef ref="RELOAD" />
+      <AppenderRef ref="CONSOLE" />
+    </Logger>
+    <!-- Alerting -->
+    <Logger name="com.i2group.disco.infostore.alert.schedule.internal.AlertSchedulerLog" level="INFO" additivity="false">
+      <AppenderRef ref="ALERTSCHEDULERLOG" />
+      <AppenderRef ref="CONSOLE" level="WARN" />
+    </Logger>
+    <!-- Opal DAOD -->
+    <Logger name="com.i2group.opal.daod.connectors.controller.internal.I2ConnectSynchronizer" level="INFO" />
+    <Logger name="com.i2group.opal.daod.connectors.model.internal.ConnectorModelFactory" level="INFO" />
+    <Logger name="com.i2group.opal.daod.job.internal" level="INFO" additivity="false">
+      <AppenderRef ref="I2CONNECTASYNCQUERYLOG" />
+    </Logger>
+    <!-- Solr Indexing Logging -->
+    <Logger name="PUBSUBLOG.main_index" level="INFO" additivity="false">
+      <AppenderRef ref="PUBSUBLOGMAIN" />
+    </Logger>
+    <Logger name="PUBSUBLOG.match_index1" level="INFO" additivity="false">
+      <AppenderRef ref="PUBSUBLOGMATCH1" />
+    </Logger>
+    <Logger name="PUBSUBLOG.match_index2" level="INFO" additivity="false">
+      <AppenderRef ref="PUBSUBLOGMATCH2" />
+    </Logger>
+    <!-- Records index progress. Useful during a re-index or a match-index build
+         Turn on by changing level to INFO -->
+    <Logger name="STATUSLOG.main_index" level="OFF" additivity="false">
+      <AppenderRef ref="INDEXPROGRESSMAIN" />
+    </Logger>
+    <Logger name="STATUSLOG.match_index1" level="OFF" additivity="false">
+      <AppenderRef ref="INDEXPROGRESSMATCH1" />
+    </Logger>
+    <Logger name="STATUSLOG.match_index2" level="OFF" additivity="false">
+      <AppenderRef ref="INDEXPROGRESSMATCH2" />
+    </Logger>
+    <!-- Solr Logging -->
+    <Logger name="org.apache.solr" level="WARN" additivity="false">
+      <AppenderRef ref="SOLRLOG" />
+    </Logger>
+    <Logger name="org.apache.zookeeper" level="WARN" additivity="false">
+      <AppenderRef ref="SOLRLOG" />
+    </Logger>
+    <!-- Visual Query Configuration Logging -->
+    <!-- To log information about how Visual Query is configured, set the log level to DEBUG -->
+    <Logger name="com.i2group.disco.visualqueryservice.configuration.internal.VisualQueryConfigurationValidator" level="OFF" additivity="false">
+      <AppenderRef ref="VQLOG" />
+      <AppenderRef ref="CONSOLE" />
+    </Logger>
+  </Loggers>
+</Configuration>

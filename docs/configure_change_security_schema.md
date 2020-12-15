@@ -1,7 +1,7 @@
 # Updating the Security Schema
 An i2 Analyze security schema defines the security dimension values that you can assign to items and records in the Information Store, and the security permissions that you assign to groups of users. Modify the security schema in the i2 Analyze configuration, then update the Information Store database to conform to the new security schema, then restart the application server.
 
-For more information about the i2 Analyze security schema, see [Configuring the security schema](https://www.ibm.com/support/knowledgecenter/SSXVXZ/om.ibm.i2.eia.go.live.doc/modifying_security_schema.html).
+For more information about the i2 Analyze security schema, see [Configuring the security schema](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/modifying_security_schema.html).
 
 ## Before you begin
 - Ensure that you can connect to the deployment with the current security schema, and submit data by using Analyst's Notebook Premium.
@@ -10,7 +10,7 @@ For more information about the i2 Analyze security schema, see [Configuring the 
 ## Modifying the security schema file
 In the distributed deployment example, the `example-dynamic-security-schema.xml` file that represents the i2 Analyze security schema is in the following directory: `src/configuration/fragments/common/WEB-INF/classes`.
 
-In an XML editor, open the `example-dynamic-security-schema.xml` file from the `classes` directory. Modify the security schema. For more information about the changes that you can make to the security schema file, see [Modifying the security schema](https://www.ibm.com/support/knowledgecenter/SSXVXZ/om.ibm.i2.eia.go.live.doc/modifying_security_schema.html).
+In an XML editor, open the `example-dynamic-security-schema.xml` file from the `classes` directory. Modify the security schema. For more information about the changes that you can make to the security schema file, see [Modifying the security schema](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/modifying_security_schema.html).
 
 After you modify the file, save your changes.
 
@@ -44,7 +44,7 @@ docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t sto
 The console output from the `stopLiberty` task is output directly to the console.
 
 ## Clear the search index
-Some modifications to the security schema require you to clear the search index. For more information about the changes that require a reindex, see [Modifying security dimensions](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/security_schema_modify.html) and [Modifying security permissions](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/t_modify_dynamic.html).
+Some modifications to the security schema require you to clear the search index. For more information about the changes that require a reindex, see [Modifying security dimensions](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/security_schema_modify.html) and [Modifying security permissions](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/t_modify_dynamic.html).
 
 If your changes require you to clear the search index, complete the rest of this section.
 
@@ -89,4 +89,4 @@ The console output from the `startLiberty` task is output directly to the consol
 ## Testing the deployment
 To test that the security schema is updated successfully, you can change the `user.registry.xml` file to add a user to your new or updated groups and connect to the Information Store in Analyst's Notebook Premium.
 
-For more information about changing the `user.registry.xml` file, see [Administering user access](https://www.ibm.com/support/knowledgecenter/SSXVXZ/com.ibm.i2.eia.go.live.doc/security_users_addremove.html).
+For more information about changing the `user.registry.xml` file, see [Administering user access](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/t_wlp_security.html).

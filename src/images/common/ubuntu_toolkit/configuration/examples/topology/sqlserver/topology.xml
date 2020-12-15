@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Licensed Materials - Property of IBM
+  ~ 5725-G22
+  ~ (C) Copyright IBM Corp. 2012, 2020 All Rights Reserved.
+  ~ US Government Users Restricted Rights - Use, duplication or
+  ~ disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+  -->
+
 <ns1:topology xmlns:ns1="http://www.i2group.com/Schemas/2013-11-18/Topology">
   <i2-data-sources>
-    <i2-data-source ar="false" default="false" id="infostore">
+    <i2-data-source default="false" id="infostore">
       <DataSource Version="0" Id="">
-        <Shape>InfoStore</Shape>
         <Name>Information Store</Name>
       </DataSource>
     </i2-data-source>
@@ -20,7 +27,6 @@
             <data-source database-id="infostore" create-database="true" />
           </data-sources>
           <file-store-ids>
-            <file-store-id value="chart-store" />
             <file-store-id value="job-store" />
             <file-store-id value="recordgroup-store" />
           </file-store-ids>
@@ -40,7 +46,6 @@
         </war>
       </wars>
       <file-stores>
-        <file-store location="" id="chart-store" type="chart-store" />
         <file-store location="" id="job-store" type="job-store" />
         <file-store location="" id="recordgroup-store" type="recordgroup-store" />
       </file-stores>

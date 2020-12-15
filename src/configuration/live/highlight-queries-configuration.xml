@@ -1,11 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~ Licensed Materials - Property of IBM
   ~ 5725-G22
-  ~ (C) Copyright IBM Corp. 2012, 2019 All Rights Reserved.
+  ~ (C) Copyright IBM Corp. 2012, 2020 All Rights Reserved.
   ~ US Government Users Restricted Rights - Use, duplication or
   ~ disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
   -->
 
+<!--
+  This is a complete, valid highlight query configuration file that you can use as you develop your
+  deployment of i2 Analyze. Using this file in the deployment toolkit instructs the server to
+  create a set of simple highlight queries from the information in the i2 Analyze schema.
+  
+  When you write your own highlight queries, you must omit the 'automatic' attribute from the
+  'highlightQueryGroups' element (or set its value to "false"). It is not valid to request automatic
+  creation and define custom highlight queries in the same configuration file.
+  -->
 <highlightQueryConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="highlight-queries-configuration.xsd">
   <highlightQueryGroups automatic="true"/>
