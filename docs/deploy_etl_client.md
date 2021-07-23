@@ -51,7 +51,7 @@ Run the `initializeEtlClient` script on the `etl_client` container:
 ```
 docker exec -u i2analyze -t etl_client /opt/IBM/i2analyze/initializeEtlClient
 ```
-You can inspect the [`initializeEtlClient`](../src/images/db2/etl_client/initializeEtlClient) script in the `src/images/db2/etl_client` directory.
+You can find the `initializeEtlClient` script in the `src/images/db2/etl_client` directory.
 >If the connection to Db2 uses SSL, run the following command:  
 `docker exec -u i2analyze -t etl_client /opt/IBM/i2analyze/initializeEtlClient enable`.
 
@@ -67,7 +67,7 @@ docker exec -u i2analyze -it etl_client /opt/IBM/i2analyze/ingestExampleData
 ```
 An `E_Person` entity staging table is created and populated, and the data that it contains is ingested. An `L_Associate` link staging table is created and populated, and the data that it contains is ingested.
 
-You can inspect the [`ingestExampleData`](../src/images/sqlserver/etl_client/ingestExampleData) script in the `etl_client` directory.
+You can find the `ingestExampleData` script in the `etl_client` directory.
 
 ## Testing the deployment
 To test that the data ingested successfully, connect to the Information Store in Analyst's Notebook Premium and search for `Jo Black` and complete an expand operation. You should see a link to another entity named `John Smith`.

@@ -1,5 +1,5 @@
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2020.
+# * (C) Copyright IBM Corporation 2018, 2021.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -12,7 +12,7 @@
 FROM mcr.microsoft.com/mssql-tools
 
 LABEL maintainer="IBM i2"
-LABEL version="2.4.0"
+LABEL version="2.5.0"
 
 #Install the prerequisites.
 RUN dpkg --add-architecture i386 && \

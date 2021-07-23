@@ -31,115 +31,6 @@
   </GradeTypes>
   <ItemTypes>
     <EntityTypes>
-      <EntityType Id="372a12af-f684-41c5-9ce9-759b3beef826" Description="세트" DisplayName="세트" Icon="General group">
-        <PropertyGroupTypes />
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="255" SemanticTypeId="" DisplayName="이름" Description="이름" LogicalType="SINGLE_LINE_STRING" Id="07e81445-0f5e-4340-b355-c82809e895da">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
-      <EntityType Id="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb" Description="사용자" DisplayName="사용자" Icon="Profmale">
-        <PropertyGroupTypes />
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="이름" Description="이름" LogicalType="SINGLE_LINE_STRING" Id="ce3d12ac-2632-4a0f-b2b6-6a7fdda887a6">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="그림" Description="그림" LogicalType="PICTURE" Id="becf8151-c6ac-4b9e-bff5-bb56e02fb2ed">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="사용 가능" Description="사용 가능성" LogicalType="BOOLEAN" Id="e31bc44e-39f2-4221-a237-a69766d4685e">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
-      <EntityType Id="1274e2e7-7751-4dae-a994-648718e19f04" Description="경고 피드" DisplayName="경고 피드" Icon="Search">
-        <PropertyGroupTypes>
-          <PropertyGroupType Mandatory="true" Position="3" Description="이 피드에서 경고를 시작할 이벤트" DisplayName="경고 트리거 이벤트" Id="566eaa37-01d2-4628-9231-a0448ef4a44c">
-            <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="항목이 변경됨" Description="이 항목이 변경될 경우 경고" LogicalType="BOOLEAN" Id="03487793-7975-4332-903b-e670a66c9451">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="항목이 삭제됨" Description="이 항목이 삭제될 경우 경고" LogicalType="BOOLEAN" Id="f8471cf2-0b19-4bd2-9187-d3ac6f474026">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="항목 링크가 작성됨" Description="이 항목의 링크가 만들어졌음을 경고함" LogicalType="BOOLEAN" Id="0b99c403-49f7-4757-9876-3606ec5befa0">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="항목 기본 특성이 변경됨" Description="이 항목의 기본 특성이 변경될 경우 경고" LogicalType="BOOLEAN" Id="4b873852-76e4-48e1-884a-9f95b87210f9">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="이 세트에 내용이 추가됨" Description="이 세트에 대한 내용 추가를 경고함" LogicalType="BOOLEAN" Id="afa7f3fb-23b0-4869-8b7d-0306ef158b5b">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="8" Mandatory="false" SemanticTypeId="" DisplayName="기존 세트 내용에 대한 버전 변경" Description="이 세트의 항목 버전이 변경될 경우 경고" LogicalType="BOOLEAN" Id="051e91c1-e925-4dd4-97f1-75ffe37f9c48">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="이 세트에서 내용이 제거됨" Description="이 세트에서 제거될 경우 경고" LogicalType="BOOLEAN" Id="8146df80-3a08-4106-900f-214faf9ec571">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="5" Mandatory="false" SemanticTypeId="" DisplayName="이 세트의 항목이 변경됨" Description="이 세트의 임의 항목이 변경될 경우 경고" LogicalType="BOOLEAN" Id="db8c60d1-1ff9-4896-bbd0-5e33351815e2">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="이 세트의 항목이 삭제됨" Description="이 세트의 임의 항목이 삭제될 경우 경고" LogicalType="BOOLEAN" Id="514b213e-b677-428a-a5c9-b8690d564032">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="7" Mandatory="false" SemanticTypeId="" DisplayName="이 세트의 항목이 링크됨" Description="이 세트의 임의 항목에 대해 링크가 작성될 경우 경고" LogicalType="BOOLEAN" Id="2d9ed2a2-5f33-432b-b99b-f08349f8366d">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="이 세트의 항목에 변경된 기본 특성이 있음" Description="이 세트에서 항목의 기본 특성이 변경될 경우 경고" LogicalType="BOOLEAN" Id="e2127bbb-9ad8-417d-840f-74ec9849ec5e">
-                <PossibleValues />
-              </PropertyType>
-            </PropertyTypes>
-          </PropertyGroupType>
-        </PropertyGroupTypes>
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="이름" Description="이 경고 피드의 이름" LogicalType="SINGLE_LINE_STRING" Id="b7b059a0-1079-45ac-8ae0-ee026f70dd69">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="설명" Description="생성된 경고에 포함될 설명문" LogicalType="MULTIPLE_LINE_STRING" Id="d1949ec2-9a77-461e-a16f-81026ccd1e89">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="2" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="경고 참조 ID" Description="경고를 위해 모니터할 항목의 고유 ID" LogicalType="SINGLE_LINE_STRING" Id="814a72ed-5c68-4763-8d47-b4866de2344b">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
-      <EntityType Id="43cd717c-0204-4c81-93ea-f9f0458bc5ea" Description="저장된 쿼리" DisplayName="쿼리" Icon="StoredQuery">
-        <PropertyGroupTypes>
-          <PropertyGroupType Mandatory="false" Position="5" Description="프리젠테이션 메타데이터입니다. 이 데이터는 저장된 쿼리 전용이며 직접 편집할 수 없습니다." DisplayName="쿼리 프리젠테이션" Id="2c818fa6-68c4-42a4-9bc3-c34bcdc4379a">
-            <PropertyTypes>
-              <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="형식" Description="프리젠테이션 형식 유형입니다. 이 데이터는 저장된 쿼리 전용이며 직접 편집할 수 없습니다." LogicalType="SINGLE_LINE_STRING" Id="97f76ffe-1ece-4d5b-9e20-ea66b572b2c5">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="문자열 데이터" Description="프리젠테이션 문자열 데이터입니다. 이 데이터는 저장된 쿼리 전용이며 직접 편집할 수 없습니다." LogicalType="SINGLE_LINE_STRING" Id="b58f34b6-60fb-4730-a4aa-156bf4e817e0">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="XML 데이터" Description="프리젠테이션 XML 데이터입니다. 이 데이터는 저장된 쿼리 전용이며 직접 편집할 수 없습니다." LogicalType="XML" Id="ab2fdf78-ddd8-49b2-872a-f5c8ac2106d5">
-                <PossibleValues />
-              </PropertyType>
-            </PropertyTypes>
-          </PropertyGroupType>
-        </PropertyGroupTypes>
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="이름" Description="이 저장된 쿼리의 사용자 지정 이름" LogicalType="SINGLE_LINE_STRING" Id="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="설명" Description="이 저장된 쿼리의 설명" LogicalType="MULTIPLE_LINE_STRING" Id="a30ddbca-6c14-4454-bdb0-811a5b5beb16">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="2" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="쿼리 유형" Description="저장된 쿼리 유형입니다. 이 데이터는 저장된 쿼리 전용이며 직접 편집할 수 없습니다." LogicalType="SINGLE_LINE_STRING" Id="5ae10920-6d60-419f-80db-ba5b9935d93b">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="쿼리 정의(문자열)" Description="저장된 쿼리 문자열 정의입니다. 이 데이터는 저장된 쿼리 전용이며 직접 편집할 수 없습니다." LogicalType="SINGLE_LINE_STRING" Id="17903032-1cd1-4524-94ef-a35aab212e6a">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="쿼리 정의(XML)" Description="저장된 쿼리 XML 정의입니다. 이 데이터는 저장된 쿼리 전용이며 직접 편집할 수 없습니다." LogicalType="XML" Id="f5916739-a962-4c01-95d3-2598bfabc1b5">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
-      
       <EntityType Description="Analyst's Notebook Chart" DisplayName="Analyst's Notebook Chart" Id="CHART" Icon="Anbchart">
         <PropertyGroupTypes />
         <PropertyTypes>
@@ -1823,18 +1714,6 @@
       </EntityType>
     </EntityTypes>
     <LinkTypes>
-      <LinkType Id="dab2f6f2-813c-4a47-b630-b91f52a1e0e1" Description="경고 피드 가입" DisplayName="경고 피드 가입" FromTypeIds="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb" ToTypeIds="1274e2e7-7751-4dae-a994-648718e19f04">
-        <PropertyGroupTypes>
-          <PropertyGroupType Mandatory="false" Position="0" Description="경고가 전달되는 방법" DisplayName="경고 전달 방법" Id="84aa56e3-84a1-4c05-9a77-4f9185202a55">
-            <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="경고 검색 이용" Description="경고 검색 웹 서비스를 통해 전달함" LogicalType="BOOLEAN" Id="72367e78-b265-46e1-8fc8-81f42d307e40">
-                <PossibleValues />
-              </PropertyType>
-            </PropertyTypes>
-          </PropertyGroupType>
-        </PropertyGroupTypes>
-        <PropertyTypes />
-      </LinkType>
       <LinkType Id="CLML1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="청구 링크" DisplayName="청구" FromTypeIds="CLA1" ToTypeIds="ADD1 INT1 IP1 ORG1 PER1 TEL1 VEH1 CLA1">
         <PropertyGroupTypes />
         <PropertyTypes>
@@ -1996,31 +1875,6 @@
   <LabelingSchemes>
     <LabelingScheme Name="상용 핵심 레이블 지정 구성표" Id="8355f4c5-1444-4a2f-b4da-f9374fbd80e6">
       <LabelDefinitions>
-        <LabelDefinition ItemTypeId="372a12af-f684-41c5-9ce9-759b3beef826">
-          <LabelParts>
-            <LabelPart Value="07e81445-0f5e-4340-b355-c82809e895da" LabelPartType="PROPERTY_TYPE" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb">
-          <LabelParts>
-            <LabelPart Value="ce3d12ac-2632-4a0f-b2b6-6a7fdda887a6" LabelPartType="PROPERTY_TYPE" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="1274e2e7-7751-4dae-a994-648718e19f04">
-          <LabelParts>
-            <LabelPart Value="b7b059a0-1079-45ac-8ae0-ee026f70dd69" LabelPartType="PROPERTY_TYPE" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="dab2f6f2-813c-4a47-b630-b91f52a1e0e1">
-          <LabelParts>
-            <LabelPart Value="등록 대상" LabelPartType="LITERAL" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="43cd717c-0204-4c81-93ea-f9f0458bc5ea">
-          <LabelParts>
-            <LabelPart Value="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd" LabelPartType="PROPERTY_TYPE" />
-          </LabelParts>
-        </LabelDefinition>
         <LabelDefinition ItemTypeId="CHART">
           <LabelParts>
             <LabelPart Value="CHART1" LabelPartType="PROPERTY_TYPE"/>

@@ -1,5 +1,5 @@
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2020.
+# * (C) Copyright IBM Corporation 2018, 2021.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -9,15 +9,15 @@
 # *
 # ********************************************************************************/
 
-FROM ibmcom/ibm-http-server:9.0.5.0
+FROM base_ihs_image
 
 LABEL maintainer="IBM i2"
-LABEL version="2.4.0"
+LABEL version="2.5.0"
 
 #Install the prerequisites.
 RUN dpkg --add-architecture i386 && \
-  apt-get update && \
-  apt-get install -y \
+    apt-get update && \
+    apt-get install -y \
     nano \
     bsdtar
 

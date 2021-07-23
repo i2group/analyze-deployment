@@ -31,115 +31,6 @@
   </GradeTypes>
   <ItemTypes>
     <EntityTypes>
-      <EntityType Id="372a12af-f684-41c5-9ce9-759b3beef826" Description="集合" DisplayName="集合" Icon="General group">
-        <PropertyGroupTypes />
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="255" SemanticTypeId="" DisplayName="名稱" Description="名稱" LogicalType="SINGLE_LINE_STRING" Id="07e81445-0f5e-4340-b355-c82809e895da">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
-      <EntityType Id="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb" Description="使用者" DisplayName="使用者" Icon="Profmale">
-        <PropertyGroupTypes />
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="名稱" Description="名稱" LogicalType="SINGLE_LINE_STRING" Id="ce3d12ac-2632-4a0f-b2b6-6a7fdda887a6">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="圖片" Description="圖片" LogicalType="PICTURE" Id="becf8151-c6ac-4b9e-bff5-bb56e02fb2ed">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="可用" Description="可用性" LogicalType="BOOLEAN" Id="e31bc44e-39f2-4221-a237-a69766d4685e">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
-      <EntityType Id="1274e2e7-7751-4dae-a994-648718e19f04" Description="警示資訊來源" DisplayName="警示資訊來源" Icon="Search">
-        <PropertyGroupTypes>
-          <PropertyGroupType Mandatory="true" Position="3" Description="從此資訊來源觸發警示的事件" DisplayName="警示觸發事件" Id="566eaa37-01d2-4628-9231-a0448ef4a44c">
-            <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="項目已變更" Description="變更此項目時警示" LogicalType="BOOLEAN" Id="03487793-7975-4332-903b-e670a66c9451">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="項目已刪除" Description="刪除此項目時警示" LogicalType="BOOLEAN" Id="f8471cf2-0b19-4bd2-9187-d3ac6f474026">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="已對項目建立連結" Description="對此項目建立連結時警示" LogicalType="BOOLEAN" Id="0b99c403-49f7-4757-9876-3606ec5befa0">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="項目主要內容已變更" Description="變更此項目主要內容時警示" LogicalType="BOOLEAN" Id="4b873852-76e4-48e1-884a-9f95b87210f9">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="內容已新增至此集合" Description="新增至此集合時警示" LogicalType="BOOLEAN" Id="afa7f3fb-23b0-4869-8b7d-0306ef158b5b">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="8" Mandatory="false" SemanticTypeId="" DisplayName="現有集合內容的版本變更" Description="變更此集合內項目的版本時警示" LogicalType="BOOLEAN" Id="051e91c1-e925-4dd4-97f1-75ffe37f9c48">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="內容已從此集合移除" Description="從此集合移除時警示" LogicalType="BOOLEAN" Id="8146df80-3a08-4106-900f-214faf9ec571">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="5" Mandatory="false" SemanticTypeId="" DisplayName="此集合中的項目已變更" Description="變更此集合內任何項目時警示" LogicalType="BOOLEAN" Id="db8c60d1-1ff9-4896-bbd0-5e33351815e2">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="此集合中的項目已刪除" Description="刪除此集合內任何項目時警示" LogicalType="BOOLEAN" Id="514b213e-b677-428a-a5c9-b8690d564032">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="7" Mandatory="false" SemanticTypeId="" DisplayName="此集合中的項目已連結至" Description="對此集合內任何項目建立連結時警示" LogicalType="BOOLEAN" Id="2d9ed2a2-5f33-432b-b99b-f08349f8366d">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="此集合中的項目已變更主要內容" Description="變更此集合內項目的主要內容時警示" LogicalType="BOOLEAN" Id="e2127bbb-9ad8-417d-840f-74ec9849ec5e">
-                <PossibleValues />
-              </PropertyType>
-            </PropertyTypes>
-          </PropertyGroupType>
-        </PropertyGroupTypes>
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="名稱" Description="此警示資訊來源的名稱" LogicalType="SINGLE_LINE_STRING" Id="b7b059a0-1079-45ac-8ae0-ee026f70dd69">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="說明" Description="任何產生警示中包括的說明性文字" LogicalType="MULTIPLE_LINE_STRING" Id="d1949ec2-9a77-461e-a16f-81026ccd1e89">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="2" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="警示參照 ID" Description="用於警示的受監控項目的唯一 ID" LogicalType="SINGLE_LINE_STRING" Id="814a72ed-5c68-4763-8d47-b4866de2344b">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
-      <EntityType Id="43cd717c-0204-4c81-93ea-f9f0458bc5ea" Description="已儲存查詢" DisplayName="查詢" Icon="StoredQuery">
-        <PropertyGroupTypes>
-          <PropertyGroupType Mandatory="false" Position="5" Description="簡報 meta 資料。此資料是已儲存查詢私有的且不能直接編輯。" DisplayName="查詢簡報" Id="2c818fa6-68c4-42a4-9bc3-c34bcdc4379a">
-            <PropertyTypes>
-              <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="格式" Description="簡報格式類型。此資料是已儲存查詢私有的且不能直接編輯。" LogicalType="SINGLE_LINE_STRING" Id="97f76ffe-1ece-4d5b-9e20-ea66b572b2c5">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="字串資料" Description="簡報字串資料。此資料是已儲存查詢私有的且不能直接編輯。" LogicalType="SINGLE_LINE_STRING" Id="b58f34b6-60fb-4730-a4aa-156bf4e817e0">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="XML 資料" Description="簡報 XML 資料。此資料是已儲存查詢私有的且不能直接編輯。" LogicalType="XML" Id="ab2fdf78-ddd8-49b2-872a-f5c8ac2106d5">
-                <PossibleValues />
-              </PropertyType>
-            </PropertyTypes>
-          </PropertyGroupType>
-        </PropertyGroupTypes>
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="名稱" Description="此已儲存查詢的使用者指定名稱" LogicalType="SINGLE_LINE_STRING" Id="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="說明" Description="此已儲存查詢的說明" LogicalType="MULTIPLE_LINE_STRING" Id="a30ddbca-6c14-4454-bdb0-811a5b5beb16">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="2" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="查詢類型" Description="已儲存的查詢類型。此資料是已儲存查詢私有的且不能直接編輯。" LogicalType="SINGLE_LINE_STRING" Id="5ae10920-6d60-419f-80db-ba5b9935d93b">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="查詢定義（字串）" Description="已儲存查詢字串定義。此資料是已儲存查詢私有的且不能直接編輯。" LogicalType="SINGLE_LINE_STRING" Id="17903032-1cd1-4524-94ef-a35aab212e6a">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="查詢定義 (XML)" Description="已儲存查詢 XML 定義。此資料是已儲存查詢私有的且不能直接編輯。" LogicalType="XML" Id="f5916739-a962-4c01-95d3-2598bfabc1b5">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
-      
       <EntityType Description="Analyst's Notebook Chart" DisplayName="Analyst's Notebook Chart" Id="CHART" Icon="Anbchart">
         <PropertyGroupTypes />
         <PropertyTypes>
@@ -1821,18 +1712,6 @@
       </EntityType>
     </EntityTypes>
     <LinkTypes>
-      <LinkType Id="dab2f6f2-813c-4a47-b630-b91f52a1e0e1" Description="警示資訊來源訂閱" DisplayName="警示資訊來源訂閱" FromTypeIds="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb" ToTypeIds="1274e2e7-7751-4dae-a994-648718e19f04">
-        <PropertyGroupTypes>
-          <PropertyGroupType Mandatory="false" Position="0" Description="遞送警示的方式" DisplayName="警示傳遞方法" Id="84aa56e3-84a1-4c05-9a77-4f9185202a55">
-            <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="透過警示擷取" Description="透過警示擷取 Web 服務" LogicalType="BOOLEAN" Id="72367e78-b265-46e1-8fc8-81f42d307e40">
-                <PossibleValues />
-              </PropertyType>
-            </PropertyTypes>
-          </PropertyGroupType>
-        </PropertyGroupTypes>
-        <PropertyTypes />
-      </LinkType>
       <LinkType Id="CLML1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="索賠連結" DisplayName="請款單" FromTypeIds="CLA1" ToTypeIds="ADD1 INT1 IP1 ORG1 PER1 TEL1 VEH1 CLA1">
         <PropertyGroupTypes />
         <PropertyTypes>
@@ -1994,31 +1873,6 @@
   <LabelingSchemes>
     <LabelingScheme Name="商業核心區標記配置" Id="8355f4c5-1444-4a2f-b4da-f9374fbd80e6">
       <LabelDefinitions>
-        <LabelDefinition ItemTypeId="372a12af-f684-41c5-9ce9-759b3beef826">
-          <LabelParts>
-            <LabelPart Value="07e81445-0f5e-4340-b355-c82809e895da" LabelPartType="PROPERTY_TYPE" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb">
-          <LabelParts>
-            <LabelPart Value="ce3d12ac-2632-4a0f-b2b6-6a7fdda887a6" LabelPartType="PROPERTY_TYPE" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="1274e2e7-7751-4dae-a994-648718e19f04">
-          <LabelParts>
-            <LabelPart Value="b7b059a0-1079-45ac-8ae0-ee026f70dd69" LabelPartType="PROPERTY_TYPE" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="dab2f6f2-813c-4a47-b630-b91f52a1e0e1">
-          <LabelParts>
-            <LabelPart Value="已訂閱至" LabelPartType="LITERAL" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="43cd717c-0204-4c81-93ea-f9f0458bc5ea">
-          <LabelParts>
-            <LabelPart Value="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd" LabelPartType="PROPERTY_TYPE" />
-          </LabelParts>
-        </LabelDefinition>
         <LabelDefinition ItemTypeId="CHART">
           <LabelParts>
             <LabelPart Value="CHART1" LabelPartType="PROPERTY_TYPE"/>

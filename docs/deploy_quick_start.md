@@ -37,10 +37,10 @@ After you install Docker, you must ensure that is Docker initialized in your com
  ```
 
 ### Example code
-Clone or download the distributed deployment example from <https://github.com/IBM-i2/Analyze-Deployment/releases>.
+Clone or download the distributed deployment example from <https://github.com/IBM-i2/analyze-deployment/releases>.
 
 ### Analyst's Notebook Premium
-Download *i2 Analyst's Notebook Premium* version 9.2.3 using the following part number: *CC8N9ML*.
+Download *i2 Analyst's Notebook Premium* version 9.2.4 using the following part number: *G01DHML*.
 
 Install Analyst's Notebook Premium with the Opal connector on a Windows machine that can access the machine where Docker is running.
 
@@ -49,15 +49,15 @@ Install Analyst's Notebook Premium with the Opal connector on a Windows machine 
 For more information, see [Installing IBM i2 Analyst's Notebook Premium](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.deploy.example.doc/installing_anbp.html).
 
 ### i2 Analyze
-Download i2 Analyze for Linux. You download the `IBM_I2A_V4.3.3_LINUX.tar.gz` version 4.3.3 using the following part number: *CC8NAML*
+Download i2 Analyze for Linux. You download the `IBM_I2A_V4.3.4_LINUX.tar.gz` version 4.3.4 using the following part number: *G01HPML*
 
-Rename the `.tar.gz` file to `i2analyze.tar.gz`, then copy it to the `src/images/common/ubuntu_toolkit/i2analyze` directory.
+Rename the `.tar.gz` file to `i2analyze.tar.gz`, then copy it to the `analyze-deployment/src/images/common/ubuntu_toolkit/i2analyze` directory.
 
 Accept the license, open `license_acknowledgment.txt` in the `src/images/common/ubuntu_toolkit/i2analyze` directory and change the value of `LIC_AGREEMENT` to `ACCEPT`.
 
-Add the `mssql-jdbc-7.4.1.jre8.jar` file to the `src/configuration/environment/common/jdbc-drivers` directory.  
+Add the `mssql-jdbc-7.4.1.jre11.jar` file to the `src/configuration/environment/common/jdbc-drivers` directory.  
 You must create the `common/jdbc-drivers` directories.
->Note: Download the Microsoft JDBC Driver 7.4 for SQL Server from [Microsoft JDBC Driver 7.4 for SQL Server](https://www.microsoft.com/en-us/download/details.aspx?id=58505). Extract the contents of the `tar.gz`, and locate the `sqljdbc_7.4\enu\mssql-jdbc-7.4.1.jre8.jar` file.
+>Note: Download the Microsoft JDBC Driver 7.4 for SQL Server from [Microsoft JDBC Driver 7.4 for SQL Server](https://www.microsoft.com/en-us/download/details.aspx?id=58505). Extract the contents of the `tar.gz`, and locate the `sqljdbc_7.4\enu\mssql-jdbc-7.4.1.jre11.jar` file.
 
 ### Specifying the credentials
 You must specify the credentials for a deployment in the `src/configuration/environment/credentials.properties`. Set the passwords to be used for the Information Store, Solr, and the LTPA keys.
@@ -65,7 +65,8 @@ You must specify the credentials for a deployment in the `src/configuration/envi
 For more information about the credentials file, see [Modifying the credentials](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/t_specifying_credentials.html).
 To complete the quick deployment, enter passwords for the `db.infostore.password`, `solr.password`, and `ltpakeys.password` credentials.
 
----
+***
+
 ## Build the Docker images
 In the `src/scripts` directory, run the `buildImages` file:
 ```
@@ -78,7 +79,7 @@ Check that the images built correctly by using the Docker `images` command:
 ```
 docker images
 ```
-The following images must be listed: `mcr.microsoft.com/mssql/server`, `zookeeper_image`, `zookeeper2_image`, `zookeeper3_image`, `solr_image`, `solr2_image`, `admin_client_sqlserver_image`, `liberty_sqlserver_image`, and `ubuntu_toolkit_image`.
+The following images must be listed: `mcr.microsoft.com/mssql/server`, `sqlserver_image`, `zookeeper_image`, `zookeeper2_image`, `zookeeper3_image`, `solr_image`, `solr2_image`, `admin_client_sqlserver_image`, `liberty_sqlserver_image`, and `ubuntu_toolkit_image`.
 
 ## Run the Docker containers
 In the `src/scripts` directory, run the `runContainers` file:
@@ -91,7 +92,7 @@ You are prompted to enter a password for the `i2analyze` user. Enter the passwor
 
 After the script in the `runContainers` file completes, all the containers are run and i2 Analyze is deployed.
 
----
+***
 
 ## Test the deployment
 To test the deployment, connect to i2 Analyze from Analyst's Notebook Premium. The URL that you use to connect is: `http://i2demo:9082/opal`.
@@ -109,17 +110,20 @@ Open the `hosts` file in a text editor. At the end of the file, add your IP Addr
 127.0.0.1 i2demo
 ```
 
->Note: You must run Analyst's Notebook Premium on Windows. If you deploy the distributed deployment example on MAC, you can use a Windows virtual machine to host Analyst's Notebook Premium. For your virtual machine to connect to i2 Analyze, complete the following:  
->On your MAC terminal, run `ifconfig` and identify the IP address for your virtual machine in a section such as `vmnet1`. For example, `172.16.100.1`.  
->Then, on your Windows virtual machine add the following line to the `C:\Windows\System32\drivers\etc\hosts` file:
->```
->172.16.100.1 i2demo
->```
+> [!NOTE]
+> You must run Analyst's Notebook Premium on Windows. If you deploy the distributed deployment example on MAC, you can use a Windows virtual machine to host Analyst's Notebook Premium. For your virtual machine to connect to i2 Analyze, complete the following:
+>
+> On your MAC terminal, run `ifconfig` and identify the IP address for your virtual machine in a section such as `vmnet1`. For example, `172.16.100.1`.
+>
+> Then, on your Windows virtual machine add the following line to the `C:\Windows\System32\drivers\etc\hosts` file:
+>
+>     172.16.100.1 i2demo
+>
+> For Windows 7, you must also forward the required ports from your local machine to the virtual machine that hosts Docker.
+>
+> In the network settings for your docker virtual machine, open the **Advanced** menu and click **Port Forwarding**. Create a new line, and enter values for the `Host IP`, `Host Port`, and `Guest Port`. To connect to i2 Analyze, set the value of `Guest Port` to `9082`.
 
+***
 
->For Windows 7, you must also forward the required ports from your local machine to the virtual machine that hosts Docker.  
->In the network settings for your docker virtual machine, open the **Advanced** menu and click **Port Forwarding**. Create a new line, and enter values for the `Host IP`, `Host Port`, and `Guest Port`. To connect to i2 Analyze, set the value of `Guest Port` to `9082`.
-
----
 ## What to do next
 To understand the distributed deployment example, what is deployed, and how it is deployed, complete the detailed instructions in [deploying the example manually](deploy_walk_through_sqlserver.md).

@@ -1,6 +1,6 @@
 #!/bin/bash
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2020.
+# * (C) Copyright IBM Corporation 2018, 2021.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -39,17 +39,20 @@ docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer connector:/opt/IBM/utils/keys/CA.ce
 docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer $dbDialect:/opt/IBM/utils/keys/CA.cer
 docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer admin_client:/opt/IBM/utils/keys/CA.cer
 docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer etl_client:/opt/IBM/utils/keys/CA.cer
-docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer ihs:/opt/IBM/utils/keys/CA.cer
+
+if [ "$(docker ps -q -f name=ihs)" ]; then
+  docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer ihs:/opt/IBM/utils/keys/CA.cer
+fi
 
 output "Creating the liberty container key store and certificate signing request"
 docker exec -u root -t liberty rm -rf /opt/IBM/keys
 runDockerExecWithSSLPassword liberty "/opt/IBM/utils/jks/createCSR liberty jks"
 
 output "Creating 'Jenny' user key store and certificate signing request"
-runDockerExecWithSSLPassword liberty "/opt/IBM/utils/jks/createCSR Jenny"
+runDockerExecWithSSLPassword liberty "/opt/IBM/utils/jks/createCSR Jenny Jenny Jenny"
 
 output "Creating 'Imogen' user key store and certificate signing request"
-runDockerExecWithSSLPassword liberty "/opt/IBM/utils/jks/createCSR Imogen"
+runDockerExecWithSSLPassword liberty "/opt/IBM/utils/jks/createCSR Imogen Imogen Imogen"
 
 #Copy the liberty and users certificates signing requests to the local machine
 docker cp liberty:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
@@ -92,11 +95,13 @@ elif [[ $dbDialect == "sqlserver" ]]; then
 	docker cp sqlserver:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
 fi
 
-output "Creating the ihs container key store and certificate signing request"
-docker exec -u root -t ihs rm -rf /opt/IBM/keys
-runDockerExecWithSSLPassword ihs "/opt/IBM/utils/cms/createCSR ihs"
-docker cp ihs:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
-runDockerExecWithSSLPassword ihs "/opt/IBM/utils/cms/createTrustStore cms"
+if [ "$(docker ps -q -f name=ihs)" ]; then
+  output "Creating the ihs container key store and certificate signing request"
+  docker exec -u root -t ihs rm -rf /opt/IBM/keys
+  runDockerExecWithSSLPassword ihs "/opt/IBM/utils/cms/createCSR ihs"
+  docker cp ihs:/opt/IBM/keys/requests/. ${SRC_DIR}/keys/requests
+  runDockerExecWithSSLPassword ihs "/opt/IBM/utils/cms/createTrustStore cms"
+fi
 
 output "Creating the admin_client container key store and certificate signing request"
 docker exec -u root -t admin_client rm -rf /opt/IBM/keys

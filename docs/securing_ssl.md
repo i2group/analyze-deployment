@@ -17,6 +17,7 @@ This configuration deploys with SSL configured between each of the distributed c
 - **ihs_ssl**  
 This configuration deploys with SSL configured between each of the distributed components in an i2 Analyze deployment that includes the IBM HTTP Server.  
 For information about configuring SSL with i2 Analyze, see [Secure Sockets Layer connections with i2 Analyze](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_kc_intro_ssl.html)
+    > Note: You do not need to create the certificates as described, the certificates are created as part of the example.
 - **client_cert_ssl**  
 This configuration deploys with SSL configured between each of the distributed components in an i2 Analyze deployment that includes the IBM HTTP Server. The user can log in to the system by using a client certificate.  
 For more information about configuring client certificate authentication, see [Configuring X.509 client certificate authentication with i2 Analyze](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_kc_intro_x509.html)
@@ -48,16 +49,18 @@ The deployment of i2 Analyze is updated with your chosen configuration. Any conn
 To connect to i2 Analyze in a deployment that uses SSL, you must use a different URL. The URL that you use to connect is: [https://i2demo:9445/opal](https://i2demo:9445/opal).
 The protocol is changed to `https`, and the port number is changed to `9445`.
 
+If you have deployed with the **ihs_ssl** configuration, you must install the client certificate to your local machine. Install the `src\keys\responses\Jenny-key.cer` into your Windows Trusted Root Certificate Authority store and `src\keys\stores\i2-Jenny-keystore.p12` into your Personal Certificate store.
+
 >For Windows 7, you must also forward the required ports from your local machine to the virtual machine that hosts Docker.  
 >In the network settings for your Docker virtual machine, open the **Advanced** menu and click **Port Forwarding**. Create a new line, and enter values for the `Host IP`, `Host Port`, and `Guest Port`. To connect to i2 Analyze, set the value of `Guest Port` to `9445`.
 
->Note: If you are using a configuration with the IBM HTTP Server, you must not specify the port number. For example, [https://i2demo/opal](https://i2demo/opal).
+> Note: If you are using a configuration with the IBM HTTP Server, you must not specify the port number. For example, [https://i2demo/opal](https://i2demo/opal).
 
 ## Learning how to deploy the configuration in a non-Docker environment
-To understand the differences between the configurations, and the base configuration, you can use a file comparison tool. You can see which properties files are modified, and the configuration settings that are required. For detailed explanations of the properties and the process for changing them, you can use the information that is provided in IBM Knowledge Center.
+To understand the differences between the configurations, and the base configuration, you can use a file comparison tool. You can see which properties files are modified, and the configuration settings that are required. For detailed explanations of the properties and the process for changing them, you can use the information that is provided in IBM Docs.
 
 For information about securing the components of i2 Analyze, see [Secure Sockets Layer connections with i2 Analyze](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_kc_intro_ssl.html) and [Configuring X.509 client certificate authentication with i2 Analyze](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_kc_intro_x509.html).
 
 To see the toolkit commands that are run to deploy the components of i2 Analyze in a secure deployment, you can inspect the `setupSecurity` script.
 
-The instructions in IBM Knowledge Center use self-signed certificates to demonstrate securing a deployment. For more information about using certificates that are signed by certificate authority, see [Keystores and certificates for components of i2 Analyze](./securing_certificates.md).
+The instructions in IBM Docs use self-signed certificates to demonstrate securing a deployment. For more information about using certificates that are signed by certificate authority, see [Keystores and certificates for components of i2 Analyze](./securing_certificates.md).

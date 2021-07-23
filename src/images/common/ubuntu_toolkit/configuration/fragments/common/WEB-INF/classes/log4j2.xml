@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~ Licensed Materials - Property of IBM
-  ~ 5725-G22
-  ~ (C) Copyright IBM Corp. 2012, 2020 All Rights Reserved.
-  ~ US Government Users Restricted Rights - Use, duplication or
-  ~ disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
-  -->
-
 <Configuration>
   <Properties>
     <Property name="rootDir">${sys:apollo.log.dir}/opal-services</Property>
@@ -57,8 +49,8 @@
       <DefaultRolloverStrategy max="${maxRollover}" />
     </RollingFile>
     <RollingFile name="HALOG" append="true">
-      <FileName>${rootDir}/IBM_i2_HA.log</FileName>
-      <FilePattern>${archiveDir}/IBM_i2_HA-${archiveFileDateFormat}.log</FilePattern>
+      <FileName>${rootDir}/IBM_i2_Component_Availability.log</FileName>
+      <FilePattern>${archiveDir}/IBM_i2_Component_Availability-${archiveFileDateFormat}.log</FilePattern>
       <PatternLayout charset="UTF-8" pattern="${statusPatternLayout}" />
       <Policies>
         <SizeBasedTriggeringPolicy size="${triggerSize}" />
@@ -83,15 +75,6 @@
       <Policies>
         <SizeBasedTriggeringPolicy size="${triggerSize}" />
         <OnStartupTriggeringPolicy />
-      </Policies>
-      <DefaultRolloverStrategy max="${maxRollover}" />
-    </RollingFile>
-    <RollingFile name="I2CONNECTASYNCQUERYLOG" append="true">
-      <FileName>${rootDir}/IBM_i2_Connect_Async_Query.log</FileName>
-      <FilePattern>${archiveDir}/IBM_i2_Connect_Async_Query-${archiveFileDateFormat}.log</FilePattern>
-      <PatternLayout charset="UTF-8" pattern="%d %-4r [%t] %-5p %c - %x - %m%n" />
-      <Policies>
-        <SizeBasedTriggeringPolicy size="${triggerSize}" />
       </Policies>
       <DefaultRolloverStrategy max="${maxRollover}" />
     </RollingFile>
@@ -169,6 +152,15 @@
       </Policies>
       <DefaultRolloverStrategy max="${maxRollover}" />
     </RollingFile>
+    <RollingFile name="PERFORMACE_notebook_web" append="true">
+      <FileName>${rootDir}/notebook_web/notebook_web_Performance.csv</FileName>
+      <FilePattern>${archiveDir}/notebook_web/notebook_web_Performance-${archiveFileDateFormat}.csv</FilePattern>
+      <PatternLayout charset="UTF-8" pattern="%X{requestSessionId} %X{requestUniqueId} %d{yyyy-MM-dd'T'HH:mm:ss},%m%n"/>
+      <Policies>
+        <SizeBasedTriggeringPolicy size="${triggerSize}"/>
+      </Policies>
+      <DefaultRolloverStrategy max="${maxRollover}"/>
+    </RollingFile>
   </Appenders>
   <Loggers>
     <Root level="WARN">
@@ -222,9 +214,6 @@
     <!-- Opal DAOD -->
     <Logger name="com.i2group.opal.daod.connectors.controller.internal.I2ConnectSynchronizer" level="INFO" />
     <Logger name="com.i2group.opal.daod.connectors.model.internal.ConnectorModelFactory" level="INFO" />
-    <Logger name="com.i2group.opal.daod.job.internal" level="INFO" additivity="false">
-      <AppenderRef ref="I2CONNECTASYNCQUERYLOG" />
-    </Logger>
     <!-- Solr Indexing Logging -->
     <Logger name="PUBSUBLOG.main_index" level="INFO" additivity="false">
       <AppenderRef ref="PUBSUBLOGMAIN" />
@@ -254,9 +243,19 @@
       <AppenderRef ref="SOLRLOG" />
     </Logger>
     <!-- Visual Query Configuration Logging -->
+    <!-- To log information about how Visual Query is configured, set the log level to DEBUG -->
     <Logger name="com.i2group.disco.visualqueryservice.configuration.internal.VisualQueryConfigurationValidator" level="OFF" additivity="false">
       <AppenderRef ref="VQLOG" />
       <AppenderRef ref="CONSOLE" />
+    </Logger>
+    <!-- Graphql -->
+    <Logger name="graphql.kickstart.execution.error.DefaultGraphQLErrorHandler" level="ERROR" additivity="false">
+      <AppenderRef ref="CONSOLE" level="ERROR" />
+    </Logger>
+    <!-- NotebookWeb -->
+    <!-- To log information about notebook web's performance, set the log level to DEBUG -->
+    <Logger name="com.i2group.disco.actionlog.logger.internal" level="OFF" additivity="false">
+      <AppenderRef ref="PERFORMACE_notebook_web"/>
     </Logger>
   </Loggers>
 </Configuration>

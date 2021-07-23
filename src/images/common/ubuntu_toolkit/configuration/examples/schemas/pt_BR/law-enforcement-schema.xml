@@ -31,115 +31,6 @@
   </GradeTypes>
   <ItemTypes>
     <EntityTypes>
-      <EntityType Id="372a12af-f684-41c5-9ce9-759b3beef826" Description="Configurar" DisplayName="Conjunto" Icon="General group">
-        <PropertyGroupTypes />
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="255" SemanticTypeId="" DisplayName="Nome" Description="Nome" LogicalType="SINGLE_LINE_STRING" Id="07e81445-0f5e-4340-b355-c82809e895da">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
-      <EntityType Id="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb" Description="Usuário" DisplayName="Usuário" Icon="Profmale">
-        <PropertyGroupTypes />
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Nome" Description="Nome" LogicalType="SINGLE_LINE_STRING" Id="ce3d12ac-2632-4a0f-b2b6-6a7fdda887a6">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Imagem" Description="Imagem" LogicalType="PICTURE" Id="becf8151-c6ac-4b9e-bff5-bb56e02fb2ed">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Disponível" Description="Disponibilidade" LogicalType="BOOLEAN" Id="e31bc44e-39f2-4221-a237-a69766d4685e">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
-      <EntityType Id="1274e2e7-7751-4dae-a994-648718e19f04" Description="Feed de alerta" DisplayName="Feed de alerta" Icon="Search">
-        <PropertyGroupTypes>
-          <PropertyGroupType Mandatory="true" Position="3" Description="Eventos que irão acionar alertas a partir deste feed" DisplayName="Eventos acionadores de alerta" Id="566eaa37-01d2-4628-9231-a0448ef4a44c">
-            <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="O item foi alterado" Description="Alertar quando este item for alterado" LogicalType="BOOLEAN" Id="03487793-7975-4332-903b-e670a66c9451">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="O item foi excluído" Description="Alertar quando este item for excluído" LogicalType="BOOLEAN" Id="f8471cf2-0b19-4bd2-9187-d3ac6f474026">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Foi criado vínculo para o item" Description="Alertar quando vínculos forem criados para este item" LogicalType="BOOLEAN" Id="0b99c403-49f7-4757-9876-3606ec5befa0">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="As propriedades primárias do item foram alteradas" Description="Alertar quando houver mudanças nas propriedades primárias deste item" LogicalType="BOOLEAN" Id="4b873852-76e4-48e1-884a-9f95b87210f9">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="Conteúdo adicionado a este conjunto" Description="Alertar quando houver adições a este conjunto" LogicalType="BOOLEAN" Id="afa7f3fb-23b0-4869-8b7d-0306ef158b5b">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="8" Mandatory="false" SemanticTypeId="" DisplayName="Alteração de versão para o conteúdo de conjunto existente" Description="Alertar quando houver mudanças nesta versão de um item neste conjunto" LogicalType="BOOLEAN" Id="051e91c1-e925-4dd4-97f1-75ffe37f9c48">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="Conteúdo removido deste conjunto" Description="Alertar quando houver remoções a partir desse conjunto" LogicalType="BOOLEAN" Id="8146df80-3a08-4106-900f-214faf9ec571">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="5" Mandatory="false" SemanticTypeId="" DisplayName="O item neste conjunto foi alterado" Description="Alertar quando houver mudanças em algum item neste conjunto" LogicalType="BOOLEAN" Id="db8c60d1-1ff9-4896-bbd0-5e33351815e2">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="O item neste conjunto foi excluído" Description="Alertar quando houver exclusão de algum item neste conjunto" LogicalType="BOOLEAN" Id="514b213e-b677-428a-a5c9-b8690d564032">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="7" Mandatory="false" SemanticTypeId="" DisplayName="O item neste conjunto foi vinculado" Description="Alertar quando vínculos forem criados para algum item neste conjunto" LogicalType="BOOLEAN" Id="2d9ed2a2-5f33-432b-b99b-f08349f8366d">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="O item neste conjunto teve propriedades primárias alteradas" Description="Alertar quando houver mudanças nas propriedades primárias de um item neste conjunto" LogicalType="BOOLEAN" Id="e2127bbb-9ad8-417d-840f-74ec9849ec5e">
-                <PossibleValues />
-              </PropertyType>
-            </PropertyTypes>
-          </PropertyGroupType>
-        </PropertyGroupTypes>
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Nome" Description="O nome deste feed de alerta" LogicalType="SINGLE_LINE_STRING" Id="b7b059a0-1079-45ac-8ae0-ee026f70dd69">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Descrição" Description="Texto descritivo a ser incluído em qualquer alerta gerado" LogicalType="MULTIPLE_LINE_STRING" Id="d1949ec2-9a77-461e-a16f-81026ccd1e89">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="2" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="ID de referência de alerta" Description="Identificador exclusivo do item sendo monitorado quanto a alertas" LogicalType="SINGLE_LINE_STRING" Id="814a72ed-5c68-4763-8d47-b4866de2344b">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
-      <EntityType Id="43cd717c-0204-4c81-93ea-f9f0458bc5ea" Description="Consulta Armazenada" DisplayName="Consulta" Icon="StoredQuery">
-        <PropertyGroupTypes>
-          <PropertyGroupType Mandatory="false" Position="5" Description="Metadados de Apresentação. Estes dados são particulares para a consulta armazenada e não podem ser editados diretamente." DisplayName="Apresentação da Consulta" Id="2c818fa6-68c4-42a4-9bc3-c34bcdc4379a">
-            <PropertyTypes>
-              <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Formato" Description="Tipo de Formato de Apresentação. Estes dados são particulares para a consulta armazenada e não podem ser editados diretamente." LogicalType="SINGLE_LINE_STRING" Id="97f76ffe-1ece-4d5b-9e20-ea66b572b2c5">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Dados de Sequência" Description="Dados de Sequência de Apresentação. Estes dados são particulares para a consulta armazenada e não podem ser editados diretamente." LogicalType="SINGLE_LINE_STRING" Id="b58f34b6-60fb-4730-a4aa-156bf4e817e0">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Dados XML" Description="Dados XML de Apresentação. Estes dados são particulares para a consulta armazenada e não podem ser editados diretamente." LogicalType="XML" Id="ab2fdf78-ddd8-49b2-872a-f5c8ac2106d5">
-                <PossibleValues />
-              </PropertyType>
-            </PropertyTypes>
-          </PropertyGroupType>
-        </PropertyGroupTypes>
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Nome" Description="Nome especificado pelo usuário desta consulta armazenada" LogicalType="SINGLE_LINE_STRING" Id="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Descrição" Description="Descrição desta consulta armazenada" LogicalType="MULTIPLE_LINE_STRING" Id="a30ddbca-6c14-4454-bdb0-811a5b5beb16">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="2" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Tipo de Consulta" Description="Tipo de Consulta Armazenada. Estes dados são particulares para a consulta armazenada e não podem ser editados diretamente." LogicalType="SINGLE_LINE_STRING" Id="5ae10920-6d60-419f-80db-ba5b9935d93b">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Definição de Consulta (Sequência)" Description="Definição de Sequência de Consulta Armazenada. Estes dados são particulares para a consulta armazenada e não podem ser editados diretamente." LogicalType="SINGLE_LINE_STRING" Id="17903032-1cd1-4524-94ef-a35aab212e6a">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="Definição de Consulta (XML)" Description="Definição XML de Consulta Armazenada. Estes dados são particulares para a consulta armazenada e não podem ser editados diretamente." LogicalType="XML" Id="f5916739-a962-4c01-95d3-2598bfabc1b5">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
-      
       <EntityType Description="Analyst's Notebook Chart" DisplayName="Analyst's Notebook Chart" Id="CHART" Icon="Anbchart">
         <PropertyGroupTypes />
         <PropertyTypes>
@@ -2763,18 +2654,6 @@
       </EntityType>
     </EntityTypes>
     <LinkTypes>
-      <LinkType Id="dab2f6f2-813c-4a47-b630-b91f52a1e0e1" Description="Inscrição de feed de alerta" DisplayName="Inscrição de feed de alerta" FromTypeIds="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb" ToTypeIds="1274e2e7-7751-4dae-a994-648718e19f04">
-        <PropertyGroupTypes>
-          <PropertyGroupType Mandatory="false" Position="0" Description="As maneiras em que os alertas são entregues" DisplayName="Métodos de entrega de alertas" Id="84aa56e3-84a1-4c05-9a77-4f9185202a55">
-            <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="Por recuperação de alerta" Description="Por meio do serviço da web de recuperação de alerta" LogicalType="BOOLEAN" Id="72367e78-b265-46e1-8fc8-81f42d307e40">
-                <PossibleValues />
-              </PropertyType>
-            </PropertyTypes>
-          </PropertyGroupType>
-        </PropertyGroupTypes>
-        <PropertyTypes />
-      </LinkType>
       <LinkType Id="LIN1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="Envolvido no vínculo" DisplayName="Envolvido em" FromTypeIds="ET2" ToTypeIds="ET1 ET3 ET4 ET5">
         <PropertyGroupTypes />
         <PropertyTypes>
@@ -3131,31 +3010,6 @@
   <LabelingSchemes>
     <LabelingScheme Name="Esquema de etiquetagem de núcleo LE" Id="8355f4c5-1444-4a2f-b4da-f9374fbd80e6">
       <LabelDefinitions>
-        <LabelDefinition ItemTypeId="372a12af-f684-41c5-9ce9-759b3beef826">
-          <LabelParts>
-            <LabelPart Value="07e81445-0f5e-4340-b355-c82809e895da" LabelPartType="PROPERTY_TYPE" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb">
-          <LabelParts>
-            <LabelPart Value="ce3d12ac-2632-4a0f-b2b6-6a7fdda887a6" LabelPartType="PROPERTY_TYPE" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="1274e2e7-7751-4dae-a994-648718e19f04">
-          <LabelParts>
-            <LabelPart Value="b7b059a0-1079-45ac-8ae0-ee026f70dd69" LabelPartType="PROPERTY_TYPE" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="dab2f6f2-813c-4a47-b630-b91f52a1e0e1">
-          <LabelParts>
-            <LabelPart Value="Inscrito em" LabelPartType="LITERAL" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="43cd717c-0204-4c81-93ea-f9f0458bc5ea">
-          <LabelParts>
-            <LabelPart Value="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd" LabelPartType="PROPERTY_TYPE" />
-          </LabelParts>
-        </LabelDefinition>
         <LabelDefinition ItemTypeId="CHART">
           <LabelParts>
             <LabelPart Value="CHART1" LabelPartType="PROPERTY_TYPE"/>

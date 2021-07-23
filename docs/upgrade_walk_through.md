@@ -1,4 +1,4 @@
-# Upgrading a distributed deployment to version 4.3.3 of i2 Analyze
+# Upgrading a distributed deployment to version 4.3.4 of i2 Analyze
 To upgrade the example distributed deployment, you must run an upgrade command on each server in your deployment. The following instructions detail what is required on each container, and how to use these steps to upgrade i2 Analyze on physical servers.
 
 ## Before you begin
@@ -7,7 +7,8 @@ To upgrade the example distributed deployment, you must run an upgrade command o
 >Important: If you are upgrading a distributed deployment that was created by using V1.x of the distributed deployment example, you must not update your distributed deployment example source code. Continue to use the same scripts, images, and containers from V1.x of the distributed deployment example.
 In addition, you must run any commands on the Docker container as the `root` user instead of the `i2analyze` user. For example, `docker exec -u root liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty` instead of `docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty`.
 
----
+***
+
 ## Prerequisites for upgrading the distributed deployment
 Download, install, and configure the prerequisites for upgrading a distributed deployment.
 
@@ -19,18 +20,25 @@ Remove the current distributed example code, but ensure the containers stay runn
 Extract the distributed Example that you just downloaded.
 
 ### i2 Analyze
-Download i2 Analyze for Linux. You download the `IBM_I2A_V4.3.3_LINUX.tar.gz` version 4.3.3 using the following part number: *CC8NAML*
+Download i2 Analyze for Linux. You download the `IBM_I2A_V4.3.4_LINUX.tar.gz` version 4.3.4 using the following part number: *G01HPML*
 
 Rename the `tar.gz` file to `i2analyze.tar.gz`.
 
 Copy the archive file to the `src/images/common/ubuntu_toolkit/i2analyze` directory.
 
+Add the `mssql-jdbc-7.4.1.jre11.jar` file to the `src/configuration/environment/common/jdbc-drivers` directory and remove the previous `jre8` file.  
+
+>Note: Download the Microsoft JDBC Driver 7.4 for SQL Server from [Microsoft JDBC Driver 7.4 for SQL Server](https://www.microsoft.com/en-us/download/details.aspx?id=58505). Extract the contents of the `tar.gz`, and locate the `sqljdbc_7.4\enu\mssql-jdbc-7.4.1.jre11.jar` file. 
+
+
 ### Analyst's Notebook Premium
-Download *i2 Analyst's Notebook Premium* version 9.2.3 using the following part number: *CC8N9ML*.
+Download *i2 Analyst's Notebook Premium* version 9.2.4 using the following part number: *G01DHML*.
 
 Upgrade Analyst's Notebook Premium. For more information, see [Upgrading IBM i2 Analyst's Notebook Premium](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.iap.upgrade.doc/upgrading_anbp.html).
 
----
+
+***
+
 ## Preparing i2 Analyze
 Back up and install i2 Analyze before you upgrade i2 Analyze.
 
@@ -49,7 +57,7 @@ Before you upgrade your deployment, you must backup your current configuration. 
 In a non-Docker environment, ensure that you have a copy of the `configuration` directory that contains your complete configuration in a location outside of the i2 Analyze toolkit. The process of upgrading i2 Analyze removes the deployment toolkit from each server in the deployment. Ensure that the backup of your configuration is up-to-date for each server in your deployment.
 
 ### Installing i2 Analyze
-You must install version 4.3.3 of i2 Analyze on each server in the deployment. In the distributed deployment example, you can use the `installToolkit` script to install i2 Analyze on each container.
+You must install version 4.3.4 of i2 Analyze on each server in the deployment. In the distributed deployment example, you can use the `installToolkit` script to install i2 Analyze on each container.
 
 To install i2 Analyze on each container, run the following command from the `src/scripts` directory:
 ```
@@ -73,7 +81,8 @@ The configuration is now on the `admin_client` container.
 
 In a non-Docker environment, copy your backed up configuration directory to the `i2analyze/toolkit/configuration` directory on your equivalent of the Admin Client server.
 
----
+***
+
 You can complete a quick upgrade or you can upgrade manually. Completing the upgrade manually requires you to run each of the steps completed automatically in the quick upgrade. By upgrading manually, you can see in detail what is required on each container and how to use this to upgrade a deployment on physical servers.
 
 ## Quick upgrade
@@ -83,11 +92,11 @@ To upgrade your deployment, run the `./upgradeDeployment` script from the `src/s
 
 All of the components of i2 Analyze are upgraded and the application is started. You can test the deployment by completing the steps in *Testing the deployment*.
 
----
+***
 
 ## Upgrade the deployment manually
 ## Upgrading and copying the configuration
-Upgrade the i2 Analyze configuration to version 4.3.3. To upgrade the configuration, run the following command on the `admin_client` container:
+Upgrade the i2 Analyze configuration to version 4.3.4. To upgrade the configuration, run the following command on the `admin_client` container:
 ```
 docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeConfiguration
 ```
@@ -111,7 +120,7 @@ Then, copy the upgraded configuration to each server. In the distributed deploym
 In a non-Docker environment, copy the upgraded configuration to the `i2analyze/toolkit/configuration` directory on each server.
 
 ## Upgrading and starting the components of i2 Analyze
-After the upgraded configuration is present on each server, you must upgrade each component of the deployment to version 4.3.3.
+After the upgraded configuration is present on each server, you must upgrade each component of the deployment to version 4.3.4.
 
 You must upgrade and start the components of a deployment in the order that they are described here.
 
@@ -192,12 +201,12 @@ If your deployment uses an ETL Client, you must recreate it with the new upgrade
 
 In the distributed deployment example, the `deployEtlClient` script removes the old installation from your running etl_client container, creates a new etl_client in the admin_client container and copies it over to the `etl_client` container creates a copy of your configuration directory on the Admin Client container. The backup of your configuration is in the `src/configuration_mods/configuration_backup` directory.
 
----
+***
 
 ## Results
 All of the components of i2 Analyze are upgraded and the application is started.
 
----
+***
 
 ## Testing the deployment
 To test the deployment upgraded successfully, connect to i2 Analyze from Analyst's Notebook Premium. The URL that you use to connect is the same as you used to before you run the upgrade process.

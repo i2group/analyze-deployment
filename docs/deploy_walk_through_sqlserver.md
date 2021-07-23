@@ -1,4 +1,4 @@
-# Deploying the distributed deployment example manually
+# Deploying the distributed deployment example manually with SQL Server
 The manual deployment of the distributed deployment example requires you to run each of the steps that were completed automatically in the Quick deploy. The following instructions detail what steps are required on each container, and how to use these steps to deploy i2 Analyze on physical servers.
 
 >**Important**: The distributed example uses a Docker environment to demonstrate a distributed deployment of i2 Analyze. The Docker environment is not designed to be used on customer sites for test or production systems. After you understand how the distributed deployment is deployed, replicate the deployment on physical servers.
@@ -44,7 +44,7 @@ Copy the `examples/configurations/information-store-opal/configuration` director
 
 You must populate the configuration for your environment, use the `src/configuration` directory as a reference. This is the centralized i2 Analyze toolkit and configuration that you copy to your servers.
 
----
+***
 
 ## Build the prerequisite images
 In the distributed deployment example, some of the images are built on top of other images. The prerequisite images must be built first, as described in the following section.
@@ -60,7 +60,7 @@ docker build -t ubuntu_toolkit_image ubuntu_toolkit
 ```
 The Ubuntu toolkit image is created with the name `ubuntu_toolkit_image`.
 
----
+***
 
 ## Configuring and running the containers
 Each Docker container requires a Docker image. In a non-Docker environment, this is equivalent to configuring and starting a physical server that is used to host a component of i2 Analyze.
@@ -109,7 +109,7 @@ docker logs -f zookeeper
 docker logs -f zookeeper2
 docker logs -f zookeeper3
 ```
-Inspect the [`Dockerfile`](../src/images/common/zookeeper/Dockerfile) in the `src/images/common/zookeeper` directory to see the commands that are required to configure a ZooKeeper server in a non-Docker environment.
+Inspect the `Dockerfile` in the `src/images/common/zookeeper` directory to see the commands that are required to configure a ZooKeeper server in a non-Docker environment.
 
 Each ZooKeeper container is started. The container starts and configures ZooKeeper, and hosts the ZooKeeper server. The `topology.xml` file in the i2 Analyze configuration defines the values for the ZooKeeper server.
 
@@ -126,7 +126,7 @@ Run the Admin client container:
 ```
 docker run -d --name admin_client --net eianet --memory=512m -u i2analyze admin_client_sqlserver_image
 ```
-Inspect the [`Dockerfile`](../src/images/sqlserver/admin_client/Dockerfile) in the `src/images/sqlserver/admin_client` directory to see the commands that are required to configure the Admin client.
+Inspect the `Dockerfile` in the `src/images/sqlserver/admin_client` directory to see the commands that are required to configure the Admin client.
 
 Use the following format to run toolkit tasks by using the Admin Client:
 ```
@@ -167,7 +167,7 @@ docker logs -f solr
 docker logs -f solr2
 ```
 
-Inspect the [`Dockerfile`](../src/images/common/solr/Dockerfile) in `src/images/common/solr` and the [`Dockerfile`](../src/images/common/solr2/Dockerfile) in `src/images/common/solr2` to see the commands that are required to configure a Solr server in a non-Docker environment.
+Inspect the `Dockerfile` in `src/images/common/solr` and `src/images/common/solr2` to see the commands that are required to configure a Solr server in a non-Docker environment.
 
 The images include an i2 Analyze `topology.xml` file that defines the values for the configuration of Solr. When the server starts, the appropriate Solr nodes are started.
 
@@ -214,16 +214,16 @@ Run the Liberty container:
 ```
 docker run -d --name liberty -p 9082:9082 -p 9445:9445 --net eianet --memory=2g -u i2analyze liberty_sqlserver_image
 ```
-The i2 Analyze application is installed on the Liberty server. Inspect the [`Dockerfile`](../src/images/sqlserver/liberty/Dockerfile) in the `src/images/sqlserver/liberty` directory to see the commands that are run to create the Liberty server in a non-Docker environment.
+The i2 Analyze application is installed on the Liberty server. Inspect the `Dockerfile` in the `src/images/sqlserver/liberty` directory to see the commands that are run to create the Liberty server in a non-Docker environment.
 
 The Liberty server is configured, and the `opal-server` is started.
 
----
+***
 
 ## Results
 After you complete the previous instructions, i2 Analyze is deployed across five Docker containers. By inspecting the Dockerfiles and the toolkit tasks that are used in the previous commands, you can identify the steps that are required to replicate the distributed deployment in a non-Docker environment.
 
----
+***
 
 ## Test the deployment
 To test the deployment, connect to i2 Analyze from Analyst's Notebook Premium. The URL that you use to connect is: [http://i2demo:9082/opal](http://i2demo:9082/opal).

@@ -70,13 +70,6 @@ docker exec -u i2analyze -it admin_client bash -c ". /home/db2inst1/sqllib/db2pr
 ```
 The `ISTORE` database is removed.
 
-After you drop the Information Store database, you must remove the `dsid.infostore.properties` file from the Liberty server. The `dsid.infostore.properties` file contains the identifier for the Information Store that is used by i2 Analyze and Analyst's Notebook Premium.
-
-To remove the file, run the following command:
-```
-docker exec -u i2analyze -t liberty rm /opt/IBM/i2analyze/toolkit/configuration/environment/dsid/dsid.infostore.properties
-```
-
 ### Recreating the database
 Before you can restart i2 Analyze, you must recreate the database.
 

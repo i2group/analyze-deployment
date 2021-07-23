@@ -8,10 +8,12 @@ For more information about deploying i2 Analyze with i2 Connect, see [IBM i2 Ana
 ## Before you begin
 - You must complete the [Quick deploy](deploy_quick_start.md) or deploy the example manually, and your deployment must be running.
 - If you deployed the example with one of the configurations in the `configuration_mods` directory or changed the `topology.xml` file. Reset your example deployment to the base configuration before you deploy i2 Analyze with i2 Connect. To reset your environment, run the following command from the `src/scripts` directory:
-```
-./resetEnvironment
-```
----
+
+    ```
+    ./resetEnvironment
+    ```
+
+***
 
 ## Creating the keystores and certificates
 Run the `createKeysAndStores` script to create the stores, certificates, and certificate authority. For example, run the following command from the `src/scripts` directory:
@@ -35,7 +37,7 @@ For more information about the credentials file, see [Modifying the credentials]
 ## Deploying the example connector
 In the distributed deployment example, the example connector is deployed in its own server.
 
-In the Docker environment, the `connector_image` is created when you run the `buildImages` script. The example connector container is started when you run the `runContainers` script. If you ran the `clean` script, rebuild and rerun the container.
+In the Docker environment, the `connector_image` is created when you run the `buildImages` script. The example connector container is started when you run the `runContainers` script. If you ran the `clean` script, rebuild and rerun the container. Otherwise, you do not need to rebuild and run the connector container.
 To build the connector image, run the following command from the `src/images` folder:
 ```
 docker build -t connector_image common/connector
@@ -47,7 +49,8 @@ To run the `connector` container, run the following command:
 ```
 docker run -d --name connector --net eianet -u i2analyze connector_image
 ```
----
+
+***
 
 You can complete a quick i2 Connect deployment or you can complete the i2 Connect setup manually. Completing the i2 Connect deployment manually requires you to run each of the steps that were completed automatically in the quick i2 Connect deployment so that you can replicate the steps in a non-Docker environment.
 
@@ -63,7 +66,8 @@ Run the `deployDaod` script from the `src/scripts` directory to set up the i2 An
 
 For more information about deploying a connector for i2 Connect in a non-Docker environment, see [Creating a connector for i2 Connect](https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.connect.developer.doc/creating_a_connector.html).
 
----
+***
+
 ## Deploy example connector manually
 
 ## Stopping Liberty
@@ -116,12 +120,12 @@ docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t sta
 ```
 The console output from the `startLiberty` task is output directly to the console.
 
----
+***
 
 ## Results
 All the setup is completed and the application is started.
 
----
+***
 
 ## Testing the deployment
 To test the deployment was configured successfully, connect to i2 Analyze from Analyst's Notebook Premium.

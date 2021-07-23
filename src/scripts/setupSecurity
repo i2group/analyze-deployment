@@ -1,6 +1,6 @@
 #!/bin/bash
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2020.
+# * (C) Copyright IBM Corporation 2018, 2021.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -44,15 +44,12 @@ fi
 output "Stopping Liberty"
 docker exec -u i2analyze    liberty     /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty
 
-output "Deleting Solr Collections"
-docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t deleteSolrCollections -f --all --hostname admin_client.eianet
-
 output "Stopping Solr and Zookeeper"
 docker exec -u i2analyze    solr        /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes   --hostname solr.eianet
 docker exec -u i2analyze    solr2       /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes   --hostname solr2.eianet
 docker exec -u i2analyze    zookeeper   /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts     --hostname zookeeper.eianet
-docker exec -u i2analyze    zookeeper2   /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts     --hostname zookeeper2.eianet
-docker exec -u i2analyze    zookeeper3   /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts     --hostname zookeeper3.eianet
+docker exec -u i2analyze    zookeeper2  /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts     --hostname zookeeper2.eianet
+docker exec -u i2analyze    zookeeper3  /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts     --hostname zookeeper3.eianet
 
 pushd ${SCRIPTS_PATH}
 . updateServerConfigurations $configurationDir $dbDialect
@@ -64,9 +61,12 @@ output "Deploying Liberty"
 docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t deployLiberty
 
 if [[ $configurationDir == "client_cert_ssl" ]]; then
-    #search and replace ssl tag, adding clientAuthenticationSupported
+    # Search and replace ssl tag, adding clientAuthenticationSupported
     docker exec -u i2analyze liberty sh -c "cd /opt/IBM/i2analyze/deploy/wlp/usr/servers/opal-server && \
-    sed -i 's/<ssl id=\"defaultSSLConfig\"/<ssl clientAuthenticationSupported=\"true\" id=\"defaultSSLConfig\"/g' server.xml"
+    sed -i 's/<ssl sslProtocol=\"TLSv1.2\" id=\"defaultSSLConfig\"/<ssl sslProtocol=\"TLSv1.2\" clientAuthenticationSupported=\"true\" id=\"defaultSSLConfig\"/g' server.xml"
+    # Search and replace httpDispatcher tag, adding trustedSensitiveHeaderOrigin
+    docker exec -u i2analyze liberty sh -c "cd /opt/IBM/i2analyze/deploy/wlp/usr/servers/opal-server && \
+    sed -i 's/<httpDispatcher enableWelcomePage=\"false\"/<httpDispatcher enableWelcomePage=\"false\" trustedSensitiveHeaderOrigin=\"*\"/g' server.xml"
 fi
 
 if [[ $dbDialect == "db2" ]]; then
@@ -77,10 +77,10 @@ if [[ $dbDialect == "db2" ]]; then
     docker exec -u db2inst1 -t db2 bash -c ". /home/db2inst1/sqllib/db2profile && db2stop"
     docker exec -u db2inst1 -t db2 bash -c ". /home/db2inst1/sqllib/db2profile && db2start"
 
-    #Configure clients
-    docker exec -u db2inst1 -t liberty bash -c ". /home/db2inst1/sqllib/db2profile && db2 update dbm cfg using SSL_CLNT_KEYDB /opt/IBM/keys/stores/i2-db2-truststore.kdb SSL_CLNT_STASH /opt/IBM/keys/stores/i2-db2-truststore.sth"
+    # Configure clients
+    docker exec -u db2inst1 -t liberty      bash -c ". /home/db2inst1/sqllib/db2profile && db2 update dbm cfg using SSL_CLNT_KEYDB /opt/IBM/keys/stores/i2-db2-truststore.kdb SSL_CLNT_STASH /opt/IBM/keys/stores/i2-db2-truststore.sth"
     docker exec -u db2inst1 -t admin_client bash -c ". /home/db2inst1/sqllib/db2profile && db2 update dbm cfg using SSL_CLNT_KEYDB /opt/IBM/keys/stores/i2-db2-truststore.kdb SSL_CLNT_STASH /opt/IBM/keys/stores/i2-db2-truststore.sth"
-    docker exec -u db2inst1 -t etl_client bash -c ". /home/db2inst1/sqllib/db2profile && db2 update dbm cfg using SSL_CLNT_KEYDB /opt/IBM/keys/stores/i2-db2-truststore.kdb SSL_CLNT_STASH /opt/IBM/keys/stores/i2-db2-truststore.sth"
+    docker exec -u db2inst1 -t etl_client   bash -c ". /home/db2inst1/sqllib/db2profile && db2 update dbm cfg using SSL_CLNT_KEYDB /opt/IBM/keys/stores/i2-db2-truststore.kdb SSL_CLNT_STASH /opt/IBM/keys/stores/i2-db2-truststore.sth"
 
     output "Recataloging the database on the admin_client container"
     docker exec -u i2analyze admin_client bash -c ". /home/db2inst1/sqllib/db2profile && /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogRemoteDB2Nodes"
@@ -101,25 +101,25 @@ elif [[ $dbDialect == "sqlserver" ]]; then
     docker stop sqlserver
     docker start sqlserver
 
-    #Configure clients
+    # Configure clients
     docker cp "${IMAGES_PATH}/common/ca/ca/CA.cer" liberty:/usr/share/ca-certificates/CA.cer
     docker cp "${IMAGES_PATH}/common/ca/ca/CA.cer" etl_client:/usr/share/ca-certificates/CA.cer
     docker cp "${IMAGES_PATH}/common/ca/ca/CA.cer" admin_client:/usr/share/ca-certificates/CA.cer
 
-    docker exec -u root liberty bash -c "grep -q \"CA.cer\" /etc/ca-certificates.conf || echo \"CA.cer\" >> /etc/ca-certificates.conf"
-    docker exec -u root etl_client bash -c "grep -q \"CA.cer\" /etc/ca-certificates.conf || echo \"CA.cer\" >> /etc/ca-certificates.conf"
+    docker exec -u root liberty      bash -c "grep -q \"CA.cer\" /etc/ca-certificates.conf || echo \"CA.cer\" >> /etc/ca-certificates.conf"
+    docker exec -u root etl_client   bash -c "grep -q \"CA.cer\" /etc/ca-certificates.conf || echo \"CA.cer\" >> /etc/ca-certificates.conf"
     docker exec -u root admin_client bash -c "grep -q \"CA.cer\" /etc/ca-certificates.conf || echo \"CA.cer\" >> /etc/ca-certificates.conf"
 
-    docker exec -u root -t liberty update-ca-certificates
-    docker exec -u root -t etl_client update-ca-certificates
+    docker exec -u root -t liberty      update-ca-certificates
+    docker exec -u root -t etl_client   update-ca-certificates
     docker exec -u root -t admin_client update-ca-certificates
 fi
 
 output "Updating the ZooKeeper configuration on the Zookeeper servers"
-docker exec -u i2analyze    zookeeper   /opt/IBM/i2analyze/toolkit/scripts/setup -t createZkHosts    --hostname zookeeper.eianet
-docker exec -u i2analyze    zookeeper2   /opt/IBM/i2analyze/toolkit/scripts/setup -t createZkHosts    --hostname zookeeper2.eianet
-docker exec -u i2analyze    zookeeper3   /opt/IBM/i2analyze/toolkit/scripts/setup -t createZkHosts    --hostname zookeeper3.eianet
-docker exec -u i2analyze    zookeeper   /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts    --hostname zookeeper.eianet
+docker exec -u i2analyze    zookeeper    /opt/IBM/i2analyze/toolkit/scripts/setup -t createZkHosts   --hostname zookeeper.eianet
+docker exec -u i2analyze    zookeeper2   /opt/IBM/i2analyze/toolkit/scripts/setup -t createZkHosts   --hostname zookeeper2.eianet
+docker exec -u i2analyze    zookeeper3   /opt/IBM/i2analyze/toolkit/scripts/setup -t createZkHosts   --hostname zookeeper3.eianet
+docker exec -u i2analyze    zookeeper    /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts    --hostname zookeeper.eianet
 docker exec -u i2analyze    zookeeper2   /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts    --hostname zookeeper2.eianet
 docker exec -u i2analyze    zookeeper3   /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts    --hostname zookeeper3.eianet
 
@@ -127,11 +127,8 @@ output "Updating the Solr configuration on the ZooKeeper servers"
 docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client.eianet
 
 output "Starting Solr"
-docker exec -u i2analyze    solr        /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes  --hostname solr.eianet
-docker exec -u i2analyze    solr2       /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes  --hostname solr2.eianet
-
-output "Creating Solr Collections"
-docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createSolrCollections --all --hostname admin_client.eianet
+docker exec -u i2analyze    solr         /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr.eianet
+docker exec -u i2analyze    solr2        /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr2.eianet
 
 if [[ $configurationDir == "ihs_ssl" || $configurationDir == "client_cert_ssl" ]]; then
     output "Updating the HTTP Server configuration"
@@ -139,8 +136,10 @@ if [[ $configurationDir == "ihs_ssl" || $configurationDir == "client_cert_ssl" ]
     docker exec -u root ihs sh -c "cp /opt/IBM/i2analyze/toolkit/configuration/plugin-cfg.xml /opt/IBM/HTTPServer/plugins/iap/config/plugin-cfg.xml &>/dev/null || true"
 fi
 
-output "Restarting the HTTP Server"
-docker exec -u root ihs sh -c "/opt/IBM/HTTPServer/bin/apachectl restart"
+if [ "$(docker ps -q -f name=ihs)" ]; then
+    output "Restarting the HTTP Server"
+    docker exec -u root ihs sh -c "/opt/IBM/HTTPServer/bin/apachectl restart"
+fi
 
 output "Starting Liberty"
 docker exec -u i2analyze    liberty     /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty

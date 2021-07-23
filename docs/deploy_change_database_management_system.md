@@ -18,7 +18,8 @@ This is process is not representative of an activity that you should complete in
 To change the database management system to use IBM Db2, see [Change the deployment to use IBM Db2](#change-the-deployment-to-use-ibm-db2).  
 To change the database management system to use Microsoft SQL Server, see [Change the deployment to use Microsoft SQL Server](#change-the-deployment-to-use-microsoft-sql-server).
 
----
+***
+
 ## Change the deployment to use IBM Db2
 
 ### Prerequisites for the distributed deployment example with IBM Db2
@@ -43,7 +44,8 @@ Navigate to the `src/scripts` directory, and run the following command:
 ./deployDb2
 ```
 
----
+***
+
 ## Change the deployment to use Microsoft SQL Server
 When you complete the quick deployment of the distributed example, the prerequisites for SQL Server are configured.
 
@@ -52,7 +54,7 @@ To change the deployment to use SQL Server, navigate to the `src/scripts` direct
 ./deploySqlServer
 ```
 
----
+***
 
 ## Test the deployment
 To test the deployment, connect to i2 Analyze from Analyst's Notebook Premium. The URL that you use to connect is: `http://i2demo:9082/opal`.

@@ -1,6 +1,6 @@
 #!/bin/bash
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2020.
+# * (C) Copyright IBM Corporation 2018, 2021.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -26,7 +26,7 @@ mkdir ${SRC_DIR}/keys/responses
 
 output "Signing liberty container certificate"
 docker cp ${SRC_DIR}/keys/requests/liberty-key.csr ca:/opt/IBM/ca
-docker exec -t ca /opt/IBM/ca/signCertificate web liberty-key.csr liberty-key.cer
+docker exec -t ca /opt/IBM/ca/signCertificate liberty liberty-key.csr liberty-key.cer
 docker cp ca:/opt/IBM/ca/liberty-key.cer ${SRC_DIR}/keys/responses/liberty-key.cer
 
 output "Signing admin_client container certificate"
@@ -83,7 +83,7 @@ fi
 
 output "Signing ihs container certificate"
 docker cp ${SRC_DIR}/keys/requests/ihs-key.csr ca:/opt/IBM/ca
-docker exec -t ca /opt/IBM/ca/signCertificate web ihs-key.csr ihs-key.cer
+docker exec -t ca /opt/IBM/ca/signCertificate ihs ihs-key.csr ihs-key.cer
 docker cp ca:/opt/IBM/ca/ihs-key.cer ${SRC_DIR}/keys/responses/ihs-key.cer
 
 output "Signing connector container certificate"

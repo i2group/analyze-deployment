@@ -31,115 +31,6 @@
   </GradeTypes>
   <ItemTypes>
     <EntityTypes>
-      <EntityType Id="372a12af-f684-41c5-9ce9-759b3beef826" Description="セット" DisplayName="セット" Icon="General group">
-        <PropertyGroupTypes />
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="255" SemanticTypeId="" DisplayName="名前" Description="名前" LogicalType="SINGLE_LINE_STRING" Id="07e81445-0f5e-4340-b355-c82809e895da">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
-      <EntityType Id="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb" Description="ユーザー" DisplayName="ユーザー" Icon="Profmale">
-        <PropertyGroupTypes />
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="名前" Description="名前" LogicalType="SINGLE_LINE_STRING" Id="ce3d12ac-2632-4a0f-b2b6-6a7fdda887a6">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="画像" Description="画像" LogicalType="PICTURE" Id="becf8151-c6ac-4b9e-bff5-bb56e02fb2ed">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="使用可能" Description="利用可能性" LogicalType="BOOLEAN" Id="e31bc44e-39f2-4221-a237-a69766d4685e">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
-      <EntityType Id="1274e2e7-7751-4dae-a994-648718e19f04" Description="アラート通知" DisplayName="アラート通知" Icon="Search">
-        <PropertyGroupTypes>
-          <PropertyGroupType Mandatory="true" Position="3" Description="このフィードからアラートをトリガするイベント" DisplayName="アラートトリガイベント" Id="566eaa37-01d2-4628-9231-a0448ef4a44c">
-            <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="アイテムは変更されました" Description="このアイテムへの変更に関するアラート" LogicalType="BOOLEAN" Id="03487793-7975-4332-903b-e670a66c9451">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="アイテムは削除されました" Description="このアイテムの削除に関するアラート" LogicalType="BOOLEAN" Id="f8471cf2-0b19-4bd2-9187-d3ac6f474026">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="アイテムにリンクされました" Description="このアイテムへのリンクに関するアラート" LogicalType="BOOLEAN" Id="0b99c403-49f7-4757-9876-3606ec5befa0">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="9" Mandatory="false" SemanticTypeId="" DisplayName="アイテムのプライマリプロパティが変更されました" Description="このアイテムのプライマリプロパティへの変更に関するアラート" LogicalType="BOOLEAN" Id="4b873852-76e4-48e1-884a-9f95b87210f9">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="3" Mandatory="false" SemanticTypeId="" DisplayName="このセットに追加されたコンテンツ" Description="このセットへの追加に関するアラート" LogicalType="BOOLEAN" Id="afa7f3fb-23b0-4869-8b7d-0306ef158b5b">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="8" Mandatory="false" SemanticTypeId="" DisplayName="既存のセットコンテンツのバージョン変更" Description="このセットのアイテムのバージョンへの変更に関するアラート" LogicalType="BOOLEAN" Id="051e91c1-e925-4dd4-97f1-75ffe37f9c48">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="このセットから削除されたコンテンツ" Description="このセットからの削除に関するアラート" LogicalType="BOOLEAN" Id="8146df80-3a08-4106-900f-214faf9ec571">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="5" Mandatory="false" SemanticTypeId="" DisplayName="このセットのアイテムが変更されました" Description="このセットのアイテムへの変更に関するアラート" LogicalType="BOOLEAN" Id="db8c60d1-1ff9-4896-bbd0-5e33351815e2">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="6" Mandatory="false" SemanticTypeId="" DisplayName="このセットのアイテムが削除されました" Description="このセットのアイテムの削除に関するアラート" LogicalType="BOOLEAN" Id="514b213e-b677-428a-a5c9-b8690d564032">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="7" Mandatory="false" SemanticTypeId="" DisplayName="このセットのアイテムがリンクされました" Description="このセットのアイテムへのリンクに関するアラート" LogicalType="BOOLEAN" Id="2d9ed2a2-5f33-432b-b99b-f08349f8366d">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="10" Mandatory="false" SemanticTypeId="" DisplayName="このセットのアイテムのプライマリプロパティが変更されました" Description="このセットのアイテムのプライマリプロパティへの変更に関するアラート" LogicalType="BOOLEAN" Id="e2127bbb-9ad8-417d-840f-74ec9849ec5e">
-                <PossibleValues />
-              </PropertyType>
-            </PropertyTypes>
-          </PropertyGroupType>
-        </PropertyGroupTypes>
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="名前" Description="このアラートフィードの名前" LogicalType="SINGLE_LINE_STRING" Id="b7b059a0-1079-45ac-8ae0-ee026f70dd69">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="説明" Description="生成されるアラートに含める説明テキスト" LogicalType="MULTIPLE_LINE_STRING" Id="d1949ec2-9a77-461e-a16f-81026ccd1e89">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="2" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="アラート参照 ID" Description="アラートについての監視を受けるアイテムの固有 ID" LogicalType="SINGLE_LINE_STRING" Id="814a72ed-5c68-4763-8d47-b4866de2344b">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
-      <EntityType Id="43cd717c-0204-4c81-93ea-f9f0458bc5ea" Description="保管クエリ" DisplayName="クエスチョンマーク" Icon="StoredQuery">
-        <PropertyGroupTypes>
-          <PropertyGroupType Mandatory="false" Position="5" Description="表示のメタデータ。このデータは保管クエリ専用であり、直接編集できません。" DisplayName="クエリ表示" Id="2c818fa6-68c4-42a4-9bc3-c34bcdc4379a">
-            <PropertyTypes>
-              <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="フォーマット" Description="表示のフォーマットタイプ。このデータは保管クエリ専用であり、直接編集できません。" LogicalType="SINGLE_LINE_STRING" Id="97f76ffe-1ece-4d5b-9e20-ea66b572b2c5">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="文字列データ" Description="表示の文字列データ。このデータは保管クエリ専用であり、直接編集できません。" LogicalType="SINGLE_LINE_STRING" Id="b58f34b6-60fb-4730-a4aa-156bf4e817e0">
-                <PossibleValues />
-              </PropertyType>
-              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="XML データ" Description="表示の XML データ。このデータは保管クエリ専用であり、直接編集できません。" LogicalType="XML" Id="ab2fdf78-ddd8-49b2-872a-f5c8ac2106d5">
-                <PossibleValues />
-              </PropertyType>
-            </PropertyTypes>
-          </PropertyGroupType>
-        </PropertyGroupTypes>
-        <PropertyTypes>
-          <PropertyType Position="0" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="名前" Description="この保管クエリのユーザー定義名" LogicalType="SINGLE_LINE_STRING" Id="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="説明" Description="この保管クエリの説明" LogicalType="MULTIPLE_LINE_STRING" Id="a30ddbca-6c14-4454-bdb0-811a5b5beb16">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="2" Mandatory="true" MaximumLengthChars="250" SemanticTypeId="" DisplayName="クエリタイプ" Description="保管クエリタイプ。このデータは保管クエリ専用であり、直接編集できません。" LogicalType="SINGLE_LINE_STRING" Id="5ae10920-6d60-419f-80db-ba5b9935d93b">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="クエリ定義 (文字列)" Description="保管クエリの文字列定義。このデータは保管クエリ専用であり、直接編集できません。" LogicalType="SINGLE_LINE_STRING" Id="17903032-1cd1-4524-94ef-a35aab212e6a">
-            <PossibleValues />
-          </PropertyType>
-          <PropertyType Position="4" Mandatory="false" SemanticTypeId="" DisplayName="クエリ定義 (XML)" Description="保管クエリの XML 定義。このデータは保管クエリ専用であり、直接編集できません。" LogicalType="XML" Id="f5916739-a962-4c01-95d3-2598bfabc1b5">
-            <PossibleValues />
-          </PropertyType>
-        </PropertyTypes>
-      </EntityType>
-      
       <EntityType Description="Analyst's Notebook Chart" DisplayName="Analyst's Notebook Chart" Id="CHART" Icon="Anbchart">
         <PropertyGroupTypes />
         <PropertyTypes>
@@ -1825,18 +1716,6 @@
       </EntityType>
     </EntityTypes>
     <LinkTypes>
-      <LinkType Id="dab2f6f2-813c-4a47-b630-b91f52a1e0e1" Description="アラートフィードサブスクリプション" DisplayName="アラートフィードサブスクリプション" FromTypeIds="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb" ToTypeIds="1274e2e7-7751-4dae-a994-648718e19f04">
-        <PropertyGroupTypes>
-          <PropertyGroupType Mandatory="false" Position="0" Description="アラートの配信方法" DisplayName="アラート配信方法" Id="84aa56e3-84a1-4c05-9a77-4f9185202a55">
-            <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" SemanticTypeId="" DisplayName="アラート取得による" Description="アラート取得 Web サービスによる" LogicalType="BOOLEAN" Id="72367e78-b265-46e1-8fc8-81f42d307e40">
-                <PossibleValues />
-              </PropertyType>
-            </PropertyTypes>
-          </PropertyGroupType>
-        </PropertyGroupTypes>
-        <PropertyTypes />
-      </LinkType>
       <LinkType Id="CLML1" SemanticTypeId="guidE48ED0E7-3D02-4481-B98C-8D3BDAFDAB92" Description="請求リンク" DisplayName="請求" FromTypeIds="CLA1" ToTypeIds="ADD1 INT1 IP1 ORG1 PER1 TEL1 VEH1 CLA1">
         <PropertyGroupTypes />
         <PropertyTypes>
@@ -1998,31 +1877,6 @@
   <LabelingSchemes>
     <LabelingScheme Name="商業コアラベリングスキーマ" Id="8355f4c5-1444-4a2f-b4da-f9374fbd80e6">
       <LabelDefinitions>
-        <LabelDefinition ItemTypeId="372a12af-f684-41c5-9ce9-759b3beef826">
-          <LabelParts>
-            <LabelPart Value="07e81445-0f5e-4340-b355-c82809e895da" LabelPartType="PROPERTY_TYPE" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="642330a9-1eca-43d0-9f45-a3ca2fd8a1bb">
-          <LabelParts>
-            <LabelPart Value="ce3d12ac-2632-4a0f-b2b6-6a7fdda887a6" LabelPartType="PROPERTY_TYPE" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="1274e2e7-7751-4dae-a994-648718e19f04">
-          <LabelParts>
-            <LabelPart Value="b7b059a0-1079-45ac-8ae0-ee026f70dd69" LabelPartType="PROPERTY_TYPE" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="dab2f6f2-813c-4a47-b630-b91f52a1e0e1">
-          <LabelParts>
-            <LabelPart Value="サブスクライブ先" LabelPartType="LITERAL" />
-          </LabelParts>
-        </LabelDefinition>
-        <LabelDefinition ItemTypeId="43cd717c-0204-4c81-93ea-f9f0458bc5ea">
-          <LabelParts>
-            <LabelPart Value="98ce27bc-50d7-4fa0-89b0-d6440cdb12fd" LabelPartType="PROPERTY_TYPE" />
-          </LabelParts>
-        </LabelDefinition>
         <LabelDefinition ItemTypeId="CHART">
           <LabelParts>
             <LabelPart Value="CHART1" LabelPartType="PROPERTY_TYPE"/>

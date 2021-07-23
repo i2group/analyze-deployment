@@ -1,6 +1,6 @@
 #!/bin/bash
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2020.
+# * (C) Copyright IBM Corporation 2018, 2021.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -62,7 +62,7 @@ function installNewDependencies
     echo ""
     echo "############################################################"
     echo "Installing new dependencies to $1 container"
-	docker exec -u root $1 apt-get install -y net-tools
+	  docker exec -u root $1 apt-get install -y net-tools
     echo ""
 }
 
@@ -73,8 +73,8 @@ function copyAndExtractToolkit
     echo "Copying the toolkit to $1 container"
     docker cp $2 $1:/opt/IBM/i2analyze.tar.gz
     echo "Changing the permissions on the toolkit tar.gz before extracting it"
-	docker exec -u root $1 chown i2analyze:i2analyze /opt/IBM/i2analyze.tar.gz
-	echo "Extracting the toolkit tar.gz"
+	  docker exec -u root $1 chown i2analyze:i2analyze /opt/IBM/i2analyze.tar.gz
+	  echo "Extracting the toolkit tar.gz"
     #Don't extract license file
     docker exec -u i2analyze $1 bsdtar -xpf /opt/IBM/i2analyze.tar.gz -C /opt/IBM/i2analyze --exclude='*license_acknowledgment.txt'
     docker exec -u root $1 rm -f /opt/IBM/i2analyze.tar.gz
@@ -89,7 +89,9 @@ removeOldToolkitFromContainer zookeeper3
 removeOldToolkitFromContainer solr
 removeOldToolkitFromContainer solr2
 removeOldToolkitFromContainer liberty
-removeOldToolkitFromContainer ihs
+if [ "$(docker ps -q -f name=ihs)" ]; then
+  removeOldToolkitFromContainer ihs
+fi
 
 output "Install new dependencies required by the new toolkit to the containers"
 installNewDependencies liberty $1
@@ -102,6 +104,9 @@ copyAndExtractToolkit zookeeper3 $1
 copyAndExtractToolkit solr $1
 copyAndExtractToolkit solr2 $1
 copyAndExtractToolkit liberty $1
-copyAndExtractToolkit ihs $1
+
+if [ "$(docker ps -q -f name=ihs)" ]; then
+  copyAndExtractToolkit ihs $1
+fi
 
 popd

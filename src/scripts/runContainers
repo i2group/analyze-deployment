@@ -1,6 +1,6 @@
 #!/bin/bash
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2020.
+# * (C) Copyright IBM Corporation 2018, 2021.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -74,8 +74,10 @@ docker exec -t sqlserver /opt/mssql-tools/bin/sqlcmd -U SA -P ${saPassword} -Q "
 output "Running the admin_client container to create the database"
 docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createDatabases
 
-output "Running the ihs container on the eia network"
-docker run -d --name ihs -h ihs -p 80:80 -p 443:443 --memory=512m --net eianet -u root ihs_image
+if [ "$(docker images -q ihs_image)" ]; then
+  output "Running the ihs container on the eia network"
+  docker run -d --name ihs -h ihs -p 80:80 -p 443:443 --memory=512m --net eianet -u root ihs_image
+fi
 
 output "Running the liberty container on the eia network"
 docker run -d --name liberty -p 9082:9082 -p 9445:9445 --net eianet --memory=2g -u i2analyze liberty_sqlserver_image

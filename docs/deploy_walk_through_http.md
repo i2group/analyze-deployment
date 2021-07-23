@@ -10,12 +10,22 @@ To deploy the distributed deployment example in a topology that uses the IBM HTT
 
 You must run all Docker commands from a command line where Docker is initialized.
 
+## Prerequisites for Deploying i2 Analyze with IBM HTTP Server
+Obtain the IBM HTTP Server archive for Linux from Fix Central.
+
+You download the archive using the following version: `9.0.5-WS-IHS-ARCHIVE-linux-x86_64-FP001`.
+
+Rename the `.zip` file to `IHS_ARCHIVE_FILE.zip`, then copy it to the `src/images/common/ihs_base` directory.
+
 ## Deploying i2 Analyze with IBM HTTP Server
 In the distributed deployment example, the IBM HTTP Server is deployed in its own server.
 
-In the Docker environment, the `ihs_image` is created when you run the `buildImages` script. The IBM HTTP Server container is started when you run the `runContainers` script. If you cleaned your environment, rebuild and run the container.
+In the Docker environment, if `src/images/common/ihs_base/IHS_ARCHIVE_FILE.zip` exists, the ihs_image is created when you run the buildImages.
+
+The IBM HTTP Server container is started when you run the `runContainers` script. If you cleaned your environment, rebuild and run the container.
 To build the IBM HTTP Server image, run the following command from the `src/images` folder:
 ```
+docker build -t base_ihs_image common/ihs_base --build-arg IHS_ARCHIVE_FILE=IHS_ARCHIVE_FILE.zip
 docker build -t ihs_image common/ihs
 ```
 

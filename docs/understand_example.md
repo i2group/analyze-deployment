@@ -31,7 +31,7 @@ Read the following documentation and `Dockerfiles` to gain an understanding of h
 
 After you deploy the distributed deployment example, information is provided for how to complete configuration tasks in a distributed deployment of i2 Analyze.
 
----
+***
 
 ## Host names in a distributed environment
 When i2 Analyze is deployed in a distributed environment, the `topology.xml` file contains multiple host names. In the distributed deployment example, the host names that are used include; `sqlserver`, `db2`, `solr`, `solr2`, `zookeeper`, `zookeeper2`, `zookeeper3`, and `liberty`.
@@ -40,7 +40,7 @@ To deploy and configure i2 Analyze is a distributed environment, you can use the
 
 If a toolkit task that you run with a specific host name impacts multiple servers, you must run that toolkit task for each server with their host name specified.
 
----
+***
 
 ## Configurations
 The distributed deployment example includes a number of configurations that can be used to demonstrate a deployment of i2 Analyze.

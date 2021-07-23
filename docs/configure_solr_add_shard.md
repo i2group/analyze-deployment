@@ -52,7 +52,7 @@ For more information about the `DELETESHARD` call, see [DELETESHARD: Delete a sh
 
 You can now either test or the deployment, or move the new shard to another Solr node.
 
----
+***
 
 ## Moving a shard to another node
 If you want to move one of the new split shards, you must create a replica of it on another node and then delete the original. To create the REST call to do this, you must know the collection name, the shard to replicate, and the node to add the replica to.
@@ -99,7 +99,7 @@ This sends a REST call to the Solr Collections API to delete the first replica o
 
 For more information about the `DELETEREPLICA` call, see [DELETEREPLICA: Delete a replica](https://lucene.apache.org/solr/guide/6_6/collections-api.html#CollectionsAPI-deletereplica).
 
----
+***
 
 ## Testing the deployment
 To test that the system continues to work, create and search for data by using Quick Search in Analyst's Notebook Premium.

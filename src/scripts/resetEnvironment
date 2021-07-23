@@ -1,6 +1,6 @@
 #!/bin/bash
 #/********************************************************************************
-# * (C) Copyright IBM Corporation 2018, 2020.
+# * (C) Copyright IBM Corporation 2018, 2021.
 # *
 # * This program and the accompanying materials are made available under the
 # * terms of the Eclipse Public License 2.0 which is available at
@@ -87,7 +87,11 @@ fi
 
 # Searching and replacing ssl tag, removing clientAuthenticationSupported
 docker exec -u i2analyze liberty sh -c "cd /opt/IBM/i2analyze/deploy/wlp/usr/servers/opal-server && \
-    sed -i 's/<ssl clientAuthenticationSupported=\"true\" id=\"defaultSSLConfig\"/<ssl id=\"defaultSSLConfig\"/g' server.xml"
+    sed -i 's/<ssl sslProtocol=\"TLSv1.2\" clientAuthenticationSupported=\"true\" id=\"defaultSSLConfig\"/<ssl sslProtocol=\"TLSv1.2\" id=\"defaultSSLConfig\"/g' server.xml"
+
+# Search and replace httpDispatcher tag, removing trustedSensitiveHeaderOrigin
+docker exec -u i2analyze liberty sh -c "cd /opt/IBM/i2analyze/deploy/wlp/usr/servers/opal-server && \
+    sed -i 's/trustedSensitiveHeaderOrigin=\"\*\"//g' server.xml"
 
 # Resetting start extensions
 docker exec -u root -it solr sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr.eianet || echo \"Error stating Solr node in solr\"\" > /opt/IBM/startupExt"

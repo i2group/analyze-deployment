@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Specify the installations of Java to use for i2 Analyze.
+# You can specify the Java that is used for all components in a deployment of i2 Analyze.
+# By default, I2A_COMPONENTS_JAVA_HOME specifies the Java to use.
+# You can use the other variables to specify the Java specific components use.
+
+# Specifies the path to a Java installation that is used to run the toolkit tasks.
+# The path can be absolute or a relative path from the root of the toolkit.
+# By default, it is tools/java.
+I2A_TOOLKIT_SCRIPTS_JAVA_HOME=tools/java
+
+
+# Specifies an absolute path to a Java installation that is used by the Solr, ZooKeeper, and Liberty components of i2 Analyze.
+# By default, it is /opt/IBM/i2analyze/deploy/java.
+I2A_COMPONENTS_JAVA_HOME=/opt/IBM/i2analyze/deploy/java
+
+# Uncomment the following variables to specify different Java installations for the components of i2 Analyze.
+# If the following variables are used, their values override the value of I2A_COMPONENTS_JAVA_HOME for the specific component.
+
+# Specifies an absolute path to a Java installation that is used by Solr.
+#SOLR_JAVA_HOME=/opt/IBM/i2analyze/deploy/java
+
+# Specifies an absolute path to a Java installation that is used by ZooKeeper.
+#ZK_JAVA_HOME=/opt/IBM/i2analyze/deploy/java
+
+# Specifies an absolute path to a Java installation that is used by Liberty.
+#LIBERTY_JAVA_HOME=/opt/IBM/i2analyze/deploy/java
+
+# Specifies the path to a Java installation that is used by the ingestion commands.
+# The path can be absolute or a relative path from the root of the ETL toolkit.
+ETL_TOOLKIT_JAVA_HOME=./java
