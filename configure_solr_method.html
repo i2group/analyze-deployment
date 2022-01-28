@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Choosing the method for configuring Solr </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Choosing the method for configuring Solr ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="guidetoc/toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                IBM <strong>i2 Analyze</strong>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+          
+          <div class="subnav navbar navbar-default">
+            <div class="container hide-when-search" id="breadcrumb">
+              <ul class="breadcrumb">
+                <li></li>
+              </ul>
+            </div>
+          </div>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="choosing-the-method-for-configuring-solr">Choosing the method for configuring Solr</h1>
+
+<p>A deployment of i2 Analyze uses Solr to manage the search index. i2 Analyze requires at least one Solr collection that consists of nodes, shards, and replicas.</p>
+<p>The Solr configuration can be controlled through the <code>topology.xml</code> file, or through the <code>createSolrCollection</code> script. Regardless of how Solr is configured, the collection is created by i2 Analyze.</p>
+<p>If the collection is configured through the <code>topology.xml</code> file, the modifications that you can complete are limited to those that are supported in the <code>topology.xml</code> file. If the collection is managed through the <code>createSolrCollection</code> script, you can complete all the modifications that are supported by the Solr Collections API.</p>
+<p>The <code>createSolrCollection</code> script file contains REST calls to the Solr Collections API to configure the Solr collection.
+The script uses <code>curl</code> commands to make the REST calls.</p>
+<blockquote><p>Note: You must install <code>curl</code> on your path to use the <code>createSolrCollection</code> script as it is generated.</p>
+</blockquote>
+<h2 id="configure-the-solr-collection-in-the-topologyxml-file">Configure the Solr collection in the <code>topology.xml</code> file</h2>
+<p>By default, or when <code>toolkit-configured=&quot;true&quot;</code> in the <code>solr-collection</code> element of the <code>topology.xml</code> file, the Solr collection is created by using the definitions in the <code>topology.xml</code> file.</p>
+<p>For example, the <code>&lt;solr-collection&gt;</code> element is defined as follows:</p>
+<pre><code>&lt;solr-collection toolkit-configured=&quot;true&quot; num-replicas=&quot;1&quot; id=&quot;main_index&quot; max-shards-per-node=&quot;4&quot; num-shards=&quot;4&quot;/&gt;
+</code></pre><p>For more information about configuring the collection and the values that you can set in the topology file, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_solr.html">ZooKeeper and Solr</a>.</p>
+<p>The Solr collection is created when the <code>createSolrCollections</code> toolkit task is run the first time. After, you can use the <code>clearSearchIndex</code> toolkit task. This task clears the search index, and then recreates the collection. When Liberty starts, the search index is recreated.</p>
+<h2 id="configure-the-solr-collection-in-the-createsolrcollection-script-file">Configure the Solr collection in the <code>createSolrCollection</code> script file</h2>
+<p>If you deployed the distributed deployment example, the <code>createSolrCollection</code> script is in the <code>toolkit\configuration\environment\opal-server\main_index</code> directory on the server that the <code>createSolrCollection</code> script was run. You can then change the topology file to <code>toolkit-configured=&quot;false&quot;</code>.</p>
+<blockquote><p>Note: If the script doesn&#39;t exist, run <code>setup -t createSolrCollections</code> toolkit task with <code>toolkit-configured=&quot;true&quot;</code> in the <code>topology.xml</code> file.</p>
+</blockquote>
+<p>If <code>toolkit-configured=&quot;false&quot;</code> in the <code>topology.xml</code> file, the <code>createSolrCollection</code> script is used to configure the Solr collection.</p>
+<p>For example, the <code>&lt;solr-collection&gt;</code> element is defined as follows:</p>
+<pre><code>&lt;solr-collection toolkit-configured=&quot;false&quot; num-replicas=&quot;1&quot; id=&quot;main_index&quot; max-shards-per-node=&quot;4&quot; num-shards=&quot;4&quot;/&gt;
+</code></pre><p>The script file contains the Solr collection configuration from the <code>topology.xml</code> file. You can then modify the Solr Collections API <code>CREATE</code> call in the script file. When i2 Analyze recreates the Solr collection, it uses the call in this file.</p>
+<p>For more information about configuring the collection by using the script, see <a href="configure_solr_collection.html">Creating a Solr collection using the <code>createSolrCollection</code> script</a>.</p>
+<h3 id="managing-changes-to-the-createsolrcollection-script-file">Managing changes to the <code>createSolrCollection</code> script file</h3>
+<p>The script file contains the definition of your Solr collection.</p>
+<p>You must keep a copy of the <code>createSolrCollection</code>
+in a source control system to ensure that the REST call required to make your Solr collection is maintained. You might need to use previous versions of this file when you move from a test to a production system, or when you make a configuration change that you later decide is incorrect.  </p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            &copy; N. Harris Computer Corporation (2022)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

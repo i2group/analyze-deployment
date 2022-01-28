@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Ingesting data remotely </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Ingesting data remotely ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="guidetoc/toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                IBM <strong>i2 Analyze</strong>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+          
+          <div class="subnav navbar navbar-default">
+            <div class="container hide-when-search" id="breadcrumb">
+              <ul class="breadcrumb">
+                <li></li>
+              </ul>
+            </div>
+          </div>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="ingesting-data-remotely">Ingesting data remotely</h1>
+
+<p>i2 Analyze supports physical architectures in which the database is hosted on the same server as the application, or on a different one. You can also choose to locate your Extract Transform Load (ETL) logic on the same server as the i2 Analyze application, or on the same server as the database, or on an entirely separate server.
+The distributed deployment example shows you how to set up the ETL logic on a separate server.</p>
+<p>For more information about the ingestion architecture and the ETL toolkit, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.iap.admin.ingestion.doc/architecture_and_ingestion.html">Understanding the architecture</a>.</p>
+<h2 id="before-you-begin">Before you begin</h2>
+<p>Ensure that you can connect to the deployment and submit data by using Analyst&#39;s Notebook Premium.</p>
+<h2 id="deploying-the-etl-toolkit">Deploying the ETL toolkit</h2>
+<p>In the distributed deployment example, the ETL toolkit is deployed in its own server. Your configured i2 Analyze toolkit and database client must be installed on the ETL toolkit server.</p>
+<p>The <code>createEtlToolkit</code> toolkit task creates the ETL toolkit. In the Docker environment, the ETL toolkit is created inside the <code>admin_client</code> container and then copied into the ETL client container.</p>
+<p>In the Docker environment, the <code>etl_client_sqlserver_image</code> is created when you run the <code>buildImages</code> script. The ETL client container is started when you run the <code>runContainers</code> script. If you cleaned your environment, rebuild and rerun the container.
+To build the ETL client image, run the following command from the <code>src/images</code> folder:<br>For SQL Server:</p>
+<pre><code>docker build -t etl_client_sqlserver_image sqlserver/etl_client
+</code></pre><p>For Db2:</p>
+<pre><code>docker build -t etl_client_db2_image db2/etl_client
+</code></pre><p>To run the ETL client container, run the following command:<br>For SQL Server:</p>
+<pre><code>docker run -d --name etl_client --net eianet -u i2analyze etl_client_sqlserver_image
+</code></pre><p>For Db2:</p>
+<pre><code>docker run -d --name etl_client --net eianet -u i2analyze etl_client_db2_image
+</code></pre><p>Run the <code>deployEtlClient</code> script from the <code>src/scripts</code> directory to create a new ETL toolkit and copy it to the <code>etl_client</code> container:</p>
+<pre><code>./deployEtlClient
+</code></pre><p>For more information about deploying the ETL toolkit in a non-Docker environment, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.iap.admin.ingestion.doc/deploying_the_etl_toolkit.html">Deploying the ETL toolkit</a>.</p>
+<h2 id="configuring-the-etl-toolkit-for-db2">Configuring the ETL toolkit for Db2</h2>
+<p>The <code>etl_client</code> container includes the <code>initializeEtlClient</code> script that you must run in the Docker environment when you are using Db2.</p>
+<p>The <code>initializeEtlClient</code> script catalogs the remote Db2 node and database with the Db2 Client that is installed on the ETL client. To complete this process in a non-Docker environment, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.iap.admin.ingestion.doc/deploying_the_etl_toolkit.html">Deploying the ETL toolkit</a>.</p>
+<p>Run the <code>initializeEtlClient</code> script on the <code>etl_client</code> container:</p>
+<pre><code>docker exec -u i2analyze -t etl_client /opt/IBM/i2analyze/initializeEtlClient
+</code></pre><p>You can find the <code>initializeEtlClient</code> script in the <code>src/images/db2/etl_client</code> directory.</p>
+<blockquote><p>If the connection to Db2 uses SSL, run the following command:<br><code>docker exec -u i2analyze -t etl_client /opt/IBM/i2analyze/initializeEtlClient enable</code>.</p>
+</blockquote>
+<h2 id="ingesting-the-example-data">Ingesting the example data</h2>
+<p>The ETL client container includes the <code>ingestExampleData</code> script that you can run in the Docker environment to ingest example data into the Information Store.
+You can now use the ETL toolkit on the ETL client server to ingest data into the Information Store.</p>
+<p>The <code>ingestExampleData</code> script in the Docker container ingests example data into the Information Store. To complete this process in a non-Docker environment, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.iap.admin.ingestion.doc/running_ingestion_commands.html">Running ingestion commands</a>.</p>
+<p>Run the <code>ingestExampleData</code> script on the <code>etl_client</code>. Type the password that you set in the <code>credentials.properties</code> file for Information Store database:</p>
+<pre><code>docker exec -u i2analyze -it etl_client /opt/IBM/i2analyze/ingestExampleData
+</code></pre><p>An <code>E_Person</code> entity staging table is created and populated, and the data that it contains is ingested. An <code>L_Associate</code> link staging table is created and populated, and the data that it contains is ingested.</p>
+<p>You can find the <code>ingestExampleData</code> script in the <code>etl_client</code> directory.</p>
+<h2 id="testing-the-deployment">Testing the deployment</h2>
+<p>To test that the data ingested successfully, connect to the Information Store in Analyst&#39;s Notebook Premium and search for <code>Jo Black</code> and complete an expand operation. You should see a link to another entity named <code>John Smith</code>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            &copy; N. Harris Computer Corporation (2022)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

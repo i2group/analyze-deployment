@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Deploying the distributed deployment example manually with SQL Server </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Deploying the distributed deployment example manually with SQL Server ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="guidetoc/toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                IBM <strong>i2 Analyze</strong>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+          
+          <div class="subnav navbar navbar-default">
+            <div class="container hide-when-search" id="breadcrumb">
+              <ul class="breadcrumb">
+                <li></li>
+              </ul>
+            </div>
+          </div>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="deploying-the-distributed-deployment-example-manually-with-sql-server">Deploying the distributed deployment example manually with SQL Server</h1>
+
+<p>The manual deployment of the distributed deployment example requires you to run each of the steps that were completed automatically in the Quick deploy. The following instructions detail what steps are required on each container, and how to use these steps to deploy i2 Analyze on physical servers.</p>
+<blockquote><p><strong>Important</strong>: The distributed example uses a Docker environment to demonstrate a distributed deployment of i2 Analyze. The Docker environment is not designed to be used on customer sites for test or production systems. After you understand how the distributed deployment is deployed, replicate the deployment on physical servers.</p>
+</blockquote>
+<h2 id="before-you-begin">Before you begin</h2>
+<ul>
+<li>Complete the <a href="deploy_quick_start.html">Quick deploy</a> section at least once, before you start the manual deployment. The software prerequisites that you download for the Quick deploy are also used here.</li>
+<li>Complete the <a href="deploy_clean_environment.html">Clean your environment</a> section to ensure that none of the images, containers, or network exist.</li>
+</ul>
+<p>You must run all Docker commands from a command line where Docker is initialized.</p>
+<blockquote><p>For Windows 7, you must also forward the required ports from your local workstation to the virtual machine that hosts Docker.</p>
+<p>In the network settings for your docker virtual machine, open the <strong>Advanced</strong> menu and click <strong>Port Forwarding</strong>. Create a new line, and enter values for the <code>Host IP</code>, <code>Host Port</code>, and <code>Guest Port</code>. You must do this for each port that is exposed in the Docker environment.</p>
+</blockquote>
+<h2 id="create-the-network">Create the network</h2>
+<p>To enable communication between the docker containers, all the containers must be connected to a single network. You can create a bridge network that only the docker containers can access. When each container is run, the <code>--net</code> flag is used to specify that the container connects to a specific network.</p>
+<p>Create a bridge network called <code>eianet</code> for the distributed deployment example:</p>
+<pre><code>docker network create eianet
+</code></pre><p>Test that the network is created:</p>
+<pre><code>docker network ls
+</code></pre><p>The <code>eianet</code> network is displayed in the list.</p>
+<p>In a non-Docker environment, ensure that each server that you are using to deploy i2 Analyze can connect to each other.</p>
+<h2 id="copy-the-i2-analyze-configuration">Copy the i2 Analyze configuration</h2>
+<p>The i2 Analyze configuration is required by all servers that host components of i2 Analyze, except for the database server. In the <code>src/scripts</code> directory of the distributed deployment example, the <code>copyConfiguration</code> script copies the i2 Analyze configuration from the <code>src/configuration</code> directory to the <code>&lt;container_name&gt;/configuration</code> directory for each container.</p>
+<p>From the <code>src/scripts</code> directory, run the <code>copyConfiguration</code> script file.</p>
+<pre><code>./copyConfiguration
+</code></pre><h3 id="results">Results</h3>
+<p>In a non-Docker environment, copying the configuration is equivalent to the following steps:<br>Download and extract the i2 Analyze toolkit onto a server.</p>
+<p>Copy the <code>examples/configurations/information-store-opal/configuration</code> directory into the <code>toolkit</code> directory of your extracted i2 Analyze toolkit.</p>
+<p>You must populate the configuration for your environment, use the <code>src/configuration</code> directory as a reference. This is the centralized i2 Analyze toolkit and configuration that you copy to your servers.</p>
+<hr>
+<h2 id="build-the-prerequisite-images">Build the prerequisite images</h2>
+<p>In the distributed deployment example, some of the images are built on top of other images. The prerequisite images must be built first, as described in the following section.</p>
+<h3 id="ubuntu-toolkit-image">Ubuntu toolkit image</h3>
+<p>The <code>ubuntu_toolkit_image</code> is an image that contains the Ubuntu operating system with i2 Analyze installed and contains the i2 Analyze configuration.</p>
+<p>When you build the <code>ubuntu_toolkit_image</code>, the <code>i2analyze.tar.gz</code> that you copied into the <code>src/images/common/ubuntu_toolkit/i2analyze</code> directory as part of the Quick deploy is copied and extracted into the image.</p>
+<p>To build the Ubuntu toolkit image, run the following from the <code>src/images/common</code> folder:</p>
+<pre><code>docker build -t ubuntu_toolkit_image ubuntu_toolkit
+</code></pre><p>The Ubuntu toolkit image is created with the name <code>ubuntu_toolkit_image</code>.</p>
+<hr>
+<h2 id="configuring-and-running-the-containers">Configuring and running the containers</h2>
+<p>Each Docker container requires a Docker image. In a non-Docker environment, this is equivalent to configuring and starting a physical server that is used to host a component of i2 Analyze.</p>
+<h3 id="sql-server-container">SQL Server container</h3>
+<p>The SQL Server container is built from an image that is available from Microsoft on Docker hub, <a href="https://hub.docker.com/_/microsoft-mssql-server">https://hub.docker.com/_/microsoft-mssql-server</a>.</p>
+<p>To build the <code>sqlserver</code> image, run the following command from the <code>src/images/sqlserver</code>:</p>
+<pre><code>docker build -t sqlserver_image sqlserver
+</code></pre><p>Run the SQL Server container:</p>
+<pre><code>docker run -d -e &#39;ACCEPT_EULA=Y&#39; -e &quot;SA_PASSWORD=&lt;SAPassword&gt;&quot; --name sqlserver -p 1433:1433 --net eianet sqlserver_image
+</code></pre><p>Where <code>&lt;SAPassword&gt;</code> is a password for the system administrator user for the SQL Server container.</p>
+<p>Run the following command to add the i2 Analyze user with the required permissions:</p>
+<pre><code>docker exec -t sqlserver /opt/mssql-tools/bin/sqlcmd -U SA -P &lt;SAPassword&gt; -Q &quot;CREATE LOGIN i2analyze WITH PASSWORD = &#39;&lt;Password&gt;&#39;; CREATE USER i2analyze FOR LOGIN i2analyze; ALTER SERVER ROLE sysadmin ADD MEMBER i2analyze&quot;
+</code></pre><p>Where <code>&lt;SAPassword&gt;</code> is the same password that you entered in the previous command, and <code>&lt;Password&gt;</code> is the password that you specified in the <code>credentials.properties</code> file for the <code>db.infostore.password</code> credential.</p>
+<p>The container is started with SQL Server installed and running. The port number of the SQL Server instance is <code>1433</code>.</p>
+<h3 id="zookeeper-containers">ZooKeeper containers</h3>
+<p>ZooKeeper is the service that is used to maintain configuration information and distributed synchronization across Solr. In this deployment, ZooKeeper is distributed across three servers in a ZooKeeper Quorum. Your configured i2 Analyze toolkit must be installed on each Zookeeper server.</p>
+<p>To build the <code>zookeeper</code>, <code>zookeeper2</code>, and <code>zookeeper3</code> images, run the following commands from the <code>src/images/common</code> folder:</p>
+<pre><code>docker build -t zookeeper_image zookeeper
+docker build -t zookeeper2_image zookeeper2
+docker build -t zookeeper3_image zookeeper3
+</code></pre><p>Run the ZooKeeper containers:</p>
+<pre><code>docker run -d --name zookeeper --net eianet --memory=512m -u i2analyze zookeeper_image
+docker run -d --name zookeeper2 --net eianet --memory=512m -u i2analyze zookeeper2_image
+docker run -d --name zookeeper3 --net eianet --memory=512m -u i2analyze zookeeper3_image
+</code></pre><p>Check that the containers started correctly by using the docker logs:</p>
+<pre><code>docker logs -f zookeeper
+docker logs -f zookeeper2
+docker logs -f zookeeper3
+</code></pre><p>Inspect the <code>Dockerfile</code> in the <code>src/images/common/zookeeper</code> directory to see the commands that are required to configure a ZooKeeper server in a non-Docker environment.</p>
+<p>Each ZooKeeper container is started. The container starts and configures ZooKeeper, and hosts the ZooKeeper server. The <code>topology.xml</code> file in the i2 Analyze configuration defines the values for the ZooKeeper server.</p>
+<h3 id="admin-client-container">Admin client container</h3>
+<p>In this deployment, the Admin client is a separate server that is designed for running toolkit tasks in a distributed environment. Your configured i2 Analyze toolkit, and a Db2 client must be installed on the server that you want to use to interact with Liberty and Db2.</p>
+<p>To build the Admin client image, run the following command from the <code>src/images/sqlserver</code> folder:</p>
+<pre><code>docker build -t admin_client_sqlserver_image admin_client
+</code></pre><p>The Admin client image is created with the name <code>admin_client_sqlserver_image</code>.</p>
+<p>Run the Admin client container:</p>
+<pre><code>docker run -d --name admin_client --net eianet --memory=512m -u i2analyze admin_client_sqlserver_image
+</code></pre><p>Inspect the <code>Dockerfile</code> in the <code>src/images/sqlserver/admin_client</code> directory to see the commands that are required to configure the Admin client.</p>
+<p>Use the following format to run toolkit tasks by using the Admin Client:</p>
+<pre><code>docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t &lt;toolkit task&gt;
+</code></pre><h4 id="solr-configuration">Solr configuration</h4>
+<p>Before the Solr configuration can be created, all of the ZooKeeper hosts must be running. In the Docker environment, ensure that the ZooKeeper containers are running.</p>
+<p>You can create and upload the Solr configuration from the Admin client, or you can run the command from one of the ZooKeeper servers.</p>
+<p>To create the Solr configuration by using the Admin client, run the following command:</p>
+<pre><code>docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client.eianet
+</code></pre><p>The Solr configuration is created and uploaded.</p>
+<h3 id="solr-containers">Solr containers</h3>
+<p>Solr is used to manage the search index in a deployment of i2 Analyze. In this deployment, Solr is distributed across two servers. Your configured i2 Analyze toolkit must be installed on each Solr server.</p>
+<p>To build the Solr images, run the following commands from the <code>src/images/common</code> folder:</p>
+<pre><code>docker build -t solr_image solr
+docker build -t solr2_image solr2
+</code></pre><p>The Solr images are created with the names <code>solr_image</code> and <code>solr2_image</code>.</p>
+<p>Run the Solr containers:</p>
+<pre><code>docker run -d --name solr -p 8983:8983 --net eianet --memory=1g -u i2analyze solr_image
+docker run -d --name solr2 -p 8984:8984 --net eianet --memory=1g -u i2analyze solr2_image
+</code></pre><p>Check that the containers started correctly by using the docker logs:</p>
+<pre><code>docker logs -f solr
+docker logs -f solr2
+</code></pre><p>Inspect the <code>Dockerfile</code> in <code>src/images/common/solr</code> and <code>src/images/common/solr2</code> to see the commands that are required to configure a Solr server in a non-Docker environment.</p>
+<p>The images include an i2 Analyze <code>topology.xml</code> file that defines the values for the configuration of Solr. When the server starts, the appropriate Solr nodes are started.</p>
+<p>When you start the Solr container, the port that Solr runs on in the container is specified, in this example it is either <code>8983</code> or <code>8984</code>. The specified port is mapped on the host machine so that you can access Solr and the Solr Web UI from the host machine.</p>
+<p>After the Solr nodes are running, you can use the Solr Web UI to inspect the Solr and ZooKeeper configurations. Connect to the Solr Web UI on the <code>solr</code> container. In a web browser, go to the following URL to connect to the Solr Web UI: <a href="http://localhost:8983/solr/#">http://localhost:8983/solr/#</a>. The user name is <code>solradmin</code> and the password is the Solr password set in the <code>credentials.properties</code> file.  </p>
+<blockquote><p>Where the port number is the same as the one that is mapped to local machine when the Solr container is run.
+The URL uses <code>localhost</code> because the <code>8983</code> port is mapped from the host machine to the docker container. In a non-Docker environment, connect by using the host name of the Solr server.</p>
+</blockquote>
+<h4 id="solr-collection">Solr collection</h4>
+<p>Before the Solr collection can be created, all of the Solr nodes that the collection comprises must be running. In the Docker environment, ensure that both of the Solr containers are running.</p>
+<p>You can create the Solr collection from the Admin client, or you can run the command from one of the Solr servers.</p>
+<p>To create the Solr collection by using the Admin client, run the following command:</p>
+<pre><code>docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createSolrCollections --hostname admin_client.eianet
+</code></pre><p>The Solr collection is created.</p>
+<p>To test the Solr Collection, click <strong>Cloud</strong> in the Solr Web UI, or you can go to <a href="http://localhost:8983/solr/#/~cloud">http://localhost:8983/solr/#/~cloud</a>. The user name is <code>solradmin</code> and the password is the Solr password set in the <code>credentials.properties</code> file.
+A horizontal tree with the collection as the root is displayed. Here you can see the breakdown of the shards, nodes, and replicas on the collection.</p>
+<h4 id="create-the-information-store-database">Create the Information Store database</h4>
+<p>Create the Information Store database in the SQL Server instance on the SQL Server container.</p>
+<p>To create the Information Store database by using the Admin client, run the following command:</p>
+<pre><code>docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createDatabases
+</code></pre><p>To check that the database is created correctly, connect to the database. For example, connect by using SQL Server Management Studio. The user name is <code>i2analyze</code> and the password is the database password set in the <code>credentials.properties</code> file.</p>
+<blockquote><p>If you are using Windows 7, you must forward port <code>1433</code> from your Virtual Box virtual machine.)</p>
+</blockquote>
+<h3 id="liberty-container">Liberty container</h3>
+<p>The Liberty application server hosts the i2 Analyze application, and provides all of the REST services that the client uses. In this deployment, Liberty is deployed on its own server. Your configured i2 Analyze toolkit, and the SQL Server client tools must be installed on the Liberty server.</p>
+<p>To build the <code>liberty</code> image, run the following command from the <code>src/images/sqlserver</code> folder:</p>
+<pre><code>docker build -t liberty_sqlserver_image liberty
+</code></pre><p>The Liberty image is created with the name <code>liberty_sqlserver_image</code>.</p>
+<p>Run the Liberty container:</p>
+<pre><code>docker run -d --name liberty -p 9082:9082 -p 9445:9445 --net eianet --memory=2g -u i2analyze liberty_sqlserver_image
+</code></pre><p>The i2 Analyze application is installed on the Liberty server. Inspect the <code>Dockerfile</code> in the <code>src/images/sqlserver/liberty</code> directory to see the commands that are run to create the Liberty server in a non-Docker environment.</p>
+<p>The Liberty server is configured, and the <code>opal-server</code> is started.</p>
+<hr>
+<h2 id="results-1">Results</h2>
+<p>After you complete the previous instructions, i2 Analyze is deployed across five Docker containers. By inspecting the Dockerfiles and the toolkit tasks that are used in the previous commands, you can identify the steps that are required to replicate the distributed deployment in a non-Docker environment.</p>
+<hr>
+<h2 id="test-the-deployment">Test the deployment</h2>
+<p>To test the deployment, connect to i2 Analyze from Analyst&#39;s Notebook Premium. The URL that you use to connect is: <a href="http://i2demo:9082/opal">http://i2demo:9082/opal</a>.</p>
+<p>Log in using the user name <code>Jenny</code> with the password <code>Jenny</code>.</p>
+<p>You can use the <strong>Upload records</strong> function to add data to the Information Store, and then search for that data.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            &copy; N. Harris Computer Corporation (2022)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

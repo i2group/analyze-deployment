@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Clearing data from the system </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Clearing data from the system ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="guidetoc/toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                IBM <strong>i2 Analyze</strong>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+          
+          <div class="subnav navbar navbar-default">
+            <div class="container hide-when-search" id="breadcrumb">
+              <ul class="breadcrumb">
+                <li></li>
+              </ul>
+            </div>
+          </div>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="clearing-data-from-the-system">Clearing data from the system</h1>
+
+<p>During development, it is common to need to clear data from the i2 data stores.</p>
+<h2 id="before-you-begin">Before you begin</h2>
+<p>This process can permanently remove data from your system, ensure that no data is in the system that you want to keep.</p>
+<p>For information about making a backup of your deployment, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_back_up_and_recovery.html">Backing up a deployment</a>.</p>
+<h2 id="stopping-liberty">Stopping Liberty</h2>
+<p>Run the following command on the Liberty server to stop Liberty:</p>
+<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty
+</code></pre><p>The console output from the <code>stopLiberty</code> task is output directly to the console.</p>
+<h2 id="clearing-data-from-the-system-1">Clearing data from the system</h2>
+<p>To remove data from both the search index and the database, you can use the <code>clearData</code> toolkit task. For more information, see <a href="https://www.ibm.com/support/knowledgecenter/en/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/t_clearing_data.html">Clearing data from the system</a>.</p>
+<p>To clear the data, you can run the command from the Admin client or Liberty server. In the distributed deployment example, the <code>admin_client</code> container is used to run the command. The <code>admin_client</code> container includes the i2 Analyze toolkit and a database management client installation. You must run commands that modify the database and Solr and ZooKeeper from this container.</p>
+<p>To clear the data, run the following command:</p>
+<pre><code>docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearData --hostname admin_client.eianet
+</code></pre><p>The database is now clear of data and the search index is now empty.</p>
+<p>The database still exists with the structure from the schema. If you want to make destructive schema changes, follow the instructions in <a href="configure_system_reset.html">Resetting the system</a>.</p>
+<h2 id="restarting-your-system">Restarting your system</h2>
+<p>To restart Liberty, run the following command:</p>
+<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty
+</code></pre><p>The console output from the <code>startLiberty</code> task is output directly to the console.</p>
+<p>Liberty is now started and you can connect to i2 Analyze.</p>
+<h2 id="testing-the-deployment">Testing the deployment</h2>
+<p>Connect to i2 Analyze and search for data. If you perform a wildcard search for <code>*</code>, all of the data in your system is returned. After you run <code>clearData</code>, this search returns no results.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            &copy; N. Harris Computer Corporation (2022)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

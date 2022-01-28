@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Quick deploy </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Quick deploy ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="guidetoc/toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                IBM <strong>i2 Analyze</strong>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+          
+          <div class="subnav navbar navbar-default">
+            <div class="container hide-when-search" id="breadcrumb">
+              <ul class="breadcrumb">
+                <li></li>
+              </ul>
+            </div>
+          </div>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="quick-deploy">Quick deploy</h1>
+
+<p>To deploy the distributed deployment example, scripts are provided that copy any prerequisites and build the docker images, then run the docker containers automatically.</p>
+<blockquote><p><strong>Important</strong>: The distributed example uses a Docker environment to demonstrate a distributed deployment of i2 Analyze. The Docker environment is not designed to be used on customer sites for test or production systems. After you understand how the distributed deployment is deployed, replicate the deployment on physical servers.</p>
+<p>Note: To deploy the distributed deployment example manually with detailed explanation about all of the steps, see <a href="deploy_walk_through_sqlserver.html">Deploying the example manually on SQL Server</a> and <a href="deploy_walk_through_db2.html">Deploying the example manually on Db2</a>.</p>
+<p>Note: If you deployed the distributed deployment example previously, ensure that you clean your environment before you start the manual deployment. For more information about how to clean your system, see <a href="deploy_clean_environment.html">Cleaning your environment</a>.</p>
+</blockquote>
+<h2 id="prerequisites-for-the-distributed-deployment-example">Prerequisites for the distributed deployment example</h2>
+<p>Download, install, and configure the prerequisites for the distributed deployment example.</p>
+<h3 id="bash-shell">Bash shell</h3>
+<p>The scripts that are used in the distributed deployment example are Shell scripts. If you are running the distributed deployment example on Windows, you must be able to run Shell scripts.</p>
+<p>To run Shell scripts, you can use Cygwin. You can download Cygwin from <a href="https://www.cygwin.com/">https://www.cygwin.com/</a>. When you install Cygwin, ensure that you install the Bash plugin. After you install Cygwin, add the <code>bin</code> directory of the installation to your path environment variable.</p>
+<p>To run the scripts in the distributed example, start <code>Cygwin.bat</code> from the command line in the <code>cygwin64</code> directory.</p>
+<h3 id="docker">Docker</h3>
+<p>You must install <em>Docker CE</em> for your operating system. For more information about installing Docker CE, see <a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a>.</p>
+<blockquote><p>If you are using Windows 7, you must install Docker Toolbox. For information about installing Docker Toolbox, see <a href="https://docs.docker.com/docker-for-windows/docker-toolbox/">https://docs.docker.com/docker-for-windows/docker-toolbox/</a>.<br>If you are using Windows 7, use Oracle Virtual Box to host your Docker virtual machine.</p>
+</blockquote>
+<p>After you install Docker, you must ensure that is Docker initialized in your command line environment.</p>
+<blockquote><p>If you are using Windows 7, you must run the following command to initialize the Docker command line environment in your console:</p>
+<pre><code class="lang-sh">@FOR /f &quot;tokens=*&quot; %i IN (&#39;docker-machine env --shell cmd default&#39;) DO @%i
+</code></pre><p>Where <em>default</em> is the name of your virtual machine.</p>
+</blockquote>
+<p>To test that your Docker command line environment is initialized correctly, run the following command:  </p>
+<pre><code class="lang-sh">docker run hello-world
+</code></pre><h3 id="example-code">Example code</h3>
+<p>Clone or download the distributed deployment example from <a href="https://github.com/i2group/analyze-deployment/releases">https://github.com/i2group/analyze-deployment/releases</a>.</p>
+<h3 id="analysts-notebook-premium">Analyst&#39;s Notebook Premium</h3>
+<p>Download <em>i2 Analyst&#39;s Notebook Premium</em> version 9.3.1 by using the usual mechanism.</p>
+<p>Install Analyst&#39;s Notebook Premium with the Opal connector on a Windows machine that can access the machine where Docker is running.</p>
+<blockquote><p>Note: If you are running Docker on Mac OS, you can install Analyst&#39;s Notebook Premium on a Windows virtual machine.</p>
+</blockquote>
+<p>For more information, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.deploy.example.doc/installing_anbp.html">Installing IBM i2 Analyst&#39;s Notebook Premium</a>.</p>
+<h3 id="i2-analyze">i2 Analyze</h3>
+<p>Download i2 Analyze for Linux. You download the <code>IBM_I2A_V4.3.5_LINUX.tar.gz</code> version 4.3.5 by using the usual mechanism.</p>
+<p>Rename the <code>.tar.gz</code> file to <code>i2analyze.tar.gz</code>, then copy it to the <code>src/images/common/ubuntu_toolkit/i2analyze</code> directory.</p>
+<p>Accept the i2 Analyze license by opening <code>license_acknowledgment.txt</code> in the <code>src/images/common/ubuntu_toolkit/i2analyze</code> directory and changing the value of <code>LIC_AGREEMENT</code> to <code>ACCEPT</code>.</p>
+<p>Add the <code>mssql-jdbc-7.4.1.jre11.jar</code> file to the <code>src/configuration/environment/common/jdbc-drivers</code> directory.<br>You must create the <code>common/jdbc-drivers</code> directories.</p>
+<blockquote><p>Note: Download the Microsoft JDBC Driver 7.4 for SQL Server from <a href="https://www.microsoft.com/download/details.aspx?id=58505">Microsoft JDBC Driver 7.4 for SQL Server</a>. Extract the contents of the <code>tar.gz</code>, and locate the <code>sqljdbc_7.4\enu\mssql-jdbc-7.4.1.jre11.jar</code> file.</p>
+</blockquote>
+<h3 id="specifying-the-credentials">Specifying the credentials</h3>
+<p>You must specify the credentials for a deployment in the <code>src/configuration/environment/credentials.properties</code>. Set the passwords to be used for the Information Store, Solr, and the LTPA keys.</p>
+<p>The password that you specify for the Information Store must be at least 8 characters long and contain characters from three of the following four sets: Uppercase letters, Lowercase letters, Base 10 digits, and Symbols.</p>
+<p>For more information about the credentials file, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/t_specifying_credentials.html">Modifying the credentials</a>.
+To complete the quick deployment, enter passwords for the <code>db.infostore.password</code>, <code>solr.password</code>, and <code>ltpakeys.password</code> credentials.</p>
+<hr>
+<h2 id="build-the-docker-images">Build the Docker images</h2>
+<p>In the <code>src/scripts</code> directory, run the <code>buildImages</code> file:</p>
+<pre><code class="lang-sh">./buildImages
+</code></pre><p>The first time that you run this script, it might take about 15 minutes to complete. After, a cache is used and this process is quicker.</p>
+<p>Check that the images built correctly by using the Docker <code>images</code> command:</p>
+<pre><code class="lang-sh">docker images
+</code></pre><p>The following images must be listed: <code>sqlserver_image</code>, <code>zookeeper_image</code>, <code>zookeeper2_image</code>, <code>zookeeper3_image</code>, <code>solr_image</code>, <code>solr2_image</code>, <code>admin_client_sqlserver_image</code>, <code>liberty_sqlserver_image</code>, and <code>ubuntu_toolkit_image</code>.</p>
+<h2 id="run-the-docker-containers">Run the Docker containers</h2>
+<p>In the <code>src/scripts</code> directory, run the <code>runContainers</code> file:</p>
+<pre><code class="lang-sh">./runContainers
+</code></pre><p>You are prompted to enter a password for the <code>SA</code> user, this is the system administrator user for the SQL Server container. The password that you specify must be at least 8 characters long and contain characters from three of the following four sets: Uppercase letters, Lowercase letters, Base 10 digits, and Symbols.</p>
+<p>You are prompted to enter a password for the <code>i2analyze</code> user. Enter the password that you specified in the <code>credentials.properties</code> file for the <code>db.infostore.password</code> credential.</p>
+<p>After the script in the <code>runContainers</code> file completes, all the containers are run and i2 Analyze is deployed.</p>
+<hr>
+<h2 id="test-the-deployment">Test the deployment</h2>
+<p>To configure Windows to connect to the Docker container by using the specified URL, you must change the <code>hosts</code> file.<br>Open a command prompt as ADMINISTRATOR, and navigate to the following location:
+<code>C:\Windows\System32\drivers\etc</code>.</p>
+<p>Open the <code>hosts</code> file in a text editor. At the end of the file, add your IP Address followed by <code>i2demo</code>. For example:</p>
+<pre><code class="lang-sh">127.0.0.1 i2demo
+</code></pre><blockquote><p><strong>NOTE</strong>:
+You must run Analyst&#39;s Notebook Premium on Windows. If you deploy the distributed deployment example on MAC, you can use a Windows virtual machine to host Analyst&#39;s Notebook Premium. For your virtual machine to connect to i2 Analyze, complete the following:</p>
+<p>On your MAC terminal, run <code>ifconfig</code> and identify the IP address for your virtual machine in a section such as <code>vmnet1</code>. For example, <code>172.16.100.1</code>.</p>
+<p>Then, on your Windows virtual machine add the following line to the <code>C:\Windows\System32\drivers\etc\hosts</code> file:</p>
+<pre><code class="lang-sh">172.16.100.1 i2demo
+</code></pre><p>For Windows 7, you must also forward the required ports from your local machine to the virtual machine that hosts Docker.</p>
+<p>In the network settings for your docker virtual machine, open the <strong>Advanced</strong> menu and click <strong>Port Forwarding</strong>. Create a new line, and enter values for the <code>Host IP</code>, <code>Host Port</code>, and <code>Guest Port</code>. To connect to i2 Analyze, set the value of <code>Guest Port</code> to <code>9082</code>.</p>
+</blockquote>
+<p>To test the deployment, connect to i2 Analyze from Analyst&#39;s Notebook Premium. The URL that you use to connect is: <code>http://i2demo:9082/opal</code>.</p>
+<p>Log in using the user name <code>Jenny</code> with the password <code>Jenny</code>.</p>
+<p>Use the <strong>Upload records</strong> functionality to add data to the Information Store, and then search for that data.</p>
+<hr>
+<h2 id="what-to-do-next">What to do next</h2>
+<p>To understand the distributed deployment example, what is deployed, and how it is deployed, complete the detailed instructions in <a href="deploy_walk_through_sqlserver.html">deploying the example manually</a>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            &copy; N. Harris Computer Corporation (2022)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

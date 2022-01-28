@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Resetting the system </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Resetting the system ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="guidetoc/toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                IBM <strong>i2 Analyze</strong>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+          
+          <div class="subnav navbar navbar-default">
+            <div class="container hide-when-search" id="breadcrumb">
+              <ul class="breadcrumb">
+                <li></li>
+              </ul>
+            </div>
+          </div>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="resetting-the-system">Resetting the system</h1>
+
+<p>During development, to make destructive schema changes or to completely change your schema, you must recreate the Information Store database.</p>
+<h2 id="before-you-begin">Before you begin</h2>
+<p>This process can permanently remove data and the database from your system, ensure that no data is in the system that you want to keep.</p>
+<p>For more information about making a backup of your deployment, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_back_up_and_recovery.html">Backing up a deployment</a>.</p>
+<h2 id="stopping-liberty">Stopping Liberty</h2>
+<p>Run the following command on the Liberty server to stop Liberty:</p>
+<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty
+</code></pre><p>The console output from the <code>stopLiberty</code> task is output directly to the console.</p>
+<h2 id="clearing-the-search-index">Clearing the search index</h2>
+<p>To clear the search index, you can run the commands from the Admin client or Liberty server. In the distributed deployment example, the <code>admin_client</code> container is used to run the command. The <code>admin_client</code> container includes the i2 Analyze toolkit and a database management system client installation. You can run commands that modify the database and Solr from this container.</p>
+<p>To clear the search index, run the following command:</p>
+<pre><code>docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearSearchIndex --all --hostname admin_client.eianet
+</code></pre><p>The search index is cleared, however any data that was in the database remains in the database.</p>
+<h2 id="removing-databases-from-the-system">Removing databases from the system</h2>
+<p>To remove the database from your system, you can use the <code>dropDatabases</code> toolkit task. For more information, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/t_drop_databases.html">Removing databases from the system</a>.</p>
+<p>To drop the database, you must ensure that there are no active connections to it.</p>
+<h3 id="stopping-active-connections-to-your-sql-server-database">Stopping active connections to your SQL Server database</h3>
+<p>You can identify the active connections to the database by running the following command:</p>
+<pre><code>docker exec sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U i2analyze -P Passw0rd -Q &quot;EXEC SP_WHO2&quot;
+</code></pre><p>If the command returns no results, or there are no rows in the list with a <em>DBName</em> of <code>ISTORE</code>, there are no active connections to the Information Store.</p>
+<p>Otherwise, make a note of all the values in the <code>SPID</code> column with a <em>DBName</em> of <code>ISTORE</code>.</p>
+<p>The following is an example of how to stop an active connection with the SPID of <code>54</code>:</p>
+<pre><code>docker exec sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U i2analyze -P Passw0rd -Q &quot;KILL 54&quot;
+</code></pre><p>Any connections that you stop in this way are not in the list when you run the command to identify the active connections.</p>
+<h3 id="stopping-active-connections-to-your-db2-database">Stopping active connections to your Db2 database</h3>
+<p>You can identify the active connections to the database by running the following command:</p>
+<pre><code>docker exec -u i2analyze -t db2 bash -c &quot;. /home/db2inst1/sqllib/db2profile &amp;&amp; db2 list applications&quot;
+</code></pre><p>If the command returns the <code>No data was returned by Database System Monitor</code> warning, or there are no rows in the list with a <em>DB Name</em> of <code>ISTORE</code>, there are no active connections to the Information Store.</p>
+<p>Otherwise, make a note of all of the values in the <code>Appli. Handle</code> column with a <em>DB Name</em> of <code>ISTORE</code>.</p>
+<p>The following is an example of how to stop two active connections with the application handles of <code>1414</code> and <code>1415</code>:</p>
+<pre><code>docker exec -u i2analyze -t db2 bash -c &quot;. /home/db2inst1/sqllib/db2profile &amp;&amp; db2 &#39;force application (1414, 1415)&#39;&quot;
+</code></pre><p>Any connections that you stop in this way are not in the list when you run the command to identify the active connections.</p>
+<h3 id="drop-the-database">Drop the database</h3>
+<p>After you ensure that there are no active connections to your database, you can drop the database by running the following command:
+In SQL Server:</p>
+<pre><code>docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t dropDatabases --hostname admin_client.eianet
+</code></pre><p>In Db2:</p>
+<pre><code>docker exec -u i2analyze -it admin_client bash -c &quot;. /home/db2inst1/sqllib/db2profile &amp;&amp; /opt/IBM/i2analyze/toolkit/scripts/setup -t dropDatabases --hostname admin_client.eianet&quot;
+</code></pre><p>The <code>ISTORE</code> database is removed.</p>
+<h3 id="recreating-the-database">Recreating the database</h3>
+<p>Before you can restart i2 Analyze, you must recreate the database.</p>
+<p>To create the database, run the following command:
+In SQL Server:</p>
+<pre><code>docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createDatabases
+</code></pre><p>In Db2:</p>
+<pre><code>docker exec -u i2analyze -t admin_client bash -c &quot;. /home/db2inst1/sqllib/db2profile &amp;&amp; /opt/IBM/i2analyze/toolkit/scripts/setup -t createDatabases&quot;
+</code></pre><p>You must start Liberty:</p>
+<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty
+</code></pre><p>The console output from the <code>startLiberty</code> task is output directly to the console.</p>
+<p>Liberty is now started and you can connect to i2 Analyze.</p>
+<h2 id="testing-the-deployment">Testing the deployment</h2>
+<p>Connect to i2 Analyze and search for data. If you perform a wildcard search for <code>*</code>, all of the data in your system is returned. After you remove the database from the system, this search returns no results.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            &copy; N. Harris Computer Corporation (2022)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

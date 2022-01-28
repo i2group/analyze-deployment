@@ -1,0 +1,456 @@
+{
+  "homepages": [],
+  "source_base_path": "/Users/ah102131/git/analyze-deployment-internal/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "configure_change_schema.md",
+      "output": {
+        ".html": {
+          "relative_path": "configure_change_schema.html",
+          "hash": "ZIgVWuhuZBSu/TxVJgObxg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "configure_change_security_schema.md",
+      "output": {
+        ".html": {
+          "relative_path": "configure_change_security_schema.html",
+          "hash": "mdi5+sLXREbtmqbzIImMjA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "configure_liberty.md",
+      "output": {
+        ".html": {
+          "relative_path": "configure_liberty.html",
+          "hash": "oVx+ihtPJC6lvW3ZMMA+aA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "configure_search_facets.md",
+      "output": {
+        ".html": {
+          "relative_path": "configure_search_facets.html",
+          "hash": "feHBjSoBgKYVwE38wAjQpg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "configure_search_vq.md",
+      "output": {
+        ".html": {
+          "relative_path": "configure_search_vq.html",
+          "hash": "/vOeq3C4wNsQNbBedC8Q+w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "configure_solr_add_node.md",
+      "output": {
+        ".html": {
+          "relative_path": "configure_solr_add_node.html",
+          "hash": "cGdTEPYqxqDmUu7XkhLPIg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "configure_solr_add_replica.md",
+      "output": {
+        ".html": {
+          "relative_path": "configure_solr_add_replica.html",
+          "hash": "qwYiQLH/QUYMJl4V/XDM3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "configure_solr_add_shard.md",
+      "output": {
+        ".html": {
+          "relative_path": "configure_solr_add_shard.html",
+          "hash": "V5bCfDPeiJGFgdsge9IFMw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "configure_solr_change_node_memory.md",
+      "output": {
+        ".html": {
+          "relative_path": "configure_solr_change_node_memory.html",
+          "hash": "5G/85udVHqQFZP+YNywIsg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "configure_solr_collection.md",
+      "output": {
+        ".html": {
+          "relative_path": "configure_solr_collection.html",
+          "hash": "RZwb3w56HNsShn617w4CLw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "configure_solr_method.md",
+      "output": {
+        ".html": {
+          "relative_path": "configure_solr_method.html",
+          "hash": "j6ImZJhdUcgxkI6DbKpX7Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "configure_system_clear_data.md",
+      "output": {
+        ".html": {
+          "relative_path": "configure_system_clear_data.html",
+          "hash": "uW/3i3nEZ2OBvG/4HfG4+A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "configure_system_reset.md",
+      "output": {
+        ".html": {
+          "relative_path": "configure_system_reset.html",
+          "hash": "LP5b3S+/qVULOSyFH12OPA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "deploy_change_database_management_system.md",
+      "output": {
+        ".html": {
+          "relative_path": "deploy_change_database_management_system.html",
+          "hash": "Gc7niHUxmiIUugp2wzjfgA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "deploy_clean_environment.md",
+      "output": {
+        ".html": {
+          "relative_path": "deploy_clean_environment.html",
+          "hash": "U31SPwn530Il1muGpjpspw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "deploy_etl_client.md",
+      "output": {
+        ".html": {
+          "relative_path": "deploy_etl_client.html",
+          "hash": "px/OvA/ghdHnPjW0ZjkWHA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "deploy_i2_connect.md",
+      "output": {
+        ".html": {
+          "relative_path": "deploy_i2_connect.html",
+          "hash": "NYI/dRxx/ybDNGYhlY7ddw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "deploy_quick_start.md",
+      "output": {
+        ".html": {
+          "relative_path": "deploy_quick_start.html",
+          "hash": "Cp6YHq3B9AjWW5Bwbx9t/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "deploy_walk_through_db2.md",
+      "output": {
+        ".html": {
+          "relative_path": "deploy_walk_through_db2.html",
+          "hash": "PPW2uBNX+smYAu5+eTHe/A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "deploy_walk_through_http.md",
+      "output": {
+        ".html": {
+          "relative_path": "deploy_walk_through_http.html",
+          "hash": "lFni2h6ArEh6Y+RWYmTsnw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "deploy_walk_through_sqlserver.md",
+      "output": {
+        ".html": {
+          "relative_path": "deploy_walk_through_sqlserver.html",
+          "hash": "0BOWS/sCfSQ1GeDCSgnOaw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "guidetoc/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "guidetoc/toc.html",
+          "hash": "ZKQEUL3zJxbZjeOCWvt9zw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/distributed_topology.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/distributed_topology.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/distributed_topology.vsd",
+      "output": {
+        "resource": {
+          "relative_path": "images/distributed_topology.vsd"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/distributed_topology_ssl.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/distributed_topology_ssl.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/distributed_topology_ssl.vsd",
+      "output": {
+        "resource": {
+          "relative_path": "images/distributed_topology_ssl.vsd"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "WXxssAw+4+u0f31wjaQ7rQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "securing_certificates.md",
+      "output": {
+        ".html": {
+          "relative_path": "securing_certificates.html",
+          "hash": "OoVGlT9dH2jvw12Dos1sFg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "securing_ssl.md",
+      "output": {
+        ".html": {
+          "relative_path": "securing_ssl.html",
+          "hash": "D7kzxIIn2W6/sR1aZEAhKQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "OTaN9w1rpEok0EYZo5Mpag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "understand_example.md",
+      "output": {
+        ".html": {
+          "relative_path": "understand_example.html",
+          "hash": "oktKH7n+FJQQGDKwDPUZEA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "understand_example_docker.md",
+      "output": {
+        ".html": {
+          "relative_path": "understand_example_docker.html",
+          "hash": "Cb8Ra4DoP5pr6Df32kcHow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "upgrade_walk_through.md",
+      "output": {
+        ".html": {
+          "relative_path": "upgrade_walk_through.html",
+          "hash": "QqY1sr4LNDiC6fXao1OFdg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 27,
+          "skipped_file_count": 27
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

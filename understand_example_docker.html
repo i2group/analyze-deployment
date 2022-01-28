@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Understanding Docker in the distributed deployment example </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Understanding Docker in the distributed deployment example ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="guidetoc/toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                IBM <strong>i2 Analyze</strong>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+          
+          <div class="subnav navbar navbar-default">
+            <div class="container hide-when-search" id="breadcrumb">
+              <ul class="breadcrumb">
+                <li></li>
+              </ul>
+            </div>
+          </div>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="understanding-docker-in-the-distributed-deployment-example">Understanding Docker in the distributed deployment example</h1>
+
+<p>The distributed deployment example demonstrates how to build a distributed deployment of i2 Analyze on multiple servers. To avoid the need for multiple physical servers, Docker is used to simulate the servers.</p>
+<h2 id="docker">Docker</h2>
+<p>Docker is used to build and maintain Docker images and containers.
+For more information about Docker, see <a href="https://docs.docker.com/get-started/overview/#the-docker-platform">Docker overview</a>.</p>
+<h3 id="docker-containers-and-images">Docker containers and images</h3>
+<p>A Docker container represents a physical server in a non-Docker environment. In the distributed deployment example i2 Analyze is deployed across the Docker containers, this represents the deployment of i2 Analyze across physical servers in a non-Docker environment.</p>
+<p>In the example, there are Docker images and containers for the servers that host the components of i2 Analyze. Additionally, the Ubuntu toolkit image has the files that make up Ubuntu with the i2 Analyze toolkit installed and the base configuration image contains the i2 Analyze configuration files that are not modified as part of this example. In a non-Docker environment, this might be a server that you are not using as part of the deployment.</p>
+<p>To simulate starting a server, run a container from its corresponding image.</p>
+<p>For more information about Docker containers and images, see <a href="https://docs.docker.com/get-started/overview/#docker-objects">Docker objects</a>.</p>
+<h3 id="dockerfiles">Dockerfiles</h3>
+<p>In the distributed deployment example, <code>Dockerfiles</code> are used to define what is installed onto the file system and what is run on startup of the server.</p>
+<p>For more information about <code>Dockerfile</code> definitions, see <a href="https://docs.docker.com/engine/reference/builder/#format">Dockerfile format</a>.</p>
+<p>The <code>Dockerfiles</code> are in each <code>src/images/&lt;container_name&gt;</code> directory. You can use a text editor to inspect the <code>Dockerfiles</code>. The <code>Dockerfiles</code> contain the commands that are used to build the Docker image.</p>
+<p>Some commands in the <code>Dockerfiles</code> are specific to Docker, and required for the distributed deployment example to work in a Docker environment. However, all of the actions or commands that a system implementer must complete in a non-Docker environment are surfaced here. To identify the commands a system implementer requires, you must understand the <code>Dockerfiles</code>.</p>
+<p>The following instructions are used in commands in the <code>Dockerfiles</code>:</p>
+<ul>
+<li><p>The <code>COPY</code> instruction copies files or directories to the file system of the container.</p>
+<p>To replicate the <code>COPY</code> instruction in a non-Docker environment, copy the files or directories to same location on the physical server that the container represents.</p>
+</li>
+<li><p>The <code>RUN</code> instruction runs commands that add files into the image. It is used to run installers, toolkit commands, and other commands that add files into the image.  </p>
+<p>To replicate the <code>RUN</code> instruction in a non-Docker environment, run the same commands in the same order on the physical server that the container represents.</p>
+</li>
+<li><p>The <code>ENTRYPOINT</code> instruction represents commands that are run at server startup.</p>
+<p>To replicate the <code>ENTRYPOINT</code> instruction in a non-Docker environment, run the same command on the physical server that the container represents.</p>
+<blockquote><p>The <code>ENTRYPOINT</code> also has a command that never completes so that the Docker container continues to run. For example, <code>&amp;&amp; tail -f /dev/null</code>. This applies to the Docker environment only.</p>
+</blockquote>
+</li>
+<li><p>The <code>EXPOSE</code> instruction lists the ports that the container listens on.<br>  This is used so that the host machine can access these ports on the Docker network that the containers use.</p>
+</li>
+<li><p>The <code>ENV</code> instruction sets the host name of the Docker container. The host names are used in the <code>topology.xml</code>.</p>
+</li>
+</ul>
+<p>Extra instructions in the <code>Dockerfiles</code>:</p>
+<ul>
+<li>The <code>FROM</code> and <code>MAINTAINER</code> instructions complete Docker specific configuration, and do not need to be replicated in a non-Docker environment.</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            &copy; N. Harris Computer Corporation (2022)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Adding Solr shards to your deployment </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Adding Solr shards to your deployment ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="guidetoc/toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                IBM <strong>i2 Analyze</strong>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+          
+          <div class="subnav navbar navbar-default">
+            <div class="container hide-when-search" id="breadcrumb">
+              <ul class="breadcrumb">
+                <li></li>
+              </ul>
+            </div>
+          </div>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="adding-solr-shards-to-your-deployment">Adding Solr shards to your deployment</h1>
+
+<p>You can modify the Solr configuration by using the <em>Solr Collections API</em>. After you change the Solr collection in a live deployment, replicate the changes in the definition of how the Solr collection is created.</p>
+<h2 id="overview">Overview</h2>
+<p>When you first deploy i2 Analyze, you should create a Solr collection that comprises enough shards to satisfy your future data requirements.</p>
+<p>If your data requirements change, you can add more shards to your deployment.</p>
+<h2 id="adding-a-shard-to-the-solr-collection-definition">Adding a shard to the Solr collection definition</h2>
+<p>After you identify the number of shards that you require, add them to your Solr collection definition:</p>
+<ul>
+<li>If your Solr collection is configured by the <code>createSolrCollection</code> script, increase the number of shards for your collection in the <code>CREATE</code> call to the Solr Collections API.</li>
+<li>If your Solr collection is configured by the toolkit, increase the value of the <code>num-shards</code> attribute for your collection in the <code>topology.xml</code> file.</li>
+</ul>
+<p>The next time that the Solr collection is created by the toolkit, it is created with the number of shards that you specify.</p>
+<p>The following steps are only required when you want to add a shard to a live deployment.</p>
+<hr>
+<h2 id="adding-a-shard-to-a-live-collection">Adding a shard to a live collection</h2>
+<p>In the Solr collections that are created by i2 Analyze, the <code>compositeId</code> router is used, which means that you cannot add shards explicitly. To add a shard to an existing collection, you must split an existing one.</p>
+<p>If you add a shard to a live collection, you must replicate the same changes to your Solr collection creation definition.</p>
+<h3 id="splitting-a-shard">Splitting a shard</h3>
+<p>To split <code>shard1</code> in the distributed deployment example, enter the following line into the URL field in a web browser:</p>
+<pre><code>http://localhost:8983/solr/admin/collections?action=SPLITSHARD&amp;collection=main_index&amp;shard=shard1
+</code></pre><p>This sends a REST call to the Solr Collections API to split <code>shard1</code>.</p>
+<p>For more information about the <code>SPLITSHARD</code> call, see <a href="https://lucene.apache.org/solr/guide/6_6/collections-api.html#CollectionsAPI-splitshard">SPLITSHARD: Split a shard</a>.</p>
+<p>The process of splitting a shard creates two new shards from the original shard. When a shard is split, the names of the two new shards that are created are the name of the original shard that is suffixed with <code>_0</code> and <code>_1</code>.</p>
+<p>The original shard becomes inactive as soon as the new shards and their replicas are up.</p>
+<p>The replication factor of the original shard is maintained. If your shard had two replicas, when it is split each new shard also has two replicas.</p>
+<blockquote><p>Note: The new shards are always placed on the same node as the parent shard.</p>
+</blockquote>
+<h3 id="deleting-the-inactive-shard">Deleting the inactive shard</h3>
+<p>You can remove the inactive <code>shard1</code> from the collection.</p>
+<p>To delete the shard, enter the following line into the URL field in a web browser and press <strong>Enter</strong>:</p>
+<pre><code>http://localhost:8983/solr/admin/collections?action=DELETESHARD&amp;shard=shard1&amp;collection=main_index
+</code></pre><p>This sends a REST call to the Solr Collections API to delete <code>shard1</code>.</p>
+<p>For more information about the <code>DELETESHARD</code> call, see <a href="https://lucene.apache.org/solr/guide/6_6/collections-api.html#CollectionsAPI-deleteshard">DELETESHARD: Delete a shard</a>.</p>
+<p>You can now either test or the deployment, or move the new shard to another Solr node.</p>
+<hr>
+<h2 id="moving-a-shard-to-another-node">Moving a shard to another node</h2>
+<p>If you want to move one of the new split shards, you must create a replica of it on another node and then delete the original. To create the REST call to do this, you must know the collection name, the shard to replicate, and the node to add the replica to.</p>
+<p>To identify the node name, navigate to the <em>Tree View</em> of SolrCLoud in the Solr Web UI on any of your running Solr servers.
+For example:</p>
+<pre><code>http://localhost:8983/solr/#/~cloud?view=tree
+</code></pre><p>Go to <code>/live_nodes</code> and choose the name of the node that you want to move your replica to. For example:</p>
+<pre><code>solr3.eianet:8985_solr
+</code></pre><blockquote><p>Note: Only live Solr nodes are displayed.</p>
+</blockquote>
+<p>To add a replica of the new <code>shard1_1</code> shard to the new Solr node 3, paste the following line into your browser:</p>
+<pre><code>http://localhost:8983/solr/admin/collections?action=ADDREPLICA&amp;collection=main_index&amp;shard=shard1_1&amp;node=solr3.eianet:8985_solr
+</code></pre><p>This sends a REST call to the Solr Collections API to create a replica of <code>shard1_1</code> on <code>solr3</code> that is on port 8985.</p>
+<p>For more information about the <code>ADDREPLICA</code> call, see <a href="https://lucene.apache.org/solr/guide/6_6/collections-api.html#CollectionsAPI-addreplica">ADDREPLICA: Add replicas</a>.</p>
+<h3 id="deleting-the-original-replica">Deleting the original replica</h3>
+<p>To delete the original replica that was created when the shard was split, you must have the name of the replica to remove.
+To get the replica name, go to the <em>Tree View</em> of SolrCLoud in the Solr Web UI.</p>
+<p>For example:</p>
+<pre><code>http://localhost:8983/solr/#/~cloud?view=tree
+</code></pre><p>Go to <code>/collections/main_index/state.json</code>.
+This file describes the composition of your collection.
+Identify the replica to delete by looking at the shard that the replica replicates, and the node that the replica is located.</p>
+<p>In this example, the replica to remove is  <code>shards.shard1_1.replicas.core_node6</code>.</p>
+<p>To delete this replica, paste the following line into your browser:</p>
+<pre><code>http://localhost:8983/solr/admin/collections?action=DELETEREPLICA&amp;collection=main_index&amp;shard=shard1_1&amp;replica=core_node6
+</code></pre><p>This sends a REST call to the Solr Collections API to delete the first replica of <code>shard1_1</code> that was on node <code>solr2</code>.</p>
+<p>For more information about the <code>DELETEREPLICA</code> call, see <a href="https://lucene.apache.org/solr/guide/6_6/collections-api.html#CollectionsAPI-deletereplica">DELETEREPLICA: Delete a replica</a>.</p>
+<hr>
+<h2 id="testing-the-deployment">Testing the deployment</h2>
+<p>To test that the system continues to work, create and search for data by using Quick Search in Analyst&#39;s Notebook Premium.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            &copy; N. Harris Computer Corporation (2022)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

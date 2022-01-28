@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Change the database management system of your example </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Change the database management system of your example ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                IBM <strong>i2 Analyze</strong>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+          
+          <div class="subnav navbar navbar-default">
+            <div class="container hide-when-search" id="breadcrumb">
+              <ul class="breadcrumb">
+                <li></li>
+              </ul>
+            </div>
+          </div>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="change-the-database-management-system-of-your-example">Change the database management system of your example</h1>
+
+<p>You can deploy the distributed example with the Information Store on IBM Db2 or Microsoft SQL Server. After you deploy your example, you can change the configuration so that the database is on the other management system.</p>
+<p>When you run the script that changes the database management system of the deployment, the following tasks are completed:</p>
+<ul>
+<li>The required Docker images are built</li>
+<li>The required Docker containers are run</li>
+<li>The i2 Analyze configuration is updated</li>
+<li>The Information Store database is created</li>
+<li>i2 Analyze is deployed and started</li>
+</ul>
+<p>This is process is not representative of an activity that you should complete in a non-Docker environment. In a non-Docker environment you must remove the initial deployment, and redeploy with your chosen database management system. The following process must only be used in the example Docker environment.</p>
+<blockquote><p>Note: If you deployed the example with one of the configurations in the <code>configuration_mods</code> directory or changed the <code>topology.xml</code> file. Reset your example deployment to the base configuration before you deploy with Db2. To reset your environment, run the following command from the <code>src/scripts</code> directory:</p>
+<pre><code>./resetEnvironment
+</code></pre></blockquote>
+<p>To change the database management system to use IBM Db2, see <a href="#change-the-deployment-to-use-ibm-db2">Change the deployment to use IBM Db2</a>.<br>To change the database management system to use Microsoft SQL Server, see <a href="#change-the-deployment-to-use-microsoft-sql-server">Change the deployment to use Microsoft SQL Server</a>.</p>
+<hr>
+<h2 id="change-the-deployment-to-use-ibm-db2">Change the deployment to use IBM Db2</h2>
+<h3 id="prerequisites-for-the-distributed-deployment-example-with-ibm-db2">Prerequisites for the distributed deployment example with IBM Db2</h3>
+<p>Download <em>IBM Db2 Advanced Edition for Linux</em> by using the usual mechanism.</p>
+<p>Unzip the <code>DB2_DAE_Activation_11.5.zip</code> file, then copy the <code>adv_vpc</code> directory into the <code>src/images/db2/db2_installer</code> directory.</p>
+<p>Rename the <code>DB2_Svr_11.5_Linux_x86-64.tar.gz</code> file to <code>DB2_AWSE_REST_Svr.tar.gz</code>, then copy it to the <code>src/images/db2/db2_installer/installation_media</code> directory. Do not decompress the file.</p>
+<p>Download the SSL support file for Db2 by using the usual mechanism.</p>
+<p>Rename the <code>DB2_SF_SSL_11.5_Linux_x86-64.tar.gz</code> file to <code>DB2_SF_SSLF.tar.gz</code>, then copy it to the <code>src/images/db2/base_client/installation_media</code> directory. Do not decompress the file.</p>
+<p>Add the <code>db2jcc4.jar</code> file to the <code>src/configuration/environment/common/jdbc-drivers</code> directory.</p>
+<blockquote><p>Note: In an installation of Db2, the <code>db2jcc4.jar</code> file is in the <code>IBM/SQLLIB/java</code> directory.<br>If you do not have a Db2 installation, you can download the file. Download the file for <code>v11.5 FP0 (GA)</code>. For more information about downloading the <code>db2jcc4.jar</code> file, see: <a href="http://www-01.ibm.com/support/docview.wss?uid=swg21363866">http://www-01.ibm.com/support/docview.wss?uid=swg21363866</a>.</p>
+</blockquote>
+<h3 id="run-the-script-to-deploy-with-db2">Run the script to deploy with Db2</h3>
+<p>Navigate to the <code>src/scripts</code> directory, and run the following command:</p>
+<pre><code>./deployDb2
+</code></pre><hr>
+<h2 id="change-the-deployment-to-use-microsoft-sql-server">Change the deployment to use Microsoft SQL Server</h2>
+<p>When you complete the quick deployment of the distributed example, the prerequisites for SQL Server are configured.</p>
+<p>To change the deployment to use SQL Server, navigate to the <code>src/scripts</code> directory and run the following command:</p>
+<pre><code>./deploySqlServer
+</code></pre><hr>
+<h2 id="test-the-deployment">Test the deployment</h2>
+<p>To test the deployment, connect to i2 Analyze from Analyst&#39;s Notebook Premium. The URL that you use to connect is: <code>http://i2demo:9082/opal</code>.</p>
+<p>Log in using the user name <code>Jenny</code> with the password <code>Jenny</code>.</p>
+<p>Use the <strong>Upload records</strong> functionality to add data to the Information Store, and then search for that data.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            &copy; N. Harris Computer Corporation (2022)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

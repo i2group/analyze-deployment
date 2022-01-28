@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Cleaning your environment </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Cleaning your environment ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="guidetoc/toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                IBM <strong>i2 Analyze</strong>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+          
+          <div class="subnav navbar navbar-default">
+            <div class="container hide-when-search" id="breadcrumb">
+              <ul class="breadcrumb">
+                <li></li>
+              </ul>
+            </div>
+          </div>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="cleaning-your-environment">Cleaning your environment</h1>
+
+<p>Docker containers, images, and networks must have unique names. To recreate the distributed deployment example, or modify images and containers, you must remove the existing ones before you can build and run new ones.</p>
+<h2 id="clean-script"><code>clean</code> script</h2>
+<p>You can run the <code>src/scripts/clean</code> file to clean your environment. The <code>clean</code> file removes all of the example containers, images, and the network from your environment.</p>
+<p>The following sections describe in detail how to clean your environment manually.</p>
+<h2 id="removing-containers">Removing containers</h2>
+<p>To remove containers, run the Docker <code>rm</code> command and specify the name of the containers to remove. For example, run the following command:</p>
+<pre><code>docker rm -f container_name
+</code></pre><p>To remove all of the containers that are used in the distributed deployment example, run the following command:</p>
+<pre><code>docker rm -f zookeeper solr solr2 db2 sqlserver liberty admin_client etl_client ihs ca zookeeper2 zookeeper3 solr3 connector
+</code></pre><p>Attempting to remove containers that do not exist errors but does not stop the rest of the existing containers from being removed.</p>
+<p>You can now restart any of the containers that were removed.</p>
+<h2 id="removing-images">Removing images</h2>
+<p>After all of the containers that are running the images are removed, you can remove the images.</p>
+<p>To remove images, run the Docker <code>rmi</code> command and specify the names of the images to remove. For example:</p>
+<pre><code>docker rmi -f image_name
+</code></pre><p>To remove the images that are used in the distributed deployment example, run the following commands:</p>
+<pre><code>docker rmi -f zookeeper_image solr_image zookeeper2_image solr_image zookeeper3_image solr_image solr2_image base_ihs_image ihs_image liberty_db2_image liberty_sqlserver_image etl_client_db2_image etl_client_sqlserver_image
+docker rmi -f ca_image connector_image db2_installer_image db2_image admin_client_db2_image admin_client_sqlserver_image base_client_image
+docker rmi -f ubuntu_toolkit_image
+</code></pre><blockquote><p>Note: If the image that you want to remove is used to derive other images, you must remove all of the derived images before you can remove the image.</p>
+</blockquote>
+<p>If you try to remove an image that does not exist, the command results in an error but other images are still removed.</p>
+<p>After you remove an image, you can rebuild it.</p>
+<p>If you want to also remove the image dependencies, you can run:</p>
+<pre><code>docker rmi -f ubuntu ibmcom/ibm-http-server
+</code></pre><h2 id="removing-the-network">Removing the network</h2>
+<p>After all of the containers are removed, you can remove the network.</p>
+<p>To remove the network, run the docker <code>network</code> command with the <code>rm</code> flag and specify the network name to remove. For example, run the following command:</p>
+<pre><code>docker network rm network_name
+</code></pre><p>To remote the network that is used in the distributed deployment example, run the following command:</p>
+<pre><code>docker network rm eianet
+</code></pre><p>The <code>eianet</code> network is removed.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            &copy; N. Harris Computer Corporation (2022)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

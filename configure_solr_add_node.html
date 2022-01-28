@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Adding another Solr server and Solr node </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Adding another Solr server and Solr node ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="guidetoc/toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                IBM <strong>i2 Analyze</strong>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+          
+          <div class="subnav navbar navbar-default">
+            <div class="container hide-when-search" id="breadcrumb">
+              <ul class="breadcrumb">
+                <li></li>
+              </ul>
+            </div>
+          </div>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="adding-another-solr-server-and-solr-node">Adding another Solr server and Solr node</h1>
+
+<p>You can add an extra Solr server to your distributed deployment. This section describes the process of creating a new Docker container that represents the extra Solr server, and adding a Solr node on that server to the existing Solr collection.</p>
+<h2 id="before-you-begin">Before you begin</h2>
+<p>Create a directory named <code>solr3</code> in the <code>src/images/common</code> directory, and copy the contents of the <code>src/images/common/solr</code> directory into the new <code>solr3</code> directory.</p>
+<h2 id="modifying-the-dockerfile">Modifying the <code>Dockerfile</code></h2>
+<p>In the Docker environment, create another container to represent the extra server. The new container is a copy of the Solr container, which is modified to use a different host name and port.</p>
+<p>Modify the <code>Dockerfile</code> in the <code>src/images/common/solr3</code> directory to specify the host name and port to expose:</p>
+<p>Set the <code>ARG</code> instruction to <code>ARG hostname=solr3.eianet</code>.<br>This is the host name of the new container.</p>
+<p>Set the <code>EXPOSE</code> instruction to <code>EXPOSE 8985</code>.<br>This is the port that is exposed to enable a connection the Solr web UI.</p>
+<h2 id="adding-the-solr-node-to-the-topologyxml">Adding the Solr node to the <code>topology.xml</code></h2>
+<p>Modify the <code>topology.xml</code> in the <code>src/images/common/solr3/configuration/environment</code> directory to include the new host name and ports that are specified in the <code>Dockerfile</code>.<br>Add the following <code>&lt;solr-node&gt;</code> element as a child of the <code>&lt;solr-nodes&gt;</code> element:</p>
+<pre><code>&lt;solr-node memory=&quot;512m&quot; data-dir=&quot;/opt/IBM/i2analyze/data/solr&quot; host-name=&quot;solr3.eianet&quot; id=&quot;node3&quot; port-number=&quot;8985&quot;/&gt;
+</code></pre><p>Make the same modification to the <code>topology.xml</code> in the <code>src/configuration/environment</code> directory to ensure that the configuration is consistent.</p>
+<h2 id="build-and-create-the-solr-container">Build and create the Solr container</h2>
+<p>Build the Solr image, run the following command from the <code>src/images/common</code> folder:</p>
+<pre><code>docker build -t solr3_image solr3
+</code></pre><p>The Solr image is created with the name <code>solr3_image</code>. Inspect the <code>Dockerfile</code> in the <code>src/images/common/solr3</code> directory to see the commands that are required to configure the Solr server.</p>
+<p>Run the Solr3 container:</p>
+<pre><code>docker run -d --name solr3 -p 8985:8985 --net eianet --memory=2g -u i2analyze solr3_image
+</code></pre><p>Check that the container started correctly by using the docker logs:</p>
+<pre><code>docker logs -f solr3
+</code></pre><p>The image includes the <code>topology.xml</code> file that you modified, and defines the values for the configuration of the new Solr node. When the server starts, the new Solr node is created on the new server.</p>
+<p>When you start the Solr container, the port that Solr runs on in the container is specified. The specified port is mapped on the host machine so that you can access Solr and the Solr Web UI from the host machine.</p>
+<p>After the Solr node is running, you can use the Solr Web UI to inspect the configuration. Connect to the Solr Web UI on the <code>solr</code> container. In a web browser, go to the following URL to connect to the Solr Web UI: <a href="http://localhost:8983/solr/#">http://localhost:8983/solr/#</a>. The user name is <code>solradmin</code> and the password is the Solr password set in the <code>credentials.properties</code> file.</p>
+<h2 id="what-to-do-next">What to do next</h2>
+<p>After you create the Solr node, you can configure your Solr collection to use the new node by adding a shard or replica to the node. For more information, see <a href="configure_solr_add_shard.html">Adding Solr shards to your deployment</a>, and <a href="configure_solr_add_replica.html">Adding Solr replicas to your deployment</a>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            &copy; N. Harris Computer Corporation (2022)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Updating the Schema </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Updating the Schema ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="guidetoc/toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                IBM <strong>i2 Analyze</strong>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+          
+          <div class="subnav navbar navbar-default">
+            <div class="container hide-when-search" id="breadcrumb">
+              <ul class="breadcrumb">
+                <li></li>
+              </ul>
+            </div>
+          </div>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="updating-the-schema">Updating the Schema</h1>
+
+<p>In a deployment of i2 Analyze, the database structure is defined by a schema. To update the schema, you must update the database and then restart Liberty to load the updated schema. Solr requires no changes.</p>
+<h2 id="before-you-begin">Before you begin</h2>
+<ul>
+<li>Ensure that you can connect to the deployment with the current schema, and submit data by using Analyst&#39;s Notebook Premium.</li>
+<li>Ensure that all of the Docker containers are running.</li>
+</ul>
+<h2 id="modifying-the-schema-file">Modifying the schema file</h2>
+<p>In the distributed deployment example, the <code>law-enforcement-schema.xml</code> and <code>law-enforcement-charting-schemes.xml</code> files that represent the i2 Analyze schema are in the following directory: <code>src/configuration/fragments/common/WEB-INF/classes</code>.</p>
+<p>In Schema Designer, open the <code>law-enforcement-schema.xml</code> file from the <code>classes</code> directory, and make additive changes to the schema. After you modify the schema, save your changes and close Schema Designer.</p>
+<h2 id="copying-the-configuration">Copying the configuration</h2>
+<p>In the distributed deployment example, the schema and charting schemes changes are completed on the Admin client and Liberty containers. To update the deployment with the changes, you must run toolkit tasks that interact with the Information Store database and the i2 Analyze application.</p>
+<p>The changed configuration must be copied to the <code>admin_client</code> and <code>liberty</code> containers.</p>
+<p>To copy, and overwrite, your configuration to the <code>admin_client</code> and <code>liberty</code> containers, run the following commands from the <code>src</code> directory:</p>
+<pre><code>docker cp ./configuration/fragments/common/WEB-INF/classes admin_client:/opt/IBM/i2analyze/toolkit/configuration/fragments/common/WEB-INF/
+docker cp ./configuration/fragments/common/WEB-INF/classes liberty:/opt/IBM/i2analyze/toolkit/configuration/fragments/common/WEB-INF/
+</code></pre><p>The new configuration is now on the <code>admin_client</code> and <code>liberty</code> containers.</p>
+<p>When the directory is copied, the owner of the directory, and all files within it, is changed. The user that runs the deployment script must be able to write to files within the <code>configuration</code> directory. To change the ownership of the directory and the files, run the following commands:</p>
+<pre><code>docker exec -u root admin_client chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
+docker exec -u root liberty chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
+</code></pre><p>In a non-Docker environment, copy the <code>law-enforcement-schema.xml</code> and <code>law-enforcement-charting-schemes.xml</code> files to the same location on the Liberty server and ensure that the correct permissions are set.</p>
+<h2 id="stopping-liberty">Stopping Liberty</h2>
+<p>Before you update the Information Store with your modified schema, you must stop the application server.</p>
+<p>You can shut down the application by using the <code>stopLiberty</code> i2 Analyze toolkit task. In the distributed deployment example, run the following command in the <code>liberty</code> Docker container:</p>
+<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty
+</code></pre><p>The output from the <code>stopLiberty</code> task is output directly to the console.</p>
+<h2 id="updating-the-database">Updating the database</h2>
+<p>Update the database to conform to the updated schema.</p>
+<p>To update the schema, you can run the command from the Admin client or Liberty server. In the distributed deployment example, the Admin client is used to run the commands.</p>
+<p>To update the database to conform to the updated schema, run the following command:</p>
+<pre><code>docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t updateInformationStoreSchema
+</code></pre><h2 id="updating-the-application">Updating the application</h2>
+<p>You must update the application with the modified schema and charting scheme.</p>
+<p>Run the following commands on the Liberty server to deploy Liberty:</p>
+<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t deployLiberty
+</code></pre><h2 id="starting-liberty">Starting Liberty</h2>
+<p>Start Liberty to load the updated schema and charting scheme:  </p>
+<p>Run the following command to start Liberty:</p>
+<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty
+</code></pre><p>The console output from the <code>startLiberty</code> task is output directly to the console.</p>
+<h2 id="testing-the-deployment">Testing the deployment</h2>
+<p>To test that the schema is updated successfully, connect to the Information Store in Analyst&#39;s Notebook Premium.</p>
+<p>After you connect and log in, a message is displayed that informs you of a schema change. The changes that you made to the schema are visible in the palette, and available for you to use.</p>
+<h2 id="what-to-do-next">What to do next</h2>
+<p>After you modify the schema, you might need to modify the filters that users see during Quick Search and Visual Query operations. For more information, see <a href="configure_search_facets.html">Changing the search results filtering</a>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            &copy; N. Harris Computer Corporation (2022)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

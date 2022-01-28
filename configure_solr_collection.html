@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Creating a Solr collection using the createSolrCollection script file </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Creating a Solr collection using the createSolrCollection script file ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="guidetoc/toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                IBM <strong>i2 Analyze</strong>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+          
+          <div class="subnav navbar navbar-default">
+            <div class="container hide-when-search" id="breadcrumb">
+              <ul class="breadcrumb">
+                <li></li>
+              </ul>
+            </div>
+          </div>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="creating-a-solr-collection-using-the-createsolrcollection-script-file">Creating a Solr collection using the <code>createSolrCollection</code> script file</h1>
+
+<p>Your <code>createSolrCollection</code> script in the <code>toolkit\configuration\environment\opal-server\main_index</code> directory must contain a <code>CREATE</code> call to the Solr Collections API.</p>
+<h2 id="before-you-begin">Before you begin</h2>
+<p>You must specify that you are using the <code>createSolrCollection</code> script to configure Solr. For more information, see <a href="configure_solr_method.html">Choosing the method for configuring Solr</a>.</p>
+<h2 id="create-rest-call"><code>CREATE</code> REST call</h2>
+<p>To create a collection, use the <code>CREATE</code> REST call in the <code>createSolrCollection</code> file. For more information about the <code>CREATE</code> REST call, and extra parameters that you can use, see <a href="https://lucene.apache.org/solr/guide/6_6/collections-api.html#CollectionsAPI-create">CREATE: Create a Collection</a>.</p>
+<p>To create a collection, open the <code>createSolrCollection</code> script in a text editor.</p>
+<p>The existing script might contain a <code>CREATE</code> call that is similar to the following example:</p>
+<pre><code>curl ?CERTIFICATE_PLACEHOLDER? ?CREDENTIALS_PLACEHOLDER? &quot;?SCHEME_PLACEHOLDER?://solr.eianet:8983/solr/admin/collections?action=CREATE&amp;name=main_index&amp;collection.configName=main_index&amp;numShards=4&amp;maxShardsPerNode=4&amp;replicationFactor=1&quot;
+</code></pre><p>The <code>?CERTIFICATE_PLACEHOLDER?, ?CREDENTIALS_PLACEHOLDER?, ?SCHEME_PLACEHOLDER?</code> variables are resolved by the toolkit when the script is run.</p>
+<p>This example of a <code>CREATE</code> call creates a collection that has the following attributes:</p>
+<ul>
+<li>Named <code>main_index</code></li>
+<li>A configuration named <code>main_index</code> in ZooKeeper</li>
+<li>Four shards</li>
+<li>A maximum of four shards per node</li>
+<li>One replica of each shard</li>
+</ul>
+<h2 id="recreating-the-collection">Recreating the collection</h2>
+<p>After you change the <code>createSolrCollection</code> script, you can recreate the Solr collection by completing the following steps.</p>
+<p>To stop Liberty, run the following command:</p>
+<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty
+</code></pre><p>The output from the <code>stopLiberty</code> task is output directly to the console.</p>
+<p>To remove the current Solr collection, run the following command:</p>
+<pre><code>docker exec -it -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t deleteSolrCollections --all --hostname admin_client.eianet
+</code></pre><p>To create the Solr collection with the modified configuration, run the following command:</p>
+<pre><code>docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createSolrCollections --all --hostname admin_client.eianet
+</code></pre><p>To clear the search index, run the following command:</p>
+<pre><code>docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearSearchIndex --all --hostname admin_client.eianet
+</code></pre><p>To restart Liberty, run the following command:</p>
+<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty
+</code></pre><p>The console output from the <code>startLiberty</code> task is output directly to the console.
+Liberty is now started and you can connect to i2 Analyze.</p>
+<h2 id="modifying-a-collection">Modifying a collection</h2>
+<p>If you change the configuration of your Solr collection on a live deployment, you must replicate the changes in your <code>createSolrCollection</code> script. This ensures that if your Solr collection is recreated, it aligns with your configuration changes.</p>
+<p>For example, if you add two shards to your live collection, you must increase the number of shards in the collection definition by 2.</p>
+<p>For information about changing the Solr collection configuration on a live deployment, see <a href="configure_solr_add_node.html">Adding another Solr server and Solr node</a>, <a href="configure_solr_add_shard.html">Adding Solr shards to your deployment</a>, and <a href="configure_solr_add_replica.html">Adding Solr replicas to your deployment</a>.</p>
+<blockquote><p>Note: If you add Solr nodes to your deployment after the Solr Collection is created, your <code>CREATE</code> call might distribute your original shards and replicas on different nodes. You must inspect your <code>createSolrCollection</code> script and ensure that it works if your Solr collection is created with the new nodes present from the start.</p>
+</blockquote>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            &copy; N. Harris Computer Corporation (2022)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

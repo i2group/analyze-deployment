@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Adding Solr replicas to your deployment </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Adding Solr replicas to your deployment ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="guidetoc/toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                IBM <strong>i2 Analyze</strong>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+          
+          <div class="subnav navbar navbar-default">
+            <div class="container hide-when-search" id="breadcrumb">
+              <ul class="breadcrumb">
+                <li></li>
+              </ul>
+            </div>
+          </div>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="adding-solr-replicas-to-your-deployment">Adding Solr replicas to your deployment</h1>
+
+<p>If a logical shard in the Solr collection becomes unusable, then the search index also becomes unusable. To increase the resilience of the search index, replicas of shards can be created that are distinct from their original shard. These replicas can be located on different physical servers.
+A replica acts as a physical copy of a shard in a SolrCloud Collection.</p>
+<p>After you change the Solr collection in a live deployment, replicate the changes in the definition of how the Solr collection is created.</p>
+<h2 id="adding-replicas-to-the-solr-collection-definition">Adding replicas to the Solr collection definition</h2>
+<p>After you identify how many replicas you require, add them to your Solr collection definition:</p>
+<ul>
+<li>If your Solr collection is configured by the <code>createSolrCollection</code> script, increase the replication factor for your collection in the <code>CREATE</code> call to the Solr Collections API.</li>
+<li>If your Solr collection is configured by the toolkit, increase the value of the <code>num-replicas</code> attribute for your collection in the <code>topology.xml</code> file.</li>
+</ul>
+<p>For example, if you want to have two replicas of each shard, increase the <code>replicationFactor</code> or <code>num-replicas</code> value to 2.</p>
+<p>The next time that the Solr collection is created by the toolkit, it is created with the replication factor that you specified in the <code>topology.xml</code> file or the <code>createSolrCollection</code> script.</p>
+<p>You only need to complete the following steps when you are adding replicas to a live system. If you do add replicas to the live system, ensure that you update the collection definition.</p>
+<hr>
+<h2 id="adding-replicas-to-a-live-collection">Adding replicas to a live collection</h2>
+<p>Add a replica of each shard in the Solr collection.
+To add a replica of each shard in the distributed deployment example, enter the following lines into the URL field in a web browser:</p>
+<pre><code>http://localhost:8983/solr/admin/collections?action=ADDREPLICA&amp;collection=main_index&amp;shard=shard1&amp;node=solr2.eianet:8984_solr
+</code></pre><pre><code>http://localhost:8983/solr/admin/collections?action=ADDREPLICA&amp;collection=main_index&amp;shard=shard2&amp;node=solr.eianet:8983_solr
+</code></pre><pre><code>http://localhost:8983/solr/admin/collections?action=ADDREPLICA&amp;collection=main_index&amp;shard=shard3&amp;node=solr2.eianet:8984_solr
+</code></pre><pre><code>http://localhost:8983/solr/admin/collections?action=ADDREPLICA&amp;collection=main_index&amp;shard=shard4&amp;node=solr.eianet:8983_solr
+</code></pre><p>These send a REST call to the Solr Collections API to add a replica of a specific shard on a specific node. Each of the shards now has an extra replica, on a different node to the original shard.</p>
+<p>For more information about the <code>ADDREPLICA</code> call, see <a href="https://lucene.apache.org/solr/guide/6_6/collections-api.html#CollectionsAPI-addreplica">ADDREPLICA: Add replicas</a>.</p>
+<p>To prepare the REST calls, you must know the collection name, the shard to replicate, and the node to add the replica to.</p>
+<p>To identify the node name, go to the <em>Tree View</em> of SolrCloud in the Solr Web UI on any of your running Solr servers. For example:</p>
+<pre><code>http://localhost:8983/solr/#/~cloud?view=tree
+</code></pre><p>Go to <code>/live_nodes</code>, and choose the name of the node that you want to move your replica to. For example:</p>
+<pre><code>solr2.eianet:8984_solr
+</code></pre><blockquote><p>Note: Only live Solr nodes are displayed.</p>
+</blockquote>
+<p>You can use this method to choose the number of replicas to create, and where they are located.
+To show the <em>Graph View</em> that shows replicas in the Solr Web UI, connect to the Solr Web UI by using the following URL: <a href="http://localhost:8983/solr/#/~cloud">http://localhost:8983/solr/#/~cloud</a>. The user name is <code>solradmin</code> and the password is the Solr password set in the <code>credentials.properties</code> file.</p>
+<blockquote><p>Important: After you change the Solr collection in a live deployment, replicate the changes in the definition of how the Solr collection is created.</p>
+</blockquote>
+<h2 id="testing-the-replicas">Testing the replicas</h2>
+<p>To test that the replicas are added successfully, and that your system has a level of redundancy, stop one of the Solr nodes.</p>
+<p>To stop the Solr node on the <code>solr</code> container, run the following command:</p>
+<pre><code>docker exec -u i2analyze -t solr /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes --hostname solr.eianet  
+</code></pre><p>In the Solr Web UI <em>Tree View</em> on the <code>solr2</code> container, all the shards are still up and active. The newly created replicas are now the leaders for the shards.</p>
+<p>If you do a Quick Search by using Analyst&#39;s Notebook Premium, any data that was in the Information Store is still available.</p>
+<p>You can start the <code>solr</code> container, and the Solr node starts again.</p>
+<p>To start the <code>solr</code> container, run the following command:</p>
+<pre><code>docker exec -u i2analyze -t solr /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr.eianet  
+</code></pre><p>In the Solr Web UI <em>Tree View</em>, you can see that the Solr node and shards are active.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            &copy; N. Harris Computer Corporation (2022)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

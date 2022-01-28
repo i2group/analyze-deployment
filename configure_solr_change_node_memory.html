@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Changing the memory allocation for a Solr node </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Changing the memory allocation for a Solr node ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="guidetoc/toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                IBM <strong>i2 Analyze</strong>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+          
+          <div class="subnav navbar navbar-default">
+            <div class="container hide-when-search" id="breadcrumb">
+              <ul class="breadcrumb">
+                <li></li>
+              </ul>
+            </div>
+          </div>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="changing-the-memory-allocation-for-a-solr-node">Changing the memory allocation for a Solr node</h1>
+
+<p>After you deploy your system, you might need to change the maximum Java virtual machine (JVM) memory allocation allowance for your Solr nodes.
+For more information about configuring the JVM memory allocation, see <a href="https://lucene.apache.org/solr/guide/6_6/jvm-settings.html">JVM Settings</a>.</p>
+<h2 id="modifying-the-topologyxml">Modifying the <code>topology.xml</code></h2>
+<p>Modify the <code>topology.xml</code> in the <code>src/configuration/environment</code> directory.<br>For the Solr node that you want to change the memory allocation of, change the value of the  <code>memory</code> attribute of the <code>solr-node</code> element.</p>
+<p>For example, the memory allocation for <code>node1</code>, which runs on the <code>solr</code> container, is changed to <code>4g</code>:</p>
+<pre><code>&lt;solr-nodes&gt;
+  &lt;solr-node memory=&quot;4g&quot; data-dir=&quot;/opt/IBM/i2analyze/data/solr&quot; host-name=&quot;solr.eianet&quot; id=&quot;node1&quot; port-number=&quot;8983&quot;/&gt;
+  &lt;solr-node memory=&quot;512m&quot; data-dir=&quot;/opt/IBM/i2analyze/data/solr&quot; host-name=&quot;solr2.eianet&quot; id=&quot;node2&quot; port-number=&quot;8984&quot;/&gt;
+&lt;/solr-nodes&gt;
+</code></pre><h2 id="copying-the-configuration">Copying the configuration</h2>
+<p>The configuration was modified for the Solr node that runs on the <code>solr</code> server. You must copy the new configuration to the Solr server.</p>
+<p>In a Docker environment, use the Docker <code>cp</code> command to copy, and overwrite, your configuration to the running <code>solr</code> container. In the <code>src</code> directory, run the following command:</p>
+<pre><code>docker cp ./configuration solr:/opt/IBM/i2analyze/toolkit/
+</code></pre><p>The new configuration is now on the <code>solr</code> container.</p>
+<p>When the directory is copied, the owner of the directory, and all files within it, is changed. The user that runs the deployment script must be able to write to files within the <code>configuration</code> directory. To change the ownership of the directory and the files, run the following command:</p>
+<pre><code>docker exec -u root solr chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
+</code></pre><p>In a non-Docker environment, copy the modified <code>topology.xml</code> file to the same location in your i2 Analyze toolkit on the Solr server.</p>
+<h2 id="updating-the-solr-node">Updating the Solr node</h2>
+<p>Restart the Solr node with the new configuration.
+Restart the Solr node on the <code>solr</code> container by running the following command:</p>
+<pre><code>docker exec -u i2analyze -t solr /opt/IBM/i2analyze/toolkit/scripts/setup -t restartSolrNodes --hostname solr
+</code></pre><p>The Solr node is restarted with the new JVM maximum memory allocation.</p>
+<h2 id="testing-the-deployment">Testing the deployment</h2>
+<p>You can use the Solr Web UI to inspect the Solr node that you modified to see the new memory allocation. To connect to the Solr Web UI of the Solr node on the <code>solr</code> container, go to: <a href="http://localhost:8983/solr/#/">http://localhost:8983/solr/#/</a>. The user name is <code>solradmin</code> and the password is the Solr password set in the <code>credentials.properties</code> file. </p>
+<p>On the right side of the dashboard, see that the <strong>JVM-Memory</strong> has a value of <strong>4GB</strong>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            &copy; N. Harris Computer Corporation (2022)
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>
