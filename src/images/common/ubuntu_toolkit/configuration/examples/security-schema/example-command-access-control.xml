@@ -12,6 +12,7 @@ This file allows you to assign access to specific functions to different user gr
  *  i2:ChartsRead - Allows charts to be retrieved from the Information Store
  *  i2:RecordsExport - Allows records to be exported to a CSV file
  *  i2:Notebook - Allows access to the i2 Notebook web client
+ *  i2:AlertsCreate - Allows access to the REST API endpoint for creating and sending alerts
 Note:  You can use a wildcard (*) to specify all user groups
 -->
 

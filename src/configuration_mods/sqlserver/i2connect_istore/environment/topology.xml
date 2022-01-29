@@ -39,6 +39,7 @@
             <solr-collection-id collection-id="match_index2" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
             <solr-collection-id collection-id="highlight_index" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
             <solr-collection-id collection-id="chart_index" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
+            <solr-collection-id collection-id="vq_index" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
           </solr-collection-ids>
 		  <connector-ids>
             <connector-id value="example-connector" />
@@ -72,6 +73,7 @@
         <solr-collection id="match_index2" type="match" max-shards-per-node="4" num-shards="4" num-replicas="1" />
         <solr-collection id="highlight_index" type="highlight" max-shards-per-node="4" num-shards="4" num-replicas="1" />
         <solr-collection id="chart_index" type="chart" max-shards-per-node="4" num-shards="4" num-replicas="1" />
+        <solr-collection id="vq_index" type="vq" max-shards-per-node="4" num-shards="4" num-replicas="1" />
       </solr-collections>
       <solr-nodes>
         <solr-node memory="512m" id="node1" host-name="solr.eianet" data-dir="/opt/IBM/i2analyze/data/solr" port-number="8983" />
