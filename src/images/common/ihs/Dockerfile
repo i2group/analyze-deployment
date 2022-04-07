@@ -23,11 +23,10 @@
 FROM base_ihs_image
 
 LABEL maintainer="i2group"
-LABEL version="2.6.0"
+LABEL version="2.6.1"
 
 #Install the prerequisites.
-RUN dpkg --add-architecture i386 && \
-    apt-get update && \
+RUN apt-get update && \
     apt-get install -y \
     nano \
     bsdtar

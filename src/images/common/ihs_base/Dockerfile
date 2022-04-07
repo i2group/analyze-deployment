@@ -22,14 +22,13 @@
 FROM ubuntu:18.04
 
 LABEL maintainer="i2group"
-LABEL version="2.6.0"
+LABEL version="2.6.1"
 
 ARG IHS_ARCHIVE_FILE
 
 #Install the prerequisites.
-RUN dpkg --add-architecture i386 && \
-  apt-get update && \
-  apt-get install -y unzip
+RUN apt-get update && \
+    apt-get install -y unzip
 
 COPY $IHS_ARCHIVE_FILE /tmp/
 

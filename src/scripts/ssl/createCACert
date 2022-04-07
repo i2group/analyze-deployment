@@ -23,48 +23,22 @@
 
 #####################################################################################
 #                                                                                   #
-#  Script to create the stores, private keys, and certificates for a                #
-#  secure deployment. The stores are populated with signed certificate.             #
+#  Script to create CA cert and key.                                                #
 #                                                                                   #
-#  Usage : createKeysAndStores [<dbDialect>]                                        #
-#  Defaults to current database dialect                                             #
+#  This script is called as part of the createKeysAndStores script.                 #
 #                                                                                   #
 #####################################################################################
 
-. utils/variables
-
-pushd ..
-
+. ${UTILS_PATH}/variables
 . ${UTILS_PATH}/functions
 
-dbDialect=${1:-${DB_DIALECT}}
-
-output "Removing the certificate authority container, if it exists"
-docker rm -f ca &>/dev/null || true
-
-output "Removing any previous keys, if they exist"
-rm -rf ${SRC_DIR}/keys &>/dev/null || true
-
-output "Creating CA Certificate"
-. ${SSL_SCRIPTS_PATH}/createCACert
-
-output "Building the ca_image"
-docker build -t ca_image ${IMAGES_PATH}/common/ca
-
-output "Running the certificate authority container"
-docker run -d --name ca ca_image
-
-output "Enter the SSL password"
-read -s -p "Password: " SSL_PASSWORD
-while [[ ${#SSL_PASSWORD} -lt 6 ]]
-do
-  echo "Length of password must be at least 6 characters long. Try again..."
-  read -s -p "Password: " SSL_PASSWORD
-done
-
-header "Creating and signing the keys and certificates"
-. ${SSL_SCRIPTS_PATH}/createSigningRequests $dbDialect $SSL_PASSWORD
-. ${SSL_SCRIPTS_PATH}/signRequests $dbDialect $SSL_PASSWORD
-. ${SSL_SCRIPTS_PATH}/applyResponses $dbDialect $SSL_PASSWORD
-
+pushd ${IMAGES_PATH}/common/ca/ca/
+# If CA cert or key does not exist then create new
+if [[ ! -e "CA.cer"  || ! -e "CA.key" ]]; then
+    echo "Creating new CA certificate"
+    openssl req -new -subj "/ST=Cambridgeshire/L=Cambridge/O=i2Group/OU=i2/CN=i2CA/C=GB" -sha256 -nodes -newkey rsa:4096 -keyout CA.key -out CA.csr
+    openssl x509 -req -sha256 -extfile x509.ext -extensions ca -in CA.csr -signkey CA.key -days 1095 -out CA.cer
+else
+    echo "Reusing existing CA certificate"
+fi
 popd

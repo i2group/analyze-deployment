@@ -22,9 +22,6 @@
 
 FROM ubuntu_toolkit_image
 
-RUN apt-get install -y \
-    openssh-client
-
 #The host name of the Docker container.
 ARG hostname=solr2.eianet
 ENV hostname $hostname

@@ -23,23 +23,21 @@
 FROM ubuntu:18.04
 
 LABEL maintainer="i2group"
-LABEL version="2.6.0"
+LABEL version="2.6.1"
 
 #Install the prerequisites.
-RUN dpkg --add-architecture i386 && \
-  apt-get update && \
-  apt-get install -y \
+RUN apt-get update && \
+    apt-get install -y \
     file \
     binutils \
     libxml2 \
     libaio1 \
-    libpam-ldap:i386 \
     numactl \
     net-tools \
     nano \
     bsdtar \
-    curl
-
+    curl && \
+  rm -rf /var/lib/apt/lists/* /tmp/*
 
 ENV i2analyzeDir /opt/IBM/i2analyze
 ENV toolkitDir ${i2analyzeDir}/toolkit

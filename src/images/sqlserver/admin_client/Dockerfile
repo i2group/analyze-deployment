@@ -23,7 +23,7 @@
 FROM mcr.microsoft.com/mssql-tools
 
 LABEL maintainer="i2group"
-LABEL version="2.6.0"
+LABEL version="2.6.1"
 
 ENV i2analyzeDir /opt/IBM/i2analyze
 ENV toolkitDir ${i2analyzeDir}/toolkit

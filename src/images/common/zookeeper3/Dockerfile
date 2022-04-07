@@ -22,9 +22,6 @@
 
 FROM ubuntu_toolkit_image
 
-RUN apt-get install -y \
-    openssh-server
-
 #The host name of the Docker container.
 ARG hostname=zookeeper3.eianet
 ENV hostname $hostname

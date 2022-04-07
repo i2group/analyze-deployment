@@ -23,7 +23,7 @@
 FROM mcr.microsoft.com/mssql-tools
 
 LABEL maintainer="i2group"
-LABEL version="2.6.0"
+LABEL version="2.6.1"
 
 #Install the prerequisites.
 RUN dpkg --add-architecture i386 && \

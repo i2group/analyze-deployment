@@ -12,11 +12,19 @@ The format is based on [Keep a Changelog], and this project adheres to
 * `Fixed` for any bug fixes.
 * `Security` in case of vulnerabilities.
 
+## [2.6.1] - 07/04/2022
+
+### Fixed
+
+* Stopped distributing the CA certificates and keys. The certificates and keys are now generated when they are required.
+
+[2.6.1]: https://github.com/i2group/analyze-deployment/tree/v2.6.1
+
 ## [2.6.0] - 28/01/2022
 
 ### Added
 
-- Updated for compatibility with i2 Analyze 4.3.5
-- GitHub Pages
+* Updated for compatibility with i2 Analyze 4.3.5
+* GitHub Pages
 
-[2.6.0]: https://github.com/i2group/analyze-containers/tree/v2.2.0
+[2.6.0]: https://github.com/i2group/analyze-deployment/tree/v2.6.0
