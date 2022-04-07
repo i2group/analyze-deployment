@@ -91,9 +91,9 @@
 <p>There are a number of secure configurations that you can choose to deploy:</p>
 <ul>
 <li><strong>ssl</strong><br>This configuration deploys with SSL configured between each of the distributed components in an i2 Analyze deployment.</li>
-<li><strong>ihs_ssl</strong><br>This configuration deploys with SSL configured between each of the distributed components in an i2 Analyze deployment that includes the IBM HTTP Server.<br>For information about configuring SSL with i2 Analyze, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_kc_intro_ssl.html">Secure Sockets Layer connections with i2 Analyze</a>
+<li><strong>ihs_ssl</strong><br>This configuration deploys with SSL configured between each of the distributed components in an i2 Analyze deployment that includes the IBM HTTP Server.<br>For information about configuring SSL with i2 Analyze, see <a href="https://docs.i2group.com/analyze/latest/c_kc_intro_ssl.html">Secure Sockets Layer connections with i2 Analyze</a>
   &gt; Note: You do not need to create the certificates as described, the certificates are created as part of the example.</li>
-<li><strong>client_cert_ssl</strong><br>This configuration deploys with SSL configured between each of the distributed components in an i2 Analyze deployment that includes the IBM HTTP Server. The user can log in to the system by using a client certificate.<br>For more information about configuring client certificate authentication, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_kc_intro_x509.html">Configuring X.509 client certificate authentication with i2 Analyze</a></li>
+<li><strong>client_cert_ssl</strong><br>This configuration deploys with SSL configured between each of the distributed components in an i2 Analyze deployment that includes the IBM HTTP Server. The user can log in to the system by using a client certificate.<br>For more information about configuring client certificate authentication, see <a href="https://docs.i2group.com/analyze/latest/c_kc_intro_x509.html">Configuring X.509 client certificate authentication with i2 Analyze</a></li>
 </ul>
 <h2 id="creating-the-keystores-and-certificates">Creating the keystores and certificates</h2>
 <p>Run the <code>createKeysAndStores</code> script to create the stores, certificates, and certificate authority. For example, run the following command from the <code>src/scripts</code> directory:</p>
@@ -102,7 +102,7 @@
 <p>For more information about the stores and certificates that are created, see <a href="securing_certificates.html">Keystores and certificates for components of i2 Analyze</a>.</p>
 <h3 id="specifying-the-credentials">Specifying the credentials</h3>
 <p>You must specify the credentials for your deployment in the <code>src/configuration/environment/credentials.properties</code>. Set the passwords to use for each of the keystore and truststore credentials. The passwords must match the value that you entered when you ran the <code>createKeysAndStores</code> script.</p>
-<p>For more information about the credentials file, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/t_specifying_credentials.html">Modifying the credentials</a>.</p>
+<p>For more information about the credentials file, see <a href="https://docs.i2group.com/analyze/latest/t_specifying_credentials.html">Modifying the credentials</a>.</p>
 <h2 id="updating-your-deployment-to-use-a-secure-configuration">Updating your deployment to use a secure configuration</h2>
 <p>Run the <code>setupSecurity</code> script, and pass the name of the configuration as a parameter. For example, to update the deployment with the <strong>ssl</strong> configuration, run the following command from the <code>src/scripts</code> directory:</p>
 <pre><code>./setupSecurity ssl
@@ -116,10 +116,10 @@ The protocol is changed to <code>https</code>, and the port number is changed to
 <p>Note: If you are using a configuration with the IBM HTTP Server, you must not specify the port number. For example, <a href="https://i2demo/opal">https://i2demo/opal</a>.</p>
 </blockquote>
 <h2 id="learning-how-to-deploy-the-configuration-in-a-non-docker-environment">Learning how to deploy the configuration in a non-Docker environment</h2>
-<p>To understand the differences between the configurations, and the base configuration, you can use a file comparison tool. You can see which properties files are modified, and the configuration settings that are required. For detailed explanations of the properties and the process for changing them, you can use the information that is provided in IBM Docs.</p>
-<p>For information about securing the components of i2 Analyze, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_kc_intro_ssl.html">Secure Sockets Layer connections with i2 Analyze</a> and <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/c_kc_intro_x509.html">Configuring X.509 client certificate authentication with i2 Analyze</a>.</p>
+<p>To understand the differences between the configurations, and the base configuration, you can use a file comparison tool. You can see which properties files are modified, and the configuration settings that are required. For detailed explanations of the properties and the process for changing them, you can use the information that is provided in the i2 documentation.</p>
+<p>For information about securing the components of i2 Analyze, see <a href="https://docs.i2group.com/analyze/latest/c_kc_intro_ssl.html">Secure Sockets Layer connections with i2 Analyze</a> and <a href="https://docs.i2group.com/analyze/latest/c_kc_intro_x509.html">Configuring X.509 client certificate authentication with i2 Analyze</a>.</p>
 <p>To see the toolkit commands that are run to deploy the components of i2 Analyze in a secure deployment, you can inspect the <code>setupSecurity</code> script.</p>
-<p>The instructions in IBM Docs use self-signed certificates to demonstrate securing a deployment. For more information about using certificates that are signed by certificate authority, see <a href="securing_certificates.html">Keystores and certificates for components of i2 Analyze</a>.</p>
+<p>The instructions in the i2 documentation use self-signed certificates to demonstrate securing a deployment. For more information about using certificates that are signed by certificate authority, see <a href="securing_certificates.html">Keystores and certificates for components of i2 Analyze</a>.</p>
 </article>
           </div>
           

@@ -81,7 +81,7 @@
 
 <p>i2 Analyze supports physical architectures in which the database is hosted on the same server as the application, or on a different one. You can also choose to locate your Extract Transform Load (ETL) logic on the same server as the i2 Analyze application, or on the same server as the database, or on an entirely separate server.
 The distributed deployment example shows you how to set up the ETL logic on a separate server.</p>
-<p>For more information about the ingestion architecture and the ETL toolkit, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.iap.admin.ingestion.doc/architecture_and_ingestion.html">Understanding the architecture</a>.</p>
+<p>For more information about the ingestion architecture and the ETL toolkit, see <a href="https://docs.i2group.com/analyze/latest/architecture_and_ingestion.html">Understanding the architecture</a>.</p>
 <h2 id="before-you-begin">Before you begin</h2>
 <p>Ensure that you can connect to the deployment and submit data by using Analyst&#39;s Notebook Premium.</p>
 <h2 id="deploying-the-etl-toolkit">Deploying the ETL toolkit</h2>
@@ -98,10 +98,10 @@ To build the ETL client image, run the following command from the <code>src/imag
 <pre><code>docker run -d --name etl_client --net eianet -u i2analyze etl_client_db2_image
 </code></pre><p>Run the <code>deployEtlClient</code> script from the <code>src/scripts</code> directory to create a new ETL toolkit and copy it to the <code>etl_client</code> container:</p>
 <pre><code>./deployEtlClient
-</code></pre><p>For more information about deploying the ETL toolkit in a non-Docker environment, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.iap.admin.ingestion.doc/deploying_the_etl_toolkit.html">Deploying the ETL toolkit</a>.</p>
+</code></pre><p>For more information about deploying the ETL toolkit in a non-Docker environment, see <a href="https://docs.i2group.com/analyze/latest/deploying_the_etl_toolkit.html">Deploying the ETL toolkit</a>.</p>
 <h2 id="configuring-the-etl-toolkit-for-db2">Configuring the ETL toolkit for Db2</h2>
 <p>The <code>etl_client</code> container includes the <code>initializeEtlClient</code> script that you must run in the Docker environment when you are using Db2.</p>
-<p>The <code>initializeEtlClient</code> script catalogs the remote Db2 node and database with the Db2 Client that is installed on the ETL client. To complete this process in a non-Docker environment, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.iap.admin.ingestion.doc/deploying_the_etl_toolkit.html">Deploying the ETL toolkit</a>.</p>
+<p>The <code>initializeEtlClient</code> script catalogs the remote Db2 node and database with the Db2 Client that is installed on the ETL client. To complete this process in a non-Docker environment, see <a href="https://docs.i2group.com/analyze/latest/deploying_the_etl_toolkit.html">Deploying the ETL toolkit</a>.</p>
 <p>Run the <code>initializeEtlClient</code> script on the <code>etl_client</code> container:</p>
 <pre><code>docker exec -u i2analyze -t etl_client /opt/IBM/i2analyze/initializeEtlClient
 </code></pre><p>You can find the <code>initializeEtlClient</code> script in the <code>src/images/db2/etl_client</code> directory.</p>
@@ -110,7 +110,7 @@ To build the ETL client image, run the following command from the <code>src/imag
 <h2 id="ingesting-the-example-data">Ingesting the example data</h2>
 <p>The ETL client container includes the <code>ingestExampleData</code> script that you can run in the Docker environment to ingest example data into the Information Store.
 You can now use the ETL toolkit on the ETL client server to ingest data into the Information Store.</p>
-<p>The <code>ingestExampleData</code> script in the Docker container ingests example data into the Information Store. To complete this process in a non-Docker environment, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.iap.admin.ingestion.doc/running_ingestion_commands.html">Running ingestion commands</a>.</p>
+<p>The <code>ingestExampleData</code> script in the Docker container ingests example data into the Information Store. To complete this process in a non-Docker environment, see <a href="https://docs.i2group.com/analyze/latest/running_ingestion_commands.html">Running ingestion commands</a>.</p>
 <p>Run the <code>ingestExampleData</code> script on the <code>etl_client</code>. Type the password that you set in the <code>credentials.properties</code> file for Information Store database:</p>
 <pre><code>docker exec -u i2analyze -it etl_client /opt/IBM/i2analyze/ingestExampleData
 </code></pre><p>An <code>E_Person</code> entity staging table is created and populated, and the data that it contains is ingested. An <code>L_Associate</code> link staging table is created and populated, and the data that it contains is ingested.</p>

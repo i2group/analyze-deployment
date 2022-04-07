@@ -82,11 +82,11 @@
 <p>Modify the results filters in the i2 Analyze configuration, then redeploy the application server.</p>
 <h2 id="before-you-begin">Before you begin</h2>
 <p>Ensure that you can connect to the deployment and submit data by using Analyst&#39;s Notebook Premium.</p>
-<p>To understand what search result filtering is, and why you might need to modify the filters, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/t_property_facets.html">Setting up search results filtering</a>.</p>
+<p>To understand what search result filtering is, and why you might need to modify the filters, see <a href="https://docs.i2group.com/analyze/latest/t_property_facets.html">Setting up search results filtering</a>.</p>
 <h2 id="modifying-the-results-configuration-file">Modifying the results configuration file</h2>
 <p>The <code>law-enforcement-schema-results-configuration.xml</code> file in the distributed deployment example is in the following directory: <code>src/configuration/fragments/common/WEB-INF/classes</code>.</p>
 <p>In an XML editor, open the <code>law-enforcement-schema-results-configuration.xml</code> file from the <code>classes</code> directory, and modify the filters that are available for an item type. After you modify the file, save your changes.</p>
-<p>For more information about the results configuration file, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/understanding_facets_file.html">Understanding the results configuration file</a>.</p>
+<p>For more information about the results configuration file, see <a href="https://docs.i2group.com/analyze/latest/understanding_facets_file.html">Understanding the results configuration file</a>.</p>
 <h2 id="copying-the-configuration">Copying the configuration</h2>
 <p>Your results configuration file changes are required by Liberty. The modified configuration must be copied to the Liberty server.</p>
 <p>In a Docker environment, use the docker <code>cp</code> command to copy, and overwrite, your configuration to the running <code>liberty</code> container. In the <code>src</code> directory, run the following command:</p>

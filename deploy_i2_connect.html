@@ -79,9 +79,9 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="deploying-i2-analyze-with-i2-connect">Deploying i2 Analyze with i2 Connect</h1>
 
-<p>IBM i2 Connect enables analysts to search for and retrieve data from external data sources by using the Opal quick search functionality, and then analyse the results on a chart in Analyst&#39;s Notebook Premium.</p>
+<p>i2 Connect enables analysts to search for and retrieve data from external data sources by using the Opal quick search functionality, and then analyse the results on a chart in Analyst&#39;s Notebook Premium.</p>
 <p>You can deploy i2 Analyze with support for i2 Connect only, or with the Information Store and i2 Connect.</p>
-<p>For more information about deploying i2 Analyze with i2 Connect, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.connect.developer.doc/i2_connect_overview.html">IBM i2 Analyze and i2 Connect</a>.</p>
+<p>For more information about deploying i2 Analyze with i2 Connect, see <a href="https://docs.i2group.com/analyze/latest/i2_connect_overview.html">i2 Analyze and i2 Connect</a>.</p>
 <h2 id="before-you-begin">Before you begin</h2>
 <ul>
 <li>You must complete the <a href="deploy_quick_start.html">Quick deploy</a> or deploy the example manually, and your deployment must be running.</li>
@@ -97,10 +97,10 @@
 <p>For more information about the stores and certificates that are created, see <a href="securing_certificates.html">Keystores and certificates for components of i2 Analyze</a>.</p>
 <h2 id="configuring-connector">Configuring connector</h2>
 <p>You must specify the passphrase for the key that the connector uses. Specify the <code>keyPassphrase</code> in the <code>src/images/common/connector/security-config.json</code> file. The passphrase that you specify must match the value that you entered for i2 Connect connector key store and certificate signing request when you ran the <code>createKeysAndStores</code> script.</p>
-<p>For more information about securing the example connector, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/t_connect_example_security.html">Securing the example connector</a>.</p>
+<p>For more information about securing the example connector, see <a href="https://docs.i2group.com/analyze/latest/t_connect_example_security.html">Securing the example connector</a>.</p>
 <h3 id="specifying-the-credentials">Specifying the credentials</h3>
 <p>You must specify the credentials for your deployment in the <code>src/configuration/environment/credentials.properties</code>. Set the passwords to use for each of the keystore and truststore credentials. The passwords must match the values that you entered for the corresponding keystores and truststores when you ran the <code>createKeysAndStores</code> script.</p>
-<p>For more information about the credentials file, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/t_specifying_credentials.html">Modifying the credentials</a>.</p>
+<p>For more information about the credentials file, see <a href="https://docs.i2group.com/analyze/latest/t_specifying_credentials.html">Modifying the credentials</a>.</p>
 <h2 id="deploying-the-example-connector">Deploying the example connector</h2>
 <p>In the distributed deployment example, the example connector is deployed in its own server.</p>
 <p>In the Docker environment, the <code>connector_image</code> is created when you run the <code>buildImages</code> script. The example connector container is started when you run the <code>runContainers</code> script. If you ran the <code>clean</code> script, rebuild and rerun the container. Otherwise, you do not need to rebuild and run the connector container.
@@ -115,7 +115,7 @@ To build the connector image, run the following command from the <code>src/image
 <p>To set up the example connector in the distributed deployment example, a script is provided that deploys i2 Analyze with i2 Connect and the example connector. You can decide whether to deploy i2 Analyze with i2 Connect only, or with the Information Store and i2 Connect.<br>To deploy with i2 Connect only, you must specify the <code>i2connect</code> configuration modification when you run the <code>deployDaod</code> script.<br>To deploy with the Information Store and i2 Connect, you must specify the <code>i2connect_istore</code> configuration modification when you run the <code>deployDaod</code> script.</p>
 <p>Run the <code>deployDaod</code> script from the <code>src/scripts</code> directory to set up the i2 Analyze deployment with i2 Connect only and start the connector with the correct configuration.</p>
 <pre><code>./deployDaod i2connect
-</code></pre><p>For more information about deploying a connector for i2 Connect in a non-Docker environment, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.connect.developer.doc/creating_a_connector.html">Creating a connector for i2 Connect</a>.</p>
+</code></pre><p>For more information about deploying a connector for i2 Connect in a non-Docker environment, see <a href="https://docs.i2group.com/analyze/latest/creating_a_connector.html">Creating a connector for i2 Connect</a>.</p>
 <hr>
 <h2 id="deploy-example-connector-manually">Deploy example connector manually</h2>
 <h2 id="stopping-liberty">Stopping Liberty</h2>

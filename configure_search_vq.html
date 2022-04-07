@@ -82,11 +82,11 @@
 <p>Modify the Visual Query conditions file in the i2 Analyze configuration, then redeploy the application server.</p>
 <h2 id="before-you-begin">Before you begin</h2>
 <p>Ensure that you can connect to the deployment and submit data by using Analyst&#39;s Notebook Premium.</p>
-<p>To understand what Visual Query conditions are, and why you might need to modify the conditions, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/vq_understanding.html">Visual Query condition restrictions</a>.</p>
+<p>To understand what Visual Query conditions are, and why you might need to modify the conditions, see <a href="https://docs.i2group.com/analyze/latest/vq_understanding.html">Visual Query condition restrictions</a>.</p>
 <h2 id="modifying-the-visual-query-conditions-file">Modifying the Visual Query conditions file</h2>
 <p>The <code>visual-query-configuration.xml</code> file in the distributed deployment example is in the following directory: <code>src/configuration/fragments/opal-services/WEB-INF/classes</code>.</p>
 <p>In an XML editor, open the <code>visual-query-configuration.xml</code> file from the <code>classes</code> directory, and modify the Visual Query conditions. After you modify the file, save your changes.</p>
-<p>For more information about the Visual Query conditions file, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/vq_understanding.html">Visual Query condition restrictions</a>.</p>
+<p>For more information about the Visual Query conditions file, see <a href="https://docs.i2group.com/analyze/latest/vq_understanding.html">Visual Query condition restrictions</a>.</p>
 <h2 id="updating-the-discoserversettingscommonproperties-file">Updating the <code>DiscoServerSettingsCommon.properties</code> file</h2>
 <p>The <code>DiscoServerSettingsCommon.properties</code> file in the distributed deployment example is in the following directory: <code>src/configuration/fragments/opal-services/WEB-INF/classes</code>.</p>
 <p>In a text editor, open the <code>DiscoServerSettingsCommon.properties</code> file and set the value of the <code>VisualQueryConfigurationResource</code> setting to <code>visual-query-configuration.xml</code>. For example: <code>VisualQueryConfigurationResource=visual-query-configuration.xml</code>.</p>
