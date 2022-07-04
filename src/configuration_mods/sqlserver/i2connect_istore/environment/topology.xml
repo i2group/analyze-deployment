@@ -14,8 +14,8 @@
   <applications>
     <application http-server-host="false" name="opal-server" host-name="liberty.eianet">
 	<key-stores>
-         <key-store type="key-store" file="/opt/IBM/keys/stores/i2-jks-keystore.jks" />
-         <key-store type="trust-store" file="/opt/IBM/keys/stores/i2-jks-truststore.jks" />
+         <key-store type="key-store" file="/opt/i2/keys/stores/i2-jks-keystore.jks" />
+         <key-store type="trust-store" file="/opt/i2/keys/stores/i2-jks-truststore.jks" />
       </key-stores>
       <wars>
         <war context-root="opal" name="opal-services-is-daod" i2-data-source-id="infostore" target="opal-services-is-daod">
@@ -33,13 +33,13 @@
             <fragment name="default-user-profile-provider" />
           </fragments>
           <solr-collection-ids>
-            <solr-collection-id collection-id="main_index" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
-            <solr-collection-id collection-id="daod_index" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
-            <solr-collection-id collection-id="match_index1" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
-            <solr-collection-id collection-id="match_index2" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
-            <solr-collection-id collection-id="highlight_index" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
-            <solr-collection-id collection-id="chart_index" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
-            <solr-collection-id collection-id="vq_index" data-dir="/opt/IBM/i2analyze/data/solr" cluster-id="is_cluster" />
+            <solr-collection-id collection-id="main_index" data-dir="/opt/i2/i2analyze/data/solr" cluster-id="is_cluster" />
+            <solr-collection-id collection-id="daod_index" data-dir="/opt/i2/i2analyze/data/solr" cluster-id="is_cluster" />
+            <solr-collection-id collection-id="match_index1" data-dir="/opt/i2/i2analyze/data/solr" cluster-id="is_cluster" />
+            <solr-collection-id collection-id="match_index2" data-dir="/opt/i2/i2analyze/data/solr" cluster-id="is_cluster" />
+            <solr-collection-id collection-id="highlight_index" data-dir="/opt/i2/i2analyze/data/solr" cluster-id="is_cluster" />
+            <solr-collection-id collection-id="chart_index" data-dir="/opt/i2/i2analyze/data/solr" cluster-id="is_cluster" />
+            <solr-collection-id collection-id="vq_index" data-dir="/opt/i2/i2analyze/data/solr" cluster-id="is_cluster" />
           </solr-collection-ids>
 		  <connector-ids>
             <connector-id value="example-connector" />
@@ -47,8 +47,8 @@
         </war>
       </wars>
       <file-stores>
-        <file-store location="/opt/IBM/i2analyze/data/job/main" id="job-store" type="job-store" />
-        <file-store location="/opt/IBM/i2analyze/data/recordgroup/main" id="recordgroup-store" type="recordgroup-store" />
+        <file-store location="/opt/i2/i2analyze/data/job/main" id="job-store" type="job-store" />
+        <file-store location="/opt/i2/i2analyze/data/recordgroup/main" id="recordgroup-store" type="recordgroup-store" />
       </file-stores>
     </application>
   </applications>
@@ -58,9 +58,9 @@
   <zookeepers>
     <zookeeper id="zoo">
       <zkhosts>
-        <zkhost id="1" host-name="zookeeper.eianet" data-dir="/opt/IBM/i2analyze/data/zookeeper" port-number="9983" quorum-port-number="10483" leader-port-number="10983" />
-        <zkhost id="2" host-name="zookeeper2.eianet" data-dir="/opt/IBM/i2analyze/data/zookeeper" port-number="9984" quorum-port-number="10484" leader-port-number="10984" />
-        <zkhost id="3" host-name="zookeeper3.eianet" data-dir="/opt/IBM/i2analyze/data/zookeeper" port-number="9985" quorum-port-number="10485" leader-port-number="10985" />
+        <zkhost id="1" host-name="zookeeper.eianet" data-dir="/opt/i2/i2analyze/data/zookeeper" port-number="9983" quorum-port-number="10483" leader-port-number="10983" />
+        <zkhost id="2" host-name="zookeeper2.eianet" data-dir="/opt/i2/i2analyze/data/zookeeper" port-number="9984" quorum-port-number="10484" leader-port-number="10984" />
+        <zkhost id="3" host-name="zookeeper3.eianet" data-dir="/opt/i2/i2analyze/data/zookeeper" port-number="9985" quorum-port-number="10485" leader-port-number="10985" />
       </zkhosts>
     </zookeeper>
   </zookeepers>
@@ -76,8 +76,8 @@
         <solr-collection id="vq_index" type="vq" max-shards-per-node="4" num-shards="4" num-replicas="1" />
       </solr-collections>
       <solr-nodes>
-        <solr-node memory="512m" id="node1" host-name="solr.eianet" data-dir="/opt/IBM/i2analyze/data/solr" port-number="8983" />
-        <solr-node memory="512m" id="node2" host-name="solr2.eianet" data-dir="/opt/IBM/i2analyze/data/solr" port-number="8984" />
+        <solr-node memory="512m" id="node1" host-name="solr.eianet" data-dir="/opt/i2/i2analyze/data/solr" port-number="8983" />
+        <solr-node memory="512m" id="node2" host-name="solr2.eianet" data-dir="/opt/i2/i2analyze/data/solr" port-number="8984" />
       </solr-nodes>
     </solr-cluster>
   </solr-clusters>

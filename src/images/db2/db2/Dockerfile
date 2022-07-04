@@ -1,24 +1,7 @@
-# MIT License
+# i2, i2 Group, the i2 Group logo, and i2group.com are trademarks of N.Harris Computer Corporation.
+# © N.Harris Computer Corporation (2022)
 #
-# Copyright (c) 2022, N. Harris Computer Corporation
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+# SPDX short identifier: MIT
 
 FROM db2_installer_image
 
@@ -37,7 +20,7 @@ COPY --chown=db2inst1:db2iadm1 db2nodes.cfg /home/db2inst1/sqllib/db2nodes.cfg
 #Create a group for securing the keys
 RUN usermod -a -G keys db2inst1
 
-RUN echo ". /home/db2inst1/sqllib/db2profile && db2start || echo \"Error starting DB2\"" >> /opt/IBM/startupExt
+RUN echo ". /home/db2inst1/sqllib/db2profile && db2start || echo \"Error starting DB2\"" >> /opt/i2/startupExt
 
 USER db2inst1:db2iadm1
 
@@ -45,4 +28,4 @@ RUN /home/db2inst1/sqllib/adm/db2licm -a /opt/IBM/adv_vpc/db2/license/db2adv_vpc
 
 EXPOSE 50000 50001
 
-ENTRYPOINT /opt/IBM/startupExt && tail -f /dev/null
+ENTRYPOINT /opt/i2/startupExt && tail -f /dev/null

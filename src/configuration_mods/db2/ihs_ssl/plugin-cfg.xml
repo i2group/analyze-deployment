@@ -24,8 +24,8 @@
   <ServerCluster GetDWLMTable="false" PostSizeLimit="-1" LoadBalance="Round Robin" CloneSeparatorChange="false" RetryInterval="60" PostBufferSize="64" RemoveSpecialHeaders="true" IgnoreAffinityRequests="true" Name="opal-server_cluster">
     <Server ConnectTimeout="0" MaxConnections="-1" ExtendedHandshake="false" WaitForContinue="false" ServerIOTimeout="900" Name="opal-server">
       <Transport Port="9445" Hostname="liberty.eianet" Protocol="https">
-        <Property Name="Keyring" Value="/opt/IBM/keys/stores/i2-cms-truststore.kdb"/>
-        <Property Name="Stashfile" Value="/opt/IBM/keys/stores/i2-cms-truststore.sth"/>
+        <Property Name="Keyring" Value="/opt/i2/keys/stores/i2-cms-truststore.kdb"/>
+        <Property Name="Stashfile" Value="/opt/i2/keys/stores/i2-cms-truststore.sth"/>
       </Transport>
     </Server>
     <PrimaryServers>

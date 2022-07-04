@@ -1,25 +1,8 @@
 #!/bin/bash
-# MIT License
+# i2, i2 Group, the i2 Group logo, and i2group.com are trademarks of N.Harris Computer Corporation.
+# © N.Harris Computer Corporation (2022)
 #
-# Copyright (c) 2022, N. Harris Computer Corporation
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+# SPDX short identifier: MIT
 
 #####################################################################################
 #                                                                                   #
@@ -41,12 +24,15 @@ pushd ..
 . ${UTILS_PATH}/functions
 dbDialect=${1:-${DB_DIALECT}}
 
+I2ANALYZE_PATH="/opt/i2/i2analyze"
+docker exec -t -u i2analyze admin_client sh -c "test -d ${I2ANALYZE_PATH}" || I2ANALYZE_PATH="/opt/IBM/i2analyze" && true
+
 output "Upgrading the previous configuration"
-docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeConfiguration
+docker exec -t -u i2analyze admin_client ${I2ANALYZE_PATH}/toolkit/scripts/setup -t upgradeConfiguration
 
 output "Copying the upgraded configuration from the admin_client container to your local machine"
 rm -rf ${CONFIG_MODS_PATH}/${dbDialect}/configuration_upgraded &>/dev/null || true
-docker cp admin_client:/opt/IBM/i2analyze/toolkit/configuration ${CONFIG_MODS_PATH}/${dbDialect}/configuration_upgraded
+docker cp admin_client:${I2ANALYZE_PATH}/toolkit/configuration ${CONFIG_MODS_PATH}/${dbDialect}/configuration_upgraded
 
 output "Copying the upgraded configuration to each container"
 
@@ -55,34 +41,34 @@ pushd ${SCRIPTS_PATH}
 popd
 
 output "Upgrading Zookeeper"
-docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeZookeeper --hostname zookeeper.eianet
-docker exec -u i2analyze zookeeper2 /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeZookeeper --hostname zookeeper2.eianet
-docker exec -u i2analyze zookeeper3 /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeZookeeper --hostname zookeeper3.eianet
+docker exec -u i2analyze zookeeper ${I2ANALYZE_PATH}/toolkit/scripts/setup -t upgradeZookeeper --hostname zookeeper.eianet
+docker exec -u i2analyze zookeeper2 ${I2ANALYZE_PATH}/toolkit/scripts/setup -t upgradeZookeeper --hostname zookeeper2.eianet
+docker exec -u i2analyze zookeeper3 ${I2ANALYZE_PATH}/toolkit/scripts/setup -t upgradeZookeeper --hostname zookeeper3.eianet
 
 output "Upgrading Solr"
-docker exec -u i2analyze solr /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeSolr --hostname solr.eianet
-docker exec -u i2analyze solr2 /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeSolr --hostname solr2.eianet
+docker exec -u i2analyze solr ${I2ANALYZE_PATH}/toolkit/scripts/setup -t upgradeSolr --hostname solr.eianet
+docker exec -u i2analyze solr2 ${I2ANALYZE_PATH}/toolkit/scripts/setup -t upgradeSolr --hostname solr2.eianet
 
 output "Upgrading the Information Store database"
-docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeDatabases --hostname admin_client.eianet
+docker exec -u i2analyze admin_client ${I2ANALYZE_PATH}/toolkit/scripts/setup -t upgradeDatabases --hostname admin_client.eianet
 
 output "Starting ZooKeeper and uploading new configuration"
-docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper.eianet
-docker exec -u i2analyze zookeeper2 /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper2.eianet
-docker exec -u i2analyze zookeeper3 /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper3.eianet
-docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client.eianet
+docker exec -u i2analyze zookeeper ${I2ANALYZE_PATH}/toolkit/scripts/setup -t startZkHosts --hostname zookeeper.eianet
+docker exec -u i2analyze zookeeper2 ${I2ANALYZE_PATH}/toolkit/scripts/setup -t startZkHosts --hostname zookeeper2.eianet
+docker exec -u i2analyze zookeeper3 ${I2ANALYZE_PATH}/toolkit/scripts/setup -t startZkHosts --hostname zookeeper3.eianet
+docker exec -u i2analyze admin_client ${I2ANALYZE_PATH}/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client.eianet
 
 output "Starting Solr"
-docker exec -u i2analyze solr /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolr --hostname solr.eianet
-docker exec -u i2analyze solr2 /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolr --hostname solr2.eianet
+docker exec -u i2analyze solr ${I2ANALYZE_PATH}/toolkit/scripts/setup -t startSolr --hostname solr.eianet
+docker exec -u i2analyze solr2 ${I2ANALYZE_PATH}/toolkit/scripts/setup -t startSolr --hostname solr2.eianet
 
 output "Upgrading the Solr collection"
-docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeSolrCollections --hostname admin_client.eianet
+docker exec -u i2analyze admin_client ${I2ANALYZE_PATH}/toolkit/scripts/setup -t upgradeSolrCollections --hostname admin_client.eianet
 
 output "Upgrading Liberty"
-docker exec -t -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t upgradeLiberty
+docker exec -t -u i2analyze liberty ${I2ANALYZE_PATH}/toolkit/scripts/setup -t upgradeLiberty
 
 output "Starting Liberty"
-docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty
+docker exec -u i2analyze liberty ${I2ANALYZE_PATH}/toolkit/scripts/setup -t startLiberty
 
 popd

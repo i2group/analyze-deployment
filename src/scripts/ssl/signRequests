@@ -1,25 +1,8 @@
 #!/bin/bash
-# MIT License
+# i2, i2 Group, the i2 Group logo, and i2group.com are trademarks of N.Harris Computer Corporation.
+# © N.Harris Computer Corporation (2022)
 #
-# Copyright (c) 2022, N. Harris Computer Corporation
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+# SPDX short identifier: MIT
 
 #####################################################################################
 #                                                                                   #
@@ -36,70 +19,72 @@ dbDialect=${1:-${DB_DIALECT}}
 mkdir ${SRC_DIR}/keys/responses
 
 output "Signing liberty container certificate"
-docker cp ${SRC_DIR}/keys/requests/liberty-key.csr ca:/opt/IBM/ca
-docker exec -t ca /opt/IBM/ca/signCertificate liberty liberty-key.csr liberty-key.cer
-docker cp ca:/opt/IBM/ca/liberty-key.cer ${SRC_DIR}/keys/responses/liberty-key.cer
+docker cp ${SRC_DIR}/keys/requests/liberty-key.csr ca:/opt/i2/ca
+docker exec -t ca /opt/i2/ca/signCertificate liberty liberty-key.csr liberty-key.cer
+docker cp ca:/opt/i2/ca/liberty-key.cer ${SRC_DIR}/keys/responses/liberty-key.cer
 
 output "Signing admin_client container certificate"
-docker cp ${SRC_DIR}/keys/requests/admin_client-key.csr ca:/opt/IBM/ca
-docker exec -t ca /opt/IBM/ca/signCertificate admin_client admin_client-key.csr admin_client-key.cer
-docker cp ca:/opt/IBM/ca/admin_client-key.cer ${SRC_DIR}/keys/responses/admin_client-key.cer
+docker cp ${SRC_DIR}/keys/requests/admin_client-key.csr ca:/opt/i2/ca
+docker exec -t ca /opt/i2/ca/signCertificate admin_client admin_client-key.csr admin_client-key.cer
+docker cp ca:/opt/i2/ca/admin_client-key.cer ${SRC_DIR}/keys/responses/admin_client-key.cer
 
 output "Signing 'Jenny' user certificate request"
-docker cp ${SRC_DIR}/keys/requests/Jenny-key.csr ca:/opt/IBM/ca
-docker exec -t ca /opt/IBM/ca/signCertificate user Jenny-key.csr Jenny-key.cer
-docker cp ca:/opt/IBM/ca/Jenny-key.cer ${SRC_DIR}/keys/responses/Jenny-key.cer
+docker cp ${SRC_DIR}/keys/requests/Jenny-key.csr ca:/opt/i2/ca
+docker exec -t ca /opt/i2/ca/signCertificate user Jenny-key.csr Jenny-key.cer
+docker cp ca:/opt/i2/ca/Jenny-key.cer ${SRC_DIR}/keys/responses/Jenny-key.cer
 
 output "Signing 'Imogen' user certificate request"
-docker cp ${SRC_DIR}/keys/requests/Imogen-key.csr ca:/opt/IBM/ca
-docker exec -t ca /opt/IBM/ca/signCertificate user Imogen-key.csr Imogen-key.cer
-docker cp ca:/opt/IBM/ca/Imogen-key.cer ${SRC_DIR}/keys/responses/Imogen-key.cer
+docker cp ${SRC_DIR}/keys/requests/Imogen-key.csr ca:/opt/i2/ca
+docker exec -t ca /opt/i2/ca/signCertificate user Imogen-key.csr Imogen-key.cer
+docker cp ca:/opt/i2/ca/Imogen-key.cer ${SRC_DIR}/keys/responses/Imogen-key.cer
 
 output "Signing solr container certificate"
-docker cp ${SRC_DIR}/keys/requests/solr-key.csr ca:/opt/IBM/ca
-docker exec -t ca /opt/IBM/ca/signCertificate solr solr-key.csr solr-key.cer
-docker cp ca:/opt/IBM/ca/solr-key.cer ${SRC_DIR}/keys/responses/solr-key.cer
+docker cp ${SRC_DIR}/keys/requests/solr-key.csr ca:/opt/i2/ca
+docker exec -t ca /opt/i2/ca/signCertificate solr solr-key.csr solr-key.cer
+docker cp ca:/opt/i2/ca/solr-key.cer ${SRC_DIR}/keys/responses/solr-key.cer
 
 output "Signing solr2 container certificate"
-docker cp ${SRC_DIR}/keys/requests/solr2-key.csr ca:/opt/IBM/ca
-docker exec -t ca /opt/IBM/ca/signCertificate solr solr2-key.csr solr2-key.cer
-docker cp ca:/opt/IBM/ca/solr2-key.cer ${SRC_DIR}/keys/responses/solr2-key.cer
+docker cp ${SRC_DIR}/keys/requests/solr2-key.csr ca:/opt/i2/ca
+docker exec -t ca /opt/i2/ca/signCertificate solr solr2-key.csr solr2-key.cer
+docker cp ca:/opt/i2/ca/solr2-key.cer ${SRC_DIR}/keys/responses/solr2-key.cer
 
 output "Signing zookeeper container certificate"
-docker cp ${SRC_DIR}/keys/requests/zookeeper-key.csr ca:/opt/IBM/ca
-docker exec -t ca /opt/IBM/ca/signCertificate zookeeper zookeeper-key.csr zookeeper-key.cer
-docker cp ca:/opt/IBM/ca/zookeeper-key.cer ${SRC_DIR}/keys/responses/zookeeper-key.cer
+docker cp ${SRC_DIR}/keys/requests/zookeeper-key.csr ca:/opt/i2/ca
+docker exec -t ca /opt/i2/ca/signCertificate zookeeper zookeeper-key.csr zookeeper-key.cer
+docker cp ca:/opt/i2/ca/zookeeper-key.cer ${SRC_DIR}/keys/responses/zookeeper-key.cer
 
 output "Signing zookeeper2 container certificate"
-docker cp ${SRC_DIR}/keys/requests/zookeeper2-key.csr ca:/opt/IBM/ca
-docker exec -t ca /opt/IBM/ca/signCertificate zookeeper zookeeper2-key.csr zookeeper2-key.cer
-docker cp ca:/opt/IBM/ca/zookeeper2-key.cer ${SRC_DIR}/keys/responses/zookeeper2-key.cer
+docker cp ${SRC_DIR}/keys/requests/zookeeper2-key.csr ca:/opt/i2/ca
+docker exec -t ca /opt/i2/ca/signCertificate zookeeper zookeeper2-key.csr zookeeper2-key.cer
+docker cp ca:/opt/i2/ca/zookeeper2-key.cer ${SRC_DIR}/keys/responses/zookeeper2-key.cer
 
 output "Signing zookeeper3 container certificate"
-docker cp ${SRC_DIR}/keys/requests/zookeeper3-key.csr ca:/opt/IBM/ca
-docker exec -t ca /opt/IBM/ca/signCertificate zookeeper zookeeper3-key.csr zookeeper3-key.cer
-docker cp ca:/opt/IBM/ca/zookeeper3-key.cer ${SRC_DIR}/keys/responses/zookeeper3-key.cer
+docker cp ${SRC_DIR}/keys/requests/zookeeper3-key.csr ca:/opt/i2/ca
+docker exec -t ca /opt/i2/ca/signCertificate zookeeper zookeeper3-key.csr zookeeper3-key.cer
+docker cp ca:/opt/i2/ca/zookeeper3-key.cer ${SRC_DIR}/keys/responses/zookeeper3-key.cer
 
 if [[ $dbDialect == "db2" ]]; then
 	output "Signing db2 container certificate"
-	docker cp ${SRC_DIR}/keys/requests/db2-key.csr ca:/opt/IBM/ca
-	docker exec -t ca /opt/IBM/ca/signCertificate db2 db2-key.csr db2-key.cer
-	docker cp ca:/opt/IBM/ca/db2-key.cer ${SRC_DIR}/keys/responses/db2-key.cer
+	docker cp ${SRC_DIR}/keys/requests/db2-key.csr ca:/opt/i2/ca
+	docker exec -t ca /opt/i2/ca/signCertificate db2 db2-key.csr db2-key.cer
+	docker cp ca:/opt/i2/ca/db2-key.cer ${SRC_DIR}/keys/responses/db2-key.cer
 elif [[ $dbDialect == "sqlserver" ]]; then
 	output "Signing sqlserver container certificate"
-	docker cp ${SRC_DIR}/keys/requests/sqlserver-key.csr ca:/opt/IBM/ca
-	docker exec -t ca /opt/IBM/ca/signCertificate sqlserver sqlserver-key.csr sqlserver-key.cer
-	docker cp ca:/opt/IBM/ca/sqlserver-key.cer ${SRC_DIR}/keys/responses/sqlserver-key.cer
+	docker cp ${SRC_DIR}/keys/requests/sqlserver-key.csr ca:/opt/i2/ca
+	docker exec -t ca /opt/i2/ca/signCertificate sqlserver sqlserver-key.csr sqlserver-key.cer
+	docker cp ca:/opt/i2/ca/sqlserver-key.cer ${SRC_DIR}/keys/responses/sqlserver-key.cer
 fi
 
 if [ "$(docker ps -q -f name=ihs)" ]; then
   output "Signing ihs container certificate"
-  docker cp ${SRC_DIR}/keys/requests/ihs-key.csr ca:/opt/IBM/ca
-  docker exec -t ca /opt/IBM/ca/signCertificate ihs ihs-key.csr ihs-key.cer
-  docker cp ca:/opt/IBM/ca/ihs-key.cer ${SRC_DIR}/keys/responses/ihs-key.cer
+  docker cp ${SRC_DIR}/keys/requests/ihs-key.csr ca:/opt/i2/ca
+  docker exec -t ca /opt/i2/ca/signCertificate ihs ihs-key.csr ihs-key.cer
+  docker cp ca:/opt/i2/ca/ihs-key.cer ${SRC_DIR}/keys/responses/ihs-key.cer
 fi
 
-output "Signing connector container certificate"
-docker cp ${SRC_DIR}/keys/requests/connector-key.csr ca:/opt/IBM/ca
-docker exec -t ca /opt/IBM/ca/signCertificate daod connector-key.csr connector-key.cer
-docker cp ca:/opt/IBM/ca/connector-key.cer ${SRC_DIR}/keys/responses/connector-key.cer
+if [ "$(docker ps -q -f name=connector)" ]; then
+  output "Signing connector container certificate"
+  docker cp ${SRC_DIR}/keys/requests/connector-key.csr ca:/opt/i2/ca
+  docker exec -t ca /opt/i2/ca/signCertificate daod connector-key.csr connector-key.cer
+  docker cp ca:/opt/i2/ca/connector-key.cer ${SRC_DIR}/keys/responses/connector-key.cer
+fi

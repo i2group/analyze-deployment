@@ -71,8 +71,8 @@ ENCRYPTED       = inst1.FENCED_PASSWORD
 
 ** Instance DBM CFG Settings
 ** -------------------------
-inst1.SSL_SVR_KEYDB   =                 /opt/IBM/keys/stores/i2-db2-keystore.kdb
-inst1.SSL_SVR_STASH   =                 /opt/IBM/keys/stores/i2-db2-keystore.sth
+inst1.SSL_SVR_KEYDB   =                 /opt/i2/keys/stores/i2-db2-keystore.kdb
+inst1.SSL_SVR_STASH   =                 /opt/i2/keys/stores/i2-db2-keystore.sth
 inst1.SSL_SVR_LABEL   =                 db2key
 inst1.SSL_SVCENAME    =                 50001
 

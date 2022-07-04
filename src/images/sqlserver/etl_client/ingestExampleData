@@ -1,25 +1,8 @@
 #!/bin/bash
-# MIT License
+# i2, i2 Group, the i2 Group logo, and i2group.com are trademarks of N.Harris Computer Corporation.
+# © N.Harris Computer Corporation (2022)
 #
-# Copyright (c) 2022, N. Harris Computer Corporation
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+# SPDX short identifier: MIT
 
 #####################################################################################
 #                                                                                   #
@@ -41,7 +24,7 @@ function runCommandUntilSuccess
     set -e
 }
 
-cd /opt/IBM/i2analyze/etltoolkit
+cd /opt/i2/i2analyze/etltoolkit
 
 echo "Enter the password that you specified for db.infostore.password in the credentials.properties file"
 read -sp "Password: " PASSWORD
@@ -49,25 +32,25 @@ read -sp "Password: " PASSWORD
 echo "Load data"
 
 #create an entity staging table
-/opt/IBM/i2analyze/etltoolkit/createInformationStoreStagingTable -stid ET5 -sn IS_Staging -tn E_Person
+/opt/i2/i2analyze/etltoolkit/createInformationStoreStagingTable -stid ET5 -sn IS_Staging -tn E_Person
 
 #create a link staging table
-/opt/IBM/i2analyze/etltoolkit/createInformationStoreStagingTable -stid LAS1 -sn IS_Staging -tn L_Associate
+/opt/i2/i2analyze/etltoolkit/createInformationStoreStagingTable -stid LAS1 -sn IS_Staging -tn L_Associate
 
 #populate the newly created E_Person staging table
-bcp IS_Staging.E_Person in "/opt/IBM/i2analyze/example/person.csv" -f "/opt/IBM/i2analyze/example/person.fmt" -F 2 -U i2analyze -S "sqlserver,1433" -d ISTORE -P "${PASSWORD}"
+bcp IS_Staging.E_Person in "/opt/i2/i2analyze/example/person.csv" -f "/opt/i2/i2analyze/example/person.fmt" -F 2 -U i2analyze -S "sqlserver,1433" -d ISTORE -P "${PASSWORD}"
 
 #populate the newly created L_Associate staging table
-bcp IS_Staging.L_Associate in "/opt/IBM/i2analyze/example/person_association_person.csv" -f "/opt/IBM/i2analyze/example/person_association_person.fmt" -F 2 -U i2analyze -S "sqlserver,1433" -d ISTORE -P "${PASSWORD}"
+bcp IS_Staging.L_Associate in "/opt/i2/i2analyze/example/person_association_person.csv" -f "/opt/i2/i2analyze/example/person_association_person.fmt" -F 2 -U i2analyze -S "sqlserver,1433" -d ISTORE -P "${PASSWORD}"
 
 #create the ingestion source
 ./addInformationStoreIngestionSource -n REMOTE -d "Remote ingestion source"
 
 #ingest from the E_Person staging table to the InformationStore
-./ingestInformationStoreRecords -imf /opt/IBM/i2analyze/example/mapping.xml -imid Person
+./ingestInformationStoreRecords -imf /opt/i2/i2analyze/example/mapping.xml -imid Person
 
 #ingest from the L_Associate staging table to the InformationStore
-./ingestInformationStoreRecords -imf /opt/IBM/i2analyze/example/mapping.xml -imid Associate
+./ingestInformationStoreRecords -imf /opt/i2/i2analyze/example/mapping.xml -imid Associate
 
 echo "Cleaning staging tables"
 sqlcmd -U i2analyze -P "${PASSWORD}" -S "sqlserver,1433" -d ISTORE -Q "TRUNCATE TABLE IS_Staging.E_Person; TRUNCATE TABLE IS_Staging.L_Associate;"

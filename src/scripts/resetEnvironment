@@ -1,25 +1,8 @@
 #!/bin/bash
-# MIT License
+# i2, i2 Group, the i2 Group logo, and i2group.com are trademarks of N.Harris Computer Corporation.
+# © N.Harris Computer Corporation (2022)
 #
-# Copyright (c) 2022, N. Harris Computer Corporation
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+# SPDX short identifier: MIT
 
 #####################################################################################
 #                                                                                   #
@@ -46,23 +29,23 @@ if [[ $dbDialect != "sqlserver" &&  $dbDialect != "db2" ]]; then
 fi
 
 output "Remove the configuration directory on each container"
-docker exec admin_client sh -c "rm -rf /opt/IBM/i2analyze/toolkit/configuration/*"
-docker exec liberty sh -c "rm -rf /opt/IBM/i2analyze/toolkit/configuration/*"
-docker exec zookeeper sh -c "rm -rf /opt/IBM/i2analyze/toolkit/configuration/*"
-docker exec zookeeper2 sh -c "rm -rf /opt/IBM/i2analyze/toolkit/configuration/*"
-docker exec zookeeper3 sh -c "rm -rf /opt/IBM/i2analyze/toolkit/configuration/*"
-docker exec solr sh -c "rm -rf /opt/IBM/i2analyze/toolkit/configuration/*"
-docker exec solr2 sh -c "rm -rf /opt/IBM/i2analyze/toolkit/configuration/*"
+docker exec admin_client sh -c "rm -rf /opt/i2/i2analyze/toolkit/configuration/*"
+docker exec liberty sh -c "rm -rf /opt/i2/i2analyze/toolkit/configuration/*"
+docker exec zookeeper sh -c "rm -rf /opt/i2/i2analyze/toolkit/configuration/*"
+docker exec zookeeper2 sh -c "rm -rf /opt/i2/i2analyze/toolkit/configuration/*"
+docker exec zookeeper3 sh -c "rm -rf /opt/i2/i2analyze/toolkit/configuration/*"
+docker exec solr sh -c "rm -rf /opt/i2/i2analyze/toolkit/configuration/*"
+docker exec solr2 sh -c "rm -rf /opt/i2/i2analyze/toolkit/configuration/*"
 
 output "Copy the configuration from the src/configuration directory to each container"
 #Copy Base Config
-docker cp "${BASE_CONFIG_PATH}/." admin_client:/opt/IBM/i2analyze/toolkit/configuration
-docker cp "${BASE_CONFIG_PATH}/." liberty:/opt/IBM/i2analyze/toolkit/configuration
-docker cp "${BASE_CONFIG_PATH}/." zookeeper:/opt/IBM/i2analyze/toolkit/configuration
-docker cp "${BASE_CONFIG_PATH}/." zookeeper2:/opt/IBM/i2analyze/toolkit/configuration
-docker cp "${BASE_CONFIG_PATH}/." zookeeper3:/opt/IBM/i2analyze/toolkit/configuration
-docker cp "${BASE_CONFIG_PATH}/." solr:/opt/IBM/i2analyze/toolkit/configuration
-docker cp "${BASE_CONFIG_PATH}/." solr2:/opt/IBM/i2analyze/toolkit/configuration
+docker cp "${BASE_CONFIG_PATH}/." admin_client:/opt/i2/i2analyze/toolkit/configuration
+docker cp "${BASE_CONFIG_PATH}/." liberty:/opt/i2/i2analyze/toolkit/configuration
+docker cp "${BASE_CONFIG_PATH}/." zookeeper:/opt/i2/i2analyze/toolkit/configuration
+docker cp "${BASE_CONFIG_PATH}/." zookeeper2:/opt/i2/i2analyze/toolkit/configuration
+docker cp "${BASE_CONFIG_PATH}/." zookeeper3:/opt/i2/i2analyze/toolkit/configuration
+docker cp "${BASE_CONFIG_PATH}/." solr:/opt/i2/i2analyze/toolkit/configuration
+docker cp "${BASE_CONFIG_PATH}/." solr2:/opt/i2/i2analyze/toolkit/configuration
 
 #Reset base configuration
 cp -r "${CONFIG_MODS_PATH}/${dbDialect}/base/." "${DEFAULT_CONFIG_PATH}"
@@ -71,70 +54,70 @@ cp -r "${CONFIG_MODS_PATH}/${dbDialect}/base/." "${DEFAULT_CONFIG_PATH}"
 pushd ${SCRIPTS_PATH}
 . copyConfiguration $dbDialect
 popd
-docker cp "${IMAGES_PATH}/${dbDialect}/admin_client/configuration/." admin_client:/opt/IBM/i2analyze/toolkit/configuration
-docker cp "${IMAGES_PATH}/${dbDialect}/liberty/configuration/." liberty:/opt/IBM/i2analyze/toolkit/configuration
-docker cp "${IMAGES_PATH}/common/zookeeper/configuration/." zookeeper:/opt/IBM/i2analyze/toolkit/configuration
-docker cp "${IMAGES_PATH}/common/zookeeper2/configuration/." zookeeper2:/opt/IBM/i2analyze/toolkit/configuration
-docker cp "${IMAGES_PATH}/common/zookeeper3/configuration/." zookeeper3:/opt/IBM/i2analyze/toolkit/configuration
-docker cp "${IMAGES_PATH}/common/solr/configuration/." solr:/opt/IBM/i2analyze/toolkit/configuration
-docker cp "${IMAGES_PATH}/common/solr2/configuration/." solr2:/opt/IBM/i2analyze/toolkit/configuration
+docker cp "${IMAGES_PATH}/${dbDialect}/admin_client/configuration/." admin_client:/opt/i2/i2analyze/toolkit/configuration
+docker cp "${IMAGES_PATH}/${dbDialect}/liberty/configuration/." liberty:/opt/i2/i2analyze/toolkit/configuration
+docker cp "${IMAGES_PATH}/common/zookeeper/configuration/." zookeeper:/opt/i2/i2analyze/toolkit/configuration
+docker cp "${IMAGES_PATH}/common/zookeeper2/configuration/." zookeeper2:/opt/i2/i2analyze/toolkit/configuration
+docker cp "${IMAGES_PATH}/common/zookeeper3/configuration/." zookeeper3:/opt/i2/i2analyze/toolkit/configuration
+docker cp "${IMAGES_PATH}/common/solr/configuration/." solr:/opt/i2/i2analyze/toolkit/configuration
+docker cp "${IMAGES_PATH}/common/solr2/configuration/." solr2:/opt/i2/i2analyze/toolkit/configuration
 
 #Change the ownership of the copied files
-docker exec -u root admin_client chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
-docker exec -u root liberty chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
-docker exec -u root zookeeper chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
-docker exec -u root zookeeper2 chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
-docker exec -u root zookeeper3 chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
-docker exec -u root solr chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
-docker exec -u root solr2 chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
+docker exec -u root admin_client chown -R i2analyze:i2analyze /opt/i2/i2analyze/toolkit/configuration
+docker exec -u root liberty chown -R i2analyze:i2analyze /opt/i2/i2analyze/toolkit/configuration
+docker exec -u root zookeeper chown -R i2analyze:i2analyze /opt/i2/i2analyze/toolkit/configuration
+docker exec -u root zookeeper2 chown -R i2analyze:i2analyze /opt/i2/i2analyze/toolkit/configuration
+docker exec -u root zookeeper3 chown -R i2analyze:i2analyze /opt/i2/i2analyze/toolkit/configuration
+docker exec -u root solr chown -R i2analyze:i2analyze /opt/i2/i2analyze/toolkit/configuration
+docker exec -u root solr2 chown -R i2analyze:i2analyze /opt/i2/i2analyze/toolkit/configuration
 
 # If HTTP Server exists then reset the configuration
 contExists="$(containerExists ihs)"
 if [[ "$contExists" -eq 1 ]]; then
-    docker exec ihs sh -c "rm -rf /opt/IBM/i2analyze/toolkit/configuration/*"
-    docker cp "${IMAGES_PATH}/common/ihs/configuration/." ihs:/opt/IBM/i2analyze/toolkit/configuration
-    docker exec -u root ihs chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
+    docker exec ihs bash -c "rm -rf /opt/i2/i2analyze/toolkit/configuration/*"
+    docker cp "${IMAGES_PATH}/common/ihs/configuration/." ihs:/opt/i2/i2analyze/toolkit/configuration
+    docker exec -u root ihs chown -R i2analyze:i2analyze /opt/i2/i2analyze/toolkit/configuration
 fi
 
 # Searching and replacing ssl tag, removing clientAuthenticationSupported
-docker exec -u i2analyze liberty sh -c "cd /opt/IBM/i2analyze/deploy/wlp/usr/servers/opal-server && \
+docker exec -u i2analyze liberty sh -c "cd /opt/i2/i2analyze/deploy/wlp/usr/servers/opal-server && \
     sed -i 's/<ssl sslProtocol=\"TLSv1.2\" clientAuthenticationSupported=\"true\" id=\"defaultSSLConfig\"/<ssl sslProtocol=\"TLSv1.2\" id=\"defaultSSLConfig\"/g' server.xml"
 
 # Search and replace httpDispatcher tag, removing trustedSensitiveHeaderOrigin
-docker exec -u i2analyze liberty sh -c "cd /opt/IBM/i2analyze/deploy/wlp/usr/servers/opal-server && \
+docker exec -u i2analyze liberty sh -c "cd /opt/i2/i2analyze/deploy/wlp/usr/servers/opal-server && \
     sed -i 's/trustedSensitiveHeaderOrigin=\"\*\"//g' server.xml"
 
 # Resetting start extensions
-docker exec -u root -it solr sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr.eianet || echo \"Error stating Solr node in solr\"\" > /opt/IBM/startupExt"
-docker exec -u root -it solr2 sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr2.eianet || echo \"Error stating Solr node in solr2\"\" > /opt/IBM/startupExt"
-docker exec -u root -it admin_client sh -c "echo \"\" > /opt/IBM/startupExt"
-docker exec -u root -it liberty sh -c "echo \"export JAVA_HOME=/opt/IBM/i2analyze/deploy/java && /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty || echo \"Error starting Liberty\"\" > /opt/IBM/startupExt"
-docker exec -u root -it zookeeper sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper.eianet || echo \"Error stating Zookeeper host in zookeeeper\"\" > /opt/IBM/startupExt"
-docker exec -u root -it zookeeper2 sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper2.eianet || echo \"Error stating Zookeeper host in zookeeeper2\"\" > /opt/IBM/startupExt"
-docker exec -u root -it zookeeper3 sh -c "echo \"/opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper3.eianet || echo \"Error stating Zookeeper host in zookeeeper3\"\" > /opt/IBM/startupExt"
+docker exec -u root -it solr sh -c "echo \"/opt/i2/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr.eianet || echo \"Error stating Solr node in solr\"\" > /opt/i2/startupExt"
+docker exec -u root -it solr2 sh -c "echo \"/opt/i2/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr2.eianet || echo \"Error stating Solr node in solr2\"\" > /opt/i2/startupExt"
+docker exec -u root -it admin_client sh -c "echo \"\" > /opt/i2/startupExt"
+docker exec -u root -it liberty sh -c "echo \"export JAVA_HOME=/opt/i2/i2analyze/deploy/java && /opt/i2/i2analyze/toolkit/scripts/setup -t startLiberty || echo \"Error starting Liberty\"\" > /opt/i2/startupExt"
+docker exec -u root -it zookeeper sh -c "echo \"/opt/i2/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper.eianet || echo \"Error stating Zookeeper host in zookeeeper\"\" > /opt/i2/startupExt"
+docker exec -u root -it zookeeper2 sh -c "echo \"/opt/i2/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper2.eianet || echo \"Error stating Zookeeper host in zookeeeper2\"\" > /opt/i2/startupExt"
+docker exec -u root -it zookeeper3 sh -c "echo \"/opt/i2/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper3.eianet || echo \"Error stating Zookeeper host in zookeeeper3\"\" > /opt/i2/startupExt"
 
 output "Resetting configuration"
-docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty
+docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t stopLiberty
 
 # Resetting the Solr configuration in the Zookeeper servers
-docker exec -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client.eianet
+docker exec -u i2analyze admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client.eianet
 
 # Restarting zookeeper containers
-docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts --hostname zookeeper.eianet
-docker exec -u i2analyze zookeeper /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper.eianet
+docker exec -u i2analyze zookeeper /opt/i2/i2analyze/toolkit/scripts/setup -t stopZkHosts --hostname zookeeper.eianet
+docker exec -u i2analyze zookeeper /opt/i2/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper.eianet
 
-docker exec -u i2analyze zookeeper2 /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts --hostname zookeeper2.eianet
-docker exec -u i2analyze zookeeper2 /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper2.eianet
+docker exec -u i2analyze zookeeper2 /opt/i2/i2analyze/toolkit/scripts/setup -t stopZkHosts --hostname zookeeper2.eianet
+docker exec -u i2analyze zookeeper2 /opt/i2/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper2.eianet
 
-docker exec -u i2analyze zookeeper3 /opt/IBM/i2analyze/toolkit/scripts/setup -t stopZkHosts --hostname zookeeper3.eianet
-docker exec -u i2analyze zookeeper3 /opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper3.eianet
+docker exec -u i2analyze zookeeper3 /opt/i2/i2analyze/toolkit/scripts/setup -t stopZkHosts --hostname zookeeper3.eianet
+docker exec -u i2analyze zookeeper3 /opt/i2/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper3.eianet
 
 # Restarting solr containers
-docker exec -u i2analyze solr /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes --hostname solr.eianet
-docker exec -u i2analyze solr2 /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes --hostname solr2.eianet
+docker exec -u i2analyze solr /opt/i2/i2analyze/toolkit/scripts/setup -t stopSolrNodes --hostname solr.eianet
+docker exec -u i2analyze solr2 /opt/i2/i2analyze/toolkit/scripts/setup -t stopSolrNodes --hostname solr2.eianet
 
-docker exec -u i2analyze solr /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr.eianet
-docker exec -u i2analyze solr2 /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr2.eianet
+docker exec -u i2analyze solr /opt/i2/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr.eianet
+docker exec -u i2analyze solr2 /opt/i2/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr2.eianet
 
 if [[ $dbDialect == "db2" ]]; then
     # Resetting the DB2COMM property in the db2 server
@@ -143,12 +126,12 @@ if [[ $dbDialect == "db2" ]]; then
     docker exec -u db2inst1 -t db2 bash -c ". /home/db2inst1/sqllib/db2profile && db2 update dbm cfg using SSL_VERSIONS NULL"
 
     # Recataloging the database on the admin_client container
-    docker exec -u i2analyze admin_client bash -c ". /home/db2inst1/sqllib/db2profile && /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogRemoteDB2Nodes"
-    docker exec -u i2analyze admin_client bash -c ". /home/db2inst1/sqllib/db2profile && /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogDB2Databases"
+    docker exec -u i2analyze admin_client bash -c ". /home/db2inst1/sqllib/db2profile && /opt/i2/i2analyze/toolkit/scripts/setup -t recatalogRemoteDB2Nodes"
+    docker exec -u i2analyze admin_client bash -c ". /home/db2inst1/sqllib/db2profile && /opt/i2/i2analyze/toolkit/scripts/setup -t recatalogDB2Databases"
 
     # Recataloging the database on the liberty container
-    docker exec -u i2analyze liberty bash -c ". /home/db2inst1/sqllib/db2profile && /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogRemoteDB2Nodes"
-    docker exec -u i2analyze liberty bash -c ". /home/db2inst1/sqllib/db2profile && /opt/IBM/i2analyze/toolkit/scripts/setup -t recatalogDB2Databases"
+    docker exec -u i2analyze liberty bash -c ". /home/db2inst1/sqllib/db2profile && /opt/i2/i2analyze/toolkit/scripts/setup -t recatalogRemoteDB2Nodes"
+    docker exec -u i2analyze liberty bash -c ". /home/db2inst1/sqllib/db2profile && /opt/i2/i2analyze/toolkit/scripts/setup -t recatalogDB2Databases"
 elif [[ $dbDialect == "sqlserver" ]]; then
     # Resetting the connection properties in the sqlserver server
     docker exec -t sqlserver /opt/mssql/bin/mssql-conf unset network.tlscert
@@ -158,7 +141,7 @@ elif [[ $dbDialect == "sqlserver" ]]; then
 fi
 
 # Deploying liberty
-docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t deployLiberty
+docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t deployLiberty
 
 if [[ $dbDialect == "db2" ]]; then
     # Restart db2
@@ -170,6 +153,6 @@ elif [[ $dbDialect == "sqlserver" ]]; then
 fi
 
 # Starting liberty
-docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty
+docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t startLiberty
 
 popd

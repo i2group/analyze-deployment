@@ -1,31 +1,14 @@
-# MIT License
+# i2, i2 Group, the i2 Group logo, and i2group.com are trademarks of N.Harris Computer Corporation.
+# © N.Harris Computer Corporation (2022)
 #
-# Copyright (c) 2022, N. Harris Computer Corporation
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+# SPDX short identifier: MIT
 
 FROM mcr.microsoft.com/mssql-tools
 
 LABEL maintainer="i2group"
-LABEL version="2.6.1"
+LABEL version="2.7.0"
 
-ENV i2analyzeDir /opt/IBM/i2analyze
+ENV i2analyzeDir /opt/i2/i2analyze
 ENV toolkitDir ${i2analyzeDir}/toolkit
 
 #Install the prerequisites.
@@ -46,10 +29,10 @@ RUN groupadd keys && usermod -a -G keys i2analyze
 COPY --chown=i2analyze:i2analyze --from=ubuntu_toolkit_image ${i2analyzeDir} ${i2analyzeDir}
 
 #Add the startupExt file for future startup commands
-COPY --chown=i2analyze:i2analyze --from=ubuntu_toolkit_image /opt/IBM/startupExt /opt/IBM/startupExt
+COPY --chown=i2analyze:i2analyze --from=ubuntu_toolkit_image /opt/i2/startupExt /opt/i2/startupExt
 
 #Copy utils
-COPY --chown=i2analyze:i2analyze --from=ubuntu_toolkit_image /opt/IBM/utils /opt/IBM/utils
+COPY --chown=i2analyze:i2analyze --from=ubuntu_toolkit_image /opt/i2/utils /opt/i2/utils
 
 #The custom configuration overrides the base configuration in the ubuntu_toolkit_image.
 COPY --chown=i2analyze:i2analyze configuration ${toolkitDir}/configuration
@@ -65,11 +48,11 @@ RUN ${toolkitDir}/scripts/setup -t deployLiberty
 
 #Create an example user registry in Liberty.
 RUN ${toolkitDir}/scripts/setup -t ensureExampleUserRegistry
-COPY --chown=i2analyze:i2analyze user.registry.xml /opt/IBM/i2analyze/deploy/wlp/usr/shared/config/
+COPY --chown=i2analyze:i2analyze user.registry.xml /opt/i2/i2analyze/deploy/wlp/usr/shared/config/
 
-RUN echo "export JAVA_HOME=/opt/IBM/i2analyze/deploy/java && /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty || echo \"Error starting Liberty\"" >> /opt/IBM/startupExt
+RUN echo "export JAVA_HOME=/opt/i2/i2analyze/deploy/java && /opt/i2/i2analyze/toolkit/scripts/setup -t startLiberty || echo \"Error starting Liberty\"" >> /opt/i2/startupExt
 
 EXPOSE 9082 9445
 
 #Start the Liberty server that hosts i2 Analyze.
-ENTRYPOINT /opt/IBM/startupExt && tail -f /dev/null
+ENTRYPOINT /opt/i2/startupExt && tail -f /dev/null

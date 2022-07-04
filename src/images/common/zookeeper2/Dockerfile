@@ -1,24 +1,7 @@
-# MIT License
+# i2, i2 Group, the i2 Group logo, and i2group.com are trademarks of N.Harris Computer Corporation.
+# © N.Harris Computer Corporation (2022)
 #
-# Copyright (c) 2022, N. Harris Computer Corporation
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+# SPDX short identifier: MIT
 
 FROM ubuntu_toolkit_image
 
@@ -33,12 +16,12 @@ COPY --chown=i2analyze:i2analyze configuration ${toolkitDir}/configuration
 USER i2analyze:i2analyze
 
 #Install ZooKeeper.
-RUN /opt/IBM/i2analyze/toolkit/scripts/setup -t installZookeeper
+RUN /opt/i2/i2analyze/toolkit/scripts/setup -t installZookeeper
 
 #Create the ZooKeeper host and the configuration for the ZooKeeper hosts on this server.
-RUN /opt/IBM/i2analyze/toolkit/scripts/setup -t createZkHosts --hostname ${hostname}
+RUN /opt/i2/i2analyze/toolkit/scripts/setup -t createZkHosts --hostname ${hostname}
 
-RUN echo "/opt/IBM/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname ${hostname} || echo \"Error stating Zookeeper host in ${hostname}\"" >> /opt/IBM/startupExt
+RUN echo "/opt/i2/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname ${hostname} || echo \"Error stating Zookeeper host in ${hostname}\"" >> /opt/i2/startupExt
 
 #Start ZooKeeper and upload the Solr configuration to ZooKeeper.
-ENTRYPOINT /opt/IBM/startupExt && tail -f /dev/null
+ENTRYPOINT /opt/i2/startupExt && tail -f /dev/null

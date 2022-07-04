@@ -1,32 +1,15 @@
 #!/bin/bash
-# MIT License
+# i2, i2 Group, the i2 Group logo, and i2group.com are trademarks of N.Harris Computer Corporation.
+# © N.Harris Computer Corporation (2022)
 #
-# Copyright (c) 2022, N. Harris Computer Corporation
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+# SPDX short identifier: MIT
 
 #####################################################################################
 #                                                                                   #
 #  Script to add the signed certificates into their corresponding key store.        #
 #                                                                                   #
 #####################################################################################
-. /opt/IBM/utils/functions
+. /opt/i2/utils/functions
 
 #The value passed in when the script is called, this is the name of a container.
 #If optional second parameter is passed in, the second parameter will be used as the keyStoreId.
@@ -34,14 +17,14 @@ uri=$1
 keyStoreId=${2:-$1}
 
 #Set the variables for the specified container name
-utils=/opt/IBM/utils
-keystoreFile=/opt/IBM/keys/stores/i2-${keyStoreId}-keystore.jks
+utils=/opt/i2/utils
+keystoreFile=/opt/i2/keys/stores/i2-${keyStoreId}-keystore.jks
 keyName=${uri}key
-in=/opt/IBM/keys/responses/${uri}-key.cer
+in=/opt/i2/keys/responses/${uri}-key.cer
 
 
 #Import the certificate authority certificate
-runCommandUntilSuccess "/opt/IBM/i2analyze/toolkit/tools/java/bin/keytool -importcert -alias ca -keystore $keystoreFile -file ${utils}/keys/CA.cer -keypass:env SSL_PASSWORD -storepass:env SSL_PASSWORD -noprompt"
+runCommandUntilSuccess "/opt/i2/i2analyze/toolkit/tools/java/bin/keytool -importcert -alias ca -keystore $keystoreFile -file ${utils}/keys/CA.cer -keypass:env SSL_PASSWORD -storepass:env SSL_PASSWORD -noprompt"
 
 #Import the signed public certificate to the store. The existing unsigned public certificate is replaced with the signed version.
-runCommandUntilSuccess "/opt/IBM/i2analyze/toolkit/tools/java/bin/keytool -importcert -alias $keyName -keystore $keystoreFile -file $in -keypass:env SSL_PASSWORD -storepass:env SSL_PASSWORD -noprompt"
+runCommandUntilSuccess "/opt/i2/i2analyze/toolkit/tools/java/bin/keytool -importcert -alias $keyName -keystore $keystoreFile -file $in -keypass:env SSL_PASSWORD -storepass:env SSL_PASSWORD -noprompt"

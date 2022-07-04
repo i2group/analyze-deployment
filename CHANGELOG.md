@@ -12,7 +12,15 @@ The format is based on [Keep a Changelog], and this project adheres to
 * `Fixed` for any bug fixes.
 * `Security` in case of vulnerabilities.
 
-## [2.6.1] - 07/04/2022
+## [2.7.0] - 30/06/2022
+
+### Added
+
+* Updated for compatibility with i2 Analyze 4.4.0
+
+[2.7.0]: https://github.com/i2group/analyze-deployment/tree/v2.7.0
+
+## [2.6.1] - 02/02/2022
 
 ### Fixed
 
