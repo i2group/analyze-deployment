@@ -35,7 +35,7 @@
               </button>
               
               <a class="navbar-brand" href="index.html">
-                IBM <strong>i2 Analyze</strong>
+                <strong>i2 Analyze</strong>
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -82,51 +82,51 @@
 <p>During development, to make destructive schema changes or to completely change your schema, you must recreate the Information Store database.</p>
 <h2 id="before-you-begin">Before you begin</h2>
 <p>This process can permanently remove data and the database from your system, ensure that no data is in the system that you want to keep.</p>
-<p>For more information about making a backup of your deployment, see <a href="https://docs.i2group.com/analyze/latest/c_back_up_and_recovery.html">Backing up a deployment</a>.</p>
+<p>For more information about making a backup of your deployment, see <a href="https://docs.i2group.com/analyze/c_back_up_and_recovery.html">Backing up a deployment</a>.</p>
 <h2 id="stopping-liberty">Stopping Liberty</h2>
 <p>Run the following command on the Liberty server to stop Liberty:</p>
-<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty
+<pre><code class="lang-sh">docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t stopLiberty
 </code></pre><p>The console output from the <code>stopLiberty</code> task is output directly to the console.</p>
 <h2 id="clearing-the-search-index">Clearing the search index</h2>
 <p>To clear the search index, you can run the commands from the Admin client or Liberty server. In the distributed deployment example, the <code>admin_client</code> container is used to run the command. The <code>admin_client</code> container includes the i2 Analyze toolkit and a database management system client installation. You can run commands that modify the database and Solr from this container.</p>
 <p>To clear the search index, run the following command:</p>
-<pre><code>docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearSearchIndex --all --hostname admin_client.eianet
+<pre><code class="lang-sh">docker exec -u i2analyze -it admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t clearSearchIndex --all --hostname admin_client.eianet
 </code></pre><p>The search index is cleared, however any data that was in the database remains in the database.</p>
 <h2 id="removing-databases-from-the-system">Removing databases from the system</h2>
-<p>To remove the database from your system, you can use the <code>dropDatabases</code> toolkit task. For more information, see <a href="https://docs.i2group.com/analyze/latest/t_drop_databases.html">Removing databases from the system</a>.</p>
+<p>To remove the database from your system, you can use the <code>dropDatabases</code> toolkit task. For more information, see <a href="https://docs.i2group.com/analyze/t_drop_databases.html">Removing databases from the system</a>.</p>
 <p>To drop the database, you must ensure that there are no active connections to it.</p>
 <h3 id="stopping-active-connections-to-your-sql-server-database">Stopping active connections to your SQL Server database</h3>
 <p>You can identify the active connections to the database by running the following command:</p>
-<pre><code>docker exec sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U i2analyze -P Passw0rd -Q &quot;EXEC SP_WHO2&quot;
+<pre><code class="lang-sh">docker exec sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U i2analyze -P Passw0rd -Q &quot;EXEC SP_WHO2&quot;
 </code></pre><p>If the command returns no results, or there are no rows in the list with a <em>DBName</em> of <code>ISTORE</code>, there are no active connections to the Information Store.</p>
 <p>Otherwise, make a note of all the values in the <code>SPID</code> column with a <em>DBName</em> of <code>ISTORE</code>.</p>
 <p>The following is an example of how to stop an active connection with the SPID of <code>54</code>:</p>
-<pre><code>docker exec sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U i2analyze -P Passw0rd -Q &quot;KILL 54&quot;
+<pre><code class="lang-sh">docker exec sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U i2analyze -P Passw0rd -Q &quot;KILL 54&quot;
 </code></pre><p>Any connections that you stop in this way are not in the list when you run the command to identify the active connections.</p>
 <h3 id="stopping-active-connections-to-your-db2-database">Stopping active connections to your Db2 database</h3>
 <p>You can identify the active connections to the database by running the following command:</p>
-<pre><code>docker exec -u i2analyze -t db2 bash -c &quot;. /home/db2inst1/sqllib/db2profile &amp;&amp; db2 list applications&quot;
+<pre><code class="lang-sh">docker exec -u i2analyze -t db2 bash -c &quot;. /home/db2inst1/sqllib/db2profile &amp;&amp; db2 list applications&quot;
 </code></pre><p>If the command returns the <code>No data was returned by Database System Monitor</code> warning, or there are no rows in the list with a <em>DB Name</em> of <code>ISTORE</code>, there are no active connections to the Information Store.</p>
 <p>Otherwise, make a note of all of the values in the <code>Appli. Handle</code> column with a <em>DB Name</em> of <code>ISTORE</code>.</p>
 <p>The following is an example of how to stop two active connections with the application handles of <code>1414</code> and <code>1415</code>:</p>
-<pre><code>docker exec -u i2analyze -t db2 bash -c &quot;. /home/db2inst1/sqllib/db2profile &amp;&amp; db2 &#39;force application (1414, 1415)&#39;&quot;
+<pre><code class="lang-sh">docker exec -u i2analyze -t db2 bash -c &quot;. /home/db2inst1/sqllib/db2profile &amp;&amp; db2 &#39;force application (1414, 1415)&#39;&quot;
 </code></pre><p>Any connections that you stop in this way are not in the list when you run the command to identify the active connections.</p>
 <h3 id="drop-the-database">Drop the database</h3>
 <p>After you ensure that there are no active connections to your database, you can drop the database by running the following command:
 In SQL Server:</p>
-<pre><code>docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t dropDatabases --hostname admin_client.eianet
+<pre><code class="lang-sh">docker exec -u i2analyze -it admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t dropDatabases --hostname admin_client.eianet
 </code></pre><p>In Db2:</p>
-<pre><code>docker exec -u i2analyze -it admin_client bash -c &quot;. /home/db2inst1/sqllib/db2profile &amp;&amp; /opt/IBM/i2analyze/toolkit/scripts/setup -t dropDatabases --hostname admin_client.eianet&quot;
+<pre><code class="lang-sh">docker exec -u i2analyze -it admin_client bash -c &quot;. /home/db2inst1/sqllib/db2profile &amp;&amp; /opt/i2/i2analyze/toolkit/scripts/setup -t dropDatabases --hostname admin_client.eianet&quot;
 </code></pre><p>The <code>ISTORE</code> database is removed.</p>
 <h3 id="recreating-the-database">Recreating the database</h3>
 <p>Before you can restart i2 Analyze, you must recreate the database.</p>
 <p>To create the database, run the following command:
 In SQL Server:</p>
-<pre><code>docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createDatabases
+<pre><code class="lang-sh">docker exec -u i2analyze -t admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t createDatabases
 </code></pre><p>In Db2:</p>
-<pre><code>docker exec -u i2analyze -t admin_client bash -c &quot;. /home/db2inst1/sqllib/db2profile &amp;&amp; /opt/IBM/i2analyze/toolkit/scripts/setup -t createDatabases&quot;
+<pre><code class="lang-sh">docker exec -u i2analyze -t admin_client bash -c &quot;. /home/db2inst1/sqllib/db2profile &amp;&amp; /opt/i2/i2analyze/toolkit/scripts/setup -t createDatabases&quot;
 </code></pre><p>You must start Liberty:</p>
-<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty
+<pre><code class="lang-sh">docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t startLiberty
 </code></pre><p>The console output from the <code>startLiberty</code> task is output directly to the console.</p>
 <p>Liberty is now started and you can connect to i2 Analyze.</p>
 <h2 id="testing-the-deployment">Testing the deployment</h2>

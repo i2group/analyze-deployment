@@ -35,7 +35,7 @@
               </button>
               
               <a class="navbar-brand" href="index.html">
-                IBM <strong>i2 Analyze</strong>
+                <strong>i2 Analyze</strong>
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -89,16 +89,16 @@
 <p>Set the <code>EXPOSE</code> instruction to <code>EXPOSE 8985</code>.<br>This is the port that is exposed to enable a connection the Solr web UI.</p>
 <h2 id="adding-the-solr-node-to-the-topologyxml">Adding the Solr node to the <code>topology.xml</code></h2>
 <p>Modify the <code>topology.xml</code> in the <code>src/images/common/solr3/configuration/environment</code> directory to include the new host name and ports that are specified in the <code>Dockerfile</code>.<br>Add the following <code>&lt;solr-node&gt;</code> element as a child of the <code>&lt;solr-nodes&gt;</code> element:</p>
-<pre><code>&lt;solr-node memory=&quot;512m&quot; data-dir=&quot;/opt/IBM/i2analyze/data/solr&quot; host-name=&quot;solr3.eianet&quot; id=&quot;node3&quot; port-number=&quot;8985&quot;/&gt;
+<pre><code class="lang-xml">&lt;solr-node memory=&quot;512m&quot; data-dir=&quot;/opt/i2/i2analyze/data/solr&quot; host-name=&quot;solr3.eianet&quot; id=&quot;node3&quot; port-number=&quot;8985&quot;/&gt;
 </code></pre><p>Make the same modification to the <code>topology.xml</code> in the <code>src/configuration/environment</code> directory to ensure that the configuration is consistent.</p>
 <h2 id="build-and-create-the-solr-container">Build and create the Solr container</h2>
 <p>Build the Solr image, run the following command from the <code>src/images/common</code> folder:</p>
-<pre><code>docker build -t solr3_image solr3
+<pre><code class="lang-sh">docker build -t solr3_image solr3
 </code></pre><p>The Solr image is created with the name <code>solr3_image</code>. Inspect the <code>Dockerfile</code> in the <code>src/images/common/solr3</code> directory to see the commands that are required to configure the Solr server.</p>
 <p>Run the Solr3 container:</p>
-<pre><code>docker run -d --name solr3 -p 8985:8985 --net eianet --memory=2g -u i2analyze solr3_image
+<pre><code class="lang-sh">docker run -d --name solr3 -p 8985:8985 --net eianet --memory=2g -u i2analyze solr3_image
 </code></pre><p>Check that the container started correctly by using the docker logs:</p>
-<pre><code>docker logs -f solr3
+<pre><code class="lang-sh">docker logs -f solr3
 </code></pre><p>The image includes the <code>topology.xml</code> file that you modified, and defines the values for the configuration of the new Solr node. When the server starts, the new Solr node is created on the new server.</p>
 <p>When you start the Solr container, the port that Solr runs on in the container is specified. The specified port is mapped on the host machine so that you can access Solr and the Solr Web UI from the host machine.</p>
 <p>After the Solr node is running, you can use the Solr Web UI to inspect the configuration. Connect to the Solr Web UI on the <code>solr</code> container. In a web browser, go to the following URL to connect to the Solr Web UI: <a href="http://localhost:8983/solr/#">http://localhost:8983/solr/#</a>. The user name is <code>solradmin</code> and the password is the Solr password set in the <code>credentials.properties</code> file.</p>

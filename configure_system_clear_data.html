@@ -35,7 +35,7 @@
               </button>
               
               <a class="navbar-brand" href="index.html">
-                IBM <strong>i2 Analyze</strong>
+                <strong>i2 Analyze</strong>
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -82,21 +82,21 @@
 <p>During development, it is common to need to clear data from the i2 data stores.</p>
 <h2 id="before-you-begin">Before you begin</h2>
 <p>This process can permanently remove data from your system, ensure that no data is in the system that you want to keep.</p>
-<p>For information about making a backup of your deployment, see <a href="https://docs.i2group.com/analyze/latest/c_back_up_and_recovery.html">Backing up a deployment</a>.</p>
+<p>For information about making a backup of your deployment, see <a href="https://docs.i2group.com/analyze/c_back_up_and_recovery.html">Backing up a deployment</a>.</p>
 <h2 id="stopping-liberty">Stopping Liberty</h2>
 <p>Run the following command on the Liberty server to stop Liberty:</p>
-<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty
+<pre><code class="lang-sh">docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t stopLiberty
 </code></pre><p>The console output from the <code>stopLiberty</code> task is output directly to the console.</p>
-<h2 id="clearing-data-from-the-system-1">Clearing data from the system</h2>
-<p>To remove data from both the search index and the database, you can use the <code>clearData</code> toolkit task. For more information, see <a href="https://docs.i2group.com/analyze/latest/t_clearing_data.html">Clearing data from the system</a>.</p>
+<h2 id="clear-data">Clear data</h2>
+<p>To remove data from both the search index and the database, you can use the <code>clearData</code> toolkit task. For more information, see <a href="https://docs.i2group.com/analyze/t_clearing_data.html">Clearing data from the system</a>.</p>
 <p>To clear the data, you can run the command from the Admin client or Liberty server. In the distributed deployment example, the <code>admin_client</code> container is used to run the command. The <code>admin_client</code> container includes the i2 Analyze toolkit and a database management client installation. You must run commands that modify the database and Solr and ZooKeeper from this container.</p>
 <p>To clear the data, run the following command:</p>
-<pre><code>docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearData --hostname admin_client.eianet
+<pre><code class="lang-sh">docker exec -u i2analyze -it admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t clearData --hostname admin_client.eianet
 </code></pre><p>The database is now clear of data and the search index is now empty.</p>
 <p>The database still exists with the structure from the schema. If you want to make destructive schema changes, follow the instructions in <a href="configure_system_reset.html">Resetting the system</a>.</p>
 <h2 id="restarting-your-system">Restarting your system</h2>
 <p>To restart Liberty, run the following command:</p>
-<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty
+<pre><code class="lang-sh">docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t startLiberty
 </code></pre><p>The console output from the <code>startLiberty</code> task is output directly to the console.</p>
 <p>Liberty is now started and you can connect to i2 Analyze.</p>
 <h2 id="testing-the-deployment">Testing the deployment</h2>

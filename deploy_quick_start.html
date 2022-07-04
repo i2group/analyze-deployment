@@ -35,7 +35,7 @@
               </button>
               
               <a class="navbar-brand" href="index.html">
-                IBM <strong>i2 Analyze</strong>
+                <strong>i2 Analyze</strong>
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -104,22 +104,22 @@
 </code></pre><h3 id="example-code">Example code</h3>
 <p>Clone or download the distributed deployment example from <a href="https://github.com/i2group/analyze-deployment/releases">https://github.com/i2group/analyze-deployment/releases</a>.</p>
 <h3 id="analysts-notebook-premium">Analyst&#39;s Notebook Premium</h3>
-<p>Download <em>i2 Analyst&#39;s Notebook Premium</em> version 9.3.1 by using the usual mechanism.</p>
+<p>Download <em>i2 Analyst&#39;s Notebook Premium</em> version 9.4.0 by using the usual mechanism.</p>
 <p>Install Analyst&#39;s Notebook Premium with the Opal connector on a Windows machine that can access the machine where Docker is running.</p>
 <blockquote><p>Note: If you are running Docker on Mac OS, you can install Analyst&#39;s Notebook Premium on a Windows virtual machine.</p>
 </blockquote>
-<p>For more information, see <a href="https://www.ibm.com/docs/en/i2-anbp/9.3.1?topic=installing-i2-analysts-notebook-premium-client">Installing i2 Analyst&#39;s Notebook Premium</a>.</p>
+<p>For more information, see <a href="https://docs.i2group.com/analyze/installing_anbp.html">Installing i2 Analyst&#39;s Notebook Premium</a>.</p>
 <h3 id="i2-analyze">i2 Analyze</h3>
-<p>Download i2 Analyze for Linux. You download the <code>IBM_I2A_V4.3.5_LINUX.tar.gz</code> version 4.3.5 by using the usual mechanism.</p>
+<p>Download i2 Analyze for Linux. You download the <code>I2A_V4.4.0_LINUX.tar.gz</code> version 4.4.0 by using the usual mechanism.</p>
 <p>Rename the <code>.tar.gz</code> file to <code>i2analyze.tar.gz</code>, then copy it to the <code>src/images/common/ubuntu_toolkit/i2analyze</code> directory.</p>
 <p>Accept the i2 Analyze license by opening <code>license_acknowledgment.txt</code> in the <code>src/images/common/ubuntu_toolkit/i2analyze</code> directory and changing the value of <code>LIC_AGREEMENT</code> to <code>ACCEPT</code>.</p>
-<p>Add the <code>mssql-jdbc-7.4.1.jre11.jar</code> file to the <code>src/configuration/environment/common/jdbc-drivers</code> directory.<br>You must create the <code>common/jdbc-drivers</code> directories.</p>
+<p>Add the <code>mssql-jdbc-7.4.1.jre11.jar</code> file to the <code>src/configuration/environment/common/jdbc-drivers</code> directory.  </p>
 <blockquote><p>Note: Download the Microsoft JDBC Driver 7.4 for SQL Server from <a href="https://www.microsoft.com/download/details.aspx?id=58505">Microsoft JDBC Driver 7.4 for SQL Server</a>. Extract the contents of the <code>tar.gz</code>, and locate the <code>sqljdbc_7.4\enu\mssql-jdbc-7.4.1.jre11.jar</code> file.</p>
 </blockquote>
 <h3 id="specifying-the-credentials">Specifying the credentials</h3>
 <p>You must specify the credentials for a deployment in the <code>src/configuration/environment/credentials.properties</code>. Set the passwords to be used for the Information Store, Solr, and the LTPA keys.</p>
 <p>The password that you specify for the Information Store must be at least 8 characters long and contain characters from three of the following four sets: Uppercase letters, Lowercase letters, Base 10 digits, and Symbols.</p>
-<p>For more information about the credentials file, see <a href="https://www.ibm.com/support/knowledgecenter/SSXVTH_latest/com.ibm.i2.eia.go.live.doc/t_specifying_credentials.html">Modifying the credentials</a>.
+<p>For more information about the credentials file, see <a href="https://docs.i2group.com/analyze/t_specifying_credentials.html">Modifying the credentials</a>.
 To complete the quick deployment, enter passwords for the <code>db.infostore.password</code>, <code>solr.password</code>, and <code>ltpakeys.password</code> credentials.</p>
 <hr>
 <h2 id="build-the-docker-images">Build the Docker images</h2>

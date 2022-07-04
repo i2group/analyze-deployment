@@ -35,7 +35,7 @@
               </button>
               
               <a class="navbar-brand" href="index.html">
-                IBM <strong>i2 Analyze</strong>
+                <strong>i2 Analyze</strong>
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -86,7 +86,7 @@
 <p>To create a collection, use the <code>CREATE</code> REST call in the <code>createSolrCollection</code> file. For more information about the <code>CREATE</code> REST call, and extra parameters that you can use, see <a href="https://lucene.apache.org/solr/guide/6_6/collections-api.html#CollectionsAPI-create">CREATE: Create a Collection</a>.</p>
 <p>To create a collection, open the <code>createSolrCollection</code> script in a text editor.</p>
 <p>The existing script might contain a <code>CREATE</code> call that is similar to the following example:</p>
-<pre><code>curl ?CERTIFICATE_PLACEHOLDER? ?CREDENTIALS_PLACEHOLDER? &quot;?SCHEME_PLACEHOLDER?://solr.eianet:8983/solr/admin/collections?action=CREATE&amp;name=main_index&amp;collection.configName=main_index&amp;numShards=4&amp;maxShardsPerNode=4&amp;replicationFactor=1&quot;
+<pre><code class="lang-sh">curl ?CERTIFICATE_PLACEHOLDER? ?CREDENTIALS_PLACEHOLDER? &quot;?SCHEME_PLACEHOLDER?://solr.eianet:8983/solr/admin/collections?action=CREATE&amp;name=main_index&amp;collection.configName=main_index&amp;numShards=4&amp;maxShardsPerNode=4&amp;replicationFactor=1&quot;
 </code></pre><p>The <code>?CERTIFICATE_PLACEHOLDER?, ?CREDENTIALS_PLACEHOLDER?, ?SCHEME_PLACEHOLDER?</code> variables are resolved by the toolkit when the script is run.</p>
 <p>This example of a <code>CREATE</code> call creates a collection that has the following attributes:</p>
 <ul>
@@ -99,16 +99,16 @@
 <h2 id="recreating-the-collection">Recreating the collection</h2>
 <p>After you change the <code>createSolrCollection</code> script, you can recreate the Solr collection by completing the following steps.</p>
 <p>To stop Liberty, run the following command:</p>
-<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty
+<pre><code class="lang-sh">docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t stopLiberty
 </code></pre><p>The output from the <code>stopLiberty</code> task is output directly to the console.</p>
 <p>To remove the current Solr collection, run the following command:</p>
-<pre><code>docker exec -it -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t deleteSolrCollections --all --hostname admin_client.eianet
+<pre><code class="lang-sh">docker exec -it -u i2analyze admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t deleteSolrCollections --all --hostname admin_client.eianet
 </code></pre><p>To create the Solr collection with the modified configuration, run the following command:</p>
-<pre><code>docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createSolrCollections --all --hostname admin_client.eianet
+<pre><code class="lang-sh">docker exec -t -u i2analyze admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t createSolrCollections --all --hostname admin_client.eianet
 </code></pre><p>To clear the search index, run the following command:</p>
-<pre><code>docker exec -u i2analyze -it admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t clearSearchIndex --all --hostname admin_client.eianet
+<pre><code class="lang-sh">docker exec -u i2analyze -it admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t clearSearchIndex --all --hostname admin_client.eianet
 </code></pre><p>To restart Liberty, run the following command:</p>
-<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty
+<pre><code class="lang-sh">docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t startLiberty
 </code></pre><p>The console output from the <code>startLiberty</code> task is output directly to the console.
 Liberty is now started and you can connect to i2 Analyze.</p>
 <h2 id="modifying-a-collection">Modifying a collection</h2>

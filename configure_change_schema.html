@@ -35,7 +35,7 @@
               </button>
               
               <a class="navbar-brand" href="index.html">
-                IBM <strong>i2 Analyze</strong>
+                <strong>i2 Analyze</strong>
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -92,31 +92,31 @@
 <p>In the distributed deployment example, the schema and charting schemes changes are completed on the Admin client and Liberty containers. To update the deployment with the changes, you must run toolkit tasks that interact with the Information Store database and the i2 Analyze application.</p>
 <p>The changed configuration must be copied to the <code>admin_client</code> and <code>liberty</code> containers.</p>
 <p>To copy, and overwrite, your configuration to the <code>admin_client</code> and <code>liberty</code> containers, run the following commands from the <code>src</code> directory:</p>
-<pre><code>docker cp ./configuration/fragments/common/WEB-INF/classes admin_client:/opt/IBM/i2analyze/toolkit/configuration/fragments/common/WEB-INF/
-docker cp ./configuration/fragments/common/WEB-INF/classes liberty:/opt/IBM/i2analyze/toolkit/configuration/fragments/common/WEB-INF/
+<pre><code class="lang-sh">docker cp ./configuration/fragments/common/WEB-INF/classes admin_client:/opt/i2/i2analyze/toolkit/configuration/fragments/common/WEB-INF/
+docker cp ./configuration/fragments/common/WEB-INF/classes liberty:/opt/i2/i2analyze/toolkit/configuration/fragments/common/WEB-INF/
 </code></pre><p>The new configuration is now on the <code>admin_client</code> and <code>liberty</code> containers.</p>
 <p>When the directory is copied, the owner of the directory, and all files within it, is changed. The user that runs the deployment script must be able to write to files within the <code>configuration</code> directory. To change the ownership of the directory and the files, run the following commands:</p>
-<pre><code>docker exec -u root admin_client chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
-docker exec -u root liberty chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
+<pre><code class="lang-sh">docker exec -u root admin_client chown -R i2analyze:i2analyze /opt/i2/i2analyze/toolkit/configuration
+docker exec -u root liberty chown -R i2analyze:i2analyze /opt/i2/i2analyze/toolkit/configuration
 </code></pre><p>In a non-Docker environment, copy the <code>law-enforcement-schema.xml</code> and <code>law-enforcement-charting-schemes.xml</code> files to the same location on the Liberty server and ensure that the correct permissions are set.</p>
 <h2 id="stopping-liberty">Stopping Liberty</h2>
 <p>Before you update the Information Store with your modified schema, you must stop the application server.</p>
 <p>You can shut down the application by using the <code>stopLiberty</code> i2 Analyze toolkit task. In the distributed deployment example, run the following command in the <code>liberty</code> Docker container:</p>
-<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty
+<pre><code class="lang-sh">docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t stopLiberty
 </code></pre><p>The output from the <code>stopLiberty</code> task is output directly to the console.</p>
 <h2 id="updating-the-database">Updating the database</h2>
 <p>Update the database to conform to the updated schema.</p>
 <p>To update the schema, you can run the command from the Admin client or Liberty server. In the distributed deployment example, the Admin client is used to run the commands.</p>
 <p>To update the database to conform to the updated schema, run the following command:</p>
-<pre><code>docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t updateInformationStoreSchema
+<pre><code class="lang-sh">docker exec -u i2analyze -t admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t updateInformationStoreSchema
 </code></pre><h2 id="updating-the-application">Updating the application</h2>
 <p>You must update the application with the modified schema and charting scheme.</p>
 <p>Run the following commands on the Liberty server to deploy Liberty:</p>
-<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t deployLiberty
+<pre><code class="lang-sh">docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t deployLiberty
 </code></pre><h2 id="starting-liberty">Starting Liberty</h2>
 <p>Start Liberty to load the updated schema and charting scheme:  </p>
 <p>Run the following command to start Liberty:</p>
-<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty
+<pre><code class="lang-sh">docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t startLiberty
 </code></pre><p>The console output from the <code>startLiberty</code> task is output directly to the console.</p>
 <h2 id="testing-the-deployment">Testing the deployment</h2>
 <p>To test that the schema is updated successfully, connect to the Information Store in Analyst&#39;s Notebook Premium.</p>

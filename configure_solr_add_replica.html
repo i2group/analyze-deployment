@@ -35,7 +35,7 @@
               </button>
               
               <a class="navbar-brand" href="index.html">
-                IBM <strong>i2 Analyze</strong>
+                <strong>i2 Analyze</strong>
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -115,12 +115,12 @@ To show the <em>Graph View</em> that shows replicas in the Solr Web UI, connect 
 <h2 id="testing-the-replicas">Testing the replicas</h2>
 <p>To test that the replicas are added successfully, and that your system has a level of redundancy, stop one of the Solr nodes.</p>
 <p>To stop the Solr node on the <code>solr</code> container, run the following command:</p>
-<pre><code>docker exec -u i2analyze -t solr /opt/IBM/i2analyze/toolkit/scripts/setup -t stopSolrNodes --hostname solr.eianet  
+<pre><code class="lang-sh">docker exec -u i2analyze -t solr /opt/i2/i2analyze/toolkit/scripts/setup -t stopSolrNodes --hostname solr.eianet
 </code></pre><p>In the Solr Web UI <em>Tree View</em> on the <code>solr2</code> container, all the shards are still up and active. The newly created replicas are now the leaders for the shards.</p>
 <p>If you do a Quick Search by using Analyst&#39;s Notebook Premium, any data that was in the Information Store is still available.</p>
 <p>You can start the <code>solr</code> container, and the Solr node starts again.</p>
 <p>To start the <code>solr</code> container, run the following command:</p>
-<pre><code>docker exec -u i2analyze -t solr /opt/IBM/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr.eianet  
+<pre><code class="lang-sh">docker exec -u i2analyze -t solr /opt/i2/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr.eianet
 </code></pre><p>In the Solr Web UI <em>Tree View</em>, you can see that the Solr node and shards are active.</p>
 </article>
           </div>

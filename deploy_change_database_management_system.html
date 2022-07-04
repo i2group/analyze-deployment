@@ -35,7 +35,7 @@
               </button>
               
               <a class="navbar-brand" href="index.html">
-                IBM <strong>i2 Analyze</strong>
+                <strong>i2 Analyze</strong>
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -83,9 +83,9 @@
 </ul>
 <p>This is process is not representative of an activity that you should complete in a non-Docker environment. In a non-Docker environment you must remove the initial deployment, and redeploy with your chosen database management system. The following process must only be used in the example Docker environment.</p>
 <blockquote><p>Note: If you deployed the example with one of the configurations in the <code>configuration_mods</code> directory or changed the <code>topology.xml</code> file. Reset your example deployment to the base configuration before you deploy with Db2. To reset your environment, run the following command from the <code>src/scripts</code> directory:</p>
-<pre><code>./resetEnvironment
-</code></pre></blockquote>
-<p>To change the database management system to use IBM Db2, see <a href="#change-the-deployment-to-use-ibm-db2">Change the deployment to use IBM Db2</a>.<br>To change the database management system to use Microsoft SQL Server, see <a href="#change-the-deployment-to-use-microsoft-sql-server">Change the deployment to use Microsoft SQL Server</a>.</p>
+</blockquote>
+<pre><code class="lang-sh">./resetEnvironment
+</code></pre><p>To change the database management system to use IBM Db2, see <a href="#change-the-deployment-to-use-ibm-db2">Change the deployment to use IBM Db2</a>.<br>To change the database management system to use Microsoft SQL Server, see <a href="#change-the-deployment-to-use-microsoft-sql-server">Change the deployment to use Microsoft SQL Server</a>.</p>
 <hr>
 <h2 id="change-the-deployment-to-use-ibm-db2">Change the deployment to use IBM Db2</h2>
 <h3 id="prerequisites-for-the-distributed-deployment-example-with-ibm-db2">Prerequisites for the distributed deployment example with IBM Db2</h3>
@@ -99,12 +99,12 @@
 </blockquote>
 <h3 id="run-the-script-to-deploy-with-db2">Run the script to deploy with Db2</h3>
 <p>Navigate to the <code>src/scripts</code> directory, and run the following command:</p>
-<pre><code>./deployDb2
+<pre><code class="lang-sh">./deployDb2
 </code></pre><hr>
 <h2 id="change-the-deployment-to-use-microsoft-sql-server">Change the deployment to use Microsoft SQL Server</h2>
 <p>When you complete the quick deployment of the distributed example, the prerequisites for SQL Server are configured.</p>
 <p>To change the deployment to use SQL Server, navigate to the <code>src/scripts</code> directory and run the following command:</p>
-<pre><code>./deploySqlServer
+<pre><code class="lang-sh">./deploySqlServer
 </code></pre><hr>
 <h2 id="test-the-deployment">Test the deployment</h2>
 <p>To test the deployment, connect to i2 Analyze from Analyst&#39;s Notebook Premium. The URL that you use to connect is: <code>http://i2demo:9082/opal</code>.</p>

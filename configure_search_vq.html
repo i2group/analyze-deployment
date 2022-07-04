@@ -35,7 +35,7 @@
               </button>
               
               <a class="navbar-brand" href="index.html">
-                IBM <strong>i2 Analyze</strong>
+                <strong>i2 Analyze</strong>
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -82,11 +82,11 @@
 <p>Modify the Visual Query conditions file in the i2 Analyze configuration, then redeploy the application server.</p>
 <h2 id="before-you-begin">Before you begin</h2>
 <p>Ensure that you can connect to the deployment and submit data by using Analyst&#39;s Notebook Premium.</p>
-<p>To understand what Visual Query conditions are, and why you might need to modify the conditions, see <a href="https://docs.i2group.com/analyze/latest/vq_understanding.html">Visual Query condition restrictions</a>.</p>
+<p>To understand what Visual Query conditions are, and why you might need to modify the conditions, see <a href="https://docs.i2group.com/analyze/vq_understanding.html">Visual Query condition restrictions</a>.</p>
 <h2 id="modifying-the-visual-query-conditions-file">Modifying the Visual Query conditions file</h2>
 <p>The <code>visual-query-configuration.xml</code> file in the distributed deployment example is in the following directory: <code>src/configuration/fragments/opal-services/WEB-INF/classes</code>.</p>
 <p>In an XML editor, open the <code>visual-query-configuration.xml</code> file from the <code>classes</code> directory, and modify the Visual Query conditions. After you modify the file, save your changes.</p>
-<p>For more information about the Visual Query conditions file, see <a href="https://docs.i2group.com/analyze/latest/vq_understanding.html">Visual Query condition restrictions</a>.</p>
+<p>For more information about the Visual Query conditions file, see <a href="https://docs.i2group.com/analyze/vq_understanding.html">Visual Query condition restrictions</a>.</p>
 <h2 id="updating-the-discoserversettingscommonproperties-file">Updating the <code>DiscoServerSettingsCommon.properties</code> file</h2>
 <p>The <code>DiscoServerSettingsCommon.properties</code> file in the distributed deployment example is in the following directory: <code>src/configuration/fragments/opal-services/WEB-INF/classes</code>.</p>
 <p>In a text editor, open the <code>DiscoServerSettingsCommon.properties</code> file and set the value of the <code>VisualQueryConfigurationResource</code> setting to <code>visual-query-configuration.xml</code>. For example: <code>VisualQueryConfigurationResource=visual-query-configuration.xml</code>.</p>
@@ -94,16 +94,16 @@
 <h2 id="copying-the-configuration">Copying the configuration</h2>
 <p>Your Visual Query conditions file changes are required by Liberty. The modified configuration must be copied to the Liberty server.</p>
 <p>In a Docker environment, use the docker <code>cp</code> command to copy, and overwrite, your configuration to the running <code>liberty</code> container. In the <code>src</code> directory, run the following command:</p>
-<pre><code>docker cp ./configuration/fragments/opal-services/WEB-INF/classes liberty:/opt/IBM/i2analyze/toolkit/configuration/fragments/opal-services/WEB-INF/
+<pre><code class="lang-sh">docker cp ./configuration/fragments/opal-services/WEB-INF/classes liberty:/opt/i2/i2analyze/toolkit/configuration/fragments/opal-services/WEB-INF/
 </code></pre><p>The new configuration is now on the <code>liberty</code> container.</p>
 <p>When the directory is copied, the owner of the directory, and all files within it, is changed to <code>root</code>. The user that runs the deployment script must be able to write to files within the <code>configuration</code> directory. To change the ownership of the directory and the files, run the following command:</p>
-<pre><code>docker exec -u root liberty chown -R i2analyze:i2analyze /opt/IBM/i2analyze/toolkit/configuration
+<pre><code class="lang-sh">docker exec -u root liberty chown -R i2analyze:i2analyze /opt/i2/i2analyze/toolkit/configuration
 </code></pre><p>In a non-Docker environment, copy the modified <code>visual-query-configuration.xml</code> file to the same location on the Liberty server and ensure that the correct permissions are set.</p>
 <h2 id="updating-the-application">Updating the application</h2>
 <p>Run the following commands on the Liberty server to stop, deploy, and start Liberty:</p>
-<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty
-</code></pre><pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t deployLiberty
-</code></pre><pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty
+<pre><code class="lang-sh">docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t stopLiberty
+</code></pre><pre><code class="lang-sh">docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t deployLiberty
+</code></pre><pre><code class="lang-sh">docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t startLiberty
 </code></pre><h2 id="testing-the-deployment">Testing the deployment</h2>
 <p>To test that the Visual Query conditions are updated successfully, connect to the Information Store in Analyst&#39;s Notebook Premium.</p>
 <p>After you connect and log in, complete a Visual Query search that demonstrates if your Visual Query condition changes are applied.</p>

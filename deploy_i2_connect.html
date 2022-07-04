@@ -35,7 +35,7 @@
               </button>
               
               <a class="navbar-brand" href="index.html">
-                IBM <strong>i2 Analyze</strong>
+                <strong>i2 Analyze</strong>
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -79,71 +79,71 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="deploying-i2-analyze-with-i2-connect">Deploying i2 Analyze with i2 Connect</h1>
 
-<p>i2 Connect enables analysts to search for and retrieve data from external data sources by using the Opal quick search functionality, and then analyse the results on a chart in Analyst&#39;s Notebook Premium.</p>
+<p>i2 Connect enables analysts to search for and retrieve data from external data sources by using the Opal quick search functionality, and then analyze the results on a chart in Analyst&#39;s Notebook Premium.</p>
 <p>You can deploy i2 Analyze with support for i2 Connect only, or with the Information Store and i2 Connect.</p>
-<p>For more information about deploying i2 Analyze with i2 Connect, see <a href="https://docs.i2group.com/analyze/latest/i2_connect_overview.html">i2 Analyze and i2 Connect</a>.</p>
+<p>For more information about deploying i2 Analyze with i2 Connect, see <a href="https://docs.i2group.com/analyze/i2_connect_overview.html">i2 Analyze and i2 Connect</a>.</p>
 <h2 id="before-you-begin">Before you begin</h2>
 <ul>
 <li>You must complete the <a href="deploy_quick_start.html">Quick deploy</a> or deploy the example manually, and your deployment must be running.</li>
 <li><p>If you deployed the example with one of the configurations in the <code>configuration_mods</code> directory or changed the <code>topology.xml</code> file. Reset your example deployment to the base configuration before you deploy i2 Analyze with i2 Connect. To reset your environment, run the following command from the <code>src/scripts</code> directory:</p>
-<pre><code>./resetEnvironment
+<pre><code class="lang-sh">./resetEnvironment
 </code></pre></li>
 </ul>
 <hr>
-<h2 id="creating-the-keystores-and-certificates">Creating the keystores and certificates</h2>
+<h2 id="deploying-the-example-connector">Deploying the example connector</h2>
+<p>In the distributed deployment example, the example connector is deployed in its own server.</p>
+<p>In the Docker environment, the <code>connector_image</code> is created when you run the <code>buildImages</code> script. If you ran the <code>clean</code> script, rebuild and rerun the container. Otherwise, skip to the next step to run the connector container.
+To build the connector image, run the following command from the <code>src/images</code> folder:</p>
+<pre><code class="lang-sh">docker build -t connector_image common/connector
+</code></pre><p>The connector image is created with the name <code>connector_image</code>.</p>
+<p>To run the <code>connector</code> container, run the following command:</p>
+<pre><code class="lang-sh">docker run -d --name connector --net eianet -u i2analyze connector_image
+</code></pre><h2 id="creating-the-keystores-and-certificates">Creating the keystores and certificates</h2>
 <p>Run the <code>createKeysAndStores</code> script to create the stores, certificates, and certificate authority. For example, run the following command from the <code>src/scripts</code> directory:</p>
-<pre><code>./createKeysAndStores
+<pre><code class="lang-sh">./createKeysAndStores
 </code></pre><p>You are prompted to enter a password that is used for each of the keystores and truststores that are created. The password that you specify here is used later.</p>
 <p>For more information about the stores and certificates that are created, see <a href="securing_certificates.html">Keystores and certificates for components of i2 Analyze</a>.</p>
 <h2 id="configuring-connector">Configuring connector</h2>
 <p>You must specify the passphrase for the key that the connector uses. Specify the <code>keyPassphrase</code> in the <code>src/images/common/connector/security-config.json</code> file. The passphrase that you specify must match the value that you entered for i2 Connect connector key store and certificate signing request when you ran the <code>createKeysAndStores</code> script.</p>
-<p>For more information about securing the example connector, see <a href="https://docs.i2group.com/analyze/latest/t_connect_example_security.html">Securing the example connector</a>.</p>
+<p>For more information about securing the example connector, see <a href="https://docs.i2group.com/analyze/t_connect_example_security.html">Securing the example connector</a>.</p>
 <h3 id="specifying-the-credentials">Specifying the credentials</h3>
 <p>You must specify the credentials for your deployment in the <code>src/configuration/environment/credentials.properties</code>. Set the passwords to use for each of the keystore and truststore credentials. The passwords must match the values that you entered for the corresponding keystores and truststores when you ran the <code>createKeysAndStores</code> script.</p>
-<p>For more information about the credentials file, see <a href="https://docs.i2group.com/analyze/latest/t_specifying_credentials.html">Modifying the credentials</a>.</p>
-<h2 id="deploying-the-example-connector">Deploying the example connector</h2>
-<p>In the distributed deployment example, the example connector is deployed in its own server.</p>
-<p>In the Docker environment, the <code>connector_image</code> is created when you run the <code>buildImages</code> script. The example connector container is started when you run the <code>runContainers</code> script. If you ran the <code>clean</code> script, rebuild and rerun the container. Otherwise, you do not need to rebuild and run the connector container.
-To build the connector image, run the following command from the <code>src/images</code> folder:</p>
-<pre><code>docker build -t connector_image common/connector
-</code></pre><p>The connector image is created with the name <code>connector_image</code>.</p>
-<p>To run the <code>connector</code> container, run the following command:</p>
-<pre><code>docker run -d --name connector --net eianet -u i2analyze connector_image
-</code></pre><hr>
+<p>For more information about the credentials file, see <a href="https://docs.i2group.com/analyze/t_specifying_credentials.html">Modifying the credentials</a>.</p>
+<hr>
 <p>You can complete a quick i2 Connect deployment or you can complete the i2 Connect setup manually. Completing the i2 Connect deployment manually requires you to run each of the steps that were completed automatically in the quick i2 Connect deployment so that you can replicate the steps in a non-Docker environment.</p>
 <h2 id="quick-deploy">Quick deploy</h2>
 <p>To set up the example connector in the distributed deployment example, a script is provided that deploys i2 Analyze with i2 Connect and the example connector. You can decide whether to deploy i2 Analyze with i2 Connect only, or with the Information Store and i2 Connect.<br>To deploy with i2 Connect only, you must specify the <code>i2connect</code> configuration modification when you run the <code>deployDaod</code> script.<br>To deploy with the Information Store and i2 Connect, you must specify the <code>i2connect_istore</code> configuration modification when you run the <code>deployDaod</code> script.</p>
 <p>Run the <code>deployDaod</code> script from the <code>src/scripts</code> directory to set up the i2 Analyze deployment with i2 Connect only and start the connector with the correct configuration.</p>
-<pre><code>./deployDaod i2connect
-</code></pre><p>For more information about deploying a connector for i2 Connect in a non-Docker environment, see <a href="https://docs.i2group.com/analyze/latest/creating_a_connector.html">Creating a connector for i2 Connect</a>.</p>
+<pre><code class="lang-sh">./deployDaod i2connect
+</code></pre><p>For more information about deploying a connector for i2 Connect in a non-Docker environment, see <a href="https://docs.i2group.com/analyze/creating_a_connector.html">Creating a connector for i2 Connect</a>.</p>
 <hr>
 <h2 id="deploy-example-connector-manually">Deploy example connector manually</h2>
 <h2 id="stopping-liberty">Stopping Liberty</h2>
 <p>Run the <code>stopLiberty</code> task on the <code>liberty</code> container:</p>
-<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t stopLiberty
+<pre><code class="lang-sh">docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t stopLiberty
 </code></pre><h2 id="configuring-i2-analyze">Configuring i2 Analyze</h2>
 <p>Configure i2 Analyze to use i2 Connect. In the distributed deployment example, you can see the configuration modifications in the <code>src/configuration_mods/&lt;database management system&gt;/i2connect</code> directory.</p>
 <p>The <code>updateServerConfigurations</code> script copies a configuration to each of the example containers. To copy the i2 Connect only configuration, run the following command:</p>
-<pre><code>./updateServerConfigurations i2connect
+<pre><code class="lang-sh">./updateServerConfigurations i2connect
 </code></pre><p>If you want to deploy i2 Analyze with the Information Store and i2 Connect, run <code>updateServerConfigurations i2connect_istore</code>.</p>
 <h2 id="deploying-i2-analyze">Deploying i2 Analyze</h2>
 <p>Run the <code>deployLiberty</code> task on the <code>liberty</code> container:</p>
-<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t deployLiberty
+<pre><code class="lang-sh">docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t deployLiberty
 </code></pre><h2 id="creating-the-solr-configuration-on-zookeeper">Creating the Solr configuration on ZooKeeper</h2>
 <p>You can create and upload the Solr configuration from the Admin client, or you can run the command from one of the ZooKeeper servers.</p>
 <p>To create the Solr configuration by using the Admin client, run the following command:</p>
-<pre><code>docker exec -u i2analyze -t admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client.eianet
+<pre><code class="lang-sh">docker exec -u i2analyze -t admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t createAndUploadSolrConfig --hostname admin_client.eianet
 </code></pre><p>The Solr configuration is created and uploaded.</p>
 <h2 id="creating-the-solr-collection">Creating the Solr Collection</h2>
 <p>Create the Solr Collection that is used by a deployment with i2 Connect, run the <code>createSolrCollections</code> task on the <code>admin_client</code> container.</p>
-<pre><code>docker exec -t -u i2analyze admin_client /opt/IBM/i2analyze/toolkit/scripts/setup -t createSolrCollections --hostname admin_client.eianet
+<pre><code class="lang-sh">docker exec -t -u i2analyze admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t createSolrCollections --hostname admin_client.eianet
 </code></pre><h2 id="copying-configuration-to-example-connector">Copying configuration to example connector</h2>
 <p>To update the <code>connector</code> container with the updated <code>security-config.json</code> file, run the following commands from the <code>src</code> directory:</p>
-<pre><code>docker cp images/common/connector/security-config.json connector:/opt/IBM/i2analyze/example_connector/security-config.json
+<pre><code class="lang-sh">docker cp images/common/connector/security-config.json connector:/opt/i2/i2analyze/example_connector/security-config.json
 docker restart connector
 </code></pre><h2 id="starting-liberty">Starting Liberty</h2>
 <p>To start Liberty, run the following command on the <code>liberty</code> container:</p>
-<pre><code>docker exec -u i2analyze liberty /opt/IBM/i2analyze/toolkit/scripts/setup -t startLiberty
+<pre><code class="lang-sh">docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t startLiberty
 </code></pre><p>The console output from the <code>startLiberty</code> task is output directly to the console.</p>
 <hr>
 <h2 id="results">Results</h2>
