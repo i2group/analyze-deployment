@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "/home/mhadfield/analyze-deployment-internal/docs",
+  "source_base_path": "/mnt/c/Users/MH102136/Documents/analyze-deployment-internal/docs",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -162,7 +162,7 @@
       "output": {
         ".html": {
           "relative_path": "configure_system_reset.html",
-          "hash": "vJ3Z7sgxxz8G2Rgs+UNoXw=="
+          "hash": "CKX4kSY3sjPscwC99rMyfg=="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "deploy_change_database_management_system.html",
-          "hash": "8AOX6wR2zdxr1OhsHNXahg=="
+          "hash": "41zkeQoOILeIi6T/5wIuZg=="
         }
       },
       "is_incremental": false,
@@ -201,13 +201,16 @@
       "output": {
         ".html": {
           "relative_path": "deploy_etl_client.html",
-          "hash": "oCK56z/gPsas173BxoQYCw=="
+          "hash": "B9U5ixTDijI6u3xbzy2wYQ=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidYamlHeader"
+      ],
       "type": "Conceptual",
       "source_relative_path": "deploy_i2_connect.md",
       "output": {
@@ -225,19 +228,22 @@
       "output": {
         ".html": {
           "relative_path": "deploy_quick_start.html",
-          "hash": "OK2Ek3kX9v7jWD45ZFf6eg=="
+          "hash": "FB4PcqGBPFVWLiGJicd81A=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidYamlHeader"
+      ],
       "type": "Conceptual",
       "source_relative_path": "deploy_walk_through_db2.md",
       "output": {
         ".html": {
           "relative_path": "deploy_walk_through_db2.html",
-          "hash": "EFM7bJGqUMsG59hM0Ux/Bw=="
+          "hash": "YBn46Xpu/5xqePFjch+rHw=="
         }
       },
       "is_incremental": false,
@@ -256,12 +262,30 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidYamlHeader"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "deploy_walk_through_postgres.md",
+      "output": {
+        ".html": {
+          "relative_path": "deploy_walk_through_postgres.html",
+          "hash": "o+R0XI2MjX61H2DR8fVWAg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidYamlHeader"
+      ],
       "type": "Conceptual",
       "source_relative_path": "deploy_walk_through_sqlserver.md",
       "output": {
         ".html": {
           "relative_path": "deploy_walk_through_sqlserver.html",
-          "hash": "WuuigqJ++NGSo/3V0J0U/w=="
+          "hash": "xBazIBvO9RLGcXLMJ/M+UA=="
         }
       },
       "is_incremental": false,
@@ -273,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "guidetoc/toc.html",
-          "hash": "SMoNapQMOQkAmWHepDdiAg=="
+          "hash": "iD2KCdLWnYz0H/45d4g8rg=="
         }
       },
       "is_incremental": false,
@@ -329,7 +353,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "LnioXIZoyTWyIQEfUz+02g=="
+          "hash": "p/p0KaMayfZfJHy/VtsIIQ=="
         }
       },
       "is_incremental": false,
@@ -353,7 +377,7 @@
       "output": {
         ".html": {
           "relative_path": "securing_ssl.html",
-          "hash": "kedOXaJRZ/t77Yrvme9f/g=="
+          "hash": "QFCejQnNuHv1WUG2vYaBPA=="
         }
       },
       "is_incremental": false,
@@ -372,12 +396,15 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidYamlHeader"
+      ],
       "type": "Conceptual",
       "source_relative_path": "understand_example.md",
       "output": {
         ".html": {
           "relative_path": "understand_example.html",
-          "hash": "QJHmG8Yq1jsAEDzFSNc/lQ=="
+          "hash": "ljMks+2FytGRYid3DHROIQ=="
         }
       },
       "is_incremental": false,
@@ -404,7 +431,7 @@
       "output": {
         ".html": {
           "relative_path": "upgrade_walk_through.html",
-          "hash": "g7WvDacTtWxHkBzU1I1wDw=="
+          "hash": "EcXPFbbYhLkFGjwdIfsOxw=="
         }
       },
       "is_incremental": false,
@@ -423,8 +450,8 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 27,
-          "skipped_file_count": 24
+          "total_file_count": 28,
+          "skipped_file_count": 28
         },
         "ResourceDocumentProcessor": {
           "can_incremental": false,

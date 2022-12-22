@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="styles/docfx.css">
     <link rel="stylesheet" href="styles/main.css">
     <meta property="docfx:navrel" content="toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:tocrel" content="guidetoc/toc.html">
     
     <meta property="docfx:rel" content="">
     
@@ -59,7 +59,14 @@
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        <div class="article row grid">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
           <div class="col-md-10">
           
           <div class="subnav navbar navbar-default">
@@ -72,7 +79,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="change-the-database-management-system-of-your-example">Change the database management system of your example</h1>
 
-<p>You can deploy the distributed example with the Information Store on IBM Db2 or Microsoft SQL Server. After you deploy your example, you can change the configuration so that the database is on the other management system.</p>
+<p>You can deploy the distributed example with the Information Store on IBM Db2, Microsoft SQL Server or Postgres. After you deploy your example, you can change the configuration so that the database is on the other management system.</p>
 <p>When you run the script that changes the database management system of the deployment, the following tasks are completed:</p>
 <ul>
 <li>The required Docker images are built</li>
@@ -85,7 +92,7 @@
 <blockquote><p>Note: If you deployed the example with one of the configurations in the <code>configuration_mods</code> directory or changed the <code>topology.xml</code> file. Reset your example deployment to the base configuration before you deploy with Db2. To reset your environment, run the following command from the <code>src/scripts</code> directory:</p>
 </blockquote>
 <pre><code class="lang-sh">./resetEnvironment
-</code></pre><p>To change the database management system to use IBM Db2, see <a href="#change-the-deployment-to-use-ibm-db2">Change the deployment to use IBM Db2</a>.<br>To change the database management system to use Microsoft SQL Server, see <a href="#change-the-deployment-to-use-microsoft-sql-server">Change the deployment to use Microsoft SQL Server</a>.</p>
+</code></pre><p>To change the database management system to use IBM Db2, see <a href="#change-the-deployment-to-use-ibm-db2">Change the deployment to use IBM Db2</a>.<br>To change the database management system to use Microsoft SQL Server, see <a href="#change-the-deployment-to-use-microsoft-sql-server">Change the deployment to use Microsoft SQL Server</a>.<br>To change the database management system to use Postgres, see <a href="#change-the-deployment-to-use-postgres">Change the deployment to use Postgres</a>.</p>
 <hr>
 <h2 id="change-the-deployment-to-use-ibm-db2">Change the deployment to use IBM Db2</h2>
 <h3 id="prerequisites-for-the-distributed-deployment-example-with-ibm-db2">Prerequisites for the distributed deployment example with IBM Db2</h3>
@@ -105,6 +112,15 @@
 <p>When you complete the quick deployment of the distributed example, the prerequisites for SQL Server are configured.</p>
 <p>To change the deployment to use SQL Server, navigate to the <code>src/scripts</code> directory and run the following command:</p>
 <pre><code class="lang-sh">./deploySqlServer
+</code></pre><hr>
+<h2 id="change-the-deployment-to-use-postgres">Change the deployment to use Postgres</h2>
+<h3 id="prerequisites-for-the-distributed-deployment-example-with-postgres">Prerequisites for the distributed deployment example with Postgres</h3>
+<p>Add the <code>postgresql-xx.x.x.jar</code> file to the <code>src/configuration/environment/common/jdbc-drivers</code> directory.</p>
+<blockquote><p>Note: Download the PostgreSQL JDBC Driver for PostgreSQL from <a href="https://jdbc.postgresql.org/download/">https://jdbc.postgresql.org/download/</a> by clicking the download button for the 42.5.1 or later Java 8 asset.</p>
+</blockquote>
+<h3 id="run-the-script-to-deploy-with-postgres">Run the script to deploy with Postgres</h3>
+<p>Navigate to the <code>src/scripts</code> directory, and run the following command:</p>
+<pre><code class="lang-sh">./deployPostgres
 </code></pre><hr>
 <h2 id="test-the-deployment">Test the deployment</h2>
 <p>To test the deployment, connect to i2 Analyze from Analyst&#39;s Notebook Premium. The URL that you use to connect is: <code>http://i2demo:9082/opal</code>.</p>

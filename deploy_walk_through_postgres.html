@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Deploying the distributed deployment example manually for Db2 </title>
+    <title>Deploying the distributed deployment example manually with Postgres </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Deploying the distributed deployment example manually for Db2 ">
+    <meta name="title" content="Deploying the distributed deployment example manually with Postgres ">
     <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="images/favicon.png">
@@ -77,9 +77,9 @@
             </div>
           </div>
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="deploying-the-distributed-deployment-example-manually-for-db2">Deploying the distributed deployment example manually for Db2</h1>
+<h1 id="deploying-the-distributed-deployment-example-manually-with-postgres">Deploying the distributed deployment example manually with Postgres</h1>
 
-<p>The manual deployment of the distributed deployment example requires you to run each of the steps that were completed automatically in the Quick deploy, but for IBM Db2. The following instructions detail what steps are required on each container, and how to use these steps to deploy i2 Analyze on physical servers.</p>
+<p>The manual deployment of the distributed deployment example requires you to run each of the steps that were completed automatically in the Quick deploy. The following instructions detail what steps are required on each container, and how to use these steps to deploy i2 Analyze on physical servers.</p>
 <blockquote><p><strong>Important</strong>: The distributed example uses a Docker environment to demonstrate a distributed deployment of i2 Analyze. The Docker environment is not designed to be used on customer sites for test or production systems. After you understand how the distributed deployment is deployed, replicate the deployment on physical servers.</p>
 </blockquote>
 <h2 id="before-you-begin">Before you begin</h2>
@@ -88,15 +88,6 @@
 <li>Complete the <a href="deploy_clean_environment.html">Clean your environment</a> section to ensure that none of the images, containers, or network exist.</li>
 </ul>
 <p>You must run all Docker commands from a command line where Docker is initialized.</p>
-<h3 id="db2">Db2</h3>
-<p>Download <em>IBM Db2 Advanced Edition for Linux</em> by using the usual mechanism.</p>
-<p>Unzip the <code>DB2_DAE_Activation_11.5.zip</code> file, then copy the <code>adv_vpc</code> directory into the <code>src/images/db2/db2_installer</code> directory.</p>
-<p>Rename the <code>DB2_Svr_11.5_Linux_x86-64.tar.gz</code> file to <code>DB2_AWSE_REST_Svr.tar.gz</code>, then copy it to the <code>src/images/db2/db2_installer/installation_media</code> directory. Do not decompress the file.</p>
-<p>Download the SSL support file for Db2 by using the usual mechanism.</p>
-<p>Rename the <code>DB2_SF_SSL_11.5_Linux_x86-64.tar.gz</code> file to <code>DB2_SF_SSLF.tar.gz</code>, then copy it to the <code>src/images/db2/base_client/installation_media</code> directory. Do not decompress the file.</p>
-<p>Add the <code>db2jcc4.jar</code> file to the <code>src/configuration/environment/common/jdbc-drivers</code> directory.</p>
-<blockquote><p>Note: In an installation of Db2, the <code>db2jcc4.jar</code> file is in the <code>IBM/SQLLIB/java</code> directory.<br>If you do not have a Db2 installation, you can download the file. Download the file for <code>v11.5 FP0 (GA)</code>. For more information about downloading the <code>db2jcc4.jar</code> file, see: <a href="http://www-01.ibm.com/support/docview.wss?uid=swg21363866">http://www-01.ibm.com/support/docview.wss?uid=swg21363866</a>.</p>
-</blockquote>
 <h2 id="create-the-network">Create the network</h2>
 <p>To enable communication between the docker containers, all the containers must be connected to a single network. You can create a bridge network that only the docker containers can access. When each container is run, the <code>--net</code> flag is used to specify that the container connects to a specific network.</p>
 <p>Create a bridge network called <code>eianet</code> for the distributed deployment example:</p>
@@ -106,14 +97,14 @@
 </code></pre><p>The <code>eianet</code> network is displayed in the list.</p>
 <p>In a non-Docker environment, ensure that each server that you are using to deploy i2 Analyze can connect to each other.</p>
 <h2 id="copy-the-i2-analyze-configuration">Copy the i2 Analyze configuration</h2>
-<p>Update the distributed deployment example configuration for Db2.</p>
-<p>Copy the <code>src/configuration_mods/db2/base/environment</code> directory to the <code>src/configuration</code> directory. Accept any file overwrites.</p>
+<p>Update the distributed deployment example configuration for Postgres.</p>
+<p>Copy the <code>src/configuration_mods/postgres/base/environment</code> directory to the <code>src/configuration</code> directory. Accept any file overwrites.</p>
 <p>The i2 Analyze configuration is required by all servers that host components of i2 Analyze, except for the database server. In the <code>src/scripts</code> directory of the distributed deployment example, the <code>copyConfiguration</code> script copies the i2 Analyze configuration from the <code>src/configuration</code> directory to the <code>src/images/&lt;container_name&gt;/configuration</code> directory for each container.</p>
 <p>From the <code>src/scripts</code> directory, run the <code>copyConfiguration</code> script file.</p>
-<pre><code class="lang-sh">./copyConfiguration db2
+<pre><code class="lang-sh">./copyConfiguration postgres
 </code></pre><h3 id="results">Results</h3>
-<p>In a non-Docker environment, copying the configuration is equivalent to the following steps:<br>Downloading and extracting the i2 Analyze toolkit onto a server.</p>
-<p>Copying the <code>examples/configurations/information-store-opal/configuration</code> directory into the <code>toolkit</code> directory of your extracted i2 Analyze toolkit.</p>
+<p>In a non-Docker environment, copying the configuration is equivalent to the following steps:<br>Download and extract the i2 Analyze toolkit onto a server.</p>
+<p>Copy the <code>examples/configurations/information-store-opal/configuration</code> directory into the <code>toolkit</code> directory of your extracted i2 Analyze toolkit.</p>
 <p>You must populate the configuration for your environment, use the <code>src/configuration</code> directory as a reference. This is the centralized i2 Analyze toolkit and configuration that you copy to your servers.</p>
 <hr>
 <h2 id="build-the-prerequisite-images">Build the prerequisite images</h2>
@@ -124,36 +115,17 @@
 <p>To build the Ubuntu toolkit image, run the following from the <code>src/images/common</code> folder:</p>
 <pre><code class="lang-sh">docker build -t ubuntu_toolkit_image ubuntu_toolkit
 </code></pre><p>The Ubuntu toolkit image is created with the name <code>ubuntu_toolkit_image</code>.</p>
-<h3 id="db2-installer-image">Db2 installer image</h3>
-<p>The Db2 installation files must be added to the <code>db2_installer_image</code>.</p>
-<p>To build the <code>db2_installer</code> image, run the following from the <code>src/images/db2</code> folder:</p>
-<pre><code class="lang-sh">docker build -t db2_installer_image db2_installer
-</code></pre><p>The <code>db2_installer</code> image is created with the name <code>db2_installer_image</code>. The prerequisite packages and Db2 installer files are installed.</p>
-<h3 id="base-client-image">Base client image</h3>
-<p>The <code>base_client</code> represents a system that has the configured i2 Analyze toolkit and Db2 Client. This is used by any container that must communicate with Db2.</p>
-<p>To build the <code>base_client_image</code> image, run the following from the <code>src/images/db2</code> folder:</p>
-<pre><code class="lang-sh">docker build -t base_client_image base_client
-</code></pre><hr>
+<hr>
 <h2 id="configuring-and-running-the-containers">Configuring and running the containers</h2>
 <p>Each Docker container requires a Docker image. In a non-Docker environment, this is equivalent to configuring and starting a physical server that is used to host a component of i2 Analyze.</p>
-<h3 id="db2-container">Db2 container</h3>
-<p>In i2 Analyze, the Information Store is a Db2 database. To make it easier to demonstrate, the installation of Db2 is automated. In this deployment, Db2 is installed on its own server.</p>
-<p>To build the <code>db2</code> image, run the following from the <code>src/images/db2</code> folder:</p>
-<pre><code class="lang-sh">docker build -t db2_image db2
-</code></pre><p>The DB2 image is created with the name <code>db2_image</code>.</p>
-<p>Run the db2 container:</p>
-<pre><code class="lang-sh">docker run -d --privileged --name db2 -p 50000:50000 -p 50001:50001 --net eianet -u db2inst1 db2_image
-</code></pre><blockquote><p>Note: Ports 50000 and 50001 are exposed so that the database can be accessed from outside of the <code>eianet</code> network. In a production environment this is not necessary, because clients only access Liberty.</p>
-</blockquote>
-<p>Check that the container started correctly by using the docker logs:</p>
-<pre><code class="lang-sh">docker logs -f db2
-</code></pre><blockquote><p>Note: To exit the log display, use <code>Ctrl + C</code>.</p>
-</blockquote>
-<p>After you run the Db2 container, set the password for the <code>i2analyze</code> user. Enter the password that you specified in the <code>credentials.properties</code> file for the <code>db2.infostore.password</code> credential.</p>
-<p>To set the password, run the following command and enter the password when you are prompted:</p>
-<pre><code class="lang-sh">docker exec -u root -it db2 passwd i2analyze
-</code></pre><p>Inspect the <code>Dockerfile</code> in the <code>src/images/db2/db2</code> directory to see the commands that are required to install DB2 on a server in a non-Docker environment.</p>
-<p>Db2 is installed by using a response file, and an instance of Db2 is created with the required Db2 users.</p>
+<h3 id="postgres-container">Postgres container</h3>
+<p>The Postgres container is built from an image that is available from PostGIS on Docker hub, <a href="https://hub.docker.com/r/postgis/postgis/">https://hub.docker.com/r/postgis/postgis/</a>.</p>
+<p>To build the <code>postgres</code> image, run the following command from the <code>src/images/postgres</code>:</p>
+<pre><code class="lang-sh">docker build -t postgres_image postgres
+</code></pre><p>Run the Postgres container:</p>
+<pre><code class="lang-sh">docker run -d -e &#39;POSTGRES_USER=i2analyze&#39; -e &quot;POSTGRES_PASSWORD=&lt;PostgresPassword&gt;&quot; --name postgres -p 5432:5432 --net eianet postgres_image
+</code></pre><p>Where <code>&lt;PostgresPassword&gt;</code> is a password for the system administrator user for the Postgres container.</p>
+<p>The container is started with Postgres installed and running. The port number of the Postgres instance is <code>5432</code>.</p>
 <h3 id="zookeeper-containers">ZooKeeper containers</h3>
 <p>ZooKeeper is the service that is used to maintain configuration information and distributed synchronization across Solr. In this deployment, ZooKeeper is distributed across three servers in a ZooKeeper Quorum. Your configured i2 Analyze toolkit must be installed on each Zookeeper server.</p>
 <p>To build the <code>zookeeper</code>, <code>zookeeper2</code>, and <code>zookeeper3</code> images, run the following commands from the <code>src/images/common</code> folder:</p>
@@ -171,13 +143,13 @@ docker logs -f zookeeper3
 </code></pre><p>Inspect the <code>Dockerfile</code> in the <code>src/images/common/zookeeper</code> directory to see the commands that are required to configure a ZooKeeper server in a non-Docker environment.</p>
 <p>Each ZooKeeper container is started. The container starts and configures ZooKeeper, and hosts the ZooKeeper server. The <code>topology.xml</code> file in the i2 Analyze configuration defines the values for the ZooKeeper server.</p>
 <h3 id="admin-client-container">Admin client container</h3>
-<p>In this deployment, the Admin client is a separate server that is designed for running toolkit tasks in a distributed environment. Your configured i2 Analyze toolkit, and a DB2 client must be installed on the server that you want to use to interact with Liberty and Db2.</p>
-<p>To build the Admin client image, run the following command from the <code>src/images/db2</code> folder:</p>
-<pre><code class="lang-sh">docker build -t admin_client_db2_image admin_client
-</code></pre><p>The Admin client image is created with the name <code>admin_client_db2_image</code>.</p>
+<p>In this deployment, the Admin client is a separate server that is designed for running toolkit tasks in a distributed environment. Your configured i2 Analyze toolkit, and a Postgres client must be installed on the server that you want to use to interact with Liberty and Postgres.</p>
+<p>To build the Admin client image, run the following command from the <code>src/images/postgres</code> folder:</p>
+<pre><code class="lang-sh">docker build -t admin_client_postgres_image admin_client
+</code></pre><p>The Admin client image is created with the name <code>admin_client_postgres_image</code>.</p>
 <p>Run the Admin client container:</p>
-<pre><code class="lang-sh">docker run -d --name admin_client --net eianet -u i2analyze admin_client_db2_image
-</code></pre><p>Inspect the <code>Dockerfile</code> in the <code>src/images/db2/admin_client</code> directory to see the commands that are required to configure the Admin client.</p>
+<pre><code class="lang-sh">docker run -d --name admin_client --net eianet --memory=512m -u i2analyze admin_client_postgres_image
+</code></pre><p>Inspect the <code>Dockerfile</code> in the <code>src/images/postgres/admin_client</code> directory to see the commands that are required to configure the Admin client.</p>
 <p>Use the following format to run toolkit tasks by using the Admin Client:</p>
 <pre><code class="lang-sh">docker exec -u i2analyze -t admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t &lt;toolkit task&gt;
 </code></pre><h4 id="solr-configuration">Solr configuration</h4>
@@ -200,7 +172,7 @@ docker run -d --name solr2 -p 8984:8984 --net eianet --memory=1g -u i2analyze so
 docker logs -f solr2
 </code></pre><p>Inspect the <code>Dockerfile</code> in <code>src/images/common/solr</code> and <code>src/images/common/solr2</code> to see the commands that are required to configure a Solr server in a non-Docker environment.</p>
 <p>The images include an i2 Analyze <code>topology.xml</code> file that defines the values for the configuration of Solr. When the server starts, the appropriate Solr nodes are started.</p>
-<p>When you start the Solr container, the port that Solr runs on in the container is specified, in this example it is either <code>8983</code> or <code>8984</code>. The specified port is mapped on the host machine so that you can access Solr and the Solr web UI from the host machine.</p>
+<p>When you start the Solr container, the port that Solr runs on in the container is specified, in this example it is either <code>8983</code> or <code>8984</code>. The specified port is mapped on the host machine so that you can access Solr and the Solr Web UI from the host machine.</p>
 <p>After the Solr nodes are running, you can use the Solr Web UI to inspect the Solr and ZooKeeper configurations. Connect to the Solr Web UI on the <code>solr</code> container. In a web browser, go to the following URL to connect to the Solr Web UI: <a href="http://localhost:8983/solr/#">http://localhost:8983/solr/#</a>. The user name is <code>solradmin</code> and the password is the Solr password set in the <code>credentials.properties</code> file.</p>
 <blockquote><p>Where the port number is the same as the one that is mapped to local machine when the Solr container is run.
 The URL uses <code>localhost</code> because the <code>8983</code> port is mapped from the host machine to the docker container. In a non-Docker environment, connect by using the host name of the Solr server.</p>
@@ -214,18 +186,18 @@ The URL uses <code>localhost</code> because the <code>8983</code> port is mapped
 <p>To test the Solr Collection, click <strong>Cloud</strong> in the Solr Web UI, or you can go to <a href="http://localhost:8983/solr/#/~cloud">http://localhost:8983/solr/#/~cloud</a>. The user name is <code>solradmin</code> and the password is the Solr password set in the <code>credentials.properties</code> file.
 A horizontal tree with the collection as the root is displayed. Here you can see the breakdown of the shards, nodes, and replicas on the collection.</p>
 <h4 id="create-the-information-store-database">Create the Information Store database</h4>
-<p>Create the Information Store database in the Db2 instance on the Db2 container.</p>
+<p>Create the Information Store database in the Postgres instance on the Postgres container.</p>
 <p>To create the Information Store database by using the Admin client, run the following command:</p>
-<pre><code class="lang-sh">docker exec -t -u i2analyze admin_client bash -c &quot;. home/db2inst1/sqllib/db2profile &amp;&amp; /opt/i2/i2analyze/toolkit/scripts/setup -t createDatabases&quot;
-</code></pre><p>To check that the database is created correctly, connect to the database. For example, connect by using IBM Data Studio. The user name is <code>i2analyze</code> and the password is the database password set in the <code>credentials.properties</code> file.</p>
+<pre><code class="lang-sh">docker exec -u i2analyze -t admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t createDatabases
+</code></pre><p>To check that the database is created correctly, connect to the database. For example, connect by using pgAdmin. The user name is <code>i2analyze</code> and the password is the database password set in the <code>credentials.properties</code> file.</p>
 <h3 id="liberty-container">Liberty container</h3>
-<p>The Liberty application server hosts the i2 Analyze application, and provides all of the REST services that the client uses. In this deployment, Liberty is deployed on its own server. Your configured i2 Analyze toolkit, and a Db2 client must be installed on the Liberty server.</p>
-<p>To build the liberty image, run the following command from the <code>src/images/db2</code> folder:</p>
-<pre><code class="lang-sh">docker build -t liberty_db2_image liberty
-</code></pre><p>The Liberty image is created with the name <code>liberty_db2_image</code>.</p>
+<p>The Liberty application server hosts the i2 Analyze application, and provides all of the REST services that the client uses. In this deployment, Liberty is deployed on its own server. Your configured i2 Analyze toolkit, and the Postgres client tools must be installed on the Liberty server.</p>
+<p>To build the <code>liberty</code> image, run the following command from the <code>src/images/postgres</code> folder:</p>
+<pre><code class="lang-sh">docker build -t liberty_postgres_image liberty
+</code></pre><p>The Liberty image is created with the name <code>liberty_postgres_image</code>.</p>
 <p>Run the Liberty container:</p>
-<pre><code class="lang-sh">docker run -d --name liberty -p 9082:9082 -p 9445:9445 --net eianet -u i2analyze liberty_db2_image
-</code></pre><p>The i2 Analyze application is installed on the Liberty server. Inspect the <code>Dockerfile</code> in the <code>src/images/db2/liberty</code> directory to see the commands that are run to create the Liberty server in a non-Docker environment.</p>
+<pre><code class="lang-sh">docker run -d --name liberty -p 9082:9082 -p 9445:9445 --net eianet --memory=2g -u i2analyze liberty_postgres_image
+</code></pre><p>The i2 Analyze application is installed on the Liberty server. Inspect the <code>Dockerfile</code> in the <code>src/images/postgres/liberty</code> directory to see the commands that are run to create the Liberty server in a non-Docker environment.</p>
 <p>The Liberty server is configured, and the <code>opal-server</code> is started.</p>
 <hr>
 <h2 id="results-1">Results</h2>

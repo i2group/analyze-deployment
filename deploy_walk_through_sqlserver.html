@@ -88,9 +88,6 @@
 <li>Complete the <a href="deploy_clean_environment.html">Clean your environment</a> section to ensure that none of the images, containers, or network exist.</li>
 </ul>
 <p>You must run all Docker commands from a command line where Docker is initialized.</p>
-<blockquote><p>For Windows 7, you must also forward the required ports from your local workstation to the virtual machine that hosts Docker.</p>
-<p>In the network settings for your docker virtual machine, open the <strong>Advanced</strong> menu and click <strong>Port Forwarding</strong>. Create a new line, and enter values for the <code>Host IP</code>, <code>Host Port</code>, and <code>Guest Port</code>. You must do this for each port that is exposed in the Docker environment.</p>
-</blockquote>
 <h2 id="create-the-network">Create the network</h2>
 <p>To enable communication between the docker containers, all the containers must be connected to a single network. You can create a bridge network that only the docker containers can access. When each container is run, the <code>--net</code> flag is used to specify that the container connects to a specific network.</p>
 <p>Create a bridge network called <code>eianet</code> for the distributed deployment example:</p>
@@ -147,7 +144,7 @@ docker logs -f zookeeper3
 </code></pre><p>Inspect the <code>Dockerfile</code> in the <code>src/images/common/zookeeper</code> directory to see the commands that are required to configure a ZooKeeper server in a non-Docker environment.</p>
 <p>Each ZooKeeper container is started. The container starts and configures ZooKeeper, and hosts the ZooKeeper server. The <code>topology.xml</code> file in the i2 Analyze configuration defines the values for the ZooKeeper server.</p>
 <h3 id="admin-client-container">Admin client container</h3>
-<p>In this deployment, the Admin client is a separate server that is designed for running toolkit tasks in a distributed environment. Your configured i2 Analyze toolkit, and a Db2 client must be installed on the server that you want to use to interact with Liberty and Db2.</p>
+<p>In this deployment, the Admin client is a separate server that is designed for running toolkit tasks in a distributed environment. Your configured i2 Analyze toolkit, and a SQL Server client must be installed on the server that you want to use to interact with Liberty and SQL Server.</p>
 <p>To build the Admin client image, run the following command from the <code>src/images/sqlserver</code> folder:</p>
 <pre><code class="lang-sh">docker build -t admin_client_sqlserver_image admin_client
 </code></pre><p>The Admin client image is created with the name <code>admin_client_sqlserver_image</code>.</p>
@@ -194,8 +191,6 @@ A horizontal tree with the collection as the root is displayed. Here you can see
 <p>To create the Information Store database by using the Admin client, run the following command:</p>
 <pre><code class="lang-sh">docker exec -u i2analyze -t admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t createDatabases
 </code></pre><p>To check that the database is created correctly, connect to the database. For example, connect by using SQL Server Management Studio. The user name is <code>i2analyze</code> and the password is the database password set in the <code>credentials.properties</code> file.</p>
-<blockquote><p>If you are using Windows 7, you must forward port <code>1433</code> from your Virtual Box virtual machine.)</p>
-</blockquote>
 <h3 id="liberty-container">Liberty container</h3>
 <p>The Liberty application server hosts the i2 Analyze application, and provides all of the REST services that the client uses. In this deployment, Liberty is deployed on its own server. Your configured i2 Analyze toolkit, and the SQL Server client tools must be installed on the Liberty server.</p>
 <p>To build the <code>liberty</code> image, run the following command from the <code>src/images/sqlserver</code> folder:</p>

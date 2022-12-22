@@ -92,10 +92,14 @@ To build the ETL client image, run the following command from the <code>src/imag
 <pre><code class="lang-sh">docker build -t etl_client_sqlserver_image sqlserver/etl_client
 </code></pre><p>For Db2:</p>
 <pre><code class="lang-sh">docker build -t etl_client_db2_image db2/etl_client
+</code></pre><p>For Postgres:</p>
+<pre><code class="lang-sh">docker build -t etl_client_postgres_image postgres/etl_client
 </code></pre><p>To run the ETL client container, run the following command:<br>For SQL Server:</p>
 <pre><code class="lang-sh">docker run -d --name etl_client --net eianet -u i2analyze etl_client_sqlserver_image
 </code></pre><p>For Db2:</p>
 <pre><code class="lang-sh">docker run -d --name etl_client --net eianet -u i2analyze etl_client_db2_image
+</code></pre><p>For Postgres:</p>
+<pre><code class="lang-sh">docker run -d --name etl_client --net eianet -u i2analyze etl_client_postgres_image
 </code></pre><p>Run the <code>deployEtlClient</code> script from the <code>src/scripts</code> directory to create a new ETL toolkit and copy it to the <code>etl_client</code> container:</p>
 <pre><code class="lang-sh">./deployEtlClient
 </code></pre><p>For more information about deploying the ETL toolkit in a non-Docker environment, see <a href="https://docs.i2group.com/analyze/deploying_the_etl_toolkit.html">Deploying the ETL toolkit</a>.</p>

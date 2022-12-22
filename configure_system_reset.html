@@ -82,7 +82,7 @@
 <p>During development, to make destructive schema changes or to completely change your schema, you must recreate the Information Store database.</p>
 <h2 id="before-you-begin">Before you begin</h2>
 <p>This process can permanently remove data and the database from your system, ensure that no data is in the system that you want to keep.</p>
-<p>For more information about making a backup of your deployment, see <a href="https://docs.i2group.com/analyze/c_back_up_and_recovery.html">Backing up a deployment</a>.</p>
+<p>For more information about making a backup of your deployment, see <a href="https://docs.i2group.com/analyze/backup-restore.html">Backing up a deployment</a>.</p>
 <h2 id="stopping-liberty">Stopping Liberty</h2>
 <p>Run the following command on the Liberty server to stop Liberty:</p>
 <pre><code class="lang-sh">docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t stopLiberty
@@ -111,12 +111,23 @@
 <p>The following is an example of how to stop two active connections with the application handles of <code>1414</code> and <code>1415</code>:</p>
 <pre><code class="lang-sh">docker exec -u i2analyze -t db2 bash -c &quot;. /home/db2inst1/sqllib/db2profile &amp;&amp; db2 &#39;force application (1414, 1415)&#39;&quot;
 </code></pre><p>Any connections that you stop in this way are not in the list when you run the command to identify the active connections.</p>
+<h3 id="stopping-active-connections-to-your-postgres-database">Stopping active connections to your Postgres database</h3>
+<p>You can identify the active connections to the database by running the following command:</p>
+<pre><code class="lang-sh">docker exec -e PGPASSWORD=Passw0rd postgres bash -c &quot;psql -w -X -q --set=client_min_messages=warning -h postgres -p 5432 -d ISTORE -U i2analyze -c &#39;select datname, pid, usename from pg_stat_activity;&#39;&quot;
+</code></pre><p>If the command returns no results, or there are no rows in the list with a datname of <code>ISTORE</code>, there are no active connections to the Information Store.</p>
+<p>Otherwise, make a note of all the values in the <code>pid</code> column with a datname of <code>ISTORE</code>.</p>
+<p>The following is an example of how to stop an active connection with the pid of <code>185</code>:</p>
+<pre><code class="lang-sh">docker exec -e PGPASSWORD=Passw0rd postgres bash -c &quot;psql -w -X -q --set=client_min_messages=warning -h postgres -p 5432 -d ISTORE -U i2analyze -c &#39;select pg_cancel_backend(185);&#39;&quot;
+docker exec -e PGPASSWORD=Passw0rd postgres bash -c &quot;psql -w -X -q --set=client_min_messages=warning -h postgres -p 5432 -d ISTORE -U i2analyze -c &#39;select pg_terminate_backend(185);&#39;&quot;
+</code></pre><p>Any connections that you stop in this way are not in the list when you run the command to identify the active connections.</p>
 <h3 id="drop-the-database">Drop the database</h3>
 <p>After you ensure that there are no active connections to your database, you can drop the database by running the following command:
 In SQL Server:</p>
 <pre><code class="lang-sh">docker exec -u i2analyze -it admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t dropDatabases --hostname admin_client.eianet
 </code></pre><p>In Db2:</p>
 <pre><code class="lang-sh">docker exec -u i2analyze -it admin_client bash -c &quot;. /home/db2inst1/sqllib/db2profile &amp;&amp; /opt/i2/i2analyze/toolkit/scripts/setup -t dropDatabases --hostname admin_client.eianet&quot;
+</code></pre><p>In Postgres:</p>
+<pre><code class="lang-sh">docker exec -u i2analyze -it admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t dropDatabases --hostname admin_client.eianet
 </code></pre><p>The <code>ISTORE</code> database is removed.</p>
 <h3 id="recreating-the-database">Recreating the database</h3>
 <p>Before you can restart i2 Analyze, you must recreate the database.</p>
@@ -125,6 +136,8 @@ In SQL Server:</p>
 <pre><code class="lang-sh">docker exec -u i2analyze -t admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t createDatabases
 </code></pre><p>In Db2:</p>
 <pre><code class="lang-sh">docker exec -u i2analyze -t admin_client bash -c &quot;. /home/db2inst1/sqllib/db2profile &amp;&amp; /opt/i2/i2analyze/toolkit/scripts/setup -t createDatabases&quot;
+</code></pre><p>In Postgres:</p>
+<pre><code class="lang-sh">docker exec -u i2analyze -t admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t createDatabases
 </code></pre><p>You must start Liberty:</p>
 <pre><code class="lang-sh">docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t startLiberty
 </code></pre><p>The console output from the <code>startLiberty</code> task is output directly to the console.</p>
