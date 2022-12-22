@@ -63,17 +63,26 @@ docker cp ${SRC_DIR}/keys/requests/zookeeper3-key.csr ca:/opt/i2/ca
 docker exec -t ca /opt/i2/ca/signCertificate zookeeper zookeeper3-key.csr zookeeper3-key.cer
 docker cp ca:/opt/i2/ca/zookeeper3-key.cer ${SRC_DIR}/keys/responses/zookeeper3-key.cer
 
-if [[ $dbDialect == "db2" ]]; then
-	output "Signing db2 container certificate"
-	docker cp ${SRC_DIR}/keys/requests/db2-key.csr ca:/opt/i2/ca
-	docker exec -t ca /opt/i2/ca/signCertificate db2 db2-key.csr db2-key.cer
-	docker cp ca:/opt/i2/ca/db2-key.cer ${SRC_DIR}/keys/responses/db2-key.cer
-elif [[ $dbDialect == "sqlserver" ]]; then
-	output "Signing sqlserver container certificate"
-	docker cp ${SRC_DIR}/keys/requests/sqlserver-key.csr ca:/opt/i2/ca
-	docker exec -t ca /opt/i2/ca/signCertificate sqlserver sqlserver-key.csr sqlserver-key.cer
-	docker cp ca:/opt/i2/ca/sqlserver-key.cer ${SRC_DIR}/keys/responses/sqlserver-key.cer
-fi
+case "${dbDialect}" in
+  "db2")
+    output "Signing db2 container certificate"
+   	docker cp ${SRC_DIR}/keys/requests/db2-key.csr ca:/opt/i2/ca
+   	docker exec -t ca /opt/i2/ca/signCertificate db2 db2-key.csr db2-key.cer
+   	docker cp ca:/opt/i2/ca/db2-key.cer ${SRC_DIR}/keys/responses/db2-key.cer
+    ;;
+  "sqlserver")
+   	output "Signing sqlserver container certificate"
+   	docker cp ${SRC_DIR}/keys/requests/sqlserver-key.csr ca:/opt/i2/ca
+   	docker exec -t ca /opt/i2/ca/signCertificate sqlserver sqlserver-key.csr sqlserver-key.cer
+   	docker cp ca:/opt/i2/ca/sqlserver-key.cer ${SRC_DIR}/keys/responses/sqlserver-key.cer
+    ;;
+  "postgres")
+    output "Signing postgres container certificate"
+    docker cp ${SRC_DIR}/keys/requests/postgres-key.csr ca:/opt/i2/ca
+    docker exec -t ca /opt/i2/ca/signCertificate postgres postgres-key.csr postgres-key.cer
+    docker cp ca:/opt/i2/ca/postgres-key.cer ${SRC_DIR}/keys/responses/postgres-key.cer
+    ;;
+esac
 
 if [ "$(docker ps -q -f name=ihs)" ]; then
   output "Signing ihs container certificate"

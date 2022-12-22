@@ -23,7 +23,7 @@ pushd ..
 
 dbDialect=${1:-${DB_DIALECT}}
 
-if [[ $dbDialect != "sqlserver" &&  $dbDialect != "db2" ]]; then
+if [[ $dbDialect != "sqlserver" &&  $dbDialect != "db2" &&  $dbDialect != "postgres" ]]; then
     echo "Error: Unrecognized dialect."
     exit 1
 fi
@@ -37,16 +37,9 @@ rm -rf "${IMAGES_PATH}/common/solr/configuration" &>/dev/null || true
 rm -rf "${IMAGES_PATH}/common/solr2/configuration" &>/dev/null || true
 rm -rf "${IMAGES_PATH}/common/ihs/configuration" &>/dev/null || true
 
-if [[ $dbDialect == "db2" ]]; then
-    #DB2 contexts
-    rm -rf "${IMAGES_PATH}/db2/liberty/configuration" &>/dev/null || true
-    rm -rf "${IMAGES_PATH}/db2/admin_client/configuration" &>/dev/null || true
-fi
-if [[ $dbDialect == "sqlserver" ]]; then
-    #Microsoft SQL contexts
-    rm -rf "${IMAGES_PATH}/sqlserver/liberty/configuration" &>/dev/null || true
-    rm -rf "${IMAGES_PATH}/sqlserver/admin_client/configuration" &>/dev/null || true
-fi
+#Dialect specific
+rm -rf "${IMAGES_PATH}/${dbDialect}/liberty/configuration" &>/dev/null || true
+rm -rf "${IMAGES_PATH}/${dbDialect}/admin_client/configuration" &>/dev/null || true
 
 output "Copying the user configuration into all of the required Docker contexts"
 #Common contexts

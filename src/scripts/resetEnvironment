@@ -23,7 +23,7 @@ pushd ..
 
 dbDialect=${1:-${DB_DIALECT}}
 
-if [[ $dbDialect != "sqlserver" &&  $dbDialect != "db2" ]]; then
+if [[ $dbDialect != "sqlserver" &&  $dbDialect != "db2" &&  $dbDialect != "postgres" ]]; then
     echo "Error: Unrecognized dialect."
     exit 1
 fi
@@ -92,9 +92,9 @@ docker exec -u root -it solr sh -c "echo \"/opt/i2/i2analyze/toolkit/scripts/set
 docker exec -u root -it solr2 sh -c "echo \"/opt/i2/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr2.eianet || echo \"Error stating Solr node in solr2\"\" > /opt/i2/startupExt"
 docker exec -u root -it admin_client sh -c "echo \"\" > /opt/i2/startupExt"
 docker exec -u root -it liberty sh -c "echo \"export JAVA_HOME=/opt/i2/i2analyze/deploy/java && /opt/i2/i2analyze/toolkit/scripts/setup -t startLiberty || echo \"Error starting Liberty\"\" > /opt/i2/startupExt"
-docker exec -u root -it zookeeper sh -c "echo \"/opt/i2/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper.eianet || echo \"Error stating Zookeeper host in zookeeeper\"\" > /opt/i2/startupExt"
-docker exec -u root -it zookeeper2 sh -c "echo \"/opt/i2/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper2.eianet || echo \"Error stating Zookeeper host in zookeeeper2\"\" > /opt/i2/startupExt"
-docker exec -u root -it zookeeper3 sh -c "echo \"/opt/i2/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeeper3.eianet || echo \"Error stating Zookeeper host in zookeeeper3\"\" > /opt/i2/startupExt"
+docker exec -u root -it zookeeper sh -c "echo \"/opt/i2/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper.eianet || echo \"Error stating Zookeeper host in zookeeper\"\" > /opt/i2/startupExt"
+docker exec -u root -it zookeeper2 sh -c "echo \"/opt/i2/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper2.eianet || echo \"Error stating Zookeeper host in zookeeper2\"\" > /opt/i2/startupExt"
+docker exec -u root -it zookeeper3 sh -c "echo \"/opt/i2/i2analyze/toolkit/scripts/setup -t startZkHosts --hostname zookeeper3.eianet || echo \"Error stating Zookeeper host in zookeeper3\"\" > /opt/i2/startupExt"
 
 output "Resetting configuration"
 docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t stopLiberty
@@ -119,7 +119,8 @@ docker exec -u i2analyze solr2 /opt/i2/i2analyze/toolkit/scripts/setup -t stopSo
 docker exec -u i2analyze solr /opt/i2/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr.eianet
 docker exec -u i2analyze solr2 /opt/i2/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr2.eianet
 
-if [[ $dbDialect == "db2" ]]; then
+case "${dbDialect}" in
+  "db2")
     # Resetting the DB2COMM property in the db2 server
     docker exec -u db2inst1 -t db2 bash -c ". /home/db2inst1/sqllib/db2profile && db2set DB2COMM=tcpip"
     # Resetting the SSL_VERSIONS property in the db2 server
@@ -132,25 +133,40 @@ if [[ $dbDialect == "db2" ]]; then
     # Recataloging the database on the liberty container
     docker exec -u i2analyze liberty bash -c ". /home/db2inst1/sqllib/db2profile && /opt/i2/i2analyze/toolkit/scripts/setup -t recatalogRemoteDB2Nodes"
     docker exec -u i2analyze liberty bash -c ". /home/db2inst1/sqllib/db2profile && /opt/i2/i2analyze/toolkit/scripts/setup -t recatalogDB2Databases"
-elif [[ $dbDialect == "sqlserver" ]]; then
+    ;;
+  "sqlserver")
     # Resetting the connection properties in the sqlserver server
     docker exec -t sqlserver /opt/mssql/bin/mssql-conf unset network.tlscert
     docker exec -t sqlserver /opt/mssql/bin/mssql-conf unset network.tlskey
     docker exec -t sqlserver /opt/mssql/bin/mssql-conf unset network.tlsprotocols
     docker exec -t sqlserver /opt/mssql/bin/mssql-conf unset network.forceencryption
-fi
+    ;;
+  "postgres")
+    # Resetting the connection properties in the postgres server
+    docker exec -u postgres postgres sed -i "s/ssl = on/#ssl = off/"  /var/lib/postgresql/data/postgresql.conf
+    docker exec -u postgres postgres sed -i "s/ssl_cert_file = '\/opt\/i2\/keys\/responses\/postgres-key.cer'/#ssl_cert_file = 'server.crt'/"  /var/lib/postgresql/data/postgresql.conf
+    docker exec -u postgres postgres sed -i "s/ssl_key_file = '\/opt\/i2\/keys\/stores\/i2-postgres-key.key'/#ssl_key_file = 'server.key'/"  /var/lib/postgresql/data/postgresql.conf
+    ;;
+esac
 
 # Deploying liberty
 docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t deployLiberty
 
-if [[ $dbDialect == "db2" ]]; then
+case "${dbDialect}" in
+  "db2")
     # Restart db2
     docker exec -u db2inst1 -t db2 bash -c ". /home/db2inst1/sqllib/db2profile && db2stop"
     docker exec -u db2inst1 -t db2 bash -c ". /home/db2inst1/sqllib/db2profile && db2start"
-elif [[ $dbDialect == "sqlserver" ]]; then
+    ;;
+  "sqlserver")
     # Restart sqlserver
     docker restart sqlserver
-fi
+    ;;
+  "postgres")
+    # Restart postgres
+    docker restart postgres
+    ;;
+esac
 
 # Starting liberty
 docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t startLiberty

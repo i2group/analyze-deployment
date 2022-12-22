@@ -30,7 +30,7 @@ if [[ $configModsName != "i2connect" &&  $configModsName != "i2connect_istore" ]
 fi
 
 dbDialect=${2:-${DB_DIALECT}}
-if [[ $dbDialect != "sqlserver" &&  $dbDialect != "db2" ]]; then
+if [[ $dbDialect != "sqlserver" &&  $dbDialect != "db2" &&  $dbDialect != "postgres" ]]; then
     echo "Error: Unrecognized dialect."
     exit 1
 fi

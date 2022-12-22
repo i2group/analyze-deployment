@@ -25,7 +25,7 @@ dbDialect=${2:-${DB_DIALECT}}
 I2ANALYZE_PATH="/opt/i2/i2analyze"
 docker exec -t -u i2analyze admin_client sh -c "test -d ${I2ANALYZE_PATH}" || I2ANALYZE_PATH="/opt/IBM/i2analyze" && true
 
-if [[ $dbDialect != "sqlserver" &&  $dbDialect != "db2" ]]; then
+if [[ $dbDialect != "sqlserver" &&  $dbDialect != "db2" &&  $dbDialect != "postgres" ]]; then
     echo "Error: Unrecognized dialect."
     exit 1
 fi

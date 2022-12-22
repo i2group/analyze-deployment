@@ -77,3 +77,7 @@ DNS.1 = i2demo
 [ sqlserver ]
 subjectKeyIdentifier    = hash
 authorityKeyIdentifier  = keyid,issuer:always
+
+[ postgres ]
+subjectKeyIdentifier    = hash
+authorityKeyIdentifier  = keyid,issuer:always

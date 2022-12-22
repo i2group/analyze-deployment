@@ -81,6 +81,7 @@ docker build -t etl_client_db2_image ${IMAGES_PATH}/db2/etl_client
 
 output "Cleaning up any previously created deployment example containers if they exist."
 docker stop sqlserver &>/dev/null || true
+docker stop postgres &>/dev/null || true
 docker rm -f db2 admin_client liberty etl_client &>/dev/null || true
 
 output "Running the db2 container on the eia network."

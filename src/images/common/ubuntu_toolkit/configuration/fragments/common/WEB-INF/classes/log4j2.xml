@@ -3,8 +3,7 @@
   <Properties>
     <Property name="rootDir">${sys:apollo.log.dir}/opal-services</Property>
     <Property name="statusPatternLayout">%d %-5p %-30c{1} - %m%n</Property>
-    <Property name="detailedPatternLayout">%d %-4r [%t] %-5p %c - %X{requestSessionId}
-      %X{requestUniqueId} %x - %m%n
+    <Property name="detailedPatternLayout">%d %-4r [%t] %-5p %c - %X{requestSessionId} %X{requestUniqueId} %x - %m%n
     </Property>
     <Property name="archiveDirFormat">$$${date:yyyy-MM}</Property>
     <Property name="archiveDir">${rootDir}/${archiveDirFormat}</Property>
@@ -285,9 +284,6 @@
     <!-- To log information about notebook web's performance, set the log level to DEBUG -->
     <Logger name="com.i2group.disco.actionlog.logger.internal" level="OFF" additivity="false">
       <AppenderRef ref="PERFORMANCE_notebook_web"/>
-    </Logger>
-    <Logger name="com.networknt.schema.JsonMetaSchema" level="ERROR" additivity="false">
-      <AppenderRef ref="CONSOLE" level="ERROR"/>
     </Logger>
   </Loggers>
 </Configuration>

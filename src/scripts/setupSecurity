@@ -30,7 +30,7 @@ if [[ $configurationDir != "client_cert_ssl" &&  $configurationDir != "ssl" &&  
 fi
 
 dbDialect=${2:-${DB_DIALECT}}
-if [[ $dbDialect != "sqlserver" &&  $dbDialect != "db2" ]]; then
+if [[ $dbDialect != "sqlserver" &&  $dbDialect != "db2" &&  $dbDialect != "postgres" ]]; then
     echo "Error: Unrecognized dialect."
     exit 1
 fi
@@ -44,6 +44,7 @@ if [ "$(docker ps -q -f name=ihs)" ]; then
     echo "IBM HTTPServer has stopped"
 fi
 
+# TODO Remove - switching protocol in Solr supported in next release.
 output "Deleting Solr Collections"
 docker exec -u i2analyze admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t deleteSolrCollections -f --all --hostname admin_client.eianet
 
@@ -72,7 +73,8 @@ if [[ $configurationDir == "client_cert_ssl" ]]; then
     sed -i 's/<httpDispatcher enableWelcomePage=\"false\"/<httpDispatcher enableWelcomePage=\"false\" trustedSensitiveHeaderOrigin=\"*\"/g' server.xml"
 fi
 
-if [[ $dbDialect == "db2" ]]; then
+case "${dbDialect}" in
+  "db2")
     output "Updating the DB2 configuration"
     docker exec -u db2inst1 -t db2 bash -c ". /home/db2inst1/sqllib/db2profile && db2set DB2COMM=ssl"
     docker exec -u db2inst1 -t db2 bash -c ". /home/db2inst1/sqllib/db2profile && db2 update dbm cfg using SSL_VERSIONS TLSv12"
@@ -94,8 +96,8 @@ if [[ $dbDialect == "db2" ]]; then
     output "Recataloging the database on the liberty container"
     docker exec -u i2analyze liberty bash -c ". /home/db2inst1/sqllib/db2profile && /opt/i2/i2analyze/toolkit/scripts/setup -t recatalogRemoteDB2Nodes"
     docker exec -u i2analyze liberty bash -c ". /home/db2inst1/sqllib/db2profile && /opt/i2/i2analyze/toolkit/scripts/setup -t recatalogDB2Databases"
-
-elif [[ $dbDialect == "sqlserver" ]]; then
+    ;;
+  "sqlserver")
     output "Enabling Sql Server secure connection"
     docker exec -t sqlserver /opt/mssql/bin/mssql-conf set network.tlscert /opt/i2/keys/responses/sqlserver-key.cer
     docker exec -t sqlserver /opt/mssql/bin/mssql-conf set network.tlskey /opt/i2/keys/stores/i2-sqlserver-key.key
@@ -120,7 +122,24 @@ elif [[ $dbDialect == "sqlserver" ]]; then
       docker exec -u root etl_client   bash -c "grep -q \"CA.cer\" /etc/ca-certificates.conf || echo \"CA.cer\" >> /etc/ca-certificates.conf"
       docker exec -u root -t etl_client   update-ca-certificates
     fi
-fi
+    ;;
+  "postgres")
+    output "Enabling PostGreSQL secure connection"
+    docker exec -u postgres postgres sed -i "s/#ssl = off/ssl = on/"  /var/lib/postgresql/data/postgresql.conf
+    docker exec -u postgres postgres sed -i "s/#ssl_cert_file = 'server.crt'/ssl_cert_file = '\/opt\/i2\/keys\/responses\/postgres-key.cer'/"  /var/lib/postgresql/data/postgresql.conf
+    docker exec -u postgres postgres sed -i "s/#ssl_key_file = 'server.key'/ssl_key_file = '\/opt\/i2\/keys\/stores\/i2-postgres-key.key'/"  /var/lib/postgresql/data/postgresql.conf
+
+    # TODO Look at these permissions again
+    docker exec -u root postgres chmod -R 770 /opt/i2/keys/
+    docker exec -u root postgres chmod 600 /opt/i2/keys/stores/i2-postgres-key.key
+    docker exec -u root postgres chmod 600 /opt/i2/keys/responses/postgres-key.cer
+    docker exec -u root postgres chown -R postgres:root /opt/i2/keys/
+
+    output "Restarting the Database"
+    docker stop postgres
+    docker start postgres
+    ;;
+esac
 
 output "Updating the ZooKeeper configuration on the Zookeeper servers"
 docker exec -u i2analyze    zookeeper    /opt/i2/i2analyze/toolkit/scripts/setup -t createZkHosts   --hostname zookeeper.eianet
@@ -154,6 +173,7 @@ fi
 
 output "Starting Liberty"
 docker exec -u i2analyze    liberty     /opt/i2/i2analyze/toolkit/scripts/setup -t startLiberty
+
 
 popd
 

@@ -6,7 +6,7 @@
 FROM mcr.microsoft.com/mssql-tools
 
 LABEL maintainer="i2group"
-LABEL version="2.7.0"
+LABEL version="2.8.0"
 
 ENV i2analyzeDir /opt/i2/i2analyze
 ENV toolkitDir ${i2analyzeDir}/toolkit

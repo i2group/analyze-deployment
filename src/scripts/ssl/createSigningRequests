@@ -81,18 +81,28 @@ docker exec -u root -t zookeeper3 rm -rf /opt/i2/keys
 runDockerExecWithSSLPassword zookeeper3 "/opt/i2/utils/jks/createCSR zookeeper3"
 docker cp zookeeper3:/opt/i2/keys/requests/. ${SRC_DIR}/keys/requests
 
-if [[ $dbDialect == "db2" ]]; then
-	output "Creating the db2 container key store and certificate signing request"
-	docker exec -u root -t db2 rm -rf /opt/i2/keys
-	runDockerExecWithSSLPassword db2 "/opt/i2/utils/cms/createCSR db2"
-	docker cp db2:/opt/i2/keys/requests/. ${SRC_DIR}/keys/requests
-	runDockerExecWithSSLPassword db2 "/opt/i2/utils/cms/createTrustStore cms"
-elif [[ $dbDialect == "sqlserver" ]]; then
-	output "Creating the sqlserver container key store and certificate signing request"
-	docker exec -u root -t sqlserver rm -rf /opt/i2/keys
-	runDockerExecWithSSLPassword sqlserver "/opt/i2/utils/openssl/createCSR sqlserver"
-	docker cp sqlserver:/opt/i2/keys/requests/. ${SRC_DIR}/keys/requests
-fi
+case "${dbDialect}" in
+  "db2")
+    output "Creating the db2 container key store and certificate signing request"
+    docker exec -u root -t db2 rm -rf /opt/i2/keys
+    runDockerExecWithSSLPassword db2 "/opt/i2/utils/cms/createCSR db2"
+    docker cp db2:/opt/i2/keys/requests/. ${SRC_DIR}/keys/requests
+    runDockerExecWithSSLPassword db2 "/opt/i2/utils/cms/createTrustStore cms"
+    ;;
+  "sqlserver")
+    output "Creating the sqlserver container key store and certificate signing request"
+    docker exec -u root -t sqlserver rm -rf /opt/i2/keys
+    runDockerExecWithSSLPassword sqlserver "/opt/i2/utils/openssl/createCSR sqlserver"
+    docker cp sqlserver:/opt/i2/keys/requests/. ${SRC_DIR}/keys/requests
+    ;;
+  "postgres")
+    output "Creating the postgres container key store and certificate signing request"
+    docker exec -u root -t postgres rm -rf /opt/i2/keys
+    runDockerExecWithSSLPassword postgres "/opt/i2/utils/openssl/createCSR postgres"
+    docker cp postgres:/opt/i2/keys/requests/. ${SRC_DIR}/keys/requests
+    ;;
+esac
+
 
 if [ "$(docker ps -q -f name=ihs)" ]; then
   output "Creating the ihs container key store and certificate signing request"

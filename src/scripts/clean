@@ -20,10 +20,10 @@ pushd ..
 . "${UTILS_PATH}"/functions
 
 output "Cleaning up any previous created containers, images, and networks"
-docker rm -f zookeeper zookeeper2 zookeeper3 solr solr2 db2 sqlserver liberty admin_client etl_client ihs ca solr3 connector &>/dev/null || true
+docker rm -f zookeeper zookeeper2 zookeeper3 solr solr2 db2 sqlserver postgres liberty admin_client etl_client ihs ca solr3 connector &>/dev/null || true
 docker rmi -f zookeeper_image zookeeper2_image zookeeper3_image solr_image solr2_image base_ihs_image ihs_image ca_image connector_image &>/dev/null || true
-docker rmi -f liberty_sqlserver_image liberty_db2_image etl_client_sqlserver_image etl_client_db2_image &>/dev/null || true
-docker rmi -f sqlserver_image db2_installer_image db2_image admin_client_sqlserver_image admin_client_db2_image base_client_image &>/dev/null || true
+docker rmi -f liberty_sqlserver_image liberty_db2_image liberty_postgres_image etl_client_sqlserver_image etl_client_db2_image etl_client_postgres_image &>/dev/null || true
+docker rmi -f sqlserver_image db2_installer_image db2_image postgres_image admin_client_sqlserver_image admin_client_db2_image base_client_image admin_client_postgres_image &>/dev/null || true
 docker rmi -f ubuntu_toolkit_image &>/dev/null || true
 docker network rm eianet &>/dev/null || true
 
@@ -39,6 +39,8 @@ rm -rf ${IMAGES_PATH}/db2/liberty/configuration &>/dev/null || true
 rm -rf ${IMAGES_PATH}/db2/admin_client/configuration &>/dev/null || true
 rm -rf ${IMAGES_PATH}/sqlserver/liberty/configuration &>/dev/null || true
 rm -rf ${IMAGES_PATH}/sqlserver/admin_client/configuration &>/dev/null || true
+rm -rf ${IMAGES_PATH}/postgres/liberty/configuration &>/dev/null || true
+rm -rf ${IMAGES_PATH}/postgres/admin_client/configuration &>/dev/null || true
 
 output "Cleaning up keys"
 rm -r ${SRC_DIR}/keys &>/dev/null || true

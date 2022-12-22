@@ -6,7 +6,7 @@
 FROM base_ihs_image
 
 LABEL maintainer="i2group"
-LABEL version="2.7.0"
+LABEL version="2.8.0"
 
 #Install the prerequisites.
 RUN apt-get update && \

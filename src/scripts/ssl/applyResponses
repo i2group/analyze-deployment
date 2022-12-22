@@ -59,14 +59,21 @@ output "Adding the signed certificate to the zookeeper3 container"
 docker cp ${SRC_DIR}/keys/responses/. zookeeper3:/opt/i2/keys/responses
 runDockerExecWithSSLPassword zookeeper3 "/opt/i2/utils/jks/applyResponse zookeeper3"
 
-if [[ $dbDialect == "db2" ]]; then
-	output "Adding the signed certificate to the db2 container"
-	docker cp ${SRC_DIR}/keys/responses/. db2:/opt/i2/keys/responses
-	runDockerExecWithSSLPassword db2 "/opt/i2/utils/cms/applyResponse db2"
-elif [[ $dbDialect == "sqlserver" ]]; then
-	output "Adding the signed certificate to the sqlserver container"
-	docker cp ${SRC_DIR}/keys/responses/. sqlserver:/opt/i2/keys/responses
-fi
+case "${dbDialect}" in
+  "db2")
+    output "Adding the signed certificate to the db2 container"
+    docker cp ${SRC_DIR}/keys/responses/. db2:/opt/i2/keys/responses
+    runDockerExecWithSSLPassword db2 "/opt/i2/utils/cms/applyResponse db2"
+    ;;
+  "sqlserver")
+    output "Adding the signed certificate to the sqlserver container"
+    docker cp ${SRC_DIR}/keys/responses/. sqlserver:/opt/i2/keys/responses
+    ;;
+  "postgres")
+    output "Adding the signed certificate to the postgres container"
+    docker cp ${SRC_DIR}/keys/responses/. postgres:/opt/i2/keys/responses
+    ;;
+esac
 
 if [ "$(docker ps -q -f name=ihs)" ]; then
   output "Adding the signed certificate to the ihs container"

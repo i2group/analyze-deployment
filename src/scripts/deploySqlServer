@@ -60,6 +60,7 @@ docker build -t etl_client_sqlserver_image ${IMAGES_PATH}/sqlserver/etl_client
 
 output "Cleaning up any previously created deployment example containers if they exist."
 docker stop db2 &>/dev/null || true
+docker stop postgres &>/dev/null || true
 docker rm -f sqlserver admin_client liberty etl_client &>/dev/null || true
 
 output "Running the sqlserver container on the eia network."

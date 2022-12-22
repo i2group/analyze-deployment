@@ -5,7 +5,7 @@
 FROM ubuntu:18.04
 
 LABEL maintainer="i2group"
-LABEL version="2.7.0"
+LABEL version="2.8.0"
 
 ARG IHS_ARCHIVE_FILE
 
