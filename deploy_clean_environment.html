@@ -87,7 +87,7 @@
 <p>To remove containers, run the Docker <code>rm</code> command and specify the name of the containers to remove. For example, run the following command:</p>
 <pre><code class="lang-sh">docker rm -f container_name
 </code></pre><p>To remove all of the containers that are used in the distributed deployment example, run the following command:</p>
-<pre><code class="lang-sh">docker rm -f zookeeper solr solr2 db2 sqlserver liberty admin_client etl_client ihs ca zookeeper2 zookeeper3 solr3 connector
+<pre><code class="lang-sh">docker rm -f zookeeper zookeeper2 zookeeper3 solr solr2 solr3 db2 sqlserver postgres liberty admin_client etl_client ihs ca connector
 </code></pre><p>Attempting to remove containers that do not exist errors but does not stop the rest of the existing containers from being removed.</p>
 <p>You can now restart any of the containers that were removed.</p>
 <h2 id="removing-images">Removing images</h2>
@@ -95,8 +95,9 @@
 <p>To remove images, run the Docker <code>rmi</code> command and specify the names of the images to remove. For example:</p>
 <pre><code class="lang-sh">docker rmi -f image_name
 </code></pre><p>To remove the images that are used in the distributed deployment example, run the following commands:</p>
-<pre><code class="lang-sh">docker rmi -f zookeeper_image solr_image zookeeper2_image solr_image zookeeper3_image solr_image solr2_image base_ihs_image ihs_image liberty_db2_image liberty_sqlserver_image etl_client_db2_image etl_client_sqlserver_image
-docker rmi -f ca_image connector_image db2_installer_image db2_image admin_client_db2_image admin_client_sqlserver_image base_client_image
+<pre><code class="lang-sh">docker rmi -f zookeeper_image zookeeper2_image zookeeper3_image solr_image solr2_image solr3_image base_ihs_image ihs_image ca_image connector_image 
+docker rmi -f liberty_sqlserver_image liberty_db2_image liberty_postgres_image etl_client_db2_image etl_client_sqlserver_image etl_client_postgres_image
+docker rmi -f sqlserver_image db2_installer_image db2_image postgres_image admin_client_sqlserver_image admin_client_db2_image admin_client_postgres_image base_client_image
 docker rmi -f ubuntu_toolkit_image
 </code></pre><blockquote><p>Note: If the image that you want to remove is used to derive other images, you must remove all of the derived images before you can remove the image.</p>
 </blockquote>

@@ -78,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "configure_solr_add_node.html",
-          "hash": "HF/5lyV6twXnn5G6HLn1kg=="
+          "hash": "CV5I2I378mfHT/DTgtdDVQ=="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "deploy_change_database_management_system.html",
-          "hash": "41zkeQoOILeIi6T/5wIuZg=="
+          "hash": "igkGgg4oRirMqbkeXOpvUQ=="
         }
       },
       "is_incremental": false,
@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "deploy_clean_environment.html",
-          "hash": "7n/ieCuQ1JwzPEtKZCzLPQ=="
+          "hash": "5wLyDYdjfV+7yaXY+QKdsg=="
         }
       },
       "is_incremental": false,
@@ -228,7 +228,7 @@
       "output": {
         ".html": {
           "relative_path": "deploy_quick_start.html",
-          "hash": "FB4PcqGBPFVWLiGJicd81A=="
+          "hash": "A2aCuxnjD2BEGXYf8DuOlQ=="
         }
       },
       "is_incremental": false,
@@ -297,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "guidetoc/toc.html",
-          "hash": "iD2KCdLWnYz0H/45d4g8rg=="
+          "hash": "Lyyh0eHug0QFF3cM+3ztnA=="
         }
       },
       "is_incremental": false,
@@ -353,7 +353,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "p/p0KaMayfZfJHy/VtsIIQ=="
+          "hash": "bw/3xPUeZfQKi2Rq8r8LiA=="
         }
       },
       "is_incremental": false,
@@ -404,7 +404,7 @@
       "output": {
         ".html": {
           "relative_path": "understand_example.html",
-          "hash": "ljMks+2FytGRYid3DHROIQ=="
+          "hash": "MwGPyBgQnQWdjrL35pjMDg=="
         }
       },
       "is_incremental": false,
@@ -431,7 +431,7 @@
       "output": {
         ".html": {
           "relative_path": "upgrade_walk_through.html",
-          "hash": "EcXPFbbYhLkFGjwdIfsOxw=="
+          "hash": "EP1NSziu9p7BSakWKWOXZg=="
         }
       },
       "is_incremental": false,
@@ -441,17 +441,19 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": true,
+        "can_incremental": false,
+        "details": "Cannot build incrementally because config changed.",
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0
+        "skipped_file_count": 0,
+        "full_build_reason_code": "ConfigChanged"
       },
       "processors": {
         "ConceptualDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 28,
-          "skipped_file_count": 28
+          "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
           "can_incremental": false,
