@@ -1,0 +1,35 @@
+#############################################################################################
+# Include custom rewrite rules that should be added to the http server's httpd.conf in this file.
+# The order in which rewrite rules are applied affects their behavior, if other rules match the
+# same pattern.
+# 
+# The rules in the Before_Rules section will be included *before* the rules that are written by the toolkit.
+# The rules in the After_Rules section will be included *after* the rules that are written by the toolkit.
+#
+# Typically, it should not be necessary to use the Before_Rules section, as the toolkit already configures
+# the rules needed for the operation of i2 Analyze and these should not conflict with custom rules.
+#
+# If required, the context-root attributes for <wars> in the topology can be referenced with ${contextRoot:War_Name}
+# and these will be substituted when the rules are written to the httpd.conf. Otherwise the rules will be written
+# exactly as they appear between the !Start_..._Rules! and !End_..._Rules! markers.
+#
+# Example:
+#
+# !Start_After_Rules!
+# # Redirect from CustomService on /${contextRoot:opal-services-ar} to AnotherCustomService on /MyContextRoot
+# RewriteRule ^/${contextRoot:opal-services-ar}/services/CustomService/(\S+) /MyContextRoot/$1/AnotherCustomService [PT]
+# !End_After_Rules!
+#
+# Given the standard context-root for the opal-services-ar war, this would be added to the httpd.conf, after the standard
+# rules, as follows:
+#
+# # Redirect from CustomService on /apollo to AnotherCustomService on /MyContextRoot
+# RewriteRule ^/apollo/services/CustomService/(\S+) /MyContextRoot/$1/AnotherCustomService [PT]
+#
+#############################################################################################
+
+!Start_Before_Rules!
+!End_Before_Rules!
+
+!Start_After_Rules!
+!End_After_Rules!

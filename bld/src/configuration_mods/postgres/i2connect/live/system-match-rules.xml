@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tns:matchRules xmlns:tns="http://www.i2group.com/Schemas/2019-05-14/MatchRules"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.i2group.com/Schemas/2019-05-14/MatchRules MatchRules.xsd"
+  version="2"
+  enableSourceIdentifierMatching="true"
+>
+</tns:matchRules>

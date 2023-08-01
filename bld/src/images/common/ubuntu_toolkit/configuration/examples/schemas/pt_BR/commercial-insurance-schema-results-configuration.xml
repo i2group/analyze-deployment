@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Results configuration for Commercial_Insurance_Schema.xml -->
+<tns:ResultsConfiguration xmlns:tns="http://www.i2group.com/Schemas/2016-04-25/ResultsConfiguration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.i2group.com/Schemas/2016-04-25/ResultsConfiguration ResultsConfiguration.xsd ">
+    <Facets InlineLimit="5" ViewAllLimit="100">
+        <!-- Address -->
+        <ItemTypeFacet TypeId="ADD1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="ADD2" />
+            <!-- Mailbox -->
+            <PropertyTypeFacet TypeId="ADD11" />
+            <!-- Easting -->
+            <PropertyTypeFacet TypeId="ADD12" />
+            <!-- Northing -->
+            <PropertyTypeFacet TypeId="ADD13" />
+            <!-- Latitude -->
+            <PropertyTypeFacet TypeId="ADD14" />
+            <!-- Longitude -->
+            <PropertyTypeFacet TypeId="ADD15" />
+            <!-- Combined Coordinates -->
+            <PropertyTypeFacet TypeId="ADD21" />
+            <!-- Example of a Metadata Facet -->
+            <!--  <MetadataFacet Criterion="FirstUploaded" /> -->
+        </ItemTypeFacet>
+
+        <!-- Account -->
+        <ItemTypeFacet TypeId="ACC1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="ACC2" />
+            <!-- Account Number -->
+            <PropertyTypeFacet TypeId="ACC3" />
+        </ItemTypeFacet>
+
+        <!-- Claim -->
+        <ItemTypeFacet TypeId="CLA1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="CLA2" />
+            <!-- Claim -->
+            <PropertyTypeFacet TypeId="CLA3" />
+            <!-- Loss Description Code -->
+            <PropertyTypeFacet TypeId="CLA4" />
+        </ItemTypeFacet>
+
+        <!-- Credit Card -->
+        <ItemTypeFacet TypeId="CRC1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="CRC2" />
+            <!-- Credit Card Number -->
+            <PropertyTypeFacet TypeId="CRC3" />
+            <!-- Order Code -->
+            <PropertyTypeFacet TypeId="CRC5" />
+        </ItemTypeFacet>
+
+        <!-- Document -->
+        <ItemTypeFacet TypeId="INT1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="INT2" />
+            <!-- Document Description -->
+            <PropertyTypeFacet TypeId="INT7" />
+            <!-- Image Description -->
+            <PropertyTypeFacet TypeId="INT16" />
+            <!-- Document URL -->
+            <PropertyTypeFacet TypeId="DOC19" />
+        </ItemTypeFacet>
+
+        <!-- E-mail -->
+        <ItemTypeFacet TypeId="EM1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="EM2" />
+            <!-- Email Address -->
+            <PropertyTypeFacet TypeId="EM3" />
+            <!-- IP Address -->
+            <PropertyTypeFacet TypeId="EM4" />
+        </ItemTypeFacet>
+
+        <!-- Policy -->
+        <ItemTypeFacet TypeId="IP1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="IP2" />
+            <!-- Policy Number -->
+            <PropertyTypeFacet TypeId="IP3" />
+            <!-- Reference -->
+            <PropertyTypeFacet TypeId="IP5" />
+        </ItemTypeFacet>
+
+        <!-- Organization -->
+        <ItemTypeFacet TypeId="ORG1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="ORG2" />
+            <!-- Company Number -->
+            <PropertyTypeFacet TypeId="ORG10" />
+            <!-- Web Address -->
+            <PropertyTypeFacet TypeId="ORG5" />
+        </ItemTypeFacet>
+
+        <!-- Person -->
+        <ItemTypeFacet TypeId="PER1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="PER2" />
+            <!-- Occupation Code -->
+            <PropertyTypeFacet TypeId="PER16" />
+            <!-- Employer Business Code -->
+            <PropertyTypeFacet TypeId="PER18" />
+            <!-- Identification Number -->
+            <PropertyTypeFacet TypeId="PER32" />
+            <!-- Identification -->
+            <PropertyTypeFacet TypeId="PER25" />
+        </ItemTypeFacet>
+
+        <!-- Telephone -->
+        <ItemTypeFacet TypeId="TEL1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="TEL2" />
+            <!-- Main Number -->
+            <PropertyTypeFacet TypeId="TEL6" />
+        </ItemTypeFacet>
+
+        <!-- Vehicle -->
+        <ItemTypeFacet TypeId="VEH1" Subfacets="ExcludeSpecific">
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="VEH2" />
+            <!-- License Plate Number -->
+            <PropertyTypeFacet TypeId="VEH3" />
+            <!-- Engine Number -->
+            <PropertyTypeFacet TypeId="VEH15" />
+            <!-- Chassis Number -->
+            <PropertyTypeFacet TypeId="VEH16" />
+            <!-- Vehicle Identification Number -->
+            <PropertyTypeFacet TypeId="VEH17" />
+        </ItemTypeFacet>
+
+        <!-- Claim -->
+        <ItemTypeFacet TypeId="CLML1" Subfacets="ExcludeSpecific">
+            <!-- Description -->
+            <PropertyTypeFacet TypeId="CLML2" />
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="CLML3" />
+        </ItemTypeFacet>
+
+        <!-- Communication -->
+        <ItemTypeFacet TypeId="COML1" Subfacets="ExcludeSpecific">
+            <!-- Description -->
+            <PropertyTypeFacet TypeId="COML2" />
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="COML3" />
+        </ItemTypeFacet>
+
+        <!-- Policy -->
+        <ItemTypeFacet TypeId="POLL1" Subfacets="ExcludeSpecific">
+            <!-- Description -->
+            <PropertyTypeFacet TypeId="POLL2" />
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="POLL3" />
+        </ItemTypeFacet>
+
+        <!-- Other Claimants -->
+        <ItemTypeFacet TypeId="OTHL1" Subfacets="ExcludeSpecific">
+            <!-- Description -->
+            <PropertyTypeFacet TypeId="OTHL2" />
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="OTHL3" />
+        </ItemTypeFacet>
+
+        <!-- Vehicle Link -->
+        <ItemTypeFacet TypeId="VEHL1" Subfacets="ExcludeSpecific">
+            <!-- Description -->
+            <PropertyTypeFacet TypeId="VEHL2" />
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="VEHL3" />
+        </ItemTypeFacet>
+
+        <!-- Subject Of -->
+        <ItemTypeFacet TypeId="SUB1" Subfacets="ExcludeSpecific">
+            <!-- Description -->
+            <PropertyTypeFacet TypeId="PT2" />
+            <!-- Unique Reference -->
+            <PropertyTypeFacet TypeId="SUB2" />
+        </ItemTypeFacet>
+    </Facets>
+</tns:ResultsConfiguration>

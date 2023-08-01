@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ns2:Schema
+	xmlns:ns3="http://www.i2group.com/Schemas/2011-03-03/ModelSchemaExtension"
+	DefaultLabelingSchemeId="8355f4c5-1444-4a2f-b4da-f9374fbd80e6"
+	xmlns:ns2="http://www.i2group.com/Schemas/2011-03-03/ModelSchema">
+	<GradeTypes>
+		<GradeType Description="Evaluación de origen" Mandatory="false" Id="G1" Name="Fiabilidad">
+			<Values>
+				<Value>A</Value>
+				<Value>B</Value>
+				<Value>C</Value>
+				<Value>D</Value>
+				<Value>E</Value>
+			</Values>
+		</GradeType>
+		<GradeType Description="Evaluación de inteligencia de la información" Mandatory="false" Id="G2" Name="Confianza">
+			<Values>
+				<Value>1</Value>
+				<Value>2</Value>
+				<Value>3</Value>
+				<Value>4</Value>
+				<Value>5</Value>
+			</Values>
+		</GradeType>
+		<GradeType Description="Uso de código" Mandatory="false" Id="G3" Name="Confidencialidad">
+			<Values>
+				<Value>1</Value>
+				<Value>2</Value>
+				<Value>3</Value>
+				<Value>4</Value>
+				<Value>5</Value>
+			</Values>
+		</GradeType>
+	</GradeTypes>
+	<ItemTypes>
+		<EntityTypes>
+			<!-- Mandatory Opal Information Store Chart type -->
+			<EntityType Description="Analyst's Notebook Chart"
+				DisplayName="Analyst's Notebook Chart" Id="CHART" Icon="Anbchart">
+				<PropertyGroupTypes />
+				<PropertyTypes>
+					<PropertyType Description="The file name of the chart"
+						DisplayName="Name" Id="CHART1" LogicalType="SINGLE_LINE_STRING"
+						Mandatory="true" Position="0" SemanticTypeId=""
+						MaximumLengthChars="255">
+						<PossibleValues />
+					</PropertyType>
+					<PropertyType
+						Description="The description of the chart"
+						DisplayName="Description" Id="CHART2"
+						LogicalType="MULTIPLE_LINE_STRING" Mandatory="false" Position="1"
+						SemanticTypeId="">
+						<PossibleValues />
+					</PropertyType>
+				</PropertyTypes>
+			</EntityType>
+		</EntityTypes>
+		<LinkTypes>
+		</LinkTypes>
+	</ItemTypes>
+	<Id>b1c6112e-cefd-4b9a-a769-cf03f76e5812</Id>
+	<Version>1</Version>
+	<SourceInfoMandatoryFields
+		IsDateMandatory="false" IsDescriptionMandatory="false"
+		IsReferenceMandatory="false" IsTypeMandatory="false" />
+	<LinkStrengthInfo
+		DefaultLinkStrengthId="daf0e75f-ca7d-473a-80bf-6fad91472dc6">
+		<LinkStrengths>
+			<LinkStrength Id="daf0e75f-ca7d-473a-80bf-6fad91472dc6"
+				Name="Confirmed" LineStyle="SOLID" />
+			<LinkStrength Id="683d1f08-b892-411e-997f-00881e62e84e"
+				Name="Unconfirmed" LineStyle="DASHED" />
+			<LinkStrength Id="460819f3-82b8-4483-b528-a927b8fbb9cb"
+				Name="Tentative" LineStyle="DOTTED" />
+		</LinkStrengths>
+	</LinkStrengthInfo>
+	<LabelingSchemes>
+		<LabelingScheme Name="LE Core Labeling Scheme"
+			Id="8355f4c5-1444-4a2f-b4da-f9374fbd80e6">
+			<LabelDefinitions>
+				<!-- Mandatory types... -->
+				<LabelDefinition ItemTypeId="CHART">
+					<LabelParts>
+						<LabelPart Value="CHART1" LabelPartType="PROPERTY_TYPE" />
+					</LabelParts>
+				</LabelDefinition>
+			</LabelDefinitions>
+		</LabelingScheme>
+	</LabelingSchemes>
+	<SemanticTypeLibrary>
+		<lcx:LibraryCatalogue VersionMajor="1"
+			VersionMinor="18" VersionRelease="27" VersionBuild="60"
+			xmlns:lcx="http://www.i2group.com/Schemas/2001-12-07/LCXSchema"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			LocaleHex="0809" />
+	</SemanticTypeLibrary>
+</ns2:Schema>

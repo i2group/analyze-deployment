@@ -1,0 +1,3322 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<trn:ChartingSchemeList xmlns:trn="http://www.i2group.com/Schemas/2012-05-29/ModelData/v2">
+  <ChartingSchemes>
+    <ChartingScheme Name="Analysis">
+      <XmlChartingScheme>
+        <ChartItemAttributes>
+          <!-- FLAGS -->
+          <!-- Firearm Used? -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true">
+            <Name>Firearm Used?</Name>
+            <Type>AttFlag</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- NUMBERS -->
+          <!-- Age -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" MergeBehaviour="AttMergeMax" PasteBehaviour="AttMergeMax" DecimalPlaces="0">
+            <Name>Age</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Total -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Transaction Total</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Value -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Value</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- DATE TIMES -->
+          <!-- Communication Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false"  ShowTime="true" >
+            <Name>Earliest Communication</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Communication Latest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Latest Communication</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date Opened -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date Opened</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date Closed -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date Closed</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date of Birth -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date of Birth</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Earliest</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Event Start Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Event Start</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Event End Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Event End</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Earliest Transaction</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Latest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Latest Transaction</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- TEXT -->
+          <!-- Datum -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E" >
+            <Name>Datum</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+           <!-- Easting -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid7877FB38-38DC-4fea-87BD-838A6EA66F51">
+            <Name>Easting</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+            <!-- Northing -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guidC319A593-C6D6-4cd0-91EF-14A932488F3B" >
+            <Name>Northing</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>         
+           <!-- Latitude -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid5304A03B-FE47-4406-91E7-0D49EC8409A6" >
+            <Name>Latitude</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Longitude -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9" >
+            <Name>Longitude</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+        </ChartItemAttributes>
+
+          <ChartItemDataRecordProperties IncludeGrades="true" IncludeProperties="true"/>
+
+        <EntityMappings>
+          <!-- Default -->
+          <Default>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <ApolloLabel SchemeId="8355f4c5-1444-4a2f-b4da-f9374fbd80e6"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+          </Default>
+
+          <!-- Account Entity -->
+          <ItemType Id="ET10"> 
+              <AttributeMappings>
+              <AttributeMapping Name="Account Name" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC12"/>
+                </ResolvableValue>
+              </AttributeMapping>    
+              <AttributeMapping Name="Routing Number/Sort Code" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Account Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC5"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Date Opened" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC6"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Date Closed" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC7"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              </AttributeMappings>
+          </ItemType>
+          
+          <!-- Address -->
+          <ItemType Id ="ET1">
+            <PropertyMappings>
+              <PropertyMapping Property="Label" Default="Not set">
+                <ResolvableValue Prefix="Apartment: " Suffix=" ">
+                  <ApolloProperty Id="ADD2"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD3"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD4"/>
+                </ResolvableValue>
+                <ResolvableValue> 
+                  <ApolloProperty Id="ADD5"/>
+                </ResolvableValue>               
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Location Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD25"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Town/City" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD6"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="County" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD7"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="State" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD17"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="ZIP/Post Code" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD8"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Country or Region" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD9"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Beat/District" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD21"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Easting" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD11"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Northing" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD12"/>
+                </ResolvableValue>
+              </AttributeMapping>              
+              <AttributeMapping Name="Latitude" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD13"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Longitude" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD14"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Datum" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD15"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>          
+
+          <!-- Communication Device Entity -->
+          <ItemType Id="ET8"> 
+              <AttributeMappings>
+              <AttributeMapping Name="Device Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM2"/>
+                </ResolvableValue>  
+              </AttributeMapping>   
+              <AttributeMapping Name="IMSI Number" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM8"/>
+                </ResolvableValue>
+              </AttributeMapping>              
+              <AttributeMapping Name="IMEI Number" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM9"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Device Make" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM10"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Email Address" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM13"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Web Address" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM14"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IP Address" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM15"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              </AttributeMappings>
+          </ItemType>
+
+          <!-- Event Entity -->
+          <ItemType Id="ET2">
+            <PropertyMappings>
+              <PropertyMapping Property="Label" Default="Not set">
+                <ResolvableValue Suffix=" " >
+                  <ApolloProperty Id="EVE3"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" " >
+                  <ApolloProperty Id="EVE21"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" " >
+                  <ApolloProperty Id="EVE31"/>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE61"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Description">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE6"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Event Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Event Start" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>  
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Event End" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Firearm Used?" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE7">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="LogicalOr"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Organization Entity -->
+          <ItemType Id="ET4">
+            <AttributeMappings>
+              <AttributeMapping Name="Organization Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Web Address" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          
+          
+          <!-- Person Entity -->
+          <ItemType Id="ET5"> 
+            <PropertyMappings>
+              <PropertyMapping Property="Label" Default="Not set">
+                <ResolvableValue Suffix=" " >
+                  <ApolloProperty Id="PER3"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER4"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER5">
+                    <!-- People sometimes have more than one middle name-->
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Combine" Delimeter=" "/>
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="PER6"/>
+                </ResolvableValue>
+                <ResolvableValue Prefix=" ">
+                  <ApolloProperty Id="PER7"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            
+              <AttributeMappings>
+              <AttributeMapping Name="Title" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Alias" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER8"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="AKA" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER97"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Date of Birth" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER9"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Gender" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER15"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Marital Status" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER29"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Age" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER12">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Nationality" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER13"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              </AttributeMappings>
+          </ItemType>
+          
+          <!-- Property -->
+          <ItemType Id="ET9">
+            <AttributeMappings>
+              <AttributeMapping Name="Drug Name" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO82"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Weapon Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO21"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Document Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO30"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Animal Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO34"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Value" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO26"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Surveillance Camera -->
+          <ItemType Id="ET7"> 
+            <AttributeMappings>
+              <AttributeMapping Name="Camera Location" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Easting" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR5"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Northing" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR6"/>
+                </ResolvableValue>
+              </AttributeMapping>              
+              <AttributeMapping Name="Latitude" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR7"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Longitude" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR8"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          
+          <!-- Vehicle -->
+          <ItemType Id="ET3">
+            <AttributeMappings>
+              <AttributeMapping Name="Vehicle Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name ="Vehicle Make" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Vehicle Model" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH5"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Vehicle Color" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH9"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>    
+          </ItemType>
+        </EntityMappings>
+
+        <LinkMappings>
+          <!-- Default -->
+          <Default>
+          <LinkSummarization Method="Multiple"/>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <SpecialValue Type="TypeName"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+          </Default>
+
+          <!-- Communication Link, Directed -->
+          <ItemType Id="LCO1">
+            <LinkSummarization Method="Directed" SeparateStrengths="true"/>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <SpecialValue Type="SummarizedLinkCount"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Earliest Communication" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Latest Communication" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Transaction Link, Flow -->
+          <ItemType Id="LTR1">
+            <LinkSummarization Method="Flow" SeparateStrengths="true">
+              <Flow PropertyTypeId="LTR5"/>
+            </LinkSummarization>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <LiteralValue Value="Flow: "/>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <SpecialValue Type="Flow"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Transaction Total" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Sum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Earliest Transaction" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Latest Transaction" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          
+          <!-- Involved In Link -->
+          <ItemType Id="LIN1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Involvement Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Subject Of Link -->
+          <ItemType Id="LSU1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSU4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSU4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+          </ItemType>
+
+          <!-- Observed Link -->
+          <ItemType Id="LOB1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Observation Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          
+          <!-- Associate Link -->
+          <ItemType Id="LAS1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Association Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+                                               
+          <!-- Stolen/ Recovered Link -->
+          <ItemType Id="LST1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Stolen / Recovered Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Access To Link -->
+          <ItemType Id="LAC1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Type of Use" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Member Of Link -->
+          <ItemType Id="LME1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Membership Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Employment Link -->
+          <ItemType Id="LEM1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Employment Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Role" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM7"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Subsequent Action Link -->
+          <ItemType Id="LSB1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Action Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          
+        </LinkMappings>
+      </XmlChartingScheme>
+    </ChartingScheme>
+    
+    <ChartingScheme Name="Analysis (no link summarization)">
+      <XmlChartingScheme>
+        <ChartItemAttributes>
+          <!-- FLAGS -->
+          <!-- Firearm Used? -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true">
+            <Name>Firearm Used?</Name>
+            <Type>AttFlag</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- NUMBERS -->
+          <!-- Age -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" MergeBehaviour="AttMergeMax" PasteBehaviour="AttMergeMax" DecimalPlaces="0">
+            <Name>Age</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Total -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Transaction Total</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Value -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Value</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- DATE TIMES -->
+          <!-- Communication Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false"  ShowTime="true" >
+            <Name>Earliest Communication</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Communication Latest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Latest Communication</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date Opened -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date Opened</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date Closed -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date Closed</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date of Birth -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date of Birth</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Earliest</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Event Start Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Event Start</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Event End Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Event End</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Earliest Transaction</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Latest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Latest Transaction</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- TEXT -->
+          <!-- Datum -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E" >
+            <Name>Datum</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Easting -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid7877FB38-38DC-4fea-87BD-838A6EA66F51">
+            <Name>Easting</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Northing -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guidC319A593-C6D6-4cd0-91EF-14A932488F3B" >
+            <Name>Northing</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Latitude -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid5304A03B-FE47-4406-91E7-0D49EC8409A6" >
+            <Name>Latitude</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Longitude -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9" >
+            <Name>Longitude</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+        </ChartItemAttributes>
+
+        <ChartItemDataRecordProperties IncludeGrades="true" IncludeProperties="true"/>
+
+        <EntityMappings>
+          <!-- Default -->
+          <Default>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <ApolloLabel SchemeId="8355f4c5-1444-4a2f-b4da-f9374fbd80e6"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+          </Default>
+
+          <!-- Account Entity -->
+          <ItemType Id="ET10">
+            <AttributeMappings>
+              <AttributeMapping Name="Account Name" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC12"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Routing Number/Sort Code" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Account Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC5"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Date Opened" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC6"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Date Closed" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC7"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Address -->
+          <ItemType Id ="ET1">
+            <PropertyMappings>
+              <PropertyMapping Property="Label" Default="Not set">
+                <ResolvableValue Prefix="Apartment: " Suffix=" ">
+                  <ApolloProperty Id="ADD2"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD3"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD4"/>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD5"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Location Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD25"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Town/City" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD6"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="County" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD7"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="State" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD17"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="ZIP/Post Code" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD8"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Country or Region" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD9"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Beat/District" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD21"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Easting" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD11"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Northing" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD12"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Latitude" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD13"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Longitude" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD14"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Datum" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD15"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Communication Device Entity -->
+          <ItemType Id="ET8">
+            <AttributeMappings>
+              <AttributeMapping Name="Device Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM2"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IMSI Number" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM8"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IMEI Number" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM9"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Device Make" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM10"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Email Address" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM13"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Web Address" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM14"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IP Address" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM15"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Event Entity -->
+          <ItemType Id="ET2">
+            <PropertyMappings>
+              <PropertyMapping Property="Label" Default="Not set">
+                <ResolvableValue Suffix=" " >
+                  <ApolloProperty Id="EVE3"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" " >
+                  <ApolloProperty Id="EVE21"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" " >
+                  <ApolloProperty Id="EVE31"/>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE61"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Description">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE6"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Event Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Event Start" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Event End" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Firearm Used?" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE7">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="LogicalOr"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Organization Entity -->
+          <ItemType Id="ET4">
+            <AttributeMappings>
+              <AttributeMapping Name="Organization Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Web Address" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Person Entity -->
+          <ItemType Id="ET5">
+            <PropertyMappings>
+              <PropertyMapping Property="Label" Default="Not set">
+                <ResolvableValue Suffix=" " >
+                  <ApolloProperty Id="PER3"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER4"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER5">
+                    <!-- People sometimes have more than one middle name-->
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Combine" Delimeter=" "/>
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="PER6"/>
+                </ResolvableValue>
+                <ResolvableValue Prefix=" ">
+                  <ApolloProperty Id="PER7"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+
+            <AttributeMappings>
+              <AttributeMapping Name="Title" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Alias" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER8"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="AKA" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER97"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Date of Birth" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER9"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Gender" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER15"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Marital Status" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER29"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Age" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER12">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Nationality" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER13"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Property -->
+          <ItemType Id="ET9">
+            <AttributeMappings>
+              <AttributeMapping Name="Drug Name" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO82"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Weapon Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO21"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Document Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO30"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Animal Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO34"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Value" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO26"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Surveillance Camera -->
+          <ItemType Id="ET7">
+            <AttributeMappings>
+              <AttributeMapping Name="Camera Location" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Easting" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR5"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Northing" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR6"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Latitude" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR7"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Longitude" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR8"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Vehicle -->
+          <ItemType Id="ET3">
+            <AttributeMappings>
+              <AttributeMapping Name="Vehicle Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name ="Vehicle Make" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Vehicle Model" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH5"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Vehicle Color" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH9"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </EntityMappings>
+
+        <LinkMappings>
+          <!-- Default -->
+          <Default>
+            <LinkSummarization Method="Multiple"/>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <SpecialValue Type="TypeName"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+          </Default>
+
+          <!-- Communication Link -->
+          <ItemType Id="LCO1">
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <LiteralValue Value="1"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Communication Type" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Transaction Link -->
+          <ItemType Id="LTR1">
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR5"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Transaction Type" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Transaction Currency" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR6"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Involved In Link -->
+          <ItemType Id="LIN1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Involvement Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Subject Of Link -->
+          <ItemType Id="LSU1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSU4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSU4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+          </ItemType>
+
+          <!-- Observed Link -->
+          <ItemType Id="LOB1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Observation Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Associate Link -->
+          <ItemType Id="LAS1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Association Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Stolen/ Recovered Link -->
+          <ItemType Id="LST1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Stolen / Recovered Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Access To Link -->
+          <ItemType Id="LAC1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Type of Use" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Member Of Link -->
+          <ItemType Id="LME1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Membership Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Employment Link -->
+          <ItemType Id="LEM1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Employment Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Role" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM7"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Subsequent Action Link -->
+          <ItemType Id="LSB1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Action Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+        </LinkMappings>
+      </XmlChartingScheme>
+    </ChartingScheme>
+    
+    <ChartingScheme Name="Presentation">
+      <XmlChartingScheme>
+        <ChartItemAttributes>
+          <!-- FLAGS -->
+          <!-- Firearm Used? -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true">
+            <Name>Firearm Used?</Name>
+            <Type>AttFlag</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- NUMBERS -->
+          <!-- Age -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" MergeBehaviour="AttMergeMax" PasteBehaviour="AttMergeMax" DecimalPlaces="0">
+            <Name>Age</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Total -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Transaction Total</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Value -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Value</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- DATE TIMES -->
+          <!-- Communication Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false"  ShowTime="true" >
+            <Name>Earliest Communication</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Communication Latest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Latest Communication</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date Opened -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date Opened</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date Closed -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date Closed</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date of Birth -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date of Birth</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Earliest</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Event Start Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Event Start</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Event End Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Event End</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Earliest Transaction</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Latest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Latest Transaction</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- TEXT -->
+          <!-- Datum -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E" >
+            <Name>Datum</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Easting -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid7877FB38-38DC-4fea-87BD-838A6EA66F51">
+            <Name>Easting</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Northing -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guidC319A593-C6D6-4cd0-91EF-14A932488F3B" >
+            <Name>Northing</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Latitude -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid5304A03B-FE47-4406-91E7-0D49EC8409A6" >
+            <Name>Latitude</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Longitude -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9" >
+            <Name>Longitude</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+        </ChartItemAttributes>
+
+        <ChartItemDataRecordProperties IncludeGrades="false" IncludeProperties="false"/>
+
+        <EntityMappings>
+          <!-- Default -->
+          <Default>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <ApolloLabel SchemeId="8355f4c5-1444-4a2f-b4da-f9374fbd80e6"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+          </Default>
+
+          <!-- Account Entity -->
+          <ItemType Id="ET10">
+            <AttributeMappings>
+              <AttributeMapping Name="Account Name" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC12"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Routing Number/Sort Code" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Account Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC5"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Date Opened" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC6"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Date Closed" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC7"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Address -->
+          <ItemType Id ="ET1">
+            <PropertyMappings>
+              <PropertyMapping Property="Label" Default="Not set">
+                <ResolvableValue Prefix="Apartment: " Suffix=" ">
+                  <ApolloProperty Id="ADD2"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD3"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD4"/>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD5"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Location Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD25"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Town/City" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD6"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="County" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD7"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="State" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD17"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="ZIP/Post Code" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD8"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Country or Region" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD9"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Beat/District" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD21"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Easting" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD11"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Northing" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD12"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Latitude" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD13"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Longitude" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD14"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Datum" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD15"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Communication Device Entity -->
+          <ItemType Id="ET8">
+            <AttributeMappings>
+              <AttributeMapping Name="Device Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM2"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IMSI Number" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM8"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IMEI Number" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM9"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Device Make" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM10"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Email Address" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM13"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Web Address" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM14"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IP Address" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM15"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Event Entity -->
+          <ItemType Id="ET2">
+            <PropertyMappings>
+              <PropertyMapping Property="Label" Default="Not set">
+                <ResolvableValue Suffix=" " >
+                  <ApolloProperty Id="EVE3"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" " >
+                  <ApolloProperty Id="EVE21"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" " >
+                  <ApolloProperty Id="EVE31"/>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE61"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Description">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE6"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Event Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Event Start" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Event End" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Firearm Used?" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE7">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="LogicalOr"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Organization Entity -->
+          <ItemType Id="ET4">
+            <AttributeMappings>
+              <AttributeMapping Name="Organization Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Web Address" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Person Entity -->
+          <ItemType Id="ET5">
+            <PropertyMappings>
+              <PropertyMapping Property="Label" Default="Not set">
+                <ResolvableValue Suffix=" " >
+                  <ApolloProperty Id="PER3"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER4"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER5">
+                    <!-- People sometimes have more than one middle name-->
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Combine" Delimeter=" "/>
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="PER6"/>
+                </ResolvableValue>
+                <ResolvableValue Prefix=" ">
+                  <ApolloProperty Id="PER7"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+
+            <AttributeMappings>
+              <AttributeMapping Name="Title" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Alias" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER8"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="AKA" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER97"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Date of Birth" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER9"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Gender" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER15"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Marital Status" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER29"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Age" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER12">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Nationality" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER13"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Property -->
+          <ItemType Id="ET9">
+            <AttributeMappings>
+              <AttributeMapping Name="Drug Name" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO82"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Weapon Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO21"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Document Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO30"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Animal Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO34"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Value" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO26"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Surveillance Camera -->
+          <ItemType Id="ET7">
+            <AttributeMappings>
+              <AttributeMapping Name="Camera Location" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Easting" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR5"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Northing" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR6"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Latitude" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR7"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Longitude" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR8"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Vehicle -->
+          <ItemType Id="ET3">
+            <AttributeMappings>
+              <AttributeMapping Name="Vehicle Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Vehicle Make" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Vehicle Model" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH5"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Vehicle Color" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH9"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </EntityMappings>
+
+        <LinkMappings>
+          <!-- Default -->
+          <Default>
+            <LinkSummarization Method="Multiple"/>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <SpecialValue Type="TypeName"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+          </Default>
+
+          <!-- Communication Link, Directed -->
+          <ItemType Id="LCO1">
+            <LinkSummarization Method="Directed" SeparateStrengths="true"/>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <SpecialValue Type="SummarizedLinkCount"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Earliest Communication" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Latest Communication" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Transaction Link, Flow -->
+          <ItemType Id="LTR1">
+            <LinkSummarization Method="Flow" SeparateStrengths="true">
+              <Flow PropertyTypeId="LTR5"/>
+            </LinkSummarization>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <LiteralValue Value="Flow: "/>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <SpecialValue Type="Flow"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Transaction Total" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Sum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Earliest Transaction" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Latest Transaction" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Involved In Link -->
+          <ItemType Id="LIN1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Involvement Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Subject Of Link -->
+          <ItemType Id="LSU1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSU4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSU4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+          </ItemType>
+
+          <!-- Observed Link -->
+          <ItemType Id="LOB1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Observation Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Associate Link -->
+          <ItemType Id="LAS1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Association Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Stolen/ Recovered Link -->
+          <ItemType Id="LST1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Stolen / Recovered Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Access To Link -->
+          <ItemType Id="LAC1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Type of Use" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Member Of Link -->
+          <ItemType Id="LME1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Membership Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Employment Link -->
+          <ItemType Id="LEM1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Employment Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Role" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM7"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Subsequent Action Link -->
+          <ItemType Id="LSB1">
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Action Type" Enabled="true">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+        </LinkMappings>
+      </XmlChartingScheme>
+    </ChartingScheme>
+    
+    <ChartingScheme Name="Network Structure">
+      <XmlChartingScheme>
+        <ChartItemAttributes>
+          <!-- FLAGS -->
+          <!-- Firearm Used? -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true">
+            <Name>Firearm Used?</Name>
+            <Type>AttFlag</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- NUMBERS -->
+          <!-- Age -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" MergeBehaviour="AttMergeMax" PasteBehaviour="AttMergeMax" DecimalPlaces="0">
+            <Name>Age</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Total -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Transaction Total</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Value -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Value</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- DATE TIMES -->
+          <!-- Communication Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false"  ShowTime="true" >
+            <Name>Earliest Communication</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Communication Latest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Latest Communication</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date Opened -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date Opened</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date Closed -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date Closed</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Date of Birth -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" >
+            <Name>Date of Birth</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Earliest</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Event Start Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Event Start</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Event End Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" ShowTime="true" >
+            <Name>Event End</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Earliest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Earliest Transaction</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Transaction Latest Date and Time -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="false" ShowTime="true" >
+            <Name>Latest Transaction</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+          <!-- TEXT -->
+          <!-- Datum -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E" >
+            <Name>Datum</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Easting -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid7877FB38-38DC-4fea-87BD-838A6EA66F51">
+            <Name>Easting</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Northing -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guidC319A593-C6D6-4cd0-91EF-14A932488F3B" >
+            <Name>Northing</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Latitude -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid5304A03B-FE47-4406-91E7-0D49EC8409A6" >
+            <Name>Latitude</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <!-- Longitude -->
+          <ChartItemAttribute ShowSymbol="true" ShowClassName="true" ShowPrefix="true" Prefix=": " Visible="true" SemanticPropertyTypeGuid="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9" >
+            <Name>Longitude</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+
+        </ChartItemAttributes>
+
+        <ChartItemDataRecordProperties IncludeGrades="false" IncludeProperties="false"/>
+
+        <EntityMappings>
+          <!-- Default -->
+          <Default>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <ApolloLabel SchemeId="8355f4c5-1444-4a2f-b4da-f9374fbd80e6"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+          </Default>
+
+          <!-- Account Entity -->
+          <ItemType Id="ET10">
+            <AttributeMappings>
+              <AttributeMapping Name="Account Name" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC12"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Routing Number/Sort Code" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Account Type" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC5"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Date Opened" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC6"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Date Closed" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC7"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Address -->
+          <ItemType Id ="ET1">
+            <PropertyMappings>
+              <PropertyMapping Property="Label" Default="Not set">
+                <ResolvableValue Prefix="Apartment: " Suffix=" ">
+                  <ApolloProperty Id="ADD2"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD3"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD4"/>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD5"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Location Type" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD25"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Town/City" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD6"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="County" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD7"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="State" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD17"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="ZIP/Post Code" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD8"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Country or Region" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD9"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Beat/District" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD21"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Easting" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD11"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Northing" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD12"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Latitude" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD13"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Longitude" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD14"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Datum" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD15"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Communication Device Entity -->
+          <ItemType Id="ET8">
+            <AttributeMappings>
+              <AttributeMapping Name="Device Type" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM2"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IMSI Number" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM8"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IMEI Number" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM9"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Device Make" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM10"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Email Address" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM13"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Web Address" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM14"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IP Address" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM15"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Event Entity -->
+          <ItemType Id="ET2">
+            <PropertyMappings>
+              <PropertyMapping Property="Label" Default="Not set">
+                <ResolvableValue Suffix=" " >
+                  <ApolloProperty Id="EVE3"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" " >
+                  <ApolloProperty Id="EVE21"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" " >
+                  <ApolloProperty Id="EVE31"/>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE61"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Event Type" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Event Start" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Event End" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Firearm Used?" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE7">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="LogicalOr"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Organization Entity -->
+          <ItemType Id="ET4">
+            <AttributeMappings>
+              <AttributeMapping Name="Organization Type" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Web Address" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+
+          <!-- Person Entity -->
+          <ItemType Id="ET5">
+            <PropertyMappings>
+              <PropertyMapping Property="Label" Default="Not set">
+                <ResolvableValue Suffix=" " >
+                  <ApolloProperty Id="PER3"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER4"/>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER5">
+                    <!-- People sometimes have more than one middle name-->
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Combine" Delimeter=" "/>
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="PER6"/>
+                </ResolvableValue>
+                <ResolvableValue Prefix=" ">
+                  <ApolloProperty Id="PER7"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+
+            <AttributeMappings>
+              <AttributeMapping Name="Title" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Alias" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER8"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="AKA" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER97"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Date of Birth" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER9"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Gender" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER15"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Marital Status" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER29"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Age" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER12">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Nationality" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER13"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Property -->
+          <ItemType Id="ET9">
+            <AttributeMappings>
+              <AttributeMapping Name="Drug Name" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO82"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Weapon Type" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO21"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Document Type" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO30"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Animal Type" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO34"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Value" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO26"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Surveillance Camera -->
+          <ItemType Id="ET7">
+            <AttributeMappings>
+              <AttributeMapping Name="Camera Location" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Easting" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR5"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Northing" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR6"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Latitude" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR7"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Longitude" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR8"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Vehicle -->
+          <ItemType Id="ET3">
+            <AttributeMappings>
+              <AttributeMapping Name="Vehicle Type" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name ="Vehicle Make" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Vehicle Model" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH5"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Vehicle Color" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH9"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </EntityMappings>
+
+        <LinkMappings>
+          <!-- Default -->
+          <Default>
+            <LinkSummarization Method="Single" SeparateStrengths="false"/>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue Suffix=": ">
+                  <SpecialValue Type="TypeName" />
+                </ResolvableValue>
+                <ResolvableValue>
+                  <SpecialValue Type="SummarizedLinkCount"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference"/>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type"/>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+          </Default>
+
+          <!-- Communication Link -->
+          <ItemType Id="LCO1">
+            <PropertyMappings>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Earliest Communication" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Latest Communication" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Transaction Link -->
+          <ItemType Id="LTR1">
+            <PropertyMappings>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Transaction Total" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Sum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Earliest Transaction" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Latest Transaction" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum"/>
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Involved In Link -->
+          <ItemType Id="LIN1">
+            <PropertyMappings>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Involvement Type" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Subject Of Link -->
+          <ItemType Id="LSU1">
+            <PropertyMappings>
+            </PropertyMappings>
+          </ItemType>
+
+          <!-- Observed Link -->
+          <ItemType Id="LOB1">
+            <PropertyMappings>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Observation Type" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Associate Link -->
+          <ItemType Id="LAS1">
+            <PropertyMappings>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Association Type" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Stolen/ Recovered Link -->
+          <ItemType Id="LST1">
+            <PropertyMappings>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Stolen / Recovered Type" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Access To Link -->
+          <ItemType Id="LAC1">
+            <PropertyMappings>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Type of Use" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Member Of Link -->
+          <ItemType Id="LME1">
+            <PropertyMappings>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Membership Type" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Employment Link -->
+          <ItemType Id="LEM1">
+            <PropertyMappings>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Employment Type" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM4"/>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Role" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM7"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+          <!-- Subsequent Action Link -->
+          <ItemType Id="LSB1">
+            <PropertyMappings>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Action Type" Enabled="false">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB3"/>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+
+        </LinkMappings>
+      </XmlChartingScheme>
+    </ChartingScheme>
+  </ChartingSchemes>
+</trn:ChartingSchemeList>
+
