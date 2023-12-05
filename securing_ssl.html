@@ -91,8 +91,7 @@
 <p>There are a number of secure configurations that you can choose to deploy:</p>
 <ul>
 <li><strong>ssl</strong><br>This configuration deploys with SSL configured between each of the distributed components in an i2 Analyze deployment.</li>
-<li><strong>ihs_ssl</strong><br>This configuration deploys with SSL configured between each of the distributed components in an i2 Analyze deployment that includes the IBM HTTP Server.<br>For information about configuring SSL with i2 Analyze, see <a href="https://docs.i2group.com/analyze/c_kc_intro_ssl.html">Secure Sockets Layer connections with i2 Analyze</a> &gt; Note: You do not need to create the certificates as described, the certificates are created as part of the example.</li>
-<li><strong>client_cert_ssl</strong><br>This configuration deploys with SSL configured between each of the distributed components in an i2 Analyze deployment that includes the IBM HTTP Server. The user can log in to the system by using a client certificate.<br>For more information about configuring client certificate authentication, see <a href="https://docs.i2group.com/analyze/c_kc_intro_x509.html">Configuring X.509 client certificate authentication with i2 Analyze</a></li>
+<li><strong>client_cert_ssl</strong><br>This configuration deploys with SSL configured between each of the distributed components in an i2 Analyze deployment. The user can log in to the system by using a client certificate.<br>For more information about configuring client certificate authentication, see <a href="https://docs.i2group.com/analyze/c_kc_intro_x509.html">Configuring X.509 client certificate authentication with i2 Analyze</a></li>
 </ul>
 <h2 id="creating-the-keystores-and-certificates">Creating the keystores and certificates</h2>
 <p>Run the <code>createKeysAndStores</code> script to create the stores, certificates, and certificate authority. For example, run the following command from the <code>src/scripts</code> directory:</p>
@@ -110,9 +109,6 @@
 <h2 id="connecting-to-analysts-notebook-premium">Connecting to Analyst&#39;s Notebook Premium</h2>
 <p>To connect to i2 Analyze in a deployment that uses SSL, you must use a different URL. The URL that you use to connect is: <a href="https://i2demo:9445/opal">https://i2demo:9445/opal</a>.
 The protocol is changed to <code>https</code>, and the port number is changed to <code>9445</code>.</p>
-<p>If you have deployed with the <strong>ihs_ssl</strong> configuration, you must install the client certificate to your local machine. Install the <code>src\keys\responses\Jenny-key.cer</code> into your Windows Trusted Root Certificate Authority store and <code>src\keys\stores\i2-Jenny-keystore.p12</code> into your Personal Certificate store.</p>
-<blockquote><p>Note: If you are using a configuration with the IBM HTTP Server, you must not specify the port number. For example, <a href="https://i2demo/opal">https://i2demo/opal</a>.</p>
-</blockquote>
 <h2 id="learning-how-to-deploy-the-configuration-in-a-non-docker-environment">Learning how to deploy the configuration in a non-Docker environment</h2>
 <p>To understand the differences between the configurations, and the base configuration, you can use a file comparison tool. You can see which properties files are modified, and the configuration settings that are required. For detailed explanations of the properties and the process for changing them, you can use the information that is provided in the i2 documentation.</p>
 <p>For information about securing the components of i2 Analyze, see <a href="https://docs.i2group.com/analyze/c_kc_intro_ssl.html">Secure Sockets Layer connections with i2 Analyze</a> and <a href="https://docs.i2group.com/analyze/c_kc_intro_x509.html">Configuring X.509 client certificate authentication with i2 Analyze</a>.</p>
@@ -138,7 +134,7 @@ The protocol is changed to <code>https</code>, and the port number is changed to
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            &copy; N. Harris Computer Corporation (2022)
+            &copy; N. Harris Computer Corporation
             
           </div>
         </div>

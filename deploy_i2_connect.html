@@ -90,6 +90,11 @@
 </code></pre></li>
 </ul>
 <hr>
+<h2 id="creating-the-keystores-and-certificates">Creating the keystores and certificates</h2>
+<p>Run the <code>createKeysAndStores</code> script to create the stores, certificates, and certificate authority. For example, run the following command from the <code>src/scripts</code> directory:</p>
+<pre><code class="lang-sh">./createKeysAndStores
+</code></pre><p>You are prompted to enter a password that is used for each of the keystores and truststores that are created. The password that you specify here is used later.</p>
+<p>For more information about the stores and certificates that are created, see <a href="securing_certificates.html">Keystores and certificates for components of i2 Analyze</a>.</p>
 <h2 id="deploying-the-example-connector">Deploying the example connector</h2>
 <p>In the distributed deployment example, the example connector is deployed in its own server.</p>
 <p>In the Docker environment, the <code>connector_image</code> is created when you run the <code>buildImages</code> script. If you ran the <code>clean</code> script, rebuild and rerun the container. Otherwise, skip to the next step to run the connector container.
@@ -97,15 +102,24 @@ To build the connector image, run the following command from the <code>src/image
 <pre><code class="lang-sh">docker build -t connector_image common/connector
 </code></pre><p>The connector image is created with the name <code>connector_image</code>.</p>
 <p>To run the <code>connector</code> container, run the following command:</p>
-<pre><code class="lang-sh">docker run -d --name connector --net eianet -u i2analyze connector_image
-</code></pre><h2 id="creating-the-keystores-and-certificates">Creating the keystores and certificates</h2>
-<p>Run the <code>createKeysAndStores</code> script to create the stores, certificates, and certificate authority. For example, run the following command from the <code>src/scripts</code> directory:</p>
-<pre><code class="lang-sh">./createKeysAndStores
-</code></pre><p>You are prompted to enter a password that is used for each of the keystores and truststores that are created. The password that you specify here is used later.</p>
-<p>For more information about the stores and certificates that are created, see <a href="securing_certificates.html">Keystores and certificates for components of i2 Analyze</a>.</p>
-<h2 id="configuring-connector">Configuring connector</h2>
-<p>You must specify the passphrase for the key that the connector uses. Specify the <code>keyPassphrase</code> in the <code>src/images/common/connector/security-config.json</code> file. The passphrase that you specify must match the value that you entered for i2 Connect connector key store and certificate signing request when you ran the <code>createKeysAndStores</code> script.</p>
-<p>For more information about securing the example connector, see <a href="https://docs.i2group.com/analyze/t_connect_example_security.html">Securing the example connector</a>.</p>
+<pre><code class="lang-sh">docker run -d --name connector --net eianet --memory=512m \
+  --net-alias &quot;connector.eianet&quot; \
+  -e &quot;CONNECTOR_ID=example-connector&quot; \
+  -e &quot;SSL_ENABLED=true&quot; \
+  -e &quot;SSL_PRIVATE_KEY=&lt;ssl_private_key&gt;&quot; \
+  -e &quot;SSL_CERTIFICATE=&lt;ssl_certificate&gt;&quot; \
+  -e &quot;SSL_CA_CERTIFICATE=&lt;ssl_ca_certificate&gt;&quot; \
+  -e &quot;SSL_PASSPHRASE=&lt;ssl_passphrase&gt;&quot; \
+  -e &quot;SSL_GATEWAY_CN=liberty.eianet&quot; \
+  -e &quot;SSL_SERVER_PORT=3443&quot; \
+  &quot;connector_image&quot;
+</code></pre><p>Where the values are:</p>
+<ul>
+<li><code>ssl_passphrase</code> should match the value that you entered for i2 Connect connector key store and certificate signing request when you ran the <code>createKeysAndStores</code> script.</li>
+<li><code>ssl_private_key</code> is the content of the <code>./keys/stores/i2-connector-key.key</code> file.</li>
+<li><code>ssl_certificate</code> is the content of the <code>./keys/responses/connector-key.cer</code> file.</li>
+<li><code>ssl_ca_certificate</code> is the content of the <code>./images/common/ca/ca/CA.cer</code> file.</li>
+</ul>
 <h3 id="specifying-the-credentials">Specifying the credentials</h3>
 <p>You must specify the credentials for your deployment in the <code>src/configuration/environment/credentials.properties</code>. Set the passwords to use for each of the keystore and truststore credentials. The passwords must match the values that you entered for the corresponding keystores and truststores when you ran the <code>createKeysAndStores</code> script.</p>
 <p>For more information about the credentials file, see <a href="https://docs.i2group.com/analyze/t_specifying_credentials.html">Modifying the credentials</a>.</p>
@@ -137,10 +151,6 @@ To build the connector image, run the following command from the <code>src/image
 <h2 id="creating-the-solr-collection">Creating the Solr Collection</h2>
 <p>Create the Solr Collection that is used by a deployment with i2 Connect, run the <code>createSolrCollections</code> task on the <code>admin_client</code> container.</p>
 <pre><code class="lang-sh">docker exec -t -u i2analyze admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t createSolrCollections --hostname admin_client.eianet
-</code></pre><h2 id="copying-configuration-to-example-connector">Copying configuration to example connector</h2>
-<p>To update the <code>connector</code> container with the updated <code>security-config.json</code> file, run the following commands from the <code>src</code> directory:</p>
-<pre><code class="lang-sh">docker cp images/common/connector/security-config.json connector:/opt/i2/i2analyze/example_connector/security-config.json
-docker restart connector
 </code></pre><h2 id="starting-liberty">Starting Liberty</h2>
 <p>To start Liberty, run the following command on the <code>liberty</code> container:</p>
 <pre><code class="lang-sh">docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t startLiberty
@@ -175,7 +185,7 @@ docker restart connector
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            &copy; N. Harris Computer Corporation (2022)
+            &copy; N. Harris Computer Corporation
             
           </div>
         </div>

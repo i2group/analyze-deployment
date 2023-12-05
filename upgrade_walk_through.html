@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Upgrading a distributed deployment to version 4.4.2 of i2 Analyze </title>
+    <title>Upgrading a distributed deployment to version 4.4.3 of i2 Analyze </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Upgrading a distributed deployment to version 4.4.2 of i2 Analyze ">
+    <meta name="title" content="Upgrading a distributed deployment to version 4.4.3 of i2 Analyze ">
     <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="images/favicon.png">
@@ -77,7 +77,7 @@
             </div>
           </div>
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="upgrading-a-distributed-deployment-to-version-442-of-i2-analyze">Upgrading a distributed deployment to version 4.4.2 of i2 Analyze</h1>
+<h1 id="upgrading-a-distributed-deployment-to-version-443-of-i2-analyze">Upgrading a distributed deployment to version 4.4.3 of i2 Analyze</h1>
 
 <p>To upgrade the distributed deployment example, you must run an upgrade command on each server in your deployment. The following instructions detail what is required on each container, and how to use these steps to upgrade i2 Analyze on physical servers.</p>
 <h2 id="before-you-begin">Before you begin</h2>
@@ -98,7 +98,7 @@
 <p>Remove the current distributed deployment example code, but ensure the containers stay running.</p>
 <p>Extract the distributed deployment example that you just downloaded.</p>
 <h3 id="i2-analyze">i2 Analyze</h3>
-<p>Download i2 Analyze for Linux. You download the <code>I2A_V4.4.2_LINUX.tar.gz</code> version 4.4.2 by using the usual mechanism.</p>
+<p>Download i2 Analyze for Linux. You download the <code>I2A_V4.4.3_LINUX.tar.gz</code> version 4.4.3 by using the usual mechanism.</p>
 <ol>
 <li><p>Rename the <code>tar.gz</code> file to <code>i2analyze.tar.gz</code>.</p>
 </li>
@@ -128,7 +128,7 @@
 <p>Before you upgrade your deployment, you must backup your current configuration. In the distributed deployment example, the <code>backupConfiguration</code> script creates a copy of your configuration directory on the <code>admin_client</code> container. The backup of your configuration is in the <code>src/configuration_mods/configuration_backup</code> directory.</p>
 <p>In a non-Docker environment, ensure that you have a copy of the <code>configuration</code> directory that contains your complete configuration in a location outside of the i2 Analyze toolkit. The process of upgrading i2 Analyze removes the deployment toolkit from each server in the deployment. Ensure that the backup of your configuration is up-to-date for each server in your deployment.</p>
 <h3 id="installing-i2-analyze">Installing i2 Analyze</h3>
-<p>You must install version 4.4.2 of i2 Analyze on each server in the deployment. In the distributed deployment example, you can use the <code>installToolkit</code> script to install i2 Analyze on each container.</p>
+<p>You must install version 4.4.3 of i2 Analyze on each server in the deployment. In the distributed deployment example, you can use the <code>installToolkit</code> script to install i2 Analyze on each container.</p>
 <p>To install i2 Analyze on each container, run the following command from the <code>src/scripts</code> directory:</p>
 <pre><code class="lang-sh">./installToolkit ./images/common/ubuntu_toolkit/i2analyze/i2analyze.tar.gz
 </code></pre><p>In a non-Docker environment, install i2 Analyze on each server by using the following instructions: <a href="https://docs.i2group.com/analyze/upgrading_4_1_3.html">Upgrading i2 Analyze</a>.</p>
@@ -152,7 +152,7 @@
 <p>If you are using a newer version of JDBC Drivers, remove the previous version, run the following commands from the <code>src</code> directory:</p>
 <pre><code class="lang-sh">docker exec -u root admin_client rm -rf /opt/i2/i2analyze/toolkit/configuration/environment/common/jdbc-drivers
 docker cp configuration/environment/common/jdbc-drivers admin_client:/opt/i2/i2analyze/toolkit/configuration/environment/common
-</code></pre><p>Upgrade the i2 Analyze configuration to version 4.4.2. To upgrade the configuration, run the following command on the <code>admin_client</code> container:</p>
+</code></pre><p>Upgrade the i2 Analyze configuration to version 4.4.3. To upgrade the configuration, run the following command on the <code>admin_client</code> container:</p>
 <pre><code class="lang-sh">docker exec -u i2analyze -t admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t upgradeConfiguration
 </code></pre><p>The console output from the <code>upgradeConfiguration</code> task is output directly to the console.</p>
 <p>The upgraded configuration must be copied to each of the servers in the deployment. In a Docker environment, first you must copy the upgraded configuration to your local machine by running the following command inside the <code>src/scripts</code> directory:<br>For SQL Server:</p>
@@ -165,7 +165,7 @@ docker cp configuration/environment/common/jdbc-drivers admin_client:/opt/i2/i2a
 <pre><code class="lang-sh">./updateServerConfigurations configuration_upgraded
 </code></pre><p>In a non-Docker environment, copy the upgraded configuration to the <code>i2analyze/toolkit/configuration</code> directory on each server.</p>
 <h2 id="upgrading-and-starting-the-components-of-i2-analyze">Upgrading and starting the components of i2 Analyze</h2>
-<p>After the upgraded configuration is present on each server, you must upgrade each component of the deployment to version 4.4.2.</p>
+<p>After the upgraded configuration is present on each server, you must upgrade each component of the deployment to version 4.4.3.</p>
 <p>You must upgrade and start the components of a deployment in the order that they are described here.</p>
 <h3 id="upgrading-zookeeper">Upgrading ZooKeeper</h3>
 <p>To upgrade ZooKeeper, run the following command on the <code>zookeeper</code>, <code>zookeeper2</code> and <code>zookeeper3</code> containers:</p>
@@ -241,7 +241,7 @@ docker exec -u i2analyze solr2 /opt/i2/i2analyze/toolkit/scripts/setup -t startS
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            &copy; N. Harris Computer Corporation (2022)
+            &copy; N. Harris Computer Corporation
             
           </div>
         </div>
