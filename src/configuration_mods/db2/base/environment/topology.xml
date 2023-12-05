@@ -13,7 +13,7 @@
               node-name="dbnode" os-type="unix" />
   </databases>
   <applications>
-    <application http-server-host="false" name="opal-server" host-name="liberty.eianet">
+    <application name="opal-server" host-name="liberty.eianet">
       <wars>
         <war context-root="opal" name="opal-services-is" i2-data-source-id="infostore" target="opal-services-is">
           <data-sources>

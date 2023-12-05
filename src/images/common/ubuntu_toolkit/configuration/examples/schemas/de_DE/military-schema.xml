@@ -2038,7 +2038,7 @@
               <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Dokumenterweiterung" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT23">
                 <PossibleValues />
               </PropertyType>
-              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA3056048-D54F-462b-BF88-65FE24142A9F" DisplayName="Dokument-URL" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT25">
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Dokument-URL" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT25">
                 <PossibleValues />
               </PropertyType>
             </PropertyTypes>
@@ -2514,7 +2514,7 @@
                   <PossibleValue Description="" Value="Verschreibungspflicht" />
                 </PossibleValues>
               </PropertyType>
-              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidE123CC8F-9010-40ED-AE46-516AE21ACC7B" DisplayName="Gewicht" Description="" LogicalType="SINGLE_LINE_STRING" Id="PRO63">
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Gewicht" Description="" LogicalType="SINGLE_LINE_STRING" Id="PRO63">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Gewicht (Einheiten)" Description="" LogicalType="SINGLE_LINE_STRING" Id="PRO64">

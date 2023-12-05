@@ -53,7 +53,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="14" Description="" DisplayName="Source System Information" Id="PGT4">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT2">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT2">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT4">
@@ -85,7 +85,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT92">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT92">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" MaximumLengthChars="25" SemanticTypeId="guidB11A89A6-F50C-4c73-949F-00594985DA69" DisplayName="Location Type" Description="" LogicalType="SUGGESTED_FROM" Id="ADD25">
@@ -364,7 +364,7 @@
         <PropertyGroupTypes>
           <PropertyGroupType Mandatory="false" Position="6" Description="" DisplayName="Network Information" Id="PGT8">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Antenna ID" Description="Unique identifier for the cellular network antenna" LogicalType="SINGLE_LINE_STRING" Id="PT161">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Antenna ID" Description="Unique identifier for the cellular network antenna" LogicalType="SINGLE_LINE_STRING" Id="PT161">
                 <PossibleValues />
               </PropertyType>
             </PropertyTypes>
@@ -397,7 +397,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="9" Description="" DisplayName="Source System Information" Id="PGT33">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT227">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT227">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT237">
@@ -407,7 +407,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT93">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT93">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid7861226D-5D80-4ef8-9ED9-029D54C228EF" DisplayName="Event Type ID" Description="" LogicalType="SELECTED_FROM" Id="PT9">
@@ -465,7 +465,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="10" Description="" DisplayName="Source System Information" Id="PGT45">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT276">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT276">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT277">
@@ -497,7 +497,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT105">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT105">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" MaximumLengthChars="25" SemanticTypeId="guid52FF1D68-FA10-495C-AA62-CB327FE84639" DisplayName="Vehicle Identification Number (VIN)" Description="" LogicalType="SINGLE_LINE_STRING" Id="PT50">
@@ -770,7 +770,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="5" Description="" DisplayName="Source System Information" Id="PGT50">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT288">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT288">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT289">
@@ -802,7 +802,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT102">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT102">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guidB2A3B23C-07B8-4A87-8B45-4CD20079E79C" DisplayName="Organization Name" Description="" LogicalType="SINGLE_LINE_STRING" Id="ORG2">
@@ -877,7 +877,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="17" Description="" DisplayName="Source System Information" Id="PGT48">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT284">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT284">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT285">
@@ -909,7 +909,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT104">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT104">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" MaximumLengthChars="25" SemanticTypeId="guid45E7897F-0DC6-4AD0-AAC6-73A780DD78BE" DisplayName="Title" Description="" LogicalType="SUGGESTED_FROM" Id="PT6">
@@ -1217,7 +1217,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="8" Description="" DisplayName="Source System Information" Id="PGT56">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT301">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT301">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT302">
@@ -1249,7 +1249,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT95">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT95">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Device ID" Description="Unique identifier for the communication device, which is a concatenation of identifier values delimited by colons (:)" LogicalType="SINGLE_LINE_STRING" Id="PT144">
@@ -1291,7 +1291,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="4" Description="" DisplayName="Source System Information" Id="PGT55">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT299">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT299">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT300">
@@ -1323,7 +1323,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT96">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT96">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="true" MaximumLengthChars="20" SemanticTypeId="guidA3E76FF5-8688-46cf-84B4-E3B222820402" DisplayName="Identifier Type" Description="" LogicalType="SELECTED_FROM" Id="PT254">
@@ -1352,7 +1352,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="14" Description="" DisplayName="Source System Information" Id="PGT51">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT290">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT290">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT291">
@@ -1384,7 +1384,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT101">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT101">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid4DE7370B-60E5-4EB0-860E-4066D3DFD7B6" DisplayName="First Name" Description="" LogicalType="SINGLE_LINE_STRING" Id="PT42">
@@ -1634,7 +1634,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="5" Description="" DisplayName="Source System Information" Id="PGT46">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT278">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT278">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT279">
@@ -1666,7 +1666,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT106">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT106">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA3E76FF5-8688-46cf-84B4-E3B222820402" DisplayName="Target List ID" Description="" LogicalType="SINGLE_LINE_STRING" Id="PT270">
@@ -1719,10 +1719,10 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="8" Description="" DisplayName="Coverage Information" Id="PGT9">
             <PropertyTypes>
-              <PropertyType Position="1" Mandatory="false" SemanticTypeId="guid5304A03B-FE47-4406-91E7-0D49EC8409A6" DisplayName="Center Latitude" Description="Latitude of the center of the antenna coverage area" LogicalType="DECIMAL" Id="PT159">
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Center Latitude" Description="Latitude of the center of the antenna coverage area" LogicalType="DECIMAL" Id="PT159">
                 <PossibleValues />
               </PropertyType>
-              <PropertyType Position="2" Mandatory="false" SemanticTypeId="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9" DisplayName="Center Longitude" Description="Longitude of the center of the antenna coverage area" LogicalType="DECIMAL" Id="PT162">
+              <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Center Longitude" Description="Longitude of the center of the antenna coverage area" LogicalType="DECIMAL" Id="PT162">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="0" Mandatory="false" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Signal Area" Description="Geospatial area that defines the extent of the coverage of the antenna" LogicalType="GEOSPATIAL" Id="PT170">
@@ -1739,7 +1739,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="10" Description="" DisplayName="Source System Information" Id="PGT10">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT172">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT172">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT173">
@@ -1771,7 +1771,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT208">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT208">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Antenna ID" Description="" LogicalType="SINGLE_LINE_STRING" Id="PT209">
@@ -1829,7 +1829,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="11" Description="" DisplayName="Source System Information" Id="PGT43">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT269">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT269">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT272">
@@ -1839,7 +1839,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT3">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT3">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid69C60791-00C5-4a7c-AD8D-FD21DF62F249" DisplayName="Communication Type" Description="" LogicalType="SELECTED_FROM" Id="LCO3">
@@ -1889,7 +1889,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="2" Description="" DisplayName="Source System Information" Id="PGT42">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT262">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT262">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT263">
@@ -1921,7 +1921,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="LDU2">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="LDU2">
             <PossibleValues />
           </PropertyType>
         </PropertyTypes>
@@ -1937,7 +1937,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="7" Description="" DisplayName="Source System Information" Id="PGT44">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT274">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT274">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT275">
@@ -1969,7 +1969,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT123">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT123">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" MaximumLengthChars="20" SemanticTypeId="" DisplayName="Association Type" Description="" LogicalType="SUGGESTED_FROM" Id="PT145">
@@ -2035,7 +2035,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="7" Description="" DisplayName="Source System Information" Id="PGT36">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT243">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT243">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT244">
@@ -2067,7 +2067,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT152">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT152">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" MaximumLengthChars="20" SemanticTypeId="guidCE86909A-D087-445f-A73D-C79FA9AC9F8C" DisplayName="Membership Type" Description="" LogicalType="SUGGESTED_FROM" Id="PT163">
@@ -2114,7 +2114,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="7" Description="" DisplayName="Source System Information" Id="PGT37">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT245">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT245">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT246">
@@ -2146,7 +2146,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT187">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT187">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" MaximumLengthChars="20" SemanticTypeId="" DisplayName="Location Relationship" Description="" LogicalType="SUGGESTED_FROM" Id="PT197">
@@ -2181,7 +2181,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="7" Description="" DisplayName="Source System Information" Id="PGT38">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT247">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT247">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT248">
@@ -2213,7 +2213,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT220">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT220">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Link Type" Description="" LogicalType="SINGLE_LINE_STRING" Id="PT230">
@@ -2244,7 +2244,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="7" Description="" DisplayName="Source System Information" Id="PGT35">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT240">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT240">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT242">
@@ -2276,7 +2276,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT231">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT231">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" MaximumLengthChars="20" SemanticTypeId="guid359AD9EB-8AC2-4c0d-82E6-AA77734CC423" DisplayName="Ownership Type" Description="" LogicalType="SUGGESTED_FROM" Id="PT241">
@@ -2307,7 +2307,7 @@
         <PropertyGroupTypes>
           <PropertyGroupType Mandatory="false" Position="4" Description="" DisplayName="Source System Information" Id="PGT5">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT86">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT86">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT107">
@@ -2317,7 +2317,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT264">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT264">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" SemanticTypeId="guidE17D5FB3-4FF6-4177-AC26-73D8FE2911EE" DisplayName="Transmission Start Date" Description="" LogicalType="DATE" Id="PT265">
@@ -2342,7 +2342,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="6" Description="" DisplayName="Source System Information" Id="PGT34">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT238">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT238">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT239">
@@ -2374,7 +2374,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT14">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT14">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" SemanticTypeId="guidE17D5FB3-4FF6-4177-AC26-73D8FE2911EE" DisplayName="Pairing Start Date" Description="" LogicalType="DATE" Id="PT16">
@@ -2395,7 +2395,7 @@
         <PropertyGroupTypes>
           <PropertyGroupType Mandatory="false" Position="4" Description="" DisplayName="Source System Information" Id="PGT40">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT251">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT251">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT252">
@@ -2405,7 +2405,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT15">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT15">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" SemanticTypeId="guidE17D5FB3-4FF6-4177-AC26-73D8FE2911EE" DisplayName="Initiation Date" Description="" LogicalType="DATE" Id="PT135">
@@ -2430,7 +2430,7 @@
           </PropertyGroupType>
           <PropertyGroupType Mandatory="false" Position="7" Description="" DisplayName="Source System Information" Id="PGT7">
             <PropertyTypes>
-              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT153">
+              <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="Source System" Description="System containing the original data" LogicalType="SINGLE_LINE_STRING" Id="PT153">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Source System Record ID" Description="Unique identifier for the source data record" LogicalType="SINGLE_LINE_STRING" Id="PT155">
@@ -2462,7 +2462,7 @@
           </PropertyGroupType>
         </PropertyGroupTypes>
         <PropertyTypes>
-          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT83">
+          <PropertyType Position="0" Mandatory="false" MaximumLengthChars="50" SemanticTypeId="" DisplayName="EIA Common Key" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PT83">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Listing Type" Description="" LogicalType="SINGLE_LINE_STRING" Id="PT84">
@@ -2485,7 +2485,7 @@
     </LinkTypes>
   </ItemTypes>
   <Id>5b63625f-e4b4-4b4e-9e6f-d16b9c7e1a49</Id>
-  <Version>576</Version>
+  <Version>1</Version>
   <SourceInfoMandatoryFields IsDateMandatory="false" IsDescriptionMandatory="false" IsReferenceMandatory="false" IsTypeMandatory="false" />
   <LinkStrengthInfo DefaultLinkStrengthId="daf0e75f-ca7d-473a-80bf-6fad91472dc6">
     <LinkStrengths>
@@ -2620,8 +2620,8 @@
         </LabelDefinition>
         <LabelDefinition ItemTypeId="ET15">
           <LabelParts>
-			<LabelPart Value="PT210" LabelPartType="PROPERTY_TYPE" />
-		  </LabelParts>
+            <LabelPart Value="PT210" LabelPartType="PROPERTY_TYPE" />
+          </LabelParts>
         </LabelDefinition>
       </LabelDefinitions>
     </LabelingScheme>

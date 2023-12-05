@@ -2146,7 +2146,7 @@
               <PropertyType Description="" DisplayName="Rozšíření dokumentu" Id="INT23" LogicalType="SINGLE_LINE_STRING" Mandatory="false" Position="2" SemanticTypeId="" MaximumLengthChars="250">
                 <PossibleValues />
               </PropertyType>
-              <PropertyType Description="" DisplayName="Adresa URL dokumentu" Id="INT25" LogicalType="SINGLE_LINE_STRING" Mandatory="false" Position="4" SemanticTypeId="guidA3056048-D54F-462b-BF88-65FE24142A9F" MaximumLengthChars="250">
+              <PropertyType Description="" DisplayName="Adresa URL dokumentu" Id="INT25" LogicalType="SINGLE_LINE_STRING" Mandatory="false" Position="4" SemanticTypeId="" MaximumLengthChars="250">
                 <PossibleValues />
               </PropertyType>
             </PropertyTypes>
@@ -2622,7 +2622,7 @@
                   <PossibleValue Description="" Value="Předpis" />
                 </PossibleValues>
               </PropertyType>
-              <PropertyType Description="" DisplayName="Hmotnost" Id="PRO63" LogicalType="SINGLE_LINE_STRING" Mandatory="false" Position="2" SemanticTypeId="guidE123CC8F-9010-40ED-AE46-516AE21ACC7B" MaximumLengthChars="250">
+              <PropertyType Description="" DisplayName="Hmotnost" Id="PRO63" LogicalType="SINGLE_LINE_STRING" Mandatory="false" Position="2" SemanticTypeId="" MaximumLengthChars="250">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Description="" DisplayName="Hmotnost (jednotky)" Id="PRO64" LogicalType="SINGLE_LINE_STRING" Mandatory="false" Position="3" SemanticTypeId="" MaximumLengthChars="250">
@@ -3643,7 +3643,7 @@
     </LinkTypes>
   </ItemTypes>
   <Id>cc4c47e7-ec64-4c0c-be37-1f59f15526f1</Id>
-  <Version>78</Version>
+  <Version>1</Version>
   <SourceInfoMandatoryFields IsDateMandatory="false" IsDescriptionMandatory="false" IsReferenceMandatory="false" IsTypeMandatory="false" />
   <LinkStrengthInfo DefaultLinkStrengthId="daf0e75f-ca7d-473a-80bf-6fad91472dc6">
     <LinkStrengths>

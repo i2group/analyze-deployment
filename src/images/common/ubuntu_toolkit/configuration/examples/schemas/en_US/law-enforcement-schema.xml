@@ -1027,7 +1027,7 @@
               <PropertyType Position="6" Mandatory="false" SemanticTypeId="guid22D95AE3-93EB-4BE9-8FB2-850CDA03F341" DisplayName="Alias" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER8">
                 <PossibleValues />
               </PropertyType>
-              <PropertyType Position="4" Mandatory="false" SemanticTypeId="guid62B01C18-2E64-46D5-B2FF-3C69B4F76FEB" DisplayName="Maiden Name" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER96">
+              <PropertyType Position="4" Mandatory="false" SemanticTypeId="guid699AD2D5-B30B-4508-9349-0E1AC1FF876C" DisplayName="Maiden Name" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER96">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="7" Mandatory="false" SemanticTypeId="" DisplayName="AKA" Description="Also Known As" LogicalType="SINGLE_LINE_STRING" Id="PER97">
@@ -1955,7 +1955,7 @@
               <PropertyType Position="6" Mandatory="false" SemanticTypeId="guidE123CC8F-9010-40ED-AE46-516AE21ACC7B" DisplayName="Weight" Description="" LogicalType="DECIMAL" Id="PRO19">
                 <PossibleValues />
               </PropertyType>
-              <PropertyType Position="1" Mandatory="false" SemanticTypeId="guid3DA39818-EEBA-432D-BAA4-37B6B104C3FB" DisplayName="Height (Units)" Description="" LogicalType="SUGGESTED_FROM" Id="PRO70">
+              <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Height (Units)" Description="" LogicalType="SUGGESTED_FROM" Id="PRO70">
                 <PossibleValues>
                   <PossibleValue Description="" Value="&lt;Unknown&gt;" />
                   <PossibleValue Description="Millimeter" Value="mm" />
@@ -1968,7 +1968,7 @@
                   <PossibleValue Description="Mile" Value="mi" />
                 </PossibleValues>
               </PropertyType>
-              <PropertyType Position="7" Mandatory="false" SemanticTypeId="guidE123CC8F-9010-40ED-AE46-516AE21ACC7B" DisplayName="Weight (Units)" Description="" LogicalType="SUGGESTED_FROM" Id="PRO73">
+              <PropertyType Position="7" Mandatory="false" SemanticTypeId="" DisplayName="Weight (Units)" Description="" LogicalType="SUGGESTED_FROM" Id="PRO73">
                 <PossibleValues>
                   <PossibleValue Description="" Value="&lt;Unknown&gt;" />
                   <PossibleValue Description="Milligram" Value="mg" />
@@ -2170,7 +2170,7 @@
           <PropertyType Position="0" Mandatory="false" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Unique Reference" Description="Unique identifier for the item" LogicalType="SINGLE_LINE_STRING" Id="PRO1">
             <PossibleValues />
           </PropertyType>
-          <PropertyType Position="1" Mandatory="false" SemanticTypeId="guidc329f90d-3bf7-40c3-8d87-f6fe3cb8d5d4" DisplayName="Property Type" Description="" LogicalType="SINGLE_LINE_STRING" Id="PRO2">
+          <PropertyType Position="1" Mandatory="false" SemanticTypeId="" DisplayName="Property Type" Description="" LogicalType="SINGLE_LINE_STRING" Id="PRO2">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="2" Mandatory="false" SemanticTypeId="" DisplayName="Code" Description="" LogicalType="SINGLE_LINE_STRING" Id="PRO3">

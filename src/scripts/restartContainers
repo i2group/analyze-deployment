@@ -21,7 +21,7 @@ pushd ..
 . ${UTILS_PATH}/functions
 
 output "Stopping existing containers if still running"
-docker stop zookeeper zookeeper2 zookeeper3 solr solr2 liberty db2 sqlserver admin_client ihs etl_client connector &>/dev/null || true
+docker stop zookeeper zookeeper2 zookeeper3 solr solr2 liberty db2 sqlserver admin_client etl_client connector &>/dev/null || true
 
 output "Starting existing containers"
 docker start zookeeper zookeeper2 zookeeper3 &>/dev/null || true
@@ -29,4 +29,4 @@ docker start zookeeper zookeeper2 zookeeper3 &>/dev/null || true
 docker exec -u root zookeeper service ssh start &>/dev/null || true
 docker exec -u root zookeeper2 service ssh start &>/dev/null || true
 docker exec -u root zookeeper3 service ssh start &>/dev/null || true
-docker start solr solr2 liberty db2 sqlserver postgres admin_client ihs etl_client connector &>/dev/null || true
+docker start solr solr2 liberty db2 sqlserver postgres admin_client etl_client connector &>/dev/null || true

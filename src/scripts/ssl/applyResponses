@@ -74,14 +74,3 @@ case "${dbDialect}" in
     docker cp ${SRC_DIR}/keys/responses/. postgres:/opt/i2/keys/responses
     ;;
 esac
-
-if [ "$(docker ps -q -f name=ihs)" ]; then
-  output "Adding the signed certificate to the ihs container"
-  docker cp ${SRC_DIR}/keys/responses/. ihs:/opt/i2/keys/responses
-  runDockerExecWithSSLPassword ihs "/opt/i2/utils/cms/applyResponse ihs"
-fi
-
-if [ "$(docker ps -q -f name=connector)" ]; then
-  output "Adding the signed certificate to the connector container"
-  docker cp ${SRC_DIR}/keys/responses/. connector:/opt/i2/keys/responses
-fi

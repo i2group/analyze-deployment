@@ -35,7 +35,6 @@ rm -rf "${IMAGES_PATH}/common/zookeeper2/configuration" &>/dev/null || true
 rm -rf "${IMAGES_PATH}/common/zookeeper3/configuration" &>/dev/null || true
 rm -rf "${IMAGES_PATH}/common/solr/configuration" &>/dev/null || true
 rm -rf "${IMAGES_PATH}/common/solr2/configuration" &>/dev/null || true
-rm -rf "${IMAGES_PATH}/common/ihs/configuration" &>/dev/null || true
 
 #Dialect specific
 rm -rf "${IMAGES_PATH}/${dbDialect}/liberty/configuration" &>/dev/null || true
@@ -48,7 +47,6 @@ cp -r "${DEFAULT_CONFIG_PATH}" "${IMAGES_PATH}/common/zookeeper2/configuration"
 cp -r "${DEFAULT_CONFIG_PATH}" "${IMAGES_PATH}/common/zookeeper3/configuration"
 cp -r "${DEFAULT_CONFIG_PATH}" "${IMAGES_PATH}/common/solr/configuration"
 cp -r "${DEFAULT_CONFIG_PATH}" "${IMAGES_PATH}/common/solr2/configuration"
-cp -r "${DEFAULT_CONFIG_PATH}" "${IMAGES_PATH}/common/ihs/configuration"
 
 #Dialect specific
 cp -r "${DEFAULT_CONFIG_PATH}" "${IMAGES_PATH}/${dbDialect}/liberty/configuration"

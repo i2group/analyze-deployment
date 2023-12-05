@@ -271,14 +271,24 @@
     <!-- Visual Query Configuration Logging -->
     <!-- To log information about how Visual Query is configured, set the log level to DEBUG -->
     <Logger
-      name="com.i2group.disco.visualqueryservice.configuration.internal.VisualQueryConfigurationValidator"
+      name="com.i2group.disco.visualqueryservice.internal.VisualQueryRulesModelInitializer"
       level="OFF" additivity="false">
       <AppenderRef ref="VQLOG"/>
       <AppenderRef ref="CONSOLE"/>
     </Logger>
+    <!-- Highlight Query Logging -->
+    <Logger additivity="false" level="OFF" name="com.i2group.disco.highlightquery">
+      <AppenderRef ref="CONSOLE"/>
+    </Logger>
+    <Logger additivity="false" level="OFF" name="com.i2group.disco.highlightqueryservice">
+      <AppenderRef ref="CONSOLE"/>
+    </Logger>
     <!-- Graphql -->
     <Logger name="graphql.kickstart" level="ERROR" additivity="false">
-      <AppenderRef ref="CONSOLE" level="ERROR"/>
+      <AppenderRef ref="ROOTLOG"/>
+    </Logger>
+    <Logger additivity="false" level="FATAL" name="notprivacysafe.graphql">
+      <AppenderRef ref="ROOTLOG"/>
     </Logger>
     <!-- NotebookWeb -->
     <!-- To log information about notebook web's performance, set the log level to DEBUG -->

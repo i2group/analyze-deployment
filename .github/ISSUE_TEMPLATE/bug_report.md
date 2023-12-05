@@ -25,9 +25,9 @@ If applicable, add screenshots to help explain your problem.
 **Hardware and Software information**
  - OS: [e.g. Mac, Windows]
  - Version: [e.g. v2.9.0]
- - i2 Analyze version: [e.g. 4.4.2]
+ - i2 Analyze version: [e.g. 4.4.3]
  - Database dialect: [e.g. db2, sqlserver, postgres]
- - Configuration mod (Optional): [e.g. i2connect, ihs, etc]
+ - Configuration mod (Optional): [e.g. i2connect, etc]
 
 **Additional context**
 Add any other context about the problem here.

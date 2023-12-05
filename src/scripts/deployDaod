@@ -53,15 +53,31 @@ docker exec -t -u i2analyze admin_client /opt/i2/i2analyze/toolkit/scripts/setup
 
 contExists="$(containerExists connector)"
 if [[ "$contExists" -eq 0 ]]; then
-  output "Running the connector on the eia network"
-  docker run -d --name connector --net eianet --memory=512m -u i2analyze connector_image
+    connector_args=()
+    if [[ ! -f "${SRC_DIR}/keys/stores/i2-connector-key.key" || 
+        ! -f "${SRC_DIR}/keys/responses/connector-key.cer" ||
+        ! -f "${IMAGES_PATH}/common/ca/ca/CA.cer"
+    ]]; then
+        echo "ERROR: SSL certificates are missing. Please run createKeysAndStores script"
+        exit 1      
+    fi
+    read -s -p "Passphrase: " ssl_passphrase
+    output "Running the connector on the eia network"
+    ssl_private_key=$(cat "${SRC_DIR}/keys/stores/i2-connector-key.key")
+    ssl_certificate=$(cat "${SRC_DIR}/keys/responses/connector-key.cer")
+    ssl_ca_certificate=$(cat "${IMAGES_PATH}/common/ca/ca/CA.cer")
+    docker run -d --name connector --net eianet --memory=512m \
+        --net-alias "connector.eianet" \
+        -e "CONNECTOR_ID=example-connector" \
+        -e "SSL_ENABLED=true" \
+        -e "SSL_PRIVATE_KEY=${ssl_private_key}" \
+        -e "SSL_CERTIFICATE=${ssl_certificate}" \
+        -e "SSL_CA_CERTIFICATE=${ssl_ca_certificate}" \
+        -e "SSL_PASSPHRASE=${ssl_passphrase}" \
+        -e "SSL_GATEWAY_CN=liberty.eianet"  \
+        -e "SSL_SERVER_PORT=3443"  \
+        "connector_image"
 fi
-
-output "Copying security configuration and restarting the connector container"
-docker cp ${IMAGES_PATH}/common/connector/security-config.json connector:/opt/i2/i2analyze/example_connector/security-config.json
-
-# After the connector container is restarted, the example connector starts with the SSL configuration
-docker restart connector
 
 output "Starting Liberty"
 docker exec -u i2analyze liberty /opt/i2/i2analyze/toolkit/scripts/setup -t startLiberty

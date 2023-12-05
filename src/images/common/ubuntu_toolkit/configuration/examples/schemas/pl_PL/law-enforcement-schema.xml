@@ -1126,7 +1126,7 @@
               <PropertyType Description="" DisplayName="Alias" Id="PER8" LogicalType="SINGLE_LINE_STRING" Mandatory="false" Position="6" SemanticTypeId="guid22D95AE3-93EB-4BE9-8FB2-850CDA03F341" MaximumLengthChars="250">
                 <PossibleValues />
               </PropertyType>
-              <PropertyType Description="" DisplayName="Nazwisko panieńskie" Id="PER96" LogicalType="SINGLE_LINE_STRING" Mandatory="false" Position="4" SemanticTypeId="guid62B01C18-2E64-46D5-B2FF-3C69B4F76FEB" MaximumLengthChars="250">
+              <PropertyType Description="" DisplayName="Nazwisko panieńskie" Id="PER96" LogicalType="SINGLE_LINE_STRING" Mandatory="false" Position="4" SemanticTypeId="guid699AD2D5-B30B-4508-9349-0E1AC1FF876C" MaximumLengthChars="250">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Description="Znany(-a) również jako" DisplayName="AKA" Id="PER97" LogicalType="SINGLE_LINE_STRING" Mandatory="false" Position="7" SemanticTypeId="" MaximumLengthChars="250">
@@ -2049,7 +2049,7 @@
               <PropertyType Description="" DisplayName="Waga" Id="PRO19" LogicalType="DECIMAL" Mandatory="false" Position="6" SemanticTypeId="guidE123CC8F-9010-40ED-AE46-516AE21ACC7B">
                 <PossibleValues />
               </PropertyType>
-              <PropertyType Description="" DisplayName="Wysokość (jednostki)" Id="PRO70" LogicalType="SUGGESTED_FROM" Mandatory="false" Position="1" SemanticTypeId="guid3DA39818-EEBA-432D-BAA4-37B6B104C3FB" MaximumLengthChars="250">
+              <PropertyType Description="" DisplayName="Wysokość (jednostki)" Id="PRO70" LogicalType="SUGGESTED_FROM" Mandatory="false" Position="1" SemanticTypeId="" MaximumLengthChars="250">
                 <PossibleValues>
                   <PossibleValue Description="" Value="&lt;Brak informacji&gt;" />
                   <PossibleValue Description="Centymetr" Value="cm" />
@@ -2062,7 +2062,7 @@
                   <PossibleValue Description="Jard" Value="yd" />
                 </PossibleValues>
               </PropertyType>
-              <PropertyType Description="" DisplayName="Waga (jednostki)" Id="PRO73" LogicalType="SUGGESTED_FROM" Mandatory="false" Position="7" SemanticTypeId="guidE123CC8F-9010-40ED-AE46-516AE21ACC7B" MaximumLengthChars="250">
+              <PropertyType Description="" DisplayName="Waga (jednostki)" Id="PRO73" LogicalType="SUGGESTED_FROM" Mandatory="false" Position="7" SemanticTypeId="" MaximumLengthChars="250">
                 <PossibleValues>
                   <PossibleValue Description="" Value="&lt;Brak informacji&gt;" />
                   <PossibleValue Description="Gram" Value="g" />
@@ -2264,7 +2264,7 @@
           <PropertyType Description="Unikalny identyfikator elementu" DisplayName="Unikalne oznaczenie referencyjne" Id="PRO1" LogicalType="SINGLE_LINE_STRING" Mandatory="false" Position="0" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" MaximumLengthChars="250">
             <PossibleValues />
           </PropertyType>
-          <PropertyType Description="" DisplayName="Typ własności" Id="PRO2" LogicalType="SINGLE_LINE_STRING" Mandatory="false" Position="1" SemanticTypeId="guidc329f90d-3bf7-40c3-8d87-f6fe3cb8d5d4" MaximumLengthChars="250">
+          <PropertyType Description="" DisplayName="Typ własności" Id="PRO2" LogicalType="SINGLE_LINE_STRING" Mandatory="false" Position="1" SemanticTypeId="" MaximumLengthChars="250">
             <PossibleValues />
           </PropertyType>
           <PropertyType Description="" DisplayName="Kod" Id="PRO3" LogicalType="SINGLE_LINE_STRING" Mandatory="false" Position="2" SemanticTypeId="" MaximumLengthChars="250">
@@ -3122,7 +3122,7 @@
     </LinkTypes>
   </ItemTypes>
   <Id>5b63625f-e4b4-4b4e-9e6f-d16b9c7e1a49</Id>
-  <Version>100</Version>
+  <Version>1</Version>
   <SourceInfoMandatoryFields IsDateMandatory="false" IsDescriptionMandatory="false" IsReferenceMandatory="false" IsTypeMandatory="false" />
   <LinkStrengthInfo DefaultLinkStrengthId="daf0e75f-ca7d-473a-80bf-6fad91472dc6">
     <LinkStrengths>

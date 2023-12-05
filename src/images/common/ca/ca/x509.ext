@@ -42,15 +42,6 @@ subjectKeyIdentifier    = hash
 authorityKeyIdentifier  = keyid,issuer:always
 subjectAltName          = @liberty_subject_alt_names
 
-[ ihs ]
-# X509 extensions for a server
-keyUsage                = critical,digitalSignature,keyEncipherment
-extendedKeyUsage        = serverAuth,clientAuth
-basicConstraints        = critical,CA:FALSE
-subjectKeyIdentifier    = hash
-authorityKeyIdentifier  = keyid,issuer:always
-subjectAltName          = @web_subject_alt_names
-
 [ admin_client ]
 # X509 extensions for a server
 keyUsage                = critical,digitalSignature,keyEncipherment

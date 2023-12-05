@@ -1,0 +1,3619 @@
+<?xml version="1.0"?>
+<ChartingSchemeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.i2group.com/Schemas/2012-05-29/ModelData/v2">
+  <ChartingSchemes xmlns="">
+    <ChartingScheme Name="Аналіз">
+      <XmlChartingScheme>
+        <ChartItemAttributes>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Використовувалася вогнепальна зброя?</Name>
+            <Type>AttFlag</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " PasteBehaviour="AttMergeMax" MergeBehaviour="AttMergeMax" DecimalPlaces="0">
+            <Name>Вік</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Загальна сума транзакцій</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Вартість</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": " Visible="false">
+            <Name>Найдавніше повідомлення</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": " Visible="false">
+            <Name>Останнє повідомлення</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Дата відкриття</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Дата закриття</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Дата народження</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Найдавніші</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Початок події</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Кінець події</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": " Visible="false">
+            <Name>Найдавніша транзакція</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": " Visible="false">
+            <Name>Остання транзакція</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E">
+            <Name>Дані</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guid7877FB38-38DC-4fea-87BD-838A6EA66F51">
+            <Name>Східне положення</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guidC319A593-C6D6-4cd0-91EF-14A932488F3B">
+            <Name>Північне положення</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guid5304A03B-FE47-4406-91E7-0D49EC8409A6">
+            <Name>Широта</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9">
+            <Name>Довгота</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+        </ChartItemAttributes>
+        <ChartItemDataRecordProperties IncludeProperties="true" IncludeGrades="true" />
+        <EntityMappings>
+          <Default>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <ApolloLabel SchemeId="Схема маркування ядра LE" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </Default>
+          <ItemType Id="ET10">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Назва рахунку">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC12">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Маршрутний номер/код сортування">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Тип рахунку">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Дата відкриття">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Дата закриття">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET1">
+            <PropertyMappings>
+              <PropertyMapping Default="Не встановлено" Property="Label">
+                <ResolvableValue Prefix="Квартира: " Suffix=" ">
+                  <ApolloProperty Id="ADD2">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип розташування">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD25">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Населений пункт">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Округ">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Штат">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD17">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Поштовий індекс/код">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Країна або регіон">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Район">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Східне положення">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD11">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Північне положення">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD12">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Широта">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Довгота">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD14">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Дані">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET8">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Тип пристрою">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM2">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Номер IMSI">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Марка пристрою">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM10">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Адреса електронної пошти">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Вебадреса">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM14">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IP-адреса">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET2">
+            <PropertyMappings>
+              <PropertyMapping Default="Не встановлено" Property="Label">
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE31">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE61">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Description">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип події">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Початок події">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Кінець події">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Використовувалася вогнепальна зброя?">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE7">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="LogicalOr" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET4">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Тип організації">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Вебадреса">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET5">
+            <PropertyMappings>
+              <PropertyMapping Default="Не встановлено" Property="Label">
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Combine" Delimeter=" " />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="PER6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Prefix=" ">
+                  <ApolloProperty Id="PER7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Назва">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Псевдонім">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Також відомий як">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER97">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Дата народження">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Стать">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Сімейний стан">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER29">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Вік">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER12">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Громадянство">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET9">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Назва препарату">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO82">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Тип зброї">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Тип документа">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO30">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Тип тварини">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO34">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Вартість">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO26">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET7">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Розташування камери">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Східне положення">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Північне положення">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Широта">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Довгота">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET3">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Тип транспортного засобу">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Марка транспортного засобу">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Модель транспортного засобу">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Колір транспортного засобу">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </EntityMappings>
+        <LinkMappings>
+          <Default>
+            <LinkSummarization Method="Multiple" />
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <SpecialValue Type="TypeName" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </Default>
+          <ItemType Id="LCO1">
+            <LinkSummarization Method="Directed" SeparateStrengths="true" />
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <SpecialValue Type="SummarizedLinkCount" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Найдавніше повідомлення">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Останнє повідомлення">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LTR1">
+            <LinkSummarization Method="Flow" SeparateStrengths="true">
+              <Flow PropertyTypeId="LTR5" />
+            </LinkSummarization>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <LiteralValue Value="Потік: " />
+                </ResolvableValue>
+                <ResolvableValue>
+                  <SpecialValue Type="Flow" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Загальна сума транзакцій">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Sum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Найдавніша транзакція">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Остання транзакція">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LIN1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип участі">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LSU1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSU4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSU4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </ItemType>
+          <ItemType Id="LOB1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип спостереження">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LAS1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип асоціації">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LST1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип «Вкрадено/знайдено»">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LAC1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип використання">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LME1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип членства">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LEM1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип працевлаштування">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Функція">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LSB1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип дії">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </LinkMappings>
+      </XmlChartingScheme>
+    </ChartingScheme>
+    <ChartingScheme Name="Аналіз (без узагальнення посилань)">
+      <XmlChartingScheme>
+        <ChartItemAttributes>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Використовувалася вогнепальна зброя?</Name>
+            <Type>AttFlag</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " PasteBehaviour="AttMergeMax" MergeBehaviour="AttMergeMax" DecimalPlaces="0">
+            <Name>Вік</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Загальна сума транзакцій</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Вартість</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": " Visible="false">
+            <Name>Найдавніше повідомлення</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": " Visible="false">
+            <Name>Останнє повідомлення</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Дата відкриття</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Дата закриття</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Дата народження</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Найдавніші</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Початок події</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Кінець події</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": " Visible="false">
+            <Name>Найдавніша транзакція</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": " Visible="false">
+            <Name>Остання транзакція</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E">
+            <Name>Дані</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guid7877FB38-38DC-4fea-87BD-838A6EA66F51">
+            <Name>Східне положення</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guidC319A593-C6D6-4cd0-91EF-14A932488F3B">
+            <Name>Північне положення</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guid5304A03B-FE47-4406-91E7-0D49EC8409A6">
+            <Name>Широта</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9">
+            <Name>Довгота</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+        </ChartItemAttributes>
+        <ChartItemDataRecordProperties IncludeProperties="true" IncludeGrades="true" />
+        <EntityMappings>
+          <Default>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <ApolloLabel SchemeId="Схема маркування ядра LE" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </Default>
+          <ItemType Id="ET10">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Назва рахунку">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC12">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Маршрутний номер/код сортування">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Тип рахунку">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Дата відкриття">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Дата закриття">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET1">
+            <PropertyMappings>
+              <PropertyMapping Default="Не встановлено" Property="Label">
+                <ResolvableValue Prefix="Квартира: " Suffix=" ">
+                  <ApolloProperty Id="ADD2">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип розташування">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD25">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Населений пункт">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Округ">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Штат">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD17">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Поштовий індекс/код">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Країна або регіон">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Район">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Східне положення">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD11">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Північне положення">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD12">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Широта">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Довгота">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD14">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Дані">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET8">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Тип пристрою">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM2">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Номер IMSI">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Марка пристрою">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM10">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Адреса електронної пошти">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Вебадреса">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM14">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IP-адреса">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET2">
+            <PropertyMappings>
+              <PropertyMapping Default="Не встановлено" Property="Label">
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE31">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE61">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Description">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип події">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Початок події">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Кінець події">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Використовувалася вогнепальна зброя?">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE7">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="LogicalOr" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET4">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Тип організації">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Вебадреса">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET5">
+            <PropertyMappings>
+              <PropertyMapping Default="Не встановлено" Property="Label">
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Combine" Delimeter=" " />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="PER6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Prefix=" ">
+                  <ApolloProperty Id="PER7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Назва">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Псевдонім">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Також відомий як">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER97">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Дата народження">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Стать">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Сімейний стан">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER29">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Вік">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER12">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Громадянство">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET9">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Назва препарату">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO82">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Тип зброї">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Тип документа">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO30">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Тип тварини">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO34">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Вартість">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO26">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET7">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Розташування камери">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Східне положення">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Північне положення">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Широта">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Довгота">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET3">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Тип транспортного засобу">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Марка транспортного засобу">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Модель транспортного засобу">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Колір транспортного засобу">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </EntityMappings>
+        <LinkMappings>
+          <Default>
+            <LinkSummarization Method="Multiple" />
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <SpecialValue Type="TypeName" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </Default>
+          <ItemType Id="LCO1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <LiteralValue Value="1" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Тип зв'язку">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LTR1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Тип транзакції">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Валюта транзакції">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LIN1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип участі">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LSU1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSU4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSU4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </ItemType>
+          <ItemType Id="LOB1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип спостереження">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LAS1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип асоціації">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LST1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип «Вкрадено/знайдено»">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LAC1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип використання">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LME1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип членства">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LEM1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип працевлаштування">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Функція">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LSB1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип дії">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </LinkMappings>
+      </XmlChartingScheme>
+    </ChartingScheme>
+    <ChartingScheme Name="Презентація">
+      <XmlChartingScheme>
+        <ChartItemAttributes>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Використовувалася вогнепальна зброя?</Name>
+            <Type>AttFlag</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " PasteBehaviour="AttMergeMax" MergeBehaviour="AttMergeMax" DecimalPlaces="0">
+            <Name>Вік</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Загальна сума транзакцій</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Вартість</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": " Visible="false">
+            <Name>Найдавніше повідомлення</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": " Visible="false">
+            <Name>Останнє повідомлення</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Дата відкриття</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Дата закриття</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Дата народження</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Найдавніші</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Початок події</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Кінець події</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": " Visible="false">
+            <Name>Найдавніша транзакція</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": " Visible="false">
+            <Name>Остання транзакція</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E">
+            <Name>Дані</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guid7877FB38-38DC-4fea-87BD-838A6EA66F51">
+            <Name>Східне положення</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guidC319A593-C6D6-4cd0-91EF-14A932488F3B">
+            <Name>Північне положення</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guid5304A03B-FE47-4406-91E7-0D49EC8409A6">
+            <Name>Широта</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9">
+            <Name>Довгота</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+        </ChartItemAttributes>
+        <ChartItemDataRecordProperties />
+        <EntityMappings>
+          <Default>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <ApolloLabel SchemeId="Схема маркування ядра LE" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </Default>
+          <ItemType Id="ET10">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Назва рахунку">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC12">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Маршрутний номер/код сортування">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Тип рахунку">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Дата відкриття">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Дата закриття">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET1">
+            <PropertyMappings>
+              <PropertyMapping Default="Не встановлено" Property="Label">
+                <ResolvableValue Prefix="Квартира: " Suffix=" ">
+                  <ApolloProperty Id="ADD2">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип розташування">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD25">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Населений пункт">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Округ">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Штат">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD17">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Поштовий індекс/код">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Країна або регіон">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Район">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Східне положення">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD11">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Північне положення">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD12">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Широта">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Довгота">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD14">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Дані">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET8">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Тип пристрою">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM2">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Номер IMSI">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Марка пристрою">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM10">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Адреса електронної пошти">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Вебадреса">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM14">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="IP-адреса">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET2">
+            <PropertyMappings>
+              <PropertyMapping Default="Не встановлено" Property="Label">
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE31">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE61">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Description">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип події">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Початок події">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Кінець події">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Використовувалася вогнепальна зброя?">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE7">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="LogicalOr" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET4">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Тип організації">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Вебадреса">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET5">
+            <PropertyMappings>
+              <PropertyMapping Default="Не встановлено" Property="Label">
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Combine" Delimeter=" " />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="PER6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Prefix=" ">
+                  <ApolloProperty Id="PER7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Назва">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Псевдонім">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Також відомий як">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER97">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Дата народження">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Стать">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Сімейний стан">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER29">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Вік">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER12">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Громадянство">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET9">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Назва препарату">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO82">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Тип зброї">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Тип документа">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO30">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Тип тварини">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO34">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Вартість">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO26">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET7">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Розташування камери">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Східне положення">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Північне положення">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Широта">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Довгота">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET3">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Name="Тип транспортного засобу">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Марка транспортного засобу">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Модель транспортного засобу">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Колір транспортного засобу">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </EntityMappings>
+        <LinkMappings>
+          <Default>
+            <LinkSummarization Method="Multiple" />
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <SpecialValue Type="TypeName" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </Default>
+          <ItemType Id="LCO1">
+            <LinkSummarization Method="Directed" SeparateStrengths="true" />
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <SpecialValue Type="SummarizedLinkCount" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Найдавніше повідомлення">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Останнє повідомлення">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LTR1">
+            <LinkSummarization Method="Flow" SeparateStrengths="true">
+              <Flow PropertyTypeId="LTR5" />
+            </LinkSummarization>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <LiteralValue Value="Потік: " />
+                </ResolvableValue>
+                <ResolvableValue>
+                  <SpecialValue Type="Flow" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Загальна сума транзакцій">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Sum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Найдавніша транзакція">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Остання транзакція">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LIN1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип участі">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LSU1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSU4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSU4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </ItemType>
+          <ItemType Id="LOB1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип спостереження">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LAS1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип асоціації">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LST1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип «Вкрадено/знайдено»">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LAC1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип використання">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LME1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип членства">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LEM1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип працевлаштування">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Name="Функція">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LSB1">
+            <LinkSummarization />
+            <PropertyMappings>
+              <PropertyMapping Property="Date">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="Time">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Name="Тип дії">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </LinkMappings>
+      </XmlChartingScheme>
+    </ChartingScheme>
+    <ChartingScheme Name="Структура мережі">
+      <XmlChartingScheme>
+        <ChartItemAttributes>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Використовувалася вогнепальна зброя?</Name>
+            <Type>AttFlag</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " PasteBehaviour="AttMergeMax" MergeBehaviour="AttMergeMax" DecimalPlaces="0">
+            <Name>Вік</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Загальна сума транзакцій</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Вартість</Name>
+            <Type>AttNumber</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": " Visible="false">
+            <Name>Найдавніше повідомлення</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": " Visible="false">
+            <Name>Останнє повідомлення</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Дата відкриття</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Дата закриття</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Дата народження</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Найдавніші</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Початок події</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": ">
+            <Name>Кінець події</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": " Visible="false">
+            <Name>Найдавніша транзакція</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowTime="true" ShowPrefix="true" ShowClassName="true" Prefix=": " Visible="false">
+            <Name>Остання транзакція</Name>
+            <Type>AttTime</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guid9A5BB6AF-5CF8-45b5-98F0-1C3F6B19A90E">
+            <Name>Дані</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guid7877FB38-38DC-4fea-87BD-838A6EA66F51">
+            <Name>Східне положення</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guidC319A593-C6D6-4cd0-91EF-14A932488F3B">
+            <Name>Північне положення</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guid5304A03B-FE47-4406-91E7-0D49EC8409A6">
+            <Name>Широта</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+          <ChartItemAttribute ShowPrefix="true" ShowClassName="true" Prefix=": " SemanticPropertyTypeGuid="guid14BCA0EC-D67A-4A67-BC36-CFF650FD77A9">
+            <Name>Довгота</Name>
+            <Type>AttText</Type>
+            <IconFile>general</IconFile>
+          </ChartItemAttribute>
+        </ChartItemAttributes>
+        <ChartItemDataRecordProperties />
+        <EntityMappings>
+          <Default>
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue>
+                  <ApolloLabel SchemeId="Схема маркування ядра LE" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </Default>
+          <ItemType Id="ET10">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Назва рахунку">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC12">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Маршрутний номер/код сортування">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Тип рахунку">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Дата відкриття">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Дата закриття">
+                <ResolvableValue>
+                  <ApolloProperty Id="ACC7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET1">
+            <PropertyMappings>
+              <PropertyMapping Default="Не встановлено" Property="Label">
+                <ResolvableValue Prefix="Квартира: " Suffix=" ">
+                  <ApolloProperty Id="ADD2">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="ADD4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Тип розташування">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD25">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Населений пункт">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Округ">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Штат">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD17">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Поштовий індекс/код">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Країна або регіон">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Район">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Східне положення">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD11">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Північне положення">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD12">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Широта">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Довгота">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD14">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Дані">
+                <ResolvableValue>
+                  <ApolloProperty Id="ADD15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET8">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Тип пристрою">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM2">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Номер IMSI">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Марка пристрою">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM10">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Адреса електронної пошти">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Вебадреса">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM14">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="IP-адреса">
+                <ResolvableValue>
+                  <ApolloProperty Id="COM15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET2">
+            <PropertyMappings>
+              <PropertyMapping Default="Не встановлено" Property="Label">
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="EVE31">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE61">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Тип події">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Початок події">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Кінець події">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Використовувалася вогнепальна зброя?">
+                <ResolvableValue>
+                  <ApolloProperty Id="EVE7">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="LogicalOr" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET4">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Тип організації">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Вебадреса">
+                <ResolvableValue>
+                  <ApolloProperty Id="ORG4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET5">
+            <PropertyMappings>
+              <PropertyMapping Default="Не встановлено" Property="Label">
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Suffix=" ">
+                  <ApolloProperty Id="PER5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Combine" Delimeter=" " />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue>
+                  <ApolloProperty Id="PER6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+                <ResolvableValue Prefix=" ">
+                  <ApolloProperty Id="PER7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Назва">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Псевдонім">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Також відомий як">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER97">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Дата народження">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Стать">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER15">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Сімейний стан">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER29">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Вік">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER12">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Громадянство">
+                <ResolvableValue>
+                  <ApolloProperty Id="PER13">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET9">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Назва препарату">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO82">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Тип зброї">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO21">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Тип документа">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO30">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Тип тварини">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO34">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Вартість">
+                <ResolvableValue>
+                  <ApolloProperty Id="PRO26">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET7">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Розташування камери">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Східне положення">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Північне положення">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR6">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Широта">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Довгота">
+                <ResolvableValue>
+                  <ApolloProperty Id="SUR8">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="ET3">
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Тип транспортного засобу">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Марка транспортного засобу">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Модель транспортного засобу">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH5">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Колір транспортного засобу">
+                <ResolvableValue>
+                  <ApolloProperty Id="VEH9">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </EntityMappings>
+        <LinkMappings>
+          <Default>
+            <LinkSummarization Method="Single" />
+            <PropertyMappings>
+              <PropertyMapping Property="Label">
+                <ResolvableValue Suffix=": ">
+                  <SpecialValue Type="TypeName" />
+                </ResolvableValue>
+                <ResolvableValue>
+                  <SpecialValue Type="SummarizedLinkCount" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceReference">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Reference" />
+                </ResolvableValue>
+              </PropertyMapping>
+              <PropertyMapping Property="SourceType">
+                <ResolvableValue>
+                  <ApolloSourceInfo Property="Type" />
+                </ResolvableValue>
+              </PropertyMapping>
+            </PropertyMappings>
+            <AttributeMappings />
+          </Default>
+          <ItemType Id="LCO1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Найдавніше повідомлення">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Останнє повідомлення">
+                <ResolvableValue>
+                  <ApolloProperty Id="LCO4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LTR1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Загальна сума транзакцій">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR5">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Sum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Найдавніша транзакція">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Minimum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Остання транзакція">
+                <ResolvableValue>
+                  <ApolloProperty Id="LTR4">
+                    <Aggregation Values="AllValuesFromAllItems" Operation="Maximum" />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LIN1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Тип участі">
+                <ResolvableValue>
+                  <ApolloProperty Id="LIN3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LSU1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings />
+          </ItemType>
+          <ItemType Id="LOB1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Тип спостереження">
+                <ResolvableValue>
+                  <ApolloProperty Id="LOB3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LAS1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Тип асоціації">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAS4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LST1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Тип «Вкрадено/знайдено»">
+                <ResolvableValue>
+                  <ApolloProperty Id="LST3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LAC1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Тип використання">
+                <ResolvableValue>
+                  <ApolloProperty Id="LAC3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LME1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Тип членства">
+                <ResolvableValue>
+                  <ApolloProperty Id="LME4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LEM1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Тип працевлаштування">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM4">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+              <AttributeMapping Enabled="false" Name="Функція">
+                <ResolvableValue>
+                  <ApolloProperty Id="LEM7">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+          <ItemType Id="LSB1">
+            <LinkSummarization />
+            <PropertyMappings />
+            <AttributeMappings>
+              <AttributeMapping Enabled="false" Name="Тип дії">
+                <ResolvableValue>
+                  <ApolloProperty Id="LSB3">
+                    <Aggregation />
+                  </ApolloProperty>
+                </ResolvableValue>
+              </AttributeMapping>
+            </AttributeMappings>
+          </ItemType>
+        </LinkMappings>
+      </XmlChartingScheme>
+    </ChartingScheme>
+  </ChartingSchemes>
+</ChartingSchemeList>

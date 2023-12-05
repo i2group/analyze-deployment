@@ -35,14 +35,6 @@ if [ "$(docker ps -q -f name=etl_client)" ]; then
   docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer etl_client:/opt/i2/utils/keys/CA.cer
 fi
 
-if [ "$(docker ps -q -f name=connector)" ]; then
-  docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer connector:/opt/i2/utils/keys/CA.cer
-fi
-
-if [ "$(docker ps -q -f name=ihs)" ]; then
-  docker cp ${IMAGES_PATH}/common/ca/ca/CA.cer ihs:/opt/i2/utils/keys/CA.cer
-fi
-
 output "Creating the liberty container key store and certificate signing request"
 docker exec -u root -t liberty rm -rf /opt/i2/keys
 runDockerExecWithSSLPassword liberty "/opt/i2/utils/jks/createCSR liberty jks"
@@ -103,15 +95,6 @@ case "${dbDialect}" in
     ;;
 esac
 
-
-if [ "$(docker ps -q -f name=ihs)" ]; then
-  output "Creating the ihs container key store and certificate signing request"
-  docker exec -u root -t ihs rm -rf /opt/i2/keys
-  runDockerExecWithSSLPassword ihs "/opt/i2/utils/cms/createCSR ihs"
-  docker cp ihs:/opt/i2/keys/requests/. ${SRC_DIR}/keys/requests
-  runDockerExecWithSSLPassword ihs "/opt/i2/utils/cms/createTrustStore cms"
-fi
-
 output "Creating the admin_client container key store and certificate signing request"
 docker exec -u root -t admin_client rm -rf /opt/i2/keys
 runDockerExecWithSSLPassword admin_client "/opt/i2/utils/jks/createCSR admin_client jks"
@@ -132,12 +115,10 @@ if [ "$(docker ps -q -f name=etl_client)" ]; then
   fi
 fi
 
-if [ "$(docker ps -q -f name=connector)" ]; then
-  output "Creating i2 Connect connector key store and certificate signing request"
-  docker exec -u root -t connector rm -rf /opt/i2/keys
-  runDockerExecWithSSLPassword connector "/opt/i2/utils/openssl/createCSR connector"
-  docker cp connector:/opt/i2/keys/requests/. ${SRC_DIR}/keys/requests
-fi
+output "Creating i2 Connect connector key store and certificate signing request"
+runDockerExecWithSSLPassword admin_client "/opt/i2/utils/openssl/createCSR connector"
+docker cp admin_client:/opt/i2/keys/requests/. ${SRC_DIR}/keys/requests
+docker cp admin_client:/opt/i2/keys/stores/. ${SRC_DIR}/keys/stores
 
 output "Copy the common trust store to each container"
 docker cp admin_client:/opt/i2/keys/stores/i2-jks-truststore.jks ${SRC_DIR}/keys/stores/i2-jks-truststore.jks

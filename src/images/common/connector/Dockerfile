@@ -2,57 +2,32 @@
 # © N.Harris Computer Corporation (2022-2023)
 #
 # SPDX short identifier: MIT
+ARG NODEJS_BASE_IMAGE="registry.access.redhat.com/ubi9/nodejs-18"
+FROM ${NODEJS_BASE_IMAGE}
 
-FROM ubuntu:22.04
+LABEL maintainer="i2 Group"
+USER 0
 
-LABEL maintainer="i2group"
-LABEL version="2.9.0"
+WORKDIR ${HOME}
+ENV NODE_ENV=production
 
-#Install the prerequisites.
-RUN apt-get update && \
-    apt-get install -y \
-    curl \
-    nano
+EXPOSE 3000 3443
 
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
+# Install app dependencies
+# npm install will install the dependencies defined in npm-shrinkwrap.json if it exists, otherwise in package-lock.json if it exists or if neither the latest dependencies
+COPY app/package*.json app/npm-shrinkwrap.json* ./
 
-#Install Node.js to host the example connector.
-RUN apt-get install -y nodejs
-
-#Configure the i2analyze user and group.
-RUN groupadd i2analyze
-RUN useradd -m -g i2analyze i2analyze
-
-#Create a group for securing the keys.
-RUN groupadd keys && usermod -a -G keys i2analyze
-
-#Use the extracted toolkit from the ubuntu_toolkit_image to copy the example connector to the image.
-COPY --chown=i2analyze:i2analyze --from=ubuntu_toolkit_image /opt/i2/i2analyze/toolkit/examples/connectors/example-connector /opt/i2/i2analyze/example_connector
-
-#Add the startupExt file for future startup commands
-COPY --chown=i2analyze:i2analyze --from=ubuntu_toolkit_image /opt/i2/startupExt /opt/i2/startupExt
-
-#Add the populated security-config.json for the example connector to the connector image.
-COPY --chown=i2analyze:i2analyze security-config.json /opt/i2/i2analyze/example_connector/security-config.json
-
-#Copy the utils to the container.
-COPY --chown=i2analyze:i2analyze --from=ubuntu_toolkit_image /opt/i2/utils /opt/i2/utils
-
-#Remove hard coded reference to user random file
-#see https://github.com/openssl/openssl/issues/7754
-RUN sed -i -E 's/^(RANDFILE.*HOME.*)/#\1/' /etc/ssl/openssl.cnf
-
-WORKDIR /opt/i2/i2analyze/example_connector
-
-#Install the prerequisites for the example connector.
+# Install our dependencies
 RUN npm install
 
-USER i2analyze:i2analyze
+# Node image comes with a non-root node user. Lets avoid running the connector
+# as root. It is a recommended security practice to avoid running containers as root
 
-#Start the example connector.
-RUN echo "nodejs /opt/i2/i2analyze/example_connector/app.js || echo \"Error starting example connector\"" >> /opt/i2/startupExt
+# Sets the user to be 1001. This user will be used for all subsequent commands
+USER 1001
 
-#Expose the port that the example connector uses.
-EXPOSE 3700
+# Copy our application code with the appropriate permissions
+COPY --chown=1001:0 app/ .
 
-ENTRYPOINT /opt/i2/startupExt && tail -f /dev/null
+# The lifecycle of the connector will be attached to node app
+CMD [ "npm", "run", "serve" ]

@@ -11,11 +11,15 @@ This file allows you to assign access to specific functions to different user gr
  *  i2:ChartsDelete - Allows charts to be deleted from the Information Store
  *  i2:ChartsRead - Allows charts to be retrieved from the Information Store
  *  i2:RecordsExport - Allows records to be exported to a CSV file
+ *  i2:Connectors - Allows connectors to be visible
+ *  i2:Connectors:connector-id - Allows the connector with the matching connector-id to be visible. For example, "i2:Connectors:example-connector".
  *  i2:Notebook - Allows access to the i2 Notebook web client
  *  i2:AlertsCreate - Allows access to the REST API endpoint for creating and sending alerts
+ *  i2:CustomTypes - Allows users to create, delete, edit, and use custom item and property types in Analyst's Notebook
+ *  i2:Share - Allows access to all sharing features; see below for specific permissions
+ *  i2:Share:Records - Allows users to share records, through chartlets
 Note:  You can use a wildcard (*) to specify all user groups
 -->
-
     <CommandAccessPermissions UserGroup="Administrator">
         <Permission Value="i2:Administrator" />
     </CommandAccessPermissions>
@@ -37,6 +41,16 @@ Note:  You can use a wildcard (*) to specify all user groups
         <Permission Value="i2:ChartsUpload" />
         <Permission Value="i2:ChartsDelete" />
         <Permission Value="i2:Notebook" />
+        <Permission Value="i2:Share:Records" />
+        <Permission Value="i2:CustomTypes" />
+    </CommandAccessPermissions>
+
+    <CommandAccessPermissions UserGroup="Analyst">
+        <Permission Value="i2:Connectors" />
+    </CommandAccessPermissions>
+
+    <CommandAccessPermissions UserGroup="*">
+        <Permission Value="i2:Connectors:example-connector" />
     </CommandAccessPermissions>
 
 </tns:CommandAccessControl>

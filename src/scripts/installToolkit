@@ -88,9 +88,6 @@ removeOldToolkitFromContainer zookeeper3
 removeOldToolkitFromContainer solr
 removeOldToolkitFromContainer solr2
 removeOldToolkitFromContainer liberty
-if [ "$(docker ps -q -f name=ihs)" ]; then
-  removeOldToolkitFromContainer ihs
-fi
 
 output "Install new dependencies required by the new toolkit to the containers"
 installNewDependencies liberty
@@ -105,9 +102,5 @@ copyAndExtractToolkit zookeeper3 $1
 copyAndExtractToolkit solr $1
 copyAndExtractToolkit solr2 $1
 copyAndExtractToolkit liberty $1
-
-if [ "$(docker ps -q -f name=ihs)" ]; then
-  copyAndExtractToolkit ihs $1
-fi
 
 popd

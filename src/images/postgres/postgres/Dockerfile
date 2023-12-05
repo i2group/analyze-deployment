@@ -3,7 +3,7 @@
 #
 # SPDX short identifier: MIT
 
-FROM postgis/postgis
+FROM postgis/postgis:15-master
 
 USER root:root
 

@@ -16,7 +16,7 @@
                   trust-store="/opt/i2/keys/stores/i2-jks-truststore.jks" />
     </databases>
     <applications>
-        <application http-server-host="true" name="opal-server" host-name="liberty.eianet"
+        <application name="opal-server" host-name="liberty.eianet"
                      secure-connection="true">
             <key-stores>
                 <key-store type="key-store" file="/opt/i2/keys/stores/i2-jks-keystore.jks" />

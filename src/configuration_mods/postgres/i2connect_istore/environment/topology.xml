@@ -12,7 +12,7 @@
               database-name="ISTORE" xa="false" host-name="postgres.eianet" id="infostore" port-number="5432" os-type="unix" />
   </databases>
   <applications>
-    <application http-server-host="false" name="opal-server" host-name="liberty.eianet">
+    <application name="opal-server" host-name="liberty.eianet">
 	<key-stores>
          <key-store type="key-store" file="/opt/i2/keys/stores/i2-jks-keystore.jks" />
          <key-store type="trust-store" file="/opt/i2/keys/stores/i2-jks-truststore.jks" />
@@ -54,7 +54,7 @@
     </application>
   </applications>
   <connectors>
-    <connector id="example-connector" name="Example Connector" base-url="https://connector.eianet:3700/"/>
+    <connector id="example-connector" name="Example Connector" base-url="https://connector.eianet:3443/"/>
   </connectors>
   <zookeepers>
     <zookeeper id="zoo">

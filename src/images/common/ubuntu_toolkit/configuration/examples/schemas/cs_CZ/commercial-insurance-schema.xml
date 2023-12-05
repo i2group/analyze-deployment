@@ -1985,7 +1985,7 @@
     </LinkTypes>
   </ItemTypes>
   <Id>18b14ee3-ffb4-4e35-88bd-eee7f5806fa7</Id>
-  <Version>16</Version>
+  <Version>1</Version>
   <SourceInfoMandatoryFields IsDateMandatory="false" IsDescriptionMandatory="false" IsReferenceMandatory="false" IsTypeMandatory="false" />
   <LinkStrengthInfo DefaultLinkStrengthId="daf0e75f-ca7d-473a-80bf-6fad91472dc6">
     <LinkStrengths>

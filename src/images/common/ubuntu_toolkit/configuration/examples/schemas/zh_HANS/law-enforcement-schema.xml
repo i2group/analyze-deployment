@@ -1019,7 +1019,7 @@
               <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid22D95AE3-93EB-4BE9-8FB2-850CDA03F341" DisplayName="昵称" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER8">
                 <PossibleValues />
               </PropertyType>
-              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid62B01C18-2E64-46D5-B2FF-3C69B4F76FEB" DisplayName="娘家姓" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER96">
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid699AD2D5-B30B-4508-9349-0E1AC1FF876C" DisplayName="娘家姓" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER96">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="别名" Description="或称" LogicalType="SINGLE_LINE_STRING" Id="PER97">
@@ -1946,7 +1946,7 @@
               <PropertyType Position="6" Mandatory="false" SemanticTypeId="guidE123CC8F-9010-40ED-AE46-516AE21ACC7B" DisplayName="重量" Description="" LogicalType="DECIMAL" Id="PRO19">
                 <PossibleValues />
               </PropertyType>
-              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid3DA39818-EEBA-432D-BAA4-37B6B104C3FB" DisplayName="高度（单位）" Description="" LogicalType="SUGGESTED_FROM" Id="PRO70">
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="高度（单位）" Description="" LogicalType="SUGGESTED_FROM" Id="PRO70">
                 <PossibleValues>
                   <PossibleValue Description="" Value="&lt;未知&gt;" />
                   <PossibleValue Description="厘米" Value="cm" />
@@ -1959,7 +1959,7 @@
                   <PossibleValue Description="码" Value="yd" />
                 </PossibleValues>
               </PropertyType>
-              <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidE123CC8F-9010-40ED-AE46-516AE21ACC7B" DisplayName="重量（单位）" Description="" LogicalType="SUGGESTED_FROM" Id="PRO73">
+              <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="重量（单位）" Description="" LogicalType="SUGGESTED_FROM" Id="PRO73">
                 <PossibleValues>
                   <PossibleValue Description="" Value="&lt;未知&gt;" />
                   <PossibleValue Description="克" Value="g" />
@@ -2161,7 +2161,7 @@
           <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="唯一参照" Description="项目的唯一标识" LogicalType="SINGLE_LINE_STRING" Id="PRO1">
             <PossibleValues />
           </PropertyType>
-          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidc329f90d-3bf7-40c3-8d87-f6fe3cb8d5d4" DisplayName="属性类型" Description="" LogicalType="SINGLE_LINE_STRING" Id="PRO2">
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="属性类型" Description="" LogicalType="SINGLE_LINE_STRING" Id="PRO2">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="代码" Description="" LogicalType="SINGLE_LINE_STRING" Id="PRO3">

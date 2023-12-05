@@ -21,13 +21,13 @@ pushd ..
 . ${UTILS_PATH}/functions
 
 output "Cleaning up any previously created deployment example containers if they exist."
-docker rm -f zookeeper zookeeper2 zookeeper3 solr solr2 sqlserver postgres db2 admin_client liberty etl_client ihs connector &>/dev/null || true
+docker rm -f zookeeper zookeeper2 zookeeper3 solr solr2 sqlserver postgres db2 admin_client liberty etl_client connector &>/dev/null || true
 
 output "Clean up the previously created deployment example network if it exists."
 docker network rm eianet &>/dev/null || true
 
 output "Creating the (eianet) deployment example network."
-docker network create eianet
+docker network create eianet &>/dev/null || true
 
 output "Running the zookeeper, zookeeper2 and zookeeper3 containers on the eia network."
 docker run -d --name zookeeper --net eianet --memory=512m -u i2analyze zookeeper_image
@@ -67,11 +67,6 @@ docker exec -t sqlserver /opt/mssql-tools/bin/sqlcmd -U SA -P ${saPassword} -Q "
 
 output "Running the admin_client container to create the database"
 docker exec -t -u i2analyze admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t createDatabases
-
-if [ "$(docker images -q ihs_image)" ]; then
-  output "Running the ihs container on the eia network"
-  docker run -d --name ihs -h ihs -p 80:80 -p 443:443 --memory=512m --net eianet -u root ihs_image
-fi
 
 output "Running the liberty container on the eia network"
 docker run -d --name liberty -p 9082:9082 -p 9445:9445 --net eianet --memory=2g -u i2analyze liberty_sqlserver_image

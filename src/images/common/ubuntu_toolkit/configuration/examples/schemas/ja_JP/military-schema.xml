@@ -2039,7 +2039,7 @@
               <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="書類の拡張子" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT23">
                 <PossibleValues />
               </PropertyType>
-              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidA3056048-D54F-462b-BF88-65FE24142A9F" DisplayName="書類 URL" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT25">
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="書類 URL" Description="" LogicalType="SINGLE_LINE_STRING" Id="INT25">
                 <PossibleValues />
               </PropertyType>
             </PropertyTypes>
@@ -2515,7 +2515,7 @@
                   <PossibleValue Description="" Value="処方" />
                 </PossibleValues>
               </PropertyType>
-              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidE123CC8F-9010-40ED-AE46-516AE21ACC7B" DisplayName="重量" Description="" LogicalType="SINGLE_LINE_STRING" Id="PRO63">
+              <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="重量" Description="" LogicalType="SINGLE_LINE_STRING" Id="PRO63">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="3" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="重量 (単位)" Description="" LogicalType="SINGLE_LINE_STRING" Id="PRO64">

@@ -24,7 +24,7 @@ pushd ..
 
 configurationDir=${1:-ssl}
 
-if [[ $configurationDir != "client_cert_ssl" &&  $configurationDir != "ssl" &&  $configurationDir != "ihs_ssl" ]]; then
+if [[ $configurationDir != "client_cert_ssl" &&  $configurationDir != "ssl" ]]; then
     echo "Error: Invalid configuration. Please provide an SSL configuration name."
     exit 1
 fi
@@ -37,16 +37,6 @@ fi
 
 output "Stopping Liberty"
 docker exec -u i2analyze    liberty     /opt/i2/i2analyze/toolkit/scripts/setup -t stopLiberty
-
-if [ "$(docker ps -q -f name=ihs)" ]; then
-    output "Stopping IBM HTTPServer"
-    docker exec -u root ihs bash -c "/opt/IBM/HTTPServer/bin/apachectl stop"
-    echo "IBM HTTPServer has stopped"
-fi
-
-# TODO Remove - switching protocol in Solr supported in next release.
-output "Deleting Solr Collections"
-docker exec -u i2analyze admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t deleteSolrCollections -f --all --hostname admin_client.eianet
 
 output "Stopping Solr and Zookeeper"
 docker exec -u i2analyze    solr        /opt/i2/i2analyze/toolkit/scripts/setup -t stopSolrNodes   --hostname solr.eianet
@@ -156,21 +146,6 @@ docker exec -u i2analyze admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t
 output "Starting Solr"
 docker exec -u i2analyze    solr         /opt/i2/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr.eianet
 docker exec -u i2analyze    solr2        /opt/i2/i2analyze/toolkit/scripts/setup -t startSolrNodes --hostname solr2.eianet
-
-output "Creating Solr Collections"
-docker exec -u i2analyze admin_client /opt/i2/i2analyze/toolkit/scripts/setup -t createSolrCollections --all --hostname admin_client.eianet
-
-if [[ $configurationDir == "ihs_ssl" || $configurationDir == "client_cert_ssl" ]]; then
-    output "Updating the HTTP Server configuration"
-    docker exec -it ihs /opt/i2/i2analyze/toolkit/scripts/setup -t configureHttpServer
-    docker exec -u root ihs bash -c "cp /opt/i2/i2analyze/toolkit/configuration/plugin-cfg.xml /opt/IBM/HTTPServer/plugins/iap/config/plugin-cfg.xml &>/dev/null || true"
-fi
-
-if [ "$(docker ps -q -f name=ihs)" ]; then
-    output "Starting IBM HTTPServer"
-    docker exec -u root ihs bash -c "/opt/IBM/HTTPServer/bin/apachectl start"
-    echo "IBM HTTPServer has started"
-fi
 
 output "Starting Liberty"
 docker exec -u i2analyze    liberty     /opt/i2/i2analyze/toolkit/scripts/setup -t startLiberty

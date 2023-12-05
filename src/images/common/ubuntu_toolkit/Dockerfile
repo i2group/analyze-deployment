@@ -15,6 +15,7 @@ RUN apt-get update && \
     binutils \
     libxml2 \
     libaio1 \
+    lsof \
     numactl \
     net-tools \
     nano \

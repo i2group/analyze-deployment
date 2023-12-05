@@ -12,7 +12,15 @@ The format is based on [Keep a Changelog], and this project adheres to
 * `Fixed` for any bug fixes.
 * `Security` in case of vulnerabilities.
 
-## [2.9.0] - 01/08/2022
+## [2.10.0] - 05/12/2023
+
+### Added
+
+* Updated for compatibility with i2 Analyze 4.4.3
+
+[2.10.0]: https://github.com/i2group/analyze-deployment/tree/v2.10.0
+
+## [2.9.0] - 01/08/2023
 
 ### Added
 
@@ -25,7 +33,6 @@ The format is based on [Keep a Changelog], and this project adheres to
 ### Added
 
 * Updated for compatibility with i2 Analyze 4.4.1
-* PostgreSQL support
 
 [2.8.0]: https://github.com/i2group/analyze-deployment/tree/v2.8.0
 

@@ -1018,7 +1018,7 @@
               <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid22D95AE3-93EB-4BE9-8FB2-850CDA03F341" DisplayName="Alias" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER8">
                 <PossibleValues />
               </PropertyType>
-              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid62B01C18-2E64-46D5-B2FF-3C69B4F76FEB" DisplayName="Apellido de soltera" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER96">
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid699AD2D5-B30B-4508-9349-0E1AC1FF876C" DisplayName="Apellido de soltera" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER96">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Mote" Description="Se conoce también como" LogicalType="SINGLE_LINE_STRING" Id="PER97">
@@ -1945,7 +1945,7 @@
               <PropertyType Position="6" Mandatory="false" SemanticTypeId="guidE123CC8F-9010-40ED-AE46-516AE21ACC7B" DisplayName="Peso" Description="" LogicalType="DECIMAL" Id="PRO19">
                 <PossibleValues />
               </PropertyType>
-              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid3DA39818-EEBA-432D-BAA4-37B6B104C3FB" DisplayName="Altura (unidades)" Description="" LogicalType="SUGGESTED_FROM" Id="PRO70">
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Altura (unidades)" Description="" LogicalType="SUGGESTED_FROM" Id="PRO70">
                 <PossibleValues>
                   <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
                   <PossibleValue Description="Centímetro" Value="cm" />
@@ -1958,7 +1958,7 @@
                   <PossibleValue Description="Yarda" Value="yd" />
                 </PossibleValues>
               </PropertyType>
-              <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidE123CC8F-9010-40ED-AE46-516AE21ACC7B" DisplayName="Peso (unidades)" Description="" LogicalType="SUGGESTED_FROM" Id="PRO73">
+              <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Peso (unidades)" Description="" LogicalType="SUGGESTED_FROM" Id="PRO73">
                 <PossibleValues>
                   <PossibleValue Description="" Value="&lt;Desconocido&gt;" />
                   <PossibleValue Description="Gramo" Value="g" />
@@ -2160,7 +2160,7 @@
           <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="Referencia exclusiva" Description="Identificador único del elemento" LogicalType="SINGLE_LINE_STRING" Id="PRO1">
             <PossibleValues />
           </PropertyType>
-          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidc329f90d-3bf7-40c3-8d87-f6fe3cb8d5d4" DisplayName="Tipo de propiedad" Description="" LogicalType="SINGLE_LINE_STRING" Id="PRO2">
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Tipo de propiedad" Description="" LogicalType="SINGLE_LINE_STRING" Id="PRO2">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="Código" Description="" LogicalType="SINGLE_LINE_STRING" Id="PRO3">

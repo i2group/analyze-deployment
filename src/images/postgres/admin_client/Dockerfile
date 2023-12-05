@@ -3,7 +3,7 @@
 #
 # SPDX short identifier: MIT
 
-FROM postgis/postgis
+FROM postgis/postgis:15-master
 
 LABEL maintainer="i2group"
 LABEL version="2.9.0"

@@ -1019,7 +1019,7 @@
               <PropertyType Position="6" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid22D95AE3-93EB-4BE9-8FB2-850CDA03F341" DisplayName="예명" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER8">
                 <PossibleValues />
               </PropertyType>
-              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid62B01C18-2E64-46D5-B2FF-3C69B4F76FEB" DisplayName="결혼 전 성(US 전용)" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER96">
+              <PropertyType Position="4" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid699AD2D5-B30B-4508-9349-0E1AC1FF876C" DisplayName="결혼 전 성(US 전용)" Description="" LogicalType="SINGLE_LINE_STRING" Id="PER96">
                 <PossibleValues />
               </PropertyType>
               <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="AKA" Description="다른 이름" LogicalType="SINGLE_LINE_STRING" Id="PER97">
@@ -1946,7 +1946,7 @@
               <PropertyType Position="6" Mandatory="false" SemanticTypeId="guidE123CC8F-9010-40ED-AE46-516AE21ACC7B" DisplayName="무게" Description="" LogicalType="DECIMAL" Id="PRO19">
                 <PossibleValues />
               </PropertyType>
-              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid3DA39818-EEBA-432D-BAA4-37B6B104C3FB" DisplayName="높이 (단위)" Description="" LogicalType="SUGGESTED_FROM" Id="PRO70">
+              <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="높이 (단위)" Description="" LogicalType="SUGGESTED_FROM" Id="PRO70">
                 <PossibleValues>
                   <PossibleValue Description="" Value="&lt;알 수 없음&gt;" />
                   <PossibleValue Description="센티미터" Value="cm" />
@@ -1959,7 +1959,7 @@
                   <PossibleValue Description="야드" Value="yd" />
                 </PossibleValues>
               </PropertyType>
-              <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidE123CC8F-9010-40ED-AE46-516AE21ACC7B" DisplayName="무게 (단위)" Description="" LogicalType="SUGGESTED_FROM" Id="PRO73">
+              <PropertyType Position="7" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="무게 (단위)" Description="" LogicalType="SUGGESTED_FROM" Id="PRO73">
                 <PossibleValues>
                   <PossibleValue Description="" Value="&lt;알 수 없음&gt;" />
                   <PossibleValue Description="그램" Value="g" />
@@ -2161,7 +2161,7 @@
           <PropertyType Position="0" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guid77591248-AE21-4853-8F0E-C91F8E33E32F" DisplayName="고유 참조값" Description="항목의 고유 ID" LogicalType="SINGLE_LINE_STRING" Id="PRO1">
             <PossibleValues />
           </PropertyType>
-          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="guidc329f90d-3bf7-40c3-8d87-f6fe3cb8d5d4" DisplayName="특성 유형" Description="" LogicalType="SINGLE_LINE_STRING" Id="PRO2">
+          <PropertyType Position="1" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="특성 유형" Description="" LogicalType="SINGLE_LINE_STRING" Id="PRO2">
             <PossibleValues />
           </PropertyType>
           <PropertyType Position="2" Mandatory="false" MaximumLengthChars="250" SemanticTypeId="" DisplayName="코드" Description="" LogicalType="SINGLE_LINE_STRING" Id="PRO3">

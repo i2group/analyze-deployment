@@ -75,11 +75,13 @@ output "Starting Solr"
 docker exec -u i2analyze solr ${I2ANALYZE_PATH}/toolkit/scripts/setup -t startSolr --hostname solr.eianet
 docker exec -u i2analyze solr2 ${I2ANALYZE_PATH}/toolkit/scripts/setup -t startSolr --hostname solr2.eianet
 
-output "Upgrading the Solr collection"
-docker exec -u i2analyze admin_client ${I2ANALYZE_PATH}/toolkit/scripts/setup -t upgradeSolrCollections --hostname admin_client.eianet
-
 output "Upgrading Liberty"
 docker exec -t -u i2analyze liberty ${I2ANALYZE_PATH}/toolkit/scripts/setup -t upgradeLiberty
+
+output "Upgrading the Solr collection"
+docker exec -u i2analyze admin_client ${I2ANALYZE_PATH}/toolkit/scripts/setup -t upgradeSolrCollections --hostname admin_client.eianet
+docker exec -u i2analyze admin_client ${I2ANALYZE_PATH}/toolkit/scripts/setup -t upgradeAllSolrIndexes --hostname admin_client.eianet
+docker exec -u i2analyze admin_client ${I2ANALYZE_PATH}/toolkit/scripts/setup -t switchStandbyMatchIndexToLive --hostname admin_client.eianet
 
 output "Starting Liberty"
 docker exec -u i2analyze liberty ${I2ANALYZE_PATH}/toolkit/scripts/setup -t startLiberty
